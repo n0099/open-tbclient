@@ -7,31 +7,31 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.jb;
-import com.baidu.tieba.jz9;
-import com.baidu.tieba.s6a;
-import com.baidu.tieba.v6a;
-import com.baidu.tieba.w6a;
+import com.baidu.tieba.eba;
+import com.baidu.tieba.hba;
+import com.baidu.tieba.iba;
+import com.baidu.tieba.kb;
+import com.baidu.tieba.v3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<v6a> a;
-    public w6a b;
-    public List<s6a> c;
+    public List<hba> a;
+    public iba b;
+    public List<eba> c;
     public b d;
     public boolean e;
-    public jb f;
+    public kb f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void a(int i, String str, List<s6a> list, w6a w6aVar, List<v6a> list2);
+        void a(int i, String str, List<eba> list, iba ibaVar, List<hba> list2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -44,8 +44,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends jb {
+    /* loaded from: classes8.dex */
+    public class a extends kb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DressupCenterModel a;
@@ -72,7 +72,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
             this.a = dressupCenterModel;
         }
 
-        @Override // com.baidu.tieba.jb
+        @Override // com.baidu.tieba.kb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -164,8 +164,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            jz9.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            jz9.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            v3a.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            v3a.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

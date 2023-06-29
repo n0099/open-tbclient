@@ -137,7 +137,7 @@ public class PermissionManager {
                         } else {
                             format = String.format("“%s”%s", urlCheckContext.uri.getHost(), urlCheckContext.op.getActionName());
                         }
-                        new BoxAlertDialog.Builder(onGetActivity).setCancelable(false).setTitle(R.string.obfuscated_res_0x7f0f12e2).setMessage(format).setPositiveButton(R.string.obfuscated_res_0x7f0f12e0, onClickListener).setNegativeButton(R.string.obfuscated_res_0x7f0f12e1, onClickListener).create().show();
+                        new BoxAlertDialog.Builder(onGetActivity).setCancelable(false).setTitle(R.string.obfuscated_res_0x7f0f12ff).setMessage(format).setPositiveButton(R.string.obfuscated_res_0x7f0f12fd, onClickListener).setNegativeButton(R.string.obfuscated_res_0x7f0f12fe, onClickListener).create().show();
                         return;
                     }
                     urlCheckContext.lastMode = 0;

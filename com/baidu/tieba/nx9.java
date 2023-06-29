@@ -1,124 +1,217 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.DnsParseResult;
+import com.baidu.searchbox.dns.util.DnsUtil;
+import com.baidu.searchbox.http.IHttpDns;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.Pair;
-import kotlin.collections.MapsKt__MapsKt;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
+import okhttp3.Dns;
 /* loaded from: classes7.dex */
-public final class nx9 implements yx9 {
+public class nx9 implements Dns, IHttpDns {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wx9 a;
-    public final tx9 b;
-    public final ux9 c;
-    public final vx9 d;
-    public final ox9 e;
-    public final px9 f;
-    public final qx9 g;
-    public final HashMap<ay9, HashMap<zx9, ay9>> h;
+    public boolean a;
+    public long b;
+    public long c;
+    public DnsParseResult e;
+    public boolean f;
+    public DnsHelper g;
+    public boolean h;
+    public a i;
 
-    public nx9() {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(long j, long j2, DnsParseResult dnsParseResult);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948017978, "Lcom/baidu/tieba/nx9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948017978, "Lcom/baidu/tieba/nx9;");
+                return;
+            }
+        }
+        j = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    }
+
+    public DnsHelper a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (DnsHelper) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public boolean getHttpDnsEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public nx9(DnsHelper dnsHelper, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dnsHelper, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new wx9();
-        this.b = new tx9();
-        this.c = new ux9();
-        this.d = new vx9();
-        this.e = new ox9();
-        this.f = new px9();
-        this.g = new qx9();
-        this.h = MapsKt__MapsKt.hashMapOf(new Pair(a(), MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.b))), new Pair(this.b, MapsKt__MapsKt.hashMapOf(new Pair(this.f, this.c))), new Pair(this.c, MapsKt__MapsKt.hashMapOf(new Pair(this.g, this.d))));
+        this.f = z;
+        this.b = -1L;
+        this.c = -1L;
+        this.g = dnsHelper;
+        if (dnsHelper != null && dnsHelper.isHttpDnsEnable()) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.a = z2;
     }
 
-    public final ox9 b() {
-        InterceptResult invokeV;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return j.matcher(str).matches();
         }
-        return (ox9) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final tx9 c() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj instanceof nx9) {
+                return true;
+            }
+            return super.equals(obj);
         }
-        return (tx9) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final px9 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public void setHttpDnsEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
+            DnsHelper dnsHelper = this.g;
+            if (dnsHelper != null) {
+                dnsHelper.setHttpDnsEnable(z);
+            }
         }
-        return (px9) invokeV.objValue;
     }
 
-    public final ux9 e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public void setHttpDnsIPv4OnlyEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
         }
-        return (ux9) invokeV.objValue;
     }
 
-    public final qx9 f() {
-        InterceptResult invokeV;
+    @Override // okhttp3.Dns
+    public List<InetAddress> lookup(String str) throws UnknownHostException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str != null) {
+                boolean z = this.f;
+                if (z) {
+                    this.b = System.currentTimeMillis();
+                }
+                List arrayList = new ArrayList();
+                try {
+                    if (b(str)) {
+                        return Arrays.asList(InetAddress.getAllByName(str));
+                    }
+                    if (this.a && this.g != null) {
+                        DnsParseResult parseResult = this.g.getParseResult(str);
+                        if (parseResult != null) {
+                            arrayList = DnsUtil.parseInetAddressList(parseResult.getIpList());
+                        }
+                        if (z) {
+                            long currentTimeMillis = System.currentTimeMillis();
+                            this.c = currentTimeMillis;
+                            this.e = parseResult;
+                            if (this.i != null) {
+                                this.i.a(this.b, currentTimeMillis, parseResult);
+                            }
+                        }
+                    } else {
+                        arrayList = Arrays.asList(InetAddress.getAllByName(str));
+                        if (z) {
+                            this.c = System.currentTimeMillis();
+                            DnsParseResult dnsParseResult = new DnsParseResult(DnsUtil.parseRawAddressList(arrayList), 0, 1, DnsUtil.stackType);
+                            this.e = dnsParseResult;
+                            if (this.i != null) {
+                                this.i.a(this.b, this.c, dnsParseResult);
+                            }
+                        }
+                    }
+                    if (DnsUtil.stackType == 3 && this.h && arrayList != null) {
+                        ArrayList arrayList2 = new ArrayList();
+                        for (InetAddress inetAddress : arrayList) {
+                            if (inetAddress instanceof Inet6Address) {
+                                arrayList2.add(inetAddress);
+                            }
+                        }
+                        arrayList.removeAll(arrayList2);
+                        if (arrayList.isEmpty()) {
+                            throw new UnknownHostException("request support ipv4 address only!");
+                        }
+                    }
+                    return arrayList;
+                } catch (IllegalArgumentException e) {
+                    e = e;
+                    throw new UnknownHostException(e.getMessage());
+                } catch (NullPointerException e2) {
+                    if (e2.getMessage() != null && e2.getMessage().contains("Attempt to get length of null array")) {
+                        UnknownHostException unknownHostException = new UnknownHostException("Broken system behaviour for dns lookup of " + str);
+                        unknownHostException.initCause(e2);
+                        throw unknownHostException;
+                    }
+                    throw e2;
+                } catch (SecurityException e3) {
+                    e = e3;
+                    throw new UnknownHostException(e.getMessage());
+                }
+            }
+            throw new UnknownHostException("hostname == null");
         }
-        return (qx9) invokeV.objValue;
-    }
-
-    public final vx9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (vx9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yx9
-    public HashMap<ay9, HashMap<zx9, ay9>> getMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yx9
-    /* renamed from: h */
-    public wx9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (wx9) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 }

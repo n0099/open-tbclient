@@ -1,19 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class za7 implements CustomMessageTask.CustomRunnable<Object> {
+public class za7 implements hb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.hb7
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
 
     public za7() {
         Interceptable interceptable = $ic;
@@ -27,25 +32,5 @@ public class za7 implements CustomMessageTask.CustomRunnable<Object> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
-                byte[] a = new xa7().a(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
-                BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
-                try {
-                    bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, a);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return bawuTeamReadCacheResponseMessage;
-            }
-            return null;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

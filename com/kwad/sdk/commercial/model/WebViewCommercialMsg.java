@@ -10,7 +10,7 @@ import com.kwai.adclient.kscommerciallogger.model.SubBusinessType;
 import java.io.Serializable;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WebViewCommercialMsg extends a implements b, Serializable {
     public static final long serialVersionUID = -1007322423487775751L;
     public BusinessType biz;

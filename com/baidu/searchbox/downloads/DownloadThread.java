@@ -41,7 +41,7 @@ import com.baidu.searchbox.net.DownloadProxyHttpClient;
 import com.baidu.searchbox.net.IProxyHttpClient;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.x20;
+import com.baidu.tieba.y20;
 import com.baidu.ubc.UBC;
 import com.baidubce.http.Headers;
 import java.io.File;
@@ -505,7 +505,7 @@ public class DownloadThread extends Thread {
             }
             return this.mContext.getString(R.string.dialog_media_not_found);
         }
-        x20.u();
+        y20.u();
         return this.mContext.getString(R.string.download_no_enough_space_toast);
     }
 
@@ -553,7 +553,7 @@ public class DownloadThread extends Thread {
                 DownloadInfo downloadInfo = this.mInfo;
                 doCloudPauseStatisticJob(downloadInfo.mId, downloadInfo.mFileName, i, downloadInfo.mExtraInfo, state.mRedirectUris);
             }
-            x20.e(this.mInfo.mId, i, str);
+            y20.e(this.mInfo.mId, i, str);
             str2 = this.mInfo.mExtraInfo;
         }
         DownloadMessageSender.logDownloadFail(state.mFilename, state.mMimeType, i, state.mRequestUri, state.mReferer, state.mRedirectCount, state.mCountRetry, str2);
@@ -893,7 +893,7 @@ public class DownloadThread extends Thread {
                         Log.v("DownloadManager", "writing " + this.mInfo.mUri + " to " + state.mFilename);
                     }
                     updateDatabaseFromHeaders(state, innerState);
-                    x20.f(this.mInfo.mId);
+                    y20.f(this.mInfo.mId);
                 } catch (FileNotFoundException e2) {
                     saveErrorRecord(Downloads.Impl.STATUS_FILE_ERROR_10, "while opening destination file: " + e2.toString(), state, innerState);
                     throw new StopRequest(Downloads.Impl.STATUS_FILE_ERROR_10, "while opening destination file: " + e2.toString(), e2);

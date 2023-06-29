@@ -1,35 +1,39 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface oo0 {
-    void a();
+    public static final oo0 a = new a();
 
-    void b(@NonNull Application application);
+    void a(boolean z);
 
-    @Autowired
     /* loaded from: classes7.dex */
-    public static class a {
+    public static class a implements oo0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @NonNull
-        @Singleton
-        @Inject(force = false)
-        public static oo0 a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.oo0
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return ny0.a();
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             }
-            return (oo0) invokeV.objValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 }

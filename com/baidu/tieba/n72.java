@@ -1,151 +1,217 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import android.content.Context;
+import android.graphics.Typeface;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import androidx.core.view.GravityCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.o72;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class n72 extends p72 {
+/* loaded from: classes7.dex */
+public abstract class n72<V extends TextView, M extends o72> extends p72<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public JSONObject j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public JSONArray o;
-    public float p;
-    @Nullable
-    public JSONObject q;
-    public long r;
-    public String s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n72(String str, @NonNull String str2) {
-        super(str, str2);
+    public n72(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (q72) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 0;
-        this.m = 0;
-        this.p = -1.0f;
-        this.s = "";
     }
 
-    @Override // com.baidu.tieba.p72, com.baidu.tieba.y13
-    public void a(JSONObject jSONObject) throws JSONException {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p72
+    /* renamed from: T */
+    public void O(@NonNull V v, @NonNull M m, @NonNull u82 u82Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, u82Var) == null) {
+            super.C(v, m, u82Var);
+            if (u82Var.a(6)) {
+                U(v, m);
+            }
+            if (u82Var.a(4)) {
+                V(v, m);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p72, com.baidu.tieba.r72
+    @NonNull
+    /* renamed from: S */
+    public u82 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
+            u82 k = super.k(m, m2);
+            if (!TextUtils.equals(m.t, m2.t)) {
+                k.b(6);
+            }
+            return k;
+        }
+        return (u82) invokeLL.objValue;
+    }
+
+    public void X(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
+            Y(v, m, 48);
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.text.SpannableStringBuilder */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void U(@NonNull V v, @NonNull M m) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
+            if (r72.h) {
+                Log.d("Component-TextView", "renderText");
+            }
+            if (!TextUtils.isEmpty(m.t) && m.x >= 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            String str = m.t;
+            if (z) {
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                spannableStringBuilder.setSpan(new m72(m.x), 0, str.length(), 33);
+                str = spannableStringBuilder;
+            }
+            v.setIncludeFontPadding(!z);
+            v.setText(str);
+        }
+    }
+
+    public final void V(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, v, m) != null) || m.j == null) {
             return;
         }
-        super.a(jSONObject);
-        this.j = jSONObject.optJSONObject("style");
-        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-        i();
-        h();
-    }
-
-    @Override // com.baidu.tieba.p72
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            super.g(jSONObject);
-            i();
-            h();
+        if (r72.h) {
+            Log.d("Component-TextView", "renderTextStyle");
+        }
+        if (m.v) {
+            v.setTextColor(m.u);
+        }
+        float f = (float) m.w;
+        if (f > 0.0f) {
+            v.setTextSize(1, f);
+        }
+        X(v, m);
+        W(v, m);
+        String str = m.B;
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1039745817) {
+            if (hashCode == -1039592053 && str.equals("nowrap")) {
+                c = 1;
+            }
+        } else if (str.equals("normal")) {
+            c = 0;
+        }
+        if (c != 0) {
+            if (c == 1) {
+                v.setSingleLine(true);
+            }
+        } else {
+            v.setSingleLine(false);
+        }
+        if ("ellipsis".equals(m.C)) {
+            v.setEllipsize(TextUtils.TruncateAt.END);
         }
     }
 
-    @Override // com.baidu.tieba.p72
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
+    public void W(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            n72 n72Var = (n72) super.clone();
-            if (this.j != null) {
-                try {
-                    n72Var.j = new JSONObject(this.j.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, v, m) != null) || m.j == null) {
+            return;
+        }
+        if (r72.h) {
+            Log.d("Component-TextView", "renderTextStyleFontWeight");
+        }
+        String str = m.A;
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1039745817) {
+            if (hashCode == 3029637 && str.equals("bold")) {
+                c = 1;
+            }
+        } else if (str.equals("normal")) {
+            c = 0;
+        }
+        if (c != 0) {
+            if (c != 1) {
+                c92.o("Component-TextView", "invalid font weight : " + m.A);
+                v.setTypeface(Typeface.SANS_SERIF, 0);
+                return;
+            }
+            v.setTypeface(Typeface.SANS_SERIF, 1);
+            return;
+        }
+        v.setTypeface(Typeface.SANS_SERIF, 0);
+    }
+
+    public final void Y(@NonNull V v, @NonNull M m, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048585, this, v, m, i) != null) || m.j == null) {
+            return;
+        }
+        if (r72.h) {
+            Log.d("Component-TextView", "renderTextStyleTextAlign");
+        }
+        String str = m.z;
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1364013995) {
+            if (hashCode != 3317767) {
+                if (hashCode == 108511772 && str.equals("right")) {
+                    c = 1;
                 }
+            } else if (str.equals("left")) {
+                c = 0;
             }
-            if (this.o != null) {
-                try {
-                    n72Var.o = new JSONArray(this.o.toString());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+        } else if (str.equals("center")) {
+            c = 2;
+        }
+        if (c != 0) {
+            if (c != 1) {
+                if (c != 2) {
+                    c92.o("Component-TextView", "invalid text align: " + m.z);
+                } else {
+                    i2 = i | 1;
                 }
+            } else {
+                i2 = 8388613 | i;
             }
-            if (this.q != null) {
-                try {
-                    n72Var.q = new JSONObject(this.q.toString());
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-            }
-            return n72Var;
+            v.setGravity(i2);
         }
-        return invokeV.objValue;
-    }
-
-    public final void h() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.q) != null) {
-            try {
-                this.r = Long.parseLong(jSONObject.optString("duration"));
-            } catch (Exception unused) {
-                z82.b("Component-Model-View", "duration occurs exception");
-                this.r = 0L;
-            }
-            this.s = this.q.optString("easing");
-        }
-    }
-
-    public final void i() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jSONObject = this.j) != null) {
-            try {
-                this.k = Color.parseColor(jSONObject.optString("bgColor"));
-            } catch (Exception unused) {
-                z82.b("Component-Model-View", "backgroundColor occurs exception");
-                this.k = 0;
-            }
-            this.l = this.j.optInt("borderWidth");
-            try {
-                this.m = Color.parseColor(this.j.optString("borderColor"));
-            } catch (Exception unused2) {
-                z82.b("Component-Model-View", "borderColor occurs exception");
-                this.m = 0;
-            }
-            this.n = qp3.g(this.j.optInt("borderRadius"));
-            this.p = zo3.b(this.j, NativeConstants.OPACITY, -1.0f);
-            this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
-        }
+        i2 = i | GravityCompat.START;
+        v.setGravity(i2);
     }
 }

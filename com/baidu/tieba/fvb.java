@@ -1,42 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.atb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class fvb implements dyb {
+public class fvb implements ktb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsViewEventHandler a;
-    public kub b;
-    public Activity c;
-    public IYYPayResultView d;
+    public final ktb a;
+    public final atb.a b;
+    public final long c;
 
-    @Override // com.baidu.tieba.dyb
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public fvb(AbsViewEventHandler absViewEventHandler, kub kubVar, Activity activity, IYYPayResultView iYYPayResultView) {
+    public fvb(ktb ktbVar, atb.a aVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {absViewEventHandler, kubVar, activity, iYYPayResultView};
+            Object[] objArr = {ktbVar, aVar, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,22 +28,30 @@ public class fvb implements dyb {
                 return;
             }
         }
-        RLog.info("PayResultDialogListener", "create PayResultDialogListener");
-        this.a = absViewEventHandler;
-        this.b = kubVar;
-        this.c = activity;
-        this.d = iYYPayResultView;
+        this.a = ktbVar;
+        this.b = aVar;
+        this.c = j;
     }
 
-    @Override // com.baidu.tieba.dyb
-    public void a(CancelType cancelType) {
+    @Override // com.baidu.tieba.ktb
+    public void call() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayResultDialogListener", "PayResultDialog notifyCancelType clickArea:" + cancelType);
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                this.d.a();
-            }
-            this.b.g(cancelType, this.a);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
+            return;
         }
+        long a = this.c - this.b.a();
+        if (a > 0) {
+            try {
+                Thread.sleep(a);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                jtb.c(e);
+                throw null;
+            }
+        }
+        if (this.b.isUnsubscribed()) {
+            return;
+        }
+        this.a.call();
     }
 }

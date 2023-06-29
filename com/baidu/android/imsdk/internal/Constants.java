@@ -64,6 +64,7 @@ public final class Constants {
     public static final String EXTRA_ALARM_ALERT = "AlarmAlert";
     public static final String EXTRA_BAIDU_UID = "buid";
     public static final String EXTRA_BAIDU_UIDS = "users_buid";
+    public static final String EXTRA_BATCH_TYPE = "batch_type";
     public static final String EXTRA_BC_FETCH_TRIGGER_REASON = "fetch_msg_trigger_reason";
     public static final String EXTRA_BC_MEDIA = "media";
     public static final String EXTRA_BC_SET_SESSION_READ_TYPE = "type";
@@ -77,6 +78,7 @@ public final class Constants {
     public static final String EXTRA_CAST_ID = "mcast_id";
     public static final String EXTRA_CAST_IDS = "mcast_ids";
     public static final String EXTRA_CATEGORY = "category";
+    public static final String EXTRA_CHAT_ROOM_GROUP_ID = "chat_room_group_id";
     public static final String EXTRA_CHAT_TYPE = "chat_type";
     public static final String EXTRA_CLASS_TYPE = "extra_class_type";
     public static final String EXTRA_CLEAR_AFTER_LOGOUT = "clear_after_logout";
@@ -125,6 +127,7 @@ public final class Constants {
     public static final String EXTRA_REMAIN_EMPTY_SESSION = "remain_empty_session";
     public static final String EXTRA_RETRY_TIME = "retry_time";
     public static final String EXTRA_ROOM_ID = "room_id";
+    public static final String EXTRA_ROOM_TYPE = "room_type";
     public static final String EXTRA_SAVE_TO_DB = "save_to_db";
     public static final String EXTRA_SCREEN_KEY = "screen_key";
     public static final String EXTRA_SEND_MSG = "send_msg";
@@ -211,6 +214,8 @@ public final class Constants {
     public static final int METHOD_ACK = 95;
     public static final int METHOD_GET_CONTACTER_INFO_FOR_SESSION = 1048577;
     public static final int METHOD_IM_ADD_FRIEND = 53;
+    public static final int METHOD_IM_BATCH_EXIT_CAST = 213;
+    public static final int METHOD_IM_BATCH_JOIN_CAST = 212;
     public static final int METHOD_IM_BIND_PUSH_REMOTE = 90;
     public static final int METHOD_IM_CONFIRM_FRIEND = 68;
     public static final int METHOD_IM_CONSULT_IM_FILTER_SESSION_MSG = 239;

@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,40 +10,15 @@ public class ys4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity, View view2) {
+    public static boolean a(Context context, String str) {
         InterceptResult invokeLL;
-        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, view2)) == null) {
-            if (activity != null && view2 != null && (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) != null) {
-                b(view2);
-                viewGroup.removeView(view2);
-                viewGroup.addView(view2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0) {
                 return true;
             }
             return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public static boolean b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) view2.getParent();
-                if (viewGroup.indexOfChild(view2) != -1) {
-                    try {
-                        viewGroup.removeView(view2);
-                        return true;
-                    } catch (Exception unused) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

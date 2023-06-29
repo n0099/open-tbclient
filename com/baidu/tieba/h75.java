@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
 import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class h75 implements y65 {
+public final class h75 implements b75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +32,7 @@ public final class h75 implements y65 {
         }
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.b75
     public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -43,7 +41,7 @@ public final class h75 implements y65 {
             Intrinsics.checkNotNullParameter(strategyData, "strategyData");
             Intrinsics.checkNotNullParameter(extraData, "extraData");
             HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "userGrowth");
+            hashMap.put("dialogName", "homeLiveRemind");
             hashMap.putAll(strategyData);
             hashMap.putAll(extraData);
             return hashMap;
@@ -51,22 +49,13 @@ public final class h75 implements y65 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.b75
     public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
-            if (levePopData.isHadShow() || StringUtils.isNull(levePopData.getTitle()) || StringUtils.isNull(levePopData.getDesc()) || StringUtils.isNull(levePopData.getBtn_scheme()) || levePopData.getLevel() <= 0 || levePopData.getLevel() > 10) {
-                return false;
-            }
-            Long uid = levePopData.getUid();
-            long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
-            if (uid == null || uid.longValue() != currentAccountId) {
+            if (!LooperBlockSwitch.getIsOn() || e95.a().c(0) == null || !f95.b().j(LiveRemindConfig.Scene.LIVE_FLOAT) || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || zf5.j()) {
                 return false;
             }
             return true;

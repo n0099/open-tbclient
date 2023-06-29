@@ -1,30 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class rt6 implements r7.a {
+public final class rt6 implements Comparator<h0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract boolean a(long j);
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public void c(st6 st6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, st6Var) == null) {
-        }
-    }
 
     public rt6() {
         Interceptable interceptable = $ic;
@@ -40,12 +26,24 @@ public abstract class rt6 implements r7.a {
         }
     }
 
-    @Override // com.baidu.tieba.r7.a
-    @CallSuper
-    public void reset() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(h0 entity1, h0 entity2) {
+        InterceptResult invokeLL;
+        it6 a;
+        ut6 b;
+        it6 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
+            Intrinsics.checkNotNullParameter(entity1, "entity1");
+            Intrinsics.checkNotNullParameter(entity2, "entity2");
+            ut6 b2 = su6.b(entity2);
+            if (b2 == null || (a = b2.a()) == null || (b = su6.b(entity1)) == null || (a2 = b.a()) == null) {
+                return 0;
+            }
+            return a2.compareTo(a);
         }
+        return invokeLL.intValue;
     }
 }

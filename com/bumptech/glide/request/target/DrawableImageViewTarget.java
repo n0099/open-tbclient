@@ -12,7 +12,7 @@ public class DrawableImageViewTarget extends ImageViewTarget<Drawable> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.request.target.ImageViewTarget
     public void setResource(@Nullable Drawable drawable) {
-        ((ImageView) this.f1199view).setImageDrawable(drawable);
+        ((ImageView) this.f1198view).setImageDrawable(drawable);
     }
 
     @Deprecated

@@ -1,21 +1,42 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class m0a {
+public final class m0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public os6 a;
 
-    public abstract boolean a(MotionEvent motionEvent);
+    public m0a(os6 spriteAnimData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spriteAnimData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(spriteAnimData, "spriteAnimData");
+        this.a = spriteAnimData;
+    }
 
-    public abstract boolean b(MotionEvent motionEvent);
-
-    public abstract void c(View view2, Bundle bundle);
-
-    public abstract void d();
+    public final os6 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (os6) invokeV.objValue;
+    }
 }

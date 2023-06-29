@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ym5 implements wm5 {
+public class ym5 implements an5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,19 +25,16 @@ public class ym5 implements wm5 {
         }
     }
 
-    @Override // com.baidu.tieba.wm5
+    @Override // com.baidu.tieba.an5
     public void a(View view2, View view3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            LinearLayout linearLayout = (LinearLayout) view2;
+            FrameLayout frameLayout = (FrameLayout) view2;
             if (z) {
-                linearLayout.addView(view3, 0);
+                frameLayout.addView(view3, 0);
             } else {
-                linearLayout.addView(view3);
+                frameLayout.addView(view3);
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.gravity = 1;
-            view3.setLayoutParams(layoutParams);
         }
     }
 }

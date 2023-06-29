@@ -1,56 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.abtest.AbTestManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class c30 {
     public static /* synthetic */ Interceptable $ic;
-    public static c30 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public s8 a;
 
-    public c30() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return b30.a().a("expInfo.txt");
         }
-        this.a = s8.n(AppRuntime.getAppContext());
+        return (String) invokeV.objValue;
     }
 
-    public static c30 a() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (AbTestManager.class) {
-                    if (b == null) {
-                        b = new c30();
-                    }
-                }
-            }
-            return b;
+            return b30.a().a("sapFile.txt");
         }
-        return (c30) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(List<a9> list, boolean z) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) {
-            this.a.G(list, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b30.a().a("v1_.txt");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b30.a().a("v2_.txt");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return b30.a().a("v3_" + i + "_.txt");
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) && jSONObject != null) {
+            b30.a().b("expInfo.txt", jSONObject.toString());
+        }
+    }
+
+    public static void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) && jSONObject != null) {
+            b30.a().b("sapFile.txt", jSONObject.toString());
+        }
+    }
+
+    public static void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) && jSONObject != null) {
+            b30.a().b("v1_.txt", jSONObject.toString());
+        }
+    }
+
+    public static void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, jSONObject) == null) && jSONObject != null) {
+            b30.a().b("v2_.txt", jSONObject.toString());
+        }
+    }
+
+    public static void j(JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65545, null, jSONObject, i) == null) && jSONObject != null) {
+            g30 a = b30.a();
+            a.b("v3_" + i + "_.txt", jSONObject.toString());
         }
     }
 }

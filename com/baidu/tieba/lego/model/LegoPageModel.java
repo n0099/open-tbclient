@@ -12,12 +12,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.c55;
-import com.baidu.tieba.jb;
-import com.baidu.tieba.jz9;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.kq8;
-import com.baidu.tieba.we;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.kb;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.v3a;
+import com.baidu.tieba.vu8;
+import com.baidu.tieba.xe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import tbclient.Lego.DataRes;
 public class LegoPageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jb a;
+    public kb a;
     public b b;
 
     /* loaded from: classes6.dex */
@@ -51,7 +51,7 @@ public class LegoPageModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends jb {
+    public class a extends kb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoPageModel a;
@@ -80,7 +80,7 @@ public class LegoPageModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:25:0x0060  */
         /* JADX WARN: Removed duplicated region for block: B:26:0x0073  */
-        @Override // com.baidu.tieba.jb
+        @Override // com.baidu.tieba.kb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -129,8 +129,8 @@ public class LegoPageModel extends BdBaseModel {
                             this.a.b.a(j, str, dataRes, z);
                         } else {
                             if (z && dataRes != null) {
-                                c55.d();
-                                we<byte[]> b = c55.b("tb.lego_update");
+                                f55.d();
+                                xe<byte[]> b = f55.b("tb.lego_update");
                                 StringBuilder sb = new StringBuilder();
                                 sb.append(j);
                                 sb.append("_");
@@ -157,18 +157,18 @@ public class LegoPageModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LegoPageModel(k9 k9Var, BdUniqueId bdUniqueId) {
-        super(k9Var);
+    public LegoPageModel(l9 l9Var, BdUniqueId bdUniqueId) {
+        super(l9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k9Var, bdUniqueId};
+            Object[] objArr = {l9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -200,7 +200,7 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setLastRank(str2);
             legoPageRequest.setTagCode(j);
             legoPageRequest.setPageType(i);
-            kq8 a2 = kq8.a(j, str);
+            vu8 a2 = vu8.a(j, str);
             if (a2 != null) {
                 legoPageRequest.setRn(a2.d);
                 legoPageRequest.setParams(a2.e);
@@ -224,7 +224,7 @@ public class LegoPageModel extends BdBaseModel {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, jz9.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, v3a.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

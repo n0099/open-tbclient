@@ -28,11 +28,11 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fj;
+import com.baidu.tieba.gj;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
-import com.baidu.tieba.o15;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.r15;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -217,26 +217,26 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            p75 d = p75.d(this.a);
+            s75 d = s75.d(this.a);
             d.D(R.string.F_X02);
             d.C(R.dimen.T_X05);
             d.x(R.color.CAM_X0105);
-            p75 d2 = p75.d(this.b);
+            s75 d2 = s75.d(this.b);
             d2.C(R.dimen.T_X07);
             d2.x(R.color.CAM_X0107);
-            p75 d3 = p75.d(this.c);
+            s75 d3 = s75.d(this.c);
             d3.C(R.dimen.T_X08);
             d3.x(R.color.CAM_X0108);
-            p75 d4 = p75.d(this.d);
+            s75 d4 = s75.d(this.d);
             d4.x(R.color.CAM_X0101);
             d4.D(R.string.F_X02);
             d4.o(R.string.J_X01);
             d4.f(R.color.CAM_X0607);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_bar34, SkinManager.getColor(R.color.CAM_X0107), null);
-            int g = wi.g(getContext(), R.dimen.tbds42);
+            int g = xi.g(getContext(), R.dimen.tbds42);
             pureDrawable.setBounds(0, 0, g, g);
             this.i.setCompoundDrawables(null, null, pureDrawable, null);
-            this.i.setCompoundDrawablePadding(wi.g(getContext(), R.dimen.M_W_X002));
+            this.i.setCompoundDrawablePadding(xi.g(getContext(), R.dimen.M_W_X002));
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0107);
             this.g.Q(TbadkCoreApplication.getInst().getSkinType());
             this.e.setSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -248,27 +248,27 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0817, (ViewGroup) this, true);
+            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d082a, (ViewGroup) this, true);
             setOrientation(1);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.bottomMargin = wi.g(getContext(), R.dimen.M_H_X003);
+            marginLayoutParams.bottomMargin = xi.g(getContext(), R.dimen.M_H_X003);
             setLayoutParams(marginLayoutParams);
-            this.k = wi.g(getContext(), R.dimen.tbds235);
-            this.l = wi.g(getContext(), R.dimen.tbds62);
-            this.n = wi.g(getContext(), R.dimen.tbds115);
-            this.m = wi.g(getContext(), R.dimen.tbds3);
-            u = (((wi.l(getContext()) - (wi.g(getContext(), R.dimen.M_W_X004) * 5)) - wi.g(getContext(), R.dimen.M_W_X006)) - wi.g(getContext(), R.dimen.M_W_X005)) - this.k;
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0924ae);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907ab);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09175c);
-            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090340);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091053);
-            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f09035e);
+            this.k = xi.g(getContext(), R.dimen.tbds235);
+            this.l = xi.g(getContext(), R.dimen.tbds62);
+            this.n = xi.g(getContext(), R.dimen.tbds115);
+            this.m = xi.g(getContext(), R.dimen.tbds3);
+            u = (((xi.l(getContext()) - (xi.g(getContext(), R.dimen.M_W_X004) * 5)) - xi.g(getContext(), R.dimen.M_W_X006)) - xi.g(getContext(), R.dimen.M_W_X005)) - this.k;
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09250e);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907b1);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09176e);
+            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090341);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09105e);
+            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f09035f);
             this.h = (ImageView) findViewById(R.id.comment_icon);
             this.c = (EMTextView) findViewById(R.id.comment_num);
             this.g = (AgreeView) findViewById(R.id.agree_and_disagreeview);
-            this.a.setLineSpacing(wi.g(getContext(), R.dimen.M_T_X002), 1.0f);
-            this.b.setLineSpacing(wi.g(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.a.setLineSpacing(xi.g(getContext(), R.dimen.M_T_X002), 1.0f);
+            this.b.setLineSpacing(xi.g(getContext(), R.dimen.M_T_X002), 1.0f);
             d();
             e();
             f();
@@ -292,13 +292,13 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.g.setFrom(this.p);
             this.g.setIsAgreeNumClick(true);
             this.g.setAgreeAnimationResource();
-            o15 o15Var = new o15();
-            o15Var.b = 1;
-            o15Var.h = 1;
-            o15Var.g = 1;
-            o15Var.c = 7;
-            o15Var.f = this.q;
-            this.g.setStatisticData(o15Var);
+            r15 r15Var = new r15();
+            r15Var.b = 1;
+            r15Var.h = 1;
+            r15Var.g = 1;
+            r15Var.c = 7;
+            r15Var.f = this.q;
+            this.g.setStatisticData(r15Var);
         }
     }
 
@@ -318,7 +318,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.e.setForegroundColor(0);
             this.e.setBorderSurroundContent(true);
             this.e.setDrawBorder(true);
-            this.e.setBorderWidth(wi.g(getContext(), R.dimen.tbds1));
+            this.e.setBorderWidth(xi.g(getContext(), R.dimen.tbds1));
             this.e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -418,7 +418,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
         } else {
             this.b.setVisibility(0);
             this.b.setText(threadData.getAbstractText());
-            i = (2 - fj.a(u, this.b.getPaint(), this.b.getText().toString(), 2)) + 1;
+            i = (2 - gj.a(u, this.b.getPaint(), this.b.getText().toString(), 2)) + 1;
         }
         this.a.setMaxLines(i);
         this.a.setText(threadData.getTitleText());

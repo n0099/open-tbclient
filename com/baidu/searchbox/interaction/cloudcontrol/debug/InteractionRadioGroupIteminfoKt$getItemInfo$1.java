@@ -66,7 +66,7 @@ public final class InteractionRadioGroupIteminfoKt$getItemInfo$1 implements View
         linearLayout.addView(checkBox);
         checkBox.setChecked(InteractionSpHelperByDebug.INSTANCE.getBoolean(this.$switchDebugKey, false));
         final String str = this.$switchDebugKey;
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.ro1
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.uo1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -104,7 +104,7 @@ public final class InteractionRadioGroupIteminfoKt$getItemInfo$1 implements View
             radioButton.setChecked(true);
         }
         final String str2 = this.$debugBranchKey;
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.so1
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.vo1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk.system;
 import android.graphics.Bitmap;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
     public static Method cloneMethod;
     public final android.webkit.WebHistoryItem mItem;

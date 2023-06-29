@@ -43,7 +43,7 @@ public final class StreamsKt {
     @SinceKotlin(version = "1.2")
     public static final <T> Stream<T> asStream(final Sequence<? extends T> sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
-        Stream<T> stream = StreamSupport.stream(new Supplier() { // from class: com.baidu.tieba.hlb
+        Stream<T> stream = StreamSupport.stream(new Supplier() { // from class: com.baidu.tieba.ypb
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

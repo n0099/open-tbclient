@@ -1,5 +1,5 @@
 package com.kwad.components.offline.api.tk;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IOfflineTKRenderListener {
     void onFailed(Throwable th);
 

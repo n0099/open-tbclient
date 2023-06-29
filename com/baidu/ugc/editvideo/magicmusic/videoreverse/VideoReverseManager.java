@@ -1,6 +1,6 @@
 package com.baidu.ugc.editvideo.magicmusic.videoreverse;
 
-import com.baidu.tieba.rwa;
+import com.baidu.tieba.h1b;
 import com.baidu.ugc.editvideo.listener.OnTimeReverseListener;
 import com.baidu.ugc.utils.FileUtils;
 import java.lang.ref.WeakReference;
@@ -66,7 +66,7 @@ public class VideoReverseManager {
         WeakReference<OnTimeReverseListener> weakReference = new WeakReference<>(onTimeReverseListener);
         try {
         } catch (Exception e) {
-            rwa.g(e);
+            h1b.g(e);
             OnTimeReverseListener onTimeReverseListener2 = weakReference.get();
             if (onTimeReverseListener2 != null) {
                 String str2 = z ? "MediaCodec点击倒放失败" : "MediaCodec预倒放失败";

@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.LinkInfo;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class oz9 {
+public final class oz9 implements lf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     public oz9() {
         Interceptable interceptable = $ic;
@@ -27,22 +27,13 @@ public class oz9 {
         }
     }
 
-    public String getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lf5
+    public void parseJson(JSONObject json) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            r95.p().F("key_sprite_show_text_len_limit", json.optInt("sprite_show_text_len"));
+            r95.p().F("key_sprite_show_line_num_limit", json.optInt("sprite_show_line_num"));
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void a(LinkInfo linkInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, linkInfo) != null) || linkInfo == null) {
-            return;
-        }
-        String str = linkInfo.desc;
-        String str2 = linkInfo.link;
-        this.a = linkInfo.type;
     }
 }

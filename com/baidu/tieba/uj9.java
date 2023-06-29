@@ -1,71 +1,78 @@
 package com.baidu.tieba;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.chromium.net.NetError;
 /* loaded from: classes8.dex */
-public class uj9 implements SensorEventListener {
+public class uj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(int i);
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
+    public static void a(kj9 kj9Var, TbPageContext<?> tbPageContext) {
+        Uri parse;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
-        }
-    }
-
-    public uj9(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, kj9Var, tbPageContext) == null) && kj9Var != null && tbPageContext != null) {
+            int i = kj9Var.l;
+            boolean z = false;
+            if (i == 1) {
+                if (!TextUtils.isEmpty(kj9Var.f)) {
+                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{kj9Var.f});
+                }
+            } else if (i == 2) {
+                if (!TextUtils.isEmpty(kj9Var.f) && (parse = Uri.parse(kj9Var.f)) != null) {
+                    String queryParameter = parse.getQueryParameter("paramfromna");
+                    if (!TextUtils.isEmpty(queryParameter)) {
+                        kj9Var.f = b(kj9Var.f, queryParameter);
+                    }
+                    if ("1".equalsIgnoreCase(parse.getQueryParameter("fixtitle"))) {
+                        str = parse.getQueryParameter("title");
+                        z = true;
+                    } else {
+                        str = "";
+                    }
+                    ux4.E(z, tbPageContext.getPageActivity(), str, kj9Var.f);
+                }
+            } else if (i == 3 && !TextUtils.isEmpty(kj9Var.f)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, kj9Var.f));
             }
         }
-        this.a = aVar;
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        float[] fArr;
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent != null && (fArr = sensorEvent.values) != null && fArr.length >= 3) {
-            float f = -fArr[0];
-            float f2 = -fArr[1];
-            float f3 = -fArr[2];
-            if ((f * f) + (f2 * f2) >= f3 * f3) {
-                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
-                if (round >= 360) {
-                    round += NetError.ERR_HTTP2_INADEQUATE_TRANSPORT_SECURITY;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str2) && (split = str2.split("#")) != null) {
+                StringBuilder sb = new StringBuilder(str);
+                boolean z = false;
+                for (String str3 : split) {
+                    if ("skin".equalsIgnoreCase(str3)) {
+                        sb.append("&skin=");
+                        sb.append(SkinManager.getCurrentSkinTypeString());
+                    } else if ("user_id".equalsIgnoreCase(str3)) {
+                        sb.append("&user_id=");
+                        sb.append(TbadkCoreApplication.getCurrentAccountId());
+                    } else if ("comparams".equalsIgnoreCase(str3)) {
+                        z = true;
+                    }
                 }
-                if (round < 0) {
-                    round += 360;
+                if (z) {
+                    return sr5.g(sb.toString());
                 }
-                a aVar = this.a;
-                if (aVar != null) {
-                    aVar.a(round);
-                }
+                return sb.toString();
             }
+            return null;
         }
+        return (String) invokeLL.objValue;
     }
 }

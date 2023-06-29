@@ -1,113 +1,70 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.CustomGrid;
 /* loaded from: classes5.dex */
-public class bj9 extends nn6<zh9> {
+public class bj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public ImageView j;
-    public TextView k;
-    public String l;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public int e;
+    public long f;
+    public String g;
+    public String h;
 
-    @Override // com.baidu.tieba.nn6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c9 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bj9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public bj9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        r(h());
-    }
-
-    public final void r(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f0905fa);
-            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905f9);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905fb);
         }
     }
 
-    @Override // com.baidu.tieba.nn6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public void a(CustomGrid customGrid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
-                SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1);
-            }
-            this.a = i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
+            this.a = customGrid.title;
+            this.b = customGrid.action_uri;
+            this.c = customGrid.action_type.intValue();
+            this.d = customGrid.icon;
+            this.e = customGrid.type.intValue();
+            this.g = customGrid.desc;
+            this.h = customGrid.mark_text;
+            this.f = customGrid.red_point_version.longValue();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nn6
-    /* renamed from: s */
-    public void i(zh9 zh9Var) {
-        String string;
+    public kj9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zh9Var) == null) {
-            if (zh9Var == null) {
-                this.i.setVisibility(8);
-                return;
-            }
-            if (this.i.getVisibility() != 0) {
-                this.i.setVisibility(0);
-            }
-            if (StringUtils.isNull(this.l)) {
-                TextView textView = this.k;
-                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f1055);
-                Object[] objArr = new Object[1];
-                if (zh9Var.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f18bf);
-                } else if (zh9Var.b == 2) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1392);
-                } else {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f099c);
-                }
-                objArr[0] = string;
-                textView.setText(String.format(string2, objArr));
-                return;
-            }
-            this.k.setText(this.l);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            kj9 kj9Var = new kj9();
+            kj9Var.e = this.a;
+            kj9Var.m = true;
+            kj9Var.k = this.d;
+            kj9Var.f = this.b;
+            kj9Var.a = this.e;
+            kj9Var.l = this.c;
+            mj9 mj9Var = new mj9();
+            mj9Var.b = this.g;
+            mj9Var.i = this.h;
+            kj9Var.h = mj9Var;
+            return kj9Var;
         }
+        return (kj9) invokeV.objValue;
     }
 }

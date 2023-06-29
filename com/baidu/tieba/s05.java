@@ -1,167 +1,140 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.GetTplStokenCallback;
-import com.baidu.sapi2.result.GetTplStokenResult;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.switchs.StokenEnableSwitch;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class s05 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, List<String>> a;
+    public static final Map<String, Boolean> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void onFailed();
-
-        void onSuccess(String str);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends GetTplStokenCallback {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
 
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        public a(s05 s05Var, b bVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s05Var, bVar};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(GetTplStokenResult getTplStokenResult) {
-            b bVar;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) && (bVar = this.a) != null) {
-                bVar.onFailed();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(GetTplStokenResult getTplStokenResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) {
-                if (getTplStokenResult == null) {
-                    b bVar = this.a;
-                    if (bVar != null) {
-                        bVar.onFailed();
-                        return;
-                    }
-                    return;
-                }
-                Map<String, String> map = getTplStokenResult.tplStokenMap;
-                if (map != null && map.size() > 0) {
-                    String str = map.get(TbConfig.PassConfig.TPL);
-                    if (StringUtils.isNULL(str)) {
-                        b bVar2 = this.a;
-                        if (bVar2 != null) {
-                            bVar2.onFailed();
-                            return;
-                        }
-                        return;
-                    }
-                    b bVar3 = this.a;
-                    if (bVar3 != null) {
-                        bVar3.onSuccess(str);
-                        return;
-                    }
-                    return;
-                }
-                b bVar4 = this.a;
-                if (bVar4 != null) {
-                    bVar4.onFailed();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                s05.f();
             }
         }
     }
 
-    public s05() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948097617, "Lcom/baidu/tieba/s05;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (SwitchManager.getInstance().findType(StokenEnableSwitch.KEY) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a(AccountData accountData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountData)) == null) {
-            if (accountData == null || !b()) {
-                return null;
-            }
-            return accountData.getStoken();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void c(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) && !StringUtils.isNull(str)) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(TbConfig.PassConfig.TPL);
-            if (SapiAccountManager.getInstance().getAccountService() == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948097617, "Lcom/baidu/tieba/s05;");
                 return;
             }
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, bVar), str, linkedList);
+        }
+        a = new ArrayMap();
+        b = new ArrayMap();
+        c();
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2001167));
+        }
+    }
+
+    public static synchronized void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            synchronized (s05.class) {
+                if (b.get(str) != null && b.get(str).booleanValue()) {
+                    return;
+                }
+                if (a.get(str) == null) {
+                    a.put(str, new ArrayList());
+                }
+                a.get(str).add(str2);
+            }
+        }
+    }
+
+    public static synchronized void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            synchronized (s05.class) {
+                b.put(str, Boolean.FALSE);
+                a.remove(str);
+            }
+        }
+    }
+
+    public static synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            synchronized (s05.class) {
+                if (b.get(str) != null && b.get(str).booleanValue()) {
+                    return;
+                }
+                b.put(str, Boolean.TRUE);
+                List<String> list = a.get(str);
+                if (list != null && list.size() < 100) {
+                    TiebaStatic.log(new StatisticItem("TiebaTracer").param("obj_name", str).param("obj_param1", TextUtils.join("_", list)));
+                    a.remove(str);
+                }
+            }
+        }
+    }
+
+    public static synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (s05.class) {
+                for (Map.Entry<String, List<String>> entry : a.entrySet()) {
+                    e(entry.getKey());
+                }
+            }
         }
     }
 }

@@ -1,37 +1,62 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class tr3 {
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class tr3 extends zd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vr3 a;
 
-    public tr3(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tr3(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher) {
+        super(unitedSchemeBaseDispatcher, "/swanAPI/debug/setWebDegradeDebugHost");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {unitedSchemeBaseDispatcher};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new vr3();
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.zd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.c();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
+            JSONObject a = zd3.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                c92.c("Api-SetWebDegradeDebugHostAction", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            String optString = a.optString("host");
+            if (TextUtils.isEmpty(optString)) {
+                qk3.a().edit().remove("web_mode_host_key").apply();
+                return true;
+            }
+            qk3.a().edit().putString("web_mode_host_key", optString).apply();
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

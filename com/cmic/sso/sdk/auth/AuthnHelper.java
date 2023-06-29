@@ -172,12 +172,12 @@ public class AuthnHelper {
                     com.cmic.sso.sdk.e.c.b("AuthnHelper", "网络类型: " + a4);
                     com.cmic.sso.sdk.e.c.b("AuthnHelper", "运营商类型: " + a3);
                     return jSONObject;
-                } catch (Exception unused) {
-                    jSONObject.put("errorDes", "发生未知错误");
+                } catch (JSONException e) {
+                    e.printStackTrace();
                     return jSONObject;
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+            } catch (Exception unused) {
+                jSONObject.put("errorDes", "发生未知错误");
                 return jSONObject;
             }
         }

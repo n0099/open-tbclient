@@ -1,328 +1,394 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
-import android.widget.FrameLayout;
-import androidx.annotation.CallSuper;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Interpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.utils.Easing;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
+import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.appframework.AppFrameworkConstants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.tieba.q72;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class p72 implements r72 {
+public abstract class p72<V extends View, M extends q72> extends r72<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    @Nullable
-    public f23 h;
-    public String i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948014878, "Lcom/baidu/tieba/p72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppComponentContainerView a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ q72 c;
+
+        public a(p72 p72Var, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, q72 q72Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p72Var, swanAppComponentContainerView, Boolean.valueOf(z), q72Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948014878, "Lcom/baidu/tieba/p72;");
-                return;
+            this.a = swanAppComponentContainerView;
+            this.b = z;
+            this.c = q72Var;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                    if (this.b) {
+                        marginLayoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                    } else {
+                        marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                    }
+                    this.c.h.l(marginLayoutParams.leftMargin);
+                    this.c.h.m(marginLayoutParams.topMargin);
+                    this.a.setLayoutParams(marginLayoutParams);
+                }
             }
         }
-        boolean z = js1.a;
     }
 
-    @CallSuper
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            p72 p72Var = (p72) super.clone();
-            f23 f23Var = this.h;
-            if (f23Var != null) {
-                p72Var.h = (f23) f23Var.clone();
-            } else {
-                p72Var.h = null;
-            }
-            return p72Var;
-        }
-        return invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.y13
-    public boolean isValid() {
-        InterceptResult invokeV;
-        f23 f23Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c) && (f23Var = this.h) != null && f23Var.h()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public p72(@NonNull String str, @NonNull String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p72(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, m};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (s72) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "unknown";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = false;
-        this.g = false;
-        this.i = "id";
-        if (!TextUtils.isEmpty(str)) {
-            this.a = str;
-        } else {
-            s82.a("Component-Model-Base", "component type is empty");
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            this.i = str2;
-        } else {
-            s82.a("Component-Model-Base", "component id key is empty");
-        }
     }
 
-    @Override // com.baidu.tieba.y13
-    @CallSuper
-    public void a(JSONObject jSONObject) throws JSONException {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r72
+    @NonNull
+    /* renamed from: I */
+    public u82 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, m, m2)) == null) {
+            u82 k = super.k(m, m2);
+            if (m2.j != null && ((jSONObject = m.j) == null || !TextUtils.equals(jSONObject.toString(), m2.j.toString()))) {
+                k.b(4);
+            }
+            return k;
+        }
+        return (u82) invokeLL.objValue;
+    }
+
+    public void Q(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048588, this, v, m) != null) || m.j == null) {
             return;
         }
-        if (!TextUtils.equals(this.i, "ARCameraId")) {
-            String optString = jSONObject.optString("componentId");
-            this.b = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.b = jSONObject.optString(this.i);
-            }
-        } else {
-            String optString2 = jSONObject.optString(this.i);
-            this.b = optString2;
-            if (TextUtils.isEmpty(optString2)) {
-                this.b = jSONObject.optString("componentId");
-            }
+        if (r72.h) {
+            Log.d("Component-View", "renderBackground");
         }
-        if (TextUtils.isEmpty(this.b)) {
-            z82.c("Component-Model-Base", this.a + " component componentId is empty");
-        }
-        String optString3 = jSONObject.optString("slaveId");
-        this.c = optString3;
-        if (TextUtils.isEmpty(optString3)) {
-            z82.c("Component-Model-Base", this.a + " component slaveId is empty");
-        }
-        this.d = jSONObject.optString("parentId");
-        this.e = jSONObject.optString("cb");
-        this.f = jSONObject.optBoolean("hide", false);
-        this.g = TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK), "1");
-        f(jSONObject);
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(m.k);
+        gradientDrawable.setCornerRadius(m.n);
+        gradientDrawable.setStroke(m.l, m.m);
+        v.setBackground(gradientDrawable);
     }
 
-    public void g(JSONObject jSONObject) {
-        String str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r72
+    /* renamed from: O */
+    public void C(@NonNull V v, @NonNull M m, @NonNull u82 u82Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            if (!TextUtils.equals(this.i, "ARCameraId")) {
-                String optString = jSONObject.optString("componentId");
-                this.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    this.b = jSONObject.optString(this.i, this.b);
-                }
-            } else {
-                String optString2 = jSONObject.optString(this.i);
-                this.b = optString2;
-                if (TextUtils.isEmpty(optString2)) {
-                    this.b = jSONObject.optString("componentId", this.b);
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, v, m, u82Var) == null) {
+            super.C(v, m, u82Var);
+            if (u82Var.a(4)) {
+                R(v, m);
+                Q(v, m);
+                P(v, m);
+            }
+        }
+    }
+
+    @Nullable
+    public final ValueAnimator F(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull q72 q72Var, @NonNull q72 q72Var2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppComponentContainerView, q72Var, q72Var2)) == null) {
+            if (q72Var2.j != null) {
+                float b = cp3.b(q72Var.j, NativeConstants.OPACITY, 1.0f);
+                float b2 = cp3.b(q72Var2.j, NativeConstants.OPACITY, b);
+                if (b != b2) {
+                    return ObjectAnimator.ofFloat(swanAppComponentContainerView, Key.ALPHA, b, b2);
                 }
             }
-            if (TextUtils.isEmpty(this.b)) {
-                z82.c("Component-Model-Base", this.a + " component componentId is empty");
-            }
-            String optString3 = jSONObject.optString("slaveId", this.c);
-            this.c = optString3;
-            if (TextUtils.isEmpty(optString3)) {
-                z82.c("Component-Model-Base", this.a + " component slaveId is empty");
-            }
-            this.d = jSONObject.optString("parentId", this.d);
-            this.e = jSONObject.optString("cb", this.e);
-            this.f = jSONObject.optBoolean("hide", this.f);
-            if (this.g) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            this.g = TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK, str), "1");
-            f(jSONObject);
+            return null;
         }
+        return (ValueAnimator) invokeLLL.objValue;
     }
 
-    public final FrameLayout.LayoutParams b() {
-        InterceptResult invokeV;
-        int i;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            f23 f23Var = this.h;
-            int i4 = -1;
-            if (f23Var != null) {
-                i = f23Var.f();
-            } else {
-                i = -1;
-            }
-            f23 f23Var2 = this.h;
-            if (f23Var2 != null) {
-                i4 = f23Var2.c();
-            }
-            f23 f23Var3 = this.h;
-            if (f23Var3 != null) {
-                i2 = f23Var3.d();
-            } else {
-                i2 = 0;
-            }
-            f23 f23Var4 = this.h;
-            if (f23Var4 != null) {
-                i3 = f23Var4.e();
-            } else {
-                i3 = 0;
-            }
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i, i4);
-            layoutParams.setMargins(i2, i3, 0, 0);
-            return layoutParams;
-        }
-        return (FrameLayout.LayoutParams) invokeV.objValue;
-    }
-
-    @NonNull
-    public final String d() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("【");
-            sb.append(this.a);
-            sb.append("#");
-            if (TextUtils.isEmpty(this.b)) {
-                str = "";
-            } else {
-                str = this.b;
-            }
-            sb.append(str);
-            sb.append("】");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final float c(JSONObject jSONObject, String str, float f) {
+    public final AnimatorSet G(long j, @NonNull Interpolator interpolator, List<Animator> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) {
-            if (jSONObject == null) {
-                return f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), interpolator, list})) == null) {
+            if (j <= 0 || list == null) {
+                return null;
             }
-            return (float) jSONObject.optDouble(str, f);
+            ArrayList arrayList = new ArrayList();
+            for (Animator animator : list) {
+                if (animator != null) {
+                    arrayList.add(animator);
+                }
+            }
+            if (arrayList.size() == 0) {
+                return null;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.setInterpolator(interpolator);
+            animatorSet.setDuration(j);
+            animatorSet.playTogether(arrayList);
+            return animatorSet;
         }
-        return invokeCommon.floatValue;
+        return (AnimatorSet) invokeCommon.objValue;
     }
 
-    public final void e(JSONObject jSONObject, @NonNull p72 p72Var) {
-        String str;
+    @Nullable
+    public final ValueAnimator H(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull q72 q72Var, @NonNull q72 q72Var2, boolean z) {
+        InterceptResult invokeCommon;
+        int e;
+        int e2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, jSONObject, p72Var) != null) || jSONObject == null) {
-            return;
-        }
-        if (!TextUtils.equals(this.i, "ARCameraId")) {
-            String optString = jSONObject.optString("componentId");
-            this.b = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.b = jSONObject.optString(this.i, p72Var.b);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{swanAppComponentContainerView, q72Var, q72Var2, Boolean.valueOf(z)})) == null) {
+            i23 i23Var = q72Var.h;
+            if (i23Var == null || q72Var2.h == null) {
+                return null;
             }
-        } else {
-            String optString2 = jSONObject.optString(this.i);
-            this.b = optString2;
-            if (TextUtils.isEmpty(optString2)) {
-                this.b = jSONObject.optString("componentId", p72Var.b);
+            if (z) {
+                e = i23Var.d();
+            } else {
+                e = i23Var.e();
             }
+            i23 i23Var2 = q72Var2.h;
+            if (z) {
+                e2 = i23Var2.d();
+            } else {
+                e2 = i23Var2.e();
+            }
+            if (e == e2) {
+                return null;
+            }
+            ValueAnimator ofInt = ValueAnimator.ofInt(e, e2);
+            ofInt.addUpdateListener(new a(this, swanAppComponentContainerView, z, q72Var2));
+            return ofInt;
         }
-        if (TextUtils.isEmpty(this.b)) {
-            z82.c("Component-Model-Base", this.a + " component componentId is empty");
-        }
-        String optString3 = jSONObject.optString("slaveId", p72Var.c);
-        this.c = optString3;
-        if (TextUtils.isEmpty(optString3)) {
-            z82.c("Component-Model-Base", this.a + " component slaveId is empty");
-        }
-        this.d = jSONObject.optString("parentId", p72Var.d);
-        this.e = jSONObject.optString("cb", p72Var.e);
-        this.f = jSONObject.optBoolean("hide", p72Var.f);
-        if (p72Var.g) {
-            str = "1";
-        } else {
-            str = "0";
-        }
-        this.g = TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK, str), "1");
-        f23 f23Var = p72Var.h;
-        this.h = f23Var;
-        if (f23Var == null) {
-            this.h = new f23();
-        }
-        f(jSONObject);
+        return (ValueAnimator) invokeCommon.objValue;
     }
 
-    public final void f(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public final boolean J() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject(CriusAttrConstants.POSITION)) != null) {
-            f23 f23Var = new f23();
-            this.h = f23Var;
-            f23Var.l(qp3.g(c(optJSONObject, "left", 0.0f)));
-            this.h.m(qp3.g(c(optJSONObject, "top", 0.0f)));
-            this.h.n(qp3.g(c(optJSONObject, "width", 0.0f)));
-            this.h.j(qp3.g(c(optJSONObject, "height", 0.0f)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!s(4) || !t() || (jSONObject = ((q72) n()).q) == null || TextUtils.isEmpty(jSONObject.optString("duration"))) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public String toString() {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final Interpolator K(@NonNull String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            switch (str.hashCode()) {
+                case -1965120668:
+                    if (str.equals("ease-in")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1102672091:
+                    if (str.equals(Easing.LINEAR_NAME)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -789192465:
+                    if (str.equals("ease-out")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -361990811:
+                    if (str.equals("ease-in-out")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3105774:
+                    if (str.equals("ease")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            return PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f);
+                        }
+                        return PathInterpolatorCompat.create(0.42f, 0.0f, 0.58f, 1.0f);
+                    }
+                    return PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
+                }
+                return PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f);
+            }
+            return PathInterpolatorCompat.create(0.0f, 0.0f, 1.0f, 1.0f);
+        }
+        return (Interpolator) invokeL.objValue;
+    }
+
+    public final boolean N(boolean z) {
+        InterceptResult invokeZ;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            SwanAppComponentContainerView m = m();
+            q72 q72Var = (q72) p();
+            q72 q72Var2 = (q72) n();
+            if (m == null || q72Var == null || (jSONObject = q72Var2.q) == null || TextUtils.isEmpty(jSONObject.optString("duration"))) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            if (z) {
+                arrayList.add(H(m, q72Var, q72Var2, false));
+                arrayList.add(H(m, q72Var, q72Var2, true));
+            } else {
+                arrayList.add(F(m, q72Var, q72Var2));
+            }
+            AnimatorSet G = G(q72Var2.r, K(q72Var2.s), arrayList);
+            if (G != null) {
+                G.start();
+            }
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public final boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "SwanAppBaseComponentModel{componentType='" + this.a + "', componentId='" + this.b + "', slaveId='" + this.c + "', parentId='" + this.d + "', callback='" + this.e + "', hidden=" + this.f + ", gesture=" + this.g + ", position=" + this.h + ", mComponentIdKey='" + this.i + "'}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return N(false);
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final boolean M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return N(true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void P(@NonNull View view2, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048587, this, view2, m) != null) || m.j == null) {
+            return;
+        }
+        if (r72.h) {
+            Log.d("Component-View", "renderAlpha");
+        }
+        if (J()) {
+            if (r72.h) {
+                Log.d("Component-View", "renderAlpha with animation");
+            }
+            if (!L()) {
+                c92.o("Component-View", "performAlphaUpdateAnimation fail");
+                return;
+            }
+            return;
+        }
+        float f = m.p;
+        if (f >= 0.0f && f <= 1.0f) {
+            view2.setAlpha(f);
+            return;
+        }
+        c92.o("Component-View", "alpha invalid: " + m.p);
+    }
+
+    public void R(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048589, this, v, m) != null) || m.j == null) {
+            return;
+        }
+        if (r72.h) {
+            Log.d("Component-View", "renderPadding");
+        }
+        JSONArray jSONArray = m.o;
+        if (jSONArray == null) {
+            return;
+        }
+        if (jSONArray.length() == 4) {
+            v.setPadding(tp3.g((float) jSONArray.optDouble(3, 0.0d)), tp3.g((float) jSONArray.optDouble(0, 0.0d)), tp3.g((float) jSONArray.optDouble(1, 0.0d)), tp3.g((float) jSONArray.optDouble(2, 0.0d)));
+            return;
+        }
+        c92.c("Component-View", "invalid padding array length: " + jSONArray.length());
     }
 }

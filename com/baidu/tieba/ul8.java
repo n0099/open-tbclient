@@ -1,26 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes8.dex */
-public class ul8 {
+public final class ul8 extends iq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static ql8<rl8> a(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.mq9
+    public String name() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            ql8<rl8> ql8Var = new ql8<>();
-            ql8Var.e().j(1);
-            rl8 rl8Var = new rl8();
-            rl8Var.f(str);
-            ql8Var.i(rl8Var);
-            return ql8Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "agree_message_bar" : (String) invokeV.objValue;
+    }
+
+    public ul8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (ql8) invokeL.objValue;
     }
 }

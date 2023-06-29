@@ -1,46 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.JsObject;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class y64 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile boolean a;
+    public static volatile boolean b;
+    public static volatile List<dm2> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(g64 g64Var, JsObject jsObject) {
+    public static String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, g64Var, jsObject) == null) {
-            z64 z64Var = new z64();
-            g42 F = g42.F(jsObject);
-            if (F == null) {
-                F = new g42();
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? LocalFilesFilterKt.FILTER_NAME_LOG : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282098, "Lcom/baidu/tieba/y64;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            boolean z = false;
-            if (g64Var == null) {
-                z64Var.errMsg = "openCustomerServiceConversation:fail";
-                le4.call(F, false, z64Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948282098, "Lcom/baidu/tieba/y64;");
                 return;
             }
-            if (j84.c()) {
-                zb3 M = zb3.M();
-                if (M != null) {
-                    String str = "{\"appKey\":\"" + M.O() + "\"}";
-                    if (SchemeRouter.invoke(gv2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
-                        z64Var.errMsg = "openCustomerServiceConversation:ok";
-                        z = true;
-                    } else {
-                        z64Var.errMsg = "openCustomerServiceConversation:fail";
-                    }
-                } else {
-                    z64Var.errMsg = "openCustomerServiceConversation:fail";
-                }
-            } else {
-                z64Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
+        }
+        c = new ArrayList();
+    }
+
+    public y64() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            le4.call(F, z, z64Var);
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (y64.class) {
+                c = new ArrayList();
+            }
+            b = false;
+        }
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
+            synchronized (y64.class) {
+                if (c != null) {
+                    for (int i = 0; i < c.size(); i++) {
+                        px2.T().m("console", c.get(i));
+                    }
+                    c.clear();
+                    c = null;
+                }
+            }
+            b = true;
+        }
+    }
+
+    public static void d(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
+            e(b(i), str);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
+            f(s64.t(str, str2));
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
+            f(s64.v(str, str2));
+        }
+    }
+
+    public static void f(dm2 dm2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, dm2Var) == null) {
+            if (!b) {
+                synchronized (y64.class) {
+                    if (c != null) {
+                        c.add(dm2Var);
+                        return;
+                    }
+                }
+            }
+            px2.T().m("console", dm2Var);
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
+            a = z;
+            c92.n(z);
         }
     }
 }

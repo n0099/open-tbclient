@@ -1,51 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.res.Configuration;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.splashad.SplashAdView;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ufosdk.FeedbackConfigurations;
-import com.baidu.ufosdk.FeedbackManager;
-import com.baidu.ufosdk.IConfigurations;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class j7a {
     public static /* synthetic */ Interceptable $ic;
+    public static j7a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<SplashAdView> a;
 
-    public static Intent a() {
-        InterceptResult invokeV;
+    public j7a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            b();
-            return FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).getFeedbackIntentWithCategory(0, "https://ufosdk.baidu.com/ufosdk/helpCenter/qtbMBmwrIBtM25TGeonQxQ%3D%3D");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (Intent) invokeV.objValue;
     }
 
-    public static void b() {
-        String str;
+    public static j7a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            FeedbackConfigurations.Builder builder = new FeedbackConfigurations.Builder();
-            if (TbadkCoreApplication.getInst().getVersionName() != null) {
-                str = TbadkCoreApplication.getInst().getVersionName();
-            } else {
-                str = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                b = new j7a();
             }
-            builder.setAppIdentifier(TbadkCoreApplication.getInst().getPackageName(), str);
-            builder.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                builder.setAccount(TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentAccount());
+            return b;
+        }
+        return (j7a) invokeV.objValue;
+    }
+
+    public void c() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.a();
+        }
+    }
+
+    public void d() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.b();
+        }
+    }
+
+    public void b(Configuration configuration) {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.onConfigurationChanged(configuration);
+        }
+    }
+
+    public void e(MainTabActivity mainTabActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) && mainTabActivity != null) {
+            SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
+            this.a = new WeakReference<>(splashAdView);
+            mainTabActivity.getWindow().setFlags(1024, 1024);
+            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092206);
+            if (viewGroup != null) {
+                viewGroup.setVisibility(0);
+                viewGroup.addView(splashAdView);
             }
-            int i = 0;
-            builder.setFeedbackBackbar(0);
-            IConfigurations build = builder.build();
-            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
-                i = 1;
-            }
-            build.setThemeMode(i);
-            FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).initFeedbackSDK(build);
         }
     }
 }

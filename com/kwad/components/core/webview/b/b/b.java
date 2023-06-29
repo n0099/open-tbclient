@@ -4,7 +4,7 @@ import android.app.Activity;
 import com.kwad.components.core.webview.b.b.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.e;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends com.kwad.sdk.mvp.a {
     public d Ne;
     public e Oc;

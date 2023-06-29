@@ -2,240 +2,164 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class w3 implements Iterable<v3>, Comparator<v3>, Comparable<w3> {
+public abstract class w3 implements Comparable<w3> {
     public static /* synthetic */ Interceptable $ic;
+    public static final t6<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final s6<v3> b;
-    public boolean c;
+    public final long a;
+    public final int b;
 
-    public w3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448319121, "Lcom/baidu/tieba/w3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448319121, "Lcom/baidu/tieba/w3;");
                 return;
             }
         }
-        this.b = new s6<>();
-        this.c = true;
+        c = new t6<>();
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b * 7489;
         }
         return invokeV.intValue;
     }
 
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !this.c) {
-            this.b.sort(this);
-            this.c = true;
-        }
-    }
-
-    @Override // java.lang.Iterable
-    public final Iterator<v3> iterator() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.b.iterator();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return b(this.a);
         }
-        return (Iterator) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public w3(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i();
-            int i = this.b.b;
-            long j = this.a + 71;
-            int i2 = 1;
-            for (int i3 = 0; i3 < i; i3++) {
-                i2 = (i2 * 7) & 65535;
-                j += this.a * this.b.get(i3).hashCode() * i2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return (int) (j ^ (j >> 32));
         }
-        return invokeV.intValue;
+        this.a = j;
+        this.b = Long.numberOfTrailingZeros(j);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: b */
-    public final int compare(v3 v3Var, v3 v3Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v3Var, v3Var2)) == null) {
-            return (int) (v3Var.a - v3Var2.a);
-        }
-        return invokeLL.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: c */
-    public int compareTo(w3 w3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w3Var)) == null) {
-            if (w3Var == this) {
-                return 0;
-            }
-            long j = this.a;
-            long j2 = w3Var.a;
-            if (j != j2) {
-                if (j < j2) {
-                    return -1;
-                }
-                return 1;
-            }
-            i();
-            w3Var.i();
-            int i = 0;
-            while (true) {
-                s6<v3> s6Var = this.b;
-                if (i >= s6Var.b) {
-                    return 0;
-                }
-                int compareTo = s6Var.get(i).compareTo(w3Var.b.get(i));
-                if (compareTo != 0) {
-                    if (compareTo < 0) {
-                        return -1;
-                    }
-                    if (compareTo <= 0) {
-                        return 0;
-                    }
-                    return 1;
-                }
-                i++;
-            }
-        } else {
-            return invokeL.intValue;
-        }
-    }
-
-    public final void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.a = j | this.a;
-        }
-    }
-
-    public final boolean e(long j) {
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x001d, code lost:
+        r7 = com.baidu.tieba.w3.c;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0021, code lost:
+        if (r0 >= r7.b) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:?, code lost:
+        return r7.get(r0);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final String b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            if (j != 0 && (this.a & j) == j) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            int i = -1;
+            while (j != 0 && (i = i + 1) < 63 && ((j >> i) & 1) == 0) {
+            }
+            return null;
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static final long c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int i = 0;
+            while (true) {
+                t6<String> t6Var = c;
+                if (i < t6Var.b) {
+                    if (t6Var.get(i).compareTo(str) == 0) {
+                        return 1 << i;
+                    }
+                    i++;
+                } else {
+                    return 0L;
+                }
+            }
+        } else {
+            return invokeL.longValue;
+        }
+    }
+
+    public static final long d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            long c2 = c(str);
+            if (c2 > 0) {
+                return c2;
+            }
+            c.a(str);
+            return 1 << (c.b - 1);
+        }
+        return invokeL.longValue;
+    }
+
+    public boolean a(w3 w3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w3Var)) == null) {
+            if (w3Var.hashCode() == hashCode()) {
                 return true;
             }
             return false;
         }
-        return invokeJ.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // java.util.Comparator
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (!(obj instanceof w3)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == null) {
                 return false;
             }
             if (obj == this) {
                 return true;
             }
-            return g((w3) obj, true);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int f(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-            if (e(j)) {
-                int i = 0;
-                while (true) {
-                    s6<v3> s6Var = this.b;
-                    if (i < s6Var.b) {
-                        if (s6Var.get(i).a == j) {
-                            return i;
-                        }
-                        i++;
-                    } else {
-                        return -1;
-                    }
-                }
-            } else {
-                return -1;
-            }
-        } else {
-            return invokeJ.intValue;
-        }
-    }
-
-    public final void h(v3 v3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, v3Var) == null) {
-            int f = f(v3Var.a);
-            if (f < 0) {
-                d(v3Var.a);
-                this.b.a(v3Var);
-                this.c = false;
-            } else {
-                this.b.k(f, v3Var);
-            }
-            i();
-        }
-    }
-
-    public final boolean g(w3 w3Var, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, w3Var, z)) == null) {
-            if (w3Var == this) {
-                return true;
-            }
-            if (w3Var == null || this.a != w3Var.a) {
+            if (!(obj instanceof w3)) {
                 return false;
             }
-            if (!z) {
-                return true;
+            w3 w3Var = (w3) obj;
+            if (this.a != w3Var.a) {
+                return false;
             }
-            i();
-            w3Var.i();
-            int i = 0;
-            while (true) {
-                s6<v3> s6Var = this.b;
-                if (i >= s6Var.b) {
-                    return true;
-                }
-                if (!s6Var.get(i).a(w3Var.b.get(i))) {
-                    return false;
-                }
-                i++;
-            }
-        } else {
-            return invokeLZ.booleanValue;
+            return a(w3Var);
         }
+        return invokeL.booleanValue;
     }
 }

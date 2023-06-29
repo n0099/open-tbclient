@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes8.dex */
 public interface uv1 {
-    void a(String str, y83 y83Var);
+    vn3 a(Context context, String str, String str2, String str3, String str4, String str5);
 }

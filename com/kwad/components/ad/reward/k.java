@@ -349,7 +349,7 @@ public final class k extends com.kwad.components.core.g.a {
     }
 
     public final void a(Context context, final int i, int i2, long j, boolean z, final com.kwad.sdk.core.report.f fVar) {
-        com.kwad.components.core.c.a.a.a(new a.C0631a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(i2).l(j).a(new a.b() { // from class: com.kwad.components.ad.reward.k.2
+        com.kwad.components.core.c.a.a.a(new a.C0641a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(i2).l(j).a(new a.b() { // from class: com.kwad.components.ad.reward.k.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 k.this.a(i, fVar);

@@ -1,162 +1,102 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.utils.AbiType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.webkit.internal.ETAG;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xo4 {
+public class xo4 extends ln4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, xo4> d;
-    public static Map<String, Map<String, xo4>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final AbiType c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307084, "Lcom/baidu/tieba/xo4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948307084, "Lcom/baidu/tieba/xo4;");
-                return;
-            }
-        }
-        d = new HashMap();
-        e = new HashMap();
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public xo4(@NonNull String str, @NonNull AbiType abiType) {
-        String str2;
+    public xo4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, abiType};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (TextUtils.isEmpty(str)) {
-            str2 = "";
-        } else {
-            str2 = str;
-        }
-        this.a = str2;
-        this.c = abiType;
-        this.b = a(str, abiType);
     }
 
-    @Nullable
-    public static synchronized xo4 e(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ln4
+    public JSONArray c() {
+        InterceptResult invokeV;
+        List<dl4> w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            synchronized (xo4.class) {
-                xo4 xo4Var = null;
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                    c(str);
-                    xo4 xo4Var2 = d.get(str2);
-                    if (xo4Var2 != null) {
-                        if (TextUtils.equals(str, xo4Var2.a)) {
-                            xo4Var = xo4Var2;
-                        }
-                    }
-                    return xo4Var;
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "bbasp_core");
+                jSONObject.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, nj4.b().J(0));
+                jSONObject.put("version_code", nj4.b().w(0));
+                jSONArray.put(jSONObject);
+            } catch (JSONException unused) {
             }
-        }
-        return (xo4) invokeLL.objValue;
-    }
-
-    public static String a(String str, AbiType abiType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
-            return "so_" + str + "_" + abiType.id;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static synchronized xo4 d(String str, AbiType abiType) {
-        InterceptResult invokeLL;
-        xo4 e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
-            synchronized (xo4.class) {
-                e2 = e(str, a(str, abiType));
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "bbasp_game");
+                jSONObject2.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, nj4.b().J(1));
+                jSONObject2.put("version_code", nj4.b().w(1));
+                jSONArray.put(jSONObject2);
+            } catch (JSONException unused2) {
             }
-            return e2;
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("type", ETAG.KEY_EXTENSION);
+                jSONObject3.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, nj4.b().v(0));
+                jSONObject3.put("version_code", nj4.b().j(0));
+                jSONArray.put(jSONObject3);
+            } catch (JSONException unused3) {
+            }
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject4.put("type", "extension_game");
+                jSONObject4.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, nj4.b().v(1));
+                jSONObject4.put("version_code", nj4.b().j(1));
+                jSONArray.put(jSONObject4);
+            } catch (JSONException unused4) {
+            }
+            try {
+                w = zj4.i().w(f(10));
+            } catch (JSONException unused5) {
+            }
+            if (w == null) {
+                return jSONArray;
+            }
+            for (dl4 dl4Var : w) {
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("type", "ddl");
+                jSONObject5.put("bundle_id", dl4Var.g);
+                jSONObject5.put("version_code", dl4Var.i);
+                jSONObject5.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, dl4Var.j);
+                jSONArray.put(jSONObject5);
+            }
+            return jSONArray;
         }
-        return (xo4) invokeLL.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    public static synchronized Map<String, xo4> b(@NonNull String str) {
-        InterceptResult invokeL;
-        HashMap hashMap;
+    public final String f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (xo4.class) {
-                hashMap = new HashMap(c(str));
-            }
-            return hashMap;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ParamableElem.DIVIDE_PARAM;
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public static synchronized Map<String, xo4> c(@NonNull String str) {
-        InterceptResult invokeL;
-        Map<String, xo4> map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            synchronized (xo4.class) {
-                map = e.get(str);
-                if (map == null) {
-                    map = new HashMap<>();
-                    if (!TextUtils.isEmpty(str)) {
-                        for (AbiType abiType : AbiType.values()) {
-                            xo4 xo4Var = new xo4(str, abiType);
-                            map.put(xo4Var.b, xo4Var);
-                        }
-                        d.putAll(map);
-                        e.put(str, map);
-                    }
-                }
-            }
-            return map;
-        }
-        return (Map) invokeL.objValue;
+        return (String) invokeI.objValue;
     }
 }

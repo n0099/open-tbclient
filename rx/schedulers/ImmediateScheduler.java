@@ -1,11 +1,11 @@
 package rx.schedulers;
 
-import com.baidu.tieba.job;
+import com.baidu.tieba.atb;
 @Deprecated
 /* loaded from: classes2.dex */
-public final class ImmediateScheduler extends job {
-    @Override // com.baidu.tieba.job
-    public job.a createWorker() {
+public final class ImmediateScheduler extends atb {
+    @Override // com.baidu.tieba.atb
+    public atb.a createWorker() {
         return null;
     }
 

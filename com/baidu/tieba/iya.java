@@ -1,178 +1,155 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iya {
+public class iya implements pya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vxa a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public static long a(InputStream inputStream, OutputStream outputStream) {
-        InterceptResult invokeLL;
+    public iya() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
-            if (inputStream != null && outputStream != null) {
-                try {
-                    byte[] bArr = new byte[ra1.a];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            outputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            outputStream.flush();
-                            return j;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 0L;
         }
-        return invokeLL.longValue;
+        this.d = true;
     }
 
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
+    @Override // com.baidu.tieba.pya
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    String c = c(fileInputStream);
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException unused) {
-                    }
-                    return c;
-                } catch (FileNotFoundException unused2) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException unused3) {
-                        }
-                    }
-                    return null;
-                } catch (Throwable unused4) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException unused5) {
-                        }
-                    }
-                    return null;
-                }
-            } catch (FileNotFoundException unused6) {
-                fileInputStream = null;
-            } catch (Throwable unused7) {
-                fileInputStream = null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            vxa vxaVar = this.a;
+            if (vxaVar == null || bArr == null) {
+                return 0;
             }
-        } else {
-            return (String) invokeL.objValue;
+            this.b += bArr.length;
+            vxaVar.putBytes(bArr, i);
+            return this.b;
         }
+        return invokeLI.intValue;
     }
 
-    public static String c(@NonNull FileInputStream fileInputStream) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pya
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fileInputStream)) == null) {
-            if (fileInputStream != null) {
-                StringBuilder sb = new StringBuilder();
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine != null) {
-                            sb.append(readLine);
-                        } else {
-                            return sb.toString();
-                        }
-                    }
-                } catch (IOException unused) {
-                    return sb.toString();
-                } catch (Throwable unused2) {
-                    return sb.toString();
-                }
-            } else {
-                throw new NullPointerException("inputStream should not be null");
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
     }
 
-    public static boolean d(InputStream inputStream, File file, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.pya
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, inputStream, file, z)) == null) {
-            boolean z2 = false;
-            FileOutputStream fileOutputStream = null;
-            try {
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file, z);
-                try {
-                    if (a(inputStream, fileOutputStream2) != 0) {
-                        z2 = true;
-                    }
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException unused) {
-                    }
-                    return z2;
-                } catch (FileNotFoundException unused2) {
-                    fileOutputStream = fileOutputStream2;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException unused3) {
-                        }
-                    }
-                    return false;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException unused4) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (FileNotFoundException unused5) {
-            } catch (Throwable th2) {
-                th = th2;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (vxa) x1b.a("com.baidu.ugc.audioedit.AudioChangeOperator");
             }
-        } else {
-            return invokeLLZ.booleanValue;
+            vxa vxaVar = this.a;
+            if (vxaVar != null) {
+                vxaVar.initVoiceChanger(i, i2, i3, i4);
+            }
+            return this.a != null;
         }
+        return invokeIIII.booleanValue;
     }
 
-    public static boolean e(String str, File file, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.pya
+    public byte[] a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, file, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            vxa vxaVar = this.a;
+            if (vxaVar == null || vxaVar.availableBytes() <= 0) {
+                return new byte[0];
             }
-            return d(new ByteArrayInputStream(str.getBytes()), file, z);
+            byte[] bArr = new byte[4096];
+            int bytes = this.a.getBytes(bArr, 4096);
+            this.c += bytes;
+            if (bytes == 0) {
+                return null;
+            }
+            if (4096 == bytes) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[bytes];
+            System.arraycopy(bArr, 0, bArr2, 0, bytes);
+            return bArr2;
         }
-        return invokeLLZ.booleanValue;
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(int[] iArr) {
+        vxa vxaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (vxaVar = this.a) == null) {
+            return;
+        }
+        vxaVar.setVoiceChangeType(iArr);
+    }
+
+    @Override // com.baidu.tieba.pya
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pya
+    public void c() {
+        vxa vxaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (vxaVar = this.a) == null) {
+            return;
+        }
+        vxaVar.flush();
+    }
+
+    public void c(int[] iArr, int[] iArr2, double[] dArr) {
+        vxa vxaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (vxaVar = this.a) == null) {
+            return;
+        }
+        vxaVar.setVoiceChangeType(iArr, iArr2, dArr);
+    }
+
+    @Override // com.baidu.tieba.pya
+    public void d() {
+        vxa vxaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (vxaVar = this.a) == null) {
+            return;
+        }
+        vxaVar.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.pya
+    public void e() {
+        vxa vxaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (vxaVar = this.a) == null) {
+            return;
+        }
+        vxaVar.clearQueues();
     }
 }

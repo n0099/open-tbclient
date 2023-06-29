@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface ze7 {
-    String v();
+    void M(int i, int i2, jf7 jf7Var);
 
-    String w();
+    void R(df7 df7Var);
+
+    void init();
+
+    void s();
 }

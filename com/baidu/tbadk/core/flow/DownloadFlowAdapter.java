@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fx5;
-import com.baidu.tieba.p75;
+import com.baidu.tieba.kx5;
 import com.baidu.tieba.s75;
-import com.baidu.tieba.t75;
+import com.baidu.tieba.v75;
+import com.baidu.tieba.w75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class DownloadFlowAdapter<T extends t75> extends PagerAdapter {
+public class DownloadFlowAdapter<T extends w75> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<View> a;
@@ -39,7 +39,7 @@ public class DownloadFlowAdapter<T extends t75> extends PagerAdapter {
     public Context c;
     public View.OnClickListener d;
     public View.OnClickListener e;
-    public fx5 f;
+    public kx5 f;
     public Map<String, String> g;
 
     public void d() {
@@ -86,7 +86,7 @@ public class DownloadFlowAdapter<T extends t75> extends PagerAdapter {
         new ArrayList();
         this.g = new HashMap();
         this.c = context;
-        this.f = fx5.c();
+        this.f = kx5.c();
         i();
     }
 
@@ -147,10 +147,10 @@ public class DownloadFlowAdapter<T extends t75> extends PagerAdapter {
                     }
                     Map.Entry<String, String> next = it.next();
                     if (next != null && this.g.containsKey(str) && next.getKey().equals(str)) {
-                        if (next.getValue().equals(fx5.j)) {
+                        if (next.getValue().equals(kx5.j)) {
                             return true;
                         }
-                        if (next.getValue().equals(fx5.k)) {
+                        if (next.getValue().equals(kx5.k)) {
                         }
                     }
                 }
@@ -168,9 +168,9 @@ public class DownloadFlowAdapter<T extends t75> extends PagerAdapter {
         }
     }
 
-    public void g(List<T> list, s75 s75Var) {
+    public void g(List<T> list, v75 v75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, s75Var) == null) && list != null && !list.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, v75Var) == null) && list != null && !list.isEmpty()) {
             e(list);
             f(this.b);
             notifyDataSetChanged();
@@ -200,12 +200,12 @@ public class DownloadFlowAdapter<T extends t75> extends PagerAdapter {
     }
 
     public void i() {
-        fx5 fx5Var;
+        kx5 kx5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (fx5Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (kx5Var = this.f) == null) {
             return;
         }
-        this.g = fx5Var.e();
+        this.g = kx5Var.e();
         notifyDataSetChanged();
     }
 
@@ -234,13 +234,13 @@ public class DownloadFlowAdapter<T extends t75> extends PagerAdapter {
                 SkinManager.setBackgroundColor(imageView, R.color.CAM_X0301);
                 SkinManager.setBackgroundColor(relativeLayout2, R.color.CAM_X0302);
                 tbImageView.setConrers(15);
-                p75 d = p75.d(relativeLayout);
+                s75 d = s75.d(relativeLayout);
                 d.o(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
-                p75 d2 = p75.d(imageView);
+                s75 d2 = s75.d(imageView);
                 d2.o(R.string.J_X07);
                 d2.f(R.color.CAM_X0301);
-                p75 d3 = p75.d(relativeLayout2);
+                s75 d3 = s75.d(relativeLayout2);
                 d3.o(R.string.J_X07);
                 d3.f(R.color.CAM_X0302);
                 tbImageView.N(apkDownloadInfoData.getmApkImgUrl(), 10, false);

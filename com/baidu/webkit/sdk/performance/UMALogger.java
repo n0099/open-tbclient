@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class UMALogger {
     public static final String TAG = "UMALogger";
     public static UMALogger sDummyUMALogger;

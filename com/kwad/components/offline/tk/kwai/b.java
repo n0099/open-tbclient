@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoBridgeHandler;
 import com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoCallBackFunction;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b implements IOfflineCompoBridgeHandler {
     public final com.kwad.sdk.core.webview.kwai.a Qo;
 

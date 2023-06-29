@@ -1,7 +1,26 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface tk1 {
-    boolean c(String str);
 
-    void handleSchemeDispatchCallback(String str, String str2);
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+/* loaded from: classes8.dex */
+public class tk1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    @Nullable
+    public static File a(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return qk1.r(str);
+        }
+        return (File) invokeL.objValue;
+    }
 }

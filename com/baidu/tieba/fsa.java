@@ -1,91 +1,103 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.baidu.turbonet.net.impl.CronetUploadDataStream;
+import org.chromium.base.NativeLibraryLoadedStatus;
+import org.chromium.base.annotations.CheckDiscard;
+import org.chromium.base.natives.GEN_JNI;
+@CheckDiscard("crbug.com/993421")
 /* loaded from: classes5.dex */
-public final class fsa {
+public final class fsa implements CronetUploadDataStream.d {
     public static /* synthetic */ Interceptable $ic;
+    public static CronetUploadDataStream.d a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends lsa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-
-        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, aVar, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = aVar;
-            this.c = str;
-            this.d = str2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947776085, "Lcom/baidu/tieba/fsa;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947776085, "Lcom/baidu/tieba/fsa;");
+        }
+    }
 
-        @Override // com.baidu.tieba.lsa
-        public final void a() {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != null) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("{");
-                    for (Map.Entry entry : this.a.entrySet()) {
-                        stringBuffer.append("\"");
-                        stringBuffer.append(entry.getKey());
-                        stringBuffer.append("\":\"");
-                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
-                        stringBuffer.append("\",");
-                    }
-                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
-                    stringBuffer2.append("}");
-                    this.b.w(stringBuffer2.toString());
-                }
-                try {
-                    this.b.x(isa.e().I());
-                    this.b.u(String.valueOf(System.currentTimeMillis()));
-                    this.b.t(this.c);
-                    com.baidu.ubs.analytics.a.a aVar = this.b;
-                    if (this.d == null) {
-                        str = "";
-                    } else {
-                        str = this.d;
-                    }
-                    aVar.s(str);
-                    new jra().c(this.b);
-                } catch (Exception e) {
-                    if (e.getMessage() != null) {
-                        jsa.b(e.getMessage());
-                    }
-                }
+    public fsa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(String str, String str2, String str3, Map<String, String> map) {
+    public static CronetUploadDataStream.d d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
-            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
-            aVar.v(str);
-            ksa.c(new a(map, aVar, str2, str3));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (GEN_JNI.TESTING_ENABLED) {
+                CronetUploadDataStream.d dVar = a;
+                if (dVar != null) {
+                    return dVar;
+                }
+                if (GEN_JNI.REQUIRE_MOCK) {
+                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetUploadDataStream.Natives. The current configuration requires all native implementations to have a mock instance.");
+                }
+            }
+            NativeLibraryLoadedStatus.checkLoaded(false);
+            return new fsa();
+        }
+        return (CronetUploadDataStream.d) invokeV.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
+    public void a(long j, CronetUploadDataStream cronetUploadDataStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, cronetUploadDataStream) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_onRewindSucceeded(j, cronetUploadDataStream);
+        }
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
+    public void b(long j, CronetUploadDataStream cronetUploadDataStream, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetUploadDataStream, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_onReadSucceeded(j, cronetUploadDataStream, i, z);
+        }
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
+    public long c(CronetUploadDataStream cronetUploadDataStream, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{cronetUploadDataStream, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_attachUploadDataToRequest(cronetUploadDataStream, j, j2);
+        }
+        return invokeCommon.longValue;
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUploadDataStream.d
+    public void destroy(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUploadDataStream_destroy(j);
         }
     }
 }

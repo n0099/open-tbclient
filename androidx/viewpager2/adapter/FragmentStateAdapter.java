@@ -521,7 +521,7 @@ public abstract class FragmentStateAdapter extends RecyclerView.Adapter<Fragment
         if (this.mSavedStates.isEmpty() && this.mFragments.isEmpty()) {
             Bundle bundle = (Bundle) parcelable;
             if (bundle.getClassLoader() == null) {
-                bundle.setClassLoader(FragmentStateAdapter.class.getClassLoader());
+                bundle.setClassLoader(getClass().getClassLoader());
             }
             for (String str : bundle.keySet()) {
                 if (isValidKey(str, KEY_PREFIX_FRAGMENT)) {

@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class g75 implements y65 {
+public final class g75 implements b75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,7 +31,7 @@ public final class g75 implements y65 {
         }
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.b75
     public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -45,7 +40,7 @@ public final class g75 implements y65 {
             Intrinsics.checkNotNullParameter(strategyData, "strategyData");
             Intrinsics.checkNotNullParameter(extraData, "extraData");
             HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "updateDialog");
+            hashMap.put("dialogName", "newGod");
             hashMap.putAll(strategyData);
             hashMap.putAll(extraData);
             return hashMap;
@@ -53,33 +48,26 @@ public final class g75 implements y65 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.y65
+    @Override // com.baidu.tieba.b75
     public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
-        JSONObject syncJson;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
-            if (!LooperBlockSwitch.getIsOn() || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
+            if (!LooperBlockSwitch.getIsOn()) {
                 return false;
             }
-            VersionData versionData = new VersionData();
-            versionData.parserJson(syncJson.optJSONObject("version"));
-            if (versionData.hasNewVer() && TbConfig.COULD_UPDATE) {
-                if (versionData.forceUpdate()) {
-                    if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
-                        return true;
-                    }
-                } else {
-                    long updateNotifyTime = TbadkCoreApplication.getInst().getUpdateNotifyTime();
-                    long time = new Date().getTime();
-                    if (time - updateNotifyTime > 86400000 && versionData.getStrategy() == 0 && TbadkCoreApplication.getInst().getResumeNum() > 0 && TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-                        TbadkCoreApplication.getInst().setUpdateNotifyTime(time);
-                        return true;
-                    }
-                }
+            boolean l = r95.p().l(r95.t("key_new_god_pop_is_show"), false);
+            if (TbSingleton.getInstance().getNewGodData() != null) {
+                z = true;
+            } else {
+                z = false;
             }
-            return false;
+            if (!l || !z) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }

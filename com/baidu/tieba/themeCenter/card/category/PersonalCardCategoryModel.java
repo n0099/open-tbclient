@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.jb;
-import com.baidu.tieba.jz9;
-import com.baidu.tieba.o6a;
-import com.baidu.tieba.r5a;
-import com.baidu.tieba.w6a;
+import com.baidu.tieba.aba;
+import com.baidu.tieba.daa;
+import com.baidu.tieba.iba;
+import com.baidu.tieba.kb;
+import com.baidu.tieba.v3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,16 @@ import java.util.List;
 public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w6a a;
-    public List<o6a> b;
+    public iba a;
+    public List<aba> b;
     public int c;
     public boolean d;
     public b e;
-    public jb f;
+    public kb f;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(int i, String str, w6a w6aVar, List<o6a> list, boolean z);
+        void a(int i, String str, iba ibaVar, List<aba> list, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     }
 
     /* loaded from: classes7.dex */
-    public class a extends jb {
+    public class a extends kb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalCardCategoryModel a;
@@ -72,7 +72,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
             this.a = personalCardCategoryModel;
         }
 
-        @Override // com.baidu.tieba.jb
+        @Override // com.baidu.tieba.kb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -135,8 +135,8 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         this.c = 1;
         this.d = true;
         this.f = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        jz9.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        jz9.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        v3a.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        v3a.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
@@ -197,23 +197,23 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     }
 
     public void e0(long j, int i) {
-        List<o6a> list;
+        List<aba> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (list = this.b) != null && list.size() > 0) {
-            for (o6a o6aVar : list) {
-                if (o6aVar != null && o6aVar.a() != null && o6aVar.a().size() > 0) {
-                    for (r5a r5aVar : o6aVar.a()) {
-                        if (r5aVar != null) {
-                            if (r5aVar.a() == j) {
+            for (aba abaVar : list) {
+                if (abaVar != null && abaVar.a() != null && abaVar.a().size() > 0) {
+                    for (daa daaVar : abaVar.a()) {
+                        if (daaVar != null) {
+                            if (daaVar.a() == j) {
                                 if (i == 1) {
-                                    r5aVar.s(1);
+                                    daaVar.s(1);
                                 } else {
-                                    r5aVar.s(0);
+                                    daaVar.s(0);
                                 }
                             } else if (i == 1) {
-                                r5aVar.s(0);
-                            } else if (r5aVar.a() == r5a.k) {
-                                r5aVar.s(1);
+                                daaVar.s(0);
+                            } else if (daaVar.a() == daa.k) {
+                                daaVar.s(1);
                             }
                         }
                     }

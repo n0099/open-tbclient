@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.videopb;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PbCommentFloatActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rw6;
+import com.baidu.tieba.ww6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     public int t3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d09aa : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d09bf : invokeV.intValue;
     }
 
     public VideoPbCommentFloatFragment() {
@@ -50,9 +50,9 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.S3();
-            rw6 rw6Var = this.b0;
-            if (rw6Var != null) {
-                rw6Var.i(null);
+            ww6 ww6Var = this.b0;
+            if (ww6Var != null) {
+                ww6Var.i(null);
             }
         }
     }

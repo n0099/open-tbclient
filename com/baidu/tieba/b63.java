@@ -1,72 +1,99 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import androidx.annotation.AnyThread;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class b63 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
-    public static final boolean c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947596874, "Lcom/baidu/tieba/b63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947596874, "Lcom/baidu/tieba/b63;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947596874, "Lcom/baidu/tieba/b63;")) == null) {
+            return;
         }
-        a = js1.a;
-        b = c("swan_perf_stat_rectify", 0);
-        c = c("swan_perf_stat_overlay_rectify", 0);
-        if (a) {
-            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
-            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947596874, "Lcom/baidu/tieba/b63;");
         }
     }
 
-    public static boolean a() {
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            cc3 b0;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b0 = cc3.b0()) == null) {
+                return;
+            }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("appKey", b0.getAppId());
+            contentValues.put("launch_type", Integer.valueOf(ui3.c()));
+            contentValues.put("source", b0.W().T());
+            contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
+            ContentResolver contentResolver = jv2.c().getContentResolver();
+            if (contentResolver != null) {
+                contentResolver.insert(dj2.b(), contentValues);
+            }
+        }
+    }
+
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c;
+            int i = a;
+            if (i != -1) {
+                return i;
+            }
+            jv2.g0().getSwitch("swan_backstage_policy", 0);
+            a = 300;
+            if (300 < 60) {
+                a = 60;
+            } else if (300 > 3600) {
+                a = 3600;
+            }
+            return a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    @AnyThread
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            wo3.k(new a(), "SwanLaunchBehavior");
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            gv2.g0().getSwitch(str, i);
-            if (a) {
-                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
-            }
-            if (i == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
     }
 }

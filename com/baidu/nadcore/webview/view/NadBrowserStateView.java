@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fo0;
-import com.baidu.tieba.xa1;
+import com.baidu.tieba.ab1;
+import com.baidu.tieba.io0;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -64,7 +64,7 @@ public final class NadBrowserStateView extends FrameLayout {
 
     public final View a(ViewState viewState) {
         if (viewState != null) {
-            int i = xa1.$EnumSwitchMapping$0[viewState.ordinal()];
+            int i = ab1.$EnumSwitchMapping$0[viewState.ordinal()];
             if (i != 1) {
                 if (i == 2) {
                     return this.a;
@@ -79,7 +79,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public final void b(ViewState viewState) {
         View view2;
         if (viewState != null) {
-            int i = xa1.$EnumSwitchMapping$3[viewState.ordinal()];
+            int i = ab1.$EnumSwitchMapping$3[viewState.ordinal()];
             if (i != 1) {
                 if (i == 2 && (view2 = this.a) != null) {
                     Intrinsics.checkNotNull(view2);
@@ -106,7 +106,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public final void f(ViewState viewState) {
         View view2;
         if (viewState != null) {
-            int i = xa1.$EnumSwitchMapping$2[viewState.ordinal()];
+            int i = ab1.$EnumSwitchMapping$2[viewState.ordinal()];
             if (i != 1) {
                 if (i == 2 && (view2 = this.a) != null) {
                     Intrinsics.checkNotNull(view2);
@@ -153,7 +153,7 @@ public final class NadBrowserStateView extends FrameLayout {
     }
 
     public final boolean g() {
-        if (fo0.b().a().a("nairobi_use_navi_loading_view", 1) == 1) {
+        if (io0.b().a().a("nairobi_use_navi_loading_view", 1) == 1) {
             return true;
         }
         return false;
@@ -193,7 +193,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public final void setViewForState(View view2, ViewState viewState) {
         if (view2 != null) {
             if (viewState != null) {
-                int i = xa1.$EnumSwitchMapping$1[viewState.ordinal()];
+                int i = ab1.$EnumSwitchMapping$1[viewState.ordinal()];
                 if (i != 1) {
                     if (i == 2) {
                         View view3 = this.a;

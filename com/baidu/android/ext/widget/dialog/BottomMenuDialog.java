@@ -303,7 +303,7 @@ public class BottomMenuDialog extends DialogFragment {
             getDialog().getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003dd);
             View inflate = layoutInflater.inflate(R.layout.bottom_menu_dialog, viewGroup);
             this.mRootView = inflate;
-            inflate.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b89));
+            inflate.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b8b));
             TextView textView = (TextView) this.mRootView.findViewById(R.id.menu_title);
             this.mTitleView = textView;
             textView.setText(this.mTitle);

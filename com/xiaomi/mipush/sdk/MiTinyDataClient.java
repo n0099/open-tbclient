@@ -37,14 +37,14 @@ public class MiTinyDataClient {
         public String f40a;
 
         /* renamed from: a  reason: collision with other field name */
-        public C0770a f38a = new C0770a();
+        public C0780a f38a = new C0780a();
 
         /* renamed from: a  reason: collision with other field name */
         public final ArrayList<hl> f41a = new ArrayList<>();
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class C0770a {
+        public class C0780a {
 
             /* renamed from: a  reason: collision with other field name */
             public ScheduledFuture<?> f44a;
@@ -58,7 +58,7 @@ public class MiTinyDataClient {
             /* renamed from: a  reason: collision with other field name */
             public final Runnable f42a = new ab(this);
 
-            public C0770a() {
+            public C0780a() {
             }
 
             /* JADX INFO: Access modifiers changed from: private */

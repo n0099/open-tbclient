@@ -1,48 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface ija<D> {
-    void a(@NonNull WriteData writeData);
+public class ija {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(WriteData writeData);
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return str + ".jpg";
+        }
+        return (String) invokeL.objValue;
+    }
 
-    void d();
+    public static String b(String str, long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (i == 0) {
+                return q1b.b(str);
+            }
+            return q1b.b(str) + "_" + j;
+        }
+        return (String) invokeCommon.objValue;
+    }
 
-    void e(@NonNull WriteData writeData);
-
-    boolean g();
-
-    void h(@Nullable String str, @NonNull WriteData writeData);
-
-    void j(@NonNull kja kjaVar);
-
-    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
-
-    boolean o();
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    void onChangeSkinType(int i);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void q(@NonNull List<ija<?>> list);
-
-    void r(yh5 yh5Var);
-
-    View s(@NonNull ViewGroup viewGroup);
-
-    boolean t();
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return str + File.separator + str2 + ".jpg";
+        }
+        return (String) invokeLL.objValue;
+    }
 }

@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Intent;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.media.AudioManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.LayoutInflater;
+import android.view.OrientationEventListener;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.payment.PaymentManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.SwanAppErrorActivity;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView;
 import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
-import com.baidu.tieba.b84;
-import com.baidu.tieba.ib2;
-import com.baidu.tieba.p84;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
+import com.baidu.swan.support.v4.app.FragmentActivity;
+import com.baidu.tieba.jb3;
+import com.baidu.tieba.wf4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,49 +42,82 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.lang.ref.WeakReference;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class z74 {
+public class z74 extends ib2 implements nc4, jb3.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
-    public static volatile z74 k;
+    public static final boolean j1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final Object b;
-    public SwanCoreVersion c;
-    public ExtensionCore d;
-    public b84 e;
-    public List<f> f;
-    public boolean g;
-    public boolean h;
-    public String i;
+    public DuMixGameSurfaceView G0;
+    public View H0;
+    public ImageView I0;
+    public View J0;
+    public ImageView K0;
+    public FrameLayout L0;
+    public View M0;
+    public xe4 N0;
+    public xe4 O0;
+    public mc4 P0;
+    public jb3 Q0;
+    public ve4 R0;
+    public TextView S0;
+    public boolean T0;
+    public m U0;
+    public volatile boolean V0;
+    public AudioManager W0;
+    public boolean X0;
+    public l Y0;
+    public OrientationEventListener Z0;
+    public String a1;
+    public GameCloseGuidePopView b1;
+    public wf4 c1;
+    public boolean d1;
+    public View e1;
+    public boolean f1;
+    public long g1;
+    public long h1;
+    public boolean i1;
 
-    /* loaded from: classes8.dex */
-    public interface f {
-        void onReady();
+    @Override // com.baidu.tieba.ib2
+    public boolean e2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ib2
+    public boolean g2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes8.dex */
-    public class c implements f {
+    public class b extends OrientationEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p84.c a;
+        public final /* synthetic */ kj2 a;
         public final /* synthetic */ z74 b;
 
         /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
+            public final /* synthetic */ b a;
 
-            public a(c cVar) {
+            public a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
+                    Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -81,33 +127,137 @@ public class z74 {
                         return;
                     }
                 }
-                this.a = cVar;
+                this.a = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                SwanAppActivity activity;
+                int b;
                 Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.b.h || this.a.b.e == null || (activity = mx2.T().getActivity()) == null || activity.isFinishing() || activity.Y() == null) {
-                    return;
-                }
-                if (z74.j) {
-                    Log.d("SwanGameCoreRuntime", "loadAppJs start: " + this.a.b.i);
-                }
-                this.a.b.e.k(activity);
-                this.a.b.e.t(this.a.a);
-                if (this.a.b.v()) {
-                    this.a.b.F(activity);
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && lp3.q(this.a.b.getActivity(), this.a.b.H0) && (b = lp3.b(this.a.b.getActivity())) > 0) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.b.H0.getLayoutParams();
+                    layoutParams.rightMargin += b;
+                    this.a.b.H0.setLayoutParams(layoutParams);
+                    t84.e().b(b);
                 }
             }
         }
 
-        public c(z74 z74Var, p84.c cVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(z74 z74Var, Context context, int i, kj2 kj2Var) {
+            super(context, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z74Var, cVar};
+                Object[] objArr = {z74Var, context, Integer.valueOf(i), kj2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = z74Var;
+            this.a = kj2Var;
+        }
+
+        @Override // android.view.OrientationEventListener
+        @SuppressLint({"SourceLockedOrientationActivity"})
+        public void onOrientationChanged(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.b.N0.h()) {
+                return;
+            }
+            if (260 < i && i < 280 && !this.b.a1.equals("landscape")) {
+                this.b.c0.setRequestedOrientation(0);
+                this.b.a1 = "landscape";
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.H0.getLayoutParams();
+                layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070175);
+                this.b.H0.setLayoutParams(layoutParams);
+                t84.e().b(0);
+                ud4.a(this.a, this.b.a1);
+                if (z74.j1) {
+                    Log.d("SwanGameFragment", "onOrientationChanged: " + this.b.a1);
+                }
+            } else if (80 < i && i < 100 && !this.b.a1.endsWith("landscapeReverse")) {
+                this.b.c0.setRequestedOrientation(8);
+                this.b.a1 = "landscapeReverse";
+                ud4.a(this.a, this.b.a1);
+                if (z74.j1) {
+                    Log.d("SwanGameFragment", "onOrientationChanged: " + this.b.a1);
+                }
+                this.b.H0.postDelayed(new a(this), 100L);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class l implements AudioManager.OnAudioFocusChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
+
+        /* loaded from: classes8.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ int a;
+            public final /* synthetic */ l b;
+
+            public a(l lVar, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {lVar, Integer.valueOf(i)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = lVar;
+                this.a = i;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.a.H3()) {
+                    return;
+                }
+                int i = this.a;
+                if (i != -2) {
+                    if (i == -1) {
+                        if (z74.j1) {
+                            Log.d("SwanGameFragment", "--focusChange AUDIOFOCUS_LOSS");
+                        }
+                        this.b.a.W2();
+                        return;
+                    }
+                    return;
+                }
+                if (z74.j1) {
+                    Log.d("SwanGameFragment", "--focusChange AUDIOFOCUS_LOSS_TRANSIENT");
+                }
+                this.b.a.W2();
+            }
+        }
+
+        public l(z74 z74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z74Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,24 +267,27 @@ public class z74 {
                     return;
                 }
             }
-            this.b = z74Var;
-            this.a = cVar;
+            this.a = z74Var;
         }
 
-        @Override // com.baidu.tieba.z74.f
-        public void onReady() {
+        @Override // android.media.AudioManager.OnAudioFocusChangeListener
+        public void onAudioFocusChange(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e53.p("startup").F(new UbcFlowEvent("na_prepare_runtime_end"));
-                tp3.e0(new a(this));
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                wp3.e0(new a(this, i));
             }
+        }
+
+        public /* synthetic */ l(z74 z74Var, c cVar) {
+            this(z74Var);
         }
     }
 
     /* loaded from: classes8.dex */
-    public class a implements f {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
 
         public a(z74 z74Var) {
             Interceptable interceptable = $ic;
@@ -148,27 +301,28 @@ public class z74 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = z74Var;
         }
 
-        @Override // com.baidu.tieba.z74.f
-        public void onReady() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && z74.j) {
-                rb3 f = rb3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01ab);
-                f.l(1);
-                f.G();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.L0.removeView(this.a.M0);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements Runnable {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
 
-        public b(z74 z74Var) {
+        public c(z74 z74Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -180,25 +334,23 @@ public class z74 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = z74Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Intent addFlags = new Intent().putExtra("swan_error_type", "type_load_v8_failed").setComponent(new ComponentName(AppRuntime.getAppContext(), SwanAppErrorActivity.class)).addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (zb3.M() != null) {
-                    io3.j(zb3.M().w());
-                }
-                AppRuntime.getAppContext().startActivity(addFlags);
+                t84.j().a(this.a.d0, this.a.getContext());
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class d implements b84.e {
+    public class d implements View.OnSystemUiVisibilityChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z74 a;
@@ -221,16 +373,15 @@ public class z74 {
             this.a = z74Var;
         }
 
-        @Override // com.baidu.tieba.b84.e
-        public void a(hj2 hj2Var) {
+        @Override // android.view.View.OnSystemUiVisibilityChangeListener
+        public void onSystemUiVisibilityChange(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hj2Var) == null) {
-                if (z74.j) {
-                    Log.d("SwanGameCoreRuntime", "prepareMaster end.");
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (z74.j1) {
+                    Log.d("SwanGameFragment", "onSystemUiVisibilityChange:" + i + ",mIsForeground:" + this.a.V0);
                 }
-                synchronized (this.a.b) {
-                    this.a.g = true;
-                    this.a.w();
+                if (this.a.V0 || this.a.G3()) {
+                    lo3.e(this.a.c0);
                 }
             }
         }
@@ -240,6 +391,7 @@ public class z74 {
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
 
         public e(z74 z74Var) {
             Interceptable interceptable = $ic;
@@ -253,15 +405,349 @@ public class z74 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = z74Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f015c, 1).show();
+                int e = lp3.e(this.a.getContext());
+                if (lp3.q(this.a.getActivity(), this.a.H0) && !((SwanAppActivity) this.a.getActivity()).j0()) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.H0.getLayoutParams();
+                    layoutParams.topMargin = this.a.H0.getTop() + e;
+                    this.a.H0.setLayoutParams(layoutParams);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
+
+        public f(z74 z74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z74Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.l2();
+                fj3 fj3Var = new fj3();
+                fj3Var.e = "menu";
+                this.a.C1(fj3Var);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class g implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
+
+        public g(z74 z74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z74Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (z74.j1 && b83.e()) {
+                    return;
+                }
+                cc3 M = cc3.M();
+                if (M != null && TextUtils.equals(cc3.g0(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So")) {
+                    this.a.N3();
+                } else if (M != null && kp2.a().b()) {
+                    this.a.M3("exitButton");
+                } else {
+                    p84 p84Var = new p84();
+                    p84Var.e();
+                    if (p84Var.f()) {
+                        t84.h().a(this.a.c0, p84Var, this.a.u3());
+                    } else {
+                        this.a.M3("exitButton");
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class h implements wf4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
+
+        public h(z74 z74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z74Var;
+        }
+
+        @Override // com.baidu.tieba.wf4.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.J3("pandacontinue");
+            this.a.c1.dismiss();
+        }
+
+        @Override // com.baidu.tieba.wf4.a
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
+            this.a.J3("pandaclose");
+            this.a.c1.dismiss();
+        }
+
+        @Override // com.baidu.tieba.wf4.a
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+                return;
+            }
+            this.a.J3("pandaexit");
+            this.a.c1.dismiss();
+            this.a.t3();
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class i implements GameCloseGuidePopView.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
+
+        public i(z74 z74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z74Var;
+        }
+
+        @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.t3();
+        }
+
+        @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
+            this.a.t3();
+        }
+
+        @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.e
+        public void c() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.b1 != null) {
+                this.a.L0.removeView(this.a.b1);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class j implements t94 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
+
+        public j(z74 z74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z74Var;
+        }
+
+        @Override // com.baidu.tieba.t94
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.t3();
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class k implements GameCloseGuidePopView.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z74 a;
+
+        @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.e
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        public k(z74 z74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z74Var;
+        }
+
+        @Override // com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.e1 != null) {
+                    this.a.L0.removeView(this.a.e1);
+                    this.a.e1 = null;
+                }
+                this.a.t3();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class m extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<TextView> a;
+        public WeakReference<DuMixGameSurfaceView> b;
+
+        public m(TextView textView, DuMixGameSurfaceView duMixGameSurfaceView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {textView, duMixGameSurfaceView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(textView);
+            this.b = new WeakReference<>(duMixGameSurfaceView);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            int fps;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                TextView textView = this.a.get();
+                DuMixGameSurfaceView duMixGameSurfaceView = this.b.get();
+                if (textView != null) {
+                    if (duMixGameSurfaceView == null) {
+                        fps = 0;
+                    } else {
+                        fps = duMixGameSurfaceView.getFPS();
+                    }
+                    String valueOf = String.valueOf(fps);
+                    textView.setText(valueOf);
+                    if (z74.j1) {
+                        Log.d("SwanGameFragment", "gameFps:" + valueOf);
+                    }
+                }
+                sendEmptyMessageDelayed(0, 500L);
             }
         }
     }
@@ -279,165 +765,153 @@ public class z74 {
                 return;
             }
         }
-        j = js1.a;
+        j1 = ms1.a;
     }
 
-    public static z74 m() {
+    public static z74 I3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (k == null) {
-                synchronized (z74.class) {
-                    if (k == null) {
-                        k = new z74();
-                    }
-                }
-            }
-            return k;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new z74();
         }
         return (z74) invokeV.objValue;
     }
 
-    public void H() {
-        b84 b84Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (b84Var = this.e) != null) {
-            b84Var.o().C0();
-        }
-    }
-
-    public final void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ExtensionCore extensionCore = this.d;
-            if (extensionCore == null || !extensionCore.isAvailable()) {
-                if (j) {
-                    Log.w("SwanGameCoreRuntime", "updateExtensionCoreIfNeeded: ExtensionCore is invalid");
-                }
-                D(im2.c(1));
-            }
-        }
-    }
-
-    public final void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            SwanCoreVersion swanCoreVersion = this.c;
-            if (swanCoreVersion == null || !swanCoreVersion.isAvailable()) {
-                E(o());
-            }
-        }
-    }
-
-    public int j() {
+    public xe4 A3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            b84 b84Var = this.e;
-            if (b84Var != null) {
-                return b84Var.n();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.O0;
         }
-        return invokeV.intValue;
+        return (xe4) invokeV.objValue;
     }
 
-    @Nullable
-    public ExtensionCore k() {
+    public final void B3() {
+        DuMixGameSurfaceView duMixGameSurfaceView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (duMixGameSurfaceView = this.G0) == null) {
+            return;
+        }
+        duMixGameSurfaceView.setOnSystemUiVisibilityChangeListener(new d(this));
+    }
+
+    public boolean F3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return !this.V0;
         }
-        return (ExtensionCore) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String l() {
+    public final boolean G3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            SwanCoreVersion swanCoreVersion = this.c;
-            if (swanCoreVersion != null && swanCoreVersion.isAvailable()) {
-                return this.c.swanCorePath;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            lb2 O1 = O1();
+            if (O1 != null && (O1.m() instanceof z74)) {
+                return true;
             }
-            return "";
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public hj2 n() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ib2
+    public void O2() {
+        DuMixGameSurfaceView duMixGameSurfaceView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            b84 b84Var = this.e;
-            if (b84Var != null) {
-                return b84Var.o();
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (duMixGameSurfaceView = this.G0) != null && duMixGameSurfaceView.getV8Engine() != null) {
+            this.G0.getV8Engine().dispatchEvent(new JSEvent("sharebtn"));
         }
-        return (hj2) invokeV.objValue;
     }
 
-    public DuMixGameSurfaceView r() {
+    public final void Q3() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && tp3.F(this.c0)) {
+            ub3.f(jv2.c(), R.string.obfuscated_res_0x7f0f01ac).G();
+            this.c0.finishAndRemoveTask();
+        }
+    }
+
+    @Override // com.baidu.tieba.nc4
+    @NonNull
+    public mc4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            b84 b84Var = this.e;
-            if (b84Var != null) {
-                return b84Var.p();
-            }
-            return null;
+            return this.P0;
         }
-        return (DuMixGameSurfaceView) invokeV.objValue;
+        return (mc4) invokeV.objValue;
     }
 
-    public SwanCoreVersion s() {
+    @Override // com.baidu.tieba.jb3.a
+    public jb3 getFloatLayer() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.c;
-        }
-        return (SwanCoreVersion) invokeV.objValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        boolean z;
+        xe4 xe4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            synchronized (this.b) {
-                if (this.g && this.e != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
+            if (this.Q0 == null && (xe4Var = this.O0) != null && xe4Var.getRootView() != null) {
+                this.Q0 = new jb3(this, this.O0.getRootView(), 0);
             }
-            return z;
+            return this.Q0;
         }
-        return invokeV.booleanValue;
+        return (jb3) invokeV.objValue;
     }
 
-    public boolean v() {
+    public final t94 u3() {
         InterceptResult invokeV;
-        DuMixGameSurfaceView r;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (this.h || (r = r()) == null || r.getParent() != null) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return new j(this);
         }
-        return invokeV.booleanValue;
+        return (t94) invokeV.objValue;
     }
 
-    public final void y() {
+    public final GameCloseGuidePopView.e v3() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            if (j) {
-                Log.d("SwanGameCoreRuntime", "preloadCoreRuntime by release");
-            }
-            z(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return new k(this);
         }
+        return (GameCloseGuidePopView.e) invokeV.objValue;
+    }
+
+    @NonNull
+    public ve4 w3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.R0;
+        }
+        return (ve4) invokeV.objValue;
+    }
+
+    public View x3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return this.H0;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public xe4 y3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.N0;
+        }
+        return (xe4) invokeV.objValue;
+    }
+
+    public ji4 z3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return this.g0;
+        }
+        return (ji4) invokeV.objValue;
     }
 
     public z74() {
@@ -445,310 +919,578 @@ public class z74 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = new Object();
-        this.f = new CopyOnWriteArrayList();
+        this.P0 = new mc4();
+        this.R0 = new ve4();
+        this.V0 = true;
+        this.a1 = "landscape";
+        this.d1 = false;
+        this.i1 = false;
     }
 
-    public static synchronized void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (z74.class) {
-                if (j) {
-                    Log.d("SwanGameCoreRuntime", "release");
-                }
-                if (k == null) {
-                    return;
-                }
-                k.h = true;
-                if (k.e != null) {
-                    k.e.m();
-                }
-                k = null;
-                m().y();
-            }
-        }
-    }
-
-    public final int p() {
+    public final boolean H3() {
         InterceptResult invokeV;
+        boolean booleanValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.a < 0) {
-                gv2.g0().getSwitch("swan_game_preload", 0);
-                this.a = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            cc3 M = cc3.M();
+            if (M == null) {
+                booleanValue = false;
+            } else {
+                booleanValue = M.U().c("key_audio_is_mix_with_other", Boolean.FALSE).booleanValue();
             }
-            if (j) {
-                Log.d("SwanGameCoreRuntime", "getPreLoadABSwitch:" + this.a);
+            if (j1) {
+                Log.d("SwanGameFragment", "   isMixWithOther -> " + booleanValue);
             }
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            gv2.g0().getSwitch("swan_game_startup_improvement", false);
-            if (j) {
-                Log.d("SwanGameCoreRuntime", "getPushFragmentABSwitch:false");
-            }
-            return false;
+            return booleanValue;
         }
         return invokeV.booleanValue;
     }
 
-    public final void w() {
+    public boolean N3() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048600, this) != null) || this.h || this.f.isEmpty() || !u()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.c1 == null) {
+                wf4 wf4Var = new wf4(getContext());
+                this.c1 = wf4Var;
+                wf4Var.e(new h(this));
+            }
+            J3("pandadialog");
+            this.c1.show();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void O3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (this.T0) {
+                if (j1) {
+                    Log.d("SwanGameFragment", "Fps monitor already started");
+                    return;
+                }
+                return;
+            }
+            this.T0 = true;
+            m mVar = new m(this.S0, this.G0);
+            this.U0 = mVar;
+            mVar.sendEmptyMessage(0);
+            if (j1) {
+                Log.d("SwanGameFragment", "Start fps monitor");
+            }
+        }
+    }
+
+    public final void P3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            if (!this.T0) {
+                if (j1) {
+                    Log.d("SwanGameFragment", "fps monitor not started yet");
+                    return;
+                }
+                return;
+            }
+            this.T0 = false;
+            m mVar = this.U0;
+            if (mVar != null) {
+                mVar.removeMessages(0);
+                this.U0 = null;
+            }
+            if (j1) {
+                Log.d("SwanGameFragment", "Stop fps monitor");
+            }
+        }
+    }
+
+    public void W2() {
+        l lVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || !this.X0) {
             return;
         }
-        for (f fVar : this.f) {
-            if (fVar != null) {
-                fVar.onReady();
+        AudioManager audioManager = this.W0;
+        if (audioManager != null && (lVar = this.Y0) != null) {
+            audioManager.abandonAudioFocus(lVar);
+            this.W0 = null;
+            this.Y0 = null;
+        }
+        this.X0 = false;
+        if (j1) {
+            Log.d("SwanGameFragment", "   abandonAudioFocus");
+        }
+    }
+
+    @Override // com.baidu.tieba.ib2, com.baidu.swan.support.v4.app.Fragment
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            if (j1) {
+                Log.d("SwanGameFragment", "onPause() obj: " + this);
+            }
+            super.onPause();
+            if (Z()) {
+                pause();
             }
         }
-        this.f.clear();
     }
 
-    public void G(ww2 ww2Var) {
+    @Override // com.baidu.tieba.ib2, com.baidu.swan.support.v4.app.Fragment
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ww2Var) == null) {
-            ExtensionCore extensionCore = this.d;
-            if (extensionCore != null) {
-                ww2Var.C0(extensionCore);
-            } else {
-                this.d = ww2Var.O();
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            if (j1) {
+                Log.d("SwanGameFragment", "onResume() obj: " + this);
+            }
+            super.onResume();
+            if (Z()) {
+                resume();
             }
         }
     }
 
-    public void h(Activity activity) {
-        b84 b84Var;
+    public final void t3() {
+        Activity activity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, activity) == null) && (b84Var = this.e) != null) {
-            b84Var.k(activity);
+        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && (activity = this.c0) != null && (activity instanceof SwanAppActivity)) {
+            activity.moveTaskToBack(true);
+            fj3 fj3Var = new fj3();
+            fj3Var.e = "close";
+            C1(fj3Var);
+            ((SwanAppActivity) this.c0).Z(1);
+            eq3.b().e(2);
+            q54.g("0");
         }
     }
 
-    public void i(JSEvent jSEvent) {
-        b84 b84Var;
+    public final void J3(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, jSEvent) == null) && (b84Var = this.e) != null) {
-            b84Var.o().dispatchEvent(jSEvent);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && !TextUtils.isEmpty(str)) {
+            fj3 fj3Var = new fj3();
+            fj3Var.e = str;
+            C1(fj3Var);
         }
     }
 
-    public final boolean t(Intent intent) {
+    public void L3(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.d1 = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.ib2, com.baidu.swan.support.v4.app.Fragment, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, configuration) == null) {
+            super.onConfigurationChanged(configuration);
+            Q3();
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void v0(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048608, this, bundle) == null) {
+            super.v0(bundle);
+            wo3.j(new c(this), "SwanGamePageHistory");
+        }
+    }
+
+    public final void C3(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092555);
+            this.H0 = findViewById;
+            findViewById.post(new e(this));
+            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092557);
+            this.J0 = view2.findViewById(R.id.obfuscated_res_0x7f092558);
+            this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092556);
+            this.I0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08013e));
+            this.K0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080129));
+            this.J0.setBackgroundResource(R.color.obfuscated_res_0x7f0603fa);
+            this.H0.setBackgroundResource(R.drawable.obfuscated_res_0x7f08013a);
+            this.I0.setOnClickListener(new f(this));
+            this.K0.setOnClickListener(new g(this));
+        }
+    }
+
+    public void E3(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090195);
+            this.L0 = frameLayout;
+            DuMixGameSurfaceView r = c84.m().r();
+            this.G0 = r;
+            if (r != null && r.getParent() == null) {
+                frameLayout.addView(this.G0, 0, new FrameLayout.LayoutParams(-1, -1));
+                if (j1) {
+                    Log.d("SwanGameFragment", "SwanGameCoreRuntime GameSurfaceView is added");
+                }
+            }
+            if (j1 && !b83.n()) {
+                View inflate = ((ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090193)).inflate();
+                if (inflate != null) {
+                    this.S0 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090192);
+                }
+                O3();
+            }
+            C3(view2);
+            this.O0 = new xe4((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090196));
+            this.N0 = new xe4(this.L0);
+        }
+    }
+
+    public boolean M3(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, intent)) == null) {
-            int p = p();
-            if (p == 1) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            String a2 = vf4.a();
+            if (TextUtils.equals(a2, vf4.b(GfhKeyValue.TYPE_DATE))) {
+                if (TextUtils.equals(str, "exitButton")) {
+                    t3();
+                    return false;
+                }
+                return false;
+            }
+            View a3 = t84.e().a(this.c0, v3());
+            this.e1 = a3;
+            if (a3 != null) {
+                this.L0.addView(a3);
+                this.f1 = true;
+                vf4.c(GfhKeyValue.TYPE_DATE, a2);
                 return true;
             }
-            if (p == 2 && intent == null) {
-                return true;
+            if (this.b1 == null) {
+                GameCloseGuidePopView gameCloseGuidePopView = new GameCloseGuidePopView(getContext());
+                this.b1 = gameCloseGuidePopView;
+                gameCloseGuidePopView.setOnClickListener(new i(this));
             }
-            return false;
+            this.L0.addView(this.b1);
+            vf4.c(GfhKeyValue.TYPE_DATE, a2);
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final void A() {
+    public void D3() {
+        FragmentActivity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.b) {
-                if (!this.g && this.e == null) {
-                    K();
-                    J();
-                    String l = l();
-                    if (TextUtils.isEmpty(l) || this.h) {
-                        return;
-                    }
-                    if (j) {
-                        Log.d("SwanGameCoreRuntime", "prepareMaster start: " + l);
-                    }
-                    b84 b84Var = new b84(l, "swan-game.js");
-                    this.e = b84Var;
-                    b84Var.v(new d(this));
-                }
-            }
-        }
-    }
-
-    public void B(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-            if (j) {
-                Log.d("SwanGameCoreRuntime", "prepareRuntime");
-            }
-            if (fVar != null && !this.f.contains(fVar)) {
-                this.f.add(fVar);
-            }
-            if (u()) {
-                w();
-            } else {
-                A();
-            }
-        }
-    }
-
-    public final void E(SwanCoreVersion swanCoreVersion) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, swanCoreVersion) == null) && swanCoreVersion != null && swanCoreVersion.isAvailable()) {
-            this.c = swanCoreVersion;
-            if (j) {
-                Log.d("SwanGameCoreRuntime", "setSwanCoreVersion: " + this.c);
-            }
-        }
-    }
-
-    public void F(SwanAppActivity swanAppActivity) {
-        ib2 Y;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, swanAppActivity) != null) || swanAppActivity == null || swanAppActivity.isFinishing() || (Y = swanAppActivity.Y()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (activity = getActivity()) == null) {
             return;
         }
-        ib2.b h = Y.h();
-        h.n(0, 0);
-        h.f();
-        h.j(w74.I3());
-        h.b();
-    }
-
-    public void I(ww2 ww2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ww2Var) == null) {
-            K();
-            SwanCoreVersion swanCoreVersion = this.c;
-            if (swanCoreVersion != null) {
-                ww2Var.Z0(swanCoreVersion);
+        if (this.d1) {
+            ji4 ji4Var = this.g0;
+            if (ji4Var != null && ji4Var.i()) {
+                this.g0.g(false);
             }
-            if (j) {
-                Log.d("SwanGameCoreRuntime", "syncSwanCore mSwanCoreVersion: " + this.c);
+            this.g0 = null;
+            this.d1 = false;
+        }
+        if (this.h0 == null) {
+            this.h0 = new SwanAppMenuHeaderView(getContext());
+        }
+        if (this.g0 == null) {
+            ji4 ji4Var2 = new ji4(activity, this.H0, 0, jv2.K(), new lr3());
+            this.g0 = ji4Var2;
+            ji4Var2.m(lo3.c());
+            this.P0.b(this.g0);
+            qt1 F = px2.T().F();
+            if (F != null) {
+                F.b(this.g0);
             }
+            new s13(this.g0, this, this.h0).z();
         }
     }
 
-    public void D(ExtensionCore extensionCore) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, extensionCore) == null) {
-            if (extensionCore != null && extensionCore.isAvailable()) {
-                if (j) {
-                    Log.d("SwanGameCoreRuntime", "setExtensionCore: " + this.d);
-                }
-                this.d = extensionCore;
-            } else if (j) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("setExtensionCore invalid: ");
-                Object obj = extensionCore;
-                if (extensionCore == null) {
-                    obj = " null";
-                }
-                sb.append(obj);
-                Log.w("SwanGameCoreRuntime", sb.toString());
-            }
-        }
-    }
-
-    public void z(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, intent) == null) {
-            if (j) {
-                String str = null;
-                if (intent != null) {
-                    str = intent.getStringExtra("bundle_key_preload_preload_scene");
-                }
-                Log.d("SwanGameCoreRuntime", "preloadCoreRuntime preloadScene:" + str);
-            }
-            if (u() || !t(intent)) {
-                return;
-            }
-            boolean b2 = sh3.c().b();
-            boolean b3 = sh3.b();
-            if (b2 && b3) {
-                B(new a(this));
-            }
-        }
-    }
-
-    public final SwanCoreVersion o() {
+    @Override // com.baidu.tieba.ib2
+    public boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (e84.a("package")) {
-                if (TextUtils.isEmpty(this.i)) {
-                    return null;
-                }
-                if (!new File(this.i, "swan-game.js").exists()) {
-                    tp3.e0(new e(this));
-                    return el3.g(1);
-                }
-                SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-                swanCoreVersion.swanCorePath = this.i;
-                swanCoreVersion.swanCoreType = 2;
-                return swanCoreVersion;
-            } else if (!e84.a("normal") && !y73.h()) {
-                return el3.g(1);
-            } else {
-                SwanCoreVersion swanCoreVersion2 = new SwanCoreVersion();
-                swanCoreVersion2.swanCorePath = d84.b().getAbsolutePath();
-                swanCoreVersion2.swanCoreType = 2;
-                if (j) {
-                    Log.d("SwanGameCoreRuntime", "getPreGameCoreVersion DebugSwanGameCoreMode");
-                }
-                return swanCoreVersion2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (PaymentManager.k()) {
+                return PaymentManager.k();
             }
+            cc3 M = cc3.M();
+            if (M != null && TextUtils.equals(cc3.g0(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So")) {
+                return N3();
+            }
+            if (M != null && kp2.a().b()) {
+                return M3("backButton");
+            }
+            p84 p84Var = new p84();
+            p84Var.e();
+            if (p84Var.f()) {
+                t84.h().a(this.c0, p84Var, u3());
+                return true;
+            }
+            return M3("backButton");
         }
-        return (SwanCoreVersion) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void x(p84.c cVar) {
-        String str;
+    @Override // com.baidu.tieba.ib2
+    public void l2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, cVar) == null) {
-            if (j) {
-                Log.d("SwanGameCoreRuntime", "onAppReady");
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            Context context = getContext();
+            if (context instanceof Activity) {
+                dp3.a(context, ((Activity) context).getWindow().getDecorView().getWindowToken());
             }
-            if (cVar != null && !TextUtils.isEmpty(cVar.a)) {
-                this.i = cVar.a;
-                HybridUbcFlow p = e53.p("startup");
-                if (u()) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                p.D("preload", str);
-                e53.p("startup").F(new UbcFlowEvent("na_prepare_runtime_start"));
-                boolean b2 = sh3.c().b();
-                boolean b3 = sh3.b();
-                if (b2 && b3) {
-                    B(new c(this, cVar));
-                    if (this.e != null) {
-                        na4.b().f(this.e.o(), cVar);
-                        return;
-                    }
-                    return;
-                }
-                if (zb3.M() != null) {
-                    aj3 aj3Var = new aj3();
-                    aj3Var.q(si3.n(1));
-                    aj3Var.r(zb3.M().Y());
-                    aj3Var.l("gameCoreRuntime", "loadv8Failed");
-                    si3.R(aj3Var);
-                }
-                tp3.e0(new b(this));
+            D3();
+            SwanAppMenuHeaderView swanAppMenuHeaderView = this.h0;
+            if (swanAppMenuHeaderView != null) {
+                swanAppMenuHeaderView.setAttentionBtnStates(aj2.n(bc3.K().getAppId()));
+            }
+            if (cc3.b0() != null) {
+                this.g0.o(cc3.b0().W().d0());
+            }
+            this.g0.u(jv2.M().a(), J1(), this.h0, false);
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void z0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+            if (j1) {
+                Log.d("SwanGameFragment", "onDestroy() obj: " + this);
+                P3();
+            }
+            DuMixGameSurfaceView duMixGameSurfaceView = this.G0;
+            if (duMixGameSurfaceView != null) {
+                duMixGameSurfaceView.setOnSystemUiVisibilityChangeListener(null);
+                this.G0.q();
+            }
+            if (this.f1) {
+                this.e1 = null;
+                t84.e().release();
+            }
+            xe4 xe4Var = this.N0;
+            if (xe4Var != null) {
+                xe4Var.l();
+            }
+            xe4 xe4Var2 = this.O0;
+            if (xe4Var2 != null) {
+                xe4Var2.l();
+            }
+            this.R0.d();
+            bz2.c();
+            m84.g(false);
+            m84.k();
+            super.z0();
+        }
+    }
+
+    public final void K3() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || H3() || this.X0) {
+            return;
+        }
+        if (this.W0 == null) {
+            AudioManager audioManager = (AudioManager) AppRuntime.getAppContext().getSystemService("audio");
+            this.W0 = audioManager;
+            if (audioManager == null) {
+                return;
             }
         }
+        if (this.Y0 == null) {
+            this.Y0 = new l(this, null);
+        }
+        boolean z = true;
+        if (this.W0.requestAudioFocus(this.Y0, 3, 1) != 1) {
+            z = false;
+        }
+        this.X0 = z;
+        if (j1) {
+            Log.d("SwanGameFragment", "   requestAudioFocus");
+        }
+    }
+
+    @Override // com.baidu.tieba.ib2, com.baidu.swan.support.v4.app.Fragment
+    public void n1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            super.n1(z);
+            if (j1) {
+                Log.d("SwanGameFragment", "setUserVisibleHint isVisibleToUser: " + z);
+            }
+            if (!l0()) {
+                return;
+            }
+            if (z) {
+                resume();
+            } else {
+                pause();
+            }
+        }
+    }
+
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            this.V0 = false;
+            W2();
+            if (this.M0 == null) {
+                this.M0 = new View(this.c0);
+            }
+            this.L0.removeView(this.M0);
+            this.L0.addView(this.M0, new FrameLayout.LayoutParams(-1, -1));
+            GameCloseGuidePopView gameCloseGuidePopView = this.b1;
+            if (gameCloseGuidePopView != null) {
+                this.L0.removeView(gameCloseGuidePopView);
+                this.b1 = null;
+            }
+            xe4 xe4Var = this.N0;
+            if (xe4Var != null) {
+                xe4Var.k();
+            }
+            xe4 xe4Var2 = this.O0;
+            if (xe4Var2 != null) {
+                xe4Var2.k();
+            }
+            DuMixGameSurfaceView duMixGameSurfaceView = this.G0;
+            if (duMixGameSurfaceView != null && duMixGameSurfaceView.getV8Engine() != null) {
+                kj2 v8Engine = this.G0.getV8Engine();
+                if (j1) {
+                    Log.d("SwanGameFragment", "pause() obj: " + this + " ,v8Engine: " + v8Engine);
+                }
+                if (!v8Engine.r0()) {
+                    v8Engine.onPause();
+                    v8Engine.dispatchEvent(new JSEvent("apphide"));
+                    vd4.a(v8Engine);
+                    EventTarget m2 = v8Engine.m();
+                    if (m2 instanceof j64) {
+                        ((j64) m2).hideKeyboard();
+                    }
+                }
+                f64.h().l();
+                if (this.i1) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    this.h1 = currentTimeMillis;
+                    j74.d(this.g1, currentTimeMillis);
+                }
+                p54.o().n();
+                bz2.j(false);
+                this.G0.s();
+                OrientationEventListener orientationEventListener = this.Z0;
+                if (orientationEventListener != null) {
+                    orientationEventListener.disable();
+                }
+                ji4 ji4Var = this.g0;
+                if (ji4Var != null && ji4Var.i()) {
+                    this.g0.g(false);
+                }
+            }
+        }
+    }
+
+    public void resume() {
+        Activity activity;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            K3();
+            DuMixGameSurfaceView duMixGameSurfaceView = this.G0;
+            if (duMixGameSurfaceView != null && duMixGameSurfaceView.getV8Engine() != null) {
+                kj2 v8Engine = this.G0.getV8Engine();
+                if (j1) {
+                    Log.d("SwanGameFragment", "resume() obj: " + this + " ,v8Engine: " + v8Engine);
+                }
+                this.V0 = true;
+                this.G0.t();
+                f64.h().k();
+                vd4.b(v8Engine);
+                Activity activity2 = this.c0;
+                if (activity2 != null && (activity2 instanceof SwanAppActivity)) {
+                    v8Engine.dispatchEvent(new fa4(((SwanAppActivity) activity2).T()));
+                }
+                v8Engine.onResume();
+                if (this.L0 != null && this.M0 != null) {
+                    wp3.b0(new a(this), 500L);
+                }
+                Activity activity3 = this.c0;
+                if (activity3 != null && (activity3 instanceof SwanAppActivity)) {
+                    boolean j0 = ((SwanAppActivity) activity3).j0();
+                    if (!this.N0.h()) {
+                        Activity activity4 = this.c0;
+                        if (j0) {
+                            if (this.a1.equals("landscape")) {
+                                i2 = 0;
+                            } else {
+                                i2 = 8;
+                            }
+                        } else {
+                            i2 = 1;
+                        }
+                        activity4.setRequestedOrientation(i2);
+                        this.N0.n(j0);
+                        this.O0.n(j0);
+                    }
+                    lo3.e(this.c0);
+                }
+                if (this.Z0 == null) {
+                    this.Z0 = new b(this, this.c0, 3, v8Engine);
+                }
+                if (this.Z0.canDetectOrientation() && (activity = this.c0) != null && ((SwanAppActivity) activity).j0()) {
+                    this.Z0.enable();
+                } else {
+                    this.Z0.disable();
+                }
+                this.i1 = false;
+                if (cc3.M() != null && cc3.M().Y() != null) {
+                    try {
+                        this.i1 = new JSONObject(cc3.M().Y().P().getString(PrefetchEvent.EVENT_DATA_EXTRA_DATA)).optBoolean("needDuration");
+                        this.g1 = System.currentTimeMillis();
+                    } catch (Exception e2) {
+                        if (j1) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                if (this.e1 != null) {
+                    t84.e().c();
+                }
+                p54.o().x();
+                bz2.j(true);
+                xe4 xe4Var = this.N0;
+                if (xe4Var != null) {
+                    xe4Var.m();
+                }
+                xe4 xe4Var2 = this.O0;
+                if (xe4Var2 != null) {
+                    xe4Var2.m();
+                }
+                Q3();
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public View y0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048612, this, layoutInflater, viewGroup, bundle)) == null) {
+            if (j1) {
+                Log.d("SwanGameFragment", "onCreateView obj: " + this);
+            }
+            if (lp3.p(getActivity())) {
+                lp3.s(getActivity());
+            }
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d008f, viewGroup, false);
+            E3(inflate);
+            B3();
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

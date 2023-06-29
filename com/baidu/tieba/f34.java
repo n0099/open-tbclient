@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
@@ -11,9 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.PushService;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f34 extends f44 {
+public class f34 extends i44 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,12 +33,12 @@ public class f34 extends f44 {
                 return;
             }
         }
-        c = js1.a;
+        c = ms1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f34() {
-        super("openApp");
+        super("checkAppInstalled");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,34 +54,39 @@ public class f34 extends f44 {
         }
     }
 
-    @Override // com.baidu.tieba.f44
-    public z32 a(@NonNull JSONObject jSONObject, @NonNull dp2 dp2Var) {
+    @Override // com.baidu.tieba.i44
+    public c42 a(@NonNull JSONObject jSONObject, @NonNull gp2 gp2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, dp2Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, gp2Var)) == null) {
             if (c) {
-                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
+                Log.d("checkAppInstalled", "handle: " + jSONObject);
             }
             String optString = jSONObject.optString("packageName");
             if (TextUtils.isEmpty(optString)) {
-                dp2Var.onFail(31010, "package name is empty");
+                gp2Var.onFail(31010, "package name is empty");
                 return null;
             }
-            a44.a(optString, "openApp", null, null, null);
-            if (!o34.h(AppRuntime.getAppContext(), optString)) {
-                dp2Var.onFail(31011, "app is not installed");
-                a44.a(optString, "openApp", "fail", String.valueOf(31011), null);
-                return null;
-            }
-            if (o34.l(AppRuntime.getAppContext(), optString)) {
-                dp2Var.onSuccess(null);
-                a44.a(optString, "openApp", "success", null, null);
-            } else {
-                dp2Var.onFail(31019, "open app fail");
-                a44.a(optString, "openApp", "fail", String.valueOf(31019), null);
+            try {
+                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
+                if (c) {
+                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
+                }
+                if (packageInfo != null) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put(PushService.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject3.put(PushService.APP_VERSION_CODE, packageInfo.versionCode);
+                    jSONObject2.put("data", jSONObject3);
+                    gp2Var.onSuccess(jSONObject2);
+                } else {
+                    gp2Var.onFail(31016, "no package info");
+                }
+            } catch (Exception unused) {
+                gp2Var.onFail(31011, "app is not installed");
             }
             return null;
         }
-        return (z32) invokeLL.objValue;
+        return (c42) invokeLL.objValue;
     }
 }

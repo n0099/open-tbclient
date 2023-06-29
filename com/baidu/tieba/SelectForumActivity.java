@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.data.GameData;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.a56;
+import com.baidu.tieba.f56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class SelectForumActivity extends SuspendedActivity implements p36 {
+public class SelectForumActivity extends SuspendedActivity implements u36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q36 k;
+    public v36 k;
     public boolean l;
     public ArrayList<SelectForumData> m;
     public GameData n;
@@ -111,14 +111,14 @@ public class SelectForumActivity extends SuspendedActivity implements p36 {
             }
             String str = (String) customResponsedMessage.getData();
             if (TextUtils.isEmpty(str)) {
-                str = this.a.getString(R.string.obfuscated_res_0x7f0f00ba);
+                str = this.a.getString(R.string.obfuscated_res_0x7f0f00bc);
             }
-            wi.Q(this.a, str);
+            xi.Q(this.a, str);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements a56.f {
+    public class c implements f56.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -141,7 +141,7 @@ public class SelectForumActivity extends SuspendedActivity implements p36 {
             this.a = selectForumActivity;
         }
 
-        @Override // com.baidu.tieba.a56.f
+        @Override // com.baidu.tieba.f56.f
         public void a(ArrayList<SelectForumData> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
@@ -183,13 +183,13 @@ public class SelectForumActivity extends SuspendedActivity implements p36 {
         }
     }
 
-    public final a56.f I1() {
+    public final f56.f I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return new c(this);
         }
-        return (a56.f) invokeV.objValue;
+        return (f56.f) invokeV.objValue;
     }
 
     public final void J1() {
@@ -203,7 +203,7 @@ public class SelectForumActivity extends SuspendedActivity implements p36 {
         this.n = (GameData) intent.getSerializableExtra(SelectForumConfig.KEY_GAME_DATA);
     }
 
-    @Override // com.baidu.tieba.p36
+    @Override // com.baidu.tieba.u36
     public GameData j1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -218,9 +218,9 @@ public class SelectForumActivity extends SuspendedActivity implements p36 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            q36 q36Var = this.k;
-            if (q36Var != null) {
-                q36Var.onDestroy();
+            v36 v36Var = this.k;
+            if (v36Var != null) {
+                v36Var.onDestroy();
             }
         }
     }
@@ -230,27 +230,27 @@ public class SelectForumActivity extends SuspendedActivity implements p36 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            q36 q36Var = this.k;
-            if (q36Var != null) {
-                q36Var.onResume();
+            v36 v36Var = this.k;
+            if (v36Var != null) {
+                v36Var.onResume();
             }
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public nt5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public st5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
                 if (this.l) {
-                    this.k = new a56(getPageContext(), linearLayout, navigationBar, I1(), this.m);
+                    this.k = new f56(getPageContext(), linearLayout, navigationBar, I1(), this.m);
                 } else {
-                    this.k = new z46(getPageContext(), linearLayout, navigationBar);
+                    this.k = new e56(getPageContext(), linearLayout, navigationBar);
                 }
             }
             return this.k;
         }
-        return (nt5) invokeLL.objValue;
+        return (st5) invokeLL.objValue;
     }
 }

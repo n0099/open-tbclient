@@ -1,156 +1,63 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.JsonWriter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
+import java.io.IOException;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class sva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public ewa b;
-    public b c;
-    public jwa d;
-    public boolean e;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends Thread {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sva a;
-
-        public b(sva svaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {svaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void a(JsonWriter jsonWriter, Object obj) throws IOException {
+        Object opt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, jsonWriter, obj) == null) {
+            if (obj != null && obj != JSONObject.NULL) {
+                if (obj instanceof JSONArray) {
+                    JSONArray jSONArray = (JSONArray) obj;
+                    jsonWriter.beginArray();
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        Object opt2 = jSONArray.opt(i);
+                        if (opt2 != null) {
+                            a(jsonWriter, opt2);
+                        }
+                    }
+                    jsonWriter.endArray();
+                    return;
+                } else if (obj instanceof JSONObject) {
+                    JSONObject jSONObject = (JSONObject) obj;
+                    jsonWriter.beginObject();
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!TextUtils.isEmpty(next) && (opt = jSONObject.opt(next)) != null) {
+                            jsonWriter.name(next);
+                            a(jsonWriter, opt);
+                        }
+                    }
+                    jsonWriter.endObject();
+                    return;
+                } else if (obj instanceof Number) {
+                    jsonWriter.value((Number) obj);
+                    return;
+                } else if (obj instanceof String) {
+                    jsonWriter.value((String) obj);
+                    return;
+                } else if (obj instanceof Boolean) {
+                    jsonWriter.value(((Boolean) obj).booleanValue());
+                    return;
+                } else {
+                    jsonWriter.value(obj.toString());
                     return;
                 }
             }
-            this.a = svaVar;
-        }
-
-        public /* synthetic */ b(sva svaVar, a aVar) {
-            this(svaVar);
-        }
-
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Process.setThreadPriority(-19);
-                try {
-                    try {
-                        this.a.b = new ewa(-100);
-                        if (this.a.b.d() != null) {
-                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(ewa.d);
-                            this.a.b.c();
-                            if (this.a.b.e() != 3) {
-                                return;
-                            }
-                            while (!this.a.a) {
-                                allocateDirect.clear();
-                                int a = this.a.b.a(allocateDirect, ewa.d);
-                                if (a > 0) {
-                                    double a2 = lwa.a(allocateDirect, a);
-                                    if (this.a.d != null && a2 > 0.0d) {
-                                        this.a.d.a(a2);
-                                    }
-                                }
-                            }
-                        } else if (this.a.d != null) {
-                            this.a.d.a("failed to initialize AudioRecord", true);
-                        }
-                    } catch (Exception unused) {
-                        if (this.a.d != null) {
-                            this.a.d.a("failed to initialize AudioRecord", true);
-                        }
-                    }
-                } finally {
-                    this.a.i();
-                }
-            }
-        }
-    }
-
-    public sva() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = true;
-            this.a = false;
-            b bVar = new b(this, null);
-            this.c = bVar;
-            bVar.start();
-        }
-    }
-
-    public void d(jwa jwaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jwaVar) == null) {
-            this.d = jwaVar;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = true;
-            this.e = false;
-        }
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            this.e = false;
-            ewa ewaVar = this.b;
-            if (ewaVar != null) {
-                ewaVar.b();
-            }
-            if (this.c != null) {
-                this.c = null;
-            }
+            jsonWriter.nullValue();
         }
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.bx5;
+import com.baidu.tieba.gx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class DefaultGiftListRequest extends NetMessage {
             builder.scene_from = this.from;
             builder.benefit_userid = Long.valueOf(this.toUserId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                bx5.a(builder, true);
+                gx5.a(builder, true);
             }
             GetGiftListReqIdl.Builder builder2 = new GetGiftListReqIdl.Builder();
             builder2.data = builder.build(false);

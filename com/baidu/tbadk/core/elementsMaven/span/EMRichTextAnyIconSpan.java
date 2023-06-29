@@ -4,18 +4,18 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.ReplacementSpan;
-import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r75;
+import com.baidu.tieba.u75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -194,38 +194,45 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         }
     }
 
-    public void d(@DimenRes int i) {
+    public void d(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.k = UtilHelper.getDimenPixelSize(i);
-        }
-    }
-
-    public void e(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, drawable) == null) {
             this.c = drawable;
         }
     }
 
-    public void f(IconType iconType) {
+    public void e(IconType iconType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iconType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, iconType) == null) {
             this.d = iconType;
         }
     }
 
-    public void g(int i) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.h = i;
         }
     }
 
-    public void h(String str) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.b = str;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            if (z) {
+                if (DeviceInfoUtil.isXiaoMi() || DeviceInfoUtil.isOnePlus8()) {
+                    this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
+                    return;
+                }
+                return;
+            }
+            this.k = 0;
         }
     }
 
@@ -282,8 +289,8 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
             float f2 = f + this.h;
             float f3 = this.j;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            if (r75.b(charSequence)) {
-                r75.a(fontMetricsInt, (int) paint.getTextSize());
+            if (u75.b(charSequence)) {
+                u75.a(fontMetricsInt, (int) paint.getTextSize());
                 dimenPixelSize = f3 - UtilHelper.getDimenPixelSize(R.dimen.tbds2);
             } else {
                 dimenPixelSize = f3 + UtilHelper.getDimenPixelSize(R.dimen.tbds3) + this.k;

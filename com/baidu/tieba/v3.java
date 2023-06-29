@@ -1,62 +1,90 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.graphics.Texture;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class v3 implements Comparable<v3> {
+public class v3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final s6<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final int b;
+    public Texture a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public int f;
+    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318160, "Lcom/baidu/tieba/v3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448318160, "Lcom/baidu/tieba/v3;");
-                return;
+    public v3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        c = new s6<>();
     }
 
-    public int hashCode() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b * 7489;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
         return invokeV.intValue;
     }
 
-    public String toString() {
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return b(this.a);
+            return Math.round(this.b * this.a.x());
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public v3(long j) {
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Math.round(this.c * this.a.u());
+        }
+        return invokeV.intValue;
+    }
+
+    public Texture f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (Texture) invokeV.objValue;
+    }
+
+    public v3(Texture texture) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {texture};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,100 +94,116 @@ public abstract class v3 implements Comparable<v3> {
                 return;
             }
         }
-        this.a = j;
-        this.b = Long.numberOfTrailingZeros(j);
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x001d, code lost:
-        r7 = com.baidu.tieba.v3.c;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0021, code lost:
-        if (r0 >= r7.b) goto L17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:?, code lost:
-        return r7.get(r0);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final String b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            int i = -1;
-            while (j != 0 && (i = i + 1) < 63 && ((j >> i) & 1) == 0) {
-            }
-            return null;
+        if (texture != null) {
+            this.a = texture;
+            h(0, 0, texture.x(), texture.u());
+            return;
         }
-        return (String) invokeJ.objValue;
+        throw new IllegalArgumentException("texture cannot be null.");
     }
 
-    public static final long c(String str) {
-        InterceptResult invokeL;
+    public v3(Texture texture, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int i = 0;
-            while (true) {
-                s6<String> s6Var = c;
-                if (i < s6Var.b) {
-                    if (s6Var.get(i).compareTo(str) == 0) {
-                        return 1 << i;
-                    }
-                    i++;
-                } else {
-                    return 0L;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {texture, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-        } else {
-            return invokeL.longValue;
+        }
+        this.a = texture;
+        h(i, i2, i3, i4);
+    }
+
+    public void j(v3 v3Var, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{v3Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.a = v3Var.a;
+            h(v3Var.d() + i, v3Var.e() + i2, i3, i4);
         }
     }
 
-    public static final long d(String str) {
-        InterceptResult invokeL;
+    public v3(v3 v3Var, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            long c2 = c(str);
-            if (c2 > 0) {
-                return c2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {v3Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
             }
-            c.a(str);
-            return 1 << (c.b - 1);
         }
-        return invokeL.longValue;
+        j(v3Var, i, i2, i3, i4);
     }
 
-    public boolean a(v3 v3Var) {
-        InterceptResult invokeL;
+    public void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v3Var)) == null) {
-            if (v3Var.hashCode() == hashCode()) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                float f = this.b;
+                this.b = this.d;
+                this.d = f;
             }
-            return false;
+            if (z2) {
+                float f2 = this.c;
+                this.c = this.e;
+                this.e = f2;
+            }
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public void g(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            int x = this.a.x();
+            int u = this.a.u();
+            float f5 = x;
+            this.f = Math.round(Math.abs(f3 - f) * f5);
+            float f6 = u;
+            int round = Math.round(Math.abs(f4 - f2) * f6);
+            this.g = round;
+            if (this.f == 1 && round == 1) {
+                float f7 = 0.25f / f5;
+                f += f7;
+                f3 -= f7;
+                float f8 = 0.25f / f6;
+                f2 += f8;
+                f4 -= f8;
             }
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof v3)) {
-                return false;
-            }
-            v3 v3Var = (v3) obj;
-            if (this.a != v3Var.a) {
-                return false;
-            }
-            return a(v3Var);
+            this.b = f;
+            this.c = f2;
+            this.d = f3;
+            this.e = f4;
         }
-        return invokeL.booleanValue;
+    }
+
+    public void h(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
+            float x = 1.0f / this.a.x();
+            float u = 1.0f / this.a.u();
+            g(i * x, i2 * u, (i + i3) * x, (i2 + i4) * u);
+            this.f = Math.abs(i3);
+            this.g = Math.abs(i4);
+        }
+    }
+
+    public void i(v3 v3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v3Var) == null) {
+            this.a = v3Var.a;
+            g(v3Var.b, v3Var.c, v3Var.d, v3Var.e);
+        }
     }
 }

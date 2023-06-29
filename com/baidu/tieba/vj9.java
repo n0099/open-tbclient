@@ -1,116 +1,211 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.play.PlayStatisticsResponseMessage;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tbadk.mvc.model.CacheModel;
+import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class vj9 {
+public class vj9 extends sn6<fj9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public TextView o;
+    public TextView p;
+    public LinearLayout q;
+    public LinearLayout r;
+    public LinearLayout s;
+    public LinearLayout t;
+    public UserData u;
+    public int v;
+    public int w;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948242852, "Lcom/baidu/tieba/vj9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @Override // com.baidu.tieba.sn6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d079e : invokeV.intValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements CacheModel.c<s39> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vj9 a;
+
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
+        public void l(WriteCacheRespMsg<List<s39>> writeCacheRespMsg, WriteCacheMessage<s39> writeCacheMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, writeCacheRespMsg, writeCacheMessage) == null) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948242852, "Lcom/baidu/tieba/vj9;");
+        }
+
+        public a(vj9 vj9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vj9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vj9Var;
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
+        public void q(ReadCacheRespMsg<List<s39>> readCacheRespMsg, ReadCacheMessage<s39> readCacheMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, readCacheRespMsg, readCacheMessage) == null) && readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
+                this.a.m.setText(Integer.toString(readCacheRespMsg.getData().size()));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vj9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
-        b();
+        this.v = 3;
+        this.w = 0;
+        View h = h();
+        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902e5);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902e6);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0924a8);
+        this.l = (TextView) h.findViewById(R.id.thread_title);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090f2c);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090f2d);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090739);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09073a);
+        this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0902e4);
+        this.r = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09247b);
+        this.t = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090f2b);
+        this.s = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090738);
     }
 
-    public static void a(HttpMessage httpMessage, hk9 hk9Var) {
+    @Override // com.baidu.tieba.sn6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, httpMessage, hk9Var) == null) && httpMessage != null && hk9Var != null) {
-            httpMessage.addParam("tid", hk9Var.c);
-            httpMessage.addParam("fid", hk9Var.d);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_TO, hk9Var.g);
-            httpMessage.addParam("obj_id", hk9Var.k);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, hk9Var.h);
-            httpMessage.addParam("obj_source", hk9Var.f);
-            httpMessage.addParam("obj_locate", hk9Var.a);
-            httpMessage.addParam("obj_param1", hk9Var.i);
-            if (!StringUtils.isNull(hk9Var.n)) {
-                httpMessage.addParam(TiebaStatic.Params.TOPIC_TYPE, hk9Var.n);
-            }
-            if (!StringUtils.isNull(hk9Var.p)) {
-                httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, hk9Var.p);
-            }
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.v != i) {
+            s75 d = s75.d(h());
+            d.o(R.string.J_X14);
+            d.n(1);
+            d.f(R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0109);
+            this.v = i;
         }
     }
 
-    public static void b() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
-            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2 == null) {
+            return;
         }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
-            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void d(long j, String str, hk9 hk9Var, String str2, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, hk9Var, str2, Long.valueOf(j2)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_DURATION, j);
-            httpMessage.addParam("obj_type", str);
-            httpMessage.addParam("playduration", j2);
-            if (hk9Var != null) {
-                httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, hk9Var.m);
+        if (view2.getId() == R.id.obfuscated_res_0x7f090acb) {
+            if (this.u == null) {
+                return;
             }
-            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-            a(httpMessage, hk9Var);
-            MessageManager.getInstance().sendMessage(httpMessage);
+            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), false, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f090788) {
+            if (this.u == null) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 5));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), true, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser()).updateFollowNum(this.w, this.u.getPortrait())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0902e4) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 7));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.b.getPageActivity(), this.u.getLike_bars(), this.u.getUserId(), this.u.getSex())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09247b) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.b.getPageActivity(), this.u.getUserId(), this.u.getSex(), this.u.getPortrait())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f090738) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 9));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(getContext())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f090f2b) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 10));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(getContext())));
         }
     }
 
-    public static void e(String str, String str2, String str3, hk9 hk9Var, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sn6
+    /* renamed from: s */
+    public void i(fj9 fj9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, hk9Var, Integer.valueOf(i)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
-            httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, str);
-            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-            httpMessage.addParam("obj_type", str3);
-            if (TbSingleton.getInstance().getPcdnConfigData() != null && TbSingleton.getInstance().getPcdnConfigData().c()) {
-                httpMessage.addParam("pcdn_state", i);
-            }
-            a(httpMessage, hk9Var);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || interceptable.invokeL(1048580, this, fj9Var) == null) {
+            this.u = fj9Var.e;
+            this.w = fj9Var.a;
+            this.i.setText(Integer.toString(fj9Var.b));
+            this.k.setText(StringHelper.longNumFormatOver9999wan(fj9Var.c));
+            PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(this.b);
+            pbHistoryCacheModel.n0(new a(this));
+            pbHistoryCacheModel.k0();
+            this.o.setText(Integer.toString(this.u.getFavoriteNum()));
+            this.q.setOnClickListener(this);
+            this.r.setOnClickListener(this);
+            this.t.setOnClickListener(this);
+            this.s.setOnClickListener(this);
+            j(g(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

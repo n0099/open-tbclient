@@ -18,15 +18,15 @@ import com.baidu.nadcore.widget.SlideHelper;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al0;
-import com.baidu.tieba.bd1;
-import com.baidu.tieba.d61;
-import com.baidu.tieba.dd1;
-import com.baidu.tieba.h51;
-import com.baidu.tieba.s61;
-import com.baidu.tieba.wh0;
-import com.baidu.tieba.xo0;
-import com.baidu.tieba.yh0;
+import com.baidu.tieba.ap0;
+import com.baidu.tieba.bi0;
+import com.baidu.tieba.dl0;
+import com.baidu.tieba.ed1;
+import com.baidu.tieba.g61;
+import com.baidu.tieba.gd1;
+import com.baidu.tieba.k51;
+import com.baidu.tieba.v61;
+import com.baidu.tieba.zh0;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -101,8 +101,8 @@ public class BaseActivity extends FragmentActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements bd1 {
-        @Override // com.baidu.tieba.bd1
+    public class a implements ed1 {
+        @Override // com.baidu.tieba.ed1
         public void onTranslucent(boolean z) {
         }
 
@@ -129,7 +129,7 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && this.a) {
                 this.a = false;
-                dd1.c(BaseActivity.this, null);
+                gd1.c(BaseActivity.this, null);
             }
             BaseActivity.this.setPreDecorPosition(0.0f);
         }
@@ -166,7 +166,7 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && !this.a) {
                 this.a = true;
-                dd1.d(BaseActivity.this, null);
+                gd1.d(BaseActivity.this, null);
             }
             float f3 = this.b >> 2;
             BaseActivity.this.setPreDecorPosition((f * f3) - f3);
@@ -262,7 +262,7 @@ public class BaseActivity extends FragmentActivity {
     }
 
     public void setCurrentActivityNoTransparent() {
-        dd1.c(this, new a());
+        gd1.c(this, new a());
     }
 
     public final void startEnterActivityAnim() {
@@ -287,7 +287,7 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int checkSelfPermission(String str) {
-        if (d61.b.d()) {
+        if (g61.b.d()) {
             return super.checkSelfPermission(str);
         }
         return 0;
@@ -321,9 +321,9 @@ public class BaseActivity extends FragmentActivity {
     public void onMultiWindowModeChanged(boolean z) {
         super.onMultiWindowModeChanged(z);
         if (z && !s) {
-            h51.a().b(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
+            k51.a().b(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
             setHasMultiWindowShow(true);
-        } else if (!z && !d61.c()) {
+        } else if (!z && !g61.c()) {
             setHasMultiWindowShow(false);
         }
     }
@@ -360,7 +360,7 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // android.app.Activity
     public boolean shouldShowRequestPermissionRationale(@NonNull String str) {
-        if (d61.b.d() && super.shouldShowRequestPermissionRationale(str)) {
+        if (g61.b.d() && super.shouldShowRequestPermissionRationale(str)) {
             return true;
         }
         return false;
@@ -410,7 +410,7 @@ public class BaseActivity extends FragmentActivity {
             if (this.h || !isTaskRoot()) {
                 z2 = z;
             }
-            int e = d61.c.e(this);
+            int e = g61.c.e(this);
             SlideHelper slideHelper = new SlideHelper();
             this.k = slideHelper;
             slideHelper.attachSlideView(this, findViewById(16908290));
@@ -430,7 +430,7 @@ public class BaseActivity extends FragmentActivity {
             str = "0";
         }
         if ((this.e || TextUtils.equals("1", str)) && findViewById(16908290) != null) {
-            al0.b(new c());
+            dl0.b(new c());
         }
     }
 
@@ -441,32 +441,32 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public final void onCreate(Bundle bundle) {
-        if (yh0.a(this)) {
+        if (bi0.a(this)) {
             return;
         }
         try {
             if (!L1(bundle)) {
-                if (!wh0.a) {
+                if (!zh0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException("Class " + getClass() + " failed at preCreate");
             }
-            int d2 = s61.d(this);
+            int d2 = v61.d(this);
             super.onCreate(bundle);
-            s61.a(this, d2);
+            v61.a(this, d2);
             resetActivityAnim();
             try {
                 A1(bundle);
             } catch (Throwable th) {
-                if (!wh0.a) {
+                if (!zh0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException(th);
             }
         } catch (Throwable unused) {
-            if (!wh0.a) {
+            if (!zh0.a) {
                 finish();
                 return;
             }
@@ -493,7 +493,7 @@ public class BaseActivity extends FragmentActivity {
         try {
             D1(intent);
         } catch (Throwable th) {
-            if (!wh0.a) {
+            if (!zh0.a) {
                 finish();
                 return;
             }
@@ -518,10 +518,10 @@ public class BaseActivity extends FragmentActivity {
     public final void setPreDecorPosition(float f) {
         try {
             if (this.m == null || this.m.get() == null) {
-                this.m = new WeakReference<>(xo0.d());
+                this.m = new WeakReference<>(ap0.d());
             }
             if (this.m.get() != null) {
-                Activity e = xo0.e();
+                Activity e = ap0.e();
                 Activity activity = this.m.get();
                 if (e != null && activity != null && e.getLocalClassName().equals(activity.getLocalClassName())) {
                     setPreActivityPosition(activity, 0.0f);

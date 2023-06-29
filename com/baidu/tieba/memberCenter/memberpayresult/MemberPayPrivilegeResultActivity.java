@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.databinding.MemberPayPrivilegeResultActivityBinding;
+import com.baidu.tieba.f19;
 import com.baidu.tieba.memberCenter.memberpayresult.MemberPayPrivilegeResultActivity;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.uw8;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(memberBuyButtonUrl, "$memberBuyButtonUrl");
             UrlManager.getInstance().dealOneLink(this$0.getPageContext(), new String[]{(String) memberBuyButtonUrl.element});
-            uw8.a.a();
+            f19.a.a();
         }
     }
 
@@ -83,7 +83,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding = null;
             }
-            p75 d = p75.d(memberPayPrivilegeResultActivityBinding.m);
+            s75 d = s75.d(memberPayPrivilegeResultActivityBinding.m);
             d.x(R.color.CAM_X0311);
             d.C(R.dimen.T_X05);
             d.D(R.string.F_X02);
@@ -98,38 +98,38 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding4 = null;
             }
-            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding4.h, R.drawable.obfuscated_res_0x7f08105f);
+            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding4.h, R.drawable.obfuscated_res_0x7f081089);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding5 = this.a;
             if (memberPayPrivilegeResultActivityBinding5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding5 = null;
             }
-            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding5.i, R.drawable.obfuscated_res_0x7f08151a);
+            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding5.i, R.drawable.obfuscated_res_0x7f08154c);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding6 = this.a;
             if (memberPayPrivilegeResultActivityBinding6 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding6 = null;
             }
-            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding6.j, R.drawable.obfuscated_res_0x7f080ca4, i);
+            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding6.j, R.drawable.obfuscated_res_0x7f080cb3, i);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding7 = this.a;
             if (memberPayPrivilegeResultActivityBinding7 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding7 = null;
             }
-            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding7.d, R.drawable.obfuscated_res_0x7f0809c0, i);
+            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding7.d, R.drawable.obfuscated_res_0x7f0809c5, i);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding8 = this.a;
             if (memberPayPrivilegeResultActivityBinding8 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding8 = null;
             }
-            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding8.c, R.drawable.obfuscated_res_0x7f0809c1, i);
+            SkinManager.setImageResource(memberPayPrivilegeResultActivityBinding8.c, R.drawable.obfuscated_res_0x7f0809c6, i);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding9 = this.a;
             if (memberPayPrivilegeResultActivityBinding9 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
             } else {
                 memberPayPrivilegeResultActivityBinding2 = memberPayPrivilegeResultActivityBinding9;
             }
-            p75.d(memberPayPrivilegeResultActivityBinding2.f).q(new int[]{R.color.CAM_X0201, R.color.CAM_X0202}, Direction.TOP);
+            s75.d(memberPayPrivilegeResultActivityBinding2.f).q(new int[]{R.color.CAM_X0201, R.color.CAM_X0202}, Direction.TOP);
         }
     }
 
@@ -155,7 +155,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 c = null;
             }
             setContentView(c.getRoot());
-            float g = wi.g(getPageContext().getPageActivity(), R.dimen.tbds43);
+            float g = xi.g(getPageContext().getPageActivity(), R.dimen.tbds43);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding2 = this.a;
             if (memberPayPrivilegeResultActivityBinding2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -167,7 +167,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding3 = null;
             }
-            memberPayPrivilegeResultActivityBinding3.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sw8
+            memberPayPrivilegeResultActivityBinding3.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -222,7 +222,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding6 = null;
             }
-            p75 d = p75.d(memberPayPrivilegeResultActivityBinding6.l);
+            s75 d = s75.d(memberPayPrivilegeResultActivityBinding6.l);
             d.C(R.dimen.T_X08);
             d.z(R.dimen.M_H_X004);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding7 = this.a;
@@ -236,7 +236,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding8 = null;
             }
-            p75 d2 = p75.d(memberPayPrivilegeResultActivityBinding8.k);
+            s75 d2 = s75.d(memberPayPrivilegeResultActivityBinding8.k);
             d2.C(R.dimen.tbds47);
             d2.D(R.string.F_X02);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding9 = this.a;
@@ -245,7 +245,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
             } else {
                 memberPayPrivilegeResultActivityBinding = memberPayPrivilegeResultActivityBinding9;
             }
-            memberPayPrivilegeResultActivityBinding.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tw8
+            memberPayPrivilegeResultActivityBinding.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e19
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

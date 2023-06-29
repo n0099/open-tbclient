@@ -1,20 +1,139 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.AsyncTask;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.lang.ref.WeakReference;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class bh0 implements dh0 {
+public class bh0 extends eh0 {
     public static /* synthetic */ Interceptable $ic;
+    public static JSONObject h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public dh0.a b;
+    public dh0 c;
+    public WeakReference<Context> d;
+    public String e;
+    public File f;
+    public boolean g;
 
-    public abstract void b();
+    /* loaded from: classes5.dex */
+    public class a extends AsyncTask<Void, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bh0 a;
+
+        public a(bh0 bh0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bh0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bh0Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Boolean bool) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                super.onPostExecute(bool);
+                bh0 bh0Var = this.a;
+                if (bool.booleanValue()) {
+                    i = 2;
+                } else {
+                    i = 3;
+                }
+                bh0Var.d(i);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: a */
+        public Boolean doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                if (bh0.h == null) {
+                    bh0.h = new JSONObject();
+                }
+                if (this.a.f == null) {
+                    try {
+                        bh0.h.put("sdcardPath", StringUtil.NULL_STRING);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return Boolean.FALSE;
+                } else if (!this.a.g && this.a.m()) {
+                    try {
+                        bh0.h.put("exist", true);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    return Boolean.TRUE;
+                } else {
+                    if (!this.a.f.isDirectory()) {
+                        try {
+                            bh0.h.put("file-del", true);
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
+                        }
+                        this.a.f.delete();
+                    }
+                    File file = new File(this.a.f.getAbsoluteFile() + ".loading");
+                    boolean a = this.a.c.a(this.a.e, file);
+                    if (a) {
+                        try {
+                            bh0.h.put("assetsToSD", true);
+                        } catch (JSONException e4) {
+                            e4.printStackTrace();
+                        }
+                        a = file.renameTo(this.a.f);
+                    }
+                    if (!a) {
+                        try {
+                            bh0.h.put("renameTo-del", true);
+                        } catch (JSONException e5) {
+                            e5.printStackTrace();
+                        }
+                        fh0.b(file);
+                        if (this.a.f.exists()) {
+                            fh0.b(this.a.f);
+                        }
+                    }
+                    try {
+                        bh0.h.put("result", a);
+                    } catch (JSONException e6) {
+                        e6.printStackTrace();
+                    }
+                    if (this.a.l()) {
+                        jh0.a("ARSourceCopyManager", "sdk exist + " + bh0.h.toString());
+                    }
+                    return Boolean.valueOf(a);
+                }
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
 
     public bh0() {
         Interceptable interceptable = $ic;
@@ -26,58 +145,87 @@ public abstract class bh0 implements dh0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
     }
 
-    public int a() {
+    private Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(dh0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.b = aVar;
-            if (aVar != null) {
-                aVar.a(a(), this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            WeakReference<Context> weakReference = this.d;
+            if (weakReference != null) {
+                return weakReference.get();
             }
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new dh0(getContext());
+            new a(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
         }
     }
 
-    public void d(int i) {
+    public final boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.a == i) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return gg0.m();
         }
-        this.a = i;
-        dh0.a aVar = this.b;
-        if (aVar != null) {
-            aVar.a(i, this);
-        }
+        return invokeV.booleanValue;
     }
 
-    public void e(dh0.a aVar) {
+    public boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            int i = this.a;
-            if (i != 0 && 3 != i && 2 != i) {
-                c(aVar);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = this.f;
+            if (file != null && file.isDirectory() && this.f.exists()) {
+                return true;
             }
-            d(1);
-            c(aVar);
-            try {
-                b();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                d(3);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.eh0
+    public void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            boolean m = m();
+            JSONObject jSONObject = new JSONObject();
+            h = jSONObject;
+            if (m) {
+                try {
+                    if (hg0.a) {
+                        str = "assets";
+                    } else {
+                        str = "soloader";
+                    }
+                    jSONObject.put("type", str);
+                    h.put("exist", m);
+                    h.put("path", this.f);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (l()) {
+                    jh0.a("ARSourceCopyManager", "sdk exist + " + h.toString());
+                }
+                d(2);
+            } else if (getContext() != null) {
+                try {
+                    if (l()) {
+                        jh0.a("ARSourceCopyManager", "sdk loading .. to " + this.f.getAbsoluteFile());
+                    }
+                    k();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
         }
     }

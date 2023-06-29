@@ -1,105 +1,189 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.media.AudioManager;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ol3 extends wd3 {
+public class ol3 implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile ol3 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public SensorManager b;
+    public Sensor c;
+    public a d;
+    public double[] e;
+    public boolean f;
+    public long g;
+    public int h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ol3(wc3 wc3Var) {
-        super(wc3Var, "/swanAPI/getMediaVolumeSync");
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(double[] dArr);
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, sensor, i2) == null) {
+        }
+    }
+
+    public ol3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new double[3];
+        this.f = false;
+        this.g = 0L;
     }
 
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
-        InterceptResult invokeLLLL;
+    public static ol3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            if (zb3Var == null) {
-                z82.c("getMediaVolumeSync", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (wd3.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                z82.c("getMediaVolumeSync", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (wd3.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal context");
-                }
-                return false;
-            } else {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                if (audioManager == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
-                    if (wd3.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- get AudioManager error");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (i == null) {
+                synchronized (ol3.class) {
+                    if (i == null) {
+                        i = new ol3();
                     }
-                    return false;
                 }
-                int streamMaxVolume = audioManager.getStreamMaxVolume(3);
-                int streamVolume = audioManager.getStreamVolume(3);
-                if (streamMaxVolume <= 0) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "max volume get 0");
-                    if (wd3.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- max volume get 0");
+            }
+            return i;
+        }
+        return (ol3) invokeV.objValue;
+    }
+
+    public static synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (ol3.class) {
+                if (i == null) {
+                    return;
+                }
+                i.c();
+            }
+        }
+    }
+
+    public final synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                c92.i("accelerometer", "release");
+                if (this.f) {
+                    g();
+                }
+                this.a = null;
+                i = null;
+            }
+        }
+    }
+
+    public synchronized void b(Context context, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
+            synchronized (this) {
+                this.a = context;
+                this.h = i2;
+            }
+        }
+    }
+
+    public synchronized void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            synchronized (this) {
+                this.d = aVar;
+            }
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    c92.c("accelerometer", "start error, none context");
+                } else if (this.f) {
+                    c92.o("accelerometer", "has already start");
+                } else {
+                    SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
+                    this.b = sensorManager;
+                    if (sensorManager != null) {
+                        Sensor defaultSensor = sensorManager.getDefaultSensor(1);
+                        this.c = defaultSensor;
+                        this.b.registerListener(this, defaultSensor, 1);
+                        this.f = true;
+                        c92.i("accelerometer", "start listen");
+                    } else {
+                        c92.c("accelerometer", "none sensorManager");
                     }
-                    return false;
-                }
-                double d = streamVolume / streamMaxVolume;
-                if (d < 0.0d) {
-                    d = 0.0d;
-                } else if (d > 1.0d) {
-                    d = 1.0d;
-                }
-                if (wd3.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync: " + d);
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", d);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                    return true;
-                } catch (JSONException unused) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                    if (wd3.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- json exception");
-                    }
-                    return false;
                 }
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (!this.f) {
+                    c92.o("accelerometer", "has already stop");
+                    return;
+                }
+                if (this.b != null) {
+                    this.b.unregisterListener(this);
+                }
+                this.b = null;
+                this.c = null;
+                this.f = false;
+            }
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+            float[] fArr = sensorEvent.values;
+            if (fArr != null && fArr.length == 3) {
+                synchronized (this) {
+                    if (this.f && this.d != null && System.currentTimeMillis() - this.g > this.h) {
+                        this.e[0] = (-sensorEvent.values[0]) / 9.8d;
+                        this.e[1] = (-sensorEvent.values[1]) / 9.8d;
+                        this.e[2] = (-sensorEvent.values[2]) / 9.8d;
+                        this.d.a(this.e);
+                        this.g = System.currentTimeMillis();
+                    }
+                    if (cc3.v) {
+                        Log.d("AccelerometerManager", "current Time : " + this.g + "current Acc x : " + this.e[0] + "current Acc y : " + this.e[1] + "current Acc z : " + this.e[2]);
+                    }
+                }
+                return;
+            }
+            c92.o("accelerometer", "illegal accelerometer event");
+        }
     }
 }

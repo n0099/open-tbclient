@@ -1,146 +1,89 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.IBinder;
-import android.view.View;
-import android.view.Window;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.download.view.AdDownloadDlgView;
+import androidx.core.provider.FontsContractCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class in0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlertDialog a;
-        public final /* synthetic */ Activity b;
-
-        public a(AlertDialog alertDialog, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alertDialog, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = alertDialog;
-            this.b = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                in0.a(this.a, this.b);
-            }
-        }
-    }
-
-    public static boolean a(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
+    public static String a(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        double d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
-                return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            c31.f(jSONObject, "downStatus", str);
+            try {
+                d = Double.parseDouble(str2) * 100.0d;
+            } catch (Exception unused) {
+                d = 0.0d;
             }
-            dialog.dismiss();
-            return true;
+            c31.e(jSONObject, "process", Math.round(d));
+            c31.f(jSONObject, "uri", str3);
+            c31.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
+            return jSONObject.toString();
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLLLL.objValue;
     }
 
-    public static boolean b(View view2) {
+    public static void b(@Nullable gk0 gk0Var, boolean z, @Nullable Map<String, String> map) {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{gk0Var, Boolean.valueOf(z), map}) != null) || gk0Var == null) {
+            return;
+        }
+        if (map == null) {
+            map = new HashMap<>();
+        }
+        if (z) {
+            str = "0";
+        } else {
+            str = "202";
+        }
+        d31.e(map, "status", str);
+        if (z) {
+            str2 = "调用成功";
+        } else {
+            str2 = "";
+        }
+        d31.e(map, "message", str2);
+        gk0Var.a(z, map);
+    }
+
+    public static void c(@Nullable gk0 gk0Var, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, gk0Var, str, str2, str3, str4) != null) || gk0Var == null) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
+        JSONObject jSONObject = new JSONObject();
+        c31.f(jSONObject, "uri", str2);
+        c31.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
+        c31.f(jSONObject, "downStatus", str4);
+        hashMap.put("data", jSONObject.toString());
+        b(gk0Var, true, hashMap);
+    }
+
+    public static String d(String str) {
         InterceptResult invokeL;
-        IBinder windowToken;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
-                try {
-                    if (windowToken.isBinderAlive()) {
-                        if (windowToken.pingBinder()) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            return false;
+            return c31.c(str).optString("bt_info");
         }
-        return invokeL.booleanValue;
-    }
-
-    public static Dialog c(@NonNull hm0 hm0Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, hm0Var, view2, activity, onDismissListener, onShowListener)) == null) {
-            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100141).create();
-            create.setCanceledOnTouchOutside(true);
-            create.setOnDismissListener(onDismissListener);
-            create.setOnShowListener(onShowListener);
-            AdDownloadDlgView adDownloadDlgView = new AdDownloadDlgView(activity);
-            adDownloadDlgView.b(hm0Var);
-            adDownloadDlgView.setDownloadView(view2);
-            adDownloadDlgView.setOnCloseClickListener(new a(create, activity));
-            d(create, activity);
-            Window window = create.getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                window.setLayout(-1, -2);
-                window.setContentView(adDownloadDlgView);
-            }
-            return create;
-        }
-        return (Dialog) invokeLLLLL.objValue;
-    }
-
-    public static boolean d(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
-            }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

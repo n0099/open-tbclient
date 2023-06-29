@@ -1,49 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.TbPageContext;
+import android.text.TextUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class wd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ce9 a;
-    public BdTypeListView b;
-    public List<jn> c;
 
-    public wd9(TbPageContext tbPageContext, BdTypeListView bdTypeListView, lo6<ye9> lo6Var) {
+    public static boolean a(BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeL;
+        List<xn> data;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, lo6Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView != null && (data = bdTypeRecyclerView.getData()) != null && data.size() > 0) {
+                for (int i = 0; i < data.size(); i++) {
+                    xn xnVar = data.get(i);
+                    if ((xnVar instanceof n4a) && xnVar.getType() == n4a.X0) {
+                        return true;
+                    }
+                }
             }
+            return false;
         }
-        this.c = new ArrayList();
-        this.b = bdTypeListView;
-        ce9 ce9Var = new ce9(tbPageContext, ye9.p);
-        this.a = ce9Var;
-        ce9Var.u(lo6Var);
-        this.c.add(this.a);
-        this.b.addAdapters(this.c);
+        return invokeL.booleanValue;
     }
 
-    public void a() {
+    public static int b(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.notifyDataSetChanged();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdTypeRecyclerView, str)) == null) {
+            if (bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+                List<xn> data = bdTypeRecyclerView.getData();
+                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+                if (data != null && data.size() > 0) {
+                    int size = data.size();
+                    for (int i = 0; i < size; i++) {
+                        xn xnVar = data.get(i);
+                        if ((xnVar instanceof n4a) && xnVar.getType() == n4a.X0 && str.equals(((n4a) xnVar).S())) {
+                            return i + headerViewsCount;
+                        }
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static void c(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, bdTypeRecyclerView, str) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        int b = b(bdTypeRecyclerView, str);
+        if (bdTypeRecyclerView.getLayoutManager() != null) {
+            bdTypeRecyclerView.getLayoutManager().scrollToPosition(b);
         }
     }
 }

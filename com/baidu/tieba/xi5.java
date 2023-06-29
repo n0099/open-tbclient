@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xi5 extends ki5 {
+public class xi5 extends oi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xi5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.item_edit_tool), 35, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_gift_tab), 22, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,10 +30,9 @@ public class xi5 extends ki5 {
                 return;
             }
         }
-        this.d = R.drawable.pic_more_connect64;
-        this.h = R.drawable.pic_more_connect64;
-        this.k = false;
+        this.d = R.drawable.icon_pure_post_vip24_pb;
         this.i = false;
-        this.p = new int[]{61};
+        this.j = true;
+        this.p = new int[]{36};
     }
 }

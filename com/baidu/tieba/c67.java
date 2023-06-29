@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,8 +8,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class c67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public Object a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public m67 e;
+    public String f;
 
     public c67() {
         Interceptable interceptable = $ic;

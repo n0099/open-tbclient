@@ -15,6 +15,7 @@ import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.account.TodoAfterLogin;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
+import com.baidu.android.imsdk.chatmessage.IChatRoomListener;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
@@ -22,7 +23,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.internal.MessageParser;
+import com.baidu.android.imsdk.mcast.IMExitChatRoomGroupMsg;
 import com.baidu.android.imsdk.mcast.IMJoinCastMsg;
+import com.baidu.android.imsdk.mcast.IMJoinChatRoomGroupMsg;
 import com.baidu.android.imsdk.mcast.IMQuitCastMsg;
 import com.baidu.android.imsdk.mcast.IMSendQuizOptMsg;
 import com.baidu.android.imsdk.mcast.IMcastSetListener;
@@ -32,7 +35,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.t90;
-import com.baidu.tieba.v80;
+import com.baidu.tieba.w80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -147,11 +150,11 @@ public class ConversationStudioManImpl {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    v80.c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
+                    w80.c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
                     if (RequsetNetworkUtils.isNetworkAvailable(ConversationStudioManImpl.mContext)) {
                         BIMManager.pingRequest();
                     }
-                    v80.c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
+                    w80.c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
                 }
             }
         };
@@ -186,9 +189,9 @@ public class ConversationStudioManImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             clear();
-            Class<?>[] clsArr = {IMJoinCastMsg.class, IMQuitCastMsg.class, IMSendQuizOptMsg.class};
-            int[] iArr = {201, 202, 210};
-            for (int i = 0; i < 3; i++) {
+            Class<?>[] clsArr = {IMJoinCastMsg.class, IMQuitCastMsg.class, IMSendQuizOptMsg.class, IMJoinChatRoomGroupMsg.class, IMExitChatRoomGroupMsg.class};
+            int[] iArr = {201, 202, 210, 212, 213};
+            for (int i = 0; i < 5; i++) {
                 MessageFactory.getInstance().addType(iArr[i], clsArr[i]);
             }
             AccountManager.registerToDoAfterLoginListener(mContext, new McastTodoAfterLogin(this));
@@ -208,7 +211,7 @@ public class ConversationStudioManImpl {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             clearReliableCastList();
             clearFetchRunnable();
-            Handler handler = v80.c;
+            Handler handler = w80.c;
             if (handler != null) {
                 handler.removeCallbacks(mPingRunnable);
             }
@@ -244,7 +247,7 @@ public class ConversationStudioManImpl {
     public boolean getConnectState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (t90.b() == 0) {
                 return true;
             }
@@ -256,7 +259,7 @@ public class ConversationStudioManImpl {
     public long getJoinedCastId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.mJoinReliableCastId;
         }
         return invokeV.longValue;
@@ -264,7 +267,7 @@ public class ConversationStudioManImpl {
 
     public void setMcastQuickHeartBeat() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && !mOpenPingRequest.get()) {
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && !mOpenPingRequest.get()) {
             mOpenPingRequest.set(true);
             pingRequest(true, mCastHeartBeatTime);
         }
@@ -342,6 +345,19 @@ public class ConversationStudioManImpl {
         }
     }
 
+    public void onChatRoomGroupResult(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048598, this, str, i, str2) == null) {
+            LogUtils.d(TAG, "onChatRoomGroupResult----errorCode: " + i + " msg: " + str2);
+            IChatRoomListener iChatRoomListener = (IChatRoomListener) ListenerManager.getInstance().removeListener(str);
+            if (iChatRoomListener != null) {
+                iChatRoomListener.onResult(i, str2);
+            } else {
+                LogUtils.d(TAG, "onChatRoomGroupResult listener is null");
+            }
+        }
+    }
+
     public void addAckCastId(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || j <= 0) {
@@ -357,7 +373,7 @@ public class ConversationStudioManImpl {
     public long getMaxReliableMsgId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
             if (!isReliable(j)) {
                 return j;
             }
@@ -369,7 +385,7 @@ public class ConversationStudioManImpl {
     public long getReliableMsgCount(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
             if (!isReliable(j)) {
                 return j;
             }
@@ -381,7 +397,7 @@ public class ConversationStudioManImpl {
     public boolean isAck(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048594, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
             if (j <= 0) {
                 return false;
             }
@@ -393,7 +409,7 @@ public class ConversationStudioManImpl {
     public boolean isReliable(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j)) == null) {
             if (j <= 0) {
                 return false;
             }
@@ -404,7 +420,7 @@ public class ConversationStudioManImpl {
 
     public void removeAckCastId(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048600, this, j) != null) || j <= 0) {
+        if ((interceptable != null && interceptable.invokeJ(1048603, this, j) != null) || j <= 0) {
             return;
         }
         synchronized (this.mAckMcastList) {
@@ -414,7 +430,7 @@ public class ConversationStudioManImpl {
 
     public void removeFetchCastId(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048601, this, j) != null) || j <= 0) {
+        if ((interceptable != null && interceptable.invokeJ(1048604, this, j) != null) || j <= 0) {
             return;
         }
         this.mFetchRunnables.remove(Long.valueOf(j));
@@ -422,7 +438,7 @@ public class ConversationStudioManImpl {
 
     public void removeReliableCastId(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048602, this, j) != null) || j <= 0) {
+        if ((interceptable != null && interceptable.invokeJ(1048605, this, j) != null) || j <= 0) {
             return;
         }
         synchronized (this.mReliableMcastList) {
@@ -459,7 +475,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
                 try {
-                    v80.e(mContext).d(mContext, createMcastMethodIntent);
+                    w80.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -516,7 +532,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 try {
-                    v80.e(mContext).d(mContext, createMcastMethodIntent);
+                    w80.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -529,10 +545,72 @@ public class ConversationStudioManImpl {
         }
     }
 
+    public void exitChatRoomGroup(long j, int i, long j2, IChatRoomListener iChatRoomListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), iChatRoomListener}) == null) {
+            String addListener = ListenerManager.getInstance().addListener(iChatRoomListener);
+            if (LoginManager.getInstance(mContext).isIMLogined()) {
+                Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 213);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_ROOM_TYPE, j);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_BATCH_TYPE, i);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_CHAT_ROOM_GROUP_ID, j2);
+                try {
+                    w80.e(mContext).d(mContext, createMcastMethodIntent);
+                    return;
+                } catch (Exception e) {
+                    ListenerManager.getInstance().removeListener(addListener);
+                    onChatRoomGroupResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR);
+                    LogUtils.e(TAG, "Exception ", e);
+                    return;
+                }
+            }
+            onChatRoomGroupResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+        }
+    }
+
+    public void joinChatRoomGroup(long j, int i, long j2, IChatRoomListener iChatRoomListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), iChatRoomListener}) == null) {
+            String addListener = ListenerManager.getInstance().addListener(iChatRoomListener);
+            if (LoginManager.getInstance(mContext).isIMLogined()) {
+                Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 212);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_ROOM_TYPE, j);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_BATCH_TYPE, i);
+                createMcastMethodIntent.putExtra(Constants.EXTRA_CHAT_ROOM_GROUP_ID, j2);
+                try {
+                    w80.e(mContext).d(mContext, createMcastMethodIntent);
+                    return;
+                } catch (Exception e) {
+                    ListenerManager.getInstance().removeListener(addListener);
+                    onChatRoomGroupResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR);
+                    LogUtils.e(TAG, "Exception ", e);
+                    return;
+                }
+            }
+            onChatRoomGroupResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+        }
+    }
+
+    public void onQuitCastResult(String str, int i, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
+            LogUtils.d(TAG, "onQuitCastResult----errorCode: " + i + " msg: " + str2);
+            IMcastSetListener iMcastSetListener = (IMcastSetListener) ListenerManager.getInstance().removeListener(str);
+            if (iMcastSetListener != null) {
+                iMcastSetListener.onResult(i, j, -1L);
+            } else {
+                LogUtils.d(TAG, "IMcastSetistener is null");
+            }
+            cancelMcastQuickHeartBeat();
+        }
+    }
+
     public String getAllCastIdList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("begin:");
             sb.append(this.mBeginMsgCastId);
@@ -563,7 +641,7 @@ public class ConversationStudioManImpl {
     public BIMConversation getConversation(BIMManager.CATEGORY category, String str, boolean z, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{category, str, Boolean.valueOf(z), str2, Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{category, str, Boolean.valueOf(z), str2, Integer.valueOf(i)})) == null) {
             if (TextUtils.isEmpty(str)) {
                 LogUtils.e(TAG, "id should not be empty");
                 return null;
@@ -591,7 +669,7 @@ public class ConversationStudioManImpl {
 
     public void onSendQuizOptsResult(String str, int i, String str2, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             LogUtils.d(TAG, "sendQuizOpts----errorCode: " + i + " msg: " + str2);
             IMcastSetListener iMcastSetListener = (IMcastSetListener) ListenerManager.getInstance().removeListener(str);
             if (iMcastSetListener != null) {
@@ -603,21 +681,25 @@ public class ConversationStudioManImpl {
     }
 
     public void handleMessage(JSONObject jSONObject, String str) {
+        long optLong;
         JSONArray jSONArray;
         long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, jSONObject, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, jSONObject, str) == null) {
             JSONArray jSONArray2 = new JSONArray();
-            long j2 = 0;
             JSONArray jSONArray3 = null;
+            long j2 = 0;
             if (jSONObject != null) {
                 try {
                     j2 = jSONObject.optLong("mcast_id");
+                    optLong = jSONObject.optLong("mcast_type");
                     jSONArray3 = jSONObject.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
                 } catch (JSONException unused) {
                     LogUtils.e(TAG, "ConversationStudioManImpl handleMessage parse json error");
                     return;
                 }
+            } else {
+                optLong = 0;
             }
             boolean isReliable = isReliable(j2);
             int i = 0;
@@ -630,30 +712,32 @@ public class ConversationStudioManImpl {
             if (jSONArray3 != null) {
                 while (i < jSONArray3.length()) {
                     JSONObject jSONObject2 = jSONArray3.getJSONObject(i);
+                    JSONArray jSONArray4 = jSONArray3;
                     if (jSONObject2.optLong("origin_id") != Utility.getTriggerId(mContext)) {
                         jSONArray2.put(jSONObject2);
                     } else {
                         LogUtils.d(TAG, "filter self message");
                     }
                     if (isReliable) {
+                        j = optLong;
                         long longValue = ((Long) jSONObject2.get("msgid")).longValue();
                         jSONArray = jSONArray2;
-                        j = j2;
                         if (this.mMaxMsgId < longValue) {
                             this.mMaxMsgId = longValue;
                         }
                     } else {
                         jSONArray = jSONArray2;
-                        j = j2;
+                        j = optLong;
                     }
                     arrayList.add(Long.valueOf(((Long) jSONObject2.get("msgid")).longValue()));
                     i++;
+                    jSONArray3 = jSONArray4;
+                    optLong = j;
                     jSONArray2 = jSONArray;
-                    j2 = j;
                 }
             }
-            JSONArray jSONArray4 = jSONArray2;
-            long j3 = j2;
+            JSONArray jSONArray5 = jSONArray2;
+            long j3 = optLong;
             long j4 = -1;
             if (jSONObject != null && jSONObject.has(Constants.EXTRA_NOTIFY_ID)) {
                 try {
@@ -663,21 +747,20 @@ public class ConversationStudioManImpl {
                 }
             }
             if (isReliable) {
-                LogUtils.e(TAG, "handleMessage push reliable castId :" + j3 + ", max :" + this.mMaxMsgId);
-                FetchConversationStudio fetchConversationStudio = this.mFetchRunnables.get(Long.valueOf(j3));
+                LogUtils.e(TAG, "handleMessage push reliable castId :" + j2 + ", max :" + this.mMaxMsgId);
+                FetchConversationStudio fetchConversationStudio = this.mFetchRunnables.get(Long.valueOf(j2));
                 if (fetchConversationStudio == null) {
-                    fetchConversationStudio = new FetchConversationStudio(mContext, j3);
-                    addFetchCastId(j3, fetchConversationStudio);
+                    fetchConversationStudio = new FetchConversationStudio(mContext, j2);
+                    addFetchCastId(j2, fetchConversationStudio);
                 }
                 fetchConversationStudio.toFetch(this.mMaxMsgId);
-            } else if (jSONArray4.length() == 0) {
+            } else if (jSONArray5.length() == 0) {
             } else {
                 MessageExt.getInstance().setLastCallbackMsgId((Long) Collections.max(arrayList));
-                ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(mContext);
-                chatMsgManagerImpl.deliverMcastMessage(j3 + "", jSONArray4);
-                if (isAck(j3)) {
+                ChatMsgManagerImpl.getInstance(mContext).deliverMcastMessage("" + j3, j2 + "", jSONArray5);
+                if (isAck(j2)) {
                     LogUtils.d(TAG, "toAck");
-                    toAck(jSONArray4, j4, str);
+                    toAck(jSONArray5, j4, str);
                 }
             }
         }
@@ -685,7 +768,7 @@ public class ConversationStudioManImpl {
 
     public void onJoinCastResult(String str, int i, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
             IMcastSetListener iMcastSetListener = (IMcastSetListener) ListenerManager.getInstance().removeListener(str);
             LogUtils.d(TAG, "onJoinCastResult----errorCode: " + i + " msg: " + str2 + ", castId :" + j + ", listener :" + iMcastSetListener);
             if (iMcastSetListener != null) {
@@ -721,35 +804,21 @@ public class ConversationStudioManImpl {
         }
     }
 
-    public void onQuitCastResult(String str, int i, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j)}) == null) {
-            LogUtils.d(TAG, "onQuitCastResult----errorCode: " + i + " msg: " + str2);
-            IMcastSetListener iMcastSetListener = (IMcastSetListener) ListenerManager.getInstance().removeListener(str);
-            if (iMcastSetListener != null) {
-                iMcastSetListener.onResult(i, j, -1L);
-            } else {
-                LogUtils.d(TAG, "IMcastSetistener is null");
-            }
-            cancelMcastQuickHeartBeat();
-        }
-    }
-
     public void pingRequest(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             if (z) {
-                v80.c.removeCallbacks(mPingRunnable);
-                v80.c.postDelayed(mPingRunnable, j);
+                w80.c.removeCallbacks(mPingRunnable);
+                w80.c.postDelayed(mPingRunnable, j);
                 return;
             }
-            v80.c.removeCallbacks(mPingRunnable);
+            w80.c.removeCallbacks(mPingRunnable);
         }
     }
 
     public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
             String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
             if (AccountManager.isLogin(mContext)) {
                 Intent createMcastMethodIntent = Utility.createMcastMethodIntent(mContext, 210);
@@ -759,7 +828,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
                 try {
-                    v80.e(mContext).d(mContext, createMcastMethodIntent);
+                    w80.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);

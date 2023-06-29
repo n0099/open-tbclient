@@ -1,49 +1,46 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
 public class b74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String d() {
-        InterceptResult invokeV;
+    public static void a(j64 j64Var, JsObject jsObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "meter.js" : (String) invokeV.objValue;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File b = b();
-            if (b.exists()) {
-                ds4.j(b);
+        if (interceptable == null || interceptable.invokeLL(65536, null, j64Var, jsObject) == null) {
+            c74 c74Var = new c74();
+            j42 F = j42.F(jsObject);
+            if (F == null) {
+                F = new j42();
             }
-        }
-    }
-
-    public static File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return p84.e("aigames_debug_dashboard");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File b = b();
-            if (!b.exists()) {
-                b.mkdirs();
+            boolean z = false;
+            if (j64Var == null) {
+                c74Var.errMsg = "openCustomerServiceConversation:fail";
+                oe4.call(F, false, c74Var);
+                return;
             }
-            return new File(b, "debugDashboard.zip");
+            if (m84.c()) {
+                cc3 M = cc3.M();
+                if (M != null) {
+                    String str = "{\"appKey\":\"" + M.O() + "\"}";
+                    if (SchemeRouter.invoke(jv2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
+                        c74Var.errMsg = "openCustomerServiceConversation:ok";
+                        z = true;
+                    } else {
+                        c74Var.errMsg = "openCustomerServiceConversation:fail";
+                    }
+                } else {
+                    c74Var.errMsg = "openCustomerServiceConversation:fail";
+                }
+            } else {
+                c74Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
+            }
+            oe4.call(F, z, c74Var);
         }
-        return (File) invokeV.objValue;
     }
 }

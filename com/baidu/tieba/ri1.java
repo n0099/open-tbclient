@@ -1,161 +1,122 @@
 package com.baidu.tieba;
 
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Enumeration;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ri1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ri1 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public HandlerThread a;
+    public Handler b;
+    public int c;
+    public int d;
+    public Runnable e;
 
-    public static InetAddress a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            InetAddress inetAddress = null;
-            try {
-                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-                if (networkInterfaces == null) {
-                    return null;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ri1 a;
+
+        public a(ri1 ri1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ri1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                InetAddress inetAddress2 = null;
-                do {
-                    try {
-                        if (networkInterfaces.hasMoreElements()) {
-                            Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                            while (true) {
-                                if (inetAddresses.hasMoreElements()) {
-                                    InetAddress nextElement = inetAddresses.nextElement();
-                                    try {
-                                        if (!nextElement.isLoopbackAddress() && !nextElement.getHostAddress().contains(":")) {
-                                            inetAddress2 = nextElement;
-                                            continue;
-                                            break;
-                                        }
-                                        inetAddress2 = null;
-                                    } catch (Exception unused) {
-                                        return nextElement;
-                                    }
-                                }
-                            }
-                        } else {
-                            return inetAddress2;
-                        }
-                    } catch (Exception unused2) {
-                        inetAddress = inetAddress2;
-                        return inetAddress;
-                    }
-                } while (inetAddress2 == null);
-                return inetAddress2;
-            } catch (Exception unused3) {
             }
-        } else {
-            return (InetAddress) invokeV.objValue;
+            this.a = ri1Var;
         }
-    }
 
-    public static String d() {
-        InterceptResult invokeV;
-        byte[] hardwareAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                NetworkInterface byName = NetworkInterface.getByName("wlan0");
-                if (byName != null && (hardwareAddress = ApiReplaceUtil.getHardwareAddress(byName)) != null) {
-                    StringBuilder sb = new StringBuilder();
-                    int length = hardwareAddress.length;
-                    for (int i = 0; i < length; i++) {
-                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
-                    }
-                    if (sb.length() > 0) {
-                        sb.deleteCharAt(sb.length() - 1);
-                    }
-                    return sb.toString();
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                bj1.g("开始重试");
+                if (si1.n()) {
+                    bj1.g("重试成功");
+                    this.a.c = 0;
+                    this.a.a.quitSafely();
+                    this.a.b.removeCallbacks(this);
+                    return;
                 }
-            } catch (Exception unused) {
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        byte[] hardwareAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                InetAddress a = a();
-                if (a == null || (hardwareAddress = ApiReplaceUtil.getHardwareAddress(NetworkInterface.getByInetAddress(a))) == null) {
-                    return "";
+                ri1.c(this.a);
+                if (this.a.c < 3) {
+                    bj1.g("重试失败继续重试");
+                    this.a.b.postDelayed(this, this.a.d);
+                    return;
                 }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hardwareAddress.length; i++) {
-                    if (i != 0) {
-                        sb.append(':');
+                this.a.c = 0;
+                bj1.g("重试三次结束重试");
+                this.a.a.quitSafely();
+                this.a.b.removeCallbacks(this);
+            }
+        }
+    }
+
+    public ri1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = 10000;
+        this.e = new a(this);
+    }
+
+    public static ri1 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (f == null) {
+                synchronized (ri1.class) {
+                    if (f == null) {
+                        f = new ri1();
                     }
-                    String hexString = Integer.toHexString(hardwareAddress[i] & 255);
-                    if (hexString.length() == 1) {
-                        hexString = 0 + hexString;
-                    }
-                    sb.append(hexString);
                 }
-                return sb.toString();
-            } catch (Exception unused) {
-                return "";
             }
+            return f;
         }
-        return (String) invokeV.objValue;
+        return (ri1) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return ApiReplaceUtil.getMacAddress(((WifiManager) cj1.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo());
-        }
-        return (String) invokeV.objValue;
+    public static /* synthetic */ int c(ri1 ri1Var) {
+        int i = ri1Var.c;
+        ri1Var.c = i + 1;
+        return i;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
-        String d;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                d = b();
-            } else {
-                d = d();
-            }
-            if (!f(d)) {
-                d = e();
-            }
-            if (!TextUtils.isEmpty(d)) {
-                return d.toUpperCase();
-            }
-            return d;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bj1.g("触发重试");
+            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
+            this.a = handlerThread;
+            handlerThread.start();
+            Handler handler = new Handler(this.a.getLooper());
+            this.b = handler;
+            handler.postDelayed(this.e, this.d);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.equals(Config.DEF_MAC_ID)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

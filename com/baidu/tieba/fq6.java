@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.view.MultiLinkCardView;
-import com.baidu.tieba.n37;
+import com.baidu.tieba.compact.FakeWallCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class fq6 implements n37.g {
+public class fq6 extends d87<FakeWallCardView, r37> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fq6() {
+        super("fake_wall");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,64 +25,34 @@ public class fq6 implements n37.g {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.n37.l
-    public void a(@NonNull ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof MultiLinkCardView)) {
-            ((MultiLinkCardView) viewGroup).b();
-        }
-    }
-
-    @Override // com.baidu.tieba.n37.g
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.s87
     @NonNull
-    public ViewGroup create(Context context) {
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new MultiLinkCardView(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            aa7.i(a, Integer.valueOf(aa7.e() - mz.r));
+            return a;
         }
-        return (ViewGroup) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.n37.g
-    public void update(@NonNull ViewGroup viewGroup, @NonNull n47 n47Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.s87
+    /* renamed from: e */
+    public void b(@NonNull FakeWallCardView fakeWallCardView, @NonNull r37 r37Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, n47Var) == null) && (viewGroup instanceof MultiLinkCardView)) {
-            List<w57> d = n47Var.d();
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            for (w57 w57Var : d) {
-                if (w57Var.i() == 6) {
-                    PbGoodsData pbGoodsData = new PbGoodsData();
-                    pbGoodsData.title = w57Var.h();
-                    pbGoodsData.picUrl = w57Var.f();
-                    pbGoodsData.price = w57Var.c();
-                    pbGoodsData.linkUrl = w57Var.e();
-                    pbGoodsData.sort = w57Var.g();
-                    pbGoodsData.linkFrom = w57Var.d();
-                    pbGoodsData.goodsUrlH5 = w57Var.a();
-                    arrayList2.add(pbGoodsData);
-                } else {
-                    PbLinkData pbLinkData = new PbLinkData();
-                    pbLinkData.title = w57Var.h();
-                    pbLinkData.linkUrl = w57Var.e();
-                    pbLinkData.picUrl = w57Var.f();
-                    pbLinkData.linkFrom = w57Var.d();
-                    pbLinkData.extTxt = w57Var.c();
-                    pbLinkData.sort = w57Var.g();
-                    pbLinkData.urlType = w57Var.i();
-                    pbLinkData.content1 = w57Var.a();
-                    pbLinkData.content2 = w57Var.b();
-                    arrayList.add(pbLinkData);
-                }
-            }
-            ((MultiLinkCardView) viewGroup).a(arrayList, arrayList2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fakeWallCardView, r37Var) == null) {
+            fakeWallCardView.update(r37Var);
         }
     }
 }

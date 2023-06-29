@@ -1,72 +1,77 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class d0b {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final Method b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652147, "Lcom/baidu/tieba/d0b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public d0b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947652147, "Lcom/baidu/tieba/d0b;");
-                return;
-            }
-        }
-        try {
-            a = ((Integer) Canvas.class.getField("MATRIX_SAVE_FLAG").get(null)).intValue();
-            b = Canvas.class.getMethod("save", Integer.TYPE);
-        } catch (Throwable th) {
-            b(th);
-            throw null;
         }
     }
 
-    public static void a(Canvas canvas, int i) {
+    public JSONObject a() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        JSONException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, canvas, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                b.invoke(canvas, Integer.valueOf(i));
-            } catch (Throwable th) {
-                b(th);
-                throw null;
+                jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("doReport", this.b);
+                    jSONObject.put("name", this.c);
+                    jSONObject.put("code", this.d);
+                    jSONObject.put("msg", this.e);
+                    jSONObject.put("data", this.f);
+                    jSONObject.put("isShowSpecialToast", this.g);
+                    jSONObject.put("specialToast", this.h);
+                } catch (JSONException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
+                }
+            } catch (JSONException e3) {
+                jSONObject = null;
+                e = e3;
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static RuntimeException b(Throwable th) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (th == null) {
-                throw new NullPointerException("t");
-            }
-            c(th);
-            throw null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
         }
-        return (RuntimeException) invokeL.objValue;
-    }
-
-    public static <T extends Throwable> T c(Throwable th) throws Throwable {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
-            throw th;
-        }
-        return (T) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

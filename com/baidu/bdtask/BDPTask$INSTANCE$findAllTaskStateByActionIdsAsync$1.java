@@ -2,7 +2,7 @@ package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.cq;
+import com.baidu.tieba.dq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,21 +14,21 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, "()Lkotlin/Unit;"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String[] $actionIds;
-    public final /* synthetic */ cq $callback;
+    public final /* synthetic */ dq $callback;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1(cq cqVar, String[] strArr) {
+    public BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1(dq dqVar, String[] strArr) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cqVar, strArr};
+            Object[] objArr = {dqVar, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,7 +39,7 @@ public final class BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1 extends L
                 return;
             }
         }
-        this.$callback = cqVar;
+        this.$callback = dqVar;
         this.$actionIds = strArr;
     }
 
@@ -51,9 +51,9 @@ public final class BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1 extends L
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             BDPTask u = BDPTask.m.u();
             if (u != null) {
-                cq cqVar = this.$callback;
+                dq dqVar = this.$callback;
                 String[] strArr = this.$actionIds;
-                u.J(cqVar, (String[]) Arrays.copyOf(strArr, strArr.length));
+                u.J(dqVar, (String[]) Arrays.copyOf(strArr, strArr.length));
                 return Unit.INSTANCE;
             }
             return null;

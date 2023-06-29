@@ -1,220 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a61;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.content.res.TypedArray;
+import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
 public class v61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a61 a;
 
-    /* loaded from: classes8.dex */
-    public class a extends a61.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(v61 v61Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v61Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void a(@NonNull Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, activity, i) == null) && i != -1 && Build.VERSION.SDK_INT == 26 && activity.getApplicationInfo().targetSdkVersion > 26 && c(activity) && !b(activity)) {
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(activity);
+                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
+                declaredField2.setAccessible(true);
+                if (declaredField2.getInt(obj) == -1) {
+                    declaredField2.setInt(obj, i);
                 }
-            }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.tieba.a61.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.a();
-                this.a.a();
-            }
-        }
-
-        @Override // com.baidu.tieba.a61.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.b();
-                this.a.b();
-            }
-        }
-
-        @Override // com.baidu.tieba.a61.c
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.c();
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.a61.c
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                super.d();
-                this.a.d();
-            }
-        }
-
-        @Override // com.baidu.tieba.a61.c
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.e();
-                this.a.e();
-            }
-        }
-
-        @Override // com.baidu.tieba.a61.c
-        public void f(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                super.f(j);
-                this.a.f(j);
+            } catch (IllegalAccessException | NoSuchFieldException unused) {
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static abstract class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public void f(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public v61(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new a61(j, j2);
-    }
-
-    public final synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.a.b();
-            }
-        }
-    }
-
-    public final synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.a.d();
-            }
-        }
-    }
-
-    public final synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a.e();
-            }
-        }
-    }
-
-    public final synchronized v61 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                this.a.g();
-            }
-            return this;
-        }
-        return (v61) invokeV.objValue;
-    }
-
-    public v61 d(b bVar) {
+    @SuppressLint({"SoonBlockedPrivateApi"})
+    public static boolean b(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            if (bVar == null) {
-                return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(activity);
+                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isFixedOrientation", new Class[0]);
+                declaredMethod.setAccessible(true);
+                return ((Boolean) declaredMethod.invoke(obj, new Object[0])).booleanValue();
+            } catch (IllegalAccessException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException unused) {
+                return false;
             }
-            this.a.f(new a(this, bVar));
-            return this;
         }
-        return (v61) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public static boolean c(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.android.internal.R$styleable");
+                Field declaredField = cls.getDeclaredField("Window");
+                declaredField.setAccessible(true);
+                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
+                Field declaredField2 = cls.getDeclaredField("Window_windowIsTranslucent");
+                declaredField2.setAccessible(true);
+                Field declaredField3 = cls.getDeclaredField("Window_windowSwipeToDismiss");
+                declaredField3.setAccessible(true);
+                Field declaredField4 = cls.getDeclaredField("Window_windowIsFloating");
+                declaredField4.setAccessible(true);
+                Object obj = declaredField2.get(null);
+                Object obj2 = declaredField3.get(null);
+                if (obj instanceof Integer) {
+                    z2 = obtainStyledAttributes.getBoolean(((Integer) obj).intValue(), false);
+                    if ((obj2 instanceof Integer) && !obtainStyledAttributes.hasValue(((Integer) obj).intValue()) && obtainStyledAttributes.getBoolean(((Integer) obj2).intValue(), false)) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                } else {
+                    z = false;
+                    z2 = false;
+                }
+                Object obj3 = declaredField4.get(null);
+                if (obj3 instanceof Integer) {
+                    z3 = obtainStyledAttributes.getBoolean(((Integer) obj3).intValue(), false);
+                } else {
+                    z3 = false;
+                }
+                obtainStyledAttributes.recycle();
+                if (!z3 && !z2 && !z) {
+                    return false;
+                }
+                return true;
+            } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int d(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            int i = -1;
+            if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !c(activity) || !b(activity)) {
+                return -1;
+            }
+            try {
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(activity);
+                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
+                declaredField2.setAccessible(true);
+                int i2 = declaredField2.getInt(obj);
+                if (i2 != -1) {
+                    try {
+                        declaredField2.setInt(obj, -1);
+                    } catch (IllegalAccessException e) {
+                        e = e;
+                        i = i2;
+                        e.printStackTrace();
+                        return i;
+                    } catch (NoSuchFieldException e2) {
+                        e = e2;
+                        i = i2;
+                        e.printStackTrace();
+                        return i;
+                    }
+                }
+                return i2;
+            } catch (IllegalAccessException e3) {
+                e = e3;
+            } catch (NoSuchFieldException e4) {
+                e = e4;
+            }
+        } else {
+            return invokeL.intValue;
+        }
     }
 }

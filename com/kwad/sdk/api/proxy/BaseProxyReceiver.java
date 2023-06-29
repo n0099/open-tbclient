@@ -6,7 +6,7 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseProxyReceiver extends BroadcastReceiver {
     public IReceiverProxy mDelegate;
 

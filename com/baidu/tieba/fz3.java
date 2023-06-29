@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fz3 {
+public class fz3 implements gz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ez3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ez3 a() {
-        InterceptResult invokeV;
-        ez3 ez3Var;
+    @Override // com.baidu.tieba.gz3
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (fz3.class) {
-                if (a == null) {
-                    a = new ez3();
-                }
-                ez3Var = a;
-            }
-            return ez3Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
         }
-        return (ez3) invokeV.objValue;
+    }
+
+    public fz3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

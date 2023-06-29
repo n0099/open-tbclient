@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oe5;
-import com.baidu.tieba.v78;
+import com.baidu.tieba.a88;
+import com.baidu.tieba.se5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes6.dex */
-public class StrangerListAdapter extends v78 {
+public class StrangerListAdapter extends a88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.v78
-    public boolean f(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.a88
+    public boolean g(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imMessageCenterShowItemData)) == null) {
@@ -30,8 +30,8 @@ public class StrangerListAdapter extends v78 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.v78
-    public boolean g(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.a88
+    public boolean h(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterShowItemData)) == null) {
@@ -61,8 +61,8 @@ public class StrangerListAdapter extends v78 {
         this.d = true;
     }
 
-    @Override // com.baidu.tieba.v78
-    public void j(v78.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.a88
+    public void k(a88.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.b.setIsRound(true);
@@ -77,33 +77,33 @@ public class StrangerListAdapter extends v78 {
         }
     }
 
-    @Override // com.baidu.tieba.v78
-    public void l(v78.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.a88
+    public void m(a88.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
             if (imMessageCenterShowItemData != null) {
-                imMessageCenterShowItemData.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1433));
+                imMessageCenterShowItemData.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1450));
             }
-            super.l(aVar, imMessageCenterShowItemData);
+            super.m(aVar, imMessageCenterShowItemData);
         }
     }
 
-    @Override // com.baidu.tieba.v78
-    public void u(v78.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.a88
+    public void v(a88.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.n.setVisibility(8);
+            aVar.f.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.v78
-    public BasicNameValuePair x(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
+    @Override // com.baidu.tieba.a88
+    public BasicNameValuePair z(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!oe5.d().w()) {
+            if (!se5.d().w()) {
                 str = "";
                 i = 0;
             }

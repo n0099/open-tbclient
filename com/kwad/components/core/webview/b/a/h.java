@@ -1,7 +1,7 @@
 package com.kwad.components.core.webview.b.a;
 
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h extends com.kwad.sdk.core.response.kwai.a {
     public int NP;
     public int NQ = -1;

@@ -1,109 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.common.others.url.UrlUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class h7a extends BdAsyncTask<String, String, Integer> {
+public class h7a extends g7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public a b;
+    public final WeakReference<View> b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-
-        void b();
-
-        void c();
-
-        void onError(String str);
-    }
-
-    public h7a(String str, a aVar) {
+    public h7a(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, aVar};
+            Object[] objArr = {view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.b = aVar;
+        this.b = new WeakReference<>(view2);
+        this.a = i;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g7a
+    public void b() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return UrlUtils.getParamValue(this.a, "url", true).contains("yandex.");
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = this.b.get()) != null) {
+            view2.setVisibility(0);
         }
-        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Integer doInBackground(String... strArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.g7a
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-            try {
-                if (b()) {
-                    return 5;
-                }
-                NetWork netWork = new NetWork(this.a);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            return Integer.valueOf(optJSONObject.optInt("main", -1));
-                        }
-                    }
-                    return -1;
-                }
-                return -1;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a7a.a = Math.max(a7a.a, this.a + 1);
         }
-        return (Integer) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(Integer num) {
+    @Override // com.baidu.tieba.g7a
+    public void d() {
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, num) == null) && this.b != null && num != null) {
-            if (num.intValue() == -1) {
-                this.b.onError(null);
-            } else if (num.intValue() == 1) {
-                this.b.c();
-            } else if (num.intValue() != 2 && num.intValue() != 0) {
-                this.b.a();
-            } else {
-                this.b.b();
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (view2 = this.b.get()) != null) {
+            view2.setVisibility(8);
         }
     }
 }

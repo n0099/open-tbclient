@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
-public class a62 extends f52 {
+/* loaded from: classes5.dex */
+public class a62 extends i52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.f52
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-        }
-    }
+    public RectF a;
 
     public a62() {
         Interceptable interceptable = $ic;
@@ -33,15 +29,27 @@ public class a62 extends f52 {
         }
     }
 
-    @Override // com.baidu.tieba.f52
-    public void a(g52 g52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.i52
+    public void a(j52 j52Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) && (rectF = this.a) != null) {
+            j52Var.f.addRect(rectF, Path.Direction.CW);
+        }
+    }
+
+    @Override // com.baidu.tieba.i52
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
-                g52Var.f();
-                canvas.save();
-            } catch (CloneNotSupportedException e) {
-                if (js1.a) {
+                if (jSONArray.length() == 4) {
+                    int g = tp3.g((float) jSONArray.optDouble(0));
+                    int g2 = tp3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + tp3.g((float) jSONArray.optDouble(2)), g2 + tp3.g((float) jSONArray.optDouble(3)));
+                }
+            } catch (Exception e) {
+                if (ms1.a) {
                     e.printStackTrace();
                 }
             }

@@ -12,7 +12,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.permission.DangerousPermissionManager;
 import com.baidu.searchbox.permission.popupwindow.PermissionInAppWindow;
-import com.baidu.tieba.k30;
+import com.baidu.tieba.l30;
 import com.baidu.ubc.UBC;
 import java.util.List;
 import org.json.JSONException;
@@ -294,7 +294,7 @@ public class DangerousPermissionUtils {
     }
 
     public static void sendPermissionUBCEventPrivacy(String str, String str2, String str3, String str4, String str5, String str6) {
-        sendPermissionUBCEvent(str, str2, str3, str4, str5, appendValueForJson(str6, "iid", k30.f(AppRuntime.getAppContext()).e()), 128);
+        sendPermissionUBCEvent(str, str2, str3, str4, str5, appendValueForJson(str6, "iid", l30.f(AppRuntime.getAppContext()).e()), 128);
     }
 
     public static DangerousPermissionManager.RequestSystemPermissionCallBack showPermissionInstrumentWindow(String str, final Activity activity, final String[] strArr) {

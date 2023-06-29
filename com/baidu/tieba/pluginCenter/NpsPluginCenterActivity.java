@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.flutter.FlutterPluginManager;
-import com.baidu.tieba.ml;
+import com.baidu.tieba.nl;
 import com.baidu.tieba.wallet.WalletPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -124,7 +124,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d070b);
+            setContentView(R.layout.obfuscated_res_0x7f0d071e);
             x1();
             y1();
         }
@@ -146,7 +146,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092027);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092086);
             this.e.add(LiveMediaPluginManager.BJH_PLUGIN_PKG_NAME);
             this.e.add("com.baidu.live.media.business");
             this.e.add("com.baidu.searchbox.livenps");
@@ -154,7 +154,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
             this.e.add(WalletPluginManager.PLUGIN_PKG_NAME);
             this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
             this.e.add(GameAssistNPSPluginManager.GAMEASSIST_PKG_NAME);
-            for (BundleInfo bundleInfo : ml.f().c()) {
+            for (BundleInfo bundleInfo : nl.f().c()) {
                 if (this.e.contains(bundleInfo.getPackageName())) {
                     TbSettingTextTipView z1 = z1();
                     z1.setText(bundleInfo.getName());

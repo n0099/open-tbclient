@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.r55;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.u55;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class TBAlertBuilder {
     public View.OnClickListener q;
     public boolean r;
     public LinearLayout s;
-    public r55 t;
+    public u55 t;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -187,7 +187,7 @@ public class TBAlertBuilder {
         this.k = ScrollingMovementMethod.getInstance();
         this.b = activity;
         this.a = new AlertDialog.Builder(activity);
-        this.t = new r55();
+        this.t = new u55();
     }
 
     public static void e(@NonNull Dialog dialog) {
@@ -218,7 +218,7 @@ public class TBAlertBuilder {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             int i = context.getResources().getDisplayMetrics().widthPixels;
             int i2 = (i * 837) / 1076;
-            int g = wi.g(context, R.dimen.tbds756);
+            int g = xi.g(context, R.dimen.tbds756);
             if (i2 < g) {
                 return Math.min(i, g);
             }
@@ -385,7 +385,7 @@ public class TBAlertBuilder {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) {
-            p75 d = p75.d(view2);
+            s75 d = s75.d(view2);
             if (this.e == null) {
                 i = 0;
             } else {
@@ -516,7 +516,7 @@ public class TBAlertBuilder {
                 TextView b2 = this.t.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
-                b2.setId(R.id.obfuscated_res_0x7f09086b);
+                b2.setId(R.id.obfuscated_res_0x7f090871);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 b2.setMovementMethod(this.k);
@@ -524,7 +524,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.b);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f09086b);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090871);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 this.s.addView(relativeLayout);
@@ -548,8 +548,8 @@ public class TBAlertBuilder {
             if (this.n) {
                 ImageView imageView = new ImageView(this.b);
                 imageView.setImageResource(R.drawable.icon_mask_pop_close);
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
-                layoutParams2.setMargins(0, wi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
+                layoutParams2.setMargins(0, xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
                 imageView.setOnClickListener(new c(this));
                 linearLayout.addView(imageView, layoutParams2);
             }

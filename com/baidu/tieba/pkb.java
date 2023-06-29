@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
+import android.graphics.Bitmap;
+import android.os.Bundle;
 /* loaded from: classes7.dex */
 public interface pkb {
-    void a(Surface surface);
+    void b(Bundle bundle);
 
-    void b(int i, int i2, int i3);
+    void c(Bitmap bitmap);
 
-    void surfaceDestroyed();
+    void d(String str);
 }

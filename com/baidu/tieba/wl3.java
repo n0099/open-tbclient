@@ -1,40 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.vl3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wl3 extends wd3 {
+public class wl3 extends xl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wl3(wc3 wc3Var) {
-        super(wc3Var, "/swanAPI/brightness");
+    public wl3(zc3 zc3Var) {
+        super(zc3Var, "/swanAPI/getBatteryInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var};
+            Object[] objArr = {zc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((zc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,122 +39,52 @@ public class wl3 extends wd3 {
         }
     }
 
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
+    @Override // com.baidu.tieba.zd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            if (wd3.b) {
-                Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
+            if (!j(context, cc3Var, unitedSchemeEntity)) {
                 return false;
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:65:0x010c  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x011a  */
-    @Override // com.baidu.tieba.wd3
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, zb3 zb3Var) {
-        InterceptResult invokeLLLLL;
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, zb3Var)) == null) {
-            if (wd3.b) {
-                Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (wd3.b) {
-                Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
-            }
-            JSONObject jSONObject = null;
-            if (context instanceof Activity) {
-                activity = (Activity) context;
-            } else {
-                activity = null;
-            }
-            if (activity == null) {
-                z82.c("brightness", "activity is null");
+            if (optParamsAsJo == null) {
+                if (zd3.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- params is empty");
+                }
+                c92.c("battery", "none params");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            int i = 1001;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            boolean z = true;
-            if (hashCode != -1634890823) {
-                if (hashCode != 1913219981) {
-                    if (hashCode == 1913231513 && str.equals("/swanAPI/brightness/set")) {
-                        c = 0;
-                    }
-                } else if (str.equals("/swanAPI/brightness/get")) {
-                    c = 1;
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                if (zd3.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- cb is empty");
                 }
-            } else if (str.equals("/swanAPI/brightness/keepScreenOn")) {
-                c = 2;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        if (optParamsAsJo == null) {
-                            z82.c("brightness", "paramsJson is null");
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                            return false;
-                        }
-                        try {
-                            xl3.c().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
-                        } catch (JSONException unused) {
-                        }
-                    }
-                    z = false;
-                } else {
-                    jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("value", xl3.c().a(activity));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (z) {
-                    if (jSONObject != null) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    } else {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    }
-                } else {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
-                }
-                return z;
-            } else if (optParamsAsJo == null) {
-                z82.c("brightness", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                c92.c("battery", "cb is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else {
-                String optString = optParamsAsJo.optString("value");
-                float f = -1.0f;
-                if (!TextUtils.isEmpty(optString)) {
-                    try {
-                        f = Float.parseFloat(optString);
-                    } catch (Exception unused2) {
-                    }
-                }
-                if (f >= 0.0f && f <= 1.0f) {
-                    xl3.c().e(activity, f);
-                    if (z) {
-                    }
-                    return z;
-                }
-                i = 202;
-                z = false;
-                if (z) {
-                }
-                return z;
             }
+            vl3.a a = vl3.a(context);
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
+                return false;
+            }
+            if (zd3.b) {
+                Log.d("battery", "/swanAPI/getBatteryInfo = level: " + a.a + " ; plugged: " + a.b);
+            }
+            JSONObject k = k(a);
+            if (k == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
+                if (zd3.b) {
+                    Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
+                }
+                return false;
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(k, 0).toString(), optString);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

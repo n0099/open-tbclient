@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.s7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class pt6 extends kt6 {
+public abstract class pt6 implements e0, s7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public it6 a;
 
     public pt6() {
         Interceptable interceptable = $ic;
@@ -19,16 +25,35 @@ public final class pt6 extends kt6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = it6.i.a();
+    }
+
+    public final it6 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (it6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s7.a
+    @CallSuper
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = it6.i.a();
         }
     }
 
-    @Override // com.baidu.tieba.kt6, com.baidu.tieba.r7.a
-    public void reset() {
+    public final void b(it6 it6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a().b();
-            super.reset();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it6Var) == null) {
+            Intrinsics.checkNotNullParameter(it6Var, "<set-?>");
+            this.a = it6Var;
         }
     }
 }

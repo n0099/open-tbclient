@@ -1,65 +1,84 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitMinAmountInfo;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes5.dex */
-public class cxb {
+public final class cxb {
     public static /* synthetic */ Interceptable $ic;
+    public static final ysb<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(List<SplitMinAmountInfo> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            RLog.info("PaySplitOrderUtils", "getSplitMinAmount splitMinAmountInfoList:" + list);
-            for (SplitMinAmountInfo splitMinAmountInfo : list) {
-                if (splitMinAmountInfo.splitType == 1) {
-                    return splitMinAmountInfo.minAmount;
+    /* loaded from: classes5.dex */
+    public static class a implements ysb<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ysb
+        public final void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.ysb
+        public final void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return 0;
         }
-        return invokeL.intValue;
+
+        @Override // com.baidu.tieba.ysb
+        public final void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                throw new OnErrorNotImplementedException(th);
+            }
+        }
     }
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            PaysSettingInfo d = ewb.d();
-            if (d == null) {
-                RLog.error("PaySplitOrderUtils", "maybeShowSplitOrderDialog error settingInfo null", new Object[0]);
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691548, "Lcom/baidu/tieba/cxb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return c(d.splitMinAmountInfoList, i);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947691548, "Lcom/baidu/tieba/cxb;");
+                return;
+            }
         }
-        return invokeI.booleanValue;
+        a = new a();
     }
 
-    public static boolean c(List<SplitMinAmountInfo> list, int i) {
-        InterceptResult invokeLI;
+    public static <T> ysb<T> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            if (list != null && !list.isEmpty()) {
-                int a = a(list);
-                if (a <= 0) {
-                    RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog false splitMinAmount:" + a);
-                    return false;
-                }
-                RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog inputAmount:" + i + " splitMinAmount:" + a);
-                if (i < a) {
-                    return false;
-                }
-                return true;
-            }
-            RLog.warn("PaySplitOrderUtils", "maybeShowSplitOrderDialog error splitMinAmountInfoList null");
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (ysb<T>) a;
         }
-        return invokeLI.booleanValue;
+        return (ysb) invokeV.objValue;
     }
 }

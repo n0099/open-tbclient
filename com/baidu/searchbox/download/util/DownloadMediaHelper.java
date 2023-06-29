@@ -23,8 +23,8 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.developer.DebugException;
 import com.baidu.searchbox.download.model.Constants;
-import com.baidu.tieba.x;
 import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -242,16 +242,16 @@ public class DownloadMediaHelper {
                 if (DEBUG) {
                     Log.d(TAG, "deleteMediaFile: " + j);
                 }
-                if (MediaFileProcessor.delete(context, ContentUris.withAppendedId(MediaFileProcessor.a(uriSource), j), (String) null, (String[]) null, new y() { // from class: com.baidu.searchbox.download.util.DownloadMediaHelper.2
-                    @Override // com.baidu.tieba.y
+                if (MediaFileProcessor.delete(context, ContentUris.withAppendedId(MediaFileProcessor.a(uriSource), j), (String) null, (String[]) null, new z() { // from class: com.baidu.searchbox.download.util.DownloadMediaHelper.2
+                    @Override // com.baidu.tieba.z
                     public void onFailed(int i) {
                     }
 
-                    @Override // com.baidu.tieba.y
+                    @Override // com.baidu.tieba.z
                     public void onPermitted(Object obj) {
                     }
 
-                    @Override // com.baidu.tieba.y
+                    @Override // com.baidu.tieba.z
                     public void onRefused() {
                     }
                 }) <= 0) {
@@ -268,10 +268,10 @@ public class DownloadMediaHelper {
     }
 
     @TargetApi(29)
-    public static FileInputStream getFileInputStream(String str, String str2, y yVar) {
+    public static FileInputStream getFileInputStream(String str, String str2, z zVar) {
         try {
             if (isOpenScopedStorage() && !DownloadHelper.isStoragePrivatePath(str)) {
-                ParcelFileDescriptor a = x.a(AppRuntime.getAppContext(), queryMediaFileUri(AppRuntime.getAppContext(), str, str2), "r", yVar);
+                ParcelFileDescriptor a = y.a(AppRuntime.getAppContext(), queryMediaFileUri(AppRuntime.getAppContext(), str, str2), "r", zVar);
                 if (a != null) {
                     return new FileInputStream(a.getFileDescriptor());
                 }
@@ -298,16 +298,16 @@ public class DownloadMediaHelper {
                 }
                 Uri queryMediaFileUri = queryMediaFileUri(context, str, str2);
                 if (queryMediaFileUri != null) {
-                    if (MediaFileProcessor.delete(context, queryMediaFileUri, (String) null, (String[]) null, str, new y() { // from class: com.baidu.searchbox.download.util.DownloadMediaHelper.1
-                        @Override // com.baidu.tieba.y
+                    if (MediaFileProcessor.delete(context, queryMediaFileUri, (String) null, (String[]) null, str, new z() { // from class: com.baidu.searchbox.download.util.DownloadMediaHelper.1
+                        @Override // com.baidu.tieba.z
                         public void onFailed(int i) {
                         }
 
-                        @Override // com.baidu.tieba.y
+                        @Override // com.baidu.tieba.z
                         public void onPermitted(Object obj) {
                         }
 
-                        @Override // com.baidu.tieba.y
+                        @Override // com.baidu.tieba.z
                         public void onRefused() {
                         }
                     }) <= 0) {
@@ -335,7 +335,7 @@ public class DownloadMediaHelper {
         return false;
     }
 
-    public static boolean deleteMediaFile(Context context, String str, String str2, y yVar) {
+    public static boolean deleteMediaFile(Context context, String str, String str2, z zVar) {
         try {
             if (isOpenScopedStorage() && !DownloadHelper.isStoragePrivatePath(str)) {
                 if (DEBUG) {
@@ -343,9 +343,9 @@ public class DownloadMediaHelper {
                 }
                 Uri queryMediaFileUri = queryMediaFileUri(context, str, str2);
                 if (queryMediaFileUri != null) {
-                    int delete = MediaFileProcessor.delete(context, queryMediaFileUri, (String) null, (String[]) null, str, yVar);
-                    if (delete > 0 && yVar != null) {
-                        yVar.onPermitted(Integer.valueOf(delete));
+                    int delete = MediaFileProcessor.delete(context, queryMediaFileUri, (String) null, (String[]) null, str, zVar);
+                    if (delete > 0 && zVar != null) {
+                        zVar.onPermitted(Integer.valueOf(delete));
                     }
                     if (delete <= 0) {
                         return false;
@@ -353,8 +353,8 @@ public class DownloadMediaHelper {
                     return true;
                 }
             }
-            if (yVar != null) {
-                yVar.onPermitted(Boolean.TRUE);
+            if (zVar != null) {
+                zVar.onPermitted(Boolean.TRUE);
             }
         } catch (Exception e) {
             if (DEBUG) {

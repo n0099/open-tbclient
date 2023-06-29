@@ -1,20 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class ti0 extends tl1<wo0> {
+/* loaded from: classes8.dex */
+public class ti0 extends wl1<yk0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements wo0 {
+    /* loaded from: classes8.dex */
+    public class a implements yk0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,23 +32,14 @@ public class ti0 extends tl1<wo0> {
             }
         }
 
-        @Override // com.baidu.tieba.wo0
-        @NonNull
-        public String a() {
+        @Override // com.baidu.tieba.yk0
+        public String m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ui0.c().a();
+                return ri0.e();
             }
             return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.wo0
-        public void request() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ui0.c().request();
-            }
         }
     }
 
@@ -69,14 +58,14 @@ public class ti0 extends tl1<wo0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tl1
+    @Override // com.baidu.tieba.wl1
     /* renamed from: a */
-    public wo0 createService() throws ServiceNotFoundException {
+    public yk0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a(this);
         }
-        return (wo0) invokeV.objValue;
+        return (yk0) invokeV.objValue;
     }
 }

@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.data.AttentionHostData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d55;
-import com.baidu.tieba.e45;
-import com.baidu.tieba.re5;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.h45;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.ve5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,9 +41,9 @@ public class ReplyPrivacyCheckController {
     public transient /* synthetic */ FieldHolder $fh;
     public IAfterAttentionCallBack mAttentionCallback;
     public CustomMessageListener mAttentionListener;
-    public re5 mAttentionModel;
+    public ve5 mAttentionModel;
     public TbPageContext mContext;
-    public d55 mDialog;
+    public g55 mDialog;
     public BdUniqueId mId;
     public AttentionHostData mLikeData;
     public int replyType;
@@ -182,13 +182,13 @@ public class ReplyPrivacyCheckController {
         }
     }
 
-    public void showAttentionDialog(e45 e45Var) {
+    public void showAttentionDialog(h45 h45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, e45Var) == null) {
-            if (e45Var != null && !StringUtils.isNull(e45Var.a) && !StringUtils.isNull(e45Var.b) && !StringUtils.isNull(e45Var.c)) {
-                d55 d55Var = new d55(this.mContext.getPageActivity());
-                d55Var.setMessage(e45Var.a);
-                d55Var.setPositiveButton(e45Var.c, new d55.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.4
+        if (interceptable == null || interceptable.invokeL(1048581, this, h45Var) == null) {
+            if (h45Var != null && !StringUtils.isNull(h45Var.a) && !StringUtils.isNull(h45Var.b) && !StringUtils.isNull(h45Var.c)) {
+                g55 g55Var = new g55(this.mContext.getPageActivity());
+                g55Var.setMessage(h45Var.a);
+                g55Var.setPositiveButton(h45Var.c, new g55.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ReplyPrivacyCheckController this$0;
@@ -211,17 +211,17 @@ public class ReplyPrivacyCheckController {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.d55.e
-                    public void onClick(d55 d55Var2) {
+                    @Override // com.baidu.tieba.g55.e
+                    public void onClick(g55 g55Var2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && interceptable2.invokeL(1048576, this, d55Var2) != null) {
+                        if (interceptable2 != null && interceptable2.invokeL(1048576, this, g55Var2) != null) {
                             return;
                         }
                         this.this$0.followHost();
-                        d55Var2.dismiss();
+                        g55Var2.dismiss();
                     }
                 });
-                d55Var.setNegativeButton(e45Var.b, new d55.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.5
+                g55Var.setNegativeButton(h45Var.b, new g55.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ReplyPrivacyCheckController this$0;
@@ -244,17 +244,17 @@ public class ReplyPrivacyCheckController {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.d55.e
-                    public void onClick(d55 d55Var2) {
+                    @Override // com.baidu.tieba.g55.e
+                    public void onClick(g55 g55Var2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, d55Var2) == null) {
-                            d55Var2.dismiss();
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, g55Var2) == null) {
+                            g55Var2.dismiss();
                         }
                     }
                 });
-                d55Var.setAutoNight(true);
-                d55Var.create(this.mContext);
-                d55Var.show();
+                g55Var.setAutoNight(true);
+                g55Var.create(this.mContext);
+                g55Var.show();
                 return;
             }
             showAttentionDialog();
@@ -270,18 +270,18 @@ public class ReplyPrivacyCheckController {
                 if (attentionHostData == null || attentionHostData.isAttention) {
                     return true;
                 }
-                wi.P(this.mContext.getPageActivity(), R.string.message_privacy_fans_can_reply);
+                xi.P(this.mContext.getPageActivity(), R.string.message_privacy_fans_can_reply);
                 return false;
             } else if (i == PRIVACY_MY_ATTENTION) {
-                wi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
+                xi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
                 return false;
             } else if (i == PRIVACY_MYSELF) {
-                wi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
+                xi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
                 return false;
             } else if (i != PRIVACY_READ_ONLY) {
                 return true;
             } else {
-                wi.P(this.mContext.getPageActivity(), R.string.privacy_read_only);
+                xi.P(this.mContext.getPageActivity(), R.string.privacy_read_only);
                 return false;
             }
         }
@@ -311,11 +311,11 @@ public class ReplyPrivacyCheckController {
             } else if (this.mLikeData == null || !ViewHelper.checkUpIsLogin(this.mContext.getPageActivity())) {
             } else {
                 if (this.mAttentionModel == null) {
-                    this.mAttentionModel = new re5(this.mContext);
+                    this.mAttentionModel = new ve5(this.mContext);
                 }
-                re5 re5Var = this.mAttentionModel;
+                ve5 ve5Var = this.mAttentionModel;
                 AttentionHostData attentionHostData = this.mLikeData;
-                re5Var.i(true, attentionHostData.portrait, attentionHostData.uid, attentionHostData.isGod, "0", this.mId, null, "0");
+                ve5Var.i(true, attentionHostData.portrait, attentionHostData.uid, attentionHostData.isGod, "0", this.mId, null, "0");
             }
         }
     }
@@ -324,10 +324,10 @@ public class ReplyPrivacyCheckController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             if (this.mDialog == null) {
-                d55 d55Var = new d55(this.mContext.getPageActivity());
-                this.mDialog = d55Var;
-                d55Var.setMessageId(R.string.message_privacy_fans_can_reply);
-                this.mDialog.setPositiveButton(R.string.attention_and_reply, new d55.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.2
+                g55 g55Var = new g55(this.mContext.getPageActivity());
+                this.mDialog = g55Var;
+                g55Var.setMessageId(R.string.message_privacy_fans_can_reply);
+                this.mDialog.setPositiveButton(R.string.attention_and_reply, new g55.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ReplyPrivacyCheckController this$0;
@@ -350,17 +350,17 @@ public class ReplyPrivacyCheckController {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.d55.e
-                    public void onClick(d55 d55Var2) {
+                    @Override // com.baidu.tieba.g55.e
+                    public void onClick(g55 g55Var2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && interceptable2.invokeL(1048576, this, d55Var2) != null) {
+                        if (interceptable2 != null && interceptable2.invokeL(1048576, this, g55Var2) != null) {
                             return;
                         }
                         this.this$0.followHost();
                         this.this$0.mDialog.dismiss();
                     }
                 });
-                this.mDialog.setNegativeButton(R.string.obfuscated_res_0x7f0f03ca, new d55.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.3
+                this.mDialog.setNegativeButton(R.string.obfuscated_res_0x7f0f03cc, new g55.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ReplyPrivacyCheckController this$0;
@@ -383,10 +383,10 @@ public class ReplyPrivacyCheckController {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.d55.e
-                    public void onClick(d55 d55Var2) {
+                    @Override // com.baidu.tieba.g55.e
+                    public void onClick(g55 g55Var2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, d55Var2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, g55Var2) == null) {
                             this.this$0.mDialog.dismiss();
                         }
                     }
@@ -403,13 +403,13 @@ public class ReplyPrivacyCheckController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (i == PRIVACY_MY_ATTENTION) {
-                wi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
+                xi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
                 return false;
             } else if (i == PRIVACY_MYSELF) {
-                wi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
+                xi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
                 return false;
             } else if (i == PRIVACY_READ_ONLY) {
-                wi.P(this.mContext.getPageActivity(), R.string.privacy_read_only);
+                xi.P(this.mContext.getPageActivity(), R.string.privacy_read_only);
                 return false;
             } else {
                 return true;
@@ -431,15 +431,15 @@ public class ReplyPrivacyCheckController {
                 showAttentionDialog();
                 return false;
             } else if (i == PRIVACY_MY_ATTENTION) {
-                wi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
+                xi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
                 return false;
             } else if (i == PRIVACY_MYSELF) {
-                wi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
+                xi.P(this.mContext.getPageActivity(), R.string.reason_cannot_reply_thread);
                 return false;
             } else if (i != PRIVACY_READ_ONLY) {
                 return true;
             } else {
-                wi.P(this.mContext.getPageActivity(), R.string.privacy_read_only);
+                xi.P(this.mContext.getPageActivity(), R.string.privacy_read_only);
                 return false;
             }
         }
@@ -450,13 +450,13 @@ public class ReplyPrivacyCheckController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.mId);
-            d55 d55Var = this.mDialog;
-            if (d55Var != null) {
-                d55Var.dismiss();
+            g55 g55Var = this.mDialog;
+            if (g55Var != null) {
+                g55Var.dismiss();
             }
-            re5 re5Var = this.mAttentionModel;
-            if (re5Var != null) {
-                re5Var.e();
+            ve5 ve5Var = this.mAttentionModel;
+            if (ve5Var != null) {
+                ve5Var.e();
             }
         }
     }

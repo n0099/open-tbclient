@@ -1,39 +1,134 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.cmic.sso.sdk.auth.TokenListener;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.lang.Thread;
 /* loaded from: classes5.dex */
-public abstract class bq1 implements TokenListener {
+public class bq1 implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
+    public static final bq1 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public Thread.UncaughtExceptionHandler a;
+    public boolean b;
+    public cq1 c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947653511, "Lcom/baidu/tieba/bq1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947653511, "Lcom/baidu/tieba/bq1;");
+                return;
+            }
+        }
+        d = new bq1();
+    }
 
     public bq1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = System.currentTimeMillis();
     }
 
-    public long a() {
+    public static bq1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
         }
-        return invokeV.longValue;
+        return (bq1) invokeV.objValue;
+    }
+
+    public final String a(Throwable th) {
+        PrintWriter printWriter;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, th)) == null) {
+            try {
+                StringWriter stringWriter = new StringWriter();
+                printWriter = new PrintWriter(stringWriter);
+                try {
+                    th.printStackTrace(printWriter);
+                    String obj = stringWriter.toString();
+                    printWriter.close();
+                    return obj;
+                } catch (Throwable unused) {
+                    if (printWriter != null) {
+                        printWriter.close();
+                        return "";
+                    }
+                    return "";
+                }
+            } catch (Throwable unused2) {
+                printWriter = null;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
+    public synchronized void b(cq1 cq1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cq1Var) == null) {
+            synchronized (this) {
+                try {
+                    this.c = cq1Var;
+                } finally {
+                }
+                if (cq1Var == null) {
+                    return;
+                }
+                if (!cq1Var.a()) {
+                    return;
+                }
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                this.a = Thread.getDefaultUncaughtExceptionHandler();
+                Thread.setDefaultUncaughtExceptionHandler(this);
+            }
+        }
+    }
+
+    @Override // java.lang.Thread.UncaughtExceptionHandler
+    public void uncaughtException(Thread thread, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, thread, th) == null) {
+            try {
+                String a = a(th);
+                if (!TextUtils.isEmpty(a) && ((a.contains("com.baidu.sso") || a.contains("com.cmic.sso.sdk") || a.contains("com.sdk") || a.contains("cn.com.chinatelecom.gateway")) && this.c != null)) {
+                    this.c.a(a);
+                }
+            } catch (Throwable th2) {
+                lr1.d(th2);
+            }
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.a;
+            if (uncaughtExceptionHandler != null) {
+                uncaughtExceptionHandler.uncaughtException(thread, th);
+            }
+        }
     }
 }

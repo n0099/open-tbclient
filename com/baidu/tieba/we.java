@@ -1,64 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.xe;
 /* loaded from: classes8.dex */
 public interface we<T> {
+    T a(String str, String str2);
 
-    /* loaded from: classes8.dex */
-    public interface a<T> {
-        void a(String str, T t);
-    }
+    void b(String str);
 
-    /* loaded from: classes8.dex */
-    public interface c<T> extends we<T> {
-        void b();
+    qe c();
 
-        ve<T> c();
+    void d(String str, String str2);
 
-        String j();
-    }
+    xe.b<T> e(String str, String str2);
 
-    void a(String str, T t);
+    void f(String str, String str2, T t, long j);
 
-    void d(String str);
-
-    void e(String str, T t, long j);
-
-    void f(String str, a<T> aVar);
-
-    void g(String str, T t);
-
-    T get(String str);
-
-    b<T> h(String str);
-
-    void i(String str, T t, long j);
-
-    void remove(String str);
-
-    /* loaded from: classes8.dex */
-    public static class b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public T b;
-        public long c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    void g(String str);
 }

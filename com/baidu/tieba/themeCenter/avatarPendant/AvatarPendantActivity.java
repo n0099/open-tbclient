@@ -20,14 +20,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.s5a;
-import com.baidu.tieba.t5a;
+import com.baidu.tieba.eaa;
+import com.baidu.tieba.faa;
+import com.baidu.tieba.gaa;
+import com.baidu.tieba.iaa;
+import com.baidu.tieba.iba;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel;
 import com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.u5a;
-import com.baidu.tieba.w5a;
-import com.baidu.tieba.w6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAvatarPendantModel.b, View.OnClickListener {
+public class AvatarPendantActivity extends BaseActivity implements iaa.a, SetAvatarPendantModel.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w5a a;
+    public iaa a;
     public AvatarPendantModel b;
     public SetAvatarPendantModel c;
     public String d;
@@ -71,16 +71,16 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i, String str, w6a w6aVar, List<u5a> list) {
+        public void a(int i, String str, iba ibaVar, List<gaa> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, w6aVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, ibaVar, list}) == null) {
                 AvatarPendantActivity avatarPendantActivity = this.a;
-                avatarPendantActivity.hideLoadingView(avatarPendantActivity.a.z());
+                avatarPendantActivity.hideLoadingView(avatarPendantActivity.a.A());
                 if (i != 0) {
                     this.a.showToast(str);
-                    this.a.a.F();
+                    this.a.a.G();
                 } else {
-                    this.a.a.G(w6aVar, list);
+                    this.a.a.H(ibaVar, list);
                 }
                 this.a.e = !ListUtils.isEmpty(list);
             }
@@ -115,7 +115,7 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
         public void i(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                BdListViewHelper.c(this.a.a.A(), BdListViewHelper.HeadType.DEFAULT, z);
+                BdListViewHelper.c(this.a.a.B(), BdListViewHelper.HeadType.DEFAULT, z);
             }
         }
     }
@@ -156,7 +156,7 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a.B();
+            this.a.C();
         }
     }
 
@@ -167,7 +167,7 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
             super.onCreate(bundle);
             C1();
             initData();
-            showLoadingView(this.a.z());
+            showLoadingView(this.a.A());
             this.b.loadData();
         }
     }
@@ -180,7 +180,7 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
             if (dressItemData == null) {
                 return "";
             }
-            List<u5a> Z = this.b.Z();
+            List<gaa> Z = this.b.Z();
             if (Z != null && Z.size() > 0) {
                 int size = Z.size();
                 for (int i = 0; i < size; i++) {
@@ -209,10 +209,10 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
     public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            w5a w5aVar = new w5a(this);
-            this.a = w5aVar;
-            w5aVar.u(this.g);
-            this.a.E(this);
+            iaa iaaVar = new iaa(this);
+            this.a = iaaVar;
+            iaaVar.x(this.g);
+            this.a.F(this);
         }
     }
 
@@ -240,10 +240,10 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        w5a w5aVar;
+        iaa iaaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b != null && (w5aVar = this.a) != null) {
-            showLoadingView(w5aVar.z());
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b != null && (iaaVar = this.a) != null) {
+            showLoadingView(iaaVar.A());
             this.b.loadData();
         }
     }
@@ -258,16 +258,16 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
                 i3 = 0;
             }
             if (!StringUtils.isNull(str)) {
-                if (i == t5a.a) {
-                    s5a.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-                } else if (i == t5a.b) {
-                    s5a.c(getPageContext(), 7, str, i3);
+                if (i == faa.a) {
+                    eaa.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+                } else if (i == faa.b) {
+                    eaa.c(getPageContext(), 7, str, i3);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.w5a.a
+    @Override // com.baidu.tieba.iaa.a
     public void R0(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, dressItemData) == null) && z1() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.e) {
@@ -280,7 +280,7 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) && view2 == this.a.y().getButton() && z1()) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) && view2 == this.a.z().getButton() && z1()) {
             TiebaStatic.log("c11613");
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 22);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
@@ -296,7 +296,7 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
                 D1(i2, str, i);
                 return;
             }
-            List<u5a> Z = this.b.Z();
+            List<gaa> Z = this.b.Z();
             if (Z != null && Z.size() > 0) {
                 if (i == 0) {
                     TiebaStatic.log("c11681");
@@ -322,7 +322,7 @@ public class AvatarPendantActivity extends BaseActivity implements w5a.a, SetAva
                 UserPendantData userPendantData = new UserPendantData();
                 userPendantData.setPropsId(j);
                 userPendantData.setImgUrl(str2);
-                this.a.C(this.b.Z());
+                this.a.D(this.b.Z());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016485, userPendantData));
             }
         }

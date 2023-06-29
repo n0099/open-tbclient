@@ -1,46 +1,29 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class tt1 implements ov1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.View;
+import android.widget.FrameLayout;
+/* loaded from: classes8.dex */
+public interface tt1 {
+    boolean a(View view2, i23 i23Var);
 
-    public tt1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean b();
 
-    @Override // com.baidu.tieba.ov1
-    public void a(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            nk3.a().putInt("fontSizeLevel", i);
-        }
-    }
+    boolean c(View view2, i23 i23Var);
 
-    @Override // com.baidu.tieba.ov1
-    public int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return nk3.a().getInt("fontSizeLevel", 1);
-        }
-        return invokeL.intValue;
-    }
+    boolean d(View view2);
+
+    void e(br3 br3Var);
+
+    void f(br3 br3Var);
+
+    void g(boolean z);
+
+    Context getContext();
+
+    FrameLayout getRootView();
+
+    boolean h();
+
+    boolean removeView(View view2);
 }

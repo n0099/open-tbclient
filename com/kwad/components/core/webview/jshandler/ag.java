@@ -7,7 +7,7 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import com.ksad.json.annotation.KsJson;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ag implements com.kwad.sdk.core.webview.kwai.a {
     public static Handler MX;
     public com.kwad.components.core.c.a.c DV;
@@ -15,12 +15,12 @@ public final class ag implements com.kwad.sdk.core.webview.kwai.a {
     public b MY;
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int gJ;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         @MainThread
         void al(int i);

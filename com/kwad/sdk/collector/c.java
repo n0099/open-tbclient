@@ -7,10 +7,10 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.core.network.n;
 import com.kwad.sdk.utils.az;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void b(AppStatusRules appStatusRules);
 

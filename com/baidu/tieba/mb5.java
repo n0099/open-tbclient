@@ -1,79 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.CardLinkInfoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbPatternsCompat;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.UrlParser.DataRes;
-import tbclient.UrlParser.UrlParserResIdl;
+import java.util.regex.Matcher;
 /* loaded from: classes6.dex */
 public class mb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public String i;
-    public CardLinkInfoData j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947966921, "Lcom/baidu/tieba/mb5;")) == null) {
-            return;
+    @Nullable
+    public static String a(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            while (i < str.length()) {
+                str = str.substring(i);
+                Matcher matcher = TbPatternsCompat.PLAIN_TEXT_AT_WITH_BLANK.matcher(str);
+                if (!matcher.find()) {
+                    break;
+                }
+                matcher.group(1).trim();
+                matcher.group(2).trim();
+                String trim = matcher.group(3).trim();
+                if (i != 0) {
+                    sb.append(",");
+                }
+                sb.append(trim);
+                i = matcher.end();
+            }
+            return sb.toString();
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947966921, "Lcom/baidu/tieba/mb5;");
-        }
+        return (String) invokeL.objValue;
     }
 
-    public mb5() {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            String a = a(str);
+            if (!TextUtils.isEmpty(a)) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_SUCESSED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", str2).param(TiebaStatic.Params.FRIEND_UID, a));
             }
-        }
-    }
-
-    public void a(UrlParserResIdl urlParserResIdl) {
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) && urlParserResIdl != null && (dataRes = urlParserResIdl.data) != null) {
-            this.a = dataRes.status.intValue();
-            this.b = urlParserResIdl.data.url_type.intValue();
-            DataRes dataRes2 = urlParserResIdl.data;
-            this.d = dataRes2.image;
-            this.e = dataRes2.title;
-            this.f = dataRes2.link_from;
-            this.g = dataRes2.price_txt;
-            boolean z = true;
-            if (dataRes2.is_recognize.intValue() != 1) {
-                z = false;
-            }
-            this.h = z;
-            this.i = urlParserResIdl.data.description;
-            CardLinkInfoData cardLinkInfoData = new CardLinkInfoData();
-            cardLinkInfoData.parse(urlParserResIdl.data.card_link_info);
-            this.j = cardLinkInfoData;
         }
     }
 }

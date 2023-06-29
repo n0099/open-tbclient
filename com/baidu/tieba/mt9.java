@@ -1,67 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.PerfSampleManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-@Service
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mt9 implements PerfSampleManager.IPerfSampleCallback {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "2301";
-    public static String b = "1";
+public class mt9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947984343, "Lcom/baidu/tieba/mt9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947984343, "Lcom/baidu/tieba/mt9;");
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
 
     public mt9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.PerfSampleManager.IPerfSampleCallback
-    public String getSampleFlag() {
-        InterceptResult invokeV;
+    public static mt9 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            if (uBCManager != null) {
-                if (b.equals(uBCManager.getUploadType(a))) {
-                    return a;
-                }
-                return "";
-            }
-            return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            mt9 mt9Var = new mt9();
+            mt9Var.a = jSONObject.optString("lottie");
+            mt9Var.b = jSONObject.optString("text");
+            mt9Var.c = jSONObject.optString("cmd");
+            return mt9Var;
         }
-        return (String) invokeV.objValue;
+        return (mt9) invokeL.objValue;
     }
 }

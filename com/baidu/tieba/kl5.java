@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes6.dex */
-public class kl5 extends rl5 {
+public class kl5 extends hl5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<byte[]> b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,92 +26,20 @@ public class kl5 extends rl5 {
                 return;
             }
         }
-        b = new ThreadLocal<>();
+        c = hl5.a("IDAT");
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            byte[] bArr = b.get();
-            if (bArr == null) {
-                byte[] bArr2 = new byte[4];
-                b.set(bArr2);
-                return bArr2;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public short f() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 2);
-            return (short) (((b2[0] & 255) << 8) | (b2[1] & 255));
-        }
-        return invokeV.shortValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kl5(sl5 sl5Var) {
-        super(sl5Var);
+    public kl5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sl5Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((sl5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-    }
-
-    public boolean c(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.length() != 4) {
-                return false;
-            }
-            int d = d();
-            for (int i = 0; i < 4; i++) {
-                if (((d >> (i * 8)) & 255) != str.charAt(i)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int d() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 4);
-            return ((b2[3] & 255) << 24) | (b2[0] & 255) | ((b2[1] & 255) << 8) | ((b2[2] & 255) << 16);
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            byte[] b2 = b();
-            read(b2, 0, 4);
-            return ((b2[0] & 255) << 24) | (b2[3] & 255) | ((b2[2] & 255) << 8) | ((b2[1] & 255) << 16);
-        }
-        return invokeV.intValue;
     }
 }

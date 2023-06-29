@@ -1,62 +1,48 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.h02;
-import com.baidu.tieba.ih3;
+import com.baidu.tieba.rf2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.tencent.open.miniapp.MiniApp;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q73 extends m73 {
+public abstract class q73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.n73
-    public z32 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            return null;
-        }
-        return (z32) invokeL.objValue;
-    }
+    public abstract c42 b(JSONObject jSONObject);
 
-    @Override // com.baidu.tieba.n73
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "snsapi_userinfo" : (String) invokeV.objValue;
-    }
+    public abstract l73 f(m73 m73Var);
 
-    @Override // com.baidu.tieba.n73
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginUserInfoFunPage" : (String) invokeV.objValue;
-    }
+    public abstract String g();
+
+    public abstract String h();
+
+    public abstract c42 j(String str, m73 m73Var);
+
+    public abstract boolean k();
+
+    public abstract c42 m(m73 m73Var, od2<n73> od2Var);
 
     /* loaded from: classes7.dex */
-    public class a implements sq3<ch3<ih3.d>> {
+    public class a implements rf2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ld2 a;
-        public final /* synthetic */ k73 b;
-        public final /* synthetic */ lh3 c;
+        public final /* synthetic */ m73 a;
+        public final /* synthetic */ od2 b;
+        public final /* synthetic */ q73 c;
 
-        public a(q73 q73Var, ld2 ld2Var, k73 k73Var, lh3 lh3Var) {
+        public a(q73 q73Var, m73 m73Var, od2 od2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q73Var, ld2Var, k73Var, lh3Var};
+                Object[] objArr = {q73Var, m73Var, od2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,35 +52,77 @@ public class q73 extends m73 {
                     return;
                 }
             }
-            this.a = ld2Var;
-            this.b = k73Var;
-            this.c = lh3Var;
+            this.c = q73Var;
+            this.a = m73Var;
+            this.b = od2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sq3
-        /* renamed from: b */
-        public void a(ch3<ih3.d> ch3Var) {
+        @Override // com.baidu.tieba.rf2.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ch3Var) == null) {
-                if (ch3Var != null && ch3Var.c() && !TextUtils.isEmpty(ch3Var.a.a)) {
-                    JSONObject jSONObject = this.c.g;
-                    if (jSONObject != null) {
-                        try {
-                            jSONObject.put("code", ch3Var.a.a);
-                            this.b.d = true;
-                        } catch (JSONException e) {
-                            if (js1.a) {
-                                r73.b(Log.getStackTraceString(e));
-                            }
-                        }
-                        this.b.e = jSONObject.toString();
-                    }
-                    this.a.a(this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                u73.b("payment fun page, your pkg is latest");
+            }
+        }
+
+        @Override // com.baidu.tieba.rf2.b
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.c.d(this.a, true, this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.rf2.b
+        public void b(vn3 vn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vn3Var) == null) {
+                this.c.d(this.a, false, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements xe2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m73 a;
+        public final /* synthetic */ od2 b;
+        public final /* synthetic */ q73 c;
+
+        public b(q73 q73Var, m73 m73Var, od2 od2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q73Var, m73Var, od2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                r73.b("login failure, can't get login code");
-                this.a.a(this.b);
+            }
+            this.c = q73Var;
+            this.a = m73Var;
+            this.b = od2Var;
+        }
+
+        @Override // com.baidu.tieba.xe2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a, true, this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.xe2
+        public void b(int i, vn3 vn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, vn3Var) == null) {
+                this.c.d(this.a, false, this.b);
             }
         }
     }
@@ -113,22 +141,101 @@ public class q73 extends m73 {
         }
     }
 
-    @Override // com.baidu.tieba.m73
-    public void p(SwanAppActivity swanAppActivity, String str, j73 j73Var, lh3 lh3Var, ld2<k73> ld2Var) {
+    public final void c(m73 m73Var, String str, od2<n73> od2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, j73Var, lh3Var, ld2Var) == null) {
-            k73 k73Var = new k73(j73Var.f);
-            k73Var.a = j73Var.e;
-            if (lh3Var != null && lh3Var.j.a() == 0) {
-                r73.b("obtain user info detail, get login code");
-                h02.d dVar = new h02.d(j73Var.g);
-                Bundle bundle = new Bundle();
-                bundle.putString("__plugin__", j73Var.a);
-                yb3.K().q().e0().r(swanAppActivity, dVar, bundle, new a(this, ld2Var, k73Var, lh3Var), "SwanPluginUserInfoFunPage");
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m73Var, str, od2Var) == null) {
+            u73.b("local has not main pkg, download fun page main pkg");
+            en4 en4Var = new en4(str, bc3.K().k());
+            en4Var.q(0L);
+            en4Var.t(m73Var.c);
+            en4Var.d("3");
+            mj4.c(en4Var, new rf2(str, new a(this, m73Var, od2Var)));
+        }
+    }
+
+    public final void e(m73 m73Var, l73 l73Var, od2<n73> od2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, m73Var, l73Var, od2Var) == null) {
+            u73.b("main pkg is exist, download fun page sub pkg");
+            String str = l73Var.a;
+            int i = l73Var.d;
+            mj4.h(new hn4(str, i, a83.e(l73Var.c, l73Var.b), 0), new tf2(str, String.valueOf(i), new b(this, m73Var, od2Var)));
+        }
+    }
+
+    public final void d(m73 m73Var, boolean z, od2<n73> od2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{m73Var, Boolean.valueOf(z), od2Var}) == null) {
+            if (z) {
+                l73 f = f(m73Var);
+                if (f != null && f.f) {
+                    u73.b("payment fun page, download success, ready to jump");
+                    j(f.c, m73Var);
+                    return;
+                }
+                u73.b("payment fun page, download success, but not exist");
+                n73 n73Var = new n73(m73Var.f);
+                n73Var.a = m73Var.e;
+                od2Var.a(n73Var);
                 return;
             }
-            r73.b("open data result failure");
-            ld2Var.a(k73Var);
+            u73.b("payment fun page, download failed");
+            n73 n73Var2 = new n73(m73Var.f);
+            n73Var2.a = m73Var.e;
+            od2Var.a(n73Var2);
         }
+    }
+
+    public final boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return TextUtils.equals(str, MiniApp.MINIAPP_VERSION_DEVELOP);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final c42 l(m73 m73Var, od2<n73> od2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, m73Var, od2Var)) == null) {
+            u73.b("open fun page start");
+            if (m73Var != null && m73Var.a()) {
+                c42 b2 = b(m73Var.g);
+                if (b2 != null) {
+                    u73.b("fun page args params invalid");
+                    return b2;
+                } else if (k()) {
+                    u73.b("open payment fun page");
+                    l73 f = f(m73Var);
+                    if (f == null) {
+                        return new c42(1001, "fun page not exists");
+                    }
+                    if (!f.f) {
+                        u73.b("payment fun page, " + m73Var.d + " mode");
+                        if (i(m73Var.d)) {
+                            if (f.e) {
+                                e(m73Var, f, od2Var);
+                            } else {
+                                return new c42(1001, "fun page not exists");
+                            }
+                        } else if (f.e) {
+                            e(m73Var, f, od2Var);
+                        } else {
+                            c(m73Var, f.a, od2Var);
+                        }
+                        u73.b("open fun page end");
+                        return new c42(0);
+                    }
+                    return j(f.c, m73Var);
+                } else {
+                    u73.b("open user info or choose address fun page");
+                    return m(m73Var, od2Var);
+                }
+            }
+            u73.b("params parse fail");
+            return new c42(202, "params parse fail");
+        }
+        return (c42) invokeLL.objValue;
     }
 }

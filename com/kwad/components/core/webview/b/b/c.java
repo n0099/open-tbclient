@@ -9,7 +9,7 @@ import com.kwad.components.core.webview.b.kwai.j;
 import com.kwad.components.core.webview.jshandler.aa;
 import com.kwad.components.core.webview.jshandler.k;
 import com.kwad.sdk.utils.az;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends a {
     public d Ne;
     public String Od;
@@ -140,6 +140,6 @@ public class c extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.Oh = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913db);
+        this.Oh = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913eb);
     }
 }

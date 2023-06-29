@@ -1,105 +1,132 @@
 package com.baidu.tieba;
 
+import android.os.HandlerThread;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FilterInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-/* loaded from: classes7.dex */
-public class tl5 extends FilterInputStream implements sl5 {
-    public static /* synthetic */ Interceptable $ic;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes8.dex */
+public class tl5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public final ArrayList<HandlerThread> a;
+    public final AtomicInteger b;
 
-    @Override // com.baidu.tieba.sl5
-    public InputStream a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (InputStream) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tl5(InputStream inputStream) {
-        super(inputStream);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948185068, "Lcom/baidu/tieba/tl5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948185068, "Lcom/baidu/tieba/tl5;");
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final tl5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-399909714, "Lcom/baidu/tieba/tl5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-399909714, "Lcom/baidu/tieba/tl5$b;");
+                    return;
+                }
+            }
+            a = new tl5(null);
+        }
+    }
+
+    public tl5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        try {
-            inputStream.reset();
-        } catch (IOException unused) {
-        }
+        this.a = new ArrayList<>();
+        this.b = new AtomicInteger(0);
     }
 
-    @Override // com.baidu.tieba.sl5
-    public byte peek() throws IOException {
+    public static tl5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte read = (byte) read();
-            this.a++;
-            return read;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return invokeV.byteValue;
+        return (tl5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sl5
-    public int position() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b.getAndIncrement();
         }
         return invokeV.intValue;
     }
 
-    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.sl5
-    public synchronized void reset() throws IOException {
+    public /* synthetic */ tl5(a aVar) {
+        this();
+    }
+
+    public Looper c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                super.reset();
-                this.a = 0;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = i % c;
+            if (i2 >= this.a.size()) {
+                HandlerThread handlerThread = new HandlerThread("FrameDecoderExecutor-" + i2);
+                handlerThread.start();
+                this.a.add(handlerThread);
+                Looper looper = handlerThread.getLooper();
+                if (looper == null) {
+                    return Looper.getMainLooper();
+                }
+                return looper;
+            } else if (this.a.get(i2) != null) {
+                Looper looper2 = this.a.get(i2).getLooper();
+                if (looper2 == null) {
+                    return Looper.getMainLooper();
+                }
+                return looper2;
+            } else {
+                return Looper.getMainLooper();
             }
         }
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.sl5
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
-            int read = super.read(bArr, i, i2);
-            this.a += Math.max(0, read);
-            return read;
-        }
-        return invokeLII.intValue;
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream, com.baidu.tieba.sl5
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            long skip = super.skip(j);
-            this.a = (int) (this.a + skip);
-            return skip;
-        }
-        return invokeJ.longValue;
+        return (Looper) invokeI.objValue;
     }
 }

@@ -13,42 +13,42 @@ import com.kwad.components.core.widget.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class b<T extends AdTemplate> extends KSFrameLayout implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener, com.kwad.sdk.core.h.b {
     public com.kwad.components.core.widget.kwai.b aM;
-    public InterfaceC0655b lp;
+    public InterfaceC0665b lp;
     public AdInfo mAdInfo;
     @NonNull
     public T mAdTemplate;
     @NonNull
     public Context mContext;
 
-    /* loaded from: classes9.dex */
-    public static class a implements InterfaceC0655b {
-        @Override // com.kwad.components.core.widget.b.InterfaceC0655b
+    /* loaded from: classes10.dex */
+    public static class a implements InterfaceC0665b {
+        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
         public void onAdClicked() {
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0655b
+        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
         public void onAdShow() {
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0655b
+        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
         public final void onDislikeClicked() {
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0655b
+        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
         public final void onDownloadTipsDialogDismiss() {
         }
 
-        @Override // com.kwad.components.core.widget.b.InterfaceC0655b
+        @Override // com.kwad.components.core.widget.b.InterfaceC0665b
         public final void onDownloadTipsDialogShow() {
         }
     }
 
     /* renamed from: com.kwad.components.core.widget.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0655b {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0665b {
         void onAdClicked();
 
         void onAdShow();
@@ -79,8 +79,8 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
             c(viewGroup);
             com.kwad.components.core.widget.a aVar = new com.kwad.components.core.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(aVar);
-            aVar.setViewCallback(new a.InterfaceC0654a() { // from class: com.kwad.components.core.widget.b.1
-                @Override // com.kwad.components.core.widget.a.InterfaceC0654a
+            aVar.setViewCallback(new a.InterfaceC0664a() { // from class: com.kwad.components.core.widget.b.1
+                @Override // com.kwad.components.core.widget.a.InterfaceC0664a
                 public final void em() {
                     b.this.br();
                 }
@@ -153,9 +153,9 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
 
     public final void aq(int i) {
         com.kwad.sdk.core.report.a.a(this.mAdTemplate, i, getTouchCoords());
-        InterfaceC0655b interfaceC0655b = this.lp;
-        if (interfaceC0655b != null) {
-            interfaceC0655b.onAdClicked();
+        InterfaceC0665b interfaceC0665b = this.lp;
+        if (interfaceC0665b != null) {
+            interfaceC0665b.onAdClicked();
         }
     }
 
@@ -165,9 +165,9 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
     }
 
     public void br() {
-        InterfaceC0655b interfaceC0655b;
-        if (!this.mAdTemplate.mPvReported && (interfaceC0655b = this.lp) != null) {
-            interfaceC0655b.onAdShow();
+        InterfaceC0665b interfaceC0665b;
+        if (!this.mAdTemplate.mPvReported && (interfaceC0665b = this.lp) != null) {
+            interfaceC0665b.onAdShow();
         }
         com.kwad.components.core.m.c.ox().a(this.mAdTemplate, null, null);
     }
@@ -178,9 +178,9 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
     }
 
     public final void dx() {
-        InterfaceC0655b interfaceC0655b = this.lp;
-        if (interfaceC0655b != null) {
-            interfaceC0655b.onAdClicked();
+        InterfaceC0665b interfaceC0665b = this.lp;
+        if (interfaceC0665b != null) {
+            interfaceC0665b.onAdClicked();
         }
     }
 
@@ -192,30 +192,30 @@ public abstract class b<T extends AdTemplate> extends KSFrameLayout implements D
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        InterfaceC0655b interfaceC0655b = this.lp;
-        if (interfaceC0655b != null) {
-            interfaceC0655b.onDownloadTipsDialogDismiss();
+        InterfaceC0665b interfaceC0665b = this.lp;
+        if (interfaceC0665b != null) {
+            interfaceC0665b.onDownloadTipsDialogDismiss();
         }
     }
 
     @Override // android.content.DialogInterface.OnShowListener
     public void onShow(DialogInterface dialogInterface) {
-        InterfaceC0655b interfaceC0655b = this.lp;
-        if (interfaceC0655b != null) {
-            interfaceC0655b.onDownloadTipsDialogShow();
+        InterfaceC0665b interfaceC0665b = this.lp;
+        if (interfaceC0665b != null) {
+            interfaceC0665b.onDownloadTipsDialogShow();
         }
     }
 
     public final void pX() {
         com.kwad.sdk.core.report.a.ap(this.mAdTemplate);
-        InterfaceC0655b interfaceC0655b = this.lp;
-        if (interfaceC0655b != null) {
-            interfaceC0655b.onDislikeClicked();
+        InterfaceC0665b interfaceC0665b = this.lp;
+        if (interfaceC0665b != null) {
+            interfaceC0665b.onDislikeClicked();
         }
     }
 
-    public void setInnerAdInteractionListener(InterfaceC0655b interfaceC0655b) {
-        this.lp = interfaceC0655b;
+    public void setInnerAdInteractionListener(InterfaceC0665b interfaceC0665b) {
+        this.lp = interfaceC0665b;
     }
 
     public void setMargin(int i) {

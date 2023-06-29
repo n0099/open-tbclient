@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk.system;
 import android.annotation.TargetApi;
 import android.os.Build;
 import com.baidu.webkit.sdk.ServiceWorkerWebSettings;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettings {
     @TargetApi(24)
     public android.webkit.ServiceWorkerWebSettings mSettings;

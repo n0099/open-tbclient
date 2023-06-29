@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ab5;
-import com.baidu.tieba.bb5;
-import com.baidu.tieba.za5;
+import com.baidu.tieba.cb5;
+import com.baidu.tieba.db5;
+import com.baidu.tieba.eb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,16 +36,16 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
     public int g;
     public float h;
     public int i;
-    public List<bb5> j;
+    public List<eb5> j;
     public FrameLayout k;
     public FrameLayout.LayoutParams l;
     public boolean m;
-    public List<ab5> n;
+    public List<db5> n;
     public ValueAnimator o;
     public int p;
     public ValueAnimator q;
     public int r;
-    public List<za5> s;
+    public List<cb5> s;
 
     public abstract void A(int i, float f2, float f3);
 
@@ -158,8 +158,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                 baseSlideLoadingLayout4.D(baseSlideLoadingLayout4.i, this.c.h, floatValue);
                 BaseSlideLoadingLayout baseSlideLoadingLayout5 = this.c;
                 baseSlideLoadingLayout5.G(baseSlideLoadingLayout5.i, this.c.h);
-                for (bb5 bb5Var : this.c.j) {
-                    bb5Var.a(this.c.i, this.c.h);
+                for (eb5 eb5Var : this.c.j) {
+                    eb5Var.a(this.c.i, this.c.h);
                 }
             }
         }
@@ -207,14 +207,14 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                for (za5 za5Var : this.a.s) {
-                    za5Var.d(this.a.i, this.a.h);
+                for (cb5 cb5Var : this.a.s) {
+                    cb5Var.d(this.a.i, this.a.h);
                 }
                 BaseSlideLoadingLayout baseSlideLoadingLayout = this.a;
                 baseSlideLoadingLayout.B(baseSlideLoadingLayout.i, this.a.h);
                 this.a.m = false;
-                for (ab5 ab5Var : this.a.n) {
-                    ab5Var.onLoadingEnd();
+                for (db5 db5Var : this.a.n) {
+                    db5Var.onLoadingEnd();
                 }
             }
         }
@@ -225,8 +225,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
                 BaseSlideLoadingLayout baseSlideLoadingLayout = this.a;
                 baseSlideLoadingLayout.C(baseSlideLoadingLayout.i, this.a.h);
-                for (za5 za5Var : this.a.s) {
-                    za5Var.c(this.a.i, this.a.h);
+                for (cb5 cb5Var : this.a.s) {
+                    cb5Var.c(this.a.i, this.a.h);
                 }
             }
         }
@@ -278,8 +278,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
                 baseSlideLoadingLayout4.A(baseSlideLoadingLayout4.i, this.c.h, floatValue);
                 BaseSlideLoadingLayout baseSlideLoadingLayout5 = this.c;
                 baseSlideLoadingLayout5.G(baseSlideLoadingLayout5.i, this.c.h);
-                for (bb5 bb5Var : this.c.j) {
-                    bb5Var.a(this.c.i, this.c.h);
+                for (eb5 eb5Var : this.c.j) {
+                    eb5Var.a(this.c.i, this.c.h);
                 }
             }
         }
@@ -329,8 +329,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 BaseSlideLoadingLayout baseSlideLoadingLayout = this.a;
                 baseSlideLoadingLayout.y(baseSlideLoadingLayout.i, this.a.h);
-                for (za5 za5Var : this.a.s) {
-                    za5Var.a(this.a.i, this.a.h);
+                for (cb5 cb5Var : this.a.s) {
+                    cb5Var.a(this.a.i, this.a.h);
                 }
             }
         }
@@ -341,8 +341,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
                 BaseSlideLoadingLayout baseSlideLoadingLayout = this.a;
                 baseSlideLoadingLayout.z(baseSlideLoadingLayout.i, this.a.h);
-                for (za5 za5Var : this.a.s) {
-                    za5Var.b(this.a.i, this.a.h);
+                for (cb5 cb5Var : this.a.s) {
+                    cb5Var.b(this.a.i, this.a.h);
                 }
             }
         }
@@ -506,33 +506,33 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         t(this.k);
     }
 
-    public void i(za5 za5Var) {
+    public void i(cb5 cb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, za5Var) == null) {
-            if (za5Var != null) {
-                this.s.add(za5Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, cb5Var) == null) {
+            if (cb5Var != null) {
+                this.s.add(cb5Var);
                 return;
             }
             throw new IllegalArgumentException("Can not add null animationListener");
         }
     }
 
-    public void j(ab5 ab5Var) {
+    public void j(db5 db5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, ab5Var) == null) {
-            if (ab5Var != null) {
-                this.n.add(ab5Var);
+        if (interceptable == null || interceptable.invokeL(1048591, this, db5Var) == null) {
+            if (db5Var != null) {
+                this.n.add(db5Var);
                 return;
             }
             throw new IllegalArgumentException("Can not add null loadingListener");
         }
     }
 
-    public void k(bb5 bb5Var) {
+    public void k(eb5 eb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bb5Var) == null) {
-            if (bb5Var != null) {
-                this.j.add(bb5Var);
+        if (interceptable == null || interceptable.invokeL(1048592, this, eb5Var) == null) {
+            if (eb5Var != null) {
+                this.j.add(eb5Var);
                 return;
             }
             throw new IllegalArgumentException("Can not add null scrollListener");
@@ -761,8 +761,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
             this.i = p;
             E(p, this.h);
             G(this.i, this.h);
-            for (bb5 bb5Var : this.j) {
-                bb5Var.a(this.i, this.h);
+            for (eb5 eb5Var : this.j) {
+                eb5Var.a(this.i, this.h);
             }
         }
     }
@@ -771,8 +771,8 @@ public abstract class BaseSlideLoadingLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             this.m = true;
-            for (ab5 ab5Var : this.n) {
-                ab5Var.onLoadingStart();
+            for (db5 db5Var : this.n) {
+                db5Var.onLoadingStart();
             }
             int i = this.l.topMargin;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);

@@ -281,6 +281,7 @@ public class CmdConfigHttp {
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
     public static final int CMD_REQUEST_CHAT_ROOM_UPDATE = 1003564;
     public static final int CMD_REQUEST_CREATE_MEME = 1003566;
+    public static final int CMD_REQUEST_FOLLOWED_FRS_LIST = 1003571;
     public static final int CMD_REQUEST_QUERY_MEME = 1003567;
     public static final int CMD_REQUEST_SPRITE_LOOP = 1003562;
     public static final int CMD_REQUEST_SPRITE_QUESTION_REPLY = 1003563;

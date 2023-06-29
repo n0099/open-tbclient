@@ -1,85 +1,79 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
 /* loaded from: classes8.dex */
 public final class yu0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vu0 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<xu0> a;
 
-    public static final String a() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                return (obj instanceof yu0) && Intrinsics.areEqual(this.a, ((yu0) obj).a);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                ll0.c("AuthStrategyHelper", e.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<xu0> list = this.a;
+            if (list != null) {
+                return list.hashCode();
             }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "AuthHostModel(hostItemList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    public static final List<uu0> b() {
-        InterceptResult invokeV;
+    public yu0(List<xu0> hostItemList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = xu0.a(q21.k().getString("host_auth_config", a()));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hostItemList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            vu0 vu0Var = a;
-            if (vu0Var != null) {
-                return vu0Var.a();
-            }
-            return null;
         }
-        return (List) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(hostItemList, "hostItemList");
+        this.a = hostItemList;
     }
 
-    public static final synchronized uu0 c(String str) {
-        InterceptResult invokeL;
+    public final List<xu0> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (yu0.class) {
-                if (str == null) {
-                    return null;
-                }
-                List<uu0> b = b();
-                if (b == null) {
-                    return null;
-                }
-                try {
-                    String host = new URL(str).getHost();
-                    for (uu0 uu0Var : b) {
-                        if (Pattern.matches(uu0Var.b(), host)) {
-                            return uu0Var;
-                        }
-                    }
-                } catch (Exception e) {
-                    ll0.a("AuthStrategyHelper", e.getMessage());
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (uu0) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 }

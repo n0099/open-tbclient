@@ -1,24 +1,31 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ri8 implements si8 {
+public class ri8 extends xj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+
+    @Override // com.baidu.tieba.wj8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
 
     public ri8() {
         Interceptable interceptable = $ic;
@@ -30,64 +37,40 @@ public class ri8 implements si8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(6);
-        this.a = hashMap;
-        hashMap.put("#(呵呵)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(哈哈)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(吐舌)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(太开心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(笑眼)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(花心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
     }
 
-    @Override // com.baidu.tieba.si8
-    public boolean a(ChatMessage... chatMessageArr) {
+    @Override // com.baidu.tieba.xj8
+    public List<vj8> j(@NonNull List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length >= 2) {
-                ChatMessage chatMessage = chatMessageArr[0];
-                ChatMessage chatMessage2 = chatMessageArr[1];
-                if (chatMessage == null || chatMessage.getUserInfo() == null || chatMessage2 == null || chatMessage2.getUserInfo() == null || StringHelper.equals(chatMessage.getUserInfo().getUserId(), chatMessage2.getUserInfo().getUserId())) {
-                    return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                Object obj = list.get(i);
+                if (obj instanceof BaseMsg) {
+                    BaseMsg baseMsg = (BaseMsg) obj;
+                    List<AbilityItem> quickOperate = baseMsg.getCommonMsgField().getQuickOperate();
+                    if (ListUtils.isEmpty(quickOperate)) {
+                        break;
+                    }
+                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
+                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
+                        if (abilityItem != null && abilityItem.getStyleConf() != null && abilityItem.getStyleConf().shouldShow()) {
+                            wi8 wi8Var = new wi8();
+                            wi8Var.e(abilityItem);
+                            wi8Var.f(baseMsg);
+                            if (baseMsg != null && baseMsg.getCommonMsgField() != null) {
+                                wi8Var.g(baseMsg.getCommonMsgField().getUserId());
+                            }
+                            arrayList.add(wi8Var);
+                        }
+                    }
                 }
-                return this.a.containsKey(c(chatMessageArr));
             }
-            return false;
+            return arrayList;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.si8
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null) {
-            return;
-        }
-        int lastVisiblePosition = listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
-        View childAt = listView.getChildAt(lastVisiblePosition);
-        View childAt2 = listView.getChildAt(lastVisiblePosition - 1);
-        if (childAt != null && childAt2 != null) {
-            TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
-            TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.tex_msgitem_text);
-            if (chatMessageArr != null && chatMessageArr.length > 1) {
-                ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, tbRichTextView2);
-            }
-        }
-    }
-
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length > 1 && chatMessageArr[0] != null && chatMessageArr[1] != null) {
-                return chatMessageArr[1].getContent() + "_" + chatMessageArr[0].getContent();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 }

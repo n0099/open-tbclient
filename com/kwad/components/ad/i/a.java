@@ -26,7 +26,7 @@ public final class a {
     public boolean BR;
     public boolean BS;
     public View BT;
-    public InterfaceC0592a BU;
+    public InterfaceC0602a BU;
     public b BY;
     @Nullable
     public com.kwad.sdk.core.webview.a.kwai.a bJ;
@@ -45,7 +45,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.ad.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0592a {
+    public interface InterfaceC0602a {
         void V(boolean z);
     }
 
@@ -84,7 +84,7 @@ public final class a {
         this.bS.removeAllViews();
         this.bS.setVisibility(4);
         this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09140f);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09141f);
         this.BQ = ksAdWebView;
         ksAdWebView.setBackgroundColor(-1);
         u.b bVar = new u.b();
@@ -101,7 +101,7 @@ public final class a {
                 }
             }
         });
-        ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09127e);
+        ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f09128e);
         this.mBackIcon = imageView;
         imageView.setVisibility(8);
         this.mBackIcon.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.i.a.2
@@ -115,7 +115,7 @@ public final class a {
     }
 
     public static int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0472;
+        return R.layout.obfuscated_res_0x7f0d0473;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -189,8 +189,8 @@ public final class a {
         this.BP = false;
     }
 
-    public final void a(InterfaceC0592a interfaceC0592a) {
-        this.BU = interfaceC0592a;
+    public final void a(InterfaceC0602a interfaceC0602a) {
+        this.BU = interfaceC0602a;
     }
 
     public final void a(b bVar) {

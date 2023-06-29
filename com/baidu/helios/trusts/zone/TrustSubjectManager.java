@@ -7,10 +7,10 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.helios.trusts.zone.TrustSubject;
-import com.baidu.tieba.b60;
-import com.baidu.tieba.k50;
-import com.baidu.tieba.t50;
-import com.baidu.tieba.y60;
+import com.baidu.tieba.c60;
+import com.baidu.tieba.l50;
+import com.baidu.tieba.u50;
+import com.baidu.tieba.z60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import org.json.JSONObject;
 public class TrustSubjectManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b60.a a;
+    public c60.a a;
     public Context b;
     public TrustSubject c;
 
@@ -106,7 +106,7 @@ public class TrustSubjectManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
-        public b60 b;
+        public c60 b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -332,10 +332,10 @@ public class TrustSubjectManager {
         }
     }
 
-    public final t50 a() {
+    public final u50 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? k50.a(y60.a, y60.b) : (t50) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l50.a(z60.a, z60.b) : (u50) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:93:0x011e A[SYNTHETIC] */
@@ -343,12 +343,12 @@ public class TrustSubjectManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final d b(t50 t50Var) {
+    public final d b(u50 u50Var) {
         InterceptResult invokeL;
         boolean z;
         TrustSubject trustSubject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t50Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u50Var)) == null) {
             d dVar = new d();
             List<ResolveInfo> queryBroadcastReceivers = this.b.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.HELIOS"), 0);
             ArrayList arrayList = new ArrayList();
@@ -366,7 +366,7 @@ public class TrustSubjectManager {
                     arrayList2.add(trustSubject);
                     boolean u = trustSubject.u();
                     if (!u || trustSubject.a().a(3L) == 0) {
-                        trustSubject.d(t50Var);
+                        trustSubject.d(u50Var);
                     }
                     if (trustSubject.a().a(3L) == 1) {
                         hashSet.add(trustSubject);
@@ -483,7 +483,7 @@ public class TrustSubjectManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.b = aVar.a;
-            b60.a f2 = aVar.b.d().f("tz");
+            c60.a f2 = aVar.b.d().f("tz");
             this.a = f2;
             f2.a();
         }
@@ -497,12 +497,12 @@ public class TrustSubjectManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final d g(t50 t50Var) {
+    public final d g(u50 u50Var) {
         InterceptResult invokeL;
         TrustSubject trustSubject;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t50Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, u50Var)) == null) {
             d dVar = new d();
             TrustSubject trustSubject2 = this.c;
             if (trustSubject2.r()) {
@@ -543,7 +543,7 @@ public class TrustSubjectManager {
                                 arrayList.add(trustSubject5);
                                 boolean u = trustSubject5.u();
                                 if (!u || trustSubject5.a().a(j) == 0) {
-                                    trustSubject5.d(t50Var);
+                                    trustSubject5.d(u50Var);
                                 }
                                 if (trustSubject5.a().a(j) == 1) {
                                     hashSet.add(trustSubject5);
@@ -664,7 +664,7 @@ public class TrustSubjectManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar)) == null) {
-            t50 a2 = a();
+            u50 a2 = a();
             int i = cVar.a;
             if (i == 1) {
                 return b(a2);

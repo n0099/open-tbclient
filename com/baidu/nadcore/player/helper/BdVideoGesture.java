@@ -3,20 +3,20 @@ package com.baidu.nadcore.player.helper;
 import android.content.Context;
 import android.view.MotionEvent;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.au0;
-import com.baidu.tieba.i21;
-import com.baidu.tieba.lk0;
-import com.baidu.tieba.n71;
-import com.baidu.tieba.r61;
-import com.baidu.tieba.sx0;
+import com.baidu.tieba.du0;
+import com.baidu.tieba.l21;
+import com.baidu.tieba.ok0;
+import com.baidu.tieba.q71;
+import com.baidu.tieba.u61;
+import com.baidu.tieba.vx0;
 /* loaded from: classes3.dex */
 public class BdVideoGesture {
-    public static final int o = i21.b(lk0.b()) / 10;
+    public static final int o = l21.b(ok0.b()) / 10;
     public float a;
     public float b;
     public int c;
     public int k;
-    public sx0 l;
+    public vx0 l;
     public boolean d = true;
     public VideoPluginGesture e = VideoPluginGesture.InitChange;
     public boolean f = false;
@@ -24,8 +24,8 @@ public class BdVideoGesture {
     public int h = 0;
     public int i = 0;
     public int j = 0;
-    public int m = au0.a;
-    public int n = au0.b;
+    public int m = du0.a;
+    public int n = du0.b;
 
     /* loaded from: classes3.dex */
     public enum VideoPluginGesture {
@@ -55,17 +55,17 @@ public class BdVideoGesture {
         this.l = null;
     }
 
-    public BdVideoGesture(Context context, @NonNull sx0 sx0Var) {
+    public BdVideoGesture(Context context, @NonNull vx0 vx0Var) {
         f(context);
-        this.l = sx0Var;
+        this.l = vx0Var;
     }
 
     public boolean b(MotionEvent motionEvent) {
-        sx0 sx0Var = this.l;
-        if (sx0Var == null) {
+        vx0 vx0Var = this.l;
+        if (vx0Var == null) {
             return false;
         }
-        if (sx0Var.p()) {
+        if (vx0Var.p()) {
             this.l.m(this.e);
             return false;
         } else if (motionEvent.getAction() == 0) {
@@ -75,9 +75,9 @@ public class BdVideoGesture {
             this.a = motionEvent.getX();
             this.b = motionEvent.getY();
             this.c = motionEvent.getPointerId(0);
-            this.i = i21.c(lk0.b());
+            this.i = l21.c(ok0.b());
             this.j = this.l.getCurrentPosition();
-            this.k = r61.a(this.l.o());
+            this.k = u61.a(this.l.o());
             this.l.m(this.e);
             return false;
         } else if (motionEvent.getAction() == 2) {
@@ -132,7 +132,7 @@ public class BdVideoGesture {
             }
             double d = abs;
             double d2 = abs2;
-            if (d > d2 * 1.0d && abs > n71.a(30.0f) && this.d) {
+            if (d > d2 * 1.0d && abs > q71.a(30.0f) && this.d) {
                 this.f = true;
                 if (f3 <= i / 2) {
                     this.e = VideoPluginGesture.BrightChange;
@@ -141,7 +141,7 @@ public class BdVideoGesture {
                     this.e = VideoPluginGesture.VolumeChange;
                     return;
                 }
-            } else if (d * 1.0d < d2 && abs2 > n71.a(30.0f)) {
+            } else if (d * 1.0d < d2 && abs2 > q71.a(30.0f)) {
                 this.e = VideoPluginGesture.PlayTimeChange;
                 this.f = true;
                 return;
@@ -160,8 +160,8 @@ public class BdVideoGesture {
         if (videoPluginGesture == VideoPluginGesture.VolumeChange) {
             float f6 = this.i + ((f2 / 100.0f) * o);
             if (f6 > 0.0f) {
-                if (f6 > i21.b(lk0.b())) {
-                    f5 = i21.b(lk0.b());
+                if (f6 > l21.b(ok0.b())) {
+                    f5 = l21.b(ok0.b());
                 } else {
                     f5 = f6;
                 }

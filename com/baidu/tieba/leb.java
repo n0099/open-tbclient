@@ -1,74 +1,29 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.ByteArrayOutputStream;
+import java.util.concurrent.Callable;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class leb {
+public class leb implements Callable<keb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yeb a;
-    public final SVGAVideoEntity b;
+    public final Intent a;
 
-    /* loaded from: classes6.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final teb b;
-
-        public a(leb lebVar, String str, teb tebVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lebVar, str, tebVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = tebVar;
-        }
-
-        public final teb a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (teb) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public leb(SVGAVideoEntity sVGAVideoEntity) {
+    public leb(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity};
+            Object[] objArr = {intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,52 +33,63 @@ public class leb {
                 return;
             }
         }
-        this.b = sVGAVideoEntity;
-        this.a = new yeb();
+        this.a = intent;
     }
 
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
-        }
-    }
-
-    public final yeb b() {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.keb, java.lang.Object] */
+    @Override // java.util.concurrent.Callable
+    public keb call() throws Exception {
         InterceptResult invokeV;
+        byte[] bArr;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (yeb) invokeV.objValue;
-    }
-
-    public final SVGAVideoEntity c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (SVGAVideoEntity) invokeV.objValue;
-    }
-
-    public final List<a> d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<seb> g = this.b.g();
-            ArrayList arrayList = new ArrayList();
-            for (seb sebVar : g) {
-                a aVar = null;
-                if (i >= 0 && i < sebVar.a().size() && sebVar.a().get(i).a() > 0.0d) {
-                    aVar = new a(this, sebVar.b(), sebVar.a().get(i));
-                }
-                if (aVar != null) {
-                    arrayList.add(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Intent intent = this.a;
+            if (intent == null) {
+                return null;
+            }
+            long j = 0;
+            try {
+                j = intent.getLongExtra("msg_id", 0L);
+            } catch (Exception e) {
+                oeb.b("PassByMsgIntentParser", "parserMsgId", e);
+            }
+            try {
+                bArr = this.a.getByteArrayExtra("msg_content");
+            } catch (Exception e2) {
+                oeb.b("PassByMsgIntentParser", "parseMsgContent", e2);
+                bArr = null;
+            }
+            Inflater inflater = new Inflater();
+            inflater.setInput(bArr);
+            byte[] bArr2 = new byte[256];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
+            while (!inflater.finished()) {
+                try {
+                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
+                } catch (DataFormatException unused) {
+                    inflater.end();
+                    str = null;
+                } catch (Throwable th) {
+                    inflater.end();
+                    throw th;
                 }
             }
-            return arrayList;
+            inflater.end();
+            str = byteArrayOutputStream.toString("utf-8");
+            if (str == null) {
+                return null;
+            }
+            String optString = new JSONObject(str).optString("data");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            keb kebVar = new keb();
+            kebVar.d(j);
+            kebVar.c(optString);
+            return kebVar;
         }
-        return (List) invokeI.objValue;
+        return invokeV.objValue;
     }
 }

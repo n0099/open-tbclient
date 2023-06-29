@@ -1,90 +1,114 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class cm4 implements Runnable {
+public class cm4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final bp4 d;
+    public static cm4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public xl4 a;
-    public AtomicBoolean b;
-    public wl4 c;
+    public sl4 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947679551, "Lcom/baidu/tieba/cm4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947679551, "Lcom/baidu/tieba/cm4;");
-                return;
-            }
-        }
-        d = bp4.e();
-    }
-
-    public cm4(AtomicBoolean atomicBoolean, xl4 xl4Var, wl4 wl4Var) {
+    public cm4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {atomicBoolean, xl4Var, wl4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = atomicBoolean;
-        this.a = xl4Var;
-        this.c = wl4Var;
+        this.a = new sl4();
     }
 
-    public final <T> void a(bm4<T> bm4Var) {
+    public static cm4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bm4Var) == null) {
-            this.a.a(bm4Var);
-            try {
-                try {
-                    bm4Var.run();
-                } catch (Exception e) {
-                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            cm4 cm4Var = b;
+            if (cm4Var != null) {
+                return cm4Var;
+            }
+            synchronized (cm4.class) {
+                if (b == null) {
+                    b = new cm4();
                 }
-            } finally {
-                this.a.b(bm4Var);
+            }
+            return b;
+        }
+        return (cm4) invokeV.objValue;
+    }
+
+    public ol4 a(em4 em4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, em4Var)) == null) {
+            if (em4Var == null) {
+                return null;
+            }
+            return new jm4(em4Var, false);
+        }
+        return (ol4) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
+            }
+            return f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(am4 am4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, am4Var) == null) {
+            synchronized (this) {
+                this.a.c(am4Var);
             }
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public synchronized <T> void f(em4<T> em4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.b.get()) {
-                Runnable a = this.c.a(true);
-                if (a instanceof bm4) {
-                    try {
-                        a((bm4) a);
-                    } catch (Throwable th) {
-                        d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
-                    }
-                } else {
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeL(1048580, this, em4Var) == null) {
+            synchronized (this) {
+                em4Var.s(false);
+                this.a.h(em4Var);
+            }
+        }
+    }
+
+    public synchronized void g(am4 am4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, am4Var) == null) {
+            synchronized (this) {
+                this.a.i(am4Var);
             }
         }
     }

@@ -1,64 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wra;
-import com.baidu.tieba.zra;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes8.dex */
-public final class yra implements wra.a {
+public class yra {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.wra.a
-    public final void U() {
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.wra.a
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public yra() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || str == null) {
+                return null;
+            }
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                if (applicationInfo != null) {
+                    bundle = applicationInfo.metaData;
+                } else {
+                    bundle = null;
+                }
+                if (bundle == null) {
+                    return null;
+                }
+                return bundle.getString(str);
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.wra.a
-    public final void a(Activity activity) {
-        zra zraVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            zraVar = zra.a.a;
-            zraVar.c(new WeakReference<>(activity));
-        }
-    }
-
-    @Override // com.baidu.tieba.wra.a
-    public final void onActivityDestroyed(Activity activity) {
-        zra zraVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            zraVar = zra.a.a;
-            zraVar.d(activity);
-        }
+        return (String) invokeLL.objValue;
     }
 }

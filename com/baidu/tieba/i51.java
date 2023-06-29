@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tieba.q51;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class i51 {
+public class i51 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile i51 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,16 +32,53 @@ public final class i51 {
         }
     }
 
-    @NonNull
-    @JvmStatic
-    @Singleton
-    @Inject(force = false)
-    public static final q51 a() {
+    public i51() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0L;
+    }
+
+    public static i51 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new q51.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (i51.class) {
+                    if (b == null) {
+                        b = new i51();
+                    }
+                }
+            }
+            return b;
         }
-        return (q51) invokeV.objValue;
+        return (i51) invokeV.objValue;
+    }
+
+    public ElasticTask a(@NonNull Runnable runnable, @NonNull String str, int i) {
+        InterceptResult invokeLLI;
+        ElasticTask elasticTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i)) == null) {
+            if (runnable != null && !TextUtils.isEmpty(str)) {
+                synchronized (this) {
+                    long j = this.a + 1;
+                    this.a = j;
+                    elasticTask = new ElasticTask(runnable, str, j, i);
+                }
+                return elasticTask;
+            }
+            throw new IllegalArgumentException("illegal params");
+        }
+        return (ElasticTask) invokeLLI.objValue;
     }
 }

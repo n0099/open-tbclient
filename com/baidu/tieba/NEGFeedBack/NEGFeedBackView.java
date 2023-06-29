@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h35;
-import com.baidu.tieba.n46;
-import com.baidu.tieba.q9;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.k35;
+import com.baidu.tieba.r9;
+import com.baidu.tieba.s46;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,16 +36,16 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public n46 h;
+    public s46 h;
     public View.OnClickListener i;
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, h35 h35Var);
+        void a(ArrayList<Integer> arrayList, String str, k35 k35Var);
 
-        void b(h35 h35Var, CompoundButton compoundButton, boolean z);
+        void b(k35 k35Var, CompoundButton compoundButton, boolean z);
 
-        void c(h35 h35Var);
+        void c(k35 k35Var);
     }
 
     public void setACRotateAnimation() {
@@ -87,7 +87,7 @@ public class NEGFeedBackView extends AppCompatImageView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(q9.a(this.a.getContext()))) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(r9.a(this.a.getContext()))) {
                 return;
             }
             this.a.s();
@@ -132,10 +132,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(h35 h35Var) {
+    public void setData(k35 k35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, h35Var) == null) {
-            this.h.u(h35Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, k35Var) == null) {
+            this.h.u(k35Var);
         }
     }
 
@@ -201,7 +201,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void t(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, tbPageContext) == null) {
-            this.h = new n46(tbPageContext, this);
+            this.h = new s46(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             u();
@@ -281,7 +281,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void r(ViewGroup viewGroup, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, i2) == null) {
-            int g = wi.g(this.a, R.dimen.tbds24);
+            int g = xi.g(this.a, R.dimen.tbds24);
             setPadding(i2, 0, i2, 0);
             if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i);

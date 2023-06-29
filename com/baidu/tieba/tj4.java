@@ -1,7 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes7.dex */
-public interface tj4 {
-    void a(PMSAppInfo pMSAppInfo);
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
+/* loaded from: classes8.dex */
+public interface tj4<T> extends vj4 {
+    void a(T t);
+
+    void c(T t);
+
+    String d(T t);
+
+    void e(T t, wk4 wk4Var);
+
+    void f(T t);
+
+    wk4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
+
+    void i(T t);
+
+    void j(T t);
+
+    Map<String, Object> k();
 }

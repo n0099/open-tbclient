@@ -1,24 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes7.dex */
-public class sp7 implements m65 {
+public class sp7 extends n65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.m65
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsToast" : (String) invokeV.objValue;
-    }
 
     public sp7() {
         Interceptable interceptable = $ic;
@@ -34,13 +28,21 @@ public class sp7 implements m65 {
         }
     }
 
-    @Override // com.baidu.tieba.m65
-    public Class<? extends k65> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.n65
+    public void a(@NonNull Context context, @NonNull f65 f65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return rp7.class;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, f65Var) == null) {
+            if (TbSingleton.getInstance().getFrsResponseData() == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示吧内屏蔽弹窗失败：当前没有FRS吧数据");
+                d65.s("frsShield");
+            } else if (!(context instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示吧内屏蔽弹窗失败：当前Activity非FrsActivity");
+                d65.s("frsShield");
+            } else {
+                if (!zq7.d(TbSingleton.getInstance().getFrsResponseData(), ((FrsActivity) context).v1())) {
+                    d65.s("frsShield");
+                }
+            }
         }
-        return (Class) invokeV.objValue;
     }
 }

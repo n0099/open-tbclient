@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.util.PriorityOrganizer;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public interface k2a {
-    int getCurrentTabType();
+    m2a a();
 
-    @NonNull
-    PriorityOrganizer s0();
+    HashMap<m2a, HashMap<l2a, m2a>> getMap();
 }

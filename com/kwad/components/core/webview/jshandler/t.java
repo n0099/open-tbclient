@@ -9,7 +9,7 @@ import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class t implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.b Lk;
     public final Handler Ll;
@@ -17,7 +17,7 @@ public final class t implements com.kwad.sdk.core.webview.kwai.a {
     public final b Mp;
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public boolean Mv;
         public String Mw;
@@ -25,7 +25,7 @@ public final class t implements com.kwad.sdk.core.webview.kwai.a {
         public com.kwad.sdk.core.webview.a.a.c My;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
     }
 
@@ -52,7 +52,7 @@ public final class t implements com.kwad.sdk.core.webview.kwai.a {
                     public final void run() {
                         u.b bVar = new u.b();
                         bVar.Mn = aVar.My.Mn;
-                        com.kwad.components.core.c.a.a.a(new a.C0631a(t.this.Lk.Gl.getContext()).L(adTemplate).b(cVar2).ae(aVar.Mx).aj(true).a(bVar).al(true).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.t.1.1
+                        com.kwad.components.core.c.a.a.a(new a.C0641a(t.this.Lk.Gl.getContext()).L(adTemplate).b(cVar2).ae(aVar.Mx).aj(true).a(bVar).al(true).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.t.1.1
                             @Override // com.kwad.components.core.c.a.a.b
                             public final void onAdClicked() {
                             }

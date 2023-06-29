@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class pd5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final pd5 b;
+    public static final List<String> a;
+    public static List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, qd5> a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,73 +30,63 @@ public class pd5 {
                 return;
             }
         }
-        b = new pd5();
+        a = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
     }
 
-    public pd5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static pd5 c(JSONObject jSONObject) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
+        String w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (wi.isEmpty(str)) {
+                return false;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("maintab_strategy");
-            pd5 pd5Var = new pd5();
-            pd5Var.a(optJSONObject);
-            return pd5Var;
-        }
-        return (pd5) invokeL.objValue;
-    }
-
-    public qd5 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a != null && !StringUtils.isNull(str)) {
-                return this.a.get(str);
+            Uri parse = Uri.parse(str);
+            if (parse != null && "file".equals(parse.getScheme()) && parse.getPath() != null && parse.getPath().contains("bdtbNWCache")) {
+                return true;
             }
-            return null;
-        }
-        return (qd5) invokeL.objValue;
-    }
-
-    public final void a(JSONObject jSONObject) {
-        int length;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (optJSONArray != null) {
-            this.a = new HashMap<>();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    qd5 g = qd5.g(optJSONObject);
-                    if (!StringUtils.isNull(g.f())) {
-                        this.a.put(g.f(), g);
+            if (b == null && (w = r95.p().w("js_host_white_list", null)) != null) {
+                b = b(w);
+            }
+            if (b == null) {
+                b = a;
+            }
+            if (parse != null) {
+                for (String str2 : b) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String host = parse.getHost();
+                        if (!TextUtils.isEmpty(host) && host.endsWith(str2)) {
+                            return true;
+                        }
                     }
                 }
             }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static List<String> b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (wi.isEmpty(str)) {
+                return null;
+            }
+            return Arrays.asList(str.split(ParamableElem.DIVIDE_PARAM));
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            if (str == null) {
+                r95.p().J("js_host_white_list", "");
+            } else {
+                r95.p().J("js_host_white_list", str);
+            }
+            b = b(str);
         }
     }
 }

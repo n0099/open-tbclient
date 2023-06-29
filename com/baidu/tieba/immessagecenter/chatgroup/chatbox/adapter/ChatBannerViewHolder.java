@@ -3,6 +3,7 @@ package com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,10 +17,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ld8;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.xd8;
+import com.baidu.tieba.fe8;
+import com.baidu.tieba.if8;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,13 +31,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ChatBannerViewHolder extends BaseItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView e;
     public View f;
-    public xd8 g;
-    public String h;
+    public if8 g;
+    public FrameLayout h;
     public String i;
+    public String j;
+    public String k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -72,7 +74,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
             }
             this.b.l();
             ChatBannerViewHolder chatBannerViewHolder = this.b;
-            chatBannerViewHolder.m(this.a, chatBannerViewHolder.i);
+            chatBannerViewHolder.m(this.a, chatBannerViewHolder.j);
         }
     }
 
@@ -89,17 +91,21 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        j = wi.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
+        xi.l(TbadkCoreApplication.getInst());
+        UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+        xi.l(TbadkCoreApplication.getInst());
+        UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+        UtilHelper.getDimenPixelSize(R.dimen.tbds182);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChatBannerViewHolder(@NonNull View view2) {
+    public ChatBannerViewHolder(@NonNull View view2, String str) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -110,19 +116,21 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e57);
-        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e59);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e61);
+        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e63);
+        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e62);
+        this.k = str;
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull ld8 ld8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull fe8 fe8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, ld8Var, tbPageContext, i) == null) {
-            if (ld8Var instanceof xd8) {
-                xd8 xd8Var = (xd8) ld8Var;
-                this.g = xd8Var;
-                this.h = xd8Var.b();
-                this.i = this.g.c();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, fe8Var, tbPageContext, i) == null) {
+            if (fe8Var instanceof if8) {
+                if8 if8Var = (if8) fe8Var;
+                this.g = if8Var;
+                this.i = if8Var.b();
+                this.j = this.g.c();
                 this.e.setOnClickListener(new a(this, tbPageContext));
             }
             n();
@@ -135,25 +143,25 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.f(i);
-            if (TextUtils.isEmpty(this.h) && (tbImageView = this.e) != null) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f08070a, i);
+            if (TextUtils.isEmpty(this.i) && (tbImageView = this.e) != null) {
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f08070b, i);
             }
-            if (!TextUtils.isEmpty(this.h) && this.e != null) {
-                o(i);
+            if (!TextUtils.isEmpty(this.i) && this.e != null) {
+                p(i);
             }
         }
     }
 
-    public final void o(int i) {
+    public final void p(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             if (i == 0) {
                 this.f.setVisibility(8);
                 return;
             }
             this.f.setVisibility(0);
-            p75.d(this.f).f(R.color.CAM_X0503);
-            p75.d(this.f).o(R.string.J_X06);
+            s75.d(this.f).f(R.color.CAM_X0503);
+            s75.d(this.f).o(R.string.J_X06);
         }
     }
 
@@ -181,26 +189,54 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     }
 
     public final void n() {
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            o();
             this.e.setAutoChangeStyle(true);
             this.e.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setPlaceHolder(2);
             this.e.setUseNightOrDarkMask(false);
             this.e.setConrers(15);
             this.e.setRadiusById(R.string.J_X06);
+            int l = xi.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
+            int l2 = (xi.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X005) * 2)) - UtilHelper.getDimenPixelSize(R.dimen.tbds182);
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
+            if (this.k.equals("dialog")) {
+                f = l / 5;
+            } else {
+                f = (l2 * 64) / 322;
+            }
             layoutParams.width = -1;
-            layoutParams.height = j / 5;
+            layoutParams.height = (int) f;
             this.e.setLayoutParams(layoutParams);
             this.f.setLayoutParams(layoutParams);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (!TextUtils.isEmpty(this.h)) {
-                this.e.N(this.h, 10, false);
-                o(skinType);
+            if (!TextUtils.isEmpty(this.i)) {
+                this.e.N(this.i, 10, false);
+                p(skinType);
                 return;
             }
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f08070a, skinType);
+            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f08070b, skinType);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.k.equals("dialog")) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+                layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+                layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+                layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+                this.e.setLayoutParams(layoutParams);
+                return;
+            }
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams2.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            layoutParams2.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            layoutParams2.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            this.e.setLayoutParams(layoutParams2);
         }
     }
 }

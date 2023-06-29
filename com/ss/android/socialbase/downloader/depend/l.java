@@ -21,11 +21,11 @@ public interface l extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C0744a implements l {
+        public static class C0754a implements l {
             public static l a;
             public IBinder b;
 
-            public C0744a(IBinder iBinder) {
+            public C0754a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -90,7 +90,7 @@ public interface l extends IInterface {
         }
 
         public static l a() {
-            return C0744a.a;
+            return C0754a.a;
         }
 
         public static l a(IBinder iBinder) {
@@ -101,7 +101,7 @@ public interface l extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof l)) {
                 return (l) queryLocalInterface;
             }
-            return new C0744a(iBinder);
+            return new C0754a(iBinder);
         }
 
         @Override // android.os.Binder

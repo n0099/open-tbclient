@@ -1,149 +1,105 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.live.ubc.FlowInfoHelper;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Sets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.Set;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w53 {
+public class w53 implements y53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final File b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public Set<String> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221524, "Lcom/baidu/tieba/w53;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948221524, "Lcom/baidu/tieba/w53;");
+    public w53() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = js1.a;
-        b = AppRuntime.getAppContext().getExternalCacheDir();
+        this.b = "boxjs.";
+        this.c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.y53
+    public List<k53> a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b + File.separator + "swan_perf";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject C = gv2.g0().C();
-            String k = gv2.g0().k();
-            try {
-                jSONObject.put("switch", C);
-                JSONArray jSONArray = null;
-                if (!TextUtils.isEmpty(k)) {
-                    jSONArray = new JSONArray();
-                    for (String str : k.split("-")) {
-                        jSONArray.put(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String optString = jSONObject.optString("apiName");
+            c("api-name " + optString);
+            if (TextUtils.isEmpty(optString)) {
+                return arrayList;
+            }
+            int optInt = jSONObject.optInt("count");
+            c("api-count " + optInt);
+            if (optInt <= 0) {
+                return arrayList;
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
+            if (optJSONArray != null && optJSONArray2 != null) {
+                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+                if (min <= 0) {
+                    return arrayList;
+                }
+                for (int i = 0; i < min; i++) {
+                    k53 k53Var = new k53();
+                    k53Var.f(optString);
+                    k53Var.g(b(k53Var));
+                    k53Var.i(optJSONArray.optLong(i));
+                    k53Var.h(optJSONArray2.optLong(i));
+                    arrayList.add(k53Var);
+                    if (y53.a) {
+                        c(k53Var.toString());
                     }
                 }
-                jSONObject.put("sid", jSONArray);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                return arrayList;
             }
-            return jSONObject;
+            c("startTimes or endTimes is empty");
+            return arrayList;
         }
-        return (JSONObject) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static JSONObject c(List<UbcFlowEvent> list, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public final int b(k53 k53Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            for (UbcFlowEvent ubcFlowEvent : list) {
-                if (!ubcFlowEvent.b()) {
-                    try {
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("id", ubcFlowEvent.a);
-                        jSONObject3.put("time", ubcFlowEvent.g());
-                        jSONObject3.put("value", ubcFlowEvent.j());
-                        jSONArray.put(jSONObject3);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k53Var)) == null) {
+            String a = k53Var.a();
+            if (TextUtils.isEmpty(a)) {
+                return 0;
             }
-            try {
-                jSONObject2.put(FlowInfoHelper.KEY_EVENTLIST, jSONArray);
-                jSONObject2.put(SavedStateHandle.VALUES, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            if (!a.startsWith(this.b) && !this.c.contains(a)) {
+                return 0;
             }
-            return jSONObject2;
+            return 1;
         }
-        return (JSONObject) invokeLL.objValue;
+        return invokeL.intValue;
     }
 
-    public static void d(List<UbcFlowEvent> list, JSONObject jSONObject) {
-        zb3 b0;
-        Map<String, String> t;
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, jSONObject) == null) {
-            if (a) {
-                yq4.b().f();
-            }
-            if (!y73.E() || (b0 = zb3.b0()) == null || (t = rp3.t(rp3.o(b0.W().W()))) == null || !TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList(list);
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("670", c(arrayList, jSONObject));
-                jSONObject2.put(DI.AB_NAME, a());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            File file = new File(b, "swan_perf");
-            if (!file.exists() && !file.mkdirs()) {
-                return;
-            }
-            ds4.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
-        }
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            File file = new File(b, "swan_stability");
-            if (!ds4.m(file)) {
-                z82.k("StartupPerf", "创建目录失败 path" + file);
-                return;
-            }
-            ds4.N(str, new File(file, String.format(Locale.getDefault(), "stability_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && y53.a) {
+            Log.d("Api-Parser", str);
         }
     }
 }

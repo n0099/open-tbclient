@@ -1,163 +1,122 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.core.view.ViewGroupKt;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.sequences.Sequence;
 /* loaded from: classes5.dex */
-public final class by5 {
+public class by5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final by5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public List<zo6> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947661323, "Lcom/baidu/tieba/by5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Comparator<zo6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(by5 by5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947661323, "Lcom/baidu/tieba/by5;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {by5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        a = new by5();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(zo6 zo6Var, zo6 zo6Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, zo6Var, zo6Var2)) == null) {
+                return zo6Var.sort() - zo6Var2.sort();
+            }
+            return invokeLL.intValue;
+        }
     }
 
     public by5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new LinkedList();
     }
 
-    @JvmStatic
-    public static final void a(View view2, View view3, View view4, View view5, UserIconBox userIconBox, int i) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{view2, view3, view4, view5, userIconBox, Integer.valueOf(i)}) == null) {
-            ArrayList arrayList = new ArrayList(4);
-            arrayList.add(view2);
-            arrayList.add(view3);
-            arrayList.add(view4);
-            arrayList.add(view5);
-            b(arrayList, userIconBox, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final void b(List<? extends View> views, UserIconBox userIconBox, int i) {
+    public List<zo6> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, views, userIconBox, i) == null) {
-            Intrinsics.checkNotNullParameter(views, "views");
-            new StatisticItem("c15270").addParam("obj_locate", a.e(views).toString()).addParam("obj_type", a.d(userIconBox).toString()).addParam("obj_source", i).eventStat();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
+            return b(list, list2, null);
         }
+        return (List) invokeLL.objValue;
     }
 
-    @JvmStatic
-    public static final void c(String str, String str2, String str3) {
+    public List<zo6> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", str2);
-            statisticItem.param("obj_locate", str3);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final StringBuilder d(UserIconBox userIconBox) {
-        InterceptResult invokeL;
-        Sequence<View> children;
-        TbImageView tbImageView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userIconBox)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (userIconBox != null && (children = ViewGroupKt.getChildren(userIconBox)) != null) {
-                int i = 0;
-                for (View view2 : children) {
-                    int i2 = i + 1;
-                    if (i < 0) {
-                        CollectionsKt__CollectionsKt.throwIndexOverflow();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    PbLinkData pbLinkData = list.get(i);
+                    if (pbLinkData.urlType == 2 && !this.a) {
+                        this.a = true;
                     }
-                    View view3 = view2;
-                    if (view3 instanceof TbImageView) {
-                        tbImageView = (TbImageView) view3;
-                    } else {
-                        tbImageView = null;
-                    }
-                    if (tbImageView != null && tbImageView.getVisibility() == 0) {
-                        sb.append(tbImageView.getUrl());
-                        if (i != userIconBox.getChildCount() - 1) {
-                            sb.append(",");
-                        }
-                    }
-                    i = i2;
+                    this.b.add(pbLinkData);
                 }
             }
-            return sb;
-        }
-        return (StringBuilder) invokeL.objValue;
-    }
-
-    public final StringBuilder e(List<? extends View> list) {
-        InterceptResult invokeL;
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int i = 0;
-            for (Object obj : list) {
-                int i2 = i + 1;
-                if (i < 0) {
-                    CollectionsKt__CollectionsKt.throwIndexOverflow();
+            if (!ListUtils.isEmpty(list2)) {
+                this.a = true;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    this.b.add(list2.get(i2));
                 }
-                View view2 = (View) obj;
-                if (view2 != null && view2.getVisibility() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                sb.append(str);
-                if (i != list.size() - 1) {
-                    sb.append(",");
-                }
-                i = i2;
             }
-            return sb;
+            if (!ListUtils.isEmpty(list3)) {
+                this.a = false;
+                for (int i3 = 0; i3 < list3.size(); i3++) {
+                    this.b.add(list3.get(i3));
+                }
+            }
+            Collections.sort(this.b, new a(this));
+            return this.b;
         }
-        return (StringBuilder) invokeL.objValue;
+        return (List) invokeLLL.objValue;
     }
 }

@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bt6;
 import com.baidu.tieba.core.widget.titletags.TitleTagsView;
-import com.baidu.tieba.il7;
-import com.baidu.tieba.jl7;
-import com.baidu.tieba.p75;
+import com.baidu.tieba.nl7;
+import com.baidu.tieba.ol7;
+import com.baidu.tieba.s75;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.ws6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 import tbclient.TagLabelInfo;
 /* loaded from: classes5.dex */
-public class HeaderComponentSingleView extends FrameLayout implements jl7 {
+public class HeaderComponentSingleView extends FrameLayout implements ol7 {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
@@ -52,12 +52,12 @@ public class HeaderComponentSingleView extends FrameLayout implements jl7 {
     public HeadImageView g;
     public TbImageAutoSwitch h;
     public List<String> i;
-    public il7 j;
+    public nl7 j;
     public LiveFuseForumData k;
     public boolean l;
     public TbImageAutoSwitch.b m;
 
-    @Override // com.baidu.tieba.jl7
+    @Override // com.baidu.tieba.ol7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,13 +79,13 @@ public class HeaderComponentSingleView extends FrameLayout implements jl7 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0298a implements View.OnClickListener {
+        public class View$OnClickListenerC0312a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0298a(a aVar, int i) {
+            public View$OnClickListenerC0312a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class HeaderComponentSingleView extends FrameLayout implements jl7 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.N((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0298a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0312a(this, i));
             }
         }
 
@@ -328,16 +328,16 @@ public class HeaderComponentSingleView extends FrameLayout implements jl7 {
         }
     }
 
-    @Override // com.baidu.tieba.jl7
-    public void a(List<LiveFuseForumData> list, il7 il7Var) {
+    @Override // com.baidu.tieba.ol7
+    public void a(List<LiveFuseForumData> list, nl7 nl7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, il7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, nl7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = il7Var;
+        this.j = nl7Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -372,18 +372,18 @@ public class HeaderComponentSingleView extends FrameLayout implements jl7 {
         }
         b();
         setOnClickListener(new b(this));
-        il7 il7Var2 = this.j;
-        if (il7Var2 != null) {
-            il7Var2.a(1, this.k);
+        nl7 nl7Var2 = this.j;
+        if (nl7Var2 != null) {
+            nl7Var2.a(1, this.k);
         }
     }
 
-    @Override // com.baidu.tieba.jl7
+    @Override // com.baidu.tieba.ol7
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             l();
-            p75.d(this.b).x(R.color.CAM_X0108);
+            s75.d(this.b).x(R.color.CAM_X0108);
             k();
             if (!ListUtils.isEmpty(this.h.getChildViews())) {
                 for (View view2 : this.h.getChildViews()) {
@@ -393,7 +393,7 @@ public class HeaderComponentSingleView extends FrameLayout implements jl7 {
                 }
             }
             this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            p75 d = p75.d(this.f);
+            s75 d = s75.d(this.f);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0201);
         }
@@ -413,7 +413,7 @@ public class HeaderComponentSingleView extends FrameLayout implements jl7 {
                     if (tagLabelInfo != null && !ListUtils.isEmpty(tagLabelInfo.labels)) {
                         arrayList = tagLabelInfo.labels;
                     }
-                    titleTagsView.c(new ws6(str, arrayList, true));
+                    titleTagsView.c(new bt6(str, arrayList, true));
                     this.d.addView(titleTagsView, new ViewGroup.LayoutParams(-2, -1));
                 }
                 if (size > 1) {
@@ -428,24 +428,24 @@ public class HeaderComponentSingleView extends FrameLayout implements jl7 {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d035b, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d035c, this);
             this.a = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090772);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090778);
             this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X06);
             this.e.setPlaceHolder(2);
             this.e.setConrers(15);
-            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09077c);
-            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f090774);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090773);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f090777);
+            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090782);
+            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f09077a);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090779);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f09077d);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09077a);
+            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090780);
             this.g = headImageView;
             headImageView.setPlaceHolder(1);
             this.g.setIsRound(true);
@@ -453,7 +453,7 @@ public class HeaderComponentSingleView extends FrameLayout implements jl7 {
             this.g.setBorderColor(R.color.CAM_X0402);
             this.g.setDrawBorder(true);
             this.g.setScaleType(ImageView.ScaleType.FIT_XY);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f090776);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f09077c);
             this.h = tbImageAutoSwitch;
             int i = n;
             tbImageAutoSwitch.l(4, i, i, o);

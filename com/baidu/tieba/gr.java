@@ -10,12 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes5.dex */
-public final class gr extends kr {
+/* loaded from: classes6.dex */
+public final class gr extends lr {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
+    public int e;
 
     static {
         InterceptResult invokeClinit;
@@ -30,17 +31,17 @@ public final class gr extends kr {
                 return;
             }
         }
-        e = new a(null);
+        f = new a(null);
     }
 
-    @Override // com.baidu.tieba.yr
+    @Override // com.baidu.tieba.zr
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CleanTaskNoClickTimesAction" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedAction" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,13 +64,22 @@ public final class gr extends kr {
             this();
         }
 
-        public final gr a(TaskInfo taskInfo, int i) {
-            InterceptResult invokeLI;
+        public final gr a(TaskInfo taskInfo) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) {
-                return new gr(taskInfo, null, i, null, null, 26, null);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskInfo)) == null) {
+                return new gr(taskInfo, null, 0, null, null, 30, null);
             }
-            return (gr) invokeLI.objValue;
+            return (gr) invokeL.objValue;
+        }
+
+        public final gr b(TaskInfo taskInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo)) == null) {
+                return new gr(taskInfo, null, 22, null, null, 26, null);
+            }
+            return (gr) invokeL.objValue;
         }
     }
 
@@ -93,6 +103,7 @@ public final class gr extends kr {
             }
         }
         this.d = str;
+        this.e = i;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
@@ -100,29 +111,17 @@ public final class gr extends kr {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public /* synthetic */ gr(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, r2, r3, r4, r5);
+        this(taskInfo, r2, r3, (i2 & 8) != 0 ? 304 : num, (i2 & 16) != 0 ? "task got repeated duplicateId" : str2);
         int i3;
-        Integer num2;
-        String str3;
         String singleKey = (i2 & 2) != 0 ? taskInfo.getSingleKey() : str;
         if ((i2 & 4) != 0) {
             i3 = 8;
         } else {
             i3 = i;
         }
-        if ((i2 & 8) != 0) {
-            num2 = null;
-        } else {
-            num2 = num;
-        }
-        if ((i2 & 16) != 0) {
-            str3 = null;
-        } else {
-            str3 = str2;
-        }
     }
 
-    @Override // com.baidu.tieba.kr
+    @Override // com.baidu.tieba.lr
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -130,5 +129,14 @@ public final class gr extends kr {
             return this.d;
         }
         return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
     }
 }

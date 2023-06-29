@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import tbclient.HotForum.ForumInfo;
 /* loaded from: classes6.dex */
 public class jw8 {
     public static /* synthetic */ Interceptable $ic;
@@ -25,11 +24,15 @@ public class jw8 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void a(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            jSONObject.optString("error_code");
-            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) && forumInfo != null) {
+            String str = forumInfo.avatar;
+            forumInfo.forum_id.longValue();
+            String str2 = forumInfo.forum_name;
+            forumInfo.time_out.longValue();
+            forumInfo.member_count.longValue();
+            forumInfo.thread_count.longValue();
         }
     }
 }

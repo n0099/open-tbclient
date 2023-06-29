@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,7 +49,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            wi.Q(context, antiData.getForbid_info());
+            xi.Q(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);

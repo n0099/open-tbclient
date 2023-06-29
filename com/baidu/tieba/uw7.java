@@ -1,92 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.HotCard;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes8.dex */
-public class uw7 extends vx<d45> {
+public class uw7 extends l15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcernRecommendLayout f;
+    public String a;
+    public ThemeColorInfo b;
+    public ThemeColorInfo c;
+    public String d;
+    public String e;
+    public List<ThreadData> f;
     public int g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uw7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity());
+    @Override // com.baidu.tieba.l15
+    public k35 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (k35) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.l15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    public uw7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 3;
-        ConcernRecommendLayout concernRecommendLayout = new ConcernRecommendLayout(tbPageContext.getPageActivity());
-        this.f = concernRecommendLayout;
-        concernRecommendLayout.setPageContext(tbPageContext);
-        this.f.setPageUniqueId(bdUniqueId);
+        this.f = new ArrayList();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.py
-    /* renamed from: s */
-    public void a(d45 d45Var) {
+    public ThemeColorInfo c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, d45Var) == null) {
-            this.f.setData(d45Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (ThemeColorInfo) invokeV.objValue;
     }
 
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f.setHasBorder(z);
-        }
-    }
-
-    public void u(wz4<MetaData> wz4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wz4Var) == null) {
-            this.f.setOnItemCoverListener(wz4Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.vx
-    public View k() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+            return this.g;
         }
-        return (View) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qy
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.onChangeSkinType(tbPageContext, i);
-                q(this.f, 3);
-            }
-            this.g = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<ThreadData> getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return gp6.B0;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public ThemeColorInfo h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c;
+        }
+        return (ThemeColorInfo) invokeV.objValue;
+    }
+
+    public static boolean k(DataRes.Builder builder) {
+        InterceptResult invokeL;
+        HotCard hotCard;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, builder)) == null) {
+            if (TbadkCoreApplication.isLogin() && builder != null && (hotCard = builder.hot_card) != null && ListUtils.isNotEmpty(hotCard.thread_list)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i(HotCard hotCard) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, hotCard) != null) || hotCard == null) {
+            return;
+        }
+        this.f.clear();
+        if (ListUtils.isNotEmpty(hotCard.thread_list)) {
+            for (int i = 0; i < hotCard.thread_list.size(); i++) {
+                ThreadData threadData = new ThreadData();
+                threadData.setNeedCheckNTitle(false);
+                threadData.parserProtobuf(hotCard.thread_list.get(i));
+                this.f.add(threadData);
+            }
+        }
+        this.a = hotCard.card_title;
+        this.b = hotCard.card_background;
+        this.c = hotCard.post_color;
+        this.d = hotCard.jump_text;
+        this.e = hotCard.jump_link;
+        this.g = hotCard.card_offset.intValue();
     }
 }

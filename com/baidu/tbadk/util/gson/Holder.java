@@ -1,7 +1,6 @@
 package com.baidu.tbadk.util.gson;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +49,7 @@ public final class Holder {
                 return;
             }
         }
-        OBJECT = new Holder("OBJECT", 0, StringUtil.EMPTY_ARRAY);
+        OBJECT = new Holder("OBJECT", 0, "{}");
         ARRAY = new Holder("ARRAY", 1, "[]");
         $VALUES = $values();
     }

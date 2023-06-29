@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.yr;
+import com.baidu.tieba.zr;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public final class TaskStatusRuntime implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic;
     public static final a Companion;
     public transient /* synthetic */ FieldHolder $fh;
-    public yr curAction;
+    public zr curAction;
     public String curDuplicateId;
     public boolean duplicated;
     public String extraUnRegisterMsg;
@@ -57,7 +57,7 @@ public final class TaskStatusRuntime implements ITaskModelData {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue(), ((Boolean) objArr[2]).booleanValue(), (String) objArr[3], (String) objArr[4], (yr) objArr[5], ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
+                this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue(), ((Boolean) objArr[2]).booleanValue(), (String) objArr[3], (String) objArr[4], (zr) objArr[5], ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -65,7 +65,7 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
     }
 
-    public static /* synthetic */ TaskStatusRuntime copy$default(TaskStatusRuntime taskStatusRuntime, boolean z, boolean z2, boolean z3, String str, String str2, yr yrVar, int i, Object obj) {
+    public static /* synthetic */ TaskStatusRuntime copy$default(TaskStatusRuntime taskStatusRuntime, boolean z, boolean z2, boolean z3, String str, String str2, zr zrVar, int i, Object obj) {
         if ((i & 1) != 0) {
             z = taskStatusRuntime.hasFailed;
         }
@@ -86,9 +86,9 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
         String str4 = str2;
         if ((i & 32) != 0) {
-            yrVar = taskStatusRuntime.curAction;
+            zrVar = taskStatusRuntime.curAction;
         }
-        return taskStatusRuntime.copy(z, z4, z5, str3, str4, yrVar);
+        return taskStatusRuntime.copy(z, z4, z5, str3, str4, zrVar);
     }
 
     public final boolean component1() {
@@ -121,16 +121,16 @@ public final class TaskStatusRuntime implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.extraUnRegisterMsg : (String) invokeV.objValue;
     }
 
-    public final yr component6() {
+    public final zr component6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.curAction : (yr) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.curAction : (zr) invokeV.objValue;
     }
 
-    public final TaskStatusRuntime copy(boolean z, boolean z2, boolean z3, String str, String str2, yr yrVar) {
+    public final TaskStatusRuntime copy(boolean z, boolean z2, boolean z3, String str, String str2, zr zrVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, yrVar})) == null) ? new TaskStatusRuntime(z, z2, z3, str, str2, yrVar) : (TaskStatusRuntime) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, zrVar})) == null) ? new TaskStatusRuntime(z, z2, z3, str, str2, zrVar) : (TaskStatusRuntime) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -181,8 +181,8 @@ public final class TaskStatusRuntime implements ITaskModelData {
             int hashCode = (i4 + (str != null ? str.hashCode() : 0)) * 31;
             String str2 = this.extraUnRegisterMsg;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            yr yrVar = this.curAction;
-            return hashCode2 + (yrVar != null ? yrVar.hashCode() : 0);
+            zr zrVar = this.curAction;
+            return hashCode2 + (zrVar != null ? zrVar.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -229,12 +229,12 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
     }
 
-    public TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, yr yrVar) {
+    public TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, zr zrVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, yrVar};
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str, str2, zrVar};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -249,15 +249,15 @@ public final class TaskStatusRuntime implements ITaskModelData {
         this.responseDataIsCache = z3;
         this.curDuplicateId = str;
         this.extraUnRegisterMsg = str2;
-        this.curAction = yrVar;
+        this.curAction = zrVar;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, yr yrVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r12, r1, r0, r2, r3, (i & 32) != 0 ? null : yrVar);
+    public /* synthetic */ TaskStatusRuntime(boolean z, boolean z2, boolean z3, String str, String str2, zr zrVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r12, r1, r0, r2, r3, (i & 32) != 0 ? null : zrVar);
         boolean z4;
         boolean z5;
         String str3;
@@ -296,13 +296,13 @@ public final class TaskStatusRuntime implements ITaskModelData {
         return (TaskStatusRuntime) invokeV.objValue;
     }
 
-    public final yr getCurAction() {
+    public final zr getCurAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.curAction;
         }
-        return (yr) invokeV.objValue;
+        return (zr) invokeV.objValue;
     }
 
     public final String getCurDuplicateId() {
@@ -377,10 +377,10 @@ public final class TaskStatusRuntime implements ITaskModelData {
         }
     }
 
-    public final void setCurAction(yr yrVar) {
+    public final void setCurAction(zr zrVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, yrVar) == null) {
-            this.curAction = yrVar;
+        if (interceptable == null || interceptable.invokeL(1048595, this, zrVar) == null) {
+            this.curAction = zrVar;
         }
     }
 

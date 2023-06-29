@@ -1,7 +1,7 @@
 package com.kwad.components.offline.obiwan;
 
 import com.kwad.components.offline.api.obiwan.IObiwanLogcat;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b implements com.kwad.sdk.core.e.kwai.a {
     public final IObiwanLogcat Qi;
 

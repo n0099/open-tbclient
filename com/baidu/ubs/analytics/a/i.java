@@ -16,7 +16,7 @@ public final class i implements Serializable {
     public String I;
 
     /* renamed from: T  reason: collision with root package name */
-    public String f1193T;
+    public String f1192T;
     public int id;
     public String type;
     public String url;
@@ -57,7 +57,7 @@ public final class i implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f1193T;
+            return this.f1192T;
         }
         return (String) invokeV.objValue;
     }
@@ -99,7 +99,7 @@ public final class i implements Serializable {
     public final void setParameters(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f1193T = str;
+            this.f1192T = str;
         }
     }
 
@@ -135,7 +135,7 @@ public final class i implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "NetLogEntity{id=" + this.id + ", url='" + this.url + "', timeStamp='" + this.I + "', parameters='" + this.f1193T + "', type='" + this.type + "', sessionId='" + this.H + "'}";
+            return "NetLogEntity{id=" + this.id + ", url='" + this.url + "', timeStamp='" + this.I + "', parameters='" + this.f1192T + "', type='" + this.type + "', sessionId='" + this.H + "'}";
         }
         return (String) invokeV.objValue;
     }

@@ -9,8 +9,10 @@ public class j67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public boolean b;
-    public String c;
+    public int b;
+    public int c;
+    public double d;
+    public double e;
 
     public j67() {
         Interceptable interceptable = $ic;

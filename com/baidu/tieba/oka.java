@@ -1,105 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Toast;
+import tbclient.ToastContent;
 /* loaded from: classes7.dex */
 public class oka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public b a;
-    public final CustomMessageListener b;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(@NonNull SelectForumData selectForumData);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oka a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(oka okaVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {okaVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static BdToastData a(Toast toast) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, toast)) == null) {
+            if (toast == null) {
+                return null;
+            }
+            BdToastData bdToastData = new BdToastData();
+            bdToastData.setIconType(toast.icon_type.intValue());
+            bdToastData.setIconUrl(toast.icon_url);
+            bdToastData.setIconWidth(toast.icon_width.intValue());
+            bdToastData.setIconHeight(toast.icon_height.intValue());
+            bdToastData.setHudWidth(toast.hud_width.intValue());
+            ArrayList arrayList = new ArrayList();
+            for (ToastContent toastContent : toast.content) {
+                if (toastContent != null) {
+                    BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
+                    contentBean.setText(toastContent.text);
+                    contentBean.setHasColor(toastContent.has_color.intValue());
+                    contentBean.setTextColor(toastContent.text_color);
+                    contentBean.setTextColorDark(toastContent.text_color_dark);
+                    arrayList.add(contentBean);
                 }
             }
-            this.a = okaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            SelectForumData selectForumData;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SelectForumData) && (selectForumData = (SelectForumData) customResponsedMessage.getData()) != null && !StringUtils.isNull(selectForumData.forumId) && !StringUtils.isNull(selectForumData.forumName) && this.a.a != null) {
-                this.a.a.a(selectForumData);
+            List<Integer> list = toast.task_ids;
+            if (list != null) {
+                int[] iArr = new int[list.size()];
+                for (int i = 0; i < toast.task_ids.size(); i++) {
+                    iArr[i] = toast.task_ids.get(i).intValue();
+                }
+                bdToastData.setTaskIds(iArr);
             }
+            bdToastData.setContent(arrayList);
+            bdToastData.setUrl(toast.url);
+            bdToastData.setBackground(toast.background);
+            return bdToastData;
         }
-    }
-
-    public oka() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new a(this, 2921505);
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-        }
-    }
-
-    public void b(@NonNull BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            d();
-            this.b.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.b);
-        }
-    }
-
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a = bVar;
-        }
+        return (BdToastData) invokeL.objValue;
     }
 }

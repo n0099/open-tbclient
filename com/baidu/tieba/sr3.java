@@ -1,172 +1,45 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.mb2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class sr3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160981, "Lcom/baidu/tieba/sr3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948160981, "Lcom/baidu/tieba/sr3;");
-                return;
+    public static void a(@NonNull rr3 rr3Var, @NonNull i23 i23Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, rr3Var, i23Var) == null) {
+            rr3Var.f(i23Var.d());
+            rr3Var.g(i23Var.e());
+            if (i23Var.g()) {
+                rr3Var.a(1);
+            } else {
+                rr3Var.e(1);
             }
         }
-        a = js1.a;
     }
 
-    @NonNull
-    public static String d() {
-        InterceptResult invokeV;
+    public static FrameLayout.LayoutParams b(@NonNull jy1 jy1Var, @NonNull i23 i23Var) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String string = nk3.a().getString("web_mode_host_key", "");
-            if (TextUtils.isEmpty(string)) {
-                return "http://radar.bcc-szth.baidu.com:8312";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jy1Var, i23Var)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i23Var.f(), i23Var.c());
+            int i2 = 0;
+            if (i23Var.g()) {
+                i2 = jy1Var.getWebViewScrollX();
+                i = jy1Var.getWebViewScrollY();
+            } else {
+                i = 0;
             }
-            return string;
+            layoutParams.leftMargin = i23Var.d() + i2;
+            layoutParams.topMargin = i23Var.e() + i;
+            return layoutParams;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (tp3.G()) {
-                return PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK;
-            }
-            return "42";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String n = yb3.K().q().W().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return str;
-            }
-            try {
-                List<String> c = rp3.c(new URI(n).getRawQuery());
-                if (c.size() > 0) {
-                    for (int i = 0; i < c.size(); i++) {
-                        String str2 = c.get(i);
-                        if (!TextUtils.isEmpty(str2)) {
-                            String[] split = str2.split("=");
-                            if (split.length > 1) {
-                                str = rp3.a(str, split[0], split[1]);
-                            }
-                        }
-                    }
-                }
-                return str;
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                z82.i("SwanWebModeUtils", "appendWebUrlQuery: " + e.getMessage());
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDOfflineUrl"})
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (mb2.b.a()) {
-                str = d() + "?appKey=" + yb3.K().q().getAppId();
-            }
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String e = e();
-            String valueOf = String.valueOf(rr3.c().g());
-            String a2 = a(str);
-            String c = c();
-            z82.i("SwanWebModeUtils", "appendWebUrlQuery: launchUrl : " + a2 + " rawPath : " + c);
-            return Uri.parse(a2).buildUpon().path(c).appendQueryParameter("_swebfr", e).appendQueryParameter("_swebcode", valueOf).appendQueryParameter("_swebHost", gv2.n().a()).build().toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String n = yb3.K().q().W().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return "";
-            }
-            try {
-                return new URI(n).getPath();
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean f(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
-            String optString = jSONObject.optString("invokeFrom");
-            if (!TextUtils.isEmpty(optString) && TextUtils.equals(optString, "swanWeb")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(sn3 sn3Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, sn3Var, i)) == null) {
-            if (i == 6) {
-                return true;
-            }
-            if (sn3Var == null) {
-                return false;
-            }
-            if (sn3Var.h() == 1013 || sn3Var.h() == 1015) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
+        return (FrameLayout.LayoutParams) invokeLL.objValue;
     }
 }

@@ -1,5 +1,12 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public interface kw1 {
-    bh3 a();
+    long a(Context context);
+
+    void b(Context context, String str, vq3<String> vq3Var);
+
+    void c(Context context, JSONArray jSONArray, vq3<String> vq3Var);
 }

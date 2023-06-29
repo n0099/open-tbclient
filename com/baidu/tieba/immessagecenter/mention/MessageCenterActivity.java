@@ -7,12 +7,16 @@ import androidx.fragment.app.FragmentTransaction;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.g9;
+import com.baidu.tieba.c98;
+import com.baidu.tieba.dp8;
+import com.baidu.tieba.h9;
+import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +27,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public MessageCenterFragment b;
+    public BaseFragment b;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
     public VoiceManager.i f1(VoiceData.VoiceModel voiceModel) {
@@ -35,7 +39,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.xr5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.cs5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,7 +77,11 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b.y0();
+            BaseFragment baseFragment = this.b;
+            if (baseFragment instanceof MessageCenterFragment) {
+                return ((MessageCenterFragment) baseFragment).y0();
+            }
+            return null;
         }
         return (VoiceManager) invokeV.objValue;
     }
@@ -82,7 +90,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!g9.f().h("MainTabActivity")) {
+            if (!h9.f().h("MainTabActivity")) {
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
             }
             TbSingleton.getInstance().setNeedJoinChatRoom(false);
@@ -95,9 +103,9 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            MessageCenterFragment messageCenterFragment = this.b;
-            if (messageCenterFragment != null) {
-                messageCenterFragment.onActivityResult(i, i2, intent);
+            BaseFragment baseFragment = this.b;
+            if (baseFragment != null) {
+                baseFragment.onActivityResult(i, i2, intent);
             }
         }
     }
@@ -117,9 +125,11 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
             super.onNewIntent(intent);
-            MessageCenterFragment messageCenterFragment = this.b;
-            if (messageCenterFragment != null) {
-                messageCenterFragment.O1(intent);
+            BaseFragment baseFragment = this.b;
+            if (baseFragment instanceof MessageCenterFragment) {
+                ((MessageCenterFragment) baseFragment).O1(intent);
+            } else {
+                c98.l().c();
             }
         }
     }
@@ -134,7 +144,11 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
                 return;
             }
             TbSingleton.getInstance().setNeedJoinChatRoom(true);
-            this.b = new MessageCenterFragment();
+            if (dp8.a()) {
+                this.b = new MsgCenterContainerFragment();
+            } else {
+                this.b = new MessageCenterFragment();
+            }
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
             beginTransaction.add(16908290, this.b);
             beginTransaction.commitAllowingStateLoss();

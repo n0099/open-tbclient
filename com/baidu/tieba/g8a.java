@@ -1,128 +1,93 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class g8a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "databases";
-    public static final String b = "shared_prefs";
+public class g8a extends CustomMessageListener {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final e7a b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947749177, "Lcom/baidu/tieba/g8a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g8a(MainTabActivity mainTabActivity, e7a e7aVar) {
+        super(2007002);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947749177, "Lcom/baidu/tieba/g8a;");
-        }
-    }
-
-    public static final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            c(o8a.f());
-            e();
-            d();
-            o8a.a();
-        }
-    }
-
-    public static final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a();
-            f();
-            h();
-            g();
-        }
-    }
-
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Intrinsics.areEqual("mounted", Environment.getExternalStorageState()) && o8a.c(o8a.d().getExternalCacheDir())) {
-                return true;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, e7aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = mainTabActivity;
+        this.b = e7aVar;
+        setPriority(100);
     }
 
-    public static final boolean e() {
-        InterceptResult invokeV;
+    public final void a(Intent intent) {
+        e7a e7aVar;
+        int a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return o8a.c(o8a.d().getCacheDir());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && (e7aVar = this.b) != null && e7aVar.y() != null) {
+            try {
+                if (intent.hasExtra("locate_type")) {
+                    a = intent.getIntExtra("locate_type", 1);
+                } else {
+                    a = this.a.o.a();
+                }
+                this.b.y().setCurrentTabByType(a);
+            } catch (Throwable th) {
+                BdLog.e(th);
+                this.a.finish();
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public static final boolean f() {
-        InterceptResult invokeV;
-        String str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ArrayList<jn5> b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File filesDir = o8a.d().getFilesDir();
-            if (filesDir != null) {
-                str = filesDir.getParent();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (b = ((ln5) customResponsedMessage.getData()).b()) != null && b.size() != 0) {
+            this.b.z(b);
+            if (this.a.c) {
+                e7a e7aVar = this.b;
+                if (e7aVar != null && e7aVar.y() != null) {
+                    this.b.y().setCurrentTabByType(this.a.b);
+                }
             } else {
-                str = null;
+                e7a e7aVar2 = this.b;
+                if (e7aVar2 != null && e7aVar2.y() != null) {
+                    if (this.a.getIntent() != null && this.a.getIntent().getDataString() != null && this.a.getIntent().getDataString().startsWith(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+                        this.b.y().setCurrentTabByType(2);
+                    } else {
+                        a(this.a.getIntent());
+                    }
+                }
             }
-            return o8a.c(new File(str, a));
+            this.a.c = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, null));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921579, 0));
         }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return o8a.c(o8a.d().getFilesDir());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return o8a.c(o8a.g(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            File filesDir = o8a.d().getFilesDir();
-            if (filesDir != null) {
-                str = filesDir.getParent();
-            } else {
-                str = null;
-            }
-            boolean c = o8a.c(new File(str, b));
-            if (c) {
-                o8a.b();
-            }
-            return c;
-        }
-        return invokeV.booleanValue;
     }
 }

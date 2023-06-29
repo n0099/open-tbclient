@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -92,7 +92,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             super.onMeasure(i, i2);
             CharSequence text = getText();
-            if (!vi.isEmpty(text.toString())) {
+            if (!wi.isEmpty(text.toString())) {
                 TextPaint paint = getPaint();
                 float measureText = paint.measureText(this.b);
                 float measureText2 = paint.measureText(text.toString());

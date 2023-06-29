@@ -1,21 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.n37;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.t37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class hq6 implements n37.h {
+public class hq6 extends wl1<t37.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public class a implements t37.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(hq6 hq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hq6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.t37.a
+        public t37.d a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new lq6();
+            }
+            return (t37.d) invokeV.objValue;
+        }
+    }
 
     public hq6() {
         Interceptable interceptable = $ic;
@@ -31,45 +58,15 @@ public final class hq6 implements n37.h {
         }
     }
 
-    @Override // com.baidu.tieba.n37.l
-    public void a(ViewGroup view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wl1
+    /* renamed from: a */
+    public t37.a createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            if (view2 instanceof PlayVoiceBntNew) {
-                ((PlayVoiceBntNew) view2).e();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    @Override // com.baidu.tieba.n37.h
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            return new PlayVoiceBntNew(context, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
-        }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.n37.h
-    public void update(ViewGroup view2, Object data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, data) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if ((view2 instanceof PlayVoiceBntNew) && (data instanceof VoiceData.VoiceModel)) {
-                PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) view2;
-                VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) data;
-                playVoiceBntNew.setVoiceModel(voiceModel);
-                playVoiceBntNew.setTag(data);
-                playVoiceBntNew.e();
-                Integer num = voiceModel.voice_status;
-                Intrinsics.checkNotNullExpressionValue(num, "data.voice_status");
-                playVoiceBntNew.m(num.intValue());
-                playVoiceBntNew.o();
-            }
-        }
+        return (t37.a) invokeV.objValue;
     }
 }

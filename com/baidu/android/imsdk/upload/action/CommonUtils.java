@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
+import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,6 +50,7 @@ public class CommonUtils {
     public static IMPushPb.Common getIMCommon(Context context, String str) {
         InterceptResult invokeLL;
         String appVersionName;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             IMPushPb.DeviceID build = IMPushPb.DeviceID.newBuilder().setCuid(str).build();
@@ -58,7 +60,17 @@ public class CommonUtils {
             } else {
                 appVersionName = getAppVersionName(context);
             }
-            return IMPushPb.Common.newBuilder().setDeviceId(build).setTimestamp(-1L).setUserTimestamp(System.currentTimeMillis()).setTerminalInfo(getTerminalInfo(context)).setAppInfo(appName.setAppVersion(appVersionName).setAppChannel("").build()).build();
+            IMPushPb.AppInfo build2 = appName.setAppVersion(appVersionName).setAppChannel("").build();
+            if (RequsetNetworkUtils.isNetworkAvailable(context)) {
+                if (RequsetNetworkUtils.isWifiConnected(context)) {
+                    str2 = "wifi";
+                } else {
+                    str2 = RequsetNetworkUtils.getMobileType(context);
+                }
+            } else {
+                str2 = "unknown";
+            }
+            return IMPushPb.Common.newBuilder().setDeviceId(build).setTimestamp(-1L).setUserTimestamp(System.currentTimeMillis()).setTerminalInfo(getTerminalInfo(context)).setAppInfo(build2).setNetInfo(IMPushPb.NetInfo.newBuilder().setNetType(str2).build()).build();
         }
         return (IMPushPb.Common) invokeLL.objValue;
     }

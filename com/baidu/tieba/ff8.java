@@ -1,40 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "ChatUtil")
+import androidx.annotation.NonNull;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 /* loaded from: classes5.dex */
-public final class ff8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ff8 {
+    void c(@NonNull df8 df8Var);
 
-    public static final long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            try {
-                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
-                Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(this)");
-                return Long.parseLong(bdUidFromBdUK);
-            } catch (NumberFormatException unused) {
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
-    }
+    void e(@NonNull BaseMsg baseMsg, @NonNull ChatRoomDetail chatRoomDetail);
 
-    public static final String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            return BIMManager.getBdUKFromBdUid(str);
-        }
-        return (String) invokeL.objValue;
-    }
+    void i();
+
+    void onDestroy();
 }

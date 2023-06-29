@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.util.Log;
 import androidx.transition.Transition;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
@@ -1111,7 +1112,7 @@ public final class MediaLivePluginLogger implements LiveComponentStatusHelper.IL
                 jSONObject = null;
             }
             if (jSONObject != null) {
-                jSONObject.put("room_type", str);
+                jSONObject.put(Constants.EXTRA_ROOM_TYPE, str);
             }
             if (jSONObject != null) {
                 jSONObject.put("room_template", str2);

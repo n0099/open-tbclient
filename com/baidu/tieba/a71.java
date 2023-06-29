@@ -1,100 +1,123 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import com.baidu.tieba.d61;
+import android.content.Context;
+import android.graphics.Rect;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.view.TouchDelegate;
+import android.view.View;
+import android.view.ViewParent;
+import com.baidu.tieba.g61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class a71 extends c71 {
+import com.bumptech.glide.load.engine.GlideException;
+/* loaded from: classes5.dex */
+public class a71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
-    }
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ int d;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ float b;
+        public final /* synthetic */ View c;
+        public final /* synthetic */ View d;
 
-        public a(String[] strArr, Activity activity, b bVar, int i) {
+        public a(Context context, float f, View view2, View view3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, bVar, Integer.valueOf(i)};
+                Object[] objArr = {context, Float.valueOf(f), view2, view3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = strArr;
-            this.b = activity;
-            this.c = bVar;
-            this.d = i;
+            this.a = context;
+            this.b = f;
+            this.c = view2;
+            this.d = view3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
-                }
-                this.c.onRequestPermissionsResult(this.d, this.a, iArr);
+                Rect rect = new Rect();
+                int a = g61.c.a(this.a, this.b);
+                this.c.getHitRect(rect);
+                rect.left -= a;
+                rect.right += a;
+                rect.top -= a;
+                rect.bottom += a;
+                this.d.setTouchDelegate(new TouchDelegate(rect, this.c));
             }
         }
     }
 
-    public static boolean b(Activity activity, String str) {
-        InterceptResult invokeLL;
+    public static void a(Context context, View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
-            if (d61.b.d() && b71.a(activity, str)) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{context, view2, Float.valueOf(f)}) != null) || view2 == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        ViewParent parent = view2.getParent();
+        if (!View.class.isInstance(parent)) {
+            return;
+        }
+        View view3 = (View) parent;
+        view3.post(new a(context, f, view2, view3));
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+    public static String b(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
-            if (d61.b.d()) {
-                b71.requestPermissions(activity, strArr, i);
-            } else if (activity instanceof b) {
-                requestPermissions(activity, strArr, i, (b) activity);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
             }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (!TextUtils.isEmpty(ellipsize)) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i, b bVar) {
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, bVar) == null) {
-            if (d61.b.d()) {
-                b71.requestPermissions(activity, strArr, i);
-            } else if (!activity.isFinishing() && bVar != null) {
-                al0.b(new a(strArr, activity, bVar, i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null || !view2.isShown()) {
+                return false;
             }
+            Rect rect = new Rect();
+            if (!view2.getGlobalVisibleRect(rect)) {
+                return false;
+            }
+            long height = rect.height() * rect.width();
+            long height2 = view2.getHeight() * view2.getWidth();
+            if (height2 <= 0 || height * 100 < height2 * 50) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

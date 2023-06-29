@@ -13,8 +13,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.jk0;
-import com.baidu.tieba.kk0;
+import com.baidu.tieba.mk0;
+import com.baidu.tieba.nk0;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
@@ -23,7 +23,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
 public class ComponentArchManager implements LifecycleObserver {
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends kk0>, kk0> b;
+    public final SimpleArrayMap<Class<? extends nk0>, nk0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -57,7 +57,7 @@ public class ComponentArchManager implements LifecycleObserver {
         this.a.add(component);
     }
 
-    public final void t(Class<? extends kk0> clazz, kk0 componentService) {
+    public final void t(Class<? extends nk0> clazz, nk0 componentService) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
         Intrinsics.checkNotNullParameter(componentService, "componentService");
         this.b.put(clazz, componentService);
@@ -84,7 +84,7 @@ public class ComponentArchManager implements LifecycleObserver {
     public final void d(IComponentPlugin iComponentPlugin) {
         Context context = this.c;
         if (context != null) {
-            iComponentPlugin.y((Activity) context);
+            iComponentPlugin.z((Activity) context);
             iComponentPlugin.injectContext(this.c);
             iComponentPlugin.B(this);
             iComponentPlugin.A();
@@ -99,10 +99,10 @@ public class ComponentArchManager implements LifecycleObserver {
         iComponentPlugin.o();
     }
 
-    public final void g(jk0 event) {
+    public final void g(mk0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         for (IComponentPlugin iComponentPlugin : this.a) {
-            iComponentPlugin.w(event);
+            iComponentPlugin.x(event);
         }
     }
 
@@ -117,13 +117,13 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public <T extends kk0> T q(Class<T> clazz) {
+    public <T extends nk0> T q(Class<T> clazz) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
-        kk0 kk0Var = this.b.get(clazz);
-        if (!(kk0Var instanceof kk0)) {
-            kk0Var = null;
+        nk0 nk0Var = this.b.get(clazz);
+        if (!(nk0Var instanceof nk0)) {
+            nk0Var = null;
         }
-        return (T) kk0Var;
+        return (T) nk0Var;
     }
 
     public final void v(IComponentPlugin componentPlugin) {

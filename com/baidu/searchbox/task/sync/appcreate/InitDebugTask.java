@@ -6,11 +6,11 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BuildPackageInfo;
-import com.baidu.tieba.a85;
-import com.baidu.tieba.aa;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.wa0;
-import com.baidu.tieba.z75;
+import com.baidu.tieba.ba;
+import com.baidu.tieba.c85;
+import com.baidu.tieba.d85;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.za0;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class InitDebugTask extends LaunchTask {
@@ -27,10 +27,10 @@ public class InitDebugTask extends LaunchTask {
     private void initCmdConvertManager() {
         if (TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(a85.class.getName());
-            arrayList.add(z75.class.getName());
+            arrayList.add(d85.class.getName());
+            arrayList.add(c85.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
-            aa.a().c(arrayList);
+            ba.a().c(arrayList);
         }
     }
 
@@ -43,12 +43,12 @@ public class InitDebugTask extends LaunchTask {
             if (TextUtils.isEmpty(cuid)) {
                 cuid = "";
             }
-            wa0.a(inst, branchNameFromFile, commitIdFromFile, cuid);
+            za0.a(inst, branchNameFromFile, commitIdFromFile, cuid);
         }
     }
 
     private void initUETool() {
-        if (TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && o95.p().l("key_ue_tool_switch", false)) {
+        if (TbadkCoreApplication.getInst().isDebugMode() && TbadkCoreApplication.getInst().isMainProcess(false) && r95.p().l("key_ue_tool_switch", false)) {
             MessageManager.getInstance().runTask(2921513, null, null);
         }
     }

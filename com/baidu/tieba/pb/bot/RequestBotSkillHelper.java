@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tieba.a;
+import com.baidu.tieba.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +126,7 @@ public final class RequestBotSkillHelper {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (((((((this.botUk.hashCode() * 31) + a.a(this.skillId)) * 31) + this.tid.hashCode()) * 31) + this.pid.hashCode()) * 31) + this.token.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (((((((this.botUk.hashCode() * 31) + b.a(this.skillId)) * 31) + this.tid.hashCode()) * 31) + this.pid.hashCode()) * 31) + this.token.hashCode() : invokeV.intValue;
         }
 
         public String toString() {

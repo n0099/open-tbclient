@@ -1,41 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
+import android.view.View;
 /* loaded from: classes8.dex */
-public class xs7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xs7<T> {
+    void a(View view2, T t, int i);
 
-    public static List<ts7> a(List<VoiceRoom> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (VoiceRoom voiceRoom : list) {
-                if (voiceRoom != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    ts7 ts7Var = new ts7();
-                    ts7Var.a = voiceRoom.room_name;
-                    ts7Var.c = String.valueOf(voiceRoom.talker_num);
-                    ts7Var.d = String.valueOf(voiceRoom.joined_num);
-                    ts7Var.e = voiceRoom.room_id.longValue();
-                    for (User user : voiceRoom.talker) {
-                        if (user != null) {
-                            arrayList2.add(user.portrait);
-                        }
-                    }
-                    ts7Var.b = arrayList2;
-                    arrayList.add(ts7Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
+    void b(View view2, T t, int i);
 }

@@ -8,17 +8,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.h87;
-import com.baidu.tieba.n37;
+import com.baidu.tieba.m87;
+import com.baidu.tieba.s37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class CardPlayVoiceView extends LinearLayout implements h87 {
+public class CardPlayVoiceView extends LinearLayout implements m87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n37.h a;
+    public final s37.h a;
     public ViewGroup b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,7 +39,7 @@ public class CardPlayVoiceView extends LinearLayout implements h87 {
                 return;
             }
         }
-        this.a = n37.a().f();
+        this.a = s37.a().f();
         a(context);
     }
 
@@ -62,7 +62,7 @@ public class CardPlayVoiceView extends LinearLayout implements h87 {
                 return;
             }
         }
-        this.a = n37.a().f();
+        this.a = s37.a().f();
         a(context);
     }
 
@@ -85,7 +85,7 @@ public class CardPlayVoiceView extends LinearLayout implements h87 {
                 return;
             }
         }
-        this.a = n37.a().f();
+        this.a = s37.a().f();
         a(context);
     }
 
@@ -105,7 +105,7 @@ public class CardPlayVoiceView extends LinearLayout implements h87 {
         }
     }
 
-    @Override // com.baidu.tieba.h87
+    @Override // com.baidu.tieba.m87
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

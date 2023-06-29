@@ -1,97 +1,536 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.Editable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.afx.TbAlphaVideo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.write.view.xrichtext.RichImageItem;
+import com.baidu.tieba.write.view.xrichtext.RichTextEditor;
+import com.baidu.tieba.y3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.CronetLibraryLoader;
-import org.chromium.base.NativeLibraryLoadedStatus;
-import org.chromium.base.annotations.CheckDiscard;
-import org.chromium.base.natives.GEN_JNI;
-@CheckDiscard("crbug.com/993421")
+import java.util.ArrayList;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public final class nna implements CronetLibraryLoader.b {
+public class nna extends bna<noa> implements vna, wna {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetLibraryLoader.b a;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public RichTextEditor t;
+    @Nullable
+    public una u;
+    @NonNull
+    public final jpa v;
+    public final RichImageItem.f w;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948009608, "Lcom/baidu/tieba/nna;")) == null) {
-            return;
+    @Override // com.baidu.tieba.zna
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return 2;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements RichImageItem.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nna a;
+
+        @Override // com.baidu.tieba.write.view.xrichtext.RichImageItem.f
+        public void b(ImageFileInfo imageFileInfo, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, view2) == null) {
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948009608, "Lcom/baidu/tieba/nna;");
+
+        public a(nna nnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nnaVar;
+        }
+
+        @Override // com.baidu.tieba.write.view.xrichtext.RichImageItem.f
+        public void a(ImageFileInfo imageFileInfo, View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, imageFileInfo, view2) != null) || this.a.b == null) {
+                return;
+            }
+            if (ListUtils.isEmpty(this.a.v.g().getChosedFiles())) {
+                this.a.b.i();
+            }
+            this.a.b.x(new int[]{10, 34});
         }
     }
 
-    public nna() {
+    /* loaded from: classes7.dex */
+    public class b implements RichTextEditor.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nna a;
+
+        public b(nna nnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nnaVar;
+        }
+
+        @Override // com.baidu.tieba.write.view.xrichtext.RichTextEditor.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.showToast(R.string.over_limit_tip);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nna(TbPageContext<?> tbPageContext, @NonNull jpa jpaVar, @NonNull nma nmaVar, @NonNull fpa fpaVar) {
+        super(tbPageContext, noa.class, nmaVar, fpaVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, jpaVar, nmaVar, fpaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1], (nma) objArr2[2], (fpa) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.w = new a(this);
+        this.v = jpaVar;
+        jpaVar.c(this);
+    }
+
+    @Override // com.baidu.tieba.bna
+    public void H(Editable editable) {
+        RichTextEditor richTextEditor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+            super.H(editable);
+            WriteData writeData = this.e;
+            if (writeData != null && (richTextEditor = this.t) != null) {
+                writeData.setRichContentData(richTextEditor.getPlainTextContentData());
             }
         }
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
-    public void a() {
+    @Override // com.baidu.tieba.bna
+    public void K(ArrayList<AtSelectData> arrayList) {
+        RichTextEditor richTextEditor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_cronetInitOnInitThread();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) != null) || (richTextEditor = this.t) == null) {
+            return;
+        }
+        richTextEditor.i(arrayList);
+    }
+
+    @Override // com.baidu.tieba.bna
+    public void L(ArrayList<AtSelectData> arrayList) {
+        RichTextEditor richTextEditor;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, arrayList) != null) || (richTextEditor = this.t) == null) {
+            return;
+        }
+        richTextEditor.m(arrayList);
+    }
+
+    public void W(una unaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, unaVar) == null) {
+            this.u = unaVar;
         }
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
-    public String b() {
-        InterceptResult invokeV;
+    public final void X(ImageFileInfo imageFileInfo) {
+        RichTextEditor richTextEditor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetVersion();
+        if ((interceptable == null || interceptable.invokeL(1048583, this, imageFileInfo) == null) && (richTextEditor = this.t) != null && this.e != null) {
+            richTextEditor.u(imageFileInfo);
+            this.e.setRichContentData(this.t.getPlainTextContentData());
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
-    public long c() {
-        InterceptResult invokeV;
+    public void Y(y3a.f fVar) {
+        cpa cpaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetHandler();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) && (cpaVar = this.l) != null) {
+            cpaVar.p(fVar);
         }
-        return invokeV.longValue;
     }
 
-    public static CronetLibraryLoader.b d() {
+    @Override // com.baidu.tieba.zna
+    public void b(boolean z) {
+        RichTextEditor richTextEditor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && !z && (richTextEditor = this.t) != null && richTextEditor.getLastFocusEdit() != null) {
+            this.t.getLastFocusEdit().clearFocus();
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, writeData) == null) {
+            writeData.setRichTextEditorMode(true);
+            RichTextEditor richTextEditor = this.t;
+            if (richTextEditor != null) {
+                writeData.setRichContentData(richTextEditor.getPlainTextContentData());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wna
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            u(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.wna
+    public void k(String str) {
+        RichTextEditor richTextEditor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && (richTextEditor = this.t) != null && richTextEditor.getVisibility() == 0) {
+            Z(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.bna, com.baidu.tieba.yna
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            super.onChangeSkinType(i);
+            RichTextEditor richTextEditor = this.t;
+            if (richTextEditor != null) {
+                richTextEditor.x();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bna, com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            this.v.o(bundle);
+        }
+    }
+
+    @Override // com.baidu.tieba.vna
+    public void onUpdate(Object obj) {
+        RichTextEditor richTextEditor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048602, this, obj) == null) && (obj instanceof SelectForumData) && (richTextEditor = this.t) != null) {
+            richTextEditor.setForumId(vg.g(((SelectForumData) obj).forumId, 0L));
+        }
+    }
+
+    @Override // com.baidu.tieba.wna
+    public void u(String str) {
+        RichTextEditor richTextEditor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048606, this, str) == null) && (richTextEditor = this.t) != null && richTextEditor.getVisibility() == 0) {
+            a0(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.wna
+    public void v(String str) {
+        RichTextEditor richTextEditor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048607, this, str) == null) && (richTextEditor = this.t) != null && richTextEditor.getVisibility() == 0) {
+            a0(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.bna
+    public void J(gd5 gd5Var) {
+        RichTextEditor richTextEditor;
+        ImageFileInfo b2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gd5Var) == null) && this.b != null && (richTextEditor = this.t) != null && richTextEditor.getVisibility() == 0 && (b2 = this.v.b(this.b, gd5Var)) != null) {
+            X(b2);
+            this.b.i();
+            this.b.x(new int[]{10, 34});
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void c(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, writeData) == null) {
+            this.v.d(writeData);
+            RichTextEditor richTextEditor = this.t;
+            if (richTextEditor != null && richTextEditor.getVisibility() == 0) {
+                this.t.setWriteImagesInfo(this.v.g());
+                writeData.setRichContentData(this.t.getPostServerContentData());
+                writeData.setServerRichContent(this.t.getPostServerContentData());
+                writeData.setRichTextEditorMode(true);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bna
+    @Nullable
+    public ArrayList<AtSelectData> N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (GEN_JNI.TESTING_ENABLED) {
-                CronetLibraryLoader.b bVar = a;
-                if (bVar != null) {
-                    return bVar;
-                }
-                if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetLibraryLoader.Natives. The current configuration requires all native implementations to have a mock instance.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            RichTextEditor richTextEditor = this.t;
+            if (richTextEditor != null && richTextEditor.getVisibility() == 0) {
+                return this.t.getAtDataInText();
+            }
+            return null;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bna
+    @Nullable
+    public EditText O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            RichTextEditor richTextEditor = this.t;
+            if (richTextEditor != null && richTextEditor.getVisibility() == 0) {
+                return this.t.getLastFocusEdit();
+            }
+            return null;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            super.d();
+            this.v.q(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.zna
+    public void l() {
+        RichTextEditor richTextEditor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (richTextEditor = this.t) != null && richTextEditor.getLastFocusEdit() != null) {
+            this.t.getLastFocusEdit().requestFocus();
+        }
+    }
+
+    @Override // com.baidu.tieba.zna
+    public void n() {
+        RichTextEditor richTextEditor;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048598, this) != null) || (richTextEditor = this.t) == null) {
+            return;
+        }
+        this.n.f(richTextEditor.getLastFocusEdit(), false);
+    }
+
+    @Override // com.baidu.tieba.zna
+    public EditText p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            RichTextEditor richTextEditor = this.t;
+            if (richTextEditor != null) {
+                return richTextEditor.getLastFocusEdit();
+            }
+            return null;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            RichTextEditor richTextEditor = this.t;
+            if (richTextEditor != null && !richTextEditor.v()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void Z(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && str != null && this.b != null && this.t != null) {
+            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+            writeImagesInfo.parseJson(str);
+            writeImagesInfo.updateQuality();
+            if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.getChosedFiles().size() > 0) {
+                ImageFileInfo imageFileInfo = writeImagesInfo.getChosedFiles().get(0);
+                int originalImgIndex = writeImagesInfo.getOriginalImgIndex();
+                this.v.g().getChosedFiles().remove(originalImgIndex);
+                this.v.g().getChosedFiles().add(originalImgIndex, imageFileInfo);
+                this.t.q(imageFileInfo, writeImagesInfo.getOriginalImgViewIndex());
+                this.b.x(new int[]{10, 34});
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, writeData) == null) && writeData.getWriteImagesInfo() != null) {
+            this.v.r(writeData.getWriteImagesInfo());
+            RichTextEditor richTextEditor = this.t;
+            if (richTextEditor != null) {
+                richTextEditor.setWriteImagesInfo(writeData.getWriteImagesInfo());
+                this.t.t(writeData.getRichContentData());
+            }
+            WriteData writeData2 = this.e;
+            if (writeData2 != null) {
+                writeData2.setWriteImagesInfo(writeData.getWriteImagesInfo());
+                this.e.setRichContentData(writeData.getRichContentData());
+            }
+        }
+    }
+
+    public final void a0(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && str != null && this.b != null) {
+            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+            writeImagesInfo.parseJson(str);
+            writeImagesInfo.updateQuality();
+            LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
+            if (chosedFiles != null) {
+                for (ImageFileInfo imageFileInfo : chosedFiles) {
+                    this.v.g().addChooseFile(imageFileInfo);
+                    X(imageFileInfo);
                 }
             }
-            NativeLibraryLoadedStatus.checkLoaded(false);
-            return new nna();
+            this.b.x(new int[]{10, 34});
+            this.b.i();
         }
-        return (CronetLibraryLoader.b) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bna, com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void j(@NonNull aoa aoaVar) {
+        LinkedList<ImageFileInfo> chosedFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, aoaVar) == null) {
+            super.j(aoaVar);
+            una unaVar = this.u;
+            if (unaVar != null) {
+                unaVar.l(this);
+            }
+            WriteImagesInfo g = this.v.g();
+            if (g.size() > 0 && (chosedFiles = g.getChosedFiles()) != null) {
+                for (ImageFileInfo imageFileInfo : chosedFiles) {
+                    if (imageFileInfo != null) {
+                        X(imageFileInfo);
+                    }
+                }
+                aoa aoaVar2 = this.b;
+                if (aoaVar2 != null) {
+                    aoaVar2.i();
+                    this.b.x(new int[]{10, 34});
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bna, com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048597, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            this.v.h(bundle, intent, writeData);
+        }
+    }
+
+    @Override // com.baidu.tieba.bna, com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048599, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            this.v.m(i, i2, intent);
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d053c, viewGroup, false);
+            this.c = inflate;
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091cbd);
+            this.h = (TbAlphaVideo) this.c.findViewById(R.id.obfuscated_res_0x7f09015b);
+            RichTextEditor richTextEditor = (RichTextEditor) this.c.findViewById(R.id.obfuscated_res_0x7f091eb6);
+            this.t = richTextEditor;
+            richTextEditor.setWriteImagesInfo(this.v.g());
+            this.t.setOutImageOperateListener(this.w);
+            this.t.setOnSpanGroupChangedListener(this.p);
+            this.t.setEditOnClickListener(this.o);
+            this.t.setEditOnFocusChangeListener(this.s);
+            this.t.setBigEmotionSpanHandler(this.q);
+            this.t.l(this.r);
+            this.t.setRichTextLengthListener(new b(this));
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                this.t.setForumId(vg.g(writeData.getForumId(), 0L));
+            }
+            this.t.o();
+            return this.c;
+        }
+        return (View) invokeL.objValue;
     }
 }

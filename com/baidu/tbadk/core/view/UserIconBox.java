@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lg;
 import com.baidu.tieba.mg;
+import com.baidu.tieba.ng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import java.util.List;
 public class UserIconBox extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lg<TbImageView> a;
+    public mg<TbImageView> a;
     public Context b;
     public boolean c;
     public int d;
@@ -35,7 +35,7 @@ public class UserIconBox extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public interface c<T extends View> {
-        lg<TbImageView> J();
+        mg<TbImageView> J();
     }
 
     /* loaded from: classes4.dex */
@@ -79,7 +79,7 @@ public class UserIconBox extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements mg<TbImageView> {
+    public static class b implements ng<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -110,7 +110,7 @@ public class UserIconBox extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.mg
+        @Override // com.baidu.tieba.ng
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -119,7 +119,7 @@ public class UserIconBox extends LinearLayout {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.mg
+        @Override // com.baidu.tieba.ng
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -127,7 +127,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mg
+        @Override // com.baidu.tieba.ng
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class UserIconBox extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mg
+        @Override // com.baidu.tieba.ng
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -241,9 +241,9 @@ public class UserIconBox extends LinearLayout {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            lg<TbImageView> lgVar = this.a;
-            if (lgVar != null) {
-                tbImageView = lgVar.b();
+            mg<TbImageView> mgVar = this.a;
+            if (mgVar != null) {
+                tbImageView = mgVar.b();
             } else {
                 tbImageView = null;
             }
@@ -289,13 +289,13 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public static lg<TbImageView> c(Context context, int i) {
+    public static mg<TbImageView> c(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            return new lg<>(new b(context), i, 0);
+            return new mg<>(new b(context), i, 0);
         }
-        return (lg) invokeLI.objValue;
+        return (mg) invokeLI.objValue;
     }
 
     public final LinearLayout.LayoutParams e(int i, int i2, int i3) {

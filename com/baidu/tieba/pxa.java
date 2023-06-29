@@ -1,147 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class pxa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDHelper";
-    public static boolean c;
-    public static pxa d;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948078800, "Lcom/baidu/tieba/pxa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948078800, "Lcom/baidu/tieba/pxa;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements xxa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oxa a;
-
-        public a(pxa pxaVar, oxa oxaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pxaVar, oxaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(String str, txa txaVar, sxa sxaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, txaVar, sxaVar) == null) {
+            if (h1b.a) {
+                h1b.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + sxaVar.toString());
             }
-            this.a = oxaVar;
-        }
-
-        @Override // com.baidu.tieba.xxa
-        public void a(yxa yxaVar) {
-            nxa nxaVar;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, yxaVar) == null) {
-                if (pxa.c) {
-                    String str = pxa.b;
-                    Log.d(str, "异步回调 结果:" + yxaVar);
-                    String str2 = pxa.b;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("异步回调 (listener != null):");
-                    if (this.a != null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    Log.d(str2, sb.toString());
+            nxa g = kxa.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (sxaVar != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", sxaVar.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", sxaVar.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", sxaVar.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", sxaVar.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", sxaVar.d + ""));
                 }
-                oxa oxaVar = this.a;
-                if (oxaVar != null) {
-                    if (yxaVar == null) {
-                        nxaVar = null;
-                    } else {
-                        nxaVar = new nxa(yxaVar.c(), yxaVar.isSupport(), yxaVar.getOAID(), yxaVar.getAAID(), yxaVar.getVAID(), yxaVar.getStatusCode());
-                    }
-                    oxaVar.a(0, nxaVar);
-                }
+                g.a("perf_record_arperf", str, txaVar.a, txaVar.b, txaVar.c, txaVar.d, txaVar.e, null, arrayList);
             }
         }
     }
 
-    public pxa(Context context) {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (h1b.a) {
+                h1b.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
             }
-        }
-        this.a = context.getApplicationContext();
-    }
-
-    public static pxa c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                synchronized (pxa.class) {
-                    if (d == null) {
-                        d = new pxa(context);
-                        rxa.c(context);
-                    }
+            nxa g = kxa.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", f1b.a(kxa.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(f1b.b(kxa.c().getContext()))));
                 }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
             }
-            return d;
-        }
-        return (pxa) invokeL.objValue;
-    }
-
-    public void e(oxa oxaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oxaVar) == null) {
-            qxa qxaVar = new qxa();
-            qxaVar.b(1);
-            qxaVar.a(false);
-            d(qxaVar, oxaVar, Looper.getMainLooper());
-        }
-    }
-
-    public void d(qxa qxaVar, oxa oxaVar, Looper looper) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, qxaVar, oxaVar, looper) == null) {
-            vxa.o().i(this.a, looper, new a(this, oxaVar));
         }
     }
 }

@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @KsAdSdkDynamicApi
 @Keep
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public @interface KsAdSdkDynamicImpl {
     Class<?> value();
 }

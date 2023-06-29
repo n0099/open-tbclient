@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.ValueCallback;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webpanel.PanelScrollView;
+import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.nadcore.webarch.feature.NadWebFeature;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public final class j81 {
     public static /* synthetic */ Interceptable $ic;
+    public static j81 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public p81 a;
-    public PanelScrollView b;
-    public final Activity c;
-    public final ViewGroup d;
+    public boolean a;
+    public HashMap<String, NadWebFeature> b;
 
-    public j81(Activity activity, ViewGroup rootView) {
+    public j81() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, rootView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,108 +36,109 @@ public final class j81 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(rootView, "rootView");
-        this.c = activity;
-        this.d = rootView;
-        this.a = k81.a().a(this.c);
-        this.b = new PanelScrollView(this.c);
+        this.a = false;
+        this.b = new HashMap<>(4);
     }
 
-    public final void a(r81 listener) {
-        PanelScrollView panelScrollView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            p81 p81Var = this.a;
-            if (p81Var != null && (panelScrollView = this.b) != null) {
-                panelScrollView.k(p81Var, listener);
-            }
-            PanelScrollView panelScrollView2 = this.b;
-            if (panelScrollView2 != null) {
-                this.d.setClipChildren(false);
-                this.d.addView(panelScrollView2, new FrameLayout.LayoutParams(-1, -1));
-            }
-        }
-    }
-
-    public final PanelScrollView b() {
+    public static synchronized j81 c() {
         InterceptResult invokeV;
+        j81 j81Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (PanelScrollView) invokeV.objValue;
-    }
-
-    public final View.OnTouchListener c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View.OnTouchListener) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            PanelScrollView panelScrollView = this.b;
-            if (panelScrollView != null) {
-                panelScrollView.r();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (j81.class) {
+                if (c == null) {
+                    c = new j81();
+                }
+                j81Var = c;
             }
-            p81 p81Var = this.a;
-            if (p81Var != null) {
-                p81Var.onDestroy();
-            }
+            return j81Var;
         }
+        return (j81) invokeV.objValue;
     }
 
-    public final boolean g() {
-        InterceptResult invokeV;
+    @RequiresApi(api = 21)
+    public static boolean h(Activity activity, ValueCallback<Uri[]> valueCallback, g81 g81Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            p81 p81Var = this.a;
-            if (p81Var != null) {
-                return p81Var.h();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, valueCallback, g81Var)) == null) {
+            if (valueCallback == null) {
+                return false;
+            }
+            if (activity == null) {
+                valueCallback.onReceiveValue(null);
+                return false;
+            }
+            NadWebFeature b = c().b(BdSailorConfig.SAILOR_BASE_UPLOAD);
+            if (b != null && b.c()) {
+                if (b instanceof i81) {
+                    return ((i81) b).h(activity, valueCallback, g81Var);
+                }
+                valueCallback.onReceiveValue(null);
+            } else {
+                valueCallback.onReceiveValue(null);
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public final Activity getActivity() {
-        InterceptResult invokeV;
+    public NadWebFeature a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return b(str);
         }
-        return (Activity) invokeV.objValue;
+        return (NadWebFeature) invokeL.objValue;
     }
 
-    public final void d(String javaScript) {
+    public NadWebFeature b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, javaScript) == null) {
-            Intrinsics.checkNotNullParameter(javaScript, "javaScript");
-            p81 p81Var = this.a;
-            if (p81Var != null) {
-                p81Var.r(javaScript);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.get(str);
+        }
+        return (NadWebFeature) invokeL.objValue;
+    }
+
+    public boolean d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            e(context);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.a) {
+            i81 i81Var = new i81(context);
+            i81Var.a();
+            i(i81Var);
+            this.a = true;
         }
     }
 
-    public final void f(t81 nadWebPanelModel) {
+    public void f(Activity activity) {
+        NadWebFeature a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nadWebPanelModel) == null) {
-            Intrinsics.checkNotNullParameter(nadWebPanelModel, "nadWebPanelModel");
-            p81 p81Var = this.a;
-            if (p81Var != null) {
-                p81Var.l(nadWebPanelModel);
-            }
-            PanelScrollView panelScrollView = this.b;
-            if (panelScrollView != null) {
-                panelScrollView.setPanelData(nadWebPanelModel);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && (a = a(BdSailorConfig.SAILOR_BASE_UPLOAD)) != null && a.c() && (a instanceof i81)) {
+            ((i81) a).f(activity);
+        }
+    }
+
+    public final void i(NadWebFeature nadWebFeature) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, nadWebFeature) == null) && nadWebFeature != null) {
+            this.b.put(nadWebFeature.b(), nadWebFeature);
+        }
+    }
+
+    public void g(Activity activity, int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) && 11 == i && (a(BdSailorConfig.SAILOR_BASE_UPLOAD) instanceof i81)) {
+            ((i81) a(BdSailorConfig.SAILOR_BASE_UPLOAD)).g(activity, i2, intent);
         }
     }
 }

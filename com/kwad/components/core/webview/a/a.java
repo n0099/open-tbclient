@@ -13,7 +13,7 @@ import com.kwad.sdk.utils.bd;
 import com.kwad.sdk.utils.bh;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public c DV;
     public WebView Fv;
@@ -26,14 +26,14 @@ public final class a {
 
     @KsJson
     /* renamed from: com.kwad.components.core.webview.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static final class C0643a extends com.kwad.sdk.core.response.kwai.a {
+    /* loaded from: classes10.dex */
+    public static final class C0653a extends com.kwad.sdk.core.response.kwai.a {
         public String packageName;
         public String url;
     }
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class b extends com.kwad.sdk.core.response.kwai.a {
         public int progress;
         public int status;
@@ -48,19 +48,19 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void aD(String str) {
         try {
-            C0643a c0643a = new C0643a();
-            c0643a.parseJson(new JSONObject(str));
-            if (k(c0643a.url, c0643a.packageName)) {
+            C0653a c0653a = new C0653a();
+            c0653a.parseJson(new JSONObject(str));
+            if (k(c0653a.url, c0653a.packageName)) {
                 return;
             }
             if (this.DV == null) {
-                j(c0643a.url, c0643a.packageName);
+                j(c0653a.url, c0653a.packageName);
             }
             if (this.DV.mR()) {
                 return;
             }
             this.DV.d(this.KW);
-            this.DV.m(new a.C0631a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
+            this.DV.m(new a.C0641a(this.mJsBridgeContext.Fv.getContext()).aj(true).ak(false).L(this.mAdTemplate).am(false));
         } catch (JSONException e) {
             com.kwad.sdk.core.e.b.printStackTrace(e);
         }

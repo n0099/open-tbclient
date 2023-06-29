@@ -19,10 +19,7 @@ public class z5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        new c3(1.0f, 1.0f, 1.0f, 1.0f);
-        new c3(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }

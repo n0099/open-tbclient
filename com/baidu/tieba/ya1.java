@@ -1,46 +1,40 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Message;
-import android.view.KeyEvent;
-import android.webkit.SslErrorHandler;
+import android.view.View;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface ya1 extends ea1 {
-    void F(AbsNadBrowserView absNadBrowserView, float f, float f2);
+public final class ya1 implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ AbsNadBrowserView a;
 
-    void F0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
+    public ya1(AbsNadBrowserView absNadBrowserView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {absNadBrowserView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = absNadBrowserView;
+    }
 
-    void G0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
-
-    void L0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    boolean O(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    boolean O0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void V(AbsNadBrowserView absNadBrowserView, String str);
-
-    void V0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
-
-    void W0(AbsNadBrowserView absNadBrowserView, za1 za1Var, String str, String str2);
-
-    void b(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
-
-    void b1();
-
-    void i(AbsNadBrowserView absNadBrowserView, String str);
-
-    void j(AbsNadBrowserView absNadBrowserView);
-
-    void n0();
-
-    bb1 q0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void q1(AbsNadBrowserView absNadBrowserView, int i);
-
-    void u0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
-
-    void y(AbsNadBrowserView absNadBrowserView, String str);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            this.a.M();
+        }
+    }
 }

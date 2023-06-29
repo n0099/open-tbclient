@@ -11,13 +11,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.jb;
-import com.baidu.tieba.jz9;
-import com.baidu.tieba.k6a;
-import com.baidu.tieba.k9;
+import com.baidu.tieba.iba;
+import com.baidu.tieba.kb;
+import com.baidu.tieba.l9;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
-import com.baidu.tieba.w6a;
+import com.baidu.tieba.v3a;
+import com.baidu.tieba.waa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,16 +29,16 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public w6a b;
-    public List<k6a> c;
+    public iba b;
+    public List<waa> c;
     public c d;
     public boolean e;
-    public jb f;
+    public kb f;
     public final HttpMessageListener g;
 
     /* loaded from: classes7.dex */
     public interface c {
-        void a(int i, String str, w6a w6aVar, List<k6a> list);
+        void a(int i, String str, iba ibaVar, List<waa> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -52,7 +52,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends jb {
+    public class a extends kb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleGroupModel a;
@@ -79,7 +79,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             this.a = bubbleGroupModel;
         }
 
-        @Override // com.baidu.tieba.jb
+        @Override // com.baidu.tieba.kb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -166,7 +166,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -201,8 +201,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public final void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jz9.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            jz9.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
+            v3a.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            v3a.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -228,12 +228,12 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     public final void f0(int i) {
-        List<k6a> list;
+        List<waa> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (list = this.c) != null && list.size() > 0) {
-            for (k6a k6aVar : this.c) {
-                if (k6aVar != null && k6aVar.a() != null) {
-                    for (DressItemData dressItemData : k6aVar.a()) {
+            for (waa waaVar : this.c) {
+                if (waaVar != null && waaVar.a() != null) {
+                    for (DressItemData dressItemData : waaVar.a()) {
                         if (dressItemData != null) {
                             if (dressItemData.getPropsId() == i) {
                                 dressItemData.setInUse(true);

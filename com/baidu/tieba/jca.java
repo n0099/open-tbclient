@@ -1,247 +1,231 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.po9;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.video.VideoItemModel;
-import com.baidu.tieba.videoplay.VideoPlayView;
-import com.baidu.tieba.videoplay.nad.AdVideoFlowFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
 /* loaded from: classes6.dex */
-public class jca implements IAdBaseAsyncController.a, no9<VideoItemModel> {
+public class jca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final List<VideoItemModel> b;
-    public final po9 c;
-    public final Queue<AdvertAppInfo> d;
-    public final Map<VideoItemModel, AdvertAppInfo> e;
-    public int f;
-    public boolean g;
-    public int h;
-    public VideoPlayView i;
-    public ko9 j;
-    public final boolean k;
-    public po9.a l;
-    public int m;
-    public VideoItemModel n;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.no9
-    /* renamed from: l */
-    public void d(int i, int i2, int i3, mo9 mo9Var, VideoItemModel videoItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), mo9Var, videoItemModel}) == null) {
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation.AnimationListener a;
+        public final /* synthetic */ View b;
 
-    public jca(@NonNull List list, TbPageContext<BaseFragmentActivity> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        boolean z = false;
-        this.f = 0;
-        this.g = true;
-        this.b = list;
-        this.a = tbPageContext;
-        po9 po9Var = (po9) bo9.l().h(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
-        this.c = po9Var;
-        po9Var.a(this.a);
-        this.d = new LinkedList();
-        this.e = new HashMap();
-        int d = j36.a().d();
-        int e = j36.a().e();
-        if (d > 0 && e > 0) {
-            z = true;
-        }
-        this.k = z;
-        if (!z) {
-            return;
-        }
-        ko9 ko9Var = new ko9();
-        this.j = ko9Var;
-        ko9Var.d(d - 1);
-        this.j.e(e);
-    }
-
-    @Override // com.baidu.tieba.no9
-    public void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (i2 != 0) {
-                this.h = i2;
-            }
-            if (this.h - 2 <= i && this.d.isEmpty() && this.g) {
-                this.c.loadAd();
-                this.g = false;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
-    public void b(@Nullable List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || sp8.e(list)) {
-            return;
-        }
-        this.g = true;
-        this.d.addAll(list);
-        VideoItemModel videoItemModel = new VideoItemModel(new VideoItemData(), 5);
-        this.n = videoItemModel;
-        lo9.b(this.b, this.m, this.j, this.f, videoItemModel, this.d.peek(), this);
-    }
-
-    public List<VideoItemModel> h(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry<VideoItemModel, AdvertAppInfo> entry : this.e.entrySet()) {
-                if (TextUtils.equals(entry.getValue().a, str)) {
-                    arrayList.add(entry.getKey());
+        public a(Animation.AnimationListener animationListener, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {animationListener, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return arrayList;
+            this.a = animationListener;
+            this.b = view2;
         }
-        return (List) invokeL.objValue;
-    }
 
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            VideoItemModel videoItemModel = this.b.get(i);
-            if (this.e.containsKey(videoItemModel)) {
-                this.c.m(this.e.get(videoItemModel));
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                Animation.AnimationListener animationListener = this.a;
+                if (animationListener != null) {
+                    animationListener.onAnimationEnd(animation);
+                }
+                View view2 = this.b;
+                if (view2 != null) {
+                    view2.clearAnimation();
+                    this.b.setVisibility(0);
+                }
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) && (animationListener = this.a) != null) {
+                animationListener.onAnimationRepeat(animation);
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) && (animationListener = this.a) != null) {
+                animationListener.onAnimationStart(animation);
             }
         }
     }
 
-    public void n(po9.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.l = aVar;
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class b implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation.AnimationListener a;
+        public final /* synthetic */ View b;
 
-    public void o(VideoPlayView videoPlayView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, videoPlayView) == null) {
-            this.i = videoPlayView;
-        }
-    }
-
-    public AdVideoFlowFragment g(int i) {
-        InterceptResult invokeI;
-        pn9 i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            AdvertAppInfo advertAppInfo = this.e.get(this.b.get(i));
-            if (advertAppInfo == null || (i2 = this.c.i(advertAppInfo)) == null) {
-                return null;
+        public b(Animation.AnimationListener animationListener, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {animationListener, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((i2 instanceof View) && (this.a.getPageActivity() instanceof pj0)) {
-                advertAppInfo.r = rj0.b(advertAppInfo.r, (pj0) this.a.getPageActivity(), (View) i2);
+            this.a = animationListener;
+            this.b = view2;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                Animation.AnimationListener animationListener = this.a;
+                if (animationListener != null) {
+                    animationListener.onAnimationEnd(animation);
+                }
+                View view2 = this.b;
+                if (view2 != null) {
+                    view2.clearAnimation();
+                    this.b.setVisibility(8);
+                }
             }
-            i2.setPageChangeHandler(this.l, i);
-            AdVideoFlowFragment adVideoFlowFragment = new AdVideoFlowFragment();
-            adVideoFlowFragment.H1(i2);
-            return adVideoFlowFragment;
         }
-        return (AdVideoFlowFragment) invokeI.objValue;
-    }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || !this.k) {
-            return;
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) && (animationListener = this.a) != null) {
+                animationListener.onAnimationRepeat(animation);
+            }
         }
-        this.f = 0;
-        this.h = j36.a().d() - 1;
-        if (this.d.size() < 1 && this.g) {
-            this.c.loadAd();
-            this.g = false;
-        }
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.no9
-    /* renamed from: j */
-    public void c(int i, int i2, mo9 mo9Var, VideoItemModel videoItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), mo9Var, videoItemModel}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) mo9Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
-            VideoPlayView videoPlayView = this.i;
-            if (videoPlayView != null) {
-                videoPlayView.notifyDataSetChanged();
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) && (animationListener = this.a) != null) {
+                animationListener.onAnimationStart(animation);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.no9
-    /* renamed from: k */
-    public void e(int i, int i2, VideoItemModel videoItemModel, mo9 mo9Var, VideoItemModel videoItemModel2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), videoItemModel, mo9Var, videoItemModel2}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) mo9Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
+    /* loaded from: classes6.dex */
+    public static class c extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public c(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setVisibility(8);
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.a.setVisibility(8);
+            }
         }
     }
 
-    public void m(int i) {
+    public static void a(View view2, long j, View view3, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || !this.k) {
-            return;
+        if ((interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{view2, Long.valueOf(j), view3, Long.valueOf(j2)}) == null) && view2 != null && view3 != null && j >= 0 && j2 >= 0) {
+            view3.setAlpha(0.0f);
+            view3.setVisibility(0);
+            view3.animate().alpha(1.0f).setDuration(j2).setListener(null);
+            view2.animate().alpha(0.0f).setDuration(j).setListener(new c(view2));
         }
-        this.m = i;
-        VideoItemModel videoItemModel = (VideoItemModel) sp8.d(this.b, i);
-        if (this.e.containsKey(videoItemModel)) {
-            AdvertAppInfo advertAppInfo = this.e.get(videoItemModel);
-            pp9.o(advertAppInfo);
-            this.c.c(advertAppInfo, true);
-            return;
+    }
+
+    public static void b(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, view2, i) == null) {
+            c(view2, i, null);
         }
-        this.c.c(null, false);
-        if (i <= this.f) {
-            return;
+    }
+
+    public static void d(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65539, null, view2, i) == null) {
+            e(view2, i, null);
         }
-        VideoItemModel videoItemModel2 = new VideoItemModel(new VideoItemData(), 5);
-        this.n = videoItemModel2;
-        lo9.b(this.b, i, this.j, this.f, videoItemModel2, this.d.peek(), this);
+    }
+
+    public static void c(View view2, int i, Animation.AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(65538, null, view2, i, animationListener) == null) && view2 != null && i >= 0) {
+            view2.clearAnimation();
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(i);
+            alphaAnimation.setFillAfter(true);
+            alphaAnimation.setAnimationListener(new b(animationListener, view2));
+            view2.setVisibility(8);
+            view2.startAnimation(alphaAnimation);
+        }
+    }
+
+    public static void e(View view2, int i, Animation.AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, i, animationListener) == null) && view2 != null && i >= 0) {
+            view2.clearAnimation();
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(i);
+            alphaAnimation.setFillAfter(true);
+            alphaAnimation.setAnimationListener(new a(animationListener, view2));
+            view2.setVisibility(0);
+            view2.startAnimation(alphaAnimation);
+        }
     }
 }

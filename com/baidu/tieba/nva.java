@@ -1,77 +1,91 @@
 package com.baidu.tieba;
 
+import android.util.Base64OutputStream;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
-public class nva {
+public class nva extends Base64OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public boolean a;
     public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public boolean g;
-    public String h;
+    public long c;
 
-    public nva() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nva(OutputStream outputStream, int i) {
+        super(outputStream, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = false;
+        this.c = 0L;
     }
 
-    public JSONObject a() {
+    public long a() {
         InterceptResult invokeV;
-        JSONObject jSONObject;
-        JSONException e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", this.a);
-                    jSONObject.put("doReport", this.b);
-                    jSONObject.put("name", this.c);
-                    jSONObject.put("code", this.d);
-                    jSONObject.put("msg", this.e);
-                    jSONObject.put("data", this.f);
-                    jSONObject.put("isShowSpecialToast", this.g);
-                    jSONObject.put("specialToast", this.h);
-                } catch (JSONException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    return jSONObject;
-                }
-            } catch (JSONException e3) {
-                jSONObject = null;
-                e = e3;
-            }
-            return jSONObject;
+            return this.c;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "type:" + this.a + "name:" + this.c + "code:" + this.d + "msg:" + this.e + "data" + this.f + "doReport : " + this.b;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (!this.a) {
+                super.write(117);
+                this.a = true;
+            } else if (!this.b) {
+                super.write(123);
+                this.b = true;
+            } else {
+                super.write(i);
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
+            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
+                bArr[i] = 123;
+                this.b = true;
+            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
+                bArr[i] = 117;
+                this.a = true;
+            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
+                bArr[i] = 117;
+                this.a = true;
+                bArr[i + 1] = 123;
+                this.b = true;
+            }
+            if (i2 > 0) {
+                this.c += i2;
+            }
+            super.write(bArr, i, i2);
+        }
     }
 }

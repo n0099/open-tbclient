@@ -1,23 +1,38 @@
 package com.baidu.tieba;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.down.manage.Download;
+import com.baidu.down.manage.DownloadManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.ui.SystemBarTintManager;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.Calendar;
+import java.util.Collection;
 /* loaded from: classes8.dex */
-public class z34 extends cj3 {
+public class z34 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile z34 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String v;
+    public SharedPreferences a;
+    public String b;
 
     public z34() {
         Interceptable interceptable = $ic;
@@ -29,211 +44,227 @@ public class z34 extends cj3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = "com.baidu.gamenow";
+        this.a = KVStorageFactory.getSharedPreferences("gamecenter_install_notification", 0);
     }
 
-    public static String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -2136141294:
-                    if (str.equals("notifyInstall")) {
-                        c = '\r';
-                        break;
-                    }
-                    break;
-                case -1996849701:
-                    if (str.equals("installHijack")) {
-                        c = 17;
-                        break;
-                    }
-                    break;
-                case -1903789791:
-                    if (str.equals("continueClick")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -1768725569:
-                    if (str.equals("notifyClick")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case -1263222921:
-                    if (str.equals("openApp")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1165168761:
-                    if (str.equals("notifyList")) {
-                        c = 14;
-                        break;
-                    }
-                    break;
-                case -1164961306:
-                    if (str.equals("notifyShow")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -625158317:
-                    if (str.equals("deleteDownload")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -606050596:
-                    if (str.equals("resumeAllDownload")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case -567202649:
-                    if (str.equals("continue")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case -451216226:
-                    if (str.equals("pauseDownload")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -263045656:
-                    if (str.equals("installSuccess")) {
-                        c = 15;
-                        break;
-                    }
-                    break;
-                case 66344735:
-                    if (str.equals("authorizeClick")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 184711125:
-                    if (str.equals("resumeDownload")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 388113743:
-                    if (str.equals("overTwoDays")) {
-                        c = 16;
-                        break;
-                    }
-                    break;
-                case 900412038:
-                    if (str.equals("installApp")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 1475610601:
-                    if (str.equals("authorize")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 1554935562:
-                    if (str.equals("startDownload")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return "start";
-                case 1:
-                    return DownloadStatisticConstants.UBC_TYPE_PAUSE;
-                case 2:
-                    return DownloadStatisticConstants.UBC_TYPE_RESUME;
-                case 3:
-                    return "cancel";
-                case 4:
-                    return "install";
-                case 5:
-                    return "open";
-                case 6:
-                    return "continue";
-                case 7:
-                    return "authorize";
-                case '\b':
-                    return "guide";
-                case '\t':
-                    return "authorizeclick";
-                case '\n':
-                    return "guideclick";
-                case 11:
-                    return "notifyshow";
-                case '\f':
-                    return "notifyclick";
-                case '\r':
-                    return "notifyinstall";
-                case 14:
-                    return "notifylist";
-                case 15:
-                    return "installsuccess";
-                case 16:
-                    return "overtwodays";
-                case 17:
-                    return "installhijack";
-                default:
-                    return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.cj3, com.baidu.tieba.bj3
-    public JSONObject f() {
+    public static z34 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.k = el3.e(TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
-            this.n = SwanAppNetworkUtils.f().type;
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                this.h.put("host", gv2.n().a());
-                this.h.put("package", this.v);
-            } catch (JSONException e) {
-                if (bj3.j) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (z34.class) {
+                    if (c == null) {
+                        c = new z34();
+                    }
                 }
             }
-            return super.f();
+            return c;
         }
-        return (JSONObject) invokeV.objValue;
+        return (z34) invokeV.objValue;
     }
 
-    public void m(y34 y34Var) {
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y34Var) != null) || y34Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return qo3.f(Long.valueOf(g()), Long.valueOf(System.currentTimeMillis()));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (b()) {
+                return null;
+            }
+            if (d()) {
+                return "todayfirst";
+            }
+            if (!e()) {
+                return null;
+            }
+            return "pushregularly";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if ((System.currentTimeMillis() / 86400000) - (g() / 86400000) > 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (i() <= System.currentTimeMillis()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.getLong("key_notification_time", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public final long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            long i = i();
+            if (i < System.currentTimeMillis()) {
+                return i + 86400000;
+            }
+            return i;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(11, 19);
+            calendar.set(12, 30);
+            return calendar.getTimeInMillis();
+        }
+        return invokeV.longValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && !TextUtils.isEmpty(c())) {
+            n(c());
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putLong("key_notification_time", System.currentTimeMillis());
+            edit.apply();
+        }
+    }
+
+    public void a(Download download) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, download) == null) {
+            a44.a(AppRuntime.getAppContext(), Long.valueOf(download.getId().longValue()).intValue());
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            ((AlarmManager) AppRuntime.getAppContext().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, h(), PendingIntent.getBroadcast(AppRuntime.getAppContext(), 2147483646, InstallNotifyReceiver.createIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_ALARM), 0));
+        }
+    }
+
+    public void m(Download download, boolean z, String str) {
+        String format;
+        String string;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{download, Boolean.valueOf(z), str}) == null) {
+            try {
+                String str3 = download.getRealDownloadDir() + File.separator + download.getFileName();
+                PackageManager packageManager = AppRuntime.getAppContext().getPackageManager();
+                PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(str3, 1);
+                if (packageArchiveInfo == null) {
+                    return;
+                }
+                Context appContext = AppRuntime.getAppContext();
+                ApplicationInfo applicationInfo = packageArchiveInfo.applicationInfo;
+                applicationInfo.sourceDir = str3;
+                applicationInfo.publicSourceDir = str3;
+                Drawable applicationIcon = packageManager.getApplicationIcon(applicationInfo);
+                String charSequence = packageManager.getApplicationLabel(applicationInfo).toString();
+                PendingIntent broadcast = PendingIntent.getBroadcast(appContext, Long.valueOf(download.getId().longValue()).intValue(), InstallNotifyReceiver.createIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_ONE, download.getKeyByUser(), str), SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+                if (z) {
+                    l();
+                    format = String.format(appContext.getString(R.string.obfuscated_res_0x7f0f0211), charSequence);
+                    string = appContext.getString(R.string.obfuscated_res_0x7f0f0149);
+                } else {
+                    format = String.format(appContext.getString(R.string.obfuscated_res_0x7f0f0211), charSequence);
+                    string = appContext.getString(R.string.obfuscated_res_0x7f0f0149);
+                }
+                String str4 = format;
+                try {
+                    if (TextUtils.equals(download.getKeyByUser(), this.b)) {
+                        str2 = appContext.getString(R.string.obfuscated_res_0x7f0f01b9);
+                    } else {
+                        str2 = string;
+                    }
+                    a44.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), str4, str2, a44.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
+                } catch (Exception e) {
+                    e = e;
+                    if (ms1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e2) {
+                e = e2;
+            }
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, str) != null) || b()) {
             return;
         }
-        if (bj3.j) {
-            Log.d("SwanAppUBCEvent", "setCommonData: " + y34Var.a());
+        try {
+            Collection<Download> t = new n34(DownloadManager.getInstance(AppRuntime.getAppContext())).t();
+            if (t != null && t.size() != 0) {
+                k();
+                Download download = null;
+                for (Download download2 : t) {
+                    if (download2 != null) {
+                        download = download2;
+                    }
+                }
+                if (1 == t.size()) {
+                    m(download, false, str);
+                    return;
+                }
+                String str2 = download.getRealDownloadDir() + File.separator + download.getFileName();
+                PackageManager packageManager = AppRuntime.getAppContext().getPackageManager();
+                PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(str2, 1);
+                if (packageArchiveInfo == null) {
+                    return;
+                }
+                Context appContext = AppRuntime.getAppContext();
+                ApplicationInfo applicationInfo = packageArchiveInfo.applicationInfo;
+                applicationInfo.sourceDir = str2;
+                applicationInfo.publicSourceDir = str2;
+                a44.c(appContext, 0, String.format(appContext.getString(R.string.obfuscated_res_0x7f0f0212), Integer.valueOf(t.size())), appContext.getString(R.string.obfuscated_res_0x7f0f0149), a44.b(packageManager.getApplicationIcon(applicationInfo)), System.currentTimeMillis(), PendingIntent.getBroadcast(appContext, Integer.MAX_VALUE, InstallNotifyReceiver.createToDownloadPageIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_MULTIPLE).putExtra(InstallNotifyReceiver.OPPORTUNITY, str), SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION), str, download.getKeyByUser());
+            }
+        } catch (Exception e) {
+            if (ms1.a) {
+                e.printStackTrace();
+            }
         }
-        this.a = y34Var.a;
-        this.f = y34Var.c;
-        this.c = y34Var.b;
-        this.o = y34Var.f;
-        this.p = y34Var.g;
-        this.s = y34Var.h;
-        this.u = y34Var.i;
-        this.l = y34Var.d;
-        this.m = y34Var.e;
     }
 }

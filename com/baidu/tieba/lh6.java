@@ -1,132 +1,118 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jh6;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class lh6 extends jh6<lh6> {
+public class lh6 extends sn6<gg6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mh6 s;
-    public float t;
-    public boolean u;
+    public TextView i;
+    public ProgressBar j;
+    public FrameLayout k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+
+    @Override // com.baidu.tieba.sn6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010b : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.sn6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <K> lh6(K k, kh6<K> kh6Var) {
-        super(k, kh6Var);
+    public lh6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k, kh6Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(objArr2[0], (kh6) objArr2[1]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = null;
-        this.t = Float.MAX_VALUE;
-        this.u = false;
+        r(h());
     }
 
-    @Override // com.baidu.tieba.jh6
-    public void h() {
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l();
-            this.s.g(e());
-            super.h();
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090217);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914d1);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914d2);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09022e);
+            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090218);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914d5);
+            h().setOnClickListener(this);
         }
     }
 
-    @Override // com.baidu.tieba.jh6
-    public boolean j(long j) {
-        InterceptResult invokeJ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sn6
+    /* renamed from: s */
+    public void i(gg6 gg6Var) {
+        dg6 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (this.u) {
-                float f = this.t;
-                if (f != Float.MAX_VALUE) {
-                    this.s.e(f);
-                    this.t = Float.MAX_VALUE;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, gg6Var) == null) && (c = gg6Var.c()) != null && c.b() != null) {
+            String str = "LV." + c.b().yy_level_id;
+            if (!TextUtils.isEmpty(c.b().yy_level_name)) {
+                str = c.b().yy_level_name + str;
+                this.m.setText(c.b().yy_level_name);
+            }
+            this.i.setText(str);
+            if (c.b().yy_levelup_exp <= c.b().yy_level_exp) {
+                this.m.setVisibility(8);
+                this.n.setVisibility(8);
+                this.l.setVisibility(8);
+                this.j.setVisibility(8);
+                return;
+            }
+            if (!TextUtils.isEmpty(c.b().yy_level_next_name)) {
+                this.n.setText(c.b().yy_level_next_name);
+            }
+            long j = c.b().yy_levelup_exp;
+            long j2 = c.b().yy_level_exp;
+            this.j.setMax((int) j);
+            this.j.setProgress((int) j2);
+            if (!TextUtils.isEmpty(c.b().yy_level_next_name) && c.b().yy_levelup_exp > c.b().yy_level_exp) {
+                String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0250);
+                int i = (int) ((((float) (c.b().yy_levelup_exp - c.b().yy_level_exp)) * 100.0f) / ((float) c.b().yy_levelup_exp));
+                if (i <= 0) {
+                    i = 1;
                 }
-                this.b = this.s.a();
-                this.a = 0.0f;
-                this.u = false;
-                return true;
+                this.l.setText(String.format(string, c.b().yy_level_next_name, i + "%"));
             }
-            if (this.t != Float.MAX_VALUE) {
-                this.s.a();
-                long j2 = j / 2;
-                jh6.h h = this.s.h(this.b, this.a, j2);
-                this.s.e(this.t);
-                this.t = Float.MAX_VALUE;
-                jh6.h h2 = this.s.h(h.a, h.b, j2);
-                this.b = h2.a;
-                this.a = h2.b;
-            } else {
-                jh6.h h3 = this.s.h(this.b, this.a, j);
-                this.b = h3.a;
-                this.a = h3.b;
-            }
-            float max = Math.max(this.b, this.h);
-            this.b = max;
-            float min = Math.min(max, this.g);
-            this.b = min;
-            if (!k(min, this.a)) {
-                return false;
-            }
-            this.b = this.s.a();
-            this.a = 0.0f;
-            return true;
         }
-        return invokeJ.booleanValue;
-    }
-
-    public boolean k(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return this.s.c(f, f2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            mh6 mh6Var = this.s;
-            if (mh6Var != null) {
-                double a = mh6Var.a();
-                if (a <= this.g) {
-                    if (a >= this.h) {
-                        return;
-                    }
-                    throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
-                }
-                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
-            }
-            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
-        }
-    }
-
-    public lh6 m(mh6 mh6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mh6Var)) == null) {
-            this.s = mh6Var;
-            return this;
-        }
-        return (lh6) invokeL.objValue;
     }
 }

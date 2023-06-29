@@ -1,113 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.Personalized.DataRes;
 /* loaded from: classes5.dex */
-public class f28 extends nk9 {
+public class f28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData V0;
 
-    @Override // com.baidu.tieba.pk9
-    public int f0() {
-        InterceptResult invokeV;
+    public static void a(String str, List<xn> list) {
+        l4a l4aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f28(Context context, View view2) {
-        super(context, view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
+            Iterator<xn> it = list.iterator();
+            int i = 0;
+            AdvertAppInfo advertAppInfo = null;
+            int i2 = 0;
+            int i3 = 0;
+            while (it.hasNext()) {
+                i++;
+                xn next = it.next();
+                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof w66)) {
+                    it.remove();
+                }
+                if (next instanceof j18) {
+                    advertAppInfo = ((j18) next).c();
+                } else if (next instanceof d35) {
+                    d35 d35Var = (d35) next;
+                    if (d35Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
+                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) d35Var.c()).getAdvertAppInfo();
+                    }
+                } else if ((next instanceof ThreadData) && (l4aVar = ((ThreadData) next).funAdData) != null && l4aVar.i()) {
+                    it.remove();
+                    i3 = i;
+                }
+                if (advertAppInfo != null && str.equals(advertAppInfo.a)) {
+                    it.remove();
+                    advertAppInfo = null;
+                    i2 = i;
+                }
             }
         }
-        s0(true);
     }
 
-    @Override // com.baidu.tieba.pk9, com.baidu.tieba.mk9
-    public boolean isPlaying() {
-        InterceptResult invokeV;
+    public static void b(List<xn> list, DataRes.Builder builder, wz7 wz7Var, g18 g18Var) {
+        l4a l4aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return super.isPlaying();
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, wz7Var, g18Var) == null) {
+            if (list != null && list.size() > 0) {
+                Iterator<xn> it = list.iterator();
+                while (it.hasNext()) {
+                    xn next = it.next();
+                    if (!(next instanceof j18) && !(next instanceof d35) && !(next instanceof w66)) {
+                        if ((next instanceof ThreadData) && (l4aVar = ((ThreadData) next).funAdData) != null) {
+                            l4aVar.p(true);
+                            it.remove();
+                        }
+                    } else {
+                        it.remove();
+                    }
+                }
+            }
+            if (builder != null && ListUtils.getCount(builder.thread_list) > 0) {
+                BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
+                List<App> list2 = builder2.app;
+                if (list2 != null) {
+                    list2.clear();
+                }
+                builder.banner_list = builder2.build(false);
+                DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
+                builder3.banner_list = builder2.build(true);
+                if (wz7Var != null) {
+                    wz7Var.a(builder3);
+                }
+            }
+            if (g18Var != null) {
+                g18Var.z(list);
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nk9, com.baidu.tieba.pk9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
+    public static void c(String str, DataRes.Builder builder, wz7 wz7Var) {
+        BannerList bannerList;
+        List<App> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            startPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.pk9, com.baidu.tieba.mk9
-    public void startPlay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.startPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.pk9, com.baidu.tieba.mk9
-    public void stopPlay() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.stopPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.pk9, com.baidu.tieba.mk9
-    public boolean onBackground(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            return super.onBackground(z);
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.nk9, com.baidu.tieba.pk9, com.baidu.tieba.mk9
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, threadData) != null) || threadData == null) {
-            return;
-        }
-        super.setData(threadData);
-        ThreadData threadData2 = this.V0;
-        this.V0 = threadData;
-    }
-
-    @Override // com.baidu.tieba.pk9, com.baidu.tieba.mk9
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            super.setUniqueId(bdUniqueId);
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, wz7Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (App app : builder.banner_list.app) {
+                if (app != null && str.equals(rr9.a(app))) {
+                    arrayList.add(app);
+                }
+            }
+            BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
+            List<App> list2 = builder2.app;
+            if (list2 != null) {
+                list2.removeAll(arrayList);
+            }
+            builder.banner_list = builder2.build(false);
+            DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
+            builder3.banner_list = builder2.build(true);
+            if (wz7Var != null) {
+                wz7Var.a(builder3);
+            }
         }
     }
 }

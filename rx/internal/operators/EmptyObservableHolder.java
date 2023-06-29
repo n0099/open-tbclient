@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.gob;
-import com.baidu.tieba.mob;
+import com.baidu.tieba.dtb;
+import com.baidu.tieba.xsb;
 /* loaded from: classes2.dex */
-public enum EmptyObservableHolder implements gob.a<Object> {
+public enum EmptyObservableHolder implements xsb.a<Object> {
     INSTANCE;
     
-    public static final gob<Object> EMPTY = gob.a(INSTANCE);
+    public static final xsb<Object> EMPTY = xsb.d(INSTANCE);
 
-    public static <T> gob<T> instance() {
-        return (gob<T>) EMPTY;
+    public static <T> xsb<T> instance() {
+        return (xsb<T>) EMPTY;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gob.a, com.baidu.tieba.uob
-    public void call(mob<? super Object> mobVar) {
-        mobVar.onCompleted();
+    @Override // com.baidu.tieba.xsb.a, com.baidu.tieba.ltb
+    public void call(dtb<? super Object> dtbVar) {
+        dtbVar.onCompleted();
     }
 }

@@ -1,109 +1,50 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gob;
-import com.baidu.tieba.job;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeoutException;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
 /* loaded from: classes8.dex */
-public class vpb<T> implements gob.b<T, T> {
+public class vpb {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vpb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a<T> a;
-    public final b<T> b;
-    public final gob<? extends T> c;
-    public final job d;
+    public TreeMap<Integer, a> a;
+    public TreeMap<Integer, TreeSet<String>> b;
 
-    /* loaded from: classes8.dex */
-    public interface a<T> {
-        /* synthetic */ R call(T1 t1, T2 t2, T3 t3);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948249889, "Lcom/baidu/tieba/vpb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948249889, "Lcom/baidu/tieba/vpb;");
+        }
     }
 
     /* loaded from: classes8.dex */
-    public interface b<T> {
-        /* synthetic */ R call(T1 t1, T2 t2, T3 t3, T4 t4);
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class c<T> extends mob<T> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ftb e;
-        public final msb<T> f;
-        public final b<T> g;
-        public final gob<? extends T> h;
-        public final job.a i;
-        public final cqb j;
-        public boolean k;
-        public long l;
+        public boolean a;
+        public boolean b;
 
-        /* loaded from: classes8.dex */
-        public class a extends mob<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c e;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.e = cVar;
-            }
-
-            @Override // com.baidu.tieba.mob
-            public void f(iob iobVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, iobVar) == null) {
-                    this.e.j.c(iobVar);
-                }
-            }
-
-            @Override // com.baidu.tieba.hob
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    this.e.f.onError(th);
-                }
-            }
-
-            @Override // com.baidu.tieba.hob
-            public void onNext(T t) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                    this.e.f.onNext(t);
-                }
-            }
-
-            @Override // com.baidu.tieba.hob
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.e.f.onCompleted();
-                }
-            }
-        }
-
-        public c(msb<T> msbVar, b<T> bVar, ftb ftbVar, gob<? extends T> gobVar, job.a aVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {msbVar, bVar, ftbVar, gobVar, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -113,151 +54,162 @@ public class vpb<T> implements gob.b<T, T> {
                     return;
                 }
             }
-            this.f = msbVar;
-            this.g = bVar;
-            this.e = ftbVar;
-            this.h = gobVar;
-            this.i = aVar;
-            this.j = new cqb();
-        }
-
-        @Override // com.baidu.tieba.mob
-        public void f(iob iobVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iobVar) == null) {
-                this.j.c(iobVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.hob
-        public void onError(Throwable th) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (!this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.e.unsubscribe();
-                    this.f.onError(th);
-                }
-            }
-        }
-
-        public void g(long j) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (j == this.l && !this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    if (this.h == null) {
-                        this.f.onError(new TimeoutException());
-                        return;
-                    }
-                    a aVar = new a(this);
-                    this.h.F(aVar);
-                    this.e.a(aVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.hob
-        public void onNext(T t) {
-            long j;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                synchronized (this) {
-                    if (!this.k) {
-                        j = this.l + 1;
-                        this.l = j;
-                        z = true;
-                    } else {
-                        j = this.l;
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.f.onNext(t);
-                    this.e.a((nob) this.g.call(this, Long.valueOf(j), t, this.i));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.hob
-        public void onCompleted() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                synchronized (this) {
-                    z = true;
-                    if (!this.k) {
-                        this.k = true;
-                    } else {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.e.unsubscribe();
-                    this.f.onCompleted();
-                }
-            }
+            this.a = false;
+            this.b = false;
         }
     }
 
-    public vpb(a<T> aVar, b<T> bVar, gob<? extends T> gobVar, job jobVar) {
+    public vpb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar, gobVar, jobVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
-        this.c = gobVar;
-        this.d = jobVar;
+        this.a = new TreeMap<>();
+        this.b = new TreeMap<>();
     }
 
-    public mob<? super T> call(mob<? super T> mobVar) {
-        InterceptResult invokeL;
+    public static vpb c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mobVar)) == null) {
-            job.a createWorker = this.d.createWorker();
-            mobVar.b(createWorker);
-            msb msbVar = new msb(mobVar);
-            ftb ftbVar = new ftb();
-            msbVar.b(ftbVar);
-            c cVar = new c(msbVar, this.b, ftbVar, this.c, createWorker);
-            msbVar.b(cVar);
-            msbVar.f(cVar.j);
-            ftbVar.a((nob) this.a.call(cVar, 0L, createWorker));
-            return cVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (vpb.class) {
+                    if (c == null) {
+                        c = new vpb();
+                    }
+                }
+            }
+            return c;
         }
-        return (mob) invokeL.objValue;
+        return (vpb) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gob.b, com.baidu.tieba.yob
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((mob) ((mob) obj));
+    public synchronized int a() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                size = this.b.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int d() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                size = this.a.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int b() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                i = 0;
+                for (Map.Entry<Integer, TreeSet<String>> entry : this.b.entrySet()) {
+                    i += entry.getValue().size();
+                }
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int f() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                i = 0;
+                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
+                    if (entry.getValue().a && entry.getValue().b) {
+                        i++;
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int i() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                i = 0;
+                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
+                    if (entry.getValue().a) {
+                        i++;
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized void e(snb snbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, snbVar) == null) {
+            synchronized (this) {
+                if (snbVar != null) {
+                    if (!this.a.containsKey(Integer.valueOf(snbVar.hashCode()))) {
+                        this.a.put(Integer.valueOf(snbVar.hashCode()), new a());
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void h(snb snbVar) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, snbVar) == null) {
+            synchronized (this) {
+                if (snbVar != null) {
+                    if (this.a.containsKey(Integer.valueOf(snbVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(snbVar.hashCode()))) != null) {
+                        aVar.a = false;
+                        aVar.b = false;
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g(snb snbVar, int i, boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{snbVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                if (snbVar != null) {
+                    if (this.a.containsKey(Integer.valueOf(snbVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(snbVar.hashCode()))) != null) {
+                        aVar.a = true;
+                        aVar.b = z;
+                    }
+                }
+            }
+        }
     }
 }

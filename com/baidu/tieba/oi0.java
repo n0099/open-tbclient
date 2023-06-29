@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
+import android.app.Activity;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,93 +14,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-import kotlin.Unit;
+import com.huawei.hms.framework.network.grs.GrsBaseInfo;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class oi0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicInteger a;
-    public static String b;
-    public static JSONObject c;
-    public static ArrayList<Long> d;
-    public static final Hashtable<String, ArrayList<pi0<Integer, Integer>>> e;
-    public static boolean f;
-    public static final i31 g;
+    public static final boolean a = false;
+    public static final l31 b;
+    public static final oi0 c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-545975018, "Lcom/baidu/tieba/oi0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-545975018, "Lcom/baidu/tieba/oi0$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            oi0.g();
-            oi0.n();
-            oi0.i(false);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b<T> implements ro0<dt0> {
-        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ File c;
+        public final /* synthetic */ String b;
 
-        public b(long j, File file, File file2, String str) {
+        public a(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), file, file2, str};
+                Object[] objArr = {Long.valueOf(j), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -110,33 +48,36 @@ public final class oi0 {
                 }
             }
             this.a = j;
-            this.b = file;
-            this.c = file2;
+            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ro0
-        /* renamed from: a */
-        public final void accept(dt0 res) {
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, res) == null) {
-                Intrinsics.checkNotNullParameter(res, "res");
-                boolean z = false;
-                if (res.isSuccess()) {
-                    oi0.d().h("iadex_sp_key_etag", res.a());
-                    oi0.d().h("iadex_sp_key_modified_time", res.b());
-                    oi0.d().g("iadex_last_update_time", this.a);
-                    if (res.c() > 0 && g61.a(this.b, new File(this.c, "iadex.json")) > 0) {
-                        z = true;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (oi0.s()) {
+                    if (oi0.a(oi0.c)) {
+                        Log.d("AdDeepLinkStayTime", "tryToPostStayTrans: canceled for return before N!");
+                        return;
                     }
-                } else {
-                    this.b.deleteOnExit();
-                }
-                if (!z) {
                     return;
                 }
-                oi0.g();
-                oi0.n();
+                long j = this.a;
+                if (j < 0) {
+                    return;
+                }
+                if (j > System.currentTimeMillis()) {
+                    if (oi0.a(oi0.c)) {
+                        Log.d("AdDeepLinkStayTime", "tryToPostDeepLinkStayTrans: 留意，时间戳读写出现了异常，抛弃脏数据。");
+                        return;
+                    }
+                    return;
+                }
+                r31.b(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(this.b).k(String.valueOf(this.a)).l(String.valueOf(System.currentTimeMillis())).m("1"));
+                oi0.y();
+                if (oi0.a(oi0.c)) {
+                    Log.d("AdDeepLinkStayTime", "tryToPostStayTrans: successfully made a deepLink stay trans!");
+                }
             }
         }
     }
@@ -154,284 +95,310 @@ public final class oi0 {
                 return;
             }
         }
-        a = new AtomicInteger(0);
-        b = "";
-        d = new ArrayList<>();
-        e = new Hashtable<>();
-        f = true;
-        i31 b2 = l31.a().b("iad_sp_file");
-        Intrinsics.checkNotNullExpressionValue(b2, "SpUtils.getInstance().getSp(SP_FILE_NAME)");
-        g = b2;
+        c = new oi0();
+        l31 b2 = o31.a().b("nad_deeplink_stay_time");
+        Intrinsics.checkNotNullExpressionValue(b2, "SpUtils.getInstance().ge…\"nad_deeplink_stay_time\")");
+        b = b2;
     }
 
-    public static final void g() {
+    public oi0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            Context context = lk0.b();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            File file = new File(context.getFilesDir(), AdExtParam.KEY_IADEX);
-            if (!file.exists()) {
-                return;
-            }
-            File file2 = new File(file, "iadex.json");
-            if (file2.exists()) {
-                String e2 = g61.e(file2);
-                if (!TextUtils.isEmpty(e2)) {
-                    synchronized (pi0.class) {
-                        try {
-                            c = new JSONObject(e2);
-                        } catch (JSONException e3) {
-                            e3.printStackTrace();
-                        }
-                        Unit unit = Unit.INSTANCE;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static final String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            ArrayList<Long> arrayList = d;
-            if (y21.g(arrayList)) {
-                return "";
-            }
-            ArrayList arrayList2 = new ArrayList();
-            Iterator<Long> it = arrayList.iterator();
-            while (it.hasNext()) {
-                y21.b(arrayList2, String.valueOf(it.next().longValue()));
-            }
-            String join = TextUtils.join(",", arrayList2);
-            Intrinsics.checkNotNullExpressionValue(join, "TextUtils.join(IADEX_DELIMITER, tmpFlag)");
-            return join;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final i31 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return g;
-        }
-        return (i31) invokeV.objValue;
-    }
-
-    public static final void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65548, null, i) == null) {
-            k(i, 0);
-        }
-    }
-
-    public static final void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
-            j(i, 0);
-        }
-    }
-
-    public static final String e() {
+    @JvmStatic
+    public static final long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                b = h();
-                if (a.compareAndSet(0, 1)) {
-                    p41.c(a.a, "update_iad_ex", 3);
-                }
-            }
-            return b;
+            return b.getInt("sp_key_stay_time", 15) * 1000;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static final void f(PackageManager packageManager, String str, int i, int i2) {
+    @JvmStatic
+    public static final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65542, null, packageManager, str, i, i2) == null) {
-            try {
-                packageManager.getApplicationInfo(str, 0);
-                j(i, i2);
-            } catch (PackageManager.NameNotFoundException unused) {
-                k(i, i2);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return b.getBoolean("key_deep_link_open", false);
         }
+        return invokeV.booleanValue;
     }
 
-    public static final String h() {
+    @JvmStatic
+    public static final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str = "";
-            String string = g.getString("AD_IADEX", "");
-            if (string != null) {
-                str = string;
+            return b.getBoolean("key_no_need_post_deep_link_trans_on_cold_boot", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            String f = j61.f("ad_deeplink_stay_time_ext");
+            if (f == null) {
+                return "";
             }
-            Intrinsics.checkNotNullExpressionValue(str, "sp.getString(IADEX_KEY, \"\") ?: \"\"");
-            if (!TextUtils.isEmpty(str)) {
-                ArrayList<Long> arrayList = new ArrayList<>();
-                Object[] array = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null).toArray(new String[0]);
-                if (array != null) {
-                    for (String str2 : (String[]) array) {
-                        y21.b(arrayList, Long.valueOf(str2));
-                    }
-                    d = arrayList;
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
-                }
-            }
-            return str;
+            return f;
         }
         return (String) invokeV.objValue;
     }
 
-    public static final void n() {
-        JSONObject jSONObject;
-        JSONArray optJSONArray;
+    @JvmStatic
+    public static final long j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65550, null) == null) && (jSONObject = c) != null && (optJSONArray = jSONObject.optJSONArray("data")) != null) {
-            ArrayList<Long> arrayList = new ArrayList<>(d);
-            int length = optJSONArray.length();
-            int l = y21.l(arrayList);
-            if (length != l) {
-                if (length > l) {
-                    while (l < length) {
-                        y21.b(arrayList, 0L);
-                        l++;
-                    }
-                } else {
-                    for (int i = length; i < l; i++) {
-                        y21.i(arrayList, i);
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return b.getLong("key_deep_link_open_time", -1L);
+        }
+        return invokeV.longValue;
+    }
+
+    @JvmStatic
+    public static final String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            String string = b.getString("key_deep_link_source_activity", "");
+            if (string == null) {
+                return "";
             }
-            d = arrayList;
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                if (optJSONObject != null) {
-                    String groupName = optJSONObject.optString("name");
-                    int optInt = optJSONObject.optInt("interval");
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("list");
-                    Intrinsics.checkNotNullExpressionValue(groupName, "groupName");
-                    q(i2, groupName, optInt, optJSONArray2, f);
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            c.n();
+            c.o();
+            c.r();
+            c.m();
+            c.q();
+            c.p();
+        }
+    }
+
+    @JvmStatic
+    public static final boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return b.getBoolean("key_deep_link_return_before_time_threshold", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
+            b.d("key_deep_link_open", true);
+        }
+    }
+
+    @JvmStatic
+    public static final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
+            b.g("key_deep_link_open_time", System.currentTimeMillis());
+        }
+    }
+
+    @JvmStatic
+    public static final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65557, null) == null) {
+            b.d("key_no_need_post_deep_link_trans_on_cold_boot", true);
+        }
+    }
+
+    @JvmStatic
+    public static final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
+            b.d("key_deep_link_return_before_time_threshold", true);
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            j61.j("", "ad_deeplink_stay_time_ext");
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b.d("key_deep_link_open", false);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b.g("key_deep_link_open_time", -1L);
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b.h("key_deep_link_source_activity", "");
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b.d("key_no_need_post_deep_link_trans_on_cold_boot", false);
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            b.d("key_deep_link_return_before_time_threshold", false);
+        }
+    }
+
+    @JvmStatic
+    public static final void A(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || TextUtils.isEmpty(str) || b(str)) {
+            return;
+        }
+        new Handler().postDelayed(new a(j(), str), c());
+    }
+
+    public static final /* synthetic */ boolean a(oi0 oi0Var) {
+        return a;
+    }
+
+    @JvmStatic
+    public static final boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str == null) {
+                return true;
+            }
+            return b.getBoolean(str, true);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            l();
+            u();
+            v();
+            t(str);
+            x(str, false);
+            A(str);
+        }
+    }
+
+    @JvmStatic
+    public static final void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            j61.j(str, "ad_deeplink_stay_time_ext");
+        }
+    }
+
+    @JvmStatic
+    public static final void w(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65555, null, activity) == null) && activity != null) {
+            b.h("key_deep_link_source_activity", activity.getLocalClassName());
+        }
+    }
+
+    @JvmStatic
+    public static final void g(long j, String boot, long j2, String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), boot, Long.valueOf(j2), str}) == null) {
+            Intrinsics.checkNotNullParameter(boot, "boot");
+            if (!d()) {
+                l();
+            } else if (TextUtils.isEmpty(str) || b(str) || j < 0) {
+            } else {
+                if (j > j2) {
+                    if (a) {
+                        Log.d("AdDeepLinkStayTime", "postDeepLinkStayTime: 留意，出现了两次打点混淆的情况，为避免污染数据，放弃上传本次打点。");
+                        return;
+                    }
+                    return;
+                }
+                if (TextUtils.equals(boot, "boot_from_background")) {
+                    str2 = "1";
+                } else if (TextUtils.equals(boot, "boot_from_cold")) {
+                    str2 = "2";
                 } else {
                     return;
                 }
-            }
-            if (f) {
-                f = false;
-            }
-        }
-    }
-
-    public static final boolean i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65545, null, z)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - g.getLong("iadex_last_update_time", 0L) < TimeUnit.HOURS.toMillis(g.getInt("cdn_expire", 12))) {
-                return false;
-            }
-            String string = g.getString("iadex_sp_key_etag", "");
-            String string2 = g.getString("iadex_sp_key_modified_time", "");
-            Context context = lk0.b();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            File file = new File(context.getFilesDir(), AdExtParam.KEY_IADEX);
-            if (!file.exists() && !file.mkdir()) {
-                return false;
-            }
-            File file2 = new File(file, "iadex.json.temp");
-            ws0 ws0Var = new ws0();
-            ct0 ct0Var = new ct0();
-            ct0Var.a = string;
-            ct0Var.b = string2;
-            ct0Var.c = z;
-            ws0Var.a("https://pn.baidu.com/iad/os_type2_all.json", ct0Var, file2, new b(currentTimeMillis, file2, file, string));
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public static final void j(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65546, null, i, i2) == null) {
-            ArrayList<Long> arrayList = d;
-            if (i < arrayList.size()) {
-                Long l = arrayList.get(i);
-                Intrinsics.checkNotNullExpressionValue(l, "tCpArray[groupIndex]");
-                arrayList.set(i, Long.valueOf(l.longValue() | (1 << i2)));
-            }
-        }
-    }
-
-    public static final void k(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65547, null, i, i2) == null) {
-            ArrayList<Long> arrayList = d;
-            if (i < arrayList.size()) {
-                Long l = arrayList.get(i);
-                Intrinsics.checkNotNullExpressionValue(l, "tCpArray[groupIndex]");
-                arrayList.set(i, Long.valueOf(l.longValue() & (~(1 << i2))));
-            }
-        }
-    }
-
-    public static final void p(int i, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65552, null, i, jSONArray) == null) {
-            if (i >= d.size()) {
-                Log.e("AD_IADEX", "group index should NOT greater or equal group size!!!");
-                return;
-            }
-            Context context = lk0.b();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            PackageManager packageManager = context.getPackageManager();
-            l(i);
-            int i2 = 0;
-            int length = jSONArray.length();
-            while (i2 < length) {
-                String packageName = jSONArray.optString(i2);
-                i2++;
-                pi0 pi0Var = new pi0(Integer.valueOf(i), Integer.valueOf(i2));
-                ArrayList<pi0<Integer, Integer>> arrayList = e.get(packageName);
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
+                r31.b(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TIME).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m(str2));
+                x(str, true);
+                if (a) {
+                    Log.d("AdDeepLinkStayTime", "postDeepLinkStayTime: post a deepLink stay time on " + boot);
                 }
-                y21.b(arrayList, pi0Var);
-                e.put(packageName, arrayList);
-                Intrinsics.checkNotNullExpressionValue(packageManager, "packageManager");
-                Intrinsics.checkNotNullExpressionValue(packageName, "packageName");
-                f(packageManager, packageName, i, i2);
             }
-            m(i);
-            String o = o();
-            b = o;
-            g.h("AD_IADEX", o);
         }
     }
 
-    public static final void q(int i, String str, int i2, JSONArray jSONArray, boolean z) {
-        boolean z2;
+    @JvmStatic
+    public static final void h(long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65553, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), jSONArray, Boolean.valueOf(z)}) == null) && i >= 0 && !TextUtils.isEmpty(str) && i2 >= 0 && jSONArray != null && jSONArray.length() != 0) {
-            long time = new Date().getTime();
-            String str2 = "AD_IADEX_" + str + "_TS";
-            long j = g.getLong(str2, 0L);
-            long millis = TimeUnit.MINUTES.toMillis(i2);
-            boolean z3 = true;
-            int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i3 == 0) {
-                z2 = true;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            if (!d()) {
+                l();
+            } else if (TextUtils.isEmpty(str) || b(str) || j < 0) {
             } else {
-                z2 = false;
+                if (j > j2) {
+                    if (a) {
+                        Log.d("AdDeepLinkStayTime", "postDeepLinkStayTrans: 留意，出现了两次打点混淆的情况，为避免污染数据，放弃上传本次打点。");
+                        return;
+                    }
+                    return;
+                }
+                r31.b(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m("2"));
+                if (a) {
+                    Log.d("AdDeepLinkStayTime", "postDeepLinkStayTrans: post last deepLink stay trans when cold boot.");
+                }
             }
-            z3 = (i3 <= 0 || time - j <= millis) ? false : false;
-            if (z || z2 || z3) {
-                g.g(str2, time);
-                p(i, jSONArray);
-            }
+        }
+    }
+
+    @JvmStatic
+    public static final void x(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65556, null, str, z) == null) && str != null) {
+            b.d(str, z);
         }
     }
 }

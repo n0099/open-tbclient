@@ -1,37 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import java.util.List;
+import com.baidu.turbonet.net.UploadDataProvider;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public abstract class lta {
+public abstract class lta extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public int b;
-    public lta c;
-    public ita d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public String g;
+    public IOException a;
+    public boolean b;
+    public boolean c;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(lta ltaVar);
+    public abstract void e() throws IOException;
 
-        void b(lta ltaVar);
+    public abstract UploadDataProvider f();
 
-        void c(int i, int i2);
-
-        void d(String str, lta ltaVar);
-    }
+    public abstract void g() throws IOException;
 
     public lta() {
         Interceptable interceptable = $ic;
@@ -47,137 +36,42 @@ public abstract class lta {
         }
     }
 
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String fileNameWithOutExtention;
-        StringBuilder sb;
+    public void a() throws IOException {
+        IOException iOException;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (str2 == null) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(this.g)) {
-                sb = new StringBuilder();
-                fileNameWithOutExtention = FileUtils.removeExtention(str);
-            } else {
-                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
-                sb = new StringBuilder();
-                sb.append(this.g);
-            }
-            sb.append(fileNameWithOutExtention);
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public abstract void b();
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public abstract void d(ita itaVar);
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    public void f(lta ltaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ltaVar) == null) {
-            this.c = ltaVar;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iOException = this.a) == null) {
             return;
         }
-        this.e = true;
-        a aVar = this.a;
-        if (aVar != null) {
-            aVar.d(getClass().getName() + str, this);
-        }
+        throw iOException;
     }
 
-    public abstract void h();
-
-    public void i(int i) {
-        a aVar;
+    public void c() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.c(this.b, i);
-    }
-
-    public boolean j(ita itaVar) {
-        InterceptResult invokeL;
-        List<gta> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, itaVar)) == null) {
-            if (itaVar != null && itaVar.c() != null && itaVar.c().size() == 1 && itaVar.c().get(0).a() != null && (a2 = itaVar.c().get(0).a()) != null && a2.size() == 1) {
-                gta gtaVar = a2.get(0);
-                if (gtaVar.b() != null && !gtaVar.b().isNeedEdit()) {
-                    return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!this.c) {
+                if (!this.b) {
+                    return;
                 }
+                throw new IOException("Stream has been closed.");
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void l(ita itaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, itaVar) == null) {
-            this.d = itaVar;
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.c(this.b, 100);
-                this.a.b(this);
-            }
-            lta ltaVar = this.c;
-            if (ltaVar != null) {
-                ltaVar.d(itaVar);
-            }
+            a();
+            throw new IOException("Writing after request completed.");
         }
     }
 
-    public boolean m() {
-        InterceptResult invokeV;
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
-    }
-
-    public ita n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (ita) invokeV.objValue;
-    }
-
-    public void o() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
         }
-        aVar.a(this);
+    }
+
+    public void h(IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
+            this.a = iOException;
+            this.c = true;
+        }
     }
 }

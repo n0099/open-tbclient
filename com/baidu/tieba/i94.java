@@ -1,17 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface i94 {
-    boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull a04 a04Var);
+public class i94 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile h94 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context, String str, String str2, String str3);
-
-    boolean c();
-
-    String getPackageName();
-
-    void init();
+    public static synchronized h94 a() {
+        InterceptResult invokeV;
+        h94 h94Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (i94.class) {
+                if (a == null) {
+                    a = new h94();
+                }
+                h94Var = a;
+            }
+            return h94Var;
+        }
+        return (h94) invokeV.objValue;
+    }
 }

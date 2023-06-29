@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.s8b;
+import com.baidu.tieba.idb;
 /* loaded from: classes9.dex */
-public class TrackableBase implements s8b {
+public class TrackableBase implements idb {
     public final long a;
     public final Session b;
 

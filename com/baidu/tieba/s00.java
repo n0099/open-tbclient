@@ -1,129 +1,92 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidKeyException;
+import java.security.SecureRandom;
 /* loaded from: classes7.dex */
-public class s00 extends u00 {
+public class s00 {
     public static /* synthetic */ Interceptable $ic;
+    public static final SecureRandom b;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] d;
-    public byte[] e;
-    public byte[] f;
+    public u00 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s00(q00 q00Var) {
-        super(q00Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {q00Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((q00) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948097462, "Lcom/baidu/tieba/s00;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948097462, "Lcom/baidu/tieba/s00;");
                 return;
             }
         }
-        this.f = null;
-        int i3 = this.b;
-        this.e = new byte[i3];
-        this.d = new byte[i3];
+        b = new SecureRandom();
     }
 
-    @Override // com.baidu.tieba.u00
-    public void a(boolean z, String str, byte[] bArr, byte[] bArr2) {
+    public s00() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bArr, bArr2}) == null) {
-            if (bArr == null || bArr2 == null || bArr2.length != this.b) {
-                throw new InvalidKeyException("Internal error");
-            }
-            this.c = bArr2;
-            c();
-            this.a.e(z, str, bArr);
-        }
-    }
-
-    @Override // com.baidu.tieba.u00
-    public void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            int i4 = i2 + i;
-            while (i < i4) {
-                for (int i5 = 0; i5 < this.b; i5++) {
-                    this.e[i5] = (byte) (bArr[i5 + i] ^ this.d[i5]);
-                }
-                this.a.f(this.e, 0, bArr2, i3);
-                System.arraycopy(bArr2, i3, this.d, 0, this.b);
-                int i6 = this.b;
-                i += i6;
-                i3 += i6;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = new u00(new r00(), 16);
     }
 
-    @Override // com.baidu.tieba.u00
-    public void c() {
+    public static byte[] c(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            System.arraycopy(this.c, 0, this.d, 0, this.b);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bArr, bArr2, bArr3)) == null) {
+            s00 s00Var = new s00();
+            s00Var.a(1, bArr, bArr2);
+            return s00Var.b(bArr3);
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bArr, bArr2, bArr3)) == null) {
+            s00 s00Var = new s00();
+            s00Var.a(2, bArr, bArr2);
+            return s00Var.b(bArr3);
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public void a(int i, byte[] bArr, byte[] bArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, bArr, bArr2) == null) {
+            this.a.c(i, bArr, bArr2, b);
         }
     }
 
-    @Override // com.baidu.tieba.u00
-    public void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
-        int i4;
+    public final byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            int i5 = i2 + i;
-            byte[] bArr3 = (bArr != bArr2 || i < i3 || i - i3 >= this.b) ? null : (byte[]) bArr.clone();
-            while (i < i5) {
-                this.a.j(bArr, i, this.e, 0);
-                int i6 = 0;
-                while (true) {
-                    i4 = this.b;
-                    if (i6 >= i4) {
-                        break;
-                    }
-                    bArr2[i6 + i3] = (byte) (this.e[i6] ^ this.d[i6]);
-                    i6++;
-                }
-                byte[] bArr4 = this.d;
-                if (bArr3 == null) {
-                    System.arraycopy(bArr, i, bArr4, 0, i4);
-                } else {
-                    System.arraycopy(bArr3, i, bArr4, 0, i4);
-                }
-                int i7 = this.b;
-                i += i7;
-                i3 += i7;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            if (bArr != null) {
+                return this.a.e(bArr, 0, bArr.length);
             }
+            throw new IllegalArgumentException("Null input buffer");
         }
-    }
-
-    @Override // com.baidu.tieba.u00
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f == null) {
-                this.f = new byte[this.b];
-            }
-            System.arraycopy(this.d, 0, this.f, 0, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.u00
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            System.arraycopy(this.f, 0, this.d, 0, this.b);
-        }
+        return (byte[]) invokeL.objValue;
     }
 }

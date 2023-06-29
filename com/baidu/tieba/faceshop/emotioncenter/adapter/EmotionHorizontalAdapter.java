@@ -8,16 +8,16 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.a37;
 import com.baidu.tieba.faceshop.emotioncenter.view.EmotionHorizontalView;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.v27;
+import com.baidu.tieba.kn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class EmotionHorizontalAdapter extends jn<v27, EmotionGridViewHolder> {
+public class EmotionHorizontalAdapter extends kn<a37, EmotionGridViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -49,11 +49,11 @@ public class EmotionHorizontalAdapter extends jn<v27, EmotionGridViewHolder> {
             this.a = (EmotionHorizontalView) view2;
         }
 
-        public void a(v27 v27Var) {
+        public void a(a37 a37Var) {
             EmotionHorizontalView emotionHorizontalView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, v27Var) == null) && (emotionHorizontalView = this.a) != null && v27Var != null) {
-                emotionHorizontalView.setData(v27Var.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, a37Var) == null) && (emotionHorizontalView = this.a) != null && a37Var != null) {
+                emotionHorizontalView.setData(a37Var.a);
             }
         }
     }
@@ -81,7 +81,7 @@ public class EmotionHorizontalAdapter extends jn<v27, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     /* renamed from: s */
     public EmotionGridViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -96,13 +96,13 @@ public class EmotionHorizontalAdapter extends jn<v27, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, v27 v27Var, EmotionGridViewHolder emotionGridViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a37 a37Var, EmotionGridViewHolder emotionGridViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, v27Var, emotionGridViewHolder})) == null) {
-            emotionGridViewHolder.a(v27Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a37Var, emotionGridViewHolder})) == null) {
+            emotionGridViewHolder.a(a37Var);
             return emotionGridViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

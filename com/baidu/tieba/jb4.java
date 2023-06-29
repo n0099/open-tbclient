@@ -3,113 +3,237 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jb4 {
+public class jb4 extends ib4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public jj2 a;
-    @V8JavascriptField
-    public JsObject canvas;
+    public mj2 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947877517, "Lcom/baidu/tieba/jb4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends ResponseCallback<ob4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qb4 a;
+        public final /* synthetic */ j42 b;
+        public final /* synthetic */ jb4 c;
+
+        /* renamed from: com.baidu.tieba.jb4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0371a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ob4 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0371a(a aVar, ob4 ob4Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, ob4Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = ob4Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    oe4.call(this.b.b, true, this.a);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.a;
+                    oe4.call(aVar.b, false, aVar.a);
+                }
+            }
+        }
+
+        public a(jb4 jb4Var, qb4 qb4Var, j42 j42Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jb4Var, qb4Var, j42Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947877517, "Lcom/baidu/tieba/jb4;");
-                return;
+            this.c = jb4Var;
+            this.a = qb4Var;
+            this.b = j42Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(ob4 ob4Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, ob4Var, i) == null) {
+                if (ib4.a) {
+                    Log.d("CheckAdvisedToRestApi", "on success");
+                }
+                this.c.b.post(new RunnableC0371a(this, ob4Var));
             }
         }
-        b = js1.a;
-    }
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c(this.a.getInitBasePath(), "swan-game-open-data.js");
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public ob4 parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                ResponseBody body = response.body();
+                if (body == null) {
+                    return null;
+                }
+                String string = body.string();
+                if (ib4.a) {
+                    Log.d("CheckAdvisedToRestApi", "parse response: " + string);
+                }
+                JSONObject jSONObject = new JSONObject(string);
+                String optString = jSONObject.optString("errno");
+                if (!TextUtils.equals(optString, "0")) {
+                    if (ib4.a) {
+                        Log.d("CheckAdvisedToRestApi", "errno = " + optString);
+                    }
+                    qb4 qb4Var = this.a;
+                    qb4Var.errNo = optString;
+                    qb4Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", jSONObject.optString("errmsg"));
+                    return null;
+                }
+                String optString2 = jSONObject.optJSONObject("data").optString("result");
+                ob4 ob4Var = new ob4();
+                ob4Var.result = !TextUtils.equals(optString2, "0");
+                ob4Var.errNo = "0";
+                ob4Var.errMsg = oe4.b("checkIsUserAdvisedToRest", DnsModel.MSG_OK);
+                return ob4Var;
+            }
+            return (ob4) invokeLI.objValue;
         }
-        return invokeV.booleanValue;
-    }
 
-    @JavascriptInterface
-    public void destroyOpenDataContext() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.b0().a();
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                if (ib4.a) {
+                    Log.e("CheckAdvisedToRestApi", "on fail");
+                }
+                if (TextUtils.isEmpty(this.a.errMsg)) {
+                    qb4 qb4Var = this.a;
+                    qb4Var.errNo = YYOption.UrlProtocol.USER;
+                    qb4Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
+                }
+                this.c.b.post(new b(this));
+            }
         }
     }
 
-    public jb4(jj2 jj2Var) {
+    public jb4(@NonNull mj2 mj2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jj2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {mj2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.canvas = null;
-        this.a = jj2Var;
-        a();
-        b();
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String z = mx2.T().z();
-            String b2 = kb4.a().b();
-            if (b) {
-                Log.d("SwanGameOpenDataContext", "baseFilePath: " + z);
-                Log.d("SwanGameOpenDataContext", "openDataJSFile: " + b2);
-            }
-            return c(z, b2);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (kb4.a().c() && !TextUtils.isEmpty(str)) {
-                this.a.b0().b(str, str2);
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        this.b = mj2Var;
     }
 
     @JavascriptInterface
-    public void postMessage(JsObject jsObject) {
+    public void checkIsUserAdvisedToRest(JsObject jsObject) {
+        j42 F;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
-            this.a.v().dispatchEvent(new JSEvent("postmessage", jsObject));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) && (F = j42.F(jsObject)) != null && this.b != null) {
+            qb4 qb4Var = new qb4();
+            try {
+                int d = F.d("todayPlayedTime");
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("ma_id", cc3.g0());
+                    jSONObject.put("todayPlayedTime", String.valueOf(d));
+                } catch (JSONException e) {
+                    if (ib4.a) {
+                        e.printStackTrace();
+                    }
+                }
+                a(t84.b().f(), jSONObject.toString(), new a(this, qb4Var, F));
+            } catch (JSTypeMismatchException e2) {
+                if (ib4.a) {
+                    e2.printStackTrace();
+                }
+                qb4Var.errNo = FontParser.sFontWeightDefault;
+                qb4Var.errMsg = oe4.a("checkIsUserAdvisedToRest", e2);
+                oe4.call(F, false, qb4Var);
+            }
         }
     }
 }

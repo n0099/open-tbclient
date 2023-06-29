@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchPostForum.DataRes;
-import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes8.dex */
 public class wc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SearchForum a;
-    public List<SearchForum> b;
-    public ArrayList<wn> c;
-    public String d;
+    public TbPageContext a;
+    public final View b;
+    public final RelativeLayout c;
+    public final EditText d;
+    public final ImageView e;
+    public final TextView f;
+    public final BdTypeListView g;
+    public final ImageView h;
+    public int i;
 
-    public wc7(String str) {
+    public wc7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,42 +48,53 @@ public class wc7 {
                 return;
             }
         }
-        this.d = str;
+        this.i = 3;
+        this.a = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0306, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092095);
+        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092098);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090f4b);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f3b);
+        this.d.setHint(R.string.obfuscated_res_0x7f0f12ea);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f3a);
+        this.f = textView;
+        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f03cc));
+        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f092099);
+        a();
+        b(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public ArrayList<wn> a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.a = dataRes.exact_match;
-        this.b = dataRes.fuzzy_match;
-        this.c = new ArrayList<>();
-        vc7 vc7Var = new vc7(this.d);
-        SearchForum searchForum = this.a;
-        if (searchForum != null) {
-            vc7Var.l(searchForum);
-            this.c.add(vc7Var);
-        }
-        List<SearchForum> list = this.b;
-        if (list == null) {
-            return;
-        }
-        for (SearchForum searchForum2 : list) {
-            if (searchForum2 != null) {
-                vc7 vc7Var2 = new vc7(this.d);
-                vc7Var2.l(searchForum2);
-                this.c.add(vc7Var2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.height = xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07041a);
+            int g = xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070416);
+            layoutParams.rightMargin = g;
+            layoutParams.leftMargin = g;
+            int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();
+            if (immersiveStickyBarHeight > 0) {
+                layoutParams.topMargin = immersiveStickyBarHeight;
             }
+            this.c.setLayoutParams(layoutParams);
         }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.i == i) {
+            return;
+        }
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (i == 2) {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
+        } else {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        }
+        SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        this.i = i;
     }
 }

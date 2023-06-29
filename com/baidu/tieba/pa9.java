@@ -1,151 +1,135 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.pb.adapter.PbRecomChildTitleAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class pa9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public vg9 b;
+    public TbPageContext<?> c;
+    public List<kn> d;
+    public Cdo e;
+    public qa9 f;
+    public ra9 g;
+    public sa9 h;
+    public ta9 i;
+    public ua9 j;
+    public va9 k;
+    public PbRecomChildTitleAdapter l;
+    public gc9 m;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ View b;
-
-        public a(Context context, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = view2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || BreatheTipWidget.f() || this.a == null) {
-                return;
-            }
-            fa5 fa5Var = new fa5();
-            fa5Var.b = R.raw.lottie_bubble_breath_tip;
-            fa5Var.a = BreatheTipWidget.PointType.LOTTIE;
-            fa5Var.c = wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
-            ga5 ga5Var = new ga5();
-            ga5Var.a = q89.t(R.string.obfuscated_res_0x7f0f05a3, new Object[0]);
-            ga5Var.b = q89.t(R.string.agree_tip_content, new Object[0]);
-            ga5Var.e = R.drawable.pic_guidecard;
-            ga5Var.f = wi.g(this.a, R.dimen.tbds156);
-            ga5Var.g = wi.g(this.a, R.dimen.tbds489);
-            ga5Var.h = wi.g(this.a, R.dimen.tbds286);
-            if (this.b == null) {
-                return;
-            }
-            BreatheTipWidget breatheTipWidget = new BreatheTipWidget(this.a);
-            breatheTipWidget.j(this.b);
-            breatheTipWidget.h(ga5Var, fa5Var);
-            if (breatheTipWidget.k((Activity) this.a, 4000L)) {
-                o95 p = o95.p();
-                p.A("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), true);
-                xf5.c("c14828");
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948055457, "Lcom/baidu/tieba/pa9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948055457, "Lcom/baidu/tieba/pa9;");
-                return;
-            }
-        }
-        a = o95.t("key_show_god_agree_tips_count");
-        b = o95.t("key_show_god_agree_tips_timestamp");
-    }
-
-    public static void a() {
+    public pa9(vg9 vg9Var, BdUniqueId bdUniqueId, Cdo cdo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && !b()) {
-            o95.p().H(b, System.currentTimeMillis());
-            o95.p().F(a, 0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vg9Var, bdUniqueId, cdo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.d = new ArrayList();
+        this.e = cdo;
+        this.a = bdUniqueId;
+        this.b = vg9Var;
+        this.c = vg9Var.getPageContext();
+        c();
+        f(cdo);
+        cdo.addAdapters(this.d);
     }
 
-    public static boolean b() {
+    public List<kn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long r = o95.p().r(b, 0L);
-            if (r >= 0) {
-                return TimeHelper.isSameDay(currentTimeMillis, r);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public static boolean c(j49 j49Var) {
-        InterceptResult invokeL;
-        int i;
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, j49Var)) == null) {
-            if (j49Var == null || j49Var.N() == null || !TbadkCoreApplication.isLogin() || !j49Var.N().isExcellentThread() || j49Var.N().getHasAgree() == 1) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PbRecomChildTitleAdapter pbRecomChildTitleAdapter = this.l;
+            if (pbRecomChildTitleAdapter != null && pbRecomChildTitleAdapter.u() != null) {
+                return this.l.u().itemView;
             }
-            if (b()) {
-                i = o95.p().q(a, 0);
-            } else {
-                i = 0;
-            }
-            if (i >= 2) {
-                return false;
-            }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    public static void d(Context context, View view2, j49 j49Var) {
+    public void d() {
+        Cdo cdo;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, view2, j49Var) != null) || j39.c() || c(j49Var)) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (cdo = this.e) != null && cdo.getListAdapter() != null) {
+            this.e.getListAdapter().notifyDataSetChanged();
         }
-        o95 p = o95.p();
-        if (!p.l("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), false)) {
-            xg.a().postDelayed(new a(context, view2), 500L);
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.h = new sa9(this.c, gp6.F0);
+            this.g = new ra9(this.c, gp6.G0);
+            this.f = new qa9(this.c, gp6.H0);
+            this.i = new ta9(this.c, gp6.E0);
+            this.j = new ua9(this.c, gp6.K0);
+            this.k = new va9(this.c, hp6.U);
+            this.l = new PbRecomChildTitleAdapter(this.b, qp6.b);
+            this.m = new gc9(this.b, c99.c, this.a);
+            this.d.add(this.h);
+            this.d.add(this.g);
+            this.d.add(this.f);
+            this.d.add(this.i);
+            this.d.add(this.j);
+            this.d.add(this.k);
+            this.d.add(this.l);
+            this.d.add(this.m);
+        }
+    }
+
+    public final void f(Cdo cdo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cdo) == null) {
+            this.h.z(cdo);
+            this.g.z(cdo);
+            this.f.z(cdo);
+            this.i.z(cdo);
+            this.j.z(cdo);
+            this.k.C(cdo);
+        }
+    }
+
+    public void g(List<xn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.e.setData(list);
         }
     }
 }

@@ -1,53 +1,48 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.minivideo.arface.bean.Sticker;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes5.dex */
 public class eg0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static Sticker f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
-    public static String k;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947733243, "Lcom/baidu/tieba/eg0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947733243, "Lcom/baidu/tieba/eg0;");
-        }
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
+    public eg0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "/filter_config.json" : (String) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.c = "video_session";
+        b(wf0.a());
     }
 
     public eg0(String str) {
@@ -57,123 +52,226 @@ public class eg0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        h(str);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.c = str;
+        b(wf0.a());
     }
 
-    public static String d(boolean z) {
-        InterceptResult invokeZ;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
-            if (z) {
-                return j;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                file.renameTo(new File(str2));
             }
-            return k;
         }
-        return (String) invokeZ.objValue;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0065 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:78:0x001c */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.nio.channels.FileLock */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0093 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [java.io.RandomAccessFile, java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v4, types: [java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:50:0x0082 -> B:80:0x0085). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void d(String str, byte[] bArr, String str2) {
+        RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, bArr, str2) == null) || bArr == null || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static Sticker f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return f;
-        }
-        return (Sticker) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            if (dg0.m()) {
-                Log.d("DuAr_DuArResConfig", "setPath: " + str);
-            }
-            String str2 = str + "/";
-            b = str2;
-            c = str2;
-            r0 = b + "ext/";
-            d = c + "faceModels/";
-            if (TextUtils.isEmpty(str)) {
-                g = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
-                d = "file:///android_asset/arsource/faceModels/";
-                String str3 = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo/arsource";
-                h = str3 + "/makeup";
-                i = str3 + "/beauty";
-                j = str3 + "/arFilterInit";
-                k = str3 + "/arFilterEditInit";
-                String str4 = i + "/liveVideoFace/live_face_knead.json";
-                String str5 = i + "/liveVideoFace/goddess_face_knead.json";
-                String str6 = i + "/liveVideoFace/baby_face_knead.json";
-            } else {
-                g = c + "filters/yuantu/yuantu.png";
-                String str7 = c + "filter/beauty_skin_stream.png";
-                String str8 = c + "filter/beauty_skin_small_video.png";
-                h = b + "makeup/";
-                i = b + "beauty/";
-                j = b + "arFilterInit/";
-                k = b + "arFilterEditInit/";
-                r0 = i + "liveVideoFace/live_face_knead.json";
-                String str9 = i + "liveVideoFace/goddess_face_knead.json";
-                String str10 = i + "liveVideoFace/baby_face_knead.json";
-                if (f == null) {
-                    Sticker sticker = new Sticker();
-                    sticker.setArTyp(10);
-                    sticker.setFile(new File(b + "sticker/none_effect"));
-                    sticker.setId("-1");
-                    sticker.setMiniVersion(480);
-                    sticker.setMaxVersion(Integer.MAX_VALUE);
-                    f = sticker;
+        FileLock fileLock = 0;
+        fileLock = 0;
+        try {
+            try {
+                try {
+                    randomAccessFile = new RandomAccessFile(str, "rw");
+                    try {
+                    } catch (Exception e) {
+                        e = e;
+                        yf0.b("DpStatFileWriter", "FileWriter invoke write fail:", e);
+                        if (fileLock != 0) {
+                            try {
+                                fileLock.release();
+                            } catch (Exception e2) {
+                                yf0.b("DpStatFileWriter", "file lock release fail", e2);
+                            }
+                        }
+                        if (randomAccessFile != null) {
+                            randomAccessFile.close();
+                        }
+                        return;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        try {
+                            fileLock.release();
+                        } catch (Exception e3) {
+                            yf0.b("DpStatFileWriter", "file lock release fail", e3);
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            fileLock.close();
+                        } catch (Exception e4) {
+                            yf0.b("DpStatFileWriter", "file close fail", e4);
+                        }
+                    }
+                    throw th;
                 }
+            } catch (Exception e5) {
+                e = e5;
+                randomAccessFile = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (0 != 0) {
+                }
+                if (0 != 0) {
+                }
+                throw th;
             }
-            r0 = c + "global";
-            String str11 = c + "vip_list.json";
-            e = c + "filters";
-            r0 = c + "dlModels/";
-            String str12 = e + "/all";
-            r0 = c + "global/res/filter";
+        } catch (Exception e6) {
+            yf0.b("DpStatFileWriter", "file close fail", e6);
         }
+        if (randomAccessFile.length() > Config.FULL_TRACE_LOG_LIMIT) {
+            try {
+                randomAccessFile.close();
+                return;
+            } catch (Exception e7) {
+                yf0.b("DpStatFileWriter", "file close fail", e7);
+                return;
+            }
+        }
+        fileLock = randomAccessFile.getChannel().tryLock();
+        if (fileLock != 0 && fileLock.isValid()) {
+            randomAccessFile.seek(randomAccessFile.length());
+            randomAccessFile.write(bArr);
+            if (!TextUtils.isEmpty(str2)) {
+                randomAccessFile.write(str2.getBytes());
+            }
+        }
+        if (fileLock != 0) {
+            try {
+                fileLock.release();
+            } catch (Exception e8) {
+                yf0.b("DpStatFileWriter", "file lock release fail", e8);
+            }
+        }
+        randomAccessFile.close();
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            File file = new File(str);
+            return file.exists() && file.isFile() && file.delete();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            return file.exists() && file.isFile();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
+            return;
+        }
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+        reentrantLock.lock();
+        try {
+            String str = this.a;
+            if (g(str)) {
+                String str2 = this.b;
+                f(str2);
+                if (h(str, str2)) {
+                    f(str);
+                } else {
+                    f(str);
+                    c(str2, str);
+                }
+                f(str2);
+            }
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public void b(Context context) {
+        String c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (c = bg0.c(context)) == null) {
+            return;
+        }
+        new File(c).mkdirs();
+    }
+
+    public void e(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.a)) {
+            return;
+        }
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+        reentrantLock.lock();
+        try {
+            try {
+                d(this.a, bArr, "\r\n");
+            } catch (AssertionError unused) {
+                yf0.e("DpStatFileWriter", "write data to file fail");
+            }
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public boolean h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(str);
+                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                this.c.equals("live_show_session");
+                bufferedReader.close();
+                inputStreamReader.close();
+                fileInputStream.close();
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                yf0.e("DpStatFileWriter", "readAndUploadLogFile failed");
+                return true;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class IActivityProxy implements IComponentProxy {
     public Activity mActivity;
 

@@ -1,13 +1,27 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
-import android.view.ViewGroup;
-import com.baidu.tieba.passaccount.app.LoginDialogActivity;
 /* loaded from: classes8.dex */
 public interface v29 {
-    void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup);
+    void a(String str);
 
-    Intent getResultIntent();
+    void b(String str, int i, int i2, String str2);
 
-    void q(int i);
+    void c(String str, int i, String str2);
+
+    boolean d(String str);
+
+    boolean e(String str);
+
+    void f(String str, int i, String str2);
+
+    void g(String str, int i, String str2);
+
+    void h(String str, String str2);
+
+    void i(String str, String str2);
+
+    void j(String str);
+
+    void k(String str);
+
+    void l(String str, int i, String str2);
 }

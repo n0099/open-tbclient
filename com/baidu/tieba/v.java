@@ -1,35 +1,55 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
+import bolts.UnobservedTaskException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.t;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class v {
+public class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public t<?> a;
 
-    public static final int b(int i, int i2) {
-        InterceptResult invokeII;
+    public v(t<?> tVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) ? (i & i2) > 0 ? i - i2 : i : invokeII.intValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = tVar;
     }
 
-    public static final PendingIntent a(Context context, int i, Intent intent, int i2) {
-        InterceptResult invokeCommon;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(intent, "intent");
-            if (Build.VERSION.SDK_INT >= 23) {
-                return PendingIntent.getBroadcast(context, i, intent, b(i2, 33554432) | 67108864);
-            }
-            return PendingIntent.getBroadcast(context, i, intent, i2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
         }
-        return (PendingIntent) invokeCommon.objValue;
+    }
+
+    public void finalize() throws Throwable {
+        t.f m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                t<?> tVar = this.a;
+                if (tVar != null && (m = t.m()) != null) {
+                    m.a(tVar, new UnobservedTaskException(tVar.k()));
+                }
+            } finally {
+                super.finalize();
+            }
+        }
     }
 }

@@ -1,139 +1,272 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ImageView;
-import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.publisher.emoji.adapter.NoHorizontalScrollerVPAdapter;
 import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
-import com.baidu.swan.apps.publisher.view.SPSwitchPanelLinearLayout;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class o93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static o93 c;
+    @SuppressLint({"StaticFieldLeak"})
+    public static o93 d;
+    public static Context e;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
+    public EditText a;
+    public boolean b;
+    public Runnable c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947987040, "Lcom/baidu/tieba/o93;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o93 a;
+
+        public a(o93 o93Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947987040, "Lcom/baidu/tieba/o93;");
-                return;
+            this.a = o93Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
+                this.a.a.postDelayed(this.a.c, 60L);
             }
         }
-        b = js1.a;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o93 a;
+
+        public b(o93 o93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o93Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                Object adapter = adapterView.getAdapter();
+                if (adapter instanceof EmojiBagLayout.b) {
+                    EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
+                    if (this.a.a == null) {
+                        return;
+                    }
+                    if (i == bVar.getCount() - 1) {
+                        if (this.a.b) {
+                            this.a.a.removeCallbacks(this.a.c);
+                            this.a.b = false;
+                            return;
+                        }
+                        this.a.a.dispatchKeyEvent(new KeyEvent(0, 67));
+                        return;
+                    }
+                    String item = bVar.getItem(i);
+                    if (!TextUtils.isEmpty(item)) {
+                        this.a.a.getEditableText().insert(this.a.a.getSelectionStart(), p93.c().g(o93.e, item, this.a.a));
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements AdapterView.OnItemLongClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o93 a;
+
+        public c(o93 o93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o93Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemLongClickListener
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+                Object adapter = adapterView.getAdapter();
+                if (!(adapter instanceof EmojiBagLayout.b) || i != ((EmojiBagLayout.b) adapter).getCount() - 1) {
+                    return false;
+                }
+                this.a.b = true;
+                if (this.a.a != null) {
+                    this.a.a.post(this.a.c);
+                    return false;
+                }
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o93 a;
+
+        public d(o93 o93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o93Var;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (motionEvent.getAction() == 1) {
+                    this.a.k();
+                    return false;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
     }
 
     public o93() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new a(this);
     }
 
-    public static o93 b() {
+    public AdapterView.OnItemClickListener h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (o93.class) {
-                    if (c == null) {
-                        c = new o93();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new b(this);
         }
-        return (o93) invokeV.objValue;
+        return (AdapterView.OnItemClickListener) invokeV.objValue;
     }
 
-    public final View a(Context context) {
+    public AdapterView.OnItemLongClickListener i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new c(this);
+        }
+        return (AdapterView.OnItemLongClickListener) invokeV.objValue;
+    }
+
+    public View.OnTouchListener j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new d(this);
+        }
+        return (View.OnTouchListener) invokeV.objValue;
+    }
+
+    public void k() {
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (editText = this.a) != null) {
+            editText.removeCallbacks(this.c);
+        }
+    }
+
+    public void f(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, editText) == null) {
+            this.a = editText;
+        }
+    }
+
+    public static o93 g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EmojiBagLayout emojiBagLayout = new EmojiBagLayout(context);
-            emojiBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07013f)));
-            emojiBagLayout.setEmotionList(m93.c().b());
-            return emojiBagLayout;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public boolean c(Activity activity, ViewGroup viewGroup, View view2, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
-        IllegalArgumentException illegalArgumentException;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, viewGroup, view2, str, str2, str3})) == null) {
-            if (!(viewGroup instanceof SPSwitchPanelLinearLayout)) {
-                illegalArgumentException = new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout");
-            } else {
-                illegalArgumentException = null;
-            }
-            if (!(view2 instanceof EditText)) {
-                illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
-            }
-            if (illegalArgumentException != null) {
-                if (!b) {
-                    return false;
-                }
-                throw illegalArgumentException;
-            } else if (TextUtils.isEmpty(str)) {
-                return false;
-            } else {
-                if (b) {
-                    Log.d("EmojiPanelManager", "start loading emoji " + str);
-                }
-                this.a = new WeakReference<>(activity);
-                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    File v = vu2.v(str2, str3, false, null, null);
-                    m93.c().f(v.getAbsolutePath() + File.separator + str);
-                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f090980);
-                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09097f);
-                    if (imageView != null) {
-                        imageView.setImageBitmap(m93.c().d());
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(a(activity.getApplicationContext()));
-                    viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
-                    EditText editText = (EditText) view2;
-                    if (this.a.get() != null) {
-                        l93.g(this.a.get().getApplicationContext()).f(editText);
-                        return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            e = context.getApplicationContext();
+            if (d == null) {
+                synchronized (o93.class) {
+                    if (d == null) {
+                        d = new o93();
                     }
                 }
-                return false;
             }
+            return d;
         }
-        return invokeCommon.booleanValue;
+        return (o93) invokeL.objValue;
     }
 }

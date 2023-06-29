@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p84;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,23 +15,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Set;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public class w64 extends df2 {
+public class w64 implements lt1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public o64 c;
-    @NonNull
-    public x64 d;
-    public qj4<al4> e;
 
     /* loaded from: classes8.dex */
-    public class a extends nj4<al4> {
+    public class a extends a74 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w64 a;
 
         public a(w64 w64Var) {
             Interceptable interceptable = $ic;
@@ -44,104 +41,57 @@ public class w64 extends df2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w64Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qj4
-        /* renamed from: l */
-        public String d(al4 al4Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, al4Var)) == null) {
-                return p84.d.g().getPath();
-            }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nj4, com.baidu.tieba.qj4
-        /* renamed from: r */
-        public void f(al4 al4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, al4Var) == null) {
-                super.f(al4Var);
-                if (w64.f) {
-                    Log.i("ConsoleJsDownload", "onDownloading: 其它地方正在下载此包");
                 }
             }
         }
 
-        @Override // com.baidu.tieba.sj4
+        @Override // com.baidu.tieba.a74
         @NonNull
-        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-            InterceptResult invokeLL;
+        public File a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) {
-                return this.a.m(bundle, set);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return d92.a();
             }
-            return (Bundle) invokeLL.objValue;
+            return (File) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nj4, com.baidu.tieba.qj4
-        /* renamed from: o */
-        public void e(al4 al4Var, tk4 tk4Var) {
+        @Override // com.baidu.tieba.a74
+        public void b(@NonNull String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, al4Var, tk4Var) == null) {
-                super.e(al4Var, tk4Var);
-                if (w64.f) {
-                    Log.e("ConsoleJsDownload", "onDownloadError: " + tk4Var.toString());
-                }
-                this.a.c.a(false);
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+                d92.e(str, j);
             }
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nj4, com.baidu.tieba.qj4
-        /* renamed from: p */
-        public void i(al4 al4Var) {
+    /* loaded from: classes8.dex */
+    public class b implements r64 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(w64 w64Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, al4Var) == null) {
-                super.i(al4Var);
-                if (w64.f) {
-                    Log.i("ConsoleJsDownload", "onDownloadFinish: " + al4Var.toString());
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w64Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if (!mp3.a(new File(al4Var.a), al4Var.m)) {
-                    if (w64.f) {
-                        Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
-                    }
-                    this.a.c.a(false);
-                    return;
-                }
-                File a = this.a.d.a();
-                if (a.exists()) {
-                    ds4.j(a);
-                } else {
-                    ds4.l(a);
-                }
-                boolean U = ds4.U(al4Var.a, a.getAbsolutePath());
-                if (U) {
-                    this.a.d.b(al4Var.j, al4Var.i);
-                }
-                ds4.k(al4Var.a);
-                this.a.c.a(U);
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nj4, com.baidu.tieba.qj4
-        /* renamed from: q */
-        public void c(al4 al4Var) {
+        @Override // com.baidu.tieba.r64
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, al4Var) == null) {
-                super.c(al4Var);
-                if (w64.f) {
-                    Log.i("ConsoleJsDownload", "onDownloadStart: " + al4Var.toString());
-                }
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && w64.a) {
+                String str = w64.b;
+                Log.d(str, "download sConsole result: " + z);
             }
         }
     }
@@ -159,82 +109,73 @@ public class w64 extends df2 {
                 return;
             }
         }
-        f = js1.a;
+        a = ms1.a;
+        b = w64.class.getSimpleName();
     }
 
-    @Override // com.baidu.tieba.uj4
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.E();
-            if (f) {
-                Log.i("ConsoleJsDownload", "onFetchSuccess");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.uj4
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.F();
-            if (f) {
-                Log.i("ConsoleJsDownload", "onNoPackage");
-            }
-            this.c.a(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.uj4
-    public qj4<al4> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (qj4) invokeV.objValue;
-    }
-
-    public w64(@NonNull x64 x64Var, @NonNull o64 o64Var) {
+    public w64() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x64Var, o64Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this);
-        this.c = o64Var;
-        this.d = x64Var;
-    }
-
-    @Override // com.baidu.tieba.uj4
-    public void G(hp4 hp4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hp4Var) == null) {
-            super.G(hp4Var);
-            if (f) {
-                Log.i("ConsoleJsDownload", "onPrepareDownload");
             }
         }
     }
 
-    @Override // com.baidu.tieba.uj4
-    public void C(tk4 tk4Var) {
+    @Override // com.baidu.tieba.lt1
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tk4Var) == null) {
-            super.C(tk4Var);
-            if (f) {
-                Log.e("ConsoleJsDownload", "onFetchError: " + tk4Var.toString());
-            }
-            this.c.a(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return t64.m().e();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lt1
+    public xj4 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new z64(new a(this), new b(this));
+        }
+        return (xj4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lt1
+    public void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, onClickListener) == null) {
+            t64.m().p(activity, onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.lt1
+    public void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            y64.d(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.lt1
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            v64.h(jSONObject);
+        }
+    }
+
+    @Override // com.baidu.tieba.lt1
+    public void f(vq3<Boolean> vq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vq3Var) == null) {
+            t64.m().o(vq3Var);
         }
     }
 }

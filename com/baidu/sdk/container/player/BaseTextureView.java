@@ -8,8 +8,8 @@ import android.view.Surface;
 import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.um1;
-import com.baidu.tieba.vm1;
+import com.baidu.tieba.xm1;
+import com.baidu.tieba.ym1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(14)
 /* loaded from: classes3.dex */
-public class BaseTextureView extends TextureView implements TextureView.SurfaceTextureListener, um1 {
+public class BaseTextureView extends TextureView implements TextureView.SurfaceTextureListener, xm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
-    public vm1 d;
+    public ym1 d;
     public SurfaceTexture e;
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -41,13 +41,13 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseTextureView(Context context, vm1 vm1Var) {
+    public BaseTextureView(Context context, ym1 ym1Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, vm1Var};
+            Object[] objArr = {context, ym1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,7 +59,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
             }
         }
         this.a = 1;
-        this.d = vm1Var;
+        this.d = ym1Var;
         setSurfaceTextureListener(this);
     }
 
@@ -153,10 +153,10 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        vm1 vm1Var;
+        ym1 ym1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) && (vm1Var = this.d) != null) {
-            vm1Var.a(new Surface(surfaceTexture));
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) && (ym1Var = this.d) != null) {
+            ym1Var.a(new Surface(surfaceTexture));
         }
     }
 
@@ -165,9 +165,9 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, surfaceTexture)) == null) {
-            vm1 vm1Var = this.d;
-            if (vm1Var != null) {
-                vm1Var.b();
+            ym1 ym1Var = this.d;
+            if (ym1Var != null) {
+                ym1Var.b();
             }
             this.e = surfaceTexture;
             return false;
@@ -175,7 +175,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.um1
+    @Override // com.baidu.tieba.xm1
     public void setDisplayMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
@@ -183,7 +183,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         }
     }
 
-    @Override // com.baidu.tieba.um1
+    @Override // com.baidu.tieba.xm1
     public void onVideoSizeChanged(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {

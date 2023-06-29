@@ -78,7 +78,7 @@ public final class f extends c {
         return new w.a() { // from class: com.kwad.components.core.page.kwai.f.2
             @Override // com.kwad.components.core.webview.jshandler.w.a
             public final void a(com.kwad.components.core.webview.a.b bVar) {
-                AdWebViewActivityProxy.launch(f.this.Fv.getContext(), new AdWebViewActivityProxy.a.C0638a().ao(bVar.title).ap(bVar.url).N(f.this.mAdTemplate).nx());
+                AdWebViewActivityProxy.launch(f.this.Fv.getContext(), new AdWebViewActivityProxy.a.C0648a().ao(bVar.title).ap(bVar.url).N(f.this.mAdTemplate).nx());
             }
         };
     }
@@ -129,8 +129,8 @@ public final class f extends c {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f0912c0);
-        this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09140d);
+        this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f0912d0);
+        this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09141d);
         this.Fv.setBackgroundColor(0);
     }
 

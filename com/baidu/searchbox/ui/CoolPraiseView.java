@@ -837,11 +837,11 @@ public class CoolPraiseView extends LinearLayout {
             return i + "";
         }
         if (j < BILLION) {
-            string = AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f10f1);
+            string = AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f110e);
             d = i;
             d2 = 10000.0d;
         } else {
-            string = AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f10ec);
+            string = AppRuntime.getAppContext().getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1109);
             d = i;
             d2 = 1.0E8d;
         }
@@ -956,9 +956,9 @@ public class CoolPraiseView extends LinearLayout {
         boolean z2;
         int i2;
         LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0228, (ViewGroup) this, true);
-        this.mPraiseIcon = (PressedAlphaImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0927f4);
-        this.mPraiseCntsView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0927f5);
-        this.mWrapperLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0927f3);
+        this.mPraiseIcon = (PressedAlphaImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092856);
+        this.mPraiseCntsView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092857);
+        this.mWrapperLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092855);
         if (attributeSet != null) {
             typedArray = context.obtainStyledAttributes(attributeSet, com.baidu.android.common.widget.praise.R.styleable.coolPraiseView);
         } else {
@@ -1131,7 +1131,7 @@ public class CoolPraiseView extends LinearLayout {
         if (i <= 0) {
             this.mPraiseCount = 0;
             if (this.mPraiseCntsDefaultTextShow) {
-                this.mPraiseCntsView.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f10f2));
+                this.mPraiseCntsView.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f110f));
                 setPraiseCntsLeftMargin(this.mPraiseCntsMarginLeft, false);
             } else {
                 this.mPraiseCntsView.setText("");
@@ -1141,7 +1141,7 @@ public class CoolPraiseView extends LinearLayout {
                 if (DEBUG) {
                     Log.d(TAG, "isFirstPraiseAnimSupported return true");
                 }
-                this.mPraiseCntsView.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f10ed));
+                this.mPraiseCntsView.setText(getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f110a));
             }
         } else {
             setPraiseCntsLeftMargin(this.mPraiseCntsMarginLeft, false);

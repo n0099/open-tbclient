@@ -4,27 +4,44 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tbadk.coreExtra.data.ChatTabUnreadCountData;
+import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fn5;
-import com.baidu.tieba.gn5;
-import com.baidu.tieba.hn5;
+import com.baidu.tieba.dp8;
+import com.baidu.tieba.etb;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterFragment;
-import com.baidu.tieba.in5;
-import com.baidu.tieba.mq9;
-import com.baidu.tieba.nn5;
+import com.baidu.tieba.immessagecenter.msgtab.obs.ObserverRegistry;
+import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
+import com.baidu.tieba.jn5;
+import com.baidu.tieba.kn5;
+import com.baidu.tieba.ln5;
+import com.baidu.tieba.ltb;
+import com.baidu.tieba.mn5;
+import com.baidu.tieba.oe5;
+import com.baidu.tieba.ptb;
+import com.baidu.tieba.qtb;
+import com.baidu.tieba.rn5;
+import com.baidu.tieba.xsb;
+import com.baidu.tieba.yu9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,15 +50,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.PushClientConstants;
+import kotlin.Triple;
 /* loaded from: classes6.dex */
-public class ImMessageCenterDelegateStatic extends fn5 {
+public class ImMessageCenterDelegateStatic extends jn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
-    public CustomMessageListener d;
+    public etb d;
 
     /* loaded from: classes6.dex */
-    public class a implements in5.b {
+    public class a implements mn5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -64,7 +82,7 @@ public class ImMessageCenterDelegateStatic extends fn5 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.in5.b
+        @Override // com.baidu.tieba.mn5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -107,7 +125,7 @@ public class ImMessageCenterDelegateStatic extends fn5 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((hn5) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
+            ((ln5) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
         }
     }
 
@@ -135,48 +153,167 @@ public class ImMessageCenterDelegateStatic extends fn5 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                return mq9.b(tbPageContext, strArr);
+                return yu9.b(tbPageContext, strArr);
             }
             return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d extends CustomMessageListener {
+    public class d implements ltb<Triple<Boolean, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImMessageCenterDelegateStatic a;
+        public final /* synthetic */ oe5 a;
+        public final /* synthetic */ ImMessageCenterDelegateStatic b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i) {
-            super(i);
+        public d(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, oe5 oe5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {imMessageCenterDelegateStatic, Integer.valueOf(i)};
+                Object[] objArr = {imMessageCenterDelegateStatic, oe5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = imMessageCenterDelegateStatic;
+            this.b = imMessageCenterDelegateStatic;
+            this.a = oe5Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.ltb
+        public void call(Triple<Boolean, Integer, Boolean> triple) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ChatTabUnreadCountData)) {
-                ChatTabUnreadCountData chatTabUnreadCountData = (ChatTabUnreadCountData) customResponsedMessage.getData();
-                int countNum = chatTabUnreadCountData.getCountNum();
-                this.a.h(chatTabUnreadCountData.isShowTip(), countNum);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, triple) == null) {
+                if (triple.getThird().booleanValue()) {
+                    this.b.l();
+                    return;
+                }
+                boolean z = true;
+                if (triple.getSecond().intValue() > 0) {
+                    this.b.i(true, triple.getSecond().intValue());
+                } else {
+                    this.b.i((!triple.getFirst().booleanValue() || this.a.c()) ? false : false, triple.getSecond().intValue());
+                }
             }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements ptb<Pair<NewsRemindMessage, Boolean>, Triple<Boolean, Integer, Boolean>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imMessageCenterDelegateStatic};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ptb
+        public Triple<Boolean, Integer, Boolean> call(Pair<NewsRemindMessage, Boolean> pair) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pair)) == null) {
+                NewsRemindMessage newsRemindMessage = pair.first;
+                int msgCount = newsRemindMessage.getMsgCount() + newsRemindMessage.getChatCount() + newsRemindMessage.getNotificationCount();
+                if (!newsRemindMessage.hasMsgRemind() && !newsRemindMessage.hasChatRemind() && !newsRemindMessage.hasNotificationRemind()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                return new Triple<>(Boolean.valueOf(z), Integer.valueOf(msgCount), pair.second);
+            }
+            return (Triple) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements ptb<NewsRemindMessage, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imMessageCenterDelegateStatic};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ptb
+        public Boolean call(NewsRemindMessage newsRemindMessage) {
+            InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, newsRemindMessage)) == null) {
+                if (newsRemindMessage != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                return Boolean.valueOf(z);
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g implements qtb<NewsRemindMessage, Boolean, Pair<NewsRemindMessage, Boolean>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imMessageCenterDelegateStatic};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qtb
+        public Pair<NewsRemindMessage, Boolean> call(NewsRemindMessage newsRemindMessage, Boolean bool) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, newsRemindMessage, bool)) == null) {
+                return Pair.create(newsRemindMessage, bool);
+            }
+            return (Pair) invokeLL.objValue;
         }
     }
 
@@ -197,23 +334,7 @@ public class ImMessageCenterDelegateStatic extends fn5 {
         bVar.setPriority(7);
         MessageManager.getInstance().registerListener(bVar);
         UrlManager.getInstance().addListener(new c());
-    }
-
-    @Override // com.baidu.tieba.fn5
-    public gn5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gn5 gn5Var = new gn5();
-            gn5Var.a = new MessageCenterFragment();
-            gn5Var.e = 3;
-            gn5Var.b = R.string.my_message;
-            gn5Var.f = R.raw.lottie_tab_msg;
-            gn5Var.i = gn5.l;
-            gn5Var.h = nn5.f().d("message");
-            return gn5Var;
-        }
-        return (gn5) invokeV.objValue;
+        ObserverRegistry.a.start();
     }
 
     public ImMessageCenterDelegateStatic() {
@@ -226,11 +347,13 @@ public class ImMessageCenterDelegateStatic extends fn5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = null;
     }
 
-    @Override // com.baidu.tieba.fn5
+    @Override // com.baidu.tieba.jn5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -240,35 +363,86 @@ public class ImMessageCenterDelegateStatic extends fn5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fn5
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = new d(this, 2921002);
-            MessageManager.getInstance().registerListener(this.d);
-        }
-    }
-
-    @Override // com.baidu.tieba.fn5
+    @Override // com.baidu.tieba.jn5
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.f();
-            gn5 gn5Var = this.a;
-            if (gn5Var != null) {
-                gn5Var.a = null;
+            etb etbVar = this.d;
+            if (etbVar != null) {
+                etbVar.unsubscribe();
+            }
+            this.d = null;
+            kn5 kn5Var = this.a;
+            if (kn5Var != null) {
+                kn5Var.a = null;
                 this.a = null;
             }
-            MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 
-    @Override // com.baidu.tieba.fn5
+    public final void k(int i) {
+        TbFragmentTabIndicator tbFragmentTabIndicator;
+        TbFragmentTabIndicator.a d2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (tbFragmentTabIndicator = this.b) != null && (d2 = tbFragmentTabIndicator.d("msg")) != null) {
+            d2.c = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.jn5
+    public kn5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            kn5 kn5Var = new kn5();
+            if (dp8.a()) {
+                kn5Var.a = new MsgCenterContainerFragment();
+            } else {
+                kn5Var.a = new MessageCenterFragment();
+            }
+            kn5Var.e = 3;
+            kn5Var.b = R.string.my_message;
+            kn5Var.f = R.raw.lottie_tab_msg_new;
+            kn5Var.i = kn5.l;
+            kn5Var.h = rn5.f().d("message");
+            return kn5Var;
+        }
+        return (kn5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jn5
+    public void e() {
+        oe5 oe5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (oe5Var = (oe5) ServiceManager.getService(oe5.a)) != null && this.d == null) {
+            this.d = xsb.c(oe5Var.f().k(new f(this)), oe5Var.b(), new g(this)).p(new e(this)).F(new d(this, oe5Var));
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.c != null && this.b != null) {
+            k(-UtilHelper.getDimenPixelSize(R.dimen.tbds20));
+            MessageRedDotView messageRedDotView = this.c;
+            messageRedDotView.g(messageRedDotView.getContext().getString(R.string.message_notify_upgrade), false);
+            this.c.setVisibility(0);
+            if (TbSingleton.MsgUpgradeTips.isMsgTabUpgradeTipsShowing()) {
+                return;
+            }
+            TbSingleton.MsgUpgradeTips.setIsMsgTabUpgradeTipsShowing(true);
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GUIDE_SHOW);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    @Override // com.baidu.tieba.jn5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) in5.e().d(1004, new a(this, context));
+            this.b = (MaintabBottomIndicator) mn5.e().d(1004, new a(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.b;
@@ -278,36 +452,36 @@ public class ImMessageCenterDelegateStatic extends fn5 {
             tbFragmentTabIndicator.b("msg", aVar);
             this.c.setVisibility(4);
             if (!TbSingleton.getInstance().isShowVivoBadge()) {
-                i(this.c.getContext(), 0);
+                j(this.c.getContext(), 0);
             }
             return this.b;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public final void h(boolean z, int i) {
-        MessageRedDotView messageRedDotView;
+    public final void i(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || (messageRedDotView = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || this.c == null) {
             return;
         }
+        k(0);
         if (z) {
-            messageRedDotView.setThreeDotMode(2);
+            this.c.setThreeDotMode(2);
             this.c.f(i);
             this.c.setVisibility(0);
             if (TbSingleton.getInstance().isShowVivoBadge()) {
-                i(this.c.getContext(), i);
+                j(this.c.getContext(), i);
                 return;
             }
             return;
         }
-        messageRedDotView.setVisibility(8);
+        this.c.setVisibility(8);
         if (TbSingleton.getInstance().isShowVivoBadge()) {
-            i(this.c.getContext(), 0);
+            j(this.c.getContext(), 0);
         }
     }
 
-    public final void i(Context context, int i) {
+    public final void j(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, context, i) == null) {
             Intent intent = new Intent();

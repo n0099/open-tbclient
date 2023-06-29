@@ -2,13 +2,10 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.CommonUtils;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.android.imsdk.upload.action.track.Connection;
-import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +15,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.ProbeTB;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.apache.http.cookie.ClientCookie;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class q90 {
@@ -51,38 +48,40 @@ public final class q90 {
         return (IMPushPb.Action) invokeL.objValue;
     }
 
-    public static IMPushPb.LcpNetInfo d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            return IMPushPb.LcpNetInfo.newBuilder().setDomain(jSONObject.optString("domain", "")).setIp(jSONObject.optString("ip", "")).setPort(jSONObject.optString(ClientCookie.PORT_ATTR, "")).setProtocol(jSONObject.optString(ProbeTB.PROTOCOL, "")).build();
-        }
-        return (IMPushPb.LcpNetInfo) invokeL.objValue;
-    }
-
-    public static IMPushPb.Action e(String str, String str2, long j, long j2, long j3, String str3, long j4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) {
-            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build();
-        }
-        return (IMPushPb.Action) invokeCommon.objValue;
-    }
-
-    public static IMPushPb.Action h(long j, long j2, String str, long j3, long j4, String str2, long j5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)})) == null) {
-            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(j).setStopTime(j2).setReason(str).setRetryTime(j3).setRetryCount(j4).setExt(str2).setAliasId(j5).build()).build();
-        }
-        return (IMPushPb.Action) invokeCommon.objValue;
-    }
-
     public static IMPushPb.Action f(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWREQUEST).setNewRequest(IMPushPb.NewRequest.newBuilder().setAliasId(601111L).setRequestId(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID)).setServiceId(jSONObject.optString("service_id")).setMethodId(jSONObject.optString("method_id")).setErrorCode(jSONObject.optLong("error_code")).setErrorMsg(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG)).setRequestTime(jSONObject.optLong("request_time")).setResponseTime(jSONObject.optLong("response_time")).setExt(jSONObject.optString("ext")).setNetInfo(d(jSONObject)).build()).build();
+            IMPushPb.LcpNetInfo d = d(jSONObject);
+            ArrayList arrayList = new ArrayList();
+            try {
+                JSONArray jSONArray = new JSONArray(jSONObject.optString("event_list"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                    arrayList.add(IMPushPb.Event_timestamp.newBuilder().setEvent(jSONObject2.optString("event")).setTimestampMs(jSONObject2.optLong("timestamp_ms")).build());
+                }
+            } catch (Exception e) {
+                xa0.c("TrackPbGenerator", "generateRequestNew eventListArr exception", e);
+            }
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWREQUEST).setNewRequest(IMPushPb.NewRequest.newBuilder().setAliasId(601111L).setRequestId(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID)).setServiceId(jSONObject.optString("service_id")).setMethodId(jSONObject.optString("method_id")).setErrorCode(jSONObject.optLong("error_code")).setErrorMsg(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG)).setRequestTime(jSONObject.optLong("request_time")).setResponseTime(jSONObject.optLong("response_time")).setReqBodyLength(jSONObject.optLong("request_body_size")).setRespBodyLength(jSONObject.optLong("response_body_size")).addAllEventList(arrayList).setExt(jSONObject.optString("ext")).setNetInfo(d).build()).build();
+        }
+        return (IMPushPb.Action) invokeL.objValue;
+    }
+
+    public static IMPushPb.LcpNetInfo d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            return IMPushPb.LcpNetInfo.newBuilder().setDomain(jSONObject.optString("domain", "")).setIp(jSONObject.optString("ip", "")).setPort(jSONObject.optString(ClientCookie.PORT_ATTR, "")).setProtocol(jSONObject.optString(ProbeTB.PROTOCOL, "")).setServerInfo(jSONObject.optString("server_info", "")).build();
+        }
+        return (IMPushPb.LcpNetInfo) invokeL.objValue;
+    }
+
+    public static IMPushPb.Action e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.PINGRESUlLT).setPingInfo(IMPushPb.PingInfo.newBuilder().setAliasId(601112L).setRequestId(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, 0L)).setPingTimes(jSONObject.optLong("ping_times", 0L)).setPingTarget(jSONObject.optString("ping_target", "")).setPingRequestSize(jSONObject.optLong("ping_request_size", 0L)).setOriginalPingResult(jSONObject.optString("original_ping_result", "")).setStartTimeMs(jSONObject.optLong("start_time_ms", 0L)).setEndTimeMs(jSONObject.optLong("end_time_ms", 0L)).build()).build();
         }
         return (IMPushPb.Action) invokeL.objValue;
     }
@@ -98,35 +97,12 @@ public final class q90 {
             if (intValue == 601110) {
                 return b(jSONObject);
             }
+            if (intValue == 601112) {
+                return e(jSONObject);
+            }
             return b(jSONObject);
         }
         return (IMPushPb.Action) invokeLL.objValue;
-    }
-
-    public static void i(Context context, Connection connection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, connection) == null) {
-            try {
-                HashSet hashSet = new HashSet(r90.b(context));
-                hashSet.add(Base64.encodeToString(h(connection.startTime, connection.stopTime, connection.reason, connection.retryTime, connection.retryCount, connection.ext, connection.aliasId).toByteArray(), 0));
-                r90.k(context, hashSet);
-            } catch (Exception e) {
-                ua0.c("TrackPbGenerator", "putIMConnectionToActions :", e);
-            }
-        }
-    }
-
-    public static void j(Context context, Request request) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, context, request) == null) {
-            try {
-                HashSet hashSet = new HashSet(r90.d(context));
-                hashSet.add(Base64.encodeToString(e(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId).toByteArray(), 0));
-                r90.o(context, hashSet);
-            } catch (Exception e) {
-                ua0.c("TrackPbGenerator", "putIMRequestToActions :", e);
-            }
-        }
     }
 
     public final List<String> a(String str, List<s90> list) {
@@ -135,7 +111,6 @@ public final class q90 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
             ArrayList arrayList = new ArrayList();
             if (list != null && !TextUtils.isEmpty(str) && list.size() > 0) {
-                ua0.a("TrackPbGenerator", "flow upload details list");
                 for (s90 s90Var : list) {
                     if (s90Var != null) {
                         String a = s90Var.a();
@@ -144,7 +119,9 @@ public final class q90 {
                         }
                     }
                 }
-                ua0.a("TrackPbGenerator", "flow upload detal list:" + arrayList.toString());
+                if (wa0.a) {
+                    xa0.a("TrackPbGenerator", "flow upload detal list:" + arrayList.toString());
+                }
             }
             return arrayList;
         }
@@ -155,7 +132,7 @@ public final class q90 {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, list, i)) == null) {
-            list.addAll(ga0.j(context).g(str, i));
+            list.addAll(ja0.j(context).g(str, i));
             List<String> a = a(str, list);
             if (a != null) {
                 try {
@@ -166,7 +143,7 @@ public final class q90 {
                                 copyOnWriteArrayList.add(g(str, new JSONObject(str2)));
                             }
                         }
-                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, va0.e(context))).setSdkName("lcp").setSdkVersion(2310016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
+                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, ya0.e(context))).setSdkName("lcp").setSdkVersion(3460016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

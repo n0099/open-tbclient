@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.net.Uri;
 import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,39 +12,146 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableBitmap;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
+import rx.schedulers.Schedulers;
+import rx.subjects.PublishSubject;
 /* loaded from: classes8.dex */
-public class wo3 {
+public final class wo3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static volatile k b;
+    public static volatile k c;
+    public static volatile k d;
+    public static final ltb e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void a(String str, Bitmap bitmap);
+    public interface j extends Executor {
+        void execute(@NonNull Runnable runnable, @NonNull String str);
     }
 
     /* loaded from: classes8.dex */
-    public static class a extends BaseBitmapDataSubscriber {
+    public static class a implements ltb<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ String b;
 
-        public a(b bVar, String str) {
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ltb
+        public void call(Pair<Runnable, String> pair) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                String name = Thread.currentThread().getName();
+                Thread currentThread = Thread.currentThread();
+                currentThread.setName(name + "-" + ((String) pair.second));
+                long j = 0;
+                try {
+                    if (wo3.a) {
+                        j = System.currentTimeMillis();
+                    }
+                    ((Runnable) pair.first).run();
+                    if (wo3.a) {
+                        Log.d("SwanAppExecutorUtils", "Task [" + ((String) pair.second) + "] caused " + (System.currentTimeMillis() - j) + "ms");
+                    }
+                } finally {
+                    if (z) {
+                    }
+                    Thread.currentThread().setName(name);
+                }
+                Thread.currentThread().setName(name);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements ptb<Pair<Runnable, String>, xsb<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ptb
+        public xsb<?> call(Pair<Runnable, String> pair) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
+                return btb.g(pair).h(Schedulers.io()).f(wo3.e).l();
+            }
+            return (xsb) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c implements ptb<Pair<Runnable, String>, xsb<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ptb
+        public xsb<?> call(Pair<Runnable, String> pair) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
+                return btb.g(pair).h(Schedulers.computation()).f(wo3.e).l();
+            }
+            return (xsb) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d implements ltb<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, str};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,50 +161,212 @@ public class wo3 {
                     return;
                 }
             }
-            this.a = bVar;
-            this.b = str;
+            this.a = str;
         }
 
-        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
-        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ltb
+        public void call(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                super.onCancellation(dataSource);
-                this.a.a(this.b, null);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && wo3.a) {
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
             }
         }
+    }
 
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                this.a.a(this.b, null);
-            }
-        }
+    /* loaded from: classes8.dex */
+    public static class e implements ltb<Pair<Runnable, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(Bitmap bitmap) {
-            Bitmap copy;
+        public e() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                if (bitmap != null && !bitmap.isRecycled()) {
-                    try {
-                        if (bitmap.getConfig() == null) {
-                            copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-                        } else {
-                            copy = bitmap.copy(bitmap.getConfig(), true);
-                        }
-                        this.a.a(this.b, copy);
-                        return;
-                    } catch (Exception e) {
-                        if (wo3.a) {
-                            Log.e("SwanAppFrescoImageUtils", e.getMessage());
-                        }
-                        this.a.a(this.b, null);
-                        return;
-                    }
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                this.a.a(this.b, null);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ltb
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                wo3.g().execute((Runnable) pair.first, (String) pair.second);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class f implements ltb<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public f(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ltb
+        public void call(Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && wo3.a) {
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class g implements ltb<Pair<Runnable, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ltb
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                wo3.f().execute((Runnable) pair.first, (String) pair.second);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class h implements ltb<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public h(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ltb
+        public void call(Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) && wo3.a) {
+                Log.wtf("SwanAppExecutorUtils", "delay task [" + this.a + "] fail!", th);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class i implements ltb<Pair<Runnable, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public i() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ltb
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                wo3.h().execute((Runnable) pair.first, (String) pair.second);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class k extends uxb<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public k(vxb vxbVar) {
+            super(vxbVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vxbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((vxb) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.Executor
+        public void execute(@NonNull Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                execute(runnable, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.wo3.j
+        public void execute(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
+                onNext(Pair.create(runnable, wo3.i(str)));
             }
         }
     }
@@ -118,136 +384,142 @@ public class wo3 {
                 return;
             }
         }
-        a = js1.a;
+        a = ms1.a;
+        e = new a();
     }
 
-    public static Bitmap b(DataSource<CloseableReference<CloseableImage>> dataSource) {
+    public wo3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static etb c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
+            return btb.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i();
+        }
+        return (etb) invokeCommon.objValue;
+    }
+
+    public static etb d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
+            return btb.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i();
+        }
+        return (etb) invokeCommon.objValue;
+    }
+
+    public static etb e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
+            return btb.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i();
+        }
+        return (etb) invokeCommon.objValue;
+    }
+
+    public static j f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == null) {
+                synchronized (wo3.class) {
+                    if (c == null) {
+                        c = new k(PublishSubject.O());
+                        c.v().l(new c()).B().C();
+                    }
+                }
+            }
+            return c;
+        }
+        return (j) invokeV.objValue;
+    }
+
+    public static j g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (b == null) {
+                synchronized (wo3.class) {
+                    if (b == null) {
+                        b = new k(PublishSubject.O());
+                        b.v().l(new b()).B().C();
+                    }
+                }
+            }
+            return b;
+        }
+        return (j) invokeV.objValue;
+    }
+
+    public static j h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (d == null) {
+                synchronized (wo3.class) {
+                    if (d == null) {
+                        d = new k(PublishSubject.O());
+                        d.v().s(Schedulers.io()).i(e).B().C();
+                    }
+                }
+            }
+            return d;
+        }
+        return (j) invokeV.objValue;
+    }
+
+    public static String i(String str) {
         InterceptResult invokeL;
-        CloseableReference<CloseableImage> closeableReference;
-        Throwable th;
-        Bitmap underlyingBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dataSource)) == null) {
-            if (dataSource == null) {
-                return null;
-            }
-            try {
-                closeableReference = dataSource.getResult();
-                if (closeableReference != null) {
-                    try {
-                        CloseableImage closeableImage = closeableReference.get();
-                        if (closeableImage != null && (closeableImage instanceof CloseableBitmap) && (underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap()) != null && !underlyingBitmap.isRecycled()) {
-                            try {
-                                Bitmap createBitmap = Bitmap.createBitmap(underlyingBitmap);
-                                dataSource.close();
-                                CloseableReference.closeSafely(closeableReference);
-                                return createBitmap;
-                            } catch (OutOfMemoryError unused) {
-                                System.gc();
-                            }
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        dataSource.close();
-                        CloseableReference.closeSafely(closeableReference);
-                        throw th;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (str != null) {
+                if (!str.startsWith("SwanAppExecutorUtils_")) {
+                    str = "SwanAppExecutorUtils_" + str;
                 }
-                dataSource.close();
-                CloseableReference.closeSafely(closeableReference);
-                return null;
-            } catch (Throwable th3) {
-                closeableReference = null;
-                th = th3;
+            } else {
+                str = null;
             }
-        } else {
-            return (Bitmap) invokeL.objValue;
+            if (str == null) {
+                str = "SwanAppExecutorUtils";
+            }
+            if (str.length() > 256) {
+                return str.substring(0, 255);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void j(@NonNull Runnable runnable, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, runnable, str) == null) {
+            f().execute(runnable, str);
         }
     }
 
-    public static Bitmap c(Uri uri, Context context) {
-        InterceptResult invokeLL;
+    public static void k(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, context)) == null) {
-            if (uri != null && context != null) {
-                if (d(uri)) {
-                    if (a) {
-                        Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
-                    }
-                    return b(Fresco.getImagePipeline().fetchImageFromBitmapCache(ImageRequest.fromUri(uri), context.getApplicationContext()));
-                }
-                if (a) {
-                    Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
-                }
-                DataSource<Boolean> isInDiskCache = Fresco.getImagePipeline().isInDiskCache(uri);
-                if (isInDiskCache != null && isInDiskCache.hasResult() && isInDiskCache.getResult() != null && isInDiskCache.getResult().booleanValue()) {
-                    try {
-                        return b(Fresco.getImagePipeline().fetchDecodedImage(ImageRequest.fromUri(uri), context));
-                    } finally {
-                        isInDiskCache.close();
-                    }
-                }
-            }
-            return null;
-        }
-        return (Bitmap) invokeLL.objValue;
-    }
-
-    public static boolean d(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
-            if (uri != null && Fresco.getImagePipeline().isInBitmapMemoryCache(uri)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, bVar) == null) {
-            Uri C = tp3.C(str);
-            if (C == null) {
-                bVar.a(str, null);
-                return;
-            }
-            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, str), UiThreadImmediateExecutorService.getInstance());
+        if (interceptable == null || interceptable.invokeLL(65548, null, runnable, str) == null) {
+            g().execute(runnable, str);
         }
     }
 
-    public static void f(Uri uri, String str) {
+    public static void l(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, uri, str) != null) || uri == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65549, null, runnable, str) == null) {
+            h().execute(runnable, str);
         }
-        if (a) {
-            Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
-        }
-        Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequestBuilder.newBuilderWithSource(uri).build(), str);
-    }
-
-    public static Bitmap g(Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bitmap, i, i2)) == null) {
-            if (bitmap == null || i <= 0 || i2 <= 0) {
-                return null;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (width == 0 || height == 0) {
-                return null;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postScale(i / width, i2 / height);
-            try {
-                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            } catch (Exception | OutOfMemoryError unused) {
-                return null;
-            }
-        }
-        return (Bitmap) invokeLII.objValue;
     }
 }

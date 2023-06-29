@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveHttpResMsg;
 import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveScoketResMsg;
-import com.baidu.tieba.jz9;
+import com.baidu.tieba.v3a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,8 +53,8 @@ public class LowFlowsActivityStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            jz9.h(309691, MoreTreasureTroveScoketResMsg.class, false, false);
-            jz9.c(309691, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, TbConfig.MORE_TREASURE_TROVE, MoreTreasureTroveHttpResMsg.class, false, true, true, true);
+            v3a.h(309691, MoreTreasureTroveScoketResMsg.class, false, false);
+            v3a.c(309691, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, TbConfig.MORE_TREASURE_TROVE, MoreTreasureTroveHttpResMsg.class, false, true, true, true);
         }
     }
 }

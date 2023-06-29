@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public @interface u85 {
-    boolean isAsync() default false;
+public interface u85 {
+    void a(w85 w85Var, JSONObject jSONObject);
 
-    String value() default "";
+    void b(int i, Throwable th);
 }

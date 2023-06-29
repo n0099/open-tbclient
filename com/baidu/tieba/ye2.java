@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.core.pms.PkgDownloadError;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,20 +10,51 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public class ye2 extends ze2 {
+public class ye2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean D;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<al4, Set<c>> a;
 
-    @Override // com.baidu.tieba.df2
-    public int K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 3;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a(PMSDownloadType pMSDownloadType);
+
+        void b(PMSDownloadType pMSDownloadType, vn3 vn3Var);
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static ye2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-263317979, "Lcom/baidu/tieba/ye2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-263317979, "Lcom/baidu/tieba/ye2$b;");
+                    return;
+                }
+            }
+            a = new ye2(null);
         }
-        return invokeV.intValue;
     }
 
     static {
@@ -43,144 +70,95 @@ public class ye2 extends ze2 {
                 return;
             }
         }
-        D = js1.a;
+        b = ms1.a;
     }
 
-    @Override // com.baidu.tieba.uj4
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.F();
-            if (this.n != null) {
-                u0();
-                H0("checkForUpdate", false);
-                pf2.c(this.o);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ze2
-    public PMSDownloadType k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return PMSDownloadType.ASYNC;
-        }
-        return (PMSDownloadType) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ye2(String str) {
-        super(str);
+    public ye2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.ze2, com.baidu.tieba.uj4
-    public void C(tk4 tk4Var) {
+    public static ye2 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tk4Var) == null) {
-            super.C(tk4Var);
-            if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + tk4Var.toString());
-            }
-            H0("checkForUpdate", false);
-            m0(tk4Var.a);
-            if (pf2.m(tk4Var)) {
-                pf2.c(this.o);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
+        return (ye2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ze2, com.baidu.tieba.uj4
-    public void G(hp4 hp4Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hp4Var) == null) {
-            super.G(hp4Var);
-            if (hp4Var != null && hp4Var.f()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            H0("checkForUpdate", z);
-        }
+    public /* synthetic */ ye2(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.uj4
-    public void H(String str, int i) {
+    public synchronized void a(al4 al4Var, PMSDownloadType pMSDownloadType, vn3 vn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            super.H(str, i);
-            el4 a = el4.a(str);
-            if (a == null) {
-                return;
-            }
-            boolean b = gp4.b(a.c());
-            z82.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
-            if (b) {
-                p83 e = p83.e();
-                r83 r83Var = new r83(129);
-                r83Var.f(true);
-                e.h(r83Var);
-            }
-        }
-    }
-
-    public final void H0(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, str, z) != null) || TextUtils.isEmpty(this.o)) {
-            return;
-        }
-        bf2.f(str, this.o, z);
-    }
-
-    @Override // com.baidu.tieba.ze2
-    public void v0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.v0();
-            this.p.add(new UbcFlowEvent("na_start_update_db"));
-            sn3 F0 = F0();
-            this.p.add(new UbcFlowEvent("na_end_update_db"));
-            if (F0 == null) {
-                if (D) {
-                    Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, al4Var, pMSDownloadType, vn3Var) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "downloadError:" + al4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
                 }
-                H0("updateReady", true);
-                A0("main_async_download", "0");
-                pf2.c(this.o);
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
+                Set<c> set = this.a.get(al4Var);
+                if (set != null) {
+                    for (c cVar : set) {
+                        if (cVar != null) {
+                            cVar.b(pMSDownloadType, vn3Var);
+                        }
+                    }
+                    this.a.remove(al4Var);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.ze2
-    public void w0(Throwable th) {
+    public synchronized void b(al4 al4Var, PMSDownloadType pMSDownloadType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) {
-            H0("updateFailed", false);
-            if (th instanceof PkgDownloadError) {
-                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
-                if (D) {
-                    Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage());
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, al4Var, pMSDownloadType) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + al4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
                 }
-            } else if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 未知错误：" + th.getMessage());
+                Set<c> set = this.a.get(al4Var);
+                if (set != null) {
+                    for (c cVar : set) {
+                        if (cVar != null) {
+                            cVar.a(pMSDownloadType);
+                        }
+                    }
+                    this.a.remove(al4Var);
+                }
+            }
+        }
+    }
+
+    public synchronized void d(al4 al4Var, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, al4Var, cVar) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "registerResultListener:" + al4Var);
+                }
+                if (al4Var != null && cVar != null) {
+                    Set<c> set = this.a.get(al4Var);
+                    if (set != null) {
+                        set.add(cVar);
+                    } else {
+                        HashSet hashSet = new HashSet();
+                        hashSet.add(cVar);
+                        this.a.put(al4Var, hashSet);
+                    }
+                }
             }
         }
     }

@@ -11,8 +11,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vtb;
-import com.baidu.tieba.yxb;
+import com.baidu.tieba.pyb;
+import com.baidu.tieba.s2c;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import java.util.ArrayList;
@@ -64,7 +64,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
 
         @Override // android.widget.AdapterView.OnItemSelectedListener
         public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
-            if (i < yxb.a.a(PluginCenterTopBanner.c(PluginCenterTopBanner.this).getData())) {
+            if (i < s2c.a.a(PluginCenterTopBanner.c(PluginCenterTopBanner.this).getData())) {
                 RadioGroup radioGroup = PluginCenterTopBanner.this.b;
                 if (radioGroup == null) {
                     Intrinsics.throwNpe();
@@ -206,7 +206,7 @@ public final class PluginCenterTopBanner extends RelativeLayout {
     }
 
     public final void g(Context context, AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vtb.Pay_Ui_Banner, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pyb.Pay_Ui_Banner, i, 0);
         this.e = obtainStyledAttributes.getFloat(0, 0.0f);
         obtainStyledAttributes.recycle();
         LayoutInflater.from(context).inflate(R.layout.pay_ui_layout_plugincenter_top_banner, (ViewGroup) this, true);

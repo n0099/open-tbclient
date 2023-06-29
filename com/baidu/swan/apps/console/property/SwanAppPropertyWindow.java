@@ -15,15 +15,15 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.js1;
-import com.baidu.tieba.qp3;
-import com.baidu.tieba.w92;
+import com.baidu.tieba.ms1;
+import com.baidu.tieba.tp3;
+import com.baidu.tieba.z92;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class SwanAppPropertyWindow extends FrameLayout {
-    public static final boolean e = js1.a;
+    public static final boolean e = ms1.a;
     public static Map<String, String> f;
     public b[] a;
     public Map<String, TextView> b;
@@ -103,8 +103,8 @@ public class SwanAppPropertyWindow extends FrameLayout {
     static {
         HashMap hashMap = new HashMap();
         f = hashMap;
-        hashMap.put(w92.q, "api_info_expend");
-        f.put(w92.r, "prelink_info_expend");
+        hashMap.put(z92.q, "api_info_expend");
+        f.put(z92.r, "prelink_info_expend");
     }
 
     public final void g() {
@@ -112,7 +112,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
             Log.d("SwanAppPropertyWindow", "Start system monitor");
         }
         if (this.d == null) {
-            this.d = w92.g().h();
+            this.d = z92.g().h();
         }
         if (this.c == null) {
             c cVar = new c(this, null);
@@ -126,7 +126,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
             Log.d("SwanAppPropertyWindow", "Stop system monitor");
         }
         if (this.d != null) {
-            w92.g().i();
+            z92.g().i();
             this.d = null;
         }
         c cVar = this.c;
@@ -150,21 +150,21 @@ public class SwanAppPropertyWindow extends FrameLayout {
 
     public SwanAppPropertyWindow(Context context) {
         super(context);
-        this.a = new b[]{new b("对应开发者平台指标"), new b(w92.m, "上屏时长：%s ms"), new b(w92.k, "加载总时长(老指标)：%s ms"), new b("中间指标"), new b(w92.l, "下载耗时：%s ms"), new b(w92.j, "页面切换耗时：%s ms"), new b(w92.n, "初次渲染耗时：%s ms"), new b(w92.o, "再次渲染耗时：%s ms"), new b("frame", "帧率：%s fps"), new b("其他"), new b("cpu", "CPU：%s"), new b("mem", "内存：%sm"), new b(w92.p, "数据缓存：%s B"), new b("prelink_info_expend", "预连接调用情况"), new b(w92.r, "%s"), new b("api_info_expend", "启动过程API调用"), new b(w92.q, "%s")};
+        this.a = new b[]{new b("对应开发者平台指标"), new b(z92.m, "上屏时长：%s ms"), new b(z92.k, "加载总时长(老指标)：%s ms"), new b("中间指标"), new b(z92.l, "下载耗时：%s ms"), new b(z92.j, "页面切换耗时：%s ms"), new b(z92.n, "初次渲染耗时：%s ms"), new b(z92.o, "再次渲染耗时：%s ms"), new b("frame", "帧率：%s fps"), new b("其他"), new b("cpu", "CPU：%s"), new b("mem", "内存：%sm"), new b(z92.p, "数据缓存：%s B"), new b("prelink_info_expend", "预连接调用情况"), new b(z92.r, "%s"), new b("api_info_expend", "启动过程API调用"), new b(z92.q, "%s")};
         this.b = new HashMap(this.a.length);
         d(context);
     }
 
     public SwanAppPropertyWindow(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = new b[]{new b("对应开发者平台指标"), new b(w92.m, "上屏时长：%s ms"), new b(w92.k, "加载总时长(老指标)：%s ms"), new b("中间指标"), new b(w92.l, "下载耗时：%s ms"), new b(w92.j, "页面切换耗时：%s ms"), new b(w92.n, "初次渲染耗时：%s ms"), new b(w92.o, "再次渲染耗时：%s ms"), new b("frame", "帧率：%s fps"), new b("其他"), new b("cpu", "CPU：%s"), new b("mem", "内存：%sm"), new b(w92.p, "数据缓存：%s B"), new b("prelink_info_expend", "预连接调用情况"), new b(w92.r, "%s"), new b("api_info_expend", "启动过程API调用"), new b(w92.q, "%s")};
+        this.a = new b[]{new b("对应开发者平台指标"), new b(z92.m, "上屏时长：%s ms"), new b(z92.k, "加载总时长(老指标)：%s ms"), new b("中间指标"), new b(z92.l, "下载耗时：%s ms"), new b(z92.j, "页面切换耗时：%s ms"), new b(z92.n, "初次渲染耗时：%s ms"), new b(z92.o, "再次渲染耗时：%s ms"), new b("frame", "帧率：%s fps"), new b("其他"), new b("cpu", "CPU：%s"), new b("mem", "内存：%sm"), new b(z92.p, "数据缓存：%s B"), new b("prelink_info_expend", "预连接调用情况"), new b(z92.r, "%s"), new b("api_info_expend", "启动过程API调用"), new b(z92.q, "%s")};
         this.b = new HashMap(this.a.length);
         d(context);
     }
 
     public SwanAppPropertyWindow(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = new b[]{new b("对应开发者平台指标"), new b(w92.m, "上屏时长：%s ms"), new b(w92.k, "加载总时长(老指标)：%s ms"), new b("中间指标"), new b(w92.l, "下载耗时：%s ms"), new b(w92.j, "页面切换耗时：%s ms"), new b(w92.n, "初次渲染耗时：%s ms"), new b(w92.o, "再次渲染耗时：%s ms"), new b("frame", "帧率：%s fps"), new b("其他"), new b("cpu", "CPU：%s"), new b("mem", "内存：%sm"), new b(w92.p, "数据缓存：%s B"), new b("prelink_info_expend", "预连接调用情况"), new b(w92.r, "%s"), new b("api_info_expend", "启动过程API调用"), new b(w92.q, "%s")};
+        this.a = new b[]{new b("对应开发者平台指标"), new b(z92.m, "上屏时长：%s ms"), new b(z92.k, "加载总时长(老指标)：%s ms"), new b("中间指标"), new b(z92.l, "下载耗时：%s ms"), new b(z92.j, "页面切换耗时：%s ms"), new b(z92.n, "初次渲染耗时：%s ms"), new b(z92.o, "再次渲染耗时：%s ms"), new b("frame", "帧率：%s fps"), new b("其他"), new b("cpu", "CPU：%s"), new b("mem", "内存：%sm"), new b(z92.p, "数据缓存：%s B"), new b("prelink_info_expend", "预连接调用情况"), new b(z92.r, "%s"), new b("api_info_expend", "启动过程API调用"), new b(z92.q, "%s")};
         this.b = new HashMap(this.a.length);
         d(context);
     }
@@ -185,7 +185,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
             } else {
                 textView.setTextAppearance(context, R.style.obfuscated_res_0x7f1001be);
                 textView.setText(bVar.b);
-                int g = qp3.g(5.0f);
+                int g = tp3.g(5.0f);
                 textView.setPadding(0, g, 0, g);
             }
             linearLayout.addView(textView);
@@ -200,7 +200,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
     public final void e(LinearLayout linearLayout, Context context, String str, String str2) {
         String str3;
         ScrollView scrollView = new ScrollView(context);
-        ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, qp3.g(200.0f));
+        ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, tp3.g(200.0f));
         View view2 = (TextView) this.b.get(str2);
         if (view2 != null) {
             linearLayout.removeView(view2);

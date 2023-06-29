@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
+import android.content.Intent;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
-public class pb1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pb1 {
+    void d();
 
-    public static vb1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return vb1.a;
-        }
-        return (vb1) invokeV.objValue;
-    }
+    boolean f();
+
+    @NonNull
+    Activity getActivity();
+
+    @NonNull
+    Intent getIntent();
 }

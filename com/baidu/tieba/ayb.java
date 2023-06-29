@@ -1,144 +1,96 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
 /* loaded from: classes5.dex */
-public class ayb extends Dialog {
+public final class ayb {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public AbsPayMessageReceiver b;
-    public PayFlowType c;
-    public Context d;
 
     /* loaded from: classes5.dex */
-    public class a extends AbsPayMessageReceiver {
+    public static final class a implements etb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ayb this$0;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ayb aybVar, PayFlowType payFlowType) {
-            super(payFlowType);
+        @Override // com.baidu.tieba.etb
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.etb
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aybVar, payFlowType};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((PayFlowType) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.this$0 = aybVar;
-        }
-
-        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
-        public void onAllPayFlowViewRelease() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RLog.info(this.this$0.a, "onAllPayFlowViewRelease");
-                this.this$0.dismiss();
-            }
-        }
-
-        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
-        public void onDialogPayFlowViewRelease() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                RLog.info(this.this$0.a, "onDialogPayFlowViewRelease");
-                this.this$0.dismiss();
-            }
-        }
-
-        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
-        public void onWalletPayFlowViewRelease() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                RLog.info(this.this$0.a, "onWalletPayFlowViewRelease");
-                this.this$0.dismiss();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ayb(Context context, int i, PayFlowType payFlowType) {
-        super(context, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), payFlowType};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947632927, "Lcom/baidu/tieba/ayb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947632927, "Lcom/baidu/tieba/ayb;");
                 return;
             }
         }
-        this.a = "AutoHideSoftInputDialog";
-        this.a += "@" + hashCode();
-        this.d = context;
-        this.c = payFlowType;
+        a = new a();
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    public static etb b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            RLog.info(this.a, "onCreate");
-            this.b = new a(this, this.c);
-            zwb.d(getContext(), this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return wxb.a();
         }
+        return (etb) invokeV.objValue;
     }
 
-    @Override // android.app.Dialog, android.content.DialogInterface
-    public void dismiss() {
+    public static etb c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View currentFocus = getCurrentFocus();
-            if (currentFocus instanceof EditText) {
-                ((InputMethodManager) getContext().getSystemService("input_method")).hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
-            }
-            if (kxb.a.a(this.d)) {
-                super.dismiss();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
+        return (etb) invokeV.objValue;
     }
 
-    @Override // android.app.Dialog
-    public void onStop() {
+    public static etb a(ktb ktbVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onStop();
-            RLog.info(this.a, MissionEvent.MESSAGE_STOP);
-            if (this.b != null) {
-                zwb.e(getContext(), this.b);
-                this.b = null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ktbVar)) == null) {
+            return wxb.b(ktbVar);
         }
+        return (etb) invokeL.objValue;
     }
 }

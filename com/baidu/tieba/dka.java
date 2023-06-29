@@ -1,226 +1,280 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.eka;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
+import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class dka {
+public class dka extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final eja b;
-    @NonNull
-    public final EditorTools c;
-    @NonNull
-    public final xha d;
-    @NonNull
-    public final pka e;
-    @NonNull
-    public final tka f;
-    @NonNull
-    public final WriteData g;
+    public List<QmStickerItem> a;
+    public RecordEffectLayout.i b;
 
-    public dka(@NonNull TbPageContext<?> tbPageContext, @NonNull eja ejaVar, @NonNull EditorTools editorTools, @NonNull xha xhaVar, @NonNull pka pkaVar, @NonNull tka tkaVar, @NonNull WriteData writeData) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ dka b;
+
+        public a(dka dkaVar, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dkaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dkaVar;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !((QmStickerItem) this.b.a.get(this.a * 2)).isSelect && this.b.b != null) {
+                this.b.b.a((QmStickerItem) this.b.a.get(this.a * 2));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ dka b;
+
+        public b(dka dkaVar, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dkaVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dkaVar;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !((QmStickerItem) this.b.a.get((this.a * 2) + 1)).isSelect && this.b.b != null) {
+                this.b.b.a((QmStickerItem) this.b.a.get((this.a * 2) + 1));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public RelativeLayout a;
+        public RelativeLayout b;
+        public TbImageView c;
+        public TbImageView d;
+        public TbImageView e;
+        public TbImageView f;
+        public ProgressBar g;
+        public ProgressBar h;
+        public ImageView i;
+
+        public c(dka dkaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dkaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public dka() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ejaVar, editorTools, xhaVar, pkaVar, tkaVar, writeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        this.b = ejaVar;
-        this.c = editorTools;
-        this.d = xhaVar;
-        this.e = pkaVar;
-        this.f = tkaVar;
-        this.g = writeData;
     }
 
-    public List<ija<?>> a(List<eka.a> list) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (eka.a aVar : list) {
-                ija<?> b = b(aVar);
-                if (b != null) {
-                    b.h(aVar.b, this.g);
-                    arrayList.add(b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.isEmpty(this.a)) {
+                return 0;
+            }
+            return (int) Math.ceil(this.a.size() / 2.0d);
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public QmStickerItem getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (QmStickerItem) ListUtils.getItem(this.a, i);
+        }
+        return (QmStickerItem) invokeI.objValue;
+    }
+
+    public void d(List<QmStickerItem> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    public void e(RecordEffectLayout.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
+            this.b = iVar;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0197, (ViewGroup) null);
+                cVar = new c(this);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925b8);
+                cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09046d);
+                cVar.a = (RelativeLayout) view2.findViewById(R.id.top_container);
+                cVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091940);
+                cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09044a);
+                cVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925b3);
+                cVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090465);
+                cVar.g = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0925b5);
+                cVar.h = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090469);
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            cVar.c.setAutoChangeStyle(false);
+            cVar.d.setAutoChangeStyle(false);
+            cVar.e.setAutoChangeStyle(false);
+            cVar.f.setAutoChangeStyle(false);
+            cVar.c.setGifIconSupport(false);
+            cVar.d.setGifIconSupport(false);
+            int i2 = i * 2;
+            if (ListUtils.getItem(this.a, i2) instanceof QmStickerItem) {
+                cVar.a.setVisibility(0);
+                if (this.a.get(i2).id == -1) {
+                    cVar.i.setVisibility(0);
+                    cVar.c.setVisibility(8);
+                    cVar.i.setImageResource(R.drawable.obfuscated_res_0x7f080d29);
+                } else {
+                    cVar.i.setVisibility(8);
+                    cVar.c.setVisibility(0);
+                    cVar.c.N(this.a.get(i2).bgurl, 10, true);
                 }
+                cVar.a.setOnClickListener(new a(this, i));
+                if (this.a.get(i2).isDownLoading) {
+                    cVar.g.setVisibility(0);
+                    cVar.e.setVisibility(8);
+                } else {
+                    cVar.g.setVisibility(8);
+                    if (this.a.get(i2).isLocalSource) {
+                        cVar.e.setVisibility(8);
+                    } else {
+                        cVar.e.setVisibility(0);
+                    }
+                }
+                if (this.a.get(i2).isSelect) {
+                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081341);
+                } else {
+                    cVar.a.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.a.setVisibility(8);
             }
-            return arrayList;
+            int i3 = i2 + 1;
+            if (ListUtils.getItem(this.a, i3) instanceof QmStickerItem) {
+                cVar.b.setVisibility(0);
+                cVar.d.N(this.a.get(i3).bgurl, 10, true);
+                cVar.b.setOnClickListener(new b(this, i));
+                if (this.a.get(i3).isDownLoading) {
+                    cVar.h.setVisibility(0);
+                    cVar.f.setVisibility(8);
+                } else {
+                    cVar.h.setVisibility(8);
+                    if (this.a.get(i3).isLocalSource) {
+                        cVar.f.setVisibility(8);
+                    } else {
+                        cVar.f.setVisibility(0);
+                    }
+                }
+                if (this.a.get(i3).isSelect) {
+                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081341);
+                } else {
+                    cVar.b.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.b.setVisibility(8);
+            }
+            return view2;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public ija<?> b(eka.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar == null) {
-                return null;
-            }
-            String str = aVar.a;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            switch (hashCode) {
-                case 3118:
-                    if (str.equals("c1")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 3119:
-                    if (str.equals("c2")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 3120:
-                    if (str.equals("c3")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 3121:
-                    if (str.equals("c4")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3122:
-                    if (str.equals("c5")) {
-                        c = '\r';
-                        break;
-                    }
-                    break;
-                case 3123:
-                    if (str.equals("c6")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 3124:
-                    if (str.equals("c7")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3125:
-                    if (str.equals("c8")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case 3126:
-                    if (str.equals("c9")) {
-                        c = 14;
-                        break;
-                    }
-                    break;
-                default:
-                    switch (hashCode) {
-                        case 96706:
-                            if (str.equals("c10")) {
-                                c = 15;
-                                break;
-                            }
-                            break;
-                        case 96707:
-                            if (str.equals("c11")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 96708:
-                            if (str.equals("c12")) {
-                                c = '\t';
-                                break;
-                            }
-                            break;
-                        case 96709:
-                            if (str.equals("c13")) {
-                                c = '\n';
-                                break;
-                            }
-                            break;
-                        case 96710:
-                            if (str.equals("c14")) {
-                                c = 0;
-                                break;
-                            }
-                            break;
-                        case 96711:
-                            if (str.equals("c15")) {
-                                c = 1;
-                                break;
-                            }
-                            break;
-                        case 96712:
-                            if (str.equals("c16")) {
-                                c = '\b';
-                                break;
-                            }
-                            break;
-                    }
-            }
-            switch (c) {
-                case 0:
-                    return lka.a(this.a);
-                case 1:
-                    return lka.b(this.a);
-                case 2:
-                    return lka.c(this.a, this.b, this.c, this.d, this.e);
-                case 3:
-                    return lka.e(this.a);
-                case 4:
-                    return lka.f(this.a);
-                case 5:
-                    return lka.g(this.a);
-                case 6:
-                    return lka.h(this.a, this.f);
-                case 7:
-                    return lka.i(this.a);
-                case '\b':
-                    return lka.j(this.a);
-                case '\t':
-                    return lka.k(this.a);
-                case '\n':
-                    return lka.l(this.a);
-                case 11:
-                    return lka.m(this.a, this.b, this.c, this.f, this.d, this.e);
-                case '\f':
-                    return lka.n(this.a, this.b, this.d, this.e);
-                case '\r':
-                    return lka.o(this.a);
-                case 14:
-                    return lka.p(this.a);
-                case 15:
-                    return lka.q(this.a);
-                default:
-                    return null;
-            }
-        }
-        return (ija) invokeL.objValue;
+        return (View) invokeILL.objValue;
     }
 }

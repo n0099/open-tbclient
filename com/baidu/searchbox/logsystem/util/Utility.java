@@ -17,7 +17,6 @@ import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
@@ -115,7 +114,7 @@ public class Utility {
     public static String getMemoryStats(@NonNull Debug.MemoryInfo memoryInfo) {
         Iterator<Map.Entry<String, String>> it = memoryInfo.getMemoryStats().entrySet().iterator();
         if (!it.hasNext()) {
-            return StringUtil.EMPTY_ARRAY;
+            return "{}";
         }
         StringBuilder sb = new StringBuilder();
         sb.append('{');

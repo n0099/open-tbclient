@@ -1,22 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
+import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class we5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public yc5 a;
+    public b b;
     public int c;
-    public int[] d;
+    public int d;
+    public ChannelIconConfigFinalData e;
+    public HttpMessageListener f;
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(boolean z, yc5 yc5Var);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ we5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(we5 we5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {we5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = we5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ChannelConfigResponseMessage)) {
+                ChannelConfigResponseMessage channelConfigResponseMessage = (ChannelConfigResponseMessage) httpResponsedMessage;
+                this.a.a = channelConfigResponseMessage.getData();
+                if (this.a.b != null) {
+                    this.a.b.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
+                }
+                if (channelConfigResponseMessage.isSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921493, null));
+                }
+            }
+        }
+    }
 
     public we5() {
         Interceptable interceptable = $ic;
@@ -28,73 +84,52 @@ public class we5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = new a(this, CmdConfigHttp.CMD_GET_CHANNEL_CONFIG);
+        MessageManager.getInstance().registerListener(this.f);
+        this.c = r95.p().q("key_common_category_version", 0);
+        this.d = r95.p().q("key_special_category_version", 0);
     }
 
-    public int[] a() {
+    public ChannelIconConfigFinalData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                f(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            ChannelIconConfigFinalData channelIconConfigFinalData = this.e;
+            if (channelIconConfigFinalData != null) {
+                return channelIconConfigFinalData;
             }
+            if (this.a == null) {
+                return null;
+            }
+            ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
+            yc5 yc5Var = this.a;
+            if (yc5Var != null && yc5Var.b() != null && this.d < this.a.b().e()) {
+                channelIconConfigFinalData2.setIcon(this.a.b().a());
+                channelIconConfigFinalData2.setPopText(this.a.b().b());
+                channelIconConfigFinalData2.setTabCode(this.a.b().c());
+                channelIconConfigFinalData2.setTid(this.a.b().d());
+                channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
+            } else {
+                yc5 yc5Var2 = this.a;
+                if (yc5Var2 != null && yc5Var2.a() > 0 && this.c < this.a.a()) {
+                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
+                } else {
+                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);
+                }
+            }
+            this.e = channelIconConfigFinalData2;
+            return channelIconConfigFinalData2;
         }
+        return (ChannelIconConfigFinalData) invokeV.objValue;
     }
 
-    public void f(JSONObject jSONObject) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG));
         }
-        this.a = jSONObject.optInt("conn_conf");
-        this.b = jSONObject.optInt("continuous_fail_count");
-        this.c = jSONObject.optInt("restart_time_interval");
-        JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
-        if (optJSONArray != null) {
-            this.d = new int[optJSONArray.length()];
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                this.d[i] = optJSONArray.optInt(i);
-            }
-            return;
-        }
-        this.d = new int[0];
     }
 }

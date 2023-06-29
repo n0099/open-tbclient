@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.kwad.sdk.utils.bg;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c extends View implements bg.a {
     public View Kr;
     public final bg Ks;
@@ -19,7 +19,7 @@ public final class c extends View implements bg.a {
     public boolean Ou;
     public boolean Ov;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void em();
     }

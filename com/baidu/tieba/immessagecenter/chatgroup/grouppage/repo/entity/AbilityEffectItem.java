@@ -2,7 +2,7 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.a;
+import com.baidu.tieba.b;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -75,7 +75,7 @@ public final class AbilityEffectItem implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.abilityItem.hashCode() * 31) + a.a(this.buttonHideTime) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.abilityItem.hashCode() * 31) + b.a(this.buttonHideTime) : invokeV.intValue;
     }
 
     public String toString() {

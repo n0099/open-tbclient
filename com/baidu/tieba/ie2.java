@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
 public class ie2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ie2 b;
+    public static final boolean a;
+    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
-    public be2 a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,52 +27,52 @@ public class ie2 {
                 return;
             }
         }
-        b = new ie2();
+        a = ms1.a;
+        b = new AtomicInteger(0);
     }
 
-    public ie2() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && str.startsWith("master")) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static ie2 b() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+            String str = "master";
+            if (!cg2.h()) {
+                return "master";
+            }
+            int andIncrement = b.getAndIncrement();
+            if (andIncrement >= 1) {
+                str = "master" + andIncrement;
+            }
+            if (a) {
+                Log.i("MasterIdGenerator", "next master id - " + str);
+            }
+            return str;
         }
-        return (ie2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public be2 a() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            int andSet = b.getAndSet(0);
+            if (a) {
+                Log.i("MasterIdGenerator", "last master id - " + andSet);
+            }
+            return andSet;
         }
-        return (be2) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public void c(be2 be2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, be2Var) == null) {
-            this.a = be2Var;
-        }
+        return invokeV.intValue;
     }
 }

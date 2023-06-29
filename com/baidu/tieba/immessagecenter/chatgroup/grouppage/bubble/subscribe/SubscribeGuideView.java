@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -119,7 +119,7 @@ public final class SubscribeGuideView extends RelativeLayout {
                 imageView = null;
             }
             imageView.setId(R.id.arrow_icon);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(wi.g(getContext(), R.dimen.tbds42), wi.g(getContext(), R.dimen.tbds13));
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(xi.g(getContext(), R.dimen.tbds42), xi.g(getContext(), R.dimen.tbds13));
             this.b = layoutParams2;
             if (layoutParams2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("arrowLp");
@@ -131,7 +131,7 @@ public final class SubscribeGuideView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("arrowLp");
                 layoutParams3 = null;
             }
-            layoutParams3.rightMargin = wi.g(getContext(), R.dimen.M_H_X007);
+            layoutParams3.rightMargin = xi.g(getContext(), R.dimen.M_H_X007);
             ImageView imageView2 = this.a;
             if (imageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("arrowIcon");
@@ -168,7 +168,7 @@ public final class SubscribeGuideView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("tipTextView");
                 textView2 = null;
             }
-            textView2.setPadding(wi.g(getContext(), R.dimen.M_W_X005), wi.g(getContext(), R.dimen.M_H_X003), wi.g(getContext(), R.dimen.M_W_X005), wi.g(getContext(), R.dimen.M_H_X003));
+            textView2.setPadding(xi.g(getContext(), R.dimen.M_W_X005), xi.g(getContext(), R.dimen.M_H_X003), xi.g(getContext(), R.dimen.M_W_X005), xi.g(getContext(), R.dimen.M_H_X003));
             TextView textView3 = this.c;
             if (textView3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("tipTextView");
@@ -207,7 +207,7 @@ public final class SubscribeGuideView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            p75 d = p75.d(textView);
+            s75 d = s75.d(textView);
             d.x(R.color.CAM_X0101);
             d.C(R.dimen.T_X09);
             d.D(R.string.F_X01);

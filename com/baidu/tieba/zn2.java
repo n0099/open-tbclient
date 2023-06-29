@@ -7,14 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class zn2 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    @V8JavascriptField
+    public static final String USER_DATA_PATH = "bdfile://usr";
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public long createTime;
-    @V8JavascriptField
-    public String filePath;
-    @V8JavascriptField
-    public long size;
 
     public zn2() {
         Interceptable interceptable = $ic;

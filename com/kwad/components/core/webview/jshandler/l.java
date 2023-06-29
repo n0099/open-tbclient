@@ -13,13 +13,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class l implements com.kwad.sdk.core.webview.kwai.a {
     public final boolean LB = false;
     public final com.kwad.sdk.core.webview.b Lk;
     public com.kwad.sdk.core.network.m<com.kwad.components.core.k.a, AdResultData> fr;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public List<AdTemplate> LE;
 

@@ -2,11 +2,11 @@ package com.kwad.components.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c implements com.kwad.sdk.core.webview.kwai.a {
     public a Lh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onPlayAgainClick();
     }

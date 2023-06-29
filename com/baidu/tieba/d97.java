@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardMultiLinkView;
+import com.baidu.tieba.feed.component.CardAppView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d97 extends y77<CardMultiLinkView, n47> {
+public class d97 extends d87<CardAppView, n47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class d97 extends y77<CardMultiLinkView, n47> {
         }
     }
 
-    @Override // com.baidu.tieba.y77, com.baidu.tieba.n87
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.s87
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            v97.j(a);
+            aa7.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n87
+    @Override // com.baidu.tieba.s87
     /* renamed from: e */
-    public void b(@NonNull CardMultiLinkView cardMultiLinkView, @NonNull n47 n47Var) {
+    public void b(@NonNull CardAppView cardAppView, @NonNull n47 n47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMultiLinkView, n47Var) == null) {
-            cardMultiLinkView.a(n47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAppView, n47Var) == null) {
+            cardAppView.a(n47Var);
         }
     }
 }

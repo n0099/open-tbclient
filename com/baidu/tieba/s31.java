@@ -1,72 +1,107 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class s31 extends r31 {
+public class s31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public s31() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a extends pt0<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t31 a;
+
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+
+        public a(t31 t31Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t31Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t31Var;
+        }
+
+        @Override // com.baidu.tieba.nt0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.c()) {
+                r31.b(this.a.a(i, exc.getMessage()));
+            }
+        }
+
+        @Override // com.baidu.tieba.ot0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ot0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && this.a.c()) {
+                r31.b(this.a.a(i, "success"));
             }
         }
     }
 
-    @Override // com.baidu.tieba.u31
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public static void a(@Nullable t31 t31Var) {
+        s51 s51Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String sb = this.a.toString();
-            if (!TextUtils.isEmpty(sb) && sb.contains("ci") && sb.contains("ext")) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(65536, null, t31Var) == null) && t31Var != null && !TextUtils.isEmpty(t31Var.d())) {
+            wt0 wt0Var = new wt0();
+            wt0Var.l(t31Var.d());
+            wt0Var.g(3000);
+            wt0Var.c();
+            if (!TextUtils.isEmpty(t31Var.e)) {
+                wt0Var.d("User-Agent", t31Var.e);
+            } else {
+                wt0Var.d("User-Agent", ok0.e());
             }
-            return false;
+            dt0.b().a().a(wt0Var, new a(t31Var));
+            if (m51.a && (s51Var = (s51) l51.a().a(s51.class)) != null) {
+                s51Var.b(new n51("计费", "", "并行计费"));
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public s31 e(String str) {
-        InterceptResult invokeL;
+    public static void b(@Nullable String str) {
+        s51 s51Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("cr", str);
-            return this;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (s31) invokeL.objValue;
-    }
-
-    public s31 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("ci", str);
-            return this;
+        wt0 wt0Var = new wt0();
+        wt0Var.l(str);
+        wt0Var.g(3000);
+        wt0Var.d("User-Agent", ok0.e());
+        wt0Var.c();
+        dt0.b().a().a(wt0Var, null);
+        if (m51.a && (s51Var = (s51) l51.a().a(s51.class)) != null) {
+            s51Var.b(new n51("计费", "", "并行计费"));
         }
-        return (s31) invokeL.objValue;
-    }
-
-    public s31 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            d("ext", str);
-            return this;
-        }
-        return (s31) invokeL.objValue;
     }
 }

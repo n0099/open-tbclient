@@ -1,34 +1,46 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.person.PersonMoreData;
-import com.baidu.tieba.person.PersonMoreItemData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class xd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yd9 a;
-    public TbPageContext b;
-    public List<wn> c;
-    public PersonMoreData d;
+    @NonNull
+    public View a;
+    public ViewGroup b;
+    public EMTextView c;
+    @NonNull
+    public nx5<String> d;
+    public boolean e;
 
-    public xd9(TbPageContext tbPageContext, Bundle bundle, lo6<ye9> lo6Var) {
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(boolean z);
+    }
+
+    public xd9(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bundle, lo6Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,56 +50,98 @@ public class xd9 {
                 return;
             }
         }
-        this.b = tbPageContext;
-        yd9 yd9Var = new yd9(tbPageContext);
-        this.a = yd9Var;
-        yd9Var.f(lo6Var);
-        a(bundle);
+        this.d = nx5.b();
+        this.e = false;
+        this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e7, (ViewGroup) null);
+        b();
     }
 
-    public final void a(Bundle bundle) {
+    public void a(@NonNull BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && (bundle.get(PersonMoreData.URL_MAPS) instanceof ArrayList)) {
-            this.d = new PersonMoreData();
-            this.d.mUrlMaps.addAll(DataExt.toEntityList(bundle.getStringArrayList(PersonMoreData.URL_MAPS).toString(), PersonMoreItemData.class));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeListView) == null) && !this.e) {
+            this.e = true;
+            this.a.setVisibility(0);
+            bdTypeListView.w(this.a, 1);
+        }
+    }
+
+    public void d(@NonNull BdTypeListView bdTypeListView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && this.e) {
+            this.e = false;
+            this.a.setVisibility(8);
+            bdTypeListView.removeHeaderView(this.a);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new ArrayList();
-            PersonMoreData personMoreData = this.d;
-            if (personMoreData != null && !ListUtils.isEmpty(personMoreData.mUrlMaps)) {
-                for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
-                    if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                        ye9 ye9Var = new ye9();
-                        ye9Var.e = personMoreItemData.mName;
-                        ye9Var.a = 36;
-                        ye9Var.f = personMoreItemData.mUrl;
-                        ye9Var.j = personMoreItemData.mId;
-                        this.c.add(ye9Var);
-                    }
-                }
-            }
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0907a1);
+            EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0926f4);
+            this.c = eMTextView;
+            s75 d = s75.d(eMTextView);
+            d.z(R.dimen.M_H_X003);
+            d.x(R.color.CAM_X0109);
+            d.D(R.string.F_X01);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d0791);
-            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b94));
-            b();
-            this.a.e(this.c);
+            s75 d = s75.d(this.b);
+            d.o(R.string.J_X05);
+            d.f(R.color.CAM_X0206);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
         }
     }
 
-    public void d() {
-        yd9 yd9Var;
+    public void e(@NonNull u89 u89Var, int i, @Nullable a aVar) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (yd9Var = this.a) != null) {
-            yd9Var.d();
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, u89Var, i, aVar) == null) {
+            boolean z3 = true;
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (i == 25) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z && !z2) {
+                z3 = false;
+            }
+            boolean t0 = u89Var.t0(z3);
+            if (t0) {
+                this.c.setText(u89Var.x());
+                this.a.setVisibility(0);
+                f(u89Var.P(), u89Var.l(), u89Var.m(), z, z2);
+            } else {
+                this.a.setVisibility(8);
+            }
+            if (aVar != null) {
+                aVar.a(t0);
+            }
         }
+    }
+
+    public final void f(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || !this.d.a(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR)) {
+            return;
+        }
+        int i = 2;
+        if (z) {
+            i = 1;
+        }
+        if (z2) {
+            i = 3;
+        }
+        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR).param("tid", str).param("fid", str2).param("fname", str3).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", i));
     }
 }

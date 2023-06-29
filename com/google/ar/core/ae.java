@@ -1,11 +1,11 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.s8b;
+import com.baidu.tieba.idb;
 import com.google.ar.core.Session;
 /* loaded from: classes9.dex */
 public enum ae extends Session.c {
     @Override // com.google.ar.core.Session.c
-    public final s8b a(long j, Session session) {
+    public final idb a(long j, Session session) {
         return null;
     }
 

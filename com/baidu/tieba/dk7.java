@@ -1,39 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class dk7 extends fn5 {
+public class dk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsGameRecommendFragment c;
+    public l9 a;
+    public BdTypeListView b;
+    public final List<kn> c;
+    public ck7 d;
 
-    @Override // com.baidu.tieba.fn5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public dk7(String str, String str2) {
+    public dk7(l9 l9Var, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {l9Var, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,34 +33,45 @@ public class dk7 extends fn5 {
                 return;
             }
         }
-        this.c = FrsGameRecommendFragment.L1(str, str2);
-        b().a = this.c;
+        this.c = new ArrayList();
+        this.a = l9Var;
+        this.b = bdTypeListView;
+        a();
     }
 
-    @Override // com.baidu.tieba.fn5
-    public gn5 a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gn5 gn5Var = new gn5();
-            gn5Var.e = 11;
-            gn5Var.b = R.string.obfuscated_res_0x7f0f080b;
-            gn5Var.i = gn5.k;
-            return gn5Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ck7 ck7Var = new ck7((TbPageContext) this.a, rj7.b);
+            this.d = ck7Var;
+            this.c.add(ck7Var);
+            this.b.addAdapters(this.c);
         }
-        return (gn5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fn5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof on)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+    }
+
+    public void c(ho hoVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hoVar) == null) {
+            for (kn knVar : this.c) {
+                if (knVar != null) {
+                    knVar.setOnAdapterItemClickListener(hoVar);
+                }
+            }
+        }
+    }
+
+    public void d(List<xn> list) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (bdTypeListView = this.b) != null) {
+            bdTypeListView.setData(list);
+        }
     }
 }

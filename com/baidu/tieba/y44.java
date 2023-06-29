@@ -1,73 +1,122 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.lb2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class y44 {
+public class y44 implements s04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, f23 f23Var) {
+    public y44() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.s04
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b54.b();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s04
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
+            SwanAppActivity activity = px2.T().getActivity();
+            if (activity != null) {
+                activity.setRequestedOrientation(1);
+            }
+            px2.T().V().g(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.s04
+    public void a(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            lb2 U = px2.T().U();
+            Context appContext = AppRuntime.getAppContext();
+            if (U == null) {
+                if (appContext != null) {
+                    ub3.f(appContext, R.string.obfuscated_res_0x7f0f01d2).G();
+                    return;
+                }
+                return;
+            }
+            c23 d = c23.d(str, str);
+            d.h(jSONObject.toString());
+            lb2.b i = U.i("adLanding");
+            i.n(lb2.g, lb2.i);
+            i.k("adLanding", d).b();
+        }
+    }
+
+    @Override // com.baidu.tieba.s04
+    public boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            return b54.c(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s04
+    public boolean removeView(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+            return b54.d(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s04
+    public boolean d(View view2, mz3 mz3Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, f23Var)) == null) {
-            qt1 V = mx2.T().V();
-            if (V != null && V.c(view2, f23Var)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, mz3Var)) == null) {
+            return b54.a(view2, new i23(mz3Var.c(), mz3Var.d(), mz3Var.e(), mz3Var.b()));
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s04
+    public boolean f(View view2, mz3 mz3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, mz3Var)) == null) {
+            tt1 V = px2.T().V();
+            if (V != null && V.a(view2, new i23(mz3Var.c(), mz3Var.d(), mz3Var.e(), mz3Var.b()))) {
                 return true;
             }
             return false;
         }
         return invokeLL.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            qt1 V = mx2.T().V();
-            if (V == null || !V.b() || V.h()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            qt1 V = mx2.T().V();
-            if (V != null && V.d(view2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            qt1 V = mx2.T().V();
-            if (V == null) {
-                return false;
-            }
-            if (V.h()) {
-                SwanAppActivity activity = mx2.T().getActivity();
-                if (activity != null) {
-                    activity.setRequestedOrientation(0);
-                }
-                V.g(false);
-            }
-            return V.removeView(view2);
-        }
-        return invokeL.booleanValue;
     }
 }

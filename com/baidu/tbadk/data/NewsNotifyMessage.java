@@ -1,13 +1,17 @@
 package com.baidu.tbadk.data;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ChatSysNotifyPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
@@ -29,6 +33,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         public int i;
         public int j;
         public int k;
+        public List<ChatSysNotifyPojo> l;
 
         public a(NewsNotifyMessage newsNotifyMessage) {
             Interceptable interceptable = $ic;
@@ -56,6 +61,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
             this.i = 0;
             this.j = 0;
             this.k = 0;
+            this.l = new ArrayList();
         }
     }
 
@@ -107,10 +113,20 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         this.mData.h = i7;
     }
 
-    public int getMsgAgree() {
+    @NonNull
+    public List<ChatSysNotifyPojo> getChatSysNotifys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mData.l;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int getMsgAgree() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData.a;
         }
         return invokeV.intValue;
@@ -119,7 +135,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgAtme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData.c;
         }
         return invokeV.intValue;
@@ -128,7 +144,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgBookmark() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mData.f;
         }
         return invokeV.intValue;
@@ -137,7 +153,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgChat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mData.d;
         }
         return invokeV.intValue;
@@ -146,7 +162,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgFans() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mData.e;
         }
         return invokeV.intValue;
@@ -155,7 +171,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgGiftNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mData.g;
         }
         return invokeV.intValue;
@@ -164,7 +180,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgInvitation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mData.k;
         }
         return invokeV.intValue;
@@ -173,7 +189,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgOfficialMerge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mData.j;
         }
         return invokeV.intValue;
@@ -182,7 +198,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgPrivateChat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mData.h;
         }
         return invokeV.intValue;
@@ -191,7 +207,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgReplyme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mData.b;
         }
         return invokeV.intValue;
@@ -200,85 +216,92 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public int getMsgStrangerChat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.mData.i;
         }
         return invokeV.intValue;
     }
 
+    public void setChatSysNotitys(@NonNull List<ChatSysNotifyPojo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.mData.l.addAll(list);
+        }
+    }
+
     public void setMsgAgree(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.mData.a = i;
         }
     }
 
     public void setMsgAtme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.mData.c = i;
         }
     }
 
     public void setMsgBookmark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.mData.f = i;
         }
     }
 
     public void setMsgChat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.mData.d = i;
         }
     }
 
     public void setMsgFans(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.mData.e = i;
         }
     }
 
     public void setMsgGiftNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.mData.g = i;
         }
     }
 
     public void setMsgInvitation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.mData.k = i;
         }
     }
 
     public void setMsgOfficialMerge(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             this.mData.j = i;
         }
     }
 
     public void setMsgPrivateChat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             this.mData.h = i;
         }
     }
 
     public void setMsgReplyme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             this.mData.b = i;
         }
     }
 
     public void setMsgStrangerChat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             this.mData.i = i;
         }
     }

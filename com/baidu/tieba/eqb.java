@@ -1,348 +1,258 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.job;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.util.RxThreadFactory;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes5.dex */
-public final class eqb extends job implements kqb {
+public final class eqb {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
-    public static final c d;
-    public static final b e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadFactory a;
-    public final AtomicReference<b> b;
+    public final byte[] a;
+    public final int[] b;
+    public final lqb c;
+    public InputStream d;
+    public boolean e;
+    public long f;
+    public int g;
+    public int h;
+    public int i;
 
-    /* loaded from: classes5.dex */
-    public static final class a extends job.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final uqb a;
-        public final dtb b;
-        public final uqb c;
-        public final c d;
-
-        /* renamed from: com.baidu.tieba.eqb$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0278a implements tob {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ tob a;
-            public final /* synthetic */ a b;
-
-            public C0278a(a aVar, tob tobVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, tobVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = tobVar;
-            }
-
-            @Override // com.baidu.tieba.tob
-            public void call() {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
-                    return;
-                }
-                this.a.call();
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class b implements tob {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ tob a;
-            public final /* synthetic */ a b;
-
-            public b(a aVar, tob tobVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, tobVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = tobVar;
-            }
-
-            @Override // com.baidu.tieba.tob
-            public void call() {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
-                    return;
-                }
-                this.a.call();
-            }
-        }
-
-        public a(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new uqb();
-            dtb dtbVar = new dtb();
-            this.b = dtbVar;
-            this.c = new uqb(this.a, dtbVar);
-            this.d = cVar;
-        }
-
-        @Override // com.baidu.tieba.job.a
-        public nob b(tob tobVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tobVar)) == null) {
-                if (isUnsubscribed()) {
-                    return gtb.c();
-                }
-                return this.d.i(new C0278a(this, tobVar), 0L, null, this.a);
-            }
-            return (nob) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.job.a
-        public nob c(tob tobVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tobVar, Long.valueOf(j), timeUnit})) == null) {
-                if (isUnsubscribed()) {
-                    return gtb.c();
-                }
-                return this.d.j(new b(this, tobVar), j, timeUnit, this.b);
-            }
-            return (nob) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.nob
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c.isUnsubscribed();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.nob
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.c.unsubscribe();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final c[] b;
-        public long c;
-
-        public b(ThreadFactory threadFactory, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {threadFactory, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = new c[i];
-            for (int i4 = 0; i4 < i; i4++) {
-                this.b[i4] = new c(threadFactory);
-            }
-        }
-
-        public c a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.a;
-                if (i == 0) {
-                    return eqb.d;
-                }
-                c[] cVarArr = this.b;
-                long j = this.c;
-                this.c = 1 + j;
-                return cVarArr[(int) (j % i)];
-            }
-            return (c) invokeV.objValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                for (c cVar : this.b) {
-                    cVar.unsubscribe();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c extends jqb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ThreadFactory threadFactory) {
-            super(threadFactory);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {threadFactory};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((ThreadFactory) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947744403, "Lcom/baidu/tieba/eqb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947744403, "Lcom/baidu/tieba/eqb;");
-                return;
-            }
-        }
-        int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        if (intValue <= 0 || intValue > availableProcessors) {
-            intValue = availableProcessors;
-        }
-        c = intValue;
-        c cVar = new c(RxThreadFactory.NONE);
-        d = cVar;
-        cVar.unsubscribe();
-        e = new b(null, 0);
-    }
-
-    public eqb(ThreadFactory threadFactory) {
+    public eqb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = threadFactory;
-        this.b = new AtomicReference<>(e);
-        start();
+        this.a = new byte[4160];
+        this.b = new int[1040];
+        this.c = new lqb();
+        this.i = 0;
     }
 
-    public nob a(tob tobVar) {
-        InterceptResult invokeL;
+    public static void a(eqb eqbVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tobVar)) == null) {
-            return this.b.get().a().h(tobVar, -1L, TimeUnit.NANOSECONDS);
+        if ((interceptable != null && interceptable.invokeLZ(65537, null, eqbVar, z) != null) || !eqbVar.e) {
+            return;
         }
-        return (nob) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.job
-    public job.a createWorker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new a(this.b.get().a());
+        int i = ((eqbVar.h << 2) + ((eqbVar.g + 7) >> 3)) - 8;
+        int i2 = eqbVar.i;
+        if (i <= i2) {
+            if (z && i != i2) {
+                throw new BrotliRuntimeException("Unused bytes after end");
+            }
+            return;
         }
-        return (job.a) invokeV.objValue;
+        throw new BrotliRuntimeException("Read after end");
     }
 
-    @Override // com.baidu.tieba.kqb
-    public void shutdown() {
-        b bVar;
-        b bVar2;
+    public static void e(eqb eqbVar, InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            do {
-                bVar = this.b.get();
-                bVar2 = e;
-                if (bVar == bVar2) {
-                    return;
-                }
-            } while (!this.b.compareAndSet(bVar, bVar2));
-            bVar.b();
+        if (interceptable == null || interceptable.invokeLL(65541, null, eqbVar, inputStream) == null) {
+            if (eqbVar.d == null) {
+                lqb.b(eqbVar.c, eqbVar.a, eqbVar.b);
+                eqbVar.d = inputStream;
+                eqbVar.f = 0L;
+                eqbVar.g = 64;
+                eqbVar.h = 1024;
+                eqbVar.e = false;
+                h(eqbVar);
+                return;
+            }
+            throw new IllegalStateException("Bit reader already has associated input stream");
         }
     }
 
-    @Override // com.baidu.tieba.kqb
-    public void start() {
+    public static void b(eqb eqbVar) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b bVar = new b(this.a, c);
-            if (!this.b.compareAndSet(e, bVar)) {
-                bVar.b();
+        if (interceptable == null || interceptable.invokeL(65538, null, eqbVar) == null) {
+            InputStream inputStream = eqbVar.d;
+            eqbVar.d = null;
+            if (inputStream != null) {
+                inputStream.close();
             }
         }
+    }
+
+    public static void d(eqb eqbVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eqbVar) == null) && (i = eqbVar.g) >= 32) {
+            int[] iArr = eqbVar.b;
+            int i2 = eqbVar.h;
+            eqbVar.h = i2 + 1;
+            eqbVar.f = (iArr[i2] << 32) | (eqbVar.f >>> 32);
+            eqbVar.g = i - 32;
+        }
+    }
+
+    public static int f(eqb eqbVar) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, eqbVar)) == null) {
+            if (eqbVar.e) {
+                i = (eqbVar.i + 3) >> 2;
+            } else {
+                i = 1024;
+            }
+            return i - eqbVar.h;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void g(eqb eqbVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, eqbVar) == null) && (i = (64 - eqbVar.g) & 7) != 0 && i(eqbVar, i) != 0) {
+            throw new BrotliRuntimeException("Corrupted padding bits");
+        }
+    }
+
+    public static void h(eqb eqbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, eqbVar) == null) {
+            j(eqbVar);
+            a(eqbVar, false);
+            d(eqbVar);
+            d(eqbVar);
+        }
+    }
+
+    public static void k(eqb eqbVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, eqbVar) == null) && eqbVar.g == 64) {
+            h(eqbVar);
+        }
+    }
+
+    public static void c(eqb eqbVar, byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, eqbVar, bArr, i, i2) == null) {
+            if ((eqbVar.g & 7) == 0) {
+                while (true) {
+                    int i3 = eqbVar.g;
+                    if (i3 == 64 || i2 == 0) {
+                        break;
+                    }
+                    bArr[i] = (byte) (eqbVar.f >>> i3);
+                    eqbVar.g = i3 + 8;
+                    i2--;
+                    i++;
+                }
+                if (i2 == 0) {
+                    return;
+                }
+                int min = Math.min(f(eqbVar), i2 >> 2);
+                if (min > 0) {
+                    int i4 = min << 2;
+                    System.arraycopy(eqbVar.a, eqbVar.h << 2, bArr, i, i4);
+                    i += i4;
+                    i2 -= i4;
+                    eqbVar.h += min;
+                }
+                if (i2 == 0) {
+                    return;
+                }
+                if (f(eqbVar) > 0) {
+                    d(eqbVar);
+                    while (i2 != 0) {
+                        long j = eqbVar.f;
+                        int i5 = eqbVar.g;
+                        bArr[i] = (byte) (j >>> i5);
+                        eqbVar.g = i5 + 8;
+                        i2--;
+                        i++;
+                    }
+                    a(eqbVar, false);
+                    return;
+                }
+                while (i2 > 0) {
+                    try {
+                        int read = eqbVar.d.read(bArr, i, i2);
+                        if (read != -1) {
+                            i += read;
+                            i2 -= read;
+                        } else {
+                            throw new BrotliRuntimeException("Unexpected end of input");
+                        }
+                    } catch (IOException e) {
+                        throw new BrotliRuntimeException("Failed to read input", e);
+                    }
+                }
+                return;
+            }
+            throw new BrotliRuntimeException("Unaligned copyBytes");
+        }
+    }
+
+    public static int i(eqb eqbVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, eqbVar, i)) == null) {
+            d(eqbVar);
+            long j = eqbVar.f;
+            int i2 = eqbVar.g;
+            int i3 = ((int) (j >>> i2)) & ((1 << i) - 1);
+            eqbVar.g = i2 + i;
+            return i3;
+        }
+        return invokeLI.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003b, code lost:
+        r4.e = true;
+        r4.i = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
+        r1 = r1 + 3;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void j(eqb eqbVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65546, null, eqbVar) != null) || (i = eqbVar.h) <= 1015) {
+            return;
+        }
+        if (eqbVar.e) {
+            if (f(eqbVar) >= -2) {
+                return;
+            }
+            throw new BrotliRuntimeException("No more input");
+        }
+        int i2 = i << 2;
+        int i3 = 4096 - i2;
+        byte[] bArr = eqbVar.a;
+        System.arraycopy(bArr, i2, bArr, 0, i3);
+        eqbVar.h = 0;
+        while (true) {
+            if (i3 >= 4096) {
+                break;
+            }
+            try {
+                int read = eqbVar.d.read(eqbVar.a, i3, 4096 - i3);
+                if (read <= 0) {
+                    break;
+                }
+                i3 += read;
+            } catch (IOException e) {
+                throw new BrotliRuntimeException("Failed to read input", e);
+            }
+        }
+        lqb.a(eqbVar.c, i3 >> 2);
     }
 }

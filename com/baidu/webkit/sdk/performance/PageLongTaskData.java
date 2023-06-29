@@ -2,7 +2,7 @@ package com.baidu.webkit.sdk.performance;
 
 import android.util.Pair;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PageLongTaskData {
     public long mDomComplete;
     public long mEnd;

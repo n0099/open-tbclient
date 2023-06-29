@@ -1,40 +1,17 @@
 package com.baidu.tieba;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.transvod.player.common.effectmp4.EffectFrame;
+import com.yy.transvod.player.common.effectmp4.EffectInfo;
+import com.yy.transvod.player.common.effectmp4.EffectSource;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public interface bnb {
-    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
+public class bnb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public EffectInfo a;
+    public TreeMap<Integer, EffectSource> b;
 
-    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
-
-    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
-
-    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
-
-    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
-
-    void onWebsocketError(WebSocket webSocket, Exception exc);
-
-    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, pnb pnbVar, wnb wnbVar) throws InvalidDataException;
-
-    xnb onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, pnb pnbVar) throws InvalidDataException;
-
-    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, pnb pnbVar) throws InvalidDataException;
-
-    void onWebsocketMessage(WebSocket webSocket, String str);
-
-    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
-
-    void onWebsocketOpen(WebSocket webSocket, unb unbVar);
-
-    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
-
-    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
-
-    void onWriteDemand(WebSocket webSocket);
+    public abstract EffectFrame a(long j);
 }

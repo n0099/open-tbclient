@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +125,7 @@ public class F1 {
             hashMap.put(LoginConstants.DX_ONE_KEY_LOGIN, Integer.valueOf(this.n));
             hashMap.put("dy", Integer.valueOf(this.o));
             hashMap.put("dts", Long.valueOf(this.v));
-            hashMap.put("ux", Integer.valueOf(this.w));
+            hashMap.put(ux.c, Integer.valueOf(this.w));
             hashMap.put("uy", Integer.valueOf(this.x));
             hashMap.put("uts", Long.valueOf(this.y));
             M.a(hashMap, this.p, this.q, this.r, this.s, this.t, this.u);

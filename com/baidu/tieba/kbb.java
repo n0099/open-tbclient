@@ -1,94 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.components.core.response.model.AdResultData;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class kbb {
+public class kbb extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
-    public static final kbb b;
-    public static final kbb c;
-    public static final kbb d;
-    public static final kbb e;
-    public static final kbb f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947908734, "Lcom/baidu/tieba/kbb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947908734, "Lcom/baidu/tieba/kbb;");
-                return;
-            }
-        }
-        b = new kbb(0);
-        c = new kbb(1);
-        d = new kbb(2);
-        e = new kbb(3);
-        f = new kbb(4);
-    }
-
-    public kbb(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kbb(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.a;
-            return i != 1 ? i != 2 ? i != 3 ? i != 4 ? "UNKNOWN" : "SG" : "RU" : "DE" : "CN";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int b(Object... objArr) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        boolean z;
+        Object obj2;
+        AdResultData adResultData;
+        List<AdTemplate> adTemplateList;
+        List<AdInfo> list;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) ? Arrays.hashCode(objArr) : invokeL.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                zbb zbbVar = (zbb) obj;
+                if (zbbVar != null) {
+                    Object obj3 = zbbVar.a;
+                    String[] strArr = {"BM", "Bu", "AC", "yJ"};
+                    Field field = null;
+                    int i = 0;
+                    while (true) {
+                        z = true;
+                        if (i >= 4) {
+                            break;
+                        }
+                        try {
+                            field = obj3.getClass().getDeclaredField(strArr[i]);
+                            field.setAccessible(true);
+                            break;
+                        } catch (NoSuchFieldException unused) {
+                            i++;
+                        }
+                    }
+                    if (field == null || (obj2 = field.get(obj3)) == null) {
+                        return null;
+                    }
+                    if (obj2 instanceof AdResultData) {
+                        adResultData = (AdResultData) obj2;
+                    } else {
+                        adResultData = null;
+                    }
+                    if (adResultData == null) {
+                        z = false;
+                    }
+                    if (z && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
+                        AdTemplate adTemplate = adTemplateList.get(0);
+                        if (adTemplate == null) {
+                            list = null;
+                        } else {
+                            list = adTemplate.adInfoList;
+                        }
+                        if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                            return null;
+                        }
+                        return mbb.a(adInfo);
+                    }
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
-            return obj != null && kbb.class == obj.getClass() && this.a == ((kbb) obj).a;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(Integer.valueOf(this.a)) : invokeV.intValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

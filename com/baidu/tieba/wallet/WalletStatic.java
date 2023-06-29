@@ -33,19 +33,19 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.gs5;
-import com.baidu.tieba.js5;
-import com.baidu.tieba.jz9;
+import com.baidu.tieba.h9;
 import com.baidu.tieba.ls5;
-import com.baidu.tieba.nw4;
-import com.baidu.tieba.rg5;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.os5;
+import com.baidu.tieba.qs5;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.v3a;
+import com.baidu.tieba.vg5;
 import com.baidu.tieba.wallet.ICertification;
 import com.baidu.tieba.wallet.pay.ResponsedGetOrderHttpMessage;
 import com.baidu.tieba.wallet.pay.ResponsedGetOrderSocketMessage;
 import com.baidu.tieba.wi;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -121,7 +121,7 @@ public class WalletStatic {
     public static void registerAiAppPayTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921393, new CustomMessageTask.CustomRunnable<js5>() { // from class: com.baidu.tieba.wallet.WalletStatic.8
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921393, new CustomMessageTask.CustomRunnable<os5>() { // from class: com.baidu.tieba.wallet.WalletStatic.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -140,9 +140,9 @@ public class WalletStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<?> run(CustomMessage<js5> customMessage) {
+                public CustomResponsedMessage<?> run(CustomMessage<os5> customMessage) {
                     InterceptResult invokeL;
-                    js5 data;
+                    os5 data;
                     Activity activity;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
@@ -184,7 +184,7 @@ public class WalletStatic {
     public static void registerAliAuthTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921793, new CustomMessageTask.CustomRunnable<rg5>() { // from class: com.baidu.tieba.wallet.WalletStatic.10
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921793, new CustomMessageTask.CustomRunnable<vg5>() { // from class: com.baidu.tieba.wallet.WalletStatic.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -203,11 +203,11 @@ public class WalletStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<String> run(CustomMessage<rg5> customMessage) {
+                public CustomResponsedMessage<String> run(CustomMessage<vg5> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        rg5 data = customMessage.getData();
+                        vg5 data = customMessage.getData();
                         if (data == null) {
                             return null;
                         }
@@ -225,7 +225,7 @@ public class WalletStatic {
     public static void registerAliPayTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921539, new CustomMessageTask.CustomRunnable<nw4>() { // from class: com.baidu.tieba.wallet.WalletStatic.9
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921539, new CustomMessageTask.CustomRunnable<qw4>() { // from class: com.baidu.tieba.wallet.WalletStatic.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -244,7 +244,7 @@ public class WalletStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<String> run(CustomMessage<nw4> customMessage) {
+                public CustomResponsedMessage<String> run(CustomMessage<qw4> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
@@ -506,12 +506,12 @@ public class WalletStatic {
                         if (!str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_WALLET_SDK_ICACH) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_WALLET_SDK_DUXIAOMAN)) {
                             return 3;
                         }
-                        if (wi.E()) {
+                        if (xi.E()) {
                             WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), str);
                         } else {
                             BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
                             bdStatisticsManager.newDebug("wallet_debug", 0L, null, "type", "scheme_start_wallet_sub_thread", "link", "" + str);
-                            xg.a().post(new Runnable(this, str) { // from class: com.baidu.tieba.wallet.WalletStatic.6.1
+                            yg.a().post(new Runnable(this, str) { // from class: com.baidu.tieba.wallet.WalletStatic.6.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass6 this$0;
@@ -579,7 +579,7 @@ public class WalletStatic {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        if (customMessage != null && !vi.isEmpty(customMessage.getData())) {
+                        if (customMessage != null && !wi.isEmpty(customMessage.getData())) {
                             WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), customMessage.getData());
                         }
                         return null;
@@ -872,7 +872,7 @@ public class WalletStatic {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        return new CustomResponsedMessage<>(2921432, WalletPluginManager.getInstance().doTiebaPay(g9.f().b()));
+                        return new CustomResponsedMessage<>(2921432, WalletPluginManager.getInstance().doTiebaPay(h9.f().b()));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
@@ -885,8 +885,8 @@ public class WalletStatic {
     public static void registerHttpAndSocketTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            jz9.f(303043, ResponsedGetOrderSocketMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, jz9.a(TbConfig.GET_ORDER, 303043));
+            v3a.f(303043, ResponsedGetOrderSocketMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, v3a.a(TbConfig.GET_ORDER, 303043));
             tbHttpMessageTask.setResponsedClass(ResponsedGetOrderHttpMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -895,7 +895,7 @@ public class WalletStatic {
     public static void registerYYPayTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921546, new CustomMessageTask.CustomRunnable<ls5>() { // from class: com.baidu.tieba.wallet.WalletStatic.13
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921546, new CustomMessageTask.CustomRunnable<qs5>() { // from class: com.baidu.tieba.wallet.WalletStatic.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -914,7 +914,7 @@ public class WalletStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<String> run(CustomMessage<ls5> customMessage) {
+                public CustomResponsedMessage<String> run(CustomMessage<qs5> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
@@ -1059,7 +1059,7 @@ public class WalletStatic {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            CustomMessageTask customMessageTask2 = new CustomMessageTask(2921661, new CustomMessageTask.CustomRunnable<gs5>() { // from class: com.baidu.tieba.wallet.WalletStatic.17
+            CustomMessageTask customMessageTask2 = new CustomMessageTask(2921661, new CustomMessageTask.CustomRunnable<ls5>() { // from class: com.baidu.tieba.wallet.WalletStatic.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1078,7 +1078,7 @@ public class WalletStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<?> run(CustomMessage<gs5> customMessage) {
+                public CustomResponsedMessage<?> run(CustomMessage<ls5> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {

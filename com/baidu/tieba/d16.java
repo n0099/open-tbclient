@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d16 {
+public abstract class d16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public e16 c;
+    public l16 a;
+
+    public abstract e16 b();
+
+    public abstract int c();
+
+    public abstract void e();
+
+    public abstract void f(g16 g16Var);
+
+    public abstract void g(String str);
+
+    public abstract void h(String str);
+
+    public abstract void i(String str);
 
     public d16() {
         Interceptable interceptable = $ic;
@@ -29,20 +39,19 @@ public class d16 {
         }
     }
 
-    public void a(String str) {
+    public l16 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || vi.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            jSONObject.optInt("error_code");
-            this.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            e16 e16Var = new e16();
-            this.c = e16Var;
-            e16Var.a(jSONObject.optJSONObject("info"));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        return (l16) invokeV.objValue;
+    }
+
+    public void a(l16 l16Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, l16Var) == null) {
+            this.a = l16Var;
         }
     }
 }

@@ -1,77 +1,50 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.ma1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.drawable.ColorDrawable;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.PopupWindow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class e91 {
+public class e91 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public static final int b = 0;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        boolean a(HashMap<String, String> hashMap, int i);
-
-        void b(Context context, int i);
-
-        AbsNadBrowserView c(Context context, oa1 oa1Var, int i);
-
-        void d(Context context, boolean z, int i, ma1.b bVar);
+    public static void a(Context context, PopupWindow popupWindow) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, popupWindow) != null) || !(context instanceof Activity)) {
+            return;
+        }
+        popupWindow.getContentView().setSystemUiVisibility(((Activity) context).getWindow().getDecorView().getSystemUiVisibility() | 512 | 2);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689068, "Lcom/baidu/tieba/e91;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static ViewGroup b(Context context, ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, viewGroup, z)) == null) {
+            if (!(context instanceof Activity)) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947689068, "Lcom/baidu/tieba/e91;");
-                return;
+            if (viewGroup == null) {
+                viewGroup = new FrameLayout(context);
+                viewGroup.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                ColorDrawable colorDrawable = new ColorDrawable(-16777216);
+                colorDrawable.setAlpha(86);
+                viewGroup.setBackground(colorDrawable);
             }
+            ViewGroup viewGroup2 = (ViewGroup) ((Activity) context).getWindow().getDecorView();
+            if (viewGroup.getParent() != null) {
+                viewGroup2.removeView(viewGroup);
+            }
+            if (z) {
+                viewGroup2.addView(viewGroup);
+            }
+            return viewGroup;
         }
-        a aVar = d91.b;
-        Intrinsics.checkNotNullExpressionValue(aVar, "BuildConfig.BROWSER_FACTORY");
-        a = aVar;
-        c = 1;
-    }
-
-    public static final a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public static final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
+        return (ViewGroup) invokeLLZ.objValue;
     }
 }

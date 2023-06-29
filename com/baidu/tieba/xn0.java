@@ -1,21 +1,26 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.tieba.un0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class xn0 extends rn0 {
+public abstract class xn0<T extends un0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public final Class<T> a;
 
-    public xn0(boolean z) {
+    public abstract void onEvent(@NonNull T t);
+
+    public xn0(Class<T> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,6 +30,15 @@ public final class xn0 extends rn0 {
                 return;
             }
         }
-        this.a = z;
+        this.a = cls;
+    }
+
+    public final Class<T> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Class) invokeV.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.kwad.components.core.widget.kwai;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends a {
     public View mRootView;
 

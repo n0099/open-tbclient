@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.LotteryTheme;
 /* loaded from: classes6.dex */
-public class i35 extends ThreadData {
+public class i35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,5 +22,14 @@ public class i35 extends ThreadData {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public void a(LotteryTheme lotteryTheme) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, lotteryTheme) != null) || lotteryTheme == null) {
+            return;
+        }
+        String str = lotteryTheme.bgcolor;
+        String str2 = lotteryTheme.bgimage;
     }
 }

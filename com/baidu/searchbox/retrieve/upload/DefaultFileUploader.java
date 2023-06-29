@@ -1,12 +1,12 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.xya;
+import com.baidu.tieba.n3b;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class DefaultFileUploader extends BaseFileUploader {
     @Override // com.baidu.searchbox.retrieve.upload.BaseFileUploader
-    public xya uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file) {
-        return new xya();
+    public n3b uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file) {
+        return new n3b();
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p75;
+import com.baidu.tieba.s75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,8 +77,8 @@ public final class GroupItemHolder extends RecyclerView.ViewHolder {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             this.d = skinType;
-            this.a.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806c8));
-            p75 d = p75.d(this.b);
+            this.a.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806c9));
+            s75 d = s75.d(this.b);
             d.x(R.color.CAM_X0304);
             d.C(R.dimen.T_X08);
             d.D(R.string.F_X01);

@@ -1,142 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes6.dex */
-public final class mj2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile mj2 c;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Lock a;
-    public ArrayList<qj2> b;
+public interface mj2 extends JSRuntime, ab2, TypedCallbackHandler {
+    JsSerializeValue A(byte[] bArr, boolean z);
 
-    public mj2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ReentrantLock();
-        this.b = new ArrayList<>();
-    }
+    byte[] K(JsSerializeValue jsSerializeValue, boolean z);
 
-    public static mj2 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (mj2.class) {
-                    if (c == null) {
-                        c = new mj2();
-                    }
-                }
-            }
-            return c;
-        }
-        return (mj2) invokeV.objValue;
-    }
+    void Y(String str, String str2);
 
-    public final Object[] a() {
-        Object[] objArr;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.a.lock();
-                if (this.b.size() > 0) {
-                    objArr = this.b.toArray();
-                } else {
-                    objArr = null;
-                }
-                return objArr;
-            } finally {
-                this.a.unlock();
-            }
-        }
-        return (Object[]) invokeV.objValue;
-    }
+    zj2 b0();
 
-    public void b(hj2 hj2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hj2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((qj2) obj).d(hj2Var);
-            }
-        }
-    }
+    boolean dispatchEvent(JSEvent jSEvent);
 
-    public void c(hj2 hj2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hj2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((qj2) obj).b(hj2Var);
-            }
-        }
-    }
+    String getInitBasePath();
 
-    public void d(hj2 hj2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, hj2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((qj2) obj).f(hj2Var);
-            }
-        }
-    }
+    int getInvokeSourceType();
 
-    public void e(hj2 hj2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, hj2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((qj2) obj).c(hj2Var);
-            }
-        }
-    }
+    EventTarget m();
 
-    public void f(hj2 hj2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, hj2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((qj2) obj).g(hj2Var);
-            }
-        }
-    }
+    boolean post(Runnable runnable);
 
-    public void g(hj2 hj2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, hj2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((qj2) obj).a(hj2Var);
-            }
-        }
-    }
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void postOnJSThread(Runnable runnable);
 
-    public void h(hj2 hj2Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, hj2Var) == null) && (a = a()) != null) {
-            for (Object obj : a) {
-                ((qj2) obj).e(hj2Var);
-            }
-        }
-    }
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void runOnJSThread(Runnable runnable);
+
+    void setPreferredFramesPerSecond(short s);
+
+    void throwJSException(JSExceptionType jSExceptionType, String str);
+
+    EventTarget v();
+
+    vj2 w();
 }

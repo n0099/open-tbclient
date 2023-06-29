@@ -1,135 +1,54 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class i71 {
+public final class i71 implements j71 {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onEvent(String str, String str2);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806310, "Lcom/baidu/tieba/i71;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947806310, "Lcom/baidu/tieba/i71;");
-                return;
+    public i71() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b = new String[]{"lib/arm64-v8a", "lib/armeabi", "lib/x86", "lib/mips"};
     }
 
-    public static boolean d() {
+    public static i71 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
-            }
-            if (i < 21) {
-                return false;
-            }
-            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-            if (strArr.length <= 0) {
-                return false;
-            }
-            return Build.CPU_ABI.equals(strArr[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new i71();
         }
-        return invokeV.booleanValue;
+        return (i71) invokeV.objValue;
     }
 
-    public static long a(InputStream inputStream, OutputStream outputStream, int i) {
-        InterceptResult invokeLLI;
+    @Override // com.baidu.tieba.j71
+    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
+    public void load(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, inputStream, outputStream, i)) == null) {
-            if (inputStream != null && outputStream != null) {
-                try {
-                    byte[] bArr = new byte[i * 1024];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            outputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            outputStream.flush();
-                            return j;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return 0L;
-        }
-        return invokeLLI.longValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!str.startsWith("lib")) {
-                str2 = "lib" + str;
-            } else {
-                str2 = str;
-            }
-            if (!str.endsWith(".so")) {
-                return str2 + ".so";
-            }
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split("\\.")) != null && split.length == 2) {
-                return split[0].substring(3);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(String str, String str2) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && (aVar = a) != null) {
-            aVar.onEvent(str, str2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            System.load(str);
         }
     }
 
-    public static void f(String str) {
+    @Override // com.baidu.tieba.j71
+    public void loadLibrary(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && !TextUtils.isEmpty(str)) {
-            e("24", str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            System.loadLibrary(str);
         }
     }
 }

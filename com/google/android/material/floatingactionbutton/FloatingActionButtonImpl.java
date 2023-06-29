@@ -92,7 +92,7 @@ public class FloatingActionButtonImpl {
     public ArrayList<InternalTransformationCallback> transformationCallbacks;
 
     /* renamed from: view  reason: collision with root package name */
-    public final FloatingActionButton f1209view;
+    public final FloatingActionButton f1208view;
     public static final TimeInterpolator ELEVATION_ANIM_INTERPOLATOR = AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR;
     public static final int[] PRESSED_ENABLED_STATE_SET = {16842919, 16842910};
     public static final int[] HOVERED_FOCUSED_ENABLED_STATE_SET = {16843623, 16842908, 16842910};
@@ -221,7 +221,7 @@ public class FloatingActionButtonImpl {
     }
 
     public FloatingActionButtonImpl(FloatingActionButton floatingActionButton, ShadowViewDelegate shadowViewDelegate) {
-        this.f1209view = floatingActionButton;
+        this.f1208view = floatingActionButton;
         this.shadowViewDelegate = shadowViewDelegate;
         StateListAnimator stateListAnimator = new StateListAnimator();
         this.stateListAnimator = stateListAnimator;
@@ -231,12 +231,12 @@ public class FloatingActionButtonImpl {
         this.stateListAnimator.addState(HOVERED_ENABLED_STATE_SET, createElevationAnimator(new ElevateToHoveredFocusedTranslationZAnimation()));
         this.stateListAnimator.addState(ENABLED_STATE_SET, createElevationAnimator(new ResetElevationAnimation()));
         this.stateListAnimator.addState(EMPTY_STATE_SET, createElevationAnimator(new DisabledElevationAnimation()));
-        this.rotation = this.f1209view.getRotation();
+        this.rotation = this.f1208view.getRotation();
     }
 
     private void calculateImageMatrixFromScale(float f, @NonNull Matrix matrix) {
         matrix.reset();
-        Drawable drawable = this.f1209view.getDrawable();
+        Drawable drawable = this.f1208view.getDrawable();
         if (drawable != null && this.maxImageSize != 0) {
             RectF rectF = this.tmpRectF1;
             RectF rectF2 = this.tmpRectF2;
@@ -252,19 +252,19 @@ public class FloatingActionButtonImpl {
     @NonNull
     private AnimatorSet createAnimator(@NonNull MotionSpec motionSpec, float f, float f2, float f3) {
         ArrayList arrayList = new ArrayList();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f1209view, View.ALPHA, f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.f1208view, View.ALPHA, f);
         motionSpec.getTiming(NativeConstants.OPACITY).apply(ofFloat);
         arrayList.add(ofFloat);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f1209view, View.SCALE_X, f2);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f1208view, View.SCALE_X, f2);
         motionSpec.getTiming("scale").apply(ofFloat2);
         workAroundOreoBug(ofFloat2);
         arrayList.add(ofFloat2);
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f1209view, View.SCALE_Y, f2);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f1208view, View.SCALE_Y, f2);
         motionSpec.getTiming("scale").apply(ofFloat3);
         workAroundOreoBug(ofFloat3);
         arrayList.add(ofFloat3);
         calculateImageMatrixFromScale(f3, this.tmpMatrix);
-        ObjectAnimator ofObject = ObjectAnimator.ofObject(this.f1209view, new ImageMatrixProperty(), new MatrixEvaluator() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.3
+        ObjectAnimator ofObject = ObjectAnimator.ofObject(this.f1208view, new ImageMatrixProperty(), new MatrixEvaluator() { // from class: com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.android.material.animation.MatrixEvaluator, android.animation.TypeEvaluator
@@ -412,7 +412,7 @@ public class FloatingActionButtonImpl {
         this.imageMatrixScale = f;
         Matrix matrix = this.tmpMatrix;
         calculateImageMatrixFromScale(f, matrix);
-        this.f1209view.setImageMatrix(matrix);
+        this.f1208view.setImageMatrix(matrix);
     }
 
     public final void setMaxImageSize(int i) {
@@ -474,14 +474,14 @@ public class FloatingActionButtonImpl {
 
     private MotionSpec getDefaultHideMotionSpec() {
         if (this.defaultHideMotionSpec == null) {
-            this.defaultHideMotionSpec = MotionSpec.createFromResource(this.f1209view.getContext(), R.animator.obfuscated_res_0x7f020002);
+            this.defaultHideMotionSpec = MotionSpec.createFromResource(this.f1208view.getContext(), R.animator.obfuscated_res_0x7f020002);
         }
         return (MotionSpec) Preconditions.checkNotNull(this.defaultHideMotionSpec);
     }
 
     private MotionSpec getDefaultShowMotionSpec() {
         if (this.defaultShowMotionSpec == null) {
-            this.defaultShowMotionSpec = MotionSpec.createFromResource(this.f1209view.getContext(), R.animator.obfuscated_res_0x7f020003);
+            this.defaultShowMotionSpec = MotionSpec.createFromResource(this.f1208view.getContext(), R.animator.obfuscated_res_0x7f020003);
         }
         return (MotionSpec) Preconditions.checkNotNull(this.defaultShowMotionSpec);
     }
@@ -501,7 +501,7 @@ public class FloatingActionButtonImpl {
     }
 
     private boolean shouldAnimateVisibilityChange() {
-        if (ViewCompat.isLaidOut(this.f1209view) && !this.f1209view.isInEditMode()) {
+        if (ViewCompat.isLaidOut(this.f1208view) && !this.f1208view.isInEditMode()) {
             return true;
         }
         return false;
@@ -548,7 +548,7 @@ public class FloatingActionButtonImpl {
     }
 
     public boolean isOrWillBeHidden() {
-        if (this.f1209view.getVisibility() == 0) {
+        if (this.f1208view.getVisibility() == 0) {
             if (this.animState != 1) {
                 return false;
             }
@@ -561,7 +561,7 @@ public class FloatingActionButtonImpl {
     }
 
     public boolean isOrWillBeShown() {
-        if (this.f1209view.getVisibility() != 0) {
+        if (this.f1208view.getVisibility() != 0) {
             if (this.animState != 2) {
                 return false;
             }
@@ -580,15 +580,15 @@ public class FloatingActionButtonImpl {
     public void onAttachedToWindow() {
         MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;
         if (materialShapeDrawable != null) {
-            MaterialShapeUtils.setParentAbsoluteElevation(this.f1209view, materialShapeDrawable);
+            MaterialShapeUtils.setParentAbsoluteElevation(this.f1208view, materialShapeDrawable);
         }
         if (requirePreDrawListener()) {
-            this.f1209view.getViewTreeObserver().addOnPreDrawListener(getOrCreatePreDrawListener());
+            this.f1208view.getViewTreeObserver().addOnPreDrawListener(getOrCreatePreDrawListener());
         }
     }
 
     public void onDetachedFromWindow() {
-        ViewTreeObserver viewTreeObserver = this.f1209view.getViewTreeObserver();
+        ViewTreeObserver viewTreeObserver = this.f1208view.getViewTreeObserver();
         ViewTreeObserver.OnPreDrawListener onPreDrawListener = this.preDrawListener;
         if (onPreDrawListener != null) {
             viewTreeObserver.removeOnPreDrawListener(onPreDrawListener);
@@ -597,7 +597,7 @@ public class FloatingActionButtonImpl {
     }
 
     public void onPreDraw() {
-        float rotation = this.f1209view.getRotation();
+        float rotation = this.f1208view.getRotation();
         if (this.rotation != rotation) {
             this.rotation = rotation;
             updateFromViewRotation();
@@ -625,7 +625,7 @@ public class FloatingActionButtonImpl {
     }
 
     public final boolean shouldExpandBoundsForA11y() {
-        if (this.ensureMinTouchTargetSize && this.f1209view.getSizeDimension() < this.minTouchTargetSize) {
+        if (this.ensureMinTouchTargetSize && this.f1208view.getSizeDimension() < this.minTouchTargetSize) {
             return false;
         }
         return true;
@@ -646,7 +646,7 @@ public class FloatingActionButtonImpl {
         int i;
         float f;
         if (this.ensureMinTouchTargetSize) {
-            i = (this.minTouchTargetSize - this.f1209view.getSizeDimension()) / 2;
+            i = (this.minTouchTargetSize - this.f1208view.getSizeDimension()) / 2;
         } else {
             i = 0;
         }
@@ -689,7 +689,7 @@ public class FloatingActionButtonImpl {
                     FloatingActionButtonImpl.this.animState = 0;
                     FloatingActionButtonImpl.this.currentAnimator = null;
                     if (!this.cancelled) {
-                        FloatingActionButton floatingActionButton = FloatingActionButtonImpl.this.f1209view;
+                        FloatingActionButton floatingActionButton = FloatingActionButtonImpl.this.f1208view;
                         if (z) {
                             i2 = 8;
                         } else {
@@ -705,7 +705,7 @@ public class FloatingActionButtonImpl {
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator2) {
-                    FloatingActionButtonImpl.this.f1209view.internalSetVisibility(0, z);
+                    FloatingActionButtonImpl.this.f1208view.internalSetVisibility(0, z);
                     FloatingActionButtonImpl.this.animState = 1;
                     FloatingActionButtonImpl.this.currentAnimator = animator2;
                     this.cancelled = false;
@@ -721,7 +721,7 @@ public class FloatingActionButtonImpl {
             createAnimator.start();
             return;
         }
-        FloatingActionButton floatingActionButton = this.f1209view;
+        FloatingActionButton floatingActionButton = this.f1208view;
         if (z) {
             i = 8;
         } else {
@@ -741,7 +741,7 @@ public class FloatingActionButtonImpl {
             this.shapeDrawable.setTintMode(mode);
         }
         this.shapeDrawable.setShadowColor(-12303292);
-        this.shapeDrawable.initializeElevationOverlay(this.f1209view.getContext());
+        this.shapeDrawable.initializeElevationOverlay(this.f1208view.getContext());
         RippleDrawableCompat rippleDrawableCompat = new RippleDrawableCompat(this.shapeDrawable.getShapeAppearanceModel());
         rippleDrawableCompat.setTintList(RippleUtils.sanitizeRippleDrawableColor(colorStateList2));
         this.rippleDrawable = rippleDrawableCompat;
@@ -762,10 +762,10 @@ public class FloatingActionButtonImpl {
             animator.cancel();
         }
         if (shouldAnimateVisibilityChange()) {
-            if (this.f1209view.getVisibility() != 0) {
-                this.f1209view.setAlpha(0.0f);
-                this.f1209view.setScaleY(0.0f);
-                this.f1209view.setScaleX(0.0f);
+            if (this.f1208view.getVisibility() != 0) {
+                this.f1208view.setAlpha(0.0f);
+                this.f1208view.setScaleY(0.0f);
+                this.f1208view.setScaleX(0.0f);
                 setImageMatrixScale(0.0f);
             }
             MotionSpec motionSpec = this.showMotionSpec;
@@ -786,7 +786,7 @@ public class FloatingActionButtonImpl {
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator2) {
-                    FloatingActionButtonImpl.this.f1209view.internalSetVisibility(0, z);
+                    FloatingActionButtonImpl.this.f1208view.internalSetVisibility(0, z);
                     FloatingActionButtonImpl.this.animState = 2;
                     FloatingActionButtonImpl.this.currentAnimator = animator2;
                 }
@@ -801,10 +801,10 @@ public class FloatingActionButtonImpl {
             createAnimator.start();
             return;
         }
-        this.f1209view.internalSetVisibility(0, z);
-        this.f1209view.setAlpha(1.0f);
-        this.f1209view.setScaleY(1.0f);
-        this.f1209view.setScaleX(1.0f);
+        this.f1208view.internalSetVisibility(0, z);
+        this.f1208view.setAlpha(1.0f);
+        this.f1208view.setScaleY(1.0f);
+        this.f1208view.setScaleX(1.0f);
         setImageMatrixScale(1.0f);
         if (internalVisibilityChangedListener != null) {
             internalVisibilityChangedListener.onShown();
@@ -814,11 +814,11 @@ public class FloatingActionButtonImpl {
     public void updateFromViewRotation() {
         if (Build.VERSION.SDK_INT == 19) {
             if (this.rotation % 90.0f != 0.0f) {
-                if (this.f1209view.getLayerType() != 1) {
-                    this.f1209view.setLayerType(1, null);
+                if (this.f1208view.getLayerType() != 1) {
+                    this.f1208view.setLayerType(1, null);
                 }
-            } else if (this.f1209view.getLayerType() != 0) {
-                this.f1209view.setLayerType(0, null);
+            } else if (this.f1208view.getLayerType() != 0) {
+                this.f1208view.setLayerType(0, null);
             }
         }
         MaterialShapeDrawable materialShapeDrawable = this.shapeDrawable;

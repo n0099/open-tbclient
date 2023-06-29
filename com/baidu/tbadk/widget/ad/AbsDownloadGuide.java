@@ -29,11 +29,11 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.widget.ad.AbsDownloadGuide;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co9;
-import com.baidu.tieba.ew6;
-import com.baidu.tieba.ma7;
-import com.baidu.tieba.pa7;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.jw6;
+import com.baidu.tieba.os9;
+import com.baidu.tieba.ra7;
+import com.baidu.tieba.ua7;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
     public final Context a;
     public ThreadData b;
     public TiebaPlusInfo c;
-    public pa7 d;
+    public ua7 d;
     public DownloadData e;
     public CustomMessageListener f;
     public CustomMessageListener g;
@@ -139,12 +139,12 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
     public abstract void u();
 
     /* loaded from: classes4.dex */
-    public static final class a implements pa7 {
+    public static final class a implements ua7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsDownloadGuide a;
 
-        @Override // com.baidu.tieba.pa7
+        @Override // com.baidu.tieba.ua7
         public void b(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -170,7 +170,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
             this.a = absDownloadGuide;
         }
 
-        @Override // com.baidu.tieba.pa7
+        @Override // com.baidu.tieba.ua7
         public void a(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -179,7 +179,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.pa7
+        @Override // com.baidu.tieba.ua7
         public void c(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
@@ -189,7 +189,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.pa7
+        @Override // com.baidu.tieba.ua7
         public void d(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -198,7 +198,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.pa7
+        @Override // com.baidu.tieba.ua7
         public void e(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -207,7 +207,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.pa7
+        @Override // com.baidu.tieba.ua7
         public void f(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
@@ -392,7 +392,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            getMPermissionJudgePolicy().setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.bz5
+            getMPermissionJudgePolicy().setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.gz5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -426,7 +426,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            getMPermissionJudgePolicy().setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.yy5
+            getMPermissionJudgePolicy().setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.dz5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -541,7 +541,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             TiebaPlusInfo tiebaPlusInfo = getTiebaPlusInfo();
-            if (tiebaPlusInfo != null && co9.i(tiebaPlusInfo.app_package)) {
+            if (tiebaPlusInfo != null && os9.i(tiebaPlusInfo.app_package)) {
                 n();
                 return;
             }
@@ -596,13 +596,13 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
         return (PermissionJudgePolicy) invokeV.objValue;
     }
 
-    private final ma7 getMTbDownloadManager() {
+    private final ra7 getMTbDownloadManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            return (ma7) this.j.getValue();
+            return (ra7) this.j.getValue();
         }
-        return (ma7) invokeV.objValue;
+        return (ra7) invokeV.objValue;
     }
 
     public final Context getMContext() {
@@ -688,7 +688,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             TiebaPlusInfo tiebaPlusInfo = getTiebaPlusInfo();
-            if (tiebaPlusInfo != null && co9.i(tiebaPlusInfo.app_package)) {
+            if (tiebaPlusInfo != null && os9.i(tiebaPlusInfo.app_package)) {
                 return true;
             }
             return false;
@@ -718,9 +718,9 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onAttachedToWindow();
-            pa7 pa7Var = this.d;
-            if (pa7Var != null) {
-                getMTbDownloadManager().a(pa7Var);
+            ua7 ua7Var = this.d;
+            if (ua7Var != null) {
+                getMTbDownloadManager().a(ua7Var);
             }
             MessageManager.getInstance().registerListener(this.f);
             MessageManager.getInstance().registerListener(this.g);
@@ -864,7 +864,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
             } else if (getDownloadData() == null) {
                 return "";
             } else {
-                ma7 mTbDownloadManager = getMTbDownloadManager();
+                ra7 mTbDownloadManager = getMTbDownloadManager();
                 DownloadData downloadData = getDownloadData();
                 Intrinsics.checkNotNull(downloadData);
                 int e = mTbDownloadManager.e(downloadData);
@@ -887,7 +887,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
                         }
                     }
                     if (Intrinsics.areEqual(this.h, "a")) {
-                        string2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f08e5);
+                        string2 = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f08e8);
                     } else {
                         string2 = TbadkCoreApplication.getInst().getApp().getString(R.string.go_on_download);
                     }
@@ -945,7 +945,7 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
         TiebaPlusInfo tiebaPlusInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (tiebaPlusInfo = getTiebaPlusInfo()) != null) {
-            ew6 ew6Var = new ew6();
+            jw6 jw6Var = new jw6();
             ItemData itemData = new ItemData();
             itemData.buttonLink = tiebaPlusInfo.download_url;
             itemData.buttonName = ItemCardHelper.b;
@@ -962,11 +962,11 @@ public abstract class AbsDownloadGuide extends RelativeLayout {
             builder.version = tiebaPlusInfo.app_version;
             builder.version_code = 1;
             builder.pkg_source = 2;
-            itemData.itemId = ug.g(tiebaPlusInfo.app_id, 0L);
+            itemData.itemId = vg.g(tiebaPlusInfo.app_id, 0L);
             itemData.apkDetail = builder.build(true);
-            ew6Var.a = itemData;
-            ew6Var.b = 1;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921627, ew6Var));
+            jw6Var.a = itemData;
+            jw6Var.b = 1;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921627, jw6Var));
         }
     }
 

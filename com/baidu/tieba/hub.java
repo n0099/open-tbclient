@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayFlowModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface hub {
-    PayFlowModel j(PayFlowType payFlowType);
+public final class hub<T, K, V> extends dtb<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final wub e;
+
+    public abstract void g(K k);
 }

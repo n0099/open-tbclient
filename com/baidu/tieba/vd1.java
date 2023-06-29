@@ -1,44 +1,79 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.StyleRes;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vd1 extends Dialog {
+public class vd1 extends wd1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView t;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vd1(@NonNull Context context, @StyleRes int i) {
-        super(context, i);
+    @Override // com.baidu.tieba.wd1, com.baidu.tieba.ud1
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.nad_bubble_tip_d20 : invokeV.intValue;
+    }
+
+    public vd1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public void F() {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.show();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (imageView = this.t) == null) {
+            return;
         }
+        imageView.setBackground(wc1.a().getResources().getDrawable(R.drawable.nad_bubble_jump_arrow_selector));
+        this.t.setVisibility(0);
+    }
+
+    @Override // com.baidu.tieba.wd1, com.baidu.tieba.ud1
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (super.g()) {
+                this.t = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090502);
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wd1, com.baidu.tieba.ud1
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.n();
+            this.t = null;
+        }
+    }
+
+    public void G(View.OnClickListener onClickListener) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) != null) || (imageView = this.t) == null) {
+            return;
+        }
+        imageView.setOnClickListener(onClickListener);
     }
 }

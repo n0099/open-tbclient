@@ -21,7 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class DelegateDialogFragment extends DialogFragment implements IDelegateFragment {
     public IDialogFragmentLifecycle mBase;
 

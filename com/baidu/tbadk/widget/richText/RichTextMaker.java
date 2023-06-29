@@ -9,11 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gx5;
-import com.baidu.tieba.w16;
+import com.baidu.tieba.b26;
+import com.baidu.tieba.lx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -106,11 +105,11 @@ public abstract class RichTextMaker<T> {
                 } else {
                     z = false;
                 }
-                gx5.a(z);
+                lx5.a(z);
                 if (this != START_OFFSET) {
                     z2 = false;
                 }
-                gx5.d(z2);
+                lx5.d(z2);
                 this.offset = i;
                 return this;
             }
@@ -128,7 +127,7 @@ public abstract class RichTextMaker<T> {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends w16 {
+    public class a extends b26 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int j;
@@ -161,11 +160,11 @@ public abstract class RichTextMaker<T> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.w16, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.b26, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                w16.b bVar = this.i;
+                b26.b bVar = this.i;
                 if (bVar != null) {
                     bVar.a(this);
                 }
@@ -456,9 +455,7 @@ public abstract class RichTextMaker<T> {
         if ((interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) && this.a != IconPos.NONE) {
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.b, this.c, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.i(this.e);
-            if (DeviceInfoUtil.isXiaoMi()) {
-                eMRichTextAnyIconSpan.d(R.dimen.tbds6);
-            }
+            eMRichTextAnyIconSpan.h(true);
             cVar.a.setSpan(eMRichTextAnyIconSpan, cVar.b, cVar.c, cVar.f);
         }
     }

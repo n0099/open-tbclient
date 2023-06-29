@@ -1,10 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,23 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes6.dex */
-public class m18 extends BaseCardInfo {
+public class m18 extends k18 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public List<String> f;
-    public List<String> g;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +27,7 @@ public class m18 extends BaseCardInfo {
                 return;
             }
         }
-        h = BdUniqueId.gen();
+        f = BdUniqueId.gen();
     }
 
     public m18() {
@@ -59,55 +43,17 @@ public class m18 extends BaseCardInfo {
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.g = new ArrayList();
+        f(co6.g());
+        h("percard#");
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
+    @Override // com.baidu.tieba.ep6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
         }
         return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(LiveAnswer liveAnswer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, liveAnswer) != null) || liveAnswer == null) {
-            return;
-        }
-        this.a = liveAnswer.activity_id.toString();
-        this.d = liveAnswer.banner_url;
-        this.b = liveAnswer.banner_high.intValue();
-        this.c = liveAnswer.banner_width.intValue();
-        this.e = liveAnswer.jump_url;
-        this.f.clear();
-        this.f.addAll(liveAnswer.show_statistics_urls);
-        this.g.clear();
-        this.g.addAll(liveAnswer.click_statistics_urls);
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("activity_id", this.a);
-                jSONObject.put("img_width", this.c);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, this.d);
-                jSONObject.put("img_height", this.b);
-                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.e);
-                jSONObject.put("show_statistics_urls", this.f);
-                jSONObject.put("click_statistics_urls", this.g);
-                return jSONObject.toString();
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,30 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.sdk.crashreportbaidu.ReportInfo;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.crypto.SecretKey;
 /* loaded from: classes7.dex */
-public class ogb<T extends ReportInfo> {
+public class ogb implements qgb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
+    public final ngb a;
+    public SecretKey b;
 
-    public ogb(Context context, String str) {
+    public ogb(ngb ngbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {ngbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,74 +37,72 @@ public class ogb<T extends ReportInfo> {
                 return;
             }
         }
-        this.a = context.getSharedPreferences(str, 0);
+        this.a = ngbVar;
+        b();
     }
 
-    public String a(T t) {
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return "anr info is null";
-            }
-            ngb.d("ReportDB", "add info: " + t.crashId);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && Pattern.matches("^\\[!([A-Fa-f0-9]*)]", str) : invokeL.booleanValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
-                List<T> c = c();
-                int size = c.size();
-                SharedPreferences.Editor edit = this.a.edit();
-                for (int i = 0; i <= size - 30; i++) {
-                    T t2 = c.get(i);
-                    t2.clearFiles(t2.fileList);
-                    edit.remove(t2.crashId);
-                }
-                edit.putString(t.crashId, t.serialize()).commit();
-                return null;
-            } catch (IOException e) {
-                String C = qgb.C(e);
-                ngb.c("ReportDB", C, e);
-                return C;
+                Matcher matcher = Pattern.compile("^\\[!([A-Fa-f0-9]*)]").matcher(str);
+                return matcher.find() ? matcher.group(1) : "";
+            } catch (IllegalStateException | IndexOutOfBoundsException unused) {
+                Log.e("ExclamationMark", "getRawString exception");
+                return "";
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.qgb
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.edit().clear().commit();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.b == null) {
+                str3 = "mKey is null, return default value";
+            } else if (!c(str)) {
+                return str2;
+            } else {
+                try {
+                    return new String(sgb.b(this.b, igb.b(d(str))), "UTF-8");
+                } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
+                    str3 = "UnsupportedEncodingException||GeneralSecurityException||IllegalArgumentException";
+                }
+            }
+            Log.e("ExclamationMark", str3);
+            return str2;
         }
+        return (String) invokeLL.objValue;
     }
 
-    public List<T> c() {
+    public final SecretKey b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Map<String, ?> all = this.a.getAll();
-            if (all != null && !all.isEmpty()) {
-                for (Map.Entry<String, ?> entry : all.entrySet()) {
-                    try {
-                        arrayList.add((ReportInfo) ReportInfo.deserialize((String) entry.getValue()));
-                        ngb.d("ReportDB", String.format("read info:%s", entry.getKey()));
-                    } catch (Exception e) {
-                        delete(entry.getKey());
-                        ngb.b("ReportDB", String.format("read info error:[%s] %s", entry.getKey(), qgb.C(e)));
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                String a = this.a.a("/code/code1", null);
+                String a2 = this.a.a("/code/code2", null);
+                String a3 = this.a.a("/code/code3", null);
+                String a4 = this.a.a("/code/code4", null);
+                if (a != null && a2 != null && a3 != null && a4 != null) {
+                    this.b = sgb.a(igb.b(a), igb.b(a2), igb.b(a3), igb.b(a4), 10000);
                 }
-                ngb.d("ReportDB", "get all size: " + arrayList.size());
+            } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+                Log.e("ExclamationMark", "Exception when reading the 'K&I' for 'Config'.");
+                this.b = null;
             }
-            return arrayList;
+            return this.b;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public void delete(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            ngb.d("ReportDB", "delete info: " + str);
-            if (this.a.contains(str)) {
-                this.a.edit().remove(str).commit();
-            }
-        }
+        return (SecretKey) invokeV.objValue;
     }
 }

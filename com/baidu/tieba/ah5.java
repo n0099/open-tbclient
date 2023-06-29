@@ -1,56 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
+import tbclient.Loop.FestivalInfo;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
-public class ah5 implements uz5 {
+public class ah5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    @SerializedName("main_fname")
     public String a;
-    public String b;
+    @SerializedName("main_fid")
+    public long b;
+    @Nullable
+    @SerializedName("bless")
     public String c;
-    public boolean d;
-    public boolean e;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ah5 a;
-
-        public a(ah5 ah5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ah5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ah5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qg.h().m(this.a.b, 10, null, null);
-                qg.h().m(this.a.c, 10, null, null);
-            }
-        }
-    }
+    @Nullable
+    @SerializedName("write_select_tips")
+    public String d;
+    @Nullable
+    @SerializedName("comment_tips")
+    public String e;
+    @Nullable
+    @SerializedName("tips_color")
+    public ThemeColorInfo f;
 
     public ah5() {
         Interceptable interceptable = $ic;
@@ -66,93 +47,44 @@ public class ah5 implements uz5 {
         }
     }
 
-    @Override // com.baidu.tieba.uz5
-    public String a() {
-        InterceptResult invokeV;
+    public void a(FestivalInfo festivalInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        this.a = festivalInfo.main_fname;
+        this.b = festivalInfo.main_fid.longValue();
+        this.c = festivalInfo.bless;
+        this.d = festivalInfo.write_select_tips;
+        this.e = festivalInfo.comment_tips;
+        this.f = festivalInfo.tips_color;
     }
 
-    @Override // com.baidu.tieba.uz5
-    public String c() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || ah5.class != obj.getClass()) {
+                return false;
+            }
+            ah5 ah5Var = (ah5) obj;
+            if (Objects.equals(this.a, ah5Var.a) && this.b == ah5Var.b && Objects.equals(this.c, ah5Var.c) && Objects.equals(this.d, ah5Var.d) && Objects.equals(this.e, ah5Var.e)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uz5
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uz5
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.d && this.e) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isValid()) {
-            xg.a().post(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.uz5
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b) && !StringUtils.isNull(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.uz5
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (!this.d) {
-            this.d = str.equals(this.b);
-        }
-        if (!this.e) {
-            this.e = str.equals(this.c);
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("url");
-        this.b = jSONObject.optString("fold_lottie");
-        jSONObject.optString("fold_name");
-        this.c = jSONObject.optString("unfold_lottie");
-        jSONObject.optString("unfold_name");
-        g();
+        return invokeV.intValue;
     }
 }

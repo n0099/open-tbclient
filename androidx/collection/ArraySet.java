@@ -430,7 +430,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
 
     public String toString() {
         if (isEmpty()) {
-            return StringUtil.EMPTY_ARRAY;
+            return "{}";
         }
         StringBuilder sb = new StringBuilder(this.mSize * 14);
         sb.append('{');

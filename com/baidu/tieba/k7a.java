@@ -1,66 +1,39 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import android.widget.SeekBar;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class k7a {
+public class k7a {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public xe5 a;
-    public m7a b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867380, "Lcom/baidu/tieba/k7a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947867380, "Lcom/baidu/tieba/k7a;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    public /* synthetic */ k7a(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @JvmStatic
-    public static final k7a c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a() : (k7a) invokeV.objValue;
-    }
+    public BaseFragmentActivity a;
+    public SeekBar b;
+    public View c;
+    public int d;
+    public ViewTreeObserver.OnGlobalLayoutListener e;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public class a implements SeekBar.OnSeekBarChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(k7a k7aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k7aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,116 +44,114 @@ public final class k7a {
             }
         }
 
-        @JvmStatic
-        public final k7a a() {
-            InterceptResult invokeV;
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onStartTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
+                po9 po9Var = new po9();
+                po9Var.a = 2;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, po9Var));
             }
-            return (k7a) invokeV.objValue;
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_transparent_seekbar));
+                po9 po9Var = new po9();
+                po9Var.a = 3;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, po9Var));
+            }
+        }
+
+        @Override // android.widget.SeekBar.OnSeekBarChangeListener
+        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
+                po9 po9Var = new po9();
+                po9Var.a = 1;
+                po9Var.b = i;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, po9Var));
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class b {
+    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final k7a b;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k7a a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-705207882, "Lcom/baidu/tieba/k7a$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-705207882, "Lcom/baidu/tieba/k7a$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new k7a(null);
-        }
-
-        public b() {
+        public b(k7a k7aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k7aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k7aVar;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.b.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.b.getLayoutParams();
+                if (layoutParams.bottomMargin != this.a.d) {
+                    layoutParams.bottomMargin = this.a.c.getHeight() - xi.g(this.a.a, R.dimen.tbds16);
+                    this.a.b.setLayoutParams(layoutParams);
+                    this.a.d = layoutParams.bottomMargin;
                 }
             }
         }
-
-        public final k7a a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (k7a) invokeV.objValue;
-        }
     }
 
-    public k7a() {
+    public k7a(BaseFragmentActivity baseFragmentActivity, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m7a m7aVar = this.b;
-            if (m7aVar != null) {
-                l7a.c(m7aVar.c(), m7aVar.b(), m7aVar.a(), m7aVar.d());
-            }
-            this.b = null;
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (LooperBlockSwitch.getIsOn()) {
-                a65.p(TbadkCoreApplication.getInst(), "updateDialog", new JSONObject());
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            xe5 xe5Var = this.a;
-            if (xe5Var != null) {
-                l7a.b(xe5Var);
+        }
+        this.d = -1;
+        this.e = new b(this);
+        this.a = baseFragmentActivity;
+        this.c = view2;
+        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f09289d);
+        this.b = seekBar;
+        seekBar.setOnSeekBarChangeListener(new a(this));
+        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);
+    }
+
+    public void f(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            SeekBar seekBar = this.b;
+            if (z) {
+                i = 0;
+            } else {
+                i = 4;
             }
-            this.a = null;
-        }
-    }
-
-    public final void d(m7a m7aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m7aVar) == null) {
-            this.b = m7aVar;
-        }
-    }
-
-    public final void e(xe5 xe5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xe5Var) == null) {
-            this.a = xe5Var;
+            seekBar.setVisibility(i);
         }
     }
 }

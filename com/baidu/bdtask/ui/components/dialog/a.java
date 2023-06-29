@@ -18,13 +18,13 @@ import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.bdtask.ui.utils.d;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.at;
-import com.baidu.tieba.av;
+import com.baidu.tieba.bt;
 import com.baidu.tieba.bv;
-import com.baidu.tieba.gw;
-import com.baidu.tieba.jv;
+import com.baidu.tieba.cv;
+import com.baidu.tieba.hw;
 import com.baidu.tieba.kv;
-import com.baidu.tieba.xr;
+import com.baidu.tieba.lv;
+import com.baidu.tieba.yr;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,13 +91,13 @@ public abstract class a extends Activity {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            av v;
-            bv d;
+            bv v;
+            cv d;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TaskDialogViewData a = this.a.a();
                 if (a != null && (v = BDPTask.m.v()) != null && (d = v.d()) != null) {
-                    d.b(a.getTaskInfoSingleKey(), xr.c.a());
+                    d.b(a.getTaskInfoSingleKey(), yr.c.a());
                 }
                 this.a.g();
                 this.a.d();
@@ -220,8 +220,8 @@ public abstract class a extends Activity {
     }
 
     public final void b(TextView textView, ImageView imageView, String str, String str2, String str3, Function0<Unit> function0) {
-        av v;
-        at h;
+        bv v;
+        bt h;
         Context appContext;
         Resources resources;
         Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public abstract class a extends Activity {
             if (!TextUtils.isEmpty(str)) {
                 textView.setVisibility(0);
                 imageView.setVisibility(8);
-                textView.setTextColor(gw.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
+                textView.setTextColor(hw.a.a(str2, resources.getColor(R.color.task_sdk_text_color_default)));
                 textView.setText(str);
                 textView.setOnClickListener(new b(function0));
                 c(str3, textView);
@@ -279,41 +279,41 @@ public abstract class a extends Activity {
 
     public final void g() {
         TaskDialogViewData a;
-        av v;
-        jv f;
+        bv v;
+        kv f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "close_clk", kv.b(kv.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "close_clk", lv.b(lv.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
     public final void h() {
         TaskDialogViewData a;
-        av v;
-        jv f;
+        bv v;
+        kv f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "icon_clk", kv.b(kv.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "icon_clk", lv.b(lv.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
     public final void i() {
         TaskDialogViewData a;
-        av v;
-        jv f;
+        bv v;
+        kv f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "cancel_clk", kv.b(kv.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "cancel_clk", lv.b(lv.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 
     public final void k() {
         TaskDialogViewData a;
-        av v;
-        jv f;
+        bv v;
+        kv f;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (a = a()) != null && (v = BDPTask.m.v()) != null && (f = v.f()) != null) {
-            f.a("y_task_pop", "c_pv", kv.b(kv.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+            f.a("y_task_pop", "c_pv", lv.b(lv.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
         }
     }
 

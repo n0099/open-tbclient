@@ -8,8 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.de0;
-import com.baidu.tieba.mb0;
+import com.baidu.tieba.ge0;
+import com.baidu.tieba.pb0;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes3.dex */
 public class EmptyView extends LinearLayout {
@@ -47,25 +47,25 @@ public class EmptyView extends LinearLayout {
 
     public EmptyView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ac, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ad, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0909d6);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0909d8);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0909dc);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0909de);
     }
 
     public void a(String str) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-        layoutParams.width = mb0.b(getContext(), EmotionStrategy.getInstance().emptyWidth);
-        layoutParams.height = mb0.b(getContext(), EmotionStrategy.getInstance().emptyHeight);
+        layoutParams.width = pb0.b(getContext(), EmotionStrategy.getInstance().emptyWidth);
+        layoutParams.height = pb0.b(getContext(), EmotionStrategy.getInstance().emptyHeight);
         this.a.setLayoutParams(layoutParams);
-        setImageResource(de0.f().b(str));
+        setImageResource(ge0.f().b(str));
         if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.b.setText(R.string.obfuscated_res_0x7f0f0b89);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0b8e);
         } else {
-            this.b.setText(R.string.obfuscated_res_0x7f0f0b88);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0b8d);
         }
-        this.b.setTextColor(de0.f().a(getContext(), str, "color_8585852"));
+        this.b.setTextColor(ge0.f().a(getContext(), str, "color_8585852"));
     }
 
     public void setText(CharSequence charSequence) {

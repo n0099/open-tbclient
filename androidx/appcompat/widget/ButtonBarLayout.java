@@ -49,7 +49,7 @@ public class ButtonBarLayout extends LinearLayout {
             i = 80;
         }
         setGravity(i);
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092196);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0921f6);
         if (findViewById != null) {
             if (z) {
                 i2 = 8;

@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.searchbox.live.interfaces.player.BuildParams;
-import com.baidu.searchbox.live.interfaces.player.LivePlayer;
-import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uu8 implements ILivePlayerService {
+public class uu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public boolean isAuthError(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i == -2403 || i == -33403 : invokeI.booleanValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
 
     public uu8() {
         Interceptable interceptable = $ic;
@@ -36,44 +34,42 @@ public class uu8 implements ILivePlayerService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public LivePlayer createBackPlayer(String str) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return new qu8(str);
-        }
-        return (LivePlayer) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public LivePlayer createPlayer(BuildParams buildParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buildParams)) == null) {
-            if (buildParams.getPlayerType() != 1) {
-                return createPlayer(buildParams.getRoomId());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.c)) {
+                return false;
             }
-            return createBackPlayer(buildParams.getRoomId());
+            if (this.d == 2) {
+                if (TextUtils.isEmpty(this.e) || TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g)) {
+                    return false;
+                }
+                return true;
+            } else if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        return (LivePlayer) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public LivePlayer createPlayer(String str) {
-        InterceptResult invokeL;
+    public void b(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return new ru8(str);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (LivePlayer) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
-    public void initPlayerEvn(CyberPlayerManager.InstallListener installListener, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, installListener, i) == null) {
-            su8.e().h(installListener, i);
+        this.a = jSONObject.optString("pic");
+        this.b = jSONObject.optString("picNight");
+        this.c = jSONObject.optString("scheme");
+        int optInt = jSONObject.optInt("type", 1);
+        this.d = optInt;
+        if (optInt == 2 && (optJSONObject = jSONObject.optJSONObject("extra")) != null) {
+            this.e = optJSONObject.optString("title");
+            this.f = optJSONObject.optString("content");
+            this.g = optJSONObject.optString("imageUrl");
         }
     }
 }

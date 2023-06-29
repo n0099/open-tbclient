@@ -1,41 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ll4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ll4 {
 
-    public abstract bm4 a();
+    /* loaded from: classes6.dex */
+    public interface a {
+        void b(String str, String str2, JSONObject jSONObject);
 
-    public abstract boolean b(bm4 bm4Var);
+        void onFail(Exception exc);
 
-    public abstract void c(boolean z);
+        void onStart();
 
-    public ll4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        void onSuccess(String str, int i);
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "task=" + a();
-        }
-        return (String) invokeV.objValue;
-    }
+    void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, a aVar);
+
+    void z(String str, Map<String, String> map, Map<String, String> map2, a aVar);
 }

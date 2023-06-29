@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d55;
-import com.baidu.tieba.k9;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.l9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes4.dex */
-public class PermissionRequestDialog extends d55 {
+public class PermissionRequestDialog extends g55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -84,7 +84,7 @@ public class PermissionRequestDialog extends d55 {
             this.mDetailView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_detail);
             TextView textView = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_close);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f046c);
+            textView.setText(R.string.obfuscated_res_0x7f0f046e);
             TextView textView2 = (TextView) this.mRootView.findViewById(R.id.tv_permission_request_continue);
             this.mContinueView = textView2;
             textView2.setText(R.string.alert_yes_button);
@@ -93,14 +93,14 @@ public class PermissionRequestDialog extends d55 {
         }
     }
 
-    @Override // com.baidu.tieba.d55
-    public d55 create(k9<?> k9Var) {
+    @Override // com.baidu.tieba.g55
+    public g55 create(l9<?> l9Var) {
         InterceptResult invokeL;
         char c;
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k9Var)) == null) {
-            super.create(k9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l9Var)) == null) {
+            super.create(l9Var);
             String str = this.mRequestPermission;
             int hashCode = str.hashCode();
             if (hashCode != -63024214) {
@@ -127,16 +127,16 @@ public class PermissionRequestDialog extends d55 {
                     if (c != 2) {
                         string = null;
                     } else {
-                        str2 = k9Var.getString(R.string.request_permission_title_location);
-                        string = k9Var.getString(R.string.request_permission_detail_location);
+                        str2 = l9Var.getString(R.string.request_permission_title_location);
+                        string = l9Var.getString(R.string.request_permission_detail_location);
                     }
                 } else {
-                    str2 = k9Var.getString(R.string.request_permission_title_record_audio);
-                    string = k9Var.getString(R.string.request_permission_detail_record_audio);
+                    str2 = l9Var.getString(R.string.request_permission_title_record_audio);
+                    string = l9Var.getString(R.string.request_permission_detail_record_audio);
                 }
             } else {
-                str2 = k9Var.getString(R.string.request_permission_title_camera);
-                string = k9Var.getString(R.string.request_permission_detail_camera);
+                str2 = l9Var.getString(R.string.request_permission_title_camera);
+                string = l9Var.getString(R.string.request_permission_detail_camera);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -204,7 +204,7 @@ public class PermissionRequestDialog extends d55 {
             });
             return this;
         }
-        return (d55) invokeL.objValue;
+        return (g55) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

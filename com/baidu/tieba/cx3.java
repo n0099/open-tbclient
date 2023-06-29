@@ -1,103 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public interface cx3 {
-    String a(Context context);
+public class cx3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static Method a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
-
-    String getDeviceId(Context context);
-
-    /* loaded from: classes5.dex */
-    public static class a implements cx3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final cx3 a;
-
-        @Override // com.baidu.tieba.cx3
-        public String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.a(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.cx3
-        public String b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.b(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.cx3
-        public String c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.c(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.cx3
-        public String d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.d(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.cx3
-        public String getDeviceId(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.getDeviceId(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public a(cx3 delegation) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947690091, "Lcom/baidu/tieba/cx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {delegation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947690091, "Lcom/baidu/tieba/cx3;");
+                return;
+            }
+        }
+        try {
+            a = gg4.i(gg4.b(CountryCodeBean.ANDRIOD_SYSTEMPROP, true), CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class);
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Method method = a;
+            if (method != null) {
+                try {
+                    return (String) method.invoke(null, str);
+                } catch (Throwable unused) {
                 }
             }
-            Intrinsics.checkNotNullParameter(delegation, "delegation");
-            this.a = delegation;
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.yunpush;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.tr8;
+import com.baidu.tieba.ew8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ public final class YunPushLog {
     public static /* synthetic */ Interceptable $ic;
     public static final YunPushLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tr8 instance;
+    public final ew8 instance;
 
     static {
         InterceptResult invokeClinit;
@@ -37,13 +37,13 @@ public final class YunPushLog {
         $VALUES = new YunPushLog[]{yunPushLog};
     }
 
-    public static tr8 getInstance() {
+    public static ew8 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (tr8) invokeV.objValue;
+        return (ew8) invokeV.objValue;
     }
 
     public static YunPushLog[] values() {
@@ -73,7 +73,7 @@ public final class YunPushLog {
                 return;
             }
         }
-        this.instance = new tr8(Config.DEVICE_PART);
+        this.instance = new ew8(Config.DEVICE_PART);
     }
 
     public static YunPushLog valueOf(String str) {

@@ -15,16 +15,16 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.bh;
-import com.baidu.tieba.bo5;
+import com.baidu.tieba.ch;
+import com.baidu.tieba.fo5;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
-import com.baidu.tieba.oe8;
-import com.baidu.tieba.rn5;
+import com.baidu.tieba.vn5;
+import com.baidu.tieba.zf8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatMsgProcessor implements bo5 {
+public class ChatMsgProcessor implements fo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<Class<? extends BaseMsg>> a;
@@ -585,7 +585,7 @@ public class ChatMsgProcessor implements bo5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
-            TreeSet<ChatMsg> treeSet = new TreeSet<>(rn5.b);
+            TreeSet<ChatMsg> treeSet = new TreeSet<>(vn5.b);
             treeSet.add(chatMsg);
             return treeSet;
         }
@@ -604,14 +604,14 @@ public class ChatMsgProcessor implements bo5 {
     public final void G(@NonNull ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, chatMsg) == null) {
-            bh.c(new e(this, chatMsg));
+            ch.c(new e(this, chatMsg));
         }
     }
 
     public final void H(@NonNull BaseSysMsg baseSysMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, baseSysMsg) == null) {
-            bh.c(new d(this, baseSysMsg));
+            ch.c(new d(this, baseSysMsg));
         }
     }
 
@@ -687,7 +687,7 @@ public class ChatMsgProcessor implements bo5 {
     public void C(long j2, @NonNull j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, jVar) == null) {
-            bh.c(new f(this, j2, new ArrayList(q(j2)), jVar));
+            ch.c(new f(this, j2, new ArrayList(q(j2)), jVar));
         }
     }
 
@@ -803,7 +803,7 @@ public class ChatMsgProcessor implements bo5 {
         }
     }
 
-    @Override // com.baidu.tieba.bo5
+    @Override // com.baidu.tieba.fo5
     public void a(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
@@ -1090,7 +1090,7 @@ public class ChatMsgProcessor implements bo5 {
                                 z4.add(j4);
                             }
                         } catch (Exception e2) {
-                            oe8.g("parse_msg_exception", j2, e2);
+                            zf8.g("parse_msg_exception", j2, e2);
                         }
                     }
                 }
@@ -1099,7 +1099,7 @@ public class ChatMsgProcessor implements bo5 {
                         v.addAll(z4);
                     } else {
                         q.addAll(z4);
-                        bh.c(new b(this, j2, new ArrayList(q), z, z2, z3));
+                        ch.c(new b(this, j2, new ArrayList(q), z, z2, z3));
                     }
                 }
             }
@@ -1116,7 +1116,7 @@ public class ChatMsgProcessor implements bo5 {
     public final void i(long j2, @NonNull TreeSet<ChatMsg> treeSet, boolean z, boolean z2, boolean z3, @Nullable i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j2), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar}) == null) {
-            bh.d(new a(this, j2, treeSet, z, z2, z3, iVar));
+            ch.e(new a(this, j2, treeSet, z, z2, z3, iVar));
         }
     }
 

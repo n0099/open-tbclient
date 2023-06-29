@@ -1,198 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class tr5 {
     public static /* synthetic */ Interceptable $ic;
-    public static tr5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<String> b;
 
-    public tr5() {
+    public static void a(String str, int i, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = i(o95.p().w("key_need_add_source_stat_list", ""));
-        this.b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
-    }
-
-    public static void b(Context context, StatisticItem statisticItem, as5 as5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, as5Var) == null) && as5Var != null && statisticItem != null && !TextUtils.isEmpty(statisticItem.getKey())) {
-            rr5 k = as5Var.k();
-            if (k == null || k.f()) {
-                k = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
-            }
-            if (k != null && !k.f()) {
-                c(statisticItem, k);
-            }
-            TbPageExtraHelper.printLog(statisticItem.toString());
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4}) == null) {
+            b(str, -1, str2, str3, str4, 0);
         }
     }
 
-    public static void c(StatisticItem statisticItem, rr5 rr5Var) {
+    public static void b(String str, int i, String str2, String str3, String str4, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, statisticItem, rr5Var) == null) && statisticItem != null && rr5Var != null && !TextUtils.isEmpty(statisticItem.getKey())) {
-            String a = rr5Var.a();
-            if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
-                statisticItem.param("page_key", a);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, str3, str4, Integer.valueOf(i2)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_source", str2);
+            statisticItem.param("thread_type", i2);
+            if (i > 0) {
+                statisticItem.param("obj_locate", i);
             }
-            String a2 = sr5.a(rr5Var.d(), a, 6);
-            if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
-                statisticItem.param("page_source", a2);
+            if (!StringUtils.isNull(str3)) {
+                statisticItem.param("tid", str3);
             }
-        }
-    }
-
-    public static tr5 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (tr5.class) {
-                    if (c == null) {
-                        c = new tr5();
-                    }
-                }
+            if (!StringUtils.isNull(str4)) {
+                statisticItem.param("fid", str4);
             }
-            return c;
-        }
-        return (tr5) invokeV.objValue;
-    }
-
-    public final void a(StatisticItem statisticItem) {
-        Activity currentActivity;
-        rr5 currentVisiblePageExtra;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(currentActivity)) == null) {
-            return;
-        }
-        String a = currentVisiblePageExtra.a();
-        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
-            statisticItem.param("page_key", a);
-        }
-        String b = currentVisiblePageExtra.b();
-        if (!TextUtils.isEmpty(b) && !statisticItem.hasParam("page_tag")) {
-            statisticItem.param("page_tag", b);
-        }
-        ArrayList<String> d = currentVisiblePageExtra.d();
-        String a2 = sr5.a(d, a, 6);
-        if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d.size() == 0 && (currentActivity instanceof xr5)) {
-            List<String> currentPageSourceKeyList = ((xr5) currentActivity).getCurrentPageSourceKeyList();
-            if (currentPageSourceKeyList instanceof ArrayList) {
-                a2 = sr5.a((ArrayList) currentPageSourceKeyList, a, 6);
-                statisticItem.delete("common_exp_source_pb_comment");
-            }
-        }
-        if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
-            statisticItem.param("page_source", a2);
-        }
-        TbPageExtraHelper.printLog(statisticItem.toString());
-    }
-
-    public final <T> List<T> d(T[] tArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr)) == null) {
-            if (tArr != null && tArr.length != 0) {
-                ArrayList arrayList = new ArrayList(tArr.length);
-                for (T t : tArr) {
-                    if (t != null && !TextUtils.isEmpty(t.toString())) {
-                        arrayList.add(t);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.b) && !vi.isEmpty(str)) {
-                for (String str2 : this.b) {
-                    if (str.equals(str2)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.a) && !vi.isEmpty(str)) {
-                for (String str2 : this.a) {
-                    if (str.equals(str2)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, statisticItem) == null) && statisticItem != null && !statisticItem.hasParam("page_source")) {
-            if (h(statisticItem.getKey()) || g(statisticItem.getKey())) {
-                a(statisticItem);
-            }
-        }
-    }
-
-    public final List<String> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (vi.isEmpty(str)) {
-                return null;
-            }
-            return d(str.split(","));
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = i(str);
-            if (str == null) {
-                str = "";
-            }
-            o95.p().J("key_need_add_source_stat_list", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

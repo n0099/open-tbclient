@@ -1,155 +1,69 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverMemoryLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m05 implements Application.ActivityLifecycleCallbacks {
+public class m05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-
-        public a(m05 m05Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m05Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (NotificationManagerCompat.from(this.a).areNotificationsEnabled()) {
-                    boolean l = o95.p().l("official_push_switch", true);
-                    Activity activity = this.a;
-                    rx4.v(activity, "", "https://tieba.baidu.com/mo/q/hybrid-main-service/pushSettings?pageType=1&officialPushMsgStatus=" + (l ? 1 : 0), true);
-                    return;
-                }
-                uf5.d(this.a);
-            }
-        }
-    }
-
-    public m05() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = true;
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null && activity.getClass().getName().equals("com.baidu.sapi2.activity.LoginActivity")) {
-            this.a = true;
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && activity != null && activity.getClass().getName().equals("com.baidu.sapi2.activity.LoginActivity") && this.a) {
-            this.a = false;
-            FrameLayout frameLayout = (FrameLayout) activity.getWindow().getDecorView().findViewById(16908290);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(wi.d(activity, 20.0f), wi.d(activity, 20.0f));
-            layoutParams.addRule(11);
-            layoutParams.rightMargin = wi.g(activity, R.dimen.tbds42);
-            layoutParams.topMargin = wi.g(activity, R.dimen.tbds126) - wi.u(activity);
-            ImageView imageView = new ImageView(activity);
-            imageView.setLayoutParams(layoutParams);
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            Drawable drawable = SvgManager.getInstance().getDrawable(R.drawable.icon_login_setting_svg, 1, false);
-            ColorStateList colorListByResourceType = SvgManager.SvgResourceStateType.NORMAL_PRESS.getColorListByResourceType(SkinManager.getColor(4, null, R.color.CAM_X0105));
-            if (colorListByResourceType != null && drawable != null) {
-                drawable = drawable.mutate();
-                DrawableCompat.setTintList(drawable, colorListByResourceType);
-            }
-            imageView.setImageDrawable(drawable);
-            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f092003);
-            if (relativeLayout == null) {
-                return;
-            }
-            relativeLayout.addView(imageView);
-            imageView.setOnClickListener(new a(this, activity));
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            rg.h().o(10, new SimpleLoaderProc(true, true, false, 10));
+            rg.h().o(11, new SimpleLoaderProc(false, true, false, 10));
+            rg.h().o(42, new SimpleLoaderProc(true, false, false, 10));
+            rg.h().o(13, new SimpleLoaderProc(true, true, false, 13));
+            rg.h().o(14, new SimpleLoaderProc(false, true, false, 13));
+            rg.h().o(17, new SimpleLoaderProc(true, true, false, 17));
+            rg.h().o(18, new SimpleLoaderProc(false, true, false, 17));
+            rg.h().o(39, new SimpleBlurLoaderProc(true, 39));
+            rg.h().o(12, new PortraitLoaderProc(false, false, 12));
+            rg.h().o(26, new PortraitLoaderProc(true, false, 26));
+            rg.h().o(28, new PortraitLoaderProc(false, false, 26));
+            rg.h().o(40, new PortraitBlurLoaderProc(false, false, 40));
+            rg.h().o(19, new NinePatchLoaderProc(19));
+            rg.h().o(24, new LocalPicDrawableLoaderProc(24));
+            rg.h().o(25, new PortraitLoaderProc(false, true, 26));
+            rg.h().o(27, new BigImageLoaderProc(27));
+            rg.h().o(29, new SimpleForeverLoaderProc(true, 29));
+            rg.h().o(32, new LocalFileDrawableLoaderProc(32));
+            rg.h().o(23, new bc5());
+            rg.h().o(33, new MemeLoaderProc2());
+            rg.h().o(34, new EmotionShareLoaderProc());
+            rg.h().o(35, new LocalFileImageLoaderProc(160, 160));
+            rg.h().o(36, new LocalFileImageLoaderProc());
+            rg.h().o(43, new LocalFileImageLoaderProc2());
+            rg.h().o(37, new LocalVideoThumbLoaderProc());
+            rg.h().o(38, new ImageLoaderProc());
+            rg.h().o(41, new BigdayImageLoaderProc());
+            rg.h().o(44, new FlutterLoaderProc(true, 44, false));
+            rg.h().o(15, new SimpleLoaderProc(false, true, true, 15));
+            rg.h().o(16, new SimpleLoaderProc(false, true, true, 16));
+            rg.h().o(21, new SimpleLoaderProc(false, true, true, 21));
+            rg.h().o(30, new SimpleLoaderProc(true, true, false, 30));
+            rg.h().o(31, new SimpleLoaderProc(false, true, false, 30));
+            rg.h().o(45, new SimpleForeverMemoryLoaderProc(true, true, true, 45));
+            rg.h().o(46, new SimpleLoaderProc(true, true, false, 46));
+            rg.h().o(47, new SimpleLoaderProc(false, true, false, 46));
         }
     }
 }

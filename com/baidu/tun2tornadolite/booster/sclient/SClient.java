@@ -7,7 +7,7 @@ import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.searchbox.common.security.CacheDeviceInfo;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.a;
+import com.baidu.tieba.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -164,7 +164,7 @@ public final class SClient {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 int hashCode = this.address.hashCode() * 31;
                 Socket socket = this.socket;
-                return ((((hashCode + (socket == null ? 0 : socket.hashCode())) * 31) + this.status) * 31) + a.a(this.connectTime);
+                return ((((hashCode + (socket == null ? 0 : socket.hashCode())) * 31) + this.status) * 31) + b.a(this.connectTime);
             }
             return invokeV.intValue;
         }

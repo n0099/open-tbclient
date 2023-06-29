@@ -1,53 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tieba.wra;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Application;
+import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.retrieve.YaLogInitManager;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tieba.log.TbLogManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class xra {
+public class xra {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static wra.a b;
-    public static wra.a c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948311362, "Lcom/baidu/tieba/xra;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948311362, "Lcom/baidu/tieba/xra;");
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            ui.d().h(SwanKV.LIB_CPP_SHARED, 2);
+            YaLogInitManager.getInstance().initYaLog(true, true, true, String.valueOf(10773430L));
+            TbLogManager.initTbUbcLog(new wra());
+            c();
         }
     }
 
-    public static synchronized void a(Context context) {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            synchronized (xra.class) {
-                if (!a) {
-                    jsa.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                    b = new yra();
-                    c = new isa();
-                    wra.a().c();
-                    wra.a().d(c);
-                    wra.a().d(b);
-                    wra.a().e(context);
-                    a = true;
-                    return;
-                }
-                jsa.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            String w = r95.p().w("key_ubc_yalog_config", "");
+            if (TextUtils.isEmpty(w)) {
+                return;
             }
+            try {
+                ((e4b) ServiceManager.getService(e4b.a)).a(new JSONObject(w));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void b(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            YaLogInitManager.getInstance().initYaLogBaseContext(application);
         }
     }
 }

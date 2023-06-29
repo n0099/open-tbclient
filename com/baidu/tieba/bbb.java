@@ -1,77 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes5.dex */
-public class bbb {
+public class bbb extends zbb<KsRewardVideoAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
 
-    public bbb(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bbb(KsRewardVideoAd ksRewardVideoAd) {
+        super(ksRewardVideoAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {ksRewardVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (context != null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Context createDeviceProtectedStorageContext = context.createDeviceProtectedStorageContext();
-                SharedPreferences sharedPreferences = createDeviceProtectedStorageContext.getSharedPreferences("move_to_de_records", 0);
-                if (!sharedPreferences.getBoolean(str, false) && createDeviceProtectedStorageContext.moveSharedPreferencesFrom(context, str)) {
-                    SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putBoolean(str, true);
-                    edit.apply();
-                }
-                context = createDeviceProtectedStorageContext;
+    }
+
+    @Override // com.baidu.tieba.zbb
+    public double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
             }
-            this.a = context.getSharedPreferences(str, 0);
+            return ((KsRewardVideoAd) a).getECPM();
+        }
+        return invokeV.doubleValue;
+    }
+
+    @Override // com.baidu.tieba.zbb
+    public void b(int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
             return;
         }
-        throw new NullPointerException("context is null!");
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsRewardVideoAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        SharedPreferences.Editor edit;
+    @Override // com.baidu.tieba.zbb
+    public void c(long j, long j2) {
+        A a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && sharedPreferences.contains(str) && (edit = this.a.edit()) != null) {
-                return edit.remove(str).commit();
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        SharedPreferences.Editor edit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && (edit = sharedPreferences.edit()) != null) {
-                return edit.putString(str, str2).commit();
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        ((KsRewardVideoAd) a).setBidEcpm((int) j);
     }
 }

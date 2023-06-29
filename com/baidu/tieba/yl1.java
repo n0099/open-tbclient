@@ -1,134 +1,222 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.behavior.record.BehaviorServiceFetcher;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.abtest.ioc.AbTestServiceFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreCollectFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreConfigFetcher;
+import com.baidu.searchbox.devicescore.DeviceScoreFetcher;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePlayUrlServiceFetcher;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceFetcher;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceFetcher;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceFetcher;
+import com.baidu.searchbox.live.service.Media2YYServiceFetcher;
+import com.baidu.searchbox.live.service.PluginInvokeServiceFetcher;
+import com.baidu.searchbox.live.service.YY2MediaServiceFetcher;
+import com.baidu.searchbox.live.service.YYPluginProgressInvokeServiceFetcher;
+import com.baidu.searchbox.live.video.VideoInsertLiveServiceFetcher;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerServiceFetcher;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.retrieve.core.task.FetchTaskFetcher;
+import com.baidu.searchbox.retrieve.core.task.UploadTaskFetcher;
+import com.baidu.searchbox.retrieve.inter.IFetchTask;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.retrieve.stats.service.StatServiceFetcher;
+import com.baidu.tbadk.abtest.helper.HttpsExperimentFetcher;
+import com.baidu.tbadk.abtest.helper.NetExperimentFetcher;
+import com.baidu.tbadk.abtest.helper.ThreadExperimentFetcher;
+import com.baidu.tbadk.switchs.UniKVTestFetcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.ubc.UBC;
+import com.baidu.webkit.sdk.WebView;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public final class yl1 {
+public class yl1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<ServiceReference, xl1<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public Map<String, String> b;
-        public int c;
-        public boolean d;
-        public int e;
-        public int f;
-        public int g;
-        public boolean h;
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948333899, "Lcom/baidu/tieba/yl1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = new HashMap();
-            this.c = 3;
-            this.d = false;
-            this.e = 640;
-            this.f = 480;
-            this.g = 1;
-            this.h = false;
-        }
-
-        public final b j(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                this.f = i;
-                this.h = true;
-                return this;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948333899, "Lcom/baidu/tieba/yl1;");
+                return;
             }
-            return (b) invokeI.objValue;
         }
-
-        public final b k(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.e = i;
-                this.h = true;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public final yl1 i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new yl1(this, null);
-            }
-            return (yl1) invokeV.objValue;
-        }
+        a = new ConcurrentHashMap<>();
+        d();
     }
 
-    public yl1(b bVar) {
+    public yl1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        String unused = bVar.a;
-        int unused2 = bVar.c;
-        int unused3 = bVar.e;
-        int unused4 = bVar.f;
-        boolean unused5 = bVar.h;
-        boolean unused6 = bVar.d;
-        int unused7 = bVar.g;
-        b(bVar.b);
     }
 
-    public /* synthetic */ yl1(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public Map<String, String> a() {
-        InterceptResult invokeV;
+    public static <T> T a(ServiceReference serviceReference) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, serviceReference)) == null) {
+            xl1<?> xl1Var = a.get(serviceReference);
+            if (xl1Var != null) {
+                return (T) xl1Var.getService();
+            }
+            return null;
         }
-        return (Map) invokeV.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public void b(Map<String, String> map) {
+    public static <T> void b(ServiceReference serviceReference, xl1<T> xl1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-            this.a = map;
+        if (interceptable == null || interceptable.invokeLL(65539, null, serviceReference, xl1Var) == null) {
+            a.put(serviceReference, xl1Var);
+        }
+    }
+
+    public static <T> void c(String str, String str2, Class<? extends xl1<T>> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, cls) == null) {
+            try {
+                b(new ServiceReference(str, str2), cls.newInstance());
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            c("AlaLiveSdk", "IMSdkService", iv8.class);
+            c("AlaLiveSdk", "IMSdkServicePerson", jv8.class);
+            c("AlaSquare", "SecondFloorService", sc6.class);
+            c(IFetchTask.NAME_SPACE, "report", FetchTaskFetcher.class);
+            c("Frames", "ISafetyConfig", ek6.class);
+            c("Frames", "JsPromptBridge", yj6.class);
+            c("Frs", "FrsService", he7.class);
+            c("HotTopic", "HotTopicRequest", t36.class);
+            c("IM", "IMessageCenterService", xo8.class);
+            c("ImMessageCenter", "ChatBoxDialogService", zd8.class);
+            c("ImMessageCenter", "ChatFloatEntranceService", of8.class);
+            c("ImMessageCenter", "GroupChatService", wd8.class);
+            c("UniKVTest", "UniKVTest", UniKVTestFetcher.class);
+            c(WebView.LOGTAG, "EMManagerProvider", wj6.class);
+            c(WebView.LOGTAG, "IPrefetchManager", uj6.class);
+            c(WebView.LOGTAG, "IPrerenderManager", vj6.class);
+            c(WebView.LOGTAG, "IWebViewDebug", xj6.class);
+            c(WebView.LOGTAG, "IWebViewFactoryService", pj6.class);
+            c("abtest", "service", AbTestServiceFetcher.class);
+            c("behavior-api", "behavior-api", BehaviorServiceFetcher.class);
+            c("device_score", "DEVICE_SCORE", DeviceScoreFetcher.class);
+            c("device_score", "DEVICE_SCORE_COLLECT", DeviceScoreCollectFetcher.class);
+            c("device_score", "DEVICE_SCORE_CONFIG", DeviceScoreConfigFetcher.class);
+            c("download", "DOWNLOAD", dw6.class);
+            c("download", "DOWNLOAD", x20.class);
+            c("download", "db", t20.class);
+            c("feed", "component.resolver", gq6.class);
+            c("feed", "widget.resolver", hq6.class);
+            c("live", DI.AB_NAME, yx8.class);
+            c("live", DI.ACCOUNT, mx8.class);
+            c("live", DI.APP_INFO_NAME, ox8.class);
+            c("live", DI.EXT.EXT_LIVE_JUMP_PAGE, iy8.class);
+            c("live", DI.EXT.EXT_LIVE_LOG, py8.class);
+            c("live", DI.FOLLOW_STATUS, ey8.class);
+            c("live", DI.LIGHTBROWSER_VIEW, tx8.class);
+            c("live", DI.LIVE_CUSTOM_SETTINGS, jz8.class);
+            c("live", DI.LIVE_EVENT_DISPATCHER, cy8.class);
+            c("live", DI.LIVE_INSERT_VIDEO, VideoInsertLiveServiceFetcher.class);
+            c("live", DI.LIVE_LIKE, ky8.class);
+            c("live", DI.LIVE_LOCATION, ny8.class);
+            c("live", DI.LIVE_PLAY_URL, LivePlayUrlServiceFetcher.class);
+            c("live", DI.LIVE_REAL_AUTH, qx8.class);
+            c("live", DI.LIVE_SHOW_VIDEO_PLAYER, xy8.class);
+            c("live", DI.LIVE_USER_SECURITY_BEHAVIOR, ay8.class);
+            c("live", DI.LIVE_USER_SECURITY_DEVICE_INFO, by8.class);
+            c("live", DI.MINI_SHELL.MEDIA_2_YY, Media2YYServiceFetcher.class);
+            c("live", "multi_plugin", MultiPluginManagerServiceFetcher.class);
+            c("live", "net", ry8.class);
+            c("live", DI.PAY_CHANNEL, wx8.class);
+            c("live", DI.LIVE_PLAYER, ez8.class);
+            c("live", DI.MINI_SHELL.PLUGIN_MANAGER, PluginInvokeServiceFetcher.class);
+            c("live", DI.LIVE_PRE_START_PLAYER, LivePreStartPlayServiceFetcher.class);
+            c("live", DI.ROUTER_NAME, hz8.class);
+            c("live", "share", nz8.class);
+            c("live", DI.TB.SHARE_CHANNEL, lz8.class);
+            c("live", DI.THIRD_PART_ACCOUNT, pz8.class);
+            c("live", DI.YY.THIRD_PART_ALI_RECHARGE, qz8.class);
+            c("live", DI.YY.THIRD_PART_WX_RECHARGE, sz8.class);
+            c("live", "toast", uz8.class);
+            c("live", DI.MINI_SHELL.YY_2_MEDIA, YY2MediaServiceFetcher.class);
+            c("live", DI.YY.YY_GAMEASSIST_DXM_RECHARGE, yt7.class);
+            c("live", DI.YY.YY_GAMEASSIST_HOST_INFO, wt7.class);
+            c("live", DI.YY.YY_GAMEASSIST_MODIFY_PWD, au7.class);
+            c("live", DI.YY.YY_GAMEASSIST_PERSMISSION, cu7.class);
+            c("live", DI.YY.YY_MULTI_PLUGIN_PROGRESS, YYPluginProgressInvokeServiceFetcher.class);
+            c("live", DI.YYPAY.YY_PAY, uy8.class);
+            c("live", DI.YY.YY_PLUGIN, YYPluginManageServiceFetcher.class);
+            c(com.baidu.searchbox.live.game.interfaces.DI.MODULE_NAME, "common", gy8.class);
+            c("logsystem", "exceptionhandler", ExceptionHandlerServiceFetcher.class);
+            c("module_home", "SpriteResourceService", e0a.class);
+            c("nad.business", "rewardVideoLpTaskCenter", np0.class);
+            c("nad.core", "adRequester", z21.class);
+            c("nad.core", "browserDownload", bm0.class);
+            c("nad.core", "cmd", e86.class);
+            c("nad.core", "config", f86.class);
+            c("nad.core", "crius", nl0.class);
+            c("nad.core", "cyber", c76.class);
+            c("nad.core", "deviceInfo.bag", d.class);
+            c("nad.core", "deviceInfoInner", ti0.class);
+            c("nad.core", "downloadCreator", s86.class);
+            c("nad.core", "eventbus", sn0.class);
+            c("nad.core", "exp", ho0.class);
+            c("nad.core", "ipdx", wi0.class);
+            c("nad.core", "loadImage", ci0.class);
+            c("nad.core", "loadVideo", vy0.class);
+            c("nad.core", "maxUI", h86.class);
+            c("nad.core", "nativeCookieMgr", z91.class);
+            c("nad.core", "navBarTool", j86.class);
+            c("nad.core", "splash.config", k86.class);
+            c("nad.core", "splash.host", l86.class);
+            c("nad.core", "thirdService", i86.class);
+            c("nad.core", "uad", m86.class);
+            c(StatConstants.VALUE_FROM_RETRIEVE, "stat", StatServiceFetcher.class);
+            c(StatConstants.VALUE_FROM_RETRIEVE, "upload", UploadTaskFetcher.class);
+            c("speed", "runtime", SpeedRuntimeProvider.class);
+            c("tbBaseEmotion", "EmotionService", tx6.class);
+            c("tbadkcore", "IHttpsExperiment", HttpsExperimentFetcher.class);
+            c("tbadkcore", "INetExperiment", NetExperimentFetcher.class);
+            c("tbadkcore", "ISoProcess", oq5.class);
+            c("tbadkcore", "IThreadExperiment", ThreadExperimentFetcher.class);
+            c("tbadkcore", "tbadkcore", h56.class);
+            c("tieba.core", "eventbus", us8.class);
+            c("tieba.core", "eventbus.autorelease", ts8.class);
+            c("ubc", UBC.TAG, tua.class);
+            c("voyager", "upload", p3b.class);
+            c("yaLog", "yaLogConfig", o4b.class);
         }
     }
 }

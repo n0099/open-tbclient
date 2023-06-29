@@ -5,7 +5,7 @@ import com.baidu.nps.pm.BundleInfoGroup;
 import com.baidu.nps.pm.manager.NPSPackageManager;
 import kotlin.Metadata;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/live/nps/LiveNpsLoadHelper;", "", "getLiveNpsPluginWillLoadVersion", "()I", "", "NPS_PLUGIN_PKG_NAME", "Ljava/lang/String;", "<init>", "()V", "lib-live-nps-ext_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class LiveNpsLoadHelper {
     public static final LiveNpsLoadHelper INSTANCE = new LiveNpsLoadHelper();
     public static final String NPS_PLUGIN_PKG_NAME = "com.baidu.searchbox.livenps";

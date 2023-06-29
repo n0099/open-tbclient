@@ -17,14 +17,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.cf5;
-import com.baidu.tieba.g05;
+import com.baidu.tieba.b26;
+import com.baidu.tieba.ew8;
+import com.baidu.tieba.gf5;
+import com.baidu.tieba.j05;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.te5;
-import com.baidu.tieba.tr8;
-import com.baidu.tieba.w16;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.xe5;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -178,10 +178,10 @@ public class UrlManager {
     public void addListener(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlDealListener) == null) {
-            if (wi.E()) {
+            if (xi.E()) {
                 addListenerInner(urlDealListener);
             } else {
-                xg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
+                yg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UrlManager this$0;
@@ -292,7 +292,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new w16(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new b26(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -549,13 +549,13 @@ public class UrlManager {
                 return false;
             }
             String str2 = strArr[0];
-            te5 a = new cf5().a(str2);
+            xe5 a = new gf5().a(str2);
             if (a.b() && StringUtils.isNotNull(a.a())) {
                 str2 = a.a();
                 strArr[0] = str2;
             }
             String str3 = str2;
-            tr8 activityLog = ActivityLog.getInstance();
+            ew8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithDialog:" + str3);
             if (str3.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
                 try {
@@ -570,7 +570,7 @@ public class UrlManager {
                         }
                     }
                     FlutterOpenData flutterOpenData = new FlutterOpenData(tbPageContext.getPageActivity(), host, hashMap);
-                    if (g05.c().contains("-Flutter") && findTask == null) {
+                    if (j05.c().contains("-Flutter") && findTask == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, flutterOpenData));
                         return false;
                     }
@@ -647,7 +647,7 @@ public class UrlManager {
                 return 3;
             }
             String str = strArr[0];
-            tr8 activityLog = ActivityLog.getInstance();
+            ew8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithOutJumpWebView:" + str);
             UrlSchemaHandler urlSchemaHandler = this.mHandlers.get(getSchemaKey(str));
             if (urlSchemaHandler != null) {

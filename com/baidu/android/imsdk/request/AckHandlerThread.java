@@ -144,7 +144,7 @@ public class AckHandlerThread extends HandlerThread {
             bLCPRequest.d = System.nanoTime();
             String str = TAG;
             LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.d);
-            t90.c(bLCPRequest, new x90(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
+            t90.d(bLCPRequest, new x90(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AckHandlerThread this$0;

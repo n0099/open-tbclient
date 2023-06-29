@@ -1,46 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes8.dex */
-public class yo9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+public interface yo9 extends View.OnClickListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnSeekCompleteListener, TbVideoViewContainer.a {
+    void changeRenderViewMode(int i);
 
-    public yo9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int getCurrentPosition();
 
-    public static yo9 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            yo9 yo9Var = new yo9();
-            yo9Var.a = jSONObject.optString("apk_name");
-            yo9Var.b = jSONObject.optString("apk_url");
-            yo9Var.c = jSONObject.optString("download_key");
-            return yo9Var;
-        }
-        return (yo9) invokeL.objValue;
-    }
+    View getMainView();
+
+    boolean isFullScreen();
+
+    boolean isPlaying();
+
+    boolean onBackPress();
+
+    boolean onBackground(boolean z);
+
+    void onScroll();
+
+    boolean onVolumeUp();
+
+    void setAfterClickListener(View.OnClickListener onClickListener);
+
+    void setData(ThreadData threadData);
+
+    void setFrom(String str);
+
+    void setJumpToPbClickListener(View.OnClickListener onClickListener);
+
+    void setStageType(String str);
+
+    void setStatistic(to9 to9Var);
+
+    void setUniqueId(BdUniqueId bdUniqueId);
+
+    void startPlay();
+
+    void stopPlay();
 }

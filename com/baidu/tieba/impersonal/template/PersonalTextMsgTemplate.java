@@ -24,23 +24,23 @@ import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bs6;
-import com.baidu.tieba.hn8;
-import com.baidu.tieba.il8;
+import com.baidu.tieba.b26;
+import com.baidu.tieba.cq8;
+import com.baidu.tieba.eq8;
+import com.baidu.tieba.gs6;
 import com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate;
 import com.baidu.tieba.impersonal.typewriter.TextTypeWriter;
-import com.baidu.tieba.k55;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.mi;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.q9;
-import com.baidu.tieba.r16;
-import com.baidu.tieba.rl8;
-import com.baidu.tieba.tl8;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.n55;
+import com.baidu.tieba.ni;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.r55;
+import com.baidu.tieba.r9;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.sr8;
+import com.baidu.tieba.tp8;
 import com.baidu.tieba.w16;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u0001B\r\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\u001a\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0011\u001a\u00020\u0004H\u0016J\u001a\u0010\u0012\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0011\u001a\u00020\u0004H\u0002J\u001a\u0010\u0013\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0011\u001a\u00020\u0004H\u0002J\u001a\u0010\u0014\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0011\u001a\u00020\u0004H\u0002J\u0010\u0010\u0015\u001a\u00020\u000f2\u0006\u0010\u0016\u001a\u00020\u0017H\u0016J\u0010\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u0017H\u0016R\u001b\u0010\b\u001a\u00020\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\f\u0010\r\u001a\u0004\b\n\u0010\u000b¨\u0006\u001a"}, d2 = {"Lcom/baidu/tieba/impersonal/template/PersonalTextMsgTemplate;", "Lcom/baidu/tieba/impersonal/template/BasePersonalMsgTemplate;", "Lcom/baidu/tieba/impersonal/data/TextMsgContent;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/impersonal/components/uistate/PersonalTextMsgUiState;", "name", "", "(Ljava/lang/String;)V", "textTypeWriter", "Lcom/baidu/tieba/impersonal/typewriter/TextTypeWriter;", "getTextTypeWriter", "()Lcom/baidu/tieba/impersonal/typewriter/TextTypeWriter;", "textTypeWriter$delegate", "Lkotlin/Lazy;", "bindChild", "", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "data", "bindCopy", "bindRichText", "bindText", "configContainer", "container", "Landroid/view/ViewGroup;", "createChild", "parent", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
+public final class PersonalTextMsgTemplate extends sr8<cq8, LinearLayout, tp8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy b;
@@ -74,13 +74,13 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
 
         /* renamed from: com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0344a extends SimpleTarget<Drawable> {
+        public static final class C0353a extends SimpleTarget<Drawable> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ EMRichTextAnyIconSpan a;
             public final /* synthetic */ TextView b;
 
-            public C0344a(EMRichTextAnyIconSpan eMRichTextAnyIconSpan, TextView textView) {
+            public C0353a(EMRichTextAnyIconSpan eMRichTextAnyIconSpan, TextView textView) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, resource, transition) == null) {
                     Intrinsics.checkNotNullParameter(resource, "resource");
-                    this.a.e(resource);
+                    this.a.d(resource);
                     TextView textView = this.b;
                     if (textView != null) {
                         textView.invalidate();
@@ -133,44 +133,44 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
             this.a = linearLayout;
         }
 
-        public static final void a(w16[] w16VarArr) {
+        public static final void a(b26[] b26VarArr) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(65537, null, w16VarArr) == null) && w16VarArr != null) {
-                for (w16 w16Var : w16VarArr) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_RICHTEXT_LINK_EXPOSE_KEY).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", w16Var.e()));
+            if ((interceptable == null || interceptable.invokeL(65537, null, b26VarArr) == null) && b26VarArr != null) {
+                for (b26 b26Var : b26VarArr) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_RICHTEXT_LINK_EXPOSE_KEY).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", b26Var.e()));
                 }
             }
         }
 
-        public static final void b(TbRichTextView tbRichTextView, w16 w16Var) {
+        public static final void b(TbRichTextView tbRichTextView, b26 b26Var) {
             Context context;
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, tbRichTextView, w16Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(65538, null, tbRichTextView, b26Var) == null) {
                 if (tbRichTextView != null) {
                     context = tbRichTextView.getContext();
                 } else {
                     context = null;
                 }
-                k9<?> a = q9.a(context);
+                l9<?> a = r9.a(context);
                 if (a == null) {
                     z = true;
                 } else {
                     z = a instanceof TbPageContext;
                 }
                 if (z) {
-                    String d = w16Var.d();
+                    String d = b26Var.d();
                     Intrinsics.checkNotNullExpressionValue(d, "it.link");
                     UrlManager.getInstance().dealOneLink((TbPageContext) a, new String[]{d});
                 }
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_RICHTEXT_LINK_CLICK_KEY).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", w16Var.e()));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_RICHTEXT_LINK_CLICK_KEY).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", b26Var.e()));
             }
         }
 
         @Override // com.baidu.tbadk.widget.richText.TbRichTextView.t
         public void D0(SpannableStringBuilder spannableStringBuilder, TextView textView, final TbRichTextView tbRichTextView) {
             EMRichTextAnyIconSpan[] eMRichTextAnyIconSpanArr;
-            final w16[] w16VarArr;
+            final b26[] b26VarArr;
             TbRichText richText;
             ArrayList<TbRichTextData> W;
             Interceptable interceptable = $ic;
@@ -189,17 +189,17 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
                 if (eMRichTextAnyIconSpanArr != null) {
                     for (EMRichTextAnyIconSpan eMRichTextAnyIconSpan : eMRichTextAnyIconSpanArr) {
                         if (!TextUtils.isEmpty(eMRichTextAnyIconSpan.b())) {
-                            eMRichTextAnyIconSpan.f(EMRichTextAnyIconSpan.IconType.NET);
-                            eMRichTextAnyIconSpan.g(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004));
+                            eMRichTextAnyIconSpan.e(EMRichTextAnyIconSpan.IconType.NET);
+                            eMRichTextAnyIconSpan.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004));
                             eMRichTextAnyIconSpan.j(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-                            Glide.with(TbadkCoreApplication.getInst()).load(eMRichTextAnyIconSpan.b()).into((RequestBuilder<Drawable>) new C0344a(eMRichTextAnyIconSpan, textView));
+                            Glide.with(TbadkCoreApplication.getInst()).load(eMRichTextAnyIconSpan.b()).into((RequestBuilder<Drawable>) new C0353a(eMRichTextAnyIconSpan, textView));
                         }
                     }
                 }
                 if (spannableStringBuilder != null) {
-                    w16VarArr = (w16[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), w16.class);
+                    b26VarArr = (b26[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), b26.class);
                 } else {
-                    w16VarArr = null;
+                    b26VarArr = null;
                 }
                 LinearLayout linearLayout = this.a;
                 Object tag = linearLayout.getTag();
@@ -207,7 +207,7 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
                     runnable = (Runnable) tag;
                 }
                 linearLayout.removeCallbacks(runnable);
-                Runnable runnable2 = new Runnable() { // from class: com.baidu.tieba.dn8
+                Runnable runnable2 = new Runnable() { // from class: com.baidu.tieba.or8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -215,23 +215,23 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            PersonalTextMsgTemplate.a.a(w16VarArr);
+                            PersonalTextMsgTemplate.a.a(b26VarArr);
                         }
                     }
                 };
                 this.a.setTag(runnable2);
                 this.a.postDelayed(runnable2, 500L);
-                if (w16VarArr != null) {
-                    for (w16 w16Var : w16VarArr) {
-                        w16Var.i(new w16.b() { // from class: com.baidu.tieba.cn8
+                if (b26VarArr != null) {
+                    for (b26 b26Var : b26VarArr) {
+                        b26Var.i(new b26.b() { // from class: com.baidu.tieba.nr8
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.baidu.tieba.w16.b
-                            public final void a(w16 w16Var2) {
+                            @Override // com.baidu.tieba.b26.b
+                            public final void a(b26 b26Var2) {
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, w16Var2) == null) {
-                                    PersonalTextMsgTemplate.a.b(TbRichTextView.this, w16Var2);
+                                if (interceptable2 == null || interceptable2.invokeL(1048576, this, b26Var2) == null) {
+                                    PersonalTextMsgTemplate.a.b(TbRichTextView.this, b26Var2);
                                 }
                             }
                         });
@@ -263,7 +263,7 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                bs6.b().b(new tl8(i));
+                gs6.b().b(new eq8(i));
             }
         }
 
@@ -298,59 +298,59 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
         this.b = LazyKt__LazyJVMKt.lazy(PersonalTextMsgTemplate$textTypeWriter$2.INSTANCE);
     }
 
-    public static final boolean m(LinearLayout linearLayout, final il8 data, View view2) {
+    public static final boolean m(LinearLayout linearLayout, final tp8 data, View view2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, linearLayout, data, view2)) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
-            o55 o55Var = new o55(linearLayout.getContext());
+            r55 r55Var = new r55(linearLayout.getContext());
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new k55(0, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04dc), o55Var));
-            o55Var.l(arrayList);
-            k9<?> a2 = q9.a(linearLayout.getContext());
+            arrayList.add(new n55(0, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04de), r55Var));
+            r55Var.l(arrayList);
+            l9<?> a2 = r9.a(linearLayout.getContext());
             if (a2 == null) {
                 return true;
             }
-            final m55 m55Var = new m55(a2, o55Var);
-            o55Var.q(new o55.f() { // from class: com.baidu.tieba.fn8
+            final p55 p55Var = new p55(a2, r55Var);
+            r55Var.q(new r55.f() { // from class: com.baidu.tieba.qr8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.o55.f
-                public final void M0(o55 o55Var2, int i, View view3) {
+                @Override // com.baidu.tieba.r55.f
+                public final void M0(r55 r55Var2, int i, View view3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, o55Var2, i, view3) == null) {
-                        PersonalTextMsgTemplate.n(m55.this, data, o55Var2, i, view3);
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, r55Var2, i, view3) == null) {
+                        PersonalTextMsgTemplate.n(p55.this, data, r55Var2, i, view3);
                     }
                 }
             });
-            m55Var.l();
+            p55Var.l();
             return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    public static final void n(m55 dialog, il8 data, o55 o55Var, int i, View view2) {
+    public static final void n(p55 dialog, tp8 data, r55 r55Var, int i, View view2) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{dialog, data, o55Var, Integer.valueOf(i), view2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{dialog, data, r55Var, Integer.valueOf(i), view2}) == null) {
             Intrinsics.checkNotNullParameter(dialog, "$dialog");
             Intrinsics.checkNotNullParameter(data, "$data");
             dialog.dismiss();
-            rl8 f = data.c().f();
+            cq8 f = data.c().f();
             if (f != null) {
                 str = f.a();
             } else {
                 str = null;
             }
-            mi.a(str);
+            ni.a(str);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hn8
+    @Override // com.baidu.tieba.sr8
     /* renamed from: k */
-    public void d(LinearLayout linearLayout, il8 data) {
+    public void d(LinearLayout linearLayout, tp8 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, linearLayout, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -360,10 +360,10 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
         }
     }
 
-    public final void l(final LinearLayout linearLayout, final il8 il8Var) {
+    public final void l(final LinearLayout linearLayout, final tp8 tp8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, linearLayout, il8Var) == null) && linearLayout != null && linearLayout.getContext() != null) {
-            linearLayout.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.en8
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, linearLayout, tp8Var) == null) && linearLayout != null && linearLayout.getContext() != null) {
+            linearLayout.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pr8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -371,31 +371,31 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
                 public final boolean onLongClick(View view2) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? PersonalTextMsgTemplate.m(linearLayout, il8Var, view2) : invokeL.booleanValue;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? PersonalTextMsgTemplate.m(linearLayout, tp8Var, view2) : invokeL.booleanValue;
                 }
             });
         }
     }
 
-    @Override // com.baidu.tieba.hn8
+    @Override // com.baidu.tieba.sr8
     public void f(ViewGroup container) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container) == null) {
             Intrinsics.checkNotNullParameter(container, "container");
             super.f(container);
-            int g = wi.g(container.getContext(), R.dimen.M_H_X003);
-            int g2 = wi.g(container.getContext(), R.dimen.M_H_X003);
-            int g3 = wi.g(container.getContext(), R.dimen.M_W_X004);
-            int g4 = wi.g(container.getContext(), R.dimen.M_W_X004);
+            int g = xi.g(container.getContext(), R.dimen.M_H_X003);
+            int g2 = xi.g(container.getContext(), R.dimen.M_H_X003);
+            int g3 = xi.g(container.getContext(), R.dimen.M_W_X004);
+            int g4 = xi.g(container.getContext(), R.dimen.M_W_X004);
             if (j()) {
-                g = wi.g(container.getContext(), R.dimen.M_H_X005);
+                g = xi.g(container.getContext(), R.dimen.M_H_X005);
             }
             container.setPadding(g3, g, g4, g2);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hn8
+    @Override // com.baidu.tieba.sr8
     /* renamed from: q */
     public LinearLayout g(ViewGroup parent) {
         InterceptResult invokeL;
@@ -409,17 +409,17 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
         return (LinearLayout) invokeL.objValue;
     }
 
-    public final void o(LinearLayout linearLayout, il8 il8Var) {
+    public final void o(LinearLayout linearLayout, tp8 tp8Var) {
         JSONArray jSONArray;
         JSONArray jSONArray2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, linearLayout, il8Var) != null) || linearLayout == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048581, this, linearLayout, tp8Var) != null) || linearLayout == null) {
             return;
         }
-        TbRichTextView tbRichTextView = (TbRichTextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091bb6);
+        TbRichTextView tbRichTextView = (TbRichTextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c0d);
         JSONArray jSONArray3 = null;
         if (tbRichTextView != null) {
-            rl8 f = il8Var.c().f();
+            cq8 f = tp8Var.c().f();
             if (f != null) {
                 jSONArray2 = f.b();
             } else {
@@ -431,7 +431,7 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
             }
         }
         if (tbRichTextView == null) {
-            rl8 f2 = il8Var.c().f();
+            cq8 f2 = tp8Var.c().f();
             if (f2 != null) {
                 jSONArray = f2.b();
             } else {
@@ -440,18 +440,18 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
             if (jSONArray != null) {
                 tbRichTextView = new TbRichTextView(linearLayout.getContext());
                 ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                r16 r16Var = new r16();
-                r16Var.x(wi.g(linearLayout.getContext(), R.dimen.T_X05));
-                r16Var.p(wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X002), 1.0f);
-                r16Var.j(wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42), wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42));
-                tbRichTextView.setLayoutStrategy(r16Var);
-                tbRichTextView.setId(R.id.obfuscated_res_0x7f091bb6);
-                tbRichTextView.setPadding(wi.g(linearLayout.getContext(), R.dimen.M_W_X006), wi.g(linearLayout.getContext(), R.dimen.M_H_X004), wi.g(linearLayout.getContext(), R.dimen.M_W_X006), wi.g(linearLayout.getContext(), R.dimen.M_H_X004));
+                w16 w16Var = new w16();
+                w16Var.x(xi.g(linearLayout.getContext(), R.dimen.T_X05));
+                w16Var.p(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X002), 1.0f);
+                w16Var.j(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42), xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42));
+                tbRichTextView.setLayoutStrategy(w16Var);
+                tbRichTextView.setId(R.id.obfuscated_res_0x7f091c0d);
+                tbRichTextView.setPadding(xi.g(linearLayout.getContext(), R.dimen.M_W_X006), xi.g(linearLayout.getContext(), R.dimen.M_H_X004), xi.g(linearLayout.getContext(), R.dimen.M_W_X006), xi.g(linearLayout.getContext(), R.dimen.M_H_X004));
                 linearLayout.addView(tbRichTextView, layoutParams);
             }
         }
         if (tbRichTextView != null) {
-            rl8 f3 = il8Var.c().f();
+            cq8 f3 = tp8Var.c().f();
             if (f3 != null) {
                 jSONArray3 = f3.b();
             }
@@ -459,17 +459,17 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
         }
     }
 
-    public final void p(LinearLayout linearLayout, final il8 il8Var) {
+    public final void p(LinearLayout linearLayout, final tp8 tp8Var) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, linearLayout, il8Var) != null) || linearLayout == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, linearLayout, tp8Var) != null) || linearLayout == null) {
             return;
         }
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091bb7);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c0e);
         String str3 = null;
         if (textView != null) {
-            rl8 f = il8Var.c().f();
+            cq8 f = tp8Var.c().f();
             if (f != null) {
                 str2 = f.c();
             } else {
@@ -481,7 +481,7 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
             }
         }
         if (textView == null) {
-            rl8 f2 = il8Var.c().f();
+            cq8 f2 = tp8Var.c().f();
             if (f2 != null) {
                 str = f2.c();
             } else {
@@ -494,20 +494,20 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
                 } else {
                     textView.setTextColor(linearLayout.getContext().getResources().getColor(R.color.CAM_X0105));
                 }
-                textView.setPadding(wi.g(linearLayout.getContext(), R.dimen.M_W_X006), wi.g(linearLayout.getContext(), R.dimen.M_H_X005), wi.g(linearLayout.getContext(), R.dimen.M_W_X006), wi.g(linearLayout.getContext(), R.dimen.M_H_X005));
-                p75 d = p75.d(textView);
+                textView.setPadding(xi.g(linearLayout.getContext(), R.dimen.M_W_X006), xi.g(linearLayout.getContext(), R.dimen.M_H_X005), xi.g(linearLayout.getContext(), R.dimen.M_W_X006), xi.g(linearLayout.getContext(), R.dimen.M_H_X005));
+                s75 d = s75.d(textView);
                 d.C(R.dimen.T_X05);
                 d.z(R.dimen.M_T_X002);
-                textView.setId(R.id.obfuscated_res_0x7f091bb7);
+                textView.setId(R.id.obfuscated_res_0x7f091c0e);
                 linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
             }
         }
-        if (il8Var.j()) {
+        if (tp8Var.j()) {
             TextTypeWriter r = r();
-            rl8 f3 = il8Var.c().f();
-            r.n(textView, (f3 == null || (r0 = f3.c()) == null) ? "" : "", new b(), new Function0<Unit>(il8Var) { // from class: com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate$bindText$2
+            cq8 f3 = tp8Var.c().f();
+            r.n(textView, (f3 == null || (r0 = f3.c()) == null) ? "" : "", new b(), new Function0<Unit>(tp8Var) { // from class: com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate$bindText$2
                 public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ il8 $data;
+                public final /* synthetic */ tp8 $data;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -517,7 +517,7 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {il8Var};
+                        Object[] objArr = {tp8Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -528,7 +528,7 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
                             return;
                         }
                     }
-                    this.$data = il8Var;
+                    this.$data = tp8Var;
                 }
 
                 /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -548,7 +548,7 @@ public final class PersonalTextMsgTemplate extends hn8<rl8, LinearLayout, il8> {
                 }
             });
         } else if (textView != null) {
-            rl8 f4 = il8Var.c().f();
+            cq8 f4 = tp8Var.c().f();
             if (f4 != null) {
                 str3 = f4.c();
             }

@@ -1,38 +1,126 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipSpecialItem;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class fw8 {
+public abstract class fw8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public fw8(VipSpecialItem vipSpecialItem) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947778658, "Lcom/baidu/tieba/fw8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947778658, "Lcom/baidu/tieba/fw8;");
+        }
+    }
+
+    public fw8(String key) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialItem};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {key};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        String str = vipSpecialItem.title;
-        String str2 = vipSpecialItem.desc;
-        String str3 = vipSpecialItem.img_url;
-        String str4 = vipSpecialItem.link;
-        String str5 = vipSpecialItem.update_time;
-        vipSpecialItem.id.intValue();
-        vipSpecialItem.type.intValue();
-        vipSpecialItem.task_id.intValue();
-        vipSpecialItem.is_finish.intValue();
+        Intrinsics.checkNotNullParameter(key, "key");
+        this.a = "default";
+        this.a = "key_prefix_" + key;
+    }
+
+    public final T a(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            Intrinsics.checkNotNullParameter(t, "default");
+            return (T) b(t);
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
+        }
+    }
+
+    public final Object b(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            if (t instanceof String) {
+                String w = r95.p().w(this.a, (String) t);
+                Intrinsics.checkNotNullExpressionValue(w, "getInstance().getString(key, default as String)");
+                return w;
+            } else if (t instanceof Integer) {
+                return Integer.valueOf(r95.p().q(this.a, ((Integer) t).intValue()));
+            } else {
+                if (t instanceof Long) {
+                    return Long.valueOf(r95.p().r(this.a, ((Long) t).longValue()));
+                }
+                if (t instanceof Boolean) {
+                    return Boolean.valueOf(r95.p().l(this.a, ((Boolean) t).booleanValue()));
+                }
+                if (t instanceof Float) {
+                    return Float.valueOf(r95.p().o(this.a, ((Float) t).floatValue()));
+                }
+                return t;
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    public final T d(T value) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, value)) == null) {
+            Intrinsics.checkNotNullParameter(value, "value");
+            if (value instanceof String) {
+                r95.p().J(this.a, (String) value);
+            } else if (value instanceof Integer) {
+                r95.p().F(this.a, ((Integer) value).intValue());
+            } else if (value instanceof Long) {
+                r95.p().H(this.a, ((Long) value).longValue());
+            } else if (value instanceof Boolean) {
+                r95.p().A(this.a, ((Boolean) value).booleanValue());
+            } else if (value instanceof Float) {
+                r95.p().D(this.a, ((Float) value).floatValue());
+            }
+            return value;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

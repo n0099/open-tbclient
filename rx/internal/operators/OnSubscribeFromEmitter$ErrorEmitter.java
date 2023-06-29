@@ -1,21 +1,21 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.mob;
-import com.baidu.tieba.qsb;
+import com.baidu.tieba.dtb;
+import com.baidu.tieba.kxb;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> {
     public static final long serialVersionUID = 338953216916120960L;
     public boolean done;
 
-    public OnSubscribeFromEmitter$ErrorEmitter(mob<? super T> mobVar) {
-        super(mobVar);
+    public OnSubscribeFromEmitter$ErrorEmitter(dtb<? super T> dtbVar) {
+        super(dtbVar);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter
     public void onError(Throwable th) {
         if (this.done) {
-            qsb.j(th);
+            kxb.j(th);
             return;
         }
         this.done = true;

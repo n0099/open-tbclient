@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,21 +15,48 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ph2 implements qh2 {
+public class ph2 implements nh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kh2 a;
-    public final int b;
+    public final pk3 a;
 
-    @Override // com.baidu.tieba.qh2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
+    /* loaded from: classes7.dex */
+    public static class a extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public static boolean a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                if (!a && ProcessUtils.isMainProcess()) {
+                    a = true;
+                    new pk3("swan_prelink_by_preload_recorder").clear().apply();
+                    if (ph2.b) {
+                        Log.d("SwanPrelinkGlobalRecorder", "clean old data in main process");
+                    }
+                }
+                return null;
+            }
+            return (Bundle) invokeL.objValue;
+        }
     }
 
     static {
@@ -42,7 +72,7 @@ public class ph2 implements qh2 {
                 return;
             }
         }
-        c = js1.a;
+        b = ms1.a;
     }
 
     public ph2() {
@@ -58,59 +88,114 @@ public class ph2 implements qh2 {
                 return;
             }
         }
-        this.a = new mh2();
-        this.b = 30;
+        this.a = new pk3("swan_prelink_by_preload_recorder");
+        d();
     }
 
-    @Override // com.baidu.tieba.qh2
-    public kh2 a() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            p83.c(a.class, null);
         }
-        return (kh2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qh2
-    public boolean c(String str, String str2, String str3) {
+    @Override // com.baidu.tieba.nh2
+    public oh2 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "get record : appId-" + str + ", url-" + str2);
+            }
+            String string = this.a.getString(e(str, str2), "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            oh2 g = g(string, str, str2);
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "find record - " + string);
+            }
+            return g;
+        }
+        return (oh2) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.nh2
+    public void b(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "record : appId-" + str + ", url-" + str2);
+            }
+            String e = e(str, str2);
+            String f = f(str, str2);
+            if (TextUtils.isEmpty(this.a.getString(e, "")) || z) {
+                this.a.putString(e, f);
+            }
+        }
+    }
+
+    public final String e(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            String str3 = str + "_##_" + str2.hashCode();
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "generateKey - " + str3);
+            }
+            return str3;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final String f(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            String str3 = ProcessUtils.getCurProcessName() + "_##_" + System.currentTimeMillis();
+            if (b) {
+                Log.d("SwanPrelinkGlobalRecorder", "generateValue - " + str3);
+            }
+            return str3;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final oh2 g(@NonNull String str, @NonNull String str2, @NonNull String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
-            if (c) {
-                Log.d("GlobalRecorderStrategy", "prefetchId - " + str);
-                Log.d("GlobalRecorderStrategy", "appId - " + str2);
-                Log.d("GlobalRecorderStrategy", "url - " + str3);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, str3)) == null) {
+            String[] split = str.split("_##_");
+            if (split != null && split.length >= 2) {
+                oh2 oh2Var = new oh2();
+                oh2Var.a = split[0];
+                oh2Var.b = h(split[1]);
+                return oh2Var;
             }
-            lh2 a = this.a.a(str2, str3);
-            boolean z = true;
-            if (a == null) {
-                if (c) {
-                    Log.d("GlobalRecorderStrategy", "has no record, need prelink");
+            return null;
+        }
+        return (oh2) invokeLLL.objValue;
+    }
+
+    public final long h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
+            }
+            try {
+                return Long.parseLong(str);
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
                 }
-                return true;
-            } else if (!TextUtils.isEmpty(str)) {
-                if (c) {
-                    Log.d("GlobalRecorderStrategy", "in preload stage, has record, not real prelink ");
-                }
-                return false;
-            } else {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                if (!TextUtils.equals(curProcessName, a.a)) {
-                    if (c) {
-                        Log.d("GlobalRecorderStrategy", "process not match, current - " + curProcessName + ", record - " + a.a);
-                    }
-                    return true;
-                }
-                if (System.currentTimeMillis() - a.b < this.b * 1000) {
-                    z = false;
-                }
-                if (c) {
-                    Log.d("GlobalRecorderStrategy", "url in recorder, time is out - " + z);
-                }
-                return z;
+                return 0L;
             }
         }
-        return invokeLLL.booleanValue;
+        return invokeL.longValue;
     }
 }

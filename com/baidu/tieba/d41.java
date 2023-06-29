@@ -1,135 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d41 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface d41 {
+    a a(k41 k41Var, b41... b41VarArr);
 
-    public static ArrayList<String> a(g41 g41Var) {
-        InterceptResult invokeL;
-        y31[][] e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, g41Var)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>(2);
-            for (y31[] y31VarArr : g41Var.e()) {
-                String[] strArr = new String[y31VarArr.length];
-                for (int i = 0; i < y31VarArr.length; i++) {
-                    strArr[i] = y31VarArr[i].b;
+    void beginTransaction();
+
+    int delete(k41 k41Var, b41... b41VarArr);
+
+    void endTransaction();
+
+    Cursor query(p41 p41Var);
+
+    void setTransactionSuccessful();
+
+    int update(k41 k41Var, b41... b41VarArr);
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final int b;
+
+        public a(long j, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                arrayList.add("CREATE INDEX IF NOT EXISTS i_" + g41Var.g() + "_" + TextUtils.join("_", strArr) + " ON " + g41Var.g() + " (" + TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, strArr) + SmallTailInfo.EMOTION_SUFFIX);
             }
-            return arrayList;
+            this.a = j;
+            this.b = i;
         }
-        return (ArrayList) invokeL.objValue;
-    }
 
-    public static String b(g41 g41Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g41Var)) == null) {
-            return "CREATE TABLE IF NOT EXISTS " + g41Var.g() + " (" + f(g41Var.d()) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f(y31[] y31VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, y31VarArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = y31VarArr.length;
-            String str = "";
-            int i = 0;
-            while (i < length) {
-                y31 y31Var = y31VarArr[i];
-                sb.append(str);
-                sb.append(y31Var.b);
-                sb.append(getType(y31Var));
-                sb.append(c(y31Var));
-                i++;
-                str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
             }
-            return sb.toString();
+            return (String) invokeV.objValue;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String getType(y31 y31Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, y31Var)) == null) {
-            int i = y31Var.a;
-            if (i == 1 || i == 2 || i == 3) {
-                return " INTEGER";
-            }
-            if (i == 4) {
-                return " TEXT";
-            }
-            throw new IllegalArgumentException("Unsupported field type " + y31Var.a);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(y31 y31Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, y31Var)) == null) {
-            int i = y31Var.d;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            return " PRIMARY KEY AUTOINCREMENT";
-                        }
-                        throw new IllegalArgumentException("Unsupported field attribute " + y31Var.d);
-                    }
-                    return " PRIMARY KEY";
-                }
-                return " DEFAULT 0";
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(y31... y31VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, y31VarArr)) == null) {
-            return e(y31VarArr, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(y31[] y31VarArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, y31VarArr, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int length = y31VarArr.length;
-            String str2 = "";
-            int i = 0;
-            while (i < length) {
-                y31 y31Var = y31VarArr[i];
-                sb.append(str2);
-                if (str != null && str.length() != 0) {
-                    sb.append(str);
-                    sb.append(".");
-                }
-                sb.append(y31Var.b);
-                i++;
-                str2 = StringUtil.ARRAY_ELEMENT_SEPARATOR;
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.swan.pms.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.tieba.yk4;
-import com.baidu.tieba.zk4;
+import com.baidu.tieba.bl4;
+import com.baidu.tieba.cl4;
 /* loaded from: classes4.dex */
 public class PMSAppInfo implements Parcelable {
     public static final Parcelable.Creator<PMSAppInfo> CREATOR = new a();
@@ -207,26 +207,26 @@ public class PMSAppInfo implements Parcelable {
         updateInstallSrc(pMSAppInfo.getInstallSrc());
     }
 
-    public void copyMainPkgInfo(yk4 yk4Var) {
-        if (yk4Var == null) {
+    public void copyMainPkgInfo(bl4 bl4Var) {
+        if (bl4Var == null) {
             return;
         }
-        this.appId = yk4Var.g;
-        this.versionCode = yk4Var.i;
-        this.versionName = yk4Var.j;
-        this.type = yk4Var.o;
-        this.pkgSize = yk4Var.k;
+        this.appId = bl4Var.g;
+        this.versionCode = bl4Var.i;
+        this.versionName = bl4Var.j;
+        this.type = bl4Var.o;
+        this.pkgSize = bl4Var.k;
     }
 
-    public void copySubPkgInfo(zk4 zk4Var) {
-        if (zk4Var == null) {
+    public void copySubPkgInfo(cl4 cl4Var) {
+        if (cl4Var == null) {
             return;
         }
-        this.appId = zk4Var.o;
-        this.versionCode = zk4Var.i;
-        this.versionName = zk4Var.j;
-        this.type = zk4Var.q;
-        this.pkgSize = zk4Var.k;
+        this.appId = cl4Var.o;
+        this.versionCode = cl4Var.i;
+        this.versionName = cl4Var.j;
+        this.type = cl4Var.q;
+        this.pkgSize = cl4Var.k;
     }
 
     public void countLaunch(long j) {

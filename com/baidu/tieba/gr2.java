@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes5.dex */
-public class gr2 extends tp2<ks2> {
+/* loaded from: classes6.dex */
+public class gr2 extends wp2<ns2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.tp2
+    @Override // com.baidu.tieba.wp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableRemoteMirror" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableCamera" : (String) invokeV.objValue;
     }
 
     public gr2() {
@@ -36,16 +36,16 @@ public class gr2 extends tp2<ks2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tp2
+    @Override // com.baidu.tieba.wp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ks2 ks2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ns2 ns2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ks2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ns2Var) == null) {
             String str = command.what;
-            d(ks2Var, str, "" + command.obj, true);
+            d(ns2Var, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof Boolean) {
-                ks2Var.x(((Boolean) obj).booleanValue());
+                ns2Var.g(((Boolean) obj).booleanValue());
             }
         }
     }

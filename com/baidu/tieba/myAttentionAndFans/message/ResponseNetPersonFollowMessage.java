@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.c55;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import com.baidu.tieba.s35;
-import com.baidu.tieba.we;
+import com.baidu.tieba.v35;
+import com.baidu.tieba.xe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s35 data;
+    public v35 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
@@ -63,8 +63,8 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
                 BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                 z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                 String str2 = new String(bArr);
-                c55.d();
-                we<String> e = c55.e("tb.my_pages");
+                f55.d();
+                xe<String> e = f55.e("tb.my_pages");
                 if (e != null) {
                     if (z) {
                         str = "personal_followme";
@@ -86,20 +86,20 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                s35 s35Var = new s35();
-                this.data = s35Var;
-                s35Var.c(jSONObject);
+                v35 v35Var = new v35();
+                this.data = v35Var;
+                v35Var.c(jSONObject);
             }
         }
     }
 
-    public s35 getData() {
+    public v35 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.data;
         }
-        return (s35) invokeV.objValue;
+        return (v35) invokeV.objValue;
     }
 
     public String getErrMsg() {

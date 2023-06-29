@@ -1,29 +1,20 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface s04 {
-    long a();
+    void a(String str, JSONObject jSONObject);
 
-    void b(boolean z);
+    boolean b();
 
-    boolean c();
+    boolean c(View view2);
 
-    boolean d();
+    boolean d(View view2, mz3 mz3Var);
 
-    String e();
+    void e();
 
-    long f();
+    boolean f(View view2, mz3 mz3Var);
 
-    String g();
-
-    long h();
-
-    Long i();
-
-    boolean j();
-
-    boolean k();
-
-    String l();
-
-    String m();
+    boolean removeView(View view2);
 }

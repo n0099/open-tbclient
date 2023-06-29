@@ -13,10 +13,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ac6;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.vb6;
-import com.baidu.tieba.wn;
+import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +30,12 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public vb6 d;
+    public ac6 d;
     public HttpMessageListener e;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(List<wn> list, boolean z, boolean z2);
+        void a(List<xn> list, boolean z, boolean z2);
 
         void b(boolean z);
     }
@@ -102,16 +102,16 @@ public class MyConcernTabModel extends BdBaseModel {
                     z = false;
                 }
                 if (alaLiveTabMyConcernResponse.getError() == 0 && alaLiveTabMyConcernResponse.isSuccess() && !z) {
-                    vb6 vb6Var = this.a.d;
+                    ac6 ac6Var = this.a.d;
                     if (this.a.a == 1) {
                         z2 = true;
                     } else {
                         z2 = false;
                     }
-                    vb6Var.e(alaLiveTabMyConcernResponse, z2);
+                    ac6Var.e(alaLiveTabMyConcernResponse, z2);
                     if (this.a.c != null) {
                         b bVar = this.a.c;
-                        List<wn> h = this.a.d.h();
+                        List<xn> h = this.a.d.h();
                         boolean z4 = alaLiveTabMyConcernResponse.hasMore;
                         if (this.a.a == 1) {
                             z3 = true;
@@ -148,7 +148,7 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new vb6(this.b);
+        this.d = new ac6(this.b);
         b0();
         MessageManager.getInstance().registerListener(this.e);
     }

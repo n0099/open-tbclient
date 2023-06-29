@@ -1,18 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public final class cj0 implements so0 {
+public class cj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public kl1<bp0> a;
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            il1 b = il1.b();
+            this.a = b;
+            b.a(new cp0());
+        }
+    }
 
     public cj0() {
         Interceptable interceptable = $ic;
@@ -24,30 +31,9 @@ public final class cj0 implements so0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.so0
-    public void a(@NonNull Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            aj0.a().b(bj0.e());
-            application.registerActivityLifecycleCallbacks(aj0.a());
-            bj0.e().b(new wi0());
-            bj0.e().h(new xi0());
-            xo0.c(bj0.e());
-        }
-    }
-
-    @Override // com.baidu.tieba.so0
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !o61.b()) {
-            return;
-        }
-        bj0.e().b(new yi0());
-        fo0.b().request().a(false);
-        vo0.a().request();
+        a();
     }
 }

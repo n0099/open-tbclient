@@ -5,16 +5,16 @@ import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.utils.r;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends d {
-    public C0660a SS;
+    public C0670a SS;
 
     /* renamed from: com.kwad.sdk.collector.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0660a {
+    /* loaded from: classes10.dex */
+    public static class C0670a {
         public List<String> ST;
 
-        public C0660a(List<String> list) {
+        public C0670a(List<String> list) {
             this.ST = list;
         }
 
@@ -26,9 +26,9 @@ public final class a extends d {
     }
 
     public a(List<String> list) {
-        C0660a c0660a = new C0660a(list);
-        this.SS = c0660a;
-        putBody("targetAppInfo", c0660a.toJson());
+        C0670a c0670a = new C0670a(list);
+        this.SS = c0670a;
+        putBody("targetAppInfo", c0670a.toJson());
         putBody(com.heytap.mcssdk.constant.b.C, BuildConfig.VERSION_NAME);
         putBody("sdkVersionCode", BuildConfig.VERSION_CODE);
     }

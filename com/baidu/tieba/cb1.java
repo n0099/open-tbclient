@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class cb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Object a;
 
     public cb1() {
         Interceptable interceptable = $ic;
@@ -20,6 +21,13 @@ public abstract class cb1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public final void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            this.a = obj;
         }
     }
 }

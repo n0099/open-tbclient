@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes6.dex */
-public class l09 implements wn {
+public class l09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
+    public int a;
 
-    public l09(String str) {
+    public l09(VipThemeItem vipThemeItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {vipThemeItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,17 +27,24 @@ public class l09 implements wn {
                 return;
             }
         }
-        this.b = true;
-        this.a = str;
+        vipThemeItem.props_id.intValue();
+        String str = vipThemeItem.title;
+        String str2 = vipThemeItem.img_url;
+        String str3 = vipThemeItem.tag_img_url;
+        this.a = vipThemeItem.props_category.intValue();
+        String str4 = vipThemeItem.props_category_name;
+        String str5 = vipThemeItem.link;
+        String str6 = vipThemeItem.update_time;
+        vipThemeItem.id.intValue();
+        vipThemeItem.type.intValue();
     }
 
-    @Override // com.baidu.tieba.wn
-    public BdUniqueId getType() {
+    public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return j09.b;
+            return this.a;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

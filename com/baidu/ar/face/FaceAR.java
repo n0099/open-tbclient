@@ -3,7 +3,6 @@ package com.baidu.ar.face;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.ar.arrender.l;
 import com.baidu.ar.arrender.n;
 import com.baidu.ar.d.e;
@@ -291,7 +290,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r3v2, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r3v8 */
     private void w(boolean z) {
         com.baidu.ar.filter.a s = s();
@@ -474,7 +473,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             }
             JSONObject t = t();
             com.baidu.ar.face.a.a aVar = new com.baidu.ar.face.a.a();
-            if (t == null || t.toString().trim().equals(StringUtil.EMPTY_ARRAY)) {
+            if (t == null || t.toString().trim().equals("{}")) {
                 com.baidu.ar.h.b.k(TAG, "abilityScheme is null, use default config!");
                 a = aVar.a(getFaceModelPath(), (JSONObject) null);
             } else {

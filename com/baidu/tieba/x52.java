@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class x52 extends f52 {
+public class x52 extends i52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
+    public int a;
+    public int b;
 
     public x52() {
         Interceptable interceptable = $ic;
@@ -25,34 +24,29 @@ public class x52 extends f52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = Integer.MAX_VALUE;
+        this.b = Integer.MAX_VALUE;
     }
 
-    @Override // com.baidu.tieba.f52
-    public void a(g52 g52Var, Canvas canvas) {
-        RectF rectF;
+    @Override // com.baidu.tieba.i52
+    public void a(j52 j52Var, Canvas canvas) {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) && (rectF = this.a) != null) {
-            g52Var.f.addRect(rectF, Path.Direction.CW);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) && (i = this.a) != Integer.MAX_VALUE && (i2 = this.b) != Integer.MAX_VALUE) {
+            j52Var.f.lineTo(i, i2);
         }
     }
 
-    @Override // com.baidu.tieba.f52
+    @Override // com.baidu.tieba.i52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = qp3.g((float) jSONArray.optDouble(0));
-                    int g2 = qp3.g((float) jSONArray.optDouble(1));
-                    this.a = new RectF(g, g2, g + qp3.g((float) jSONArray.optDouble(2)), g2 + qp3.g((float) jSONArray.optDouble(3)));
-                }
-            } catch (Exception e) {
-                if (js1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
+            this.a = tp3.g((float) jSONArray.optDouble(0));
+            this.b = tp3.g((float) jSONArray.optDouble(1));
         }
     }
 }

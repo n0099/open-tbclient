@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.da8;
+import com.baidu.tieba.ja8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,10 +24,14 @@ import protobuf.NewpushRepair;
 public class MessageSyncMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int agreeCount;
+    public int atMeCount;
+    public int fanCount;
     public int height;
     public LongSparseArray<Long> mMids;
     public NewpushRepair newpushRepire;
     public long notifyMsgId;
+    public int replyMeCount;
     public int smallHeight;
     public int smallWidth;
     public String syncTypeString;
@@ -50,6 +54,10 @@ public class MessageSyncMessage extends TbSocketMessage {
             }
         }
         this.mMids = null;
+        this.fanCount = 0;
+        this.atMeCount = 0;
+        this.replyMeCount = 0;
+        this.agreeCount = 0;
     }
 
     public static String groupLastIdToString(@Nullable GroupLastId groupLastId) {
@@ -115,10 +123,14 @@ public class MessageSyncMessage extends TbSocketMessage {
             builder.smallWidth = Integer.valueOf(getSmallWidth());
             builder.gettype = getSyncTypeString();
             builder.notify_msg_id = Long.valueOf(this.notifyMsgId);
+            builder.agree_count = Integer.valueOf(this.agreeCount);
+            builder.atme_count = Integer.valueOf(this.atMeCount);
+            builder.fan_count = Integer.valueOf(this.fanCount);
+            builder.replyme_count = Integer.valueOf(this.replyMeCount);
             if (builder.groupMids == null) {
                 builder.groupMids = new ArrayList();
             }
-            long d = da8.e().d();
+            long d = ja8.e().d();
             boolean z = false;
             for (int i = 0; i < this.mMids.size(); i++) {
                 long keyAt = this.mMids.keyAt(i);
@@ -128,17 +140,17 @@ public class MessageSyncMessage extends TbSocketMessage {
                     builder2.groupId = Long.valueOf(keyAt);
                     builder2.lastMsgId = valueAt;
                     if (d == keyAt) {
-                        builder2.excludeMid = da8.e().g();
+                        builder2.excludeMid = ja8.e().g();
                         z = true;
                     }
                     builder.groupMids.add(builder2.build(false));
                 }
             }
-            if (!z && da8.e().i()) {
+            if (!z && ja8.e().i()) {
                 GroupLastId.Builder builder3 = new GroupLastId.Builder();
                 builder3.groupId = Long.valueOf(d);
-                builder3.lastMsgId = da8.e().f();
-                builder3.excludeMid = da8.e().g();
+                builder3.lastMsgId = ja8.e().f();
+                builder3.excludeMid = ja8.e().g();
                 builder.groupMids.add(builder3.build(false));
             }
             builder.newpushRepire = getNewpushRepire();
@@ -213,58 +225,86 @@ public class MessageSyncMessage extends TbSocketMessage {
         return invokeV.intValue;
     }
 
+    public void setAgreeCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.agreeCount = i;
+        }
+    }
+
+    public void setAtMeCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.atMeCount = i;
+        }
+    }
+
+    public void setFanCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.fanCount = i;
+        }
+    }
+
     public void setGroupMids(LongSparseArray<Long> longSparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, longSparseArray) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, longSparseArray) == null) {
             this.mMids = longSparseArray;
         }
     }
 
     public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.height = i;
         }
     }
 
     public void setNewpushRepire(NewpushRepair newpushRepair) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, newpushRepair) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, newpushRepair) == null) {
             this.newpushRepire = newpushRepair;
         }
     }
 
     public void setNotifyMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             this.notifyMsgId = j;
+        }
+    }
+
+    public void setReplyMeCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.replyMeCount = i;
         }
     }
 
     public void setSmallHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.smallHeight = i;
         }
     }
 
     public void setSmallWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.smallWidth = i;
         }
     }
 
     public void setSyncTypeString(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.syncTypeString = str;
         }
     }
 
     public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.width = i;
         }
     }

@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -269,16 +269,16 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a06, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091192);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091194);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0929a4);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091191);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091193);
-            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f09119e);
-            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f09119b);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a1b, (ViewGroup) this, true);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09119e);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911a0);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092a07);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09119d);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09119f);
+            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f0911aa);
+            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0911a7);
             this.h = rankStarView;
-            rankStarView.setStarSpacing(wi.g(getContext(), R.dimen.tbds30));
+            rankStarView.setStarSpacing(xi.g(getContext(), R.dimen.tbds30));
             this.h.setClickable(true);
             this.h.setStarChangListener(this);
             this.g.N();
@@ -298,7 +298,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         EMTextView eMTextView = this.b;
         if (eMTextView != null) {
             SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
-            p75 d = p75.d(this.b);
+            s75 d = s75.d(this.b);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0206);
         }

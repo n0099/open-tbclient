@@ -15,7 +15,7 @@ import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseProxyActivity extends Activity {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String KEY_START_TIME = "key_start_time";

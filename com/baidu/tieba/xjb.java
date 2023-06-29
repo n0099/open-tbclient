@@ -1,370 +1,591 @@
 package com.baidu.tieba;
 
 import android.annotation.TargetApi;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLSurface;
-import android.view.Surface;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.os.Environment;
+import android.os.StatFs;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import com.yy.transvod.player.log.TLog;
-import java.util.concurrent.atomic.AtomicBoolean;
-@TargetApi(17)
+import com.huawei.hms.adapter.internal.CommonCode;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import java.io.UnsupportedEncodingException;
+import java.net.NetworkInterface;
+import java.util.Collections;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class xjb implements ekb {
+public class xjb {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] g;
-    public static final int[] h;
-    public static final int[] i;
-    public static final int[] j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicBoolean a;
-    public EGLDisplay b;
-    public EGLContext c;
-    public EGLSurface d;
-    public EGLSurface e;
-    public EGLConfig f;
 
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303705, "Lcom/baidu/tieba/xjb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    public static void w(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65558, null, context) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Intent a;
+
+        public b(Context context) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303705, "Lcom/baidu/tieba/xjb;");
-                return;
-            }
-        }
-        g = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12352, 4, 12344};
-        h = new int[]{12440, 2, 12344};
-        i = new int[]{12375, 1, 12374, 1, 12417, 12380, 12416, 12380, 12344};
-        j = new int[]{12344};
-    }
-
-    @Override // com.baidu.tieba.ekb
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            TLog.g(this, "EglCore.release enter.");
-            b(0, false);
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
-                EGLContext eGLContext = this.c;
-                if (eGLContext != EGL14.EGL_NO_CONTEXT) {
-                    EGL14.eglDestroyContext(eGLDisplay, eGLContext);
-                }
-                EGLSurface eGLSurface = this.d;
-                if (eGLSurface != EGL14.EGL_NO_SURFACE) {
-                    EGL14.eglDestroySurface(this.b, eGLSurface);
-                }
-                EGLSurface eGLSurface2 = this.e;
-                if (eGLSurface2 != EGL14.EGL_NO_SURFACE) {
-                    EGL14.eglDestroySurface(this.b, eGLSurface2);
-                    TLog.g(this, "EglCore.release offscreen surface.");
-                }
-                if (i()) {
-                    EGL14.eglReleaseThread();
-                }
-                EGL14.eglTerminate(this.b);
-            }
-            this.f = null;
-            this.b = EGL14.EGL_NO_DISPLAY;
-            this.c = EGL14.EGL_NO_CONTEXT;
-            EGLSurface eGLSurface3 = EGL14.EGL_NO_SURFACE;
-            this.d = eGLSurface3;
-            this.e = eGLSurface3;
-            this.a.set(false);
-            TLog.g(this, "EglCore.release leave.");
-        }
-    }
-
-    public xjb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicBoolean(false);
-        this.b = EGL14.EGL_NO_DISPLAY;
-        this.c = EGL14.EGL_NO_CONTEXT;
-        EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-        this.d = eGLSurface;
-        this.e = eGLSurface;
-        this.f = null;
-    }
-
-    @Override // com.baidu.tieba.ekb
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.b != EGL14.EGL_NO_DISPLAY && this.c != EGL14.EGL_NO_CONTEXT) {
-                TLog.g(this, "already created.");
-                return;
-            }
-            TLog.g(this, "EglCore.setup enter.");
-            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.b = eglGetDisplay;
-            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-                TLog.g(this, "EGL14.eglGetDisplay() = " + this.b);
-                int[] iArr = new int[2];
-                if (EGL14.eglInitialize(this.b, iArr, 0, iArr, 1)) {
-                    TLog.g(this, String.format("EGLDisplay.majoy:%d, EGLDisplay.minor:%d", Integer.valueOf(iArr[0]), Integer.valueOf(iArr[1])));
-                    EGLConfig[] eGLConfigArr = new EGLConfig[1];
-                    EGL14.eglChooseConfig(this.b, g, 0, eGLConfigArr, 0, 1, new int[1], 0);
-                    EGLConfig eGLConfig = eGLConfigArr[0];
-                    this.f = eGLConfig;
-                    EGLContext eglCreateContext = EGL14.eglCreateContext(this.b, eGLConfig, EGL14.eglGetCurrentContext(), h, 0);
-                    this.c = eglCreateContext;
-                    if (eglCreateContext != EGL14.EGL_NO_CONTEXT) {
-                        TLog.g(this, "EGL14.eglCreateContext() = " + this.c);
-                        EGL14.eglQueryContext(this.b, this.c, 12440, iArr, 0);
-                        TLog.g(this, String.format("EGLContext.version:%d", Integer.valueOf(iArr[0])));
-                        TLog.g(this, "EglCore.setup leave.");
-                        return;
-                    }
-                    throw new RuntimeException(String.format("EGL14.eglCreateContext() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
-                }
-                this.b = EGL14.EGL_NO_DISPLAY;
-                throw new RuntimeException(String.format("EGL14.eglInitialize() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
-            }
-            throw new RuntimeException(String.format("EGL14.eglGetDisplay() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
-        }
-    }
-
-    @Override // com.baidu.tieba.ekb
-    public boolean available() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ekb
-    public int c() {
-        InterceptResult invokeV;
-        EGLSurface eGLSurface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int[] iArr = new int[1];
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12374, iArr, 0)) {
-                return 0;
-            }
-            return iArr[0];
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ekb
-    public int f() {
-        InterceptResult invokeV;
-        EGLSurface eGLSurface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int[] iArr = new int[1];
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12375, iArr, 0)) {
-                return 0;
-            }
-            return iArr[0];
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ekb
-    public boolean swapBuffer() {
-        InterceptResult invokeV;
-        EGLSurface eGLSurface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && (eGLSurface = this.d) != EGL14.EGL_NO_SURFACE) {
-                return EGL14.eglSwapBuffers(eGLDisplay, eGLSurface);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ekb
-    public boolean b(int i2, boolean z) {
-        InterceptResult invokeCommon;
-        EGLContext eGLContext;
-        int eglGetError;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (this.b == EGL14.EGL_NO_DISPLAY) {
-                return false;
-            }
-            EGLSurface g2 = g(i2);
-            if (z) {
-                eGLContext = this.c;
-            } else {
-                eGLContext = EGL14.EGL_NO_CONTEXT;
-            }
-            if (g2 == EGL14.EGL_NO_SURFACE && eGLContext != EGL14.EGL_NO_CONTEXT) {
-                return true;
-            }
-            boolean eglMakeCurrent = EGL14.eglMakeCurrent(this.b, g2, g2, eGLContext);
-            if (!eglMakeCurrent && (eglGetError = EGL14.eglGetError()) != 12288) {
-                TLog.c(this, String.format("EGL14.eglMakeCurrent() failed. eglGetError() = 0x%04x", Integer.valueOf(eglGetError)) + " bindSurfaceType=" + i2);
-            }
-            return eglMakeCurrent;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ekb
-    public void d(boolean z) {
-        EGLSurface eGLSurface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            TLog.g(this, "EglCore.destroySurface enter, windowSurface: " + z);
-            if (z) {
-                eGLSurface = this.d;
-            } else {
-                eGLSurface = this.e;
-            }
-            if (z) {
-                this.a.set(false);
-            }
-            b(0, true);
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && eGLSurface != EGL14.EGL_NO_SURFACE) {
-                EGL14.eglDestroySurface(eGLDisplay, eGLSurface);
-                if (z) {
-                    this.d = EGL14.EGL_NO_SURFACE;
-                } else {
-                    this.e = EGL14.EGL_NO_SURFACE;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            TLog.g(this, "EglCore.destroySurface  leave.");
+            this.a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        }
+
+        public /* synthetic */ b(Context context, a aVar) {
+            this(context);
+        }
+
+        public final int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.getIntExtra("level", 0);
+            }
+            return invokeV.intValue;
+        }
+
+        public final int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.getIntExtra("scale", 0);
+            }
+            return invokeV.intValue;
+        }
+
+        public final int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.getIntExtra("temperature", 0);
+            }
+            return invokeV.intValue;
+        }
+
+        public final int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.getIntExtra("voltage", 0);
+            }
+            return invokeV.intValue;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x007d, code lost:
-        if (r6.d != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x007f, code lost:
-        r1 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x00c4, code lost:
-        if (r6.e != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
-     */
-    @Override // com.baidu.tieba.ekb
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean e(Object obj) {
+    public static String a(Context context) {
         InterceptResult invokeL;
-        int i2;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                String p = p();
+                if (!TextUtils.isEmpty(p)) {
+                    jSONObject.put("os", p);
+                }
+                String i = i(context);
+                if (!TextUtils.isEmpty(i)) {
+                    jSONObject.put("imei", i);
+                }
+                String m = m(context);
+                if (!TextUtils.isEmpty(m)) {
+                    jSONObject.put("meid", m);
+                }
+                String j = j(context);
+                if (!TextUtils.isEmpty(j)) {
+                    jSONObject.put(BaseStatisContent.IMSI, j);
+                }
+                String k = k(context);
+                if (!TextUtils.isEmpty(k)) {
+                    jSONObject.put("mac", k);
+                }
+                String h = h(context);
+                if (!TextUtils.isEmpty(h)) {
+                    jSONObject.put("iccid", h);
+                }
+                String s = s();
+                if (!TextUtils.isEmpty(s)) {
+                    jSONObject.put("serial", s);
+                }
+                String c = c(context);
+                if (!TextUtils.isEmpty(c)) {
+                    jSONObject.put("androidid", c);
+                }
+                String f = f();
+                if (!TextUtils.isEmpty(f)) {
+                    jSONObject.put("cpu", f);
+                }
+                String o = o();
+                if (!TextUtils.isEmpty(o)) {
+                    jSONObject.put("model", o);
+                }
+                String r = r();
+                if (!TextUtils.isEmpty(r)) {
+                    jSONObject.put("sdcard", r);
+                }
+                String q = q(context);
+                if (!TextUtils.isEmpty(q)) {
+                    jSONObject.put(CommonCode.MapKey.HAS_RESOLUTION, q);
+                }
+                String u = u(context);
+                if (!TextUtils.isEmpty(u)) {
+                    jSONObject.put(YyLiveRoomConfig.KEY_SSID, u);
+                }
+                String v = v(context);
+                if (!TextUtils.isEmpty(v)) {
+                    jSONObject.put("bssid", v);
+                }
+                String g = g();
+                if (!TextUtils.isEmpty(g)) {
+                    jSONObject.put("deviceName", g);
+                }
+                String e = e(context);
+                if (!TextUtils.isEmpty(e)) {
+                    jSONObject.put("connecttype", e);
+                }
+                try {
+                    str = b(context);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    str = "";
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("ua", str);
+                }
+                double d = d(context);
+                jSONObject.put("batterymaxcapacity", String.valueOf(d));
+                jSONObject.put("batterycurrentcapacity", String.valueOf(d));
+                b bVar = new b(context, null);
+                jSONObject.put("batterycurrentvoltage", bVar.h());
+                jSONObject.put("batterycurrenttemperature", bVar.g());
+                jSONObject.put("batterycurrentcapacity", (d * bVar.e()) / bVar.f());
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("EglCore.createSurface enter: ");
-            boolean z = false;
-            if (obj != null) {
-                i2 = obj.hashCode();
+            String packageName = context.getPackageName();
+            if (!TextUtils.isEmpty(packageName) && packageName.contains("com.sina.weibo")) {
+                str = "weibo";
             } else {
-                i2 = 0;
+                str = "ssosdk";
             }
-            sb.append(i2);
-            TLog.g(this, sb.toString());
-            if (this.b != EGL14.EGL_NO_DISPLAY && this.f != null) {
-                if (obj != null) {
-                    try {
-                        if (h(obj)) {
-                            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.b, this.f, obj, j, 0);
-                            this.d = eglCreateWindowSurface;
-                            if (eglCreateWindowSurface == EGL14.EGL_NO_SURFACE) {
-                                TLog.c(this, String.format("EGL14.eglCreateWindowSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
-                            }
-                            TLog.g(this, "EGL14.eglCreateWindowSurface() = " + this.d);
-                            this.a.set(b(1, true));
-                        }
-                    } catch (Exception e) {
-                        TLog.g(this, "EGL14.eglCreateWindowSurface() = " + e.toString());
-                    }
-                }
-                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.b, this.f, i, 0);
-                this.e = eglCreatePbufferSurface;
-                if (eglCreatePbufferSurface == EGL14.EGL_NO_SURFACE) {
-                    TLog.c(this, String.format("EGL14.eglCreatePbufferSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
-                }
-                b(2, true);
-                TLog.g(this, "EGL14.eglCreatePbufferSurface() = " + this.e);
+            sb.append(Build.MANUFACTURER);
+            sb.append("-");
+            sb.append(Build.MODEL);
+            sb.append("__");
+            sb.append(str);
+            sb.append("__");
+            try {
+                sb.append("1.0".replaceAll("\\s+", "_"));
+            } catch (Exception unused) {
+                sb.append("unknown");
             }
-            TLog.g(this, "EglCore.createSurface leave.");
-            return z;
+            sb.append("__");
+            sb.append("android");
+            sb.append("__android");
+            sb.append(Build.VERSION.RELEASE);
+            return sb.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public final EGLSurface g(int i2) {
-        InterceptResult invokeI;
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        NetworkInfo activeNetworkInfo;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-            if (i2 == 1) {
-                return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            String str2 = "none";
+            try {
+                activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            } catch (Exception unused) {
             }
-            if (i2 == 2) {
-                return this.e;
+            if (activeNetworkInfo != null) {
+                if (activeNetworkInfo.getType() == 0) {
+                    switch (activeNetworkInfo.getSubtype()) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            str = "2G";
+                            str2 = str;
+                            break;
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            str = "3G";
+                            str2 = str;
+                            break;
+                        case 13:
+                            str = "4G";
+                            str2 = str;
+                            break;
+                    }
+                } else if (activeNetworkInfo.getType() == 1) {
+                    str = "wifi";
+                    str2 = str;
+                }
+                return str2;
             }
-            return eGLSurface;
+            return str2;
         }
-        return (EGLSurface) invokeI.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean h(Object obj) {
+    public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
-            if (obj instanceof SurfaceHolder) {
-                return ((SurfaceHolder) obj).getSurface().isValid();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+            } catch (Exception unused) {
+                return "";
             }
-            if (obj instanceof SurfaceView) {
-                return ((SurfaceView) obj).getHolder().getSurface().isValid();
-            }
-            if (obj instanceof Surface) {
-                return ((Surface) obj).isValid();
-            }
-            TLog.c(this, "param surface is invalid.");
-            return false;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.getSimSerialNumber((TelephonyManager) context.getSystemService("phone"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String m(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String n(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            try {
+                return new String(a(context).getBytes(), "UTF-8");
+            } catch (UnsupportedEncodingException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String u(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
+            try {
+                WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+                if (connectionInfo != null) {
+                    return connectionInfo.getSSID();
+                }
+                return "";
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String v(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
+            try {
+                WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+                if (connectionInfo != null) {
+                    return connectionInfo.getBSSID();
+                }
+                return "";
+            } catch (SecurityException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static double d(Context context) {
+        InterceptResult invokeL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                obj = Class.forName("com.android.internal.os.PowerProfile").getConstructor(Context.class).newInstance(context);
+            } catch (Exception unused) {
+                obj = null;
+            }
+            try {
+                return ((Double) Class.forName("com.android.internal.os.PowerProfile").getMethod("getAveragePower", String.class).invoke(obj, "battery.capacity")).doubleValue();
+            } catch (Exception unused2) {
+                return 0.0d;
+            }
+        }
+        return invokeL.doubleValue;
+    }
+
+    public static String q(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            try {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
+                return String.valueOf(displayMetrics.widthPixels) + "*" + String.valueOf(displayMetrics.heightPixels);
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            try {
+                return Build.CPU_ABI;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            try {
+                return Build.BRAND;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            try {
+                return Build.MODEL;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            try {
+                return "Android " + Build.VERSION.RELEASE;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @TargetApi(26)
+    public static String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            try {
+                return Build.getSerial();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String k(Context context) {
+        InterceptResult invokeL;
+        WifiInfo connectionInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return l();
+            }
+            try {
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+                if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
+                    return "";
+                }
+                return ApiReplaceUtil.getMacAddress(connectionInfo);
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            try {
+                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
+                        if (hardwareAddress == null) {
+                            return "";
+                        }
+                        StringBuilder sb = new StringBuilder();
+                        int length = hardwareAddress.length;
+                        for (int i = 0; i < length; i++) {
+                            sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                        }
+                        if (sb.length() > 0) {
+                            sb.deleteCharAt(sb.length() - 1);
+                        }
+                        return sb.toString();
+                    }
+                }
+                return "";
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            try {
+                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+                return Long.toString(statFs.getBlockCount() * statFs.getBlockSize());
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return t();
+            }
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                return (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, "ro.serialno", "unknown");
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

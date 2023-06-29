@@ -1,34 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.ss.android.download.api.constant.BaseConstants;
 /* loaded from: classes8.dex */
-public abstract class wh4 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
+public abstract class wh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaiduMap a;
-    public List<OverlayOptions> b;
-    public List<Overlay> c;
+    public String a;
+    public String b;
+    public boolean c;
 
-    public abstract List<OverlayOptions> b();
+    public abstract void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2);
 
-    public wh4(BaiduMap baiduMap) {
+    public wh4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,54 +38,51 @@ public abstract class wh4 implements BaiduMap.OnMarkerClickListener, BaiduMap.On
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = baiduMap;
-        if (0 == 0) {
-            this.b = new ArrayList();
-        }
-        if (this.c == null) {
-            this.c = new ArrayList();
-        }
+        this.c = false;
+        this.a = str2;
+        this.b = str3;
     }
 
-    public final void a() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        c();
-        if (b() != null) {
-            this.b.addAll(b());
-        }
-        for (OverlayOptions overlayOptions : this.b) {
-            this.c.add(this.a.addOverlay(overlayOptions));
-        }
+        return (String) invokeV.objValue;
     }
 
-    public final void c() {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        for (Overlay overlay : this.c) {
-            overlay.remove();
-        }
-        this.b.clear();
-        this.c.clear();
+        return invokeV.booleanValue;
     }
 
-    public void d() {
+    public boolean c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null && this.c.size() > 0) {
-            LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.c) {
-                if (overlay instanceof Marker) {
-                    builder.include(((Marker) overlay).getPosition());
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (wp3.t(context.getApplicationContext(), this.b) != null) {
+                return true;
             }
-            this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, latLng, latLng2, str, str2) == null) {
+            if (!c(context) && this.c) {
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(BaseConstants.MARKET_PREFIX + this.b));
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                context.startActivity(intent);
+                return;
+            }
+            e(context, latLng, latLng2, str, str2);
         }
     }
 }

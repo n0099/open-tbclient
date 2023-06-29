@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import android.util.SparseIntArray;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.auth.FeatureCodes;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,72 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes5.dex */
-public final class bl3 {
+public class bl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
-    public static final SparseIntArray c;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = -1;
-            this.b = -1;
-            this.c = -1;
-            this.d = -1;
-            this.e = -1;
-            this.f = -1;
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a != -1 && this.b != -1 && this.c != -1 && this.d != -1 && this.e != -1 && this.f != -1) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
+    public al3 a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -92,165 +36,240 @@ public final class bl3 {
                 return;
             }
         }
-        a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
-        SparseIntArray sparseIntArray = new SparseIntArray();
-        c = sparseIntArray;
-        sparseIntArray.put(d("jan"), 0);
-        c.put(d("feb"), 1);
-        c.put(d("mar"), 2);
-        c.put(d("apr"), 3);
-        c.put(d("may"), 4);
-        c.put(d("jun"), 5);
-        c.put(d("jul"), 6);
-        c.put(d("aug"), 7);
-        c.put(d("sep"), 8);
-        c.put(d("oct"), 9);
-        c.put(d("nov"), 10);
-        c.put(d("dec"), 11);
+        c = ms1.a;
     }
 
-    public static int a(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
+    public bl3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, matcher, i)) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
-                }
-                if (group.length() == 2) {
-                    return ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                }
-                return group.charAt(0) - '0';
-            } catch (Exception unused) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLI.intValue;
+        this.a = null;
     }
 
-    public static int b(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
+    public synchronized void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i)) == null) {
-            try {
-                return c.get(d(matcher.group(i)), -1);
-            } catch (Exception unused) {
-                return -1;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                f();
             }
         }
-        return invokeLI.intValue;
     }
 
-    public static int c(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
+    public synchronized void a(xk3 xk3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, matcher, i)) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
-                }
-                if (group.length() == 2) {
-                    int charAt = ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                    if (charAt >= 70) {
-                        return charAt + FeatureCodes.SKY_SEG;
+        if (interceptable == null || interceptable.invokeL(1048576, this, xk3Var) == null) {
+            synchronized (this) {
+                if (xk3Var != null) {
+                    if (!TextUtils.isEmpty(xk3Var.a) && !TextUtils.isEmpty(xk3Var.c) && !TextUtils.isEmpty(xk3Var.b)) {
+                        if (xk3Var.e == -1) {
+                            return;
+                        }
+                        SQLiteDatabase f = f();
+                        if (f == null) {
+                            return;
+                        }
+                        if (c) {
+                            Log.d("SwanCookieDatabase", "addCookie cookie=" + xk3Var.toString());
+                        }
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("domain", xk3Var.a);
+                        contentValues.put("path", xk3Var.b);
+                        contentValues.put("name", xk3Var.c);
+                        contentValues.put("value", xk3Var.d);
+                        contentValues.put("expires", Long.valueOf(xk3Var.e));
+                        contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(xk3Var.f));
+                        f.insert("cookies", null, contentValues);
                     }
-                    return charAt + 2000;
-                } else if (group.length() == 3) {
-                    return ((group.charAt(0) - '0') * 100) + ((group.charAt(1) - '0') * 10) + (group.charAt(2) - '0') + FeatureCodes.SKY_SEG;
-                } else {
-                    if (group.length() == 4) {
-                        return ((group.charAt(0) - '0') * 1000) + ((group.charAt(1) - '0') * 100) + ((group.charAt(2) - '0') * 10) + (group.charAt(3) - '0');
-                    }
-                    return 1970;
-                }
-            } catch (Exception unused) {
-                return -1;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int i = -1;
-            if (!TextUtils.isEmpty(str) && str.length() >= 3) {
-                for (int i2 = 0; i2 < 3; i2++) {
-                    i += Character.toLowerCase(str.charAt(i2)) - 'a';
                 }
             }
-            return i;
         }
-        return invokeL.intValue;
     }
 
-    public static long e(String str) {
-        InterceptResult invokeL;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1L;
-            }
-            b bVar = new b(null);
-            Matcher matcher = a.matcher(str);
-            if (matcher.find()) {
-                bVar.c = a(matcher, 1);
-                bVar.b = b(matcher, 2);
-                bVar.a = c(matcher, 3);
-                f(bVar, matcher, 4);
-            } else {
-                Matcher matcher2 = b.matcher(str);
-                if (!matcher2.find()) {
-                    return -1L;
-                }
-                bVar.b = b(matcher2, 1);
-                bVar.c = a(matcher2, 2);
-                f(bVar, matcher2, 3);
-                bVar.a = c(matcher2, 4);
-            }
-            if (bVar.a()) {
-                return -1L;
-            }
-            if (bVar.a >= 2038) {
-                bVar.a = 2038;
-                bVar.b = 0;
-                bVar.c = 1;
-            }
-            GregorianCalendar gregorianCalendar = new GregorianCalendar();
-            gregorianCalendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-            gregorianCalendar.set(bVar.a, bVar.b, bVar.c, bVar.d, bVar.e, bVar.f);
-            return gregorianCalendar.getTimeInMillis();
-        }
-        return invokeL.longValue;
-    }
-
-    public static void f(@NonNull b bVar, @NonNull Matcher matcher, int i) {
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65542, null, bVar, matcher, i) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = f();
+                if (f == null) {
                     return;
                 }
-                int charAt = group.charAt(0) - '0';
-                if (group.charAt(1) != ':') {
-                    i2 = 2;
-                    charAt = (charAt * 10) + (group.charAt(1) - '0');
-                } else {
-                    i2 = 1;
+                if (c) {
+                    Log.d("SwanCookieDatabase", "clearExpiredCookies");
                 }
-                bVar.d = charAt;
-                bVar.e = ((group.charAt(i3) - '0') * 10) + (group.charAt(i4) - '0');
-                int i5 = i2 + 1 + 1 + 1 + 1;
-                bVar.f = ((group.charAt(i5) - '0') * 10) + (group.charAt(i5 + 1) - '0');
-            } catch (Exception unused) {
+                f.delete("cookies", "expires <= ?", new String[]{Long.toString(System.currentTimeMillis())});
+            }
+        }
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    return;
+                }
+                try {
+                    if (c) {
+                        Log.d("SwanCookieDatabase", "close");
+                    }
+                    this.a.close();
+                    this.a = null;
+                    this.b = true;
+                } catch (Exception e) {
+                    c92.k("SwanCookieDatabase", "close fail:" + Log.getStackTraceString(e));
+                }
+            }
+        }
+    }
+
+    public synchronized void d(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                if (c) {
+                    Log.d("SwanCookieDatabase", "deleteCookies domain=" + str + ";path=" + str2 + ";name=" + str3);
+                }
+                f.delete("cookies", "(domain == ?) AND (path == ?) AND (name == ?)", new String[]{str, str2, str3});
+            }
+        }
+    }
+
+    public synchronized ArrayList<xk3> e(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c) {
+                    Log.d("SwanCookieDatabase", "getCookiesForDomain baseDomain=" + str);
+                }
+                ArrayList<xk3> arrayList = new ArrayList<>();
+                if (TextUtils.isEmpty(str)) {
+                    return arrayList;
+                }
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return arrayList;
+                }
+                Cursor query = f.query("cookies", new String[]{"_id", "domain", "path", "name", "value", "expires", ClientCookie.SECURE_ATTR}, "(domain GLOB '*' || ?)", new String[]{str}, null, null, null);
+                if (query == null) {
+                    return arrayList;
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                if (query.moveToFirst()) {
+                    int columnIndex = query.getColumnIndex("domain");
+                    int columnIndex2 = query.getColumnIndex("path");
+                    int columnIndex3 = query.getColumnIndex("name");
+                    int columnIndex4 = query.getColumnIndex("value");
+                    int columnIndex5 = query.getColumnIndex("expires");
+                    int columnIndex6 = query.getColumnIndex(ClientCookie.SECURE_ATTR);
+                    do {
+                        xk3 xk3Var = new xk3();
+                        xk3Var.a = query.getString(columnIndex);
+                        xk3Var.b = query.getString(columnIndex2);
+                        xk3Var.c = query.getString(columnIndex3);
+                        xk3Var.d = query.getString(columnIndex4);
+                        if (query.isNull(columnIndex5)) {
+                            xk3Var.e = -1L;
+                        } else {
+                            xk3Var.e = query.getLong(columnIndex5);
+                        }
+                        if (query.getShort(columnIndex6) != 0) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        xk3Var.f = z;
+                        xk3Var.i = 1;
+                        if (xk3Var.e > currentTimeMillis) {
+                            arrayList.add(xk3Var);
+                            if (c) {
+                                Log.d("SwanCookieDatabase", "getCookiesForDomain cookie=" + xk3Var.toString());
+                            }
+                        }
+                    } while (query.moveToNext());
+                    e03.a(query);
+                    return arrayList;
+                }
+                e03.a(query);
+                return arrayList;
+            }
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final SQLiteDatabase f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b) {
+                return null;
+            }
+            al3 al3Var = this.a;
+            if (al3Var != null) {
+                return al3Var.getWritableDatabase();
+            }
+            String appId = bc3.K().getAppId();
+            if (!bc3.K().E()) {
+                c92.k("SwanCookieDatabase", "getSQLiteDatabase currentAppId =" + appId);
+                return null;
+            }
+            String t = kj3.t(bc3.K().q());
+            c92.k("SwanCookieDatabase", "initDbHelper name =" + t);
+            al3 al3Var2 = new al3(jv2.c(), t);
+            this.a = al3Var2;
+            return al3Var2.getWritableDatabase();
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public synchronized void g(Runnable runnable) {
+        String str;
+        String stackTraceString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, runnable) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = f();
+                if (f == null) {
+                    return;
+                }
+                try {
+                    f.beginTransaction();
+                    runnable.run();
+                    f.setTransactionSuccessful();
+                    try {
+                        f.endTransaction();
+                    } catch (Exception e) {
+                        str = "SwanCookieDatabase";
+                        stackTraceString = Log.getStackTraceString(e);
+                        c92.k(str, stackTraceString);
+                    }
+                } catch (Exception e2) {
+                    c92.k("SwanCookieDatabase", Log.getStackTraceString(e2));
+                    try {
+                        f.endTransaction();
+                    } catch (Exception e3) {
+                        str = "SwanCookieDatabase";
+                        stackTraceString = Log.getStackTraceString(e3);
+                        c92.k(str, stackTraceString);
+                    }
+                }
             }
         }
     }

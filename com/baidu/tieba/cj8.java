@@ -1,19 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cj8 {
+public class cj8 extends vj8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final AbilityItem a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,30 +33,57 @@ public class cj8 {
                 return;
             }
         }
-        a = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
+        b = BdUniqueId.gen().getId();
     }
 
-    public static void a(String str) {
+    @Override // com.baidu.tieba.vj8
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            b(str, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
+        return invokeV.intValue;
     }
 
-    public static void b(String str, BdSwitchView.SwitchState switchState) {
-        int i;
+    @NonNull
+    public AbilityItem b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, switchState) == null) {
-            StatisticItem param = new StatisticItem(str).param("uid", a);
-            if (switchState != null) {
-                if (switchState == BdSwitchView.SwitchState.OFF) {
-                    i = 1;
-                } else {
-                    i = 2;
-                }
-                param.param("obj_type", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (AbilityItem) invokeV.objValue;
+    }
+
+    @Nullable
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a.getStyleConf() != null) {
+                return this.a.getStyleConf().getContent();
             }
-            TiebaStatic.log(param);
+            return null;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public cj8(@NonNull AbilityItem abilityItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abilityItem};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = abilityItem;
     }
 }

@@ -1,83 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.lang.reflect.Type;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class dua implements cua {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dua {
+    boolean a();
 
-    public dua() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int b();
 
-    @Override // com.baidu.tieba.cua
-    public String a(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (usa.c().d() != null && usa.c().d().c() != null) {
-                    return usa.c().d().c().a(obj);
-                }
-                return new Gson().toJson(obj);
-            } catch (Exception e) {
-                xwa.b(e.getMessage());
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    boolean c(String str);
 
-    @Override // com.baidu.tieba.cua
-    public <T> T b(String str, Class<T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
-            try {
-                if (usa.c().d() != null && usa.c().d().c() != null) {
-                    return (T) usa.c().d().c().b(str, cls);
-                }
-                return (T) new Gson().fromJson(str, (Class<Object>) cls);
-            } catch (Exception e) {
-                xwa.b(e.getMessage());
-                return null;
-            }
-        }
-        return (T) invokeLL.objValue;
-    }
+    boolean d();
 
-    @Override // com.baidu.tieba.cua
-    public <T> T c(String str, Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            try {
-                if (usa.c().d() != null && usa.c().d().c() != null) {
-                    return (T) usa.c().d().c().c(str, type);
-                }
-                return (T) new Gson().fromJson(str, type);
-            } catch (Exception e) {
-                xwa.b(e.getMessage());
-                return null;
-            }
-        }
-        return (T) invokeLL.objValue;
-    }
+    int e();
+
+    int f();
+
+    boolean g();
+
+    String h();
+
+    List<String> i();
+
+    boolean isPeakTime();
+
+    boolean j();
+
+    boolean k();
+
+    boolean l();
+
+    boolean m();
+
+    boolean n();
+
+    boolean o();
+
+    boolean p();
 }

@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes8.dex */
-public abstract class wrb<E> extends yrb<E> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wrb {
+    wrb a();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wrb(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    boolean b(String str);
+
+    void c(Framedata framedata);
+
+    String d();
+
+    boolean e(String str);
+
+    void f(Framedata framedata) throws InvalidDataException;
+
+    String g();
+
+    void h(Framedata framedata) throws InvalidDataException;
+
+    void reset();
+
+    String toString();
 }

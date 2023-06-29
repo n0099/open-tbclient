@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kga;
-import com.baidu.tieba.nt5;
+import com.baidu.tieba.ala;
+import com.baidu.tieba.st5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ import java.util.HashMap;
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kga k;
+    public ala k;
     public ViewGroup l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -76,9 +76,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            kga kgaVar = this.k;
-            if (kgaVar != null) {
-                kgaVar.onDestroy();
+            ala alaVar = this.k;
+            if (alaVar != null) {
+                alaVar.onDestroy();
             }
         }
     }
@@ -87,9 +87,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            kga kgaVar = this.k;
-            if (kgaVar != null) {
-                kgaVar.onPause();
+            ala alaVar = this.k;
+            if (alaVar != null) {
+                alaVar.onPause();
             }
             super.onPause();
         }
@@ -100,9 +100,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            kga kgaVar = this.k;
-            if (kgaVar != null) {
-                kgaVar.onResume();
+            ala alaVar = this.k;
+            if (alaVar != null) {
+                alaVar.onResume();
             }
         }
     }
@@ -112,9 +112,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStart();
-            kga kgaVar = this.k;
-            if (kgaVar != null) {
-                kgaVar.I();
+            ala alaVar = this.k;
+            if (alaVar != null) {
+                alaVar.I();
             }
         }
     }
@@ -124,9 +124,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onStop();
-            kga kgaVar = this.k;
-            if (kgaVar != null) {
-                kgaVar.J();
+            ala alaVar = this.k;
+            if (alaVar != null) {
+                alaVar.J();
             }
         }
     }
@@ -201,19 +201,19 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048585, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
-            kga kgaVar = this.k;
-            if (kgaVar != null) {
-                kgaVar.G(i, strArr, iArr);
+            ala alaVar = this.k;
+            if (alaVar != null) {
+                alaVar.G(i, strArr, iArr);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        kga kgaVar;
+        ala alaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (kgaVar = this.k) != null) {
-            kgaVar.onClick(view2);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (alaVar = this.k) != null) {
+            alaVar.onClick(view2);
         }
     }
 
@@ -254,17 +254,17 @@ public class AlbumFloatActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public nt5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public st5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
-                kga kgaVar = new kga(this, null, linearLayout.getId(), R.id.root_stub);
-                this.k = kgaVar;
-                kgaVar.T(navigationBar);
+                ala alaVar = new ala(this, null, linearLayout.getId(), R.id.root_stub);
+                this.k = alaVar;
+                alaVar.T(navigationBar);
             }
             return this.k;
         }
-        return (nt5) invokeLL.objValue;
+        return (st5) invokeLL.objValue;
     }
 }

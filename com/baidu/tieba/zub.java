@@ -1,126 +1,263 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.atb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Executor;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import rx.internal.schedulers.ScheduledAction;
 /* loaded from: classes8.dex */
-public class zub implements IYYPayAmountView.Callback {
+public final class zub extends atb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public Dialog c;
-    public IYYPayAmountView.ViewParams d;
-    public Activity e;
-    public IPayCallback<CurrencyChargeMessage> f;
-    public kub g;
-    public mxb h;
+    public final Executor a;
 
-    public zub(int i, int i2, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, kub kubVar, mxb mxbVar) {
+    /* loaded from: classes8.dex */
+    public static final class a extends atb.a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Executor a;
+        public final xxb b;
+        public final ConcurrentLinkedQueue<ScheduledAction> c;
+        public final AtomicInteger d;
+        public final ScheduledExecutorService e;
+
+        /* renamed from: com.baidu.tieba.zub$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0552a implements ktb {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ yxb a;
+            public final /* synthetic */ a b;
+
+            public C0552a(a aVar, yxb yxbVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, yxbVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = yxbVar;
+            }
+
+            @Override // com.baidu.tieba.ktb
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.b.d(this.a);
+                }
+            }
+        }
+
+        /* loaded from: classes8.dex */
+        public class b implements ktb {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ yxb a;
+            public final /* synthetic */ ktb b;
+            public final /* synthetic */ etb c;
+            public final /* synthetic */ a d;
+
+            public b(a aVar, yxb yxbVar, ktb ktbVar, etb etbVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, yxbVar, ktbVar, etbVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = aVar;
+                this.a = yxbVar;
+                this.b = ktbVar;
+                this.c = etbVar;
+            }
+
+            @Override // com.baidu.tieba.ktb
+            public void call() {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isUnsubscribed()) {
+                    return;
+                }
+                etb b = this.d.b(this.b);
+                this.a.a(b);
+                if (b.getClass() == ScheduledAction.class) {
+                    ((ScheduledAction) b).add(this.c);
+                }
+            }
+        }
+
+        public a(Executor executor) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {executor};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = executor;
+            this.c = new ConcurrentLinkedQueue<>();
+            this.d = new AtomicInteger();
+            this.b = new xxb();
+            this.e = avb.a();
+        }
+
+        @Override // com.baidu.tieba.atb.a
+        public etb b(ktb ktbVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ktbVar)) == null) {
+                if (isUnsubscribed()) {
+                    return ayb.c();
+                }
+                ScheduledAction scheduledAction = new ScheduledAction(kxb.q(ktbVar), this.b);
+                this.b.a(scheduledAction);
+                this.c.offer(scheduledAction);
+                if (this.d.getAndIncrement() == 0) {
+                    try {
+                        this.a.execute(this);
+                    } catch (RejectedExecutionException e) {
+                        this.b.d(scheduledAction);
+                        this.d.decrementAndGet();
+                        kxb.j(e);
+                        throw e;
+                    }
+                }
+                return scheduledAction;
+            }
+            return (etb) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.atb.a
+        public etb c(ktb ktbVar, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{ktbVar, Long.valueOf(j), timeUnit})) == null) {
+                if (j <= 0) {
+                    return b(ktbVar);
+                }
+                if (isUnsubscribed()) {
+                    return ayb.c();
+                }
+                ktb q = kxb.q(ktbVar);
+                yxb yxbVar = new yxb();
+                yxb yxbVar2 = new yxb();
+                yxbVar2.a(yxbVar);
+                this.b.a(yxbVar2);
+                etb a = ayb.a(new C0552a(this, yxbVar2));
+                ScheduledAction scheduledAction = new ScheduledAction(new b(this, yxbVar2, q, a));
+                yxbVar.a(scheduledAction);
+                try {
+                    scheduledAction.add(this.e.schedule(scheduledAction, j, timeUnit));
+                    return a;
+                } catch (RejectedExecutionException e) {
+                    kxb.j(e);
+                    throw e;
+                }
+            }
+            return (etb) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.etb
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.b.isUnsubscribed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.etb
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.b.unsubscribe();
+                this.c.clear();
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                while (!this.b.isUnsubscribed()) {
+                    ScheduledAction poll = this.c.poll();
+                    if (poll == null) {
+                        return;
+                    }
+                    if (!poll.isUnsubscribed()) {
+                        if (!this.b.isUnsubscribed()) {
+                            poll.run();
+                        } else {
+                            this.c.clear();
+                            return;
+                        }
+                    }
+                    if (this.d.decrementAndGet() == 0) {
+                        return;
+                    }
+                }
+                this.c.clear();
+            }
+        }
+    }
+
+    public zub(Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), dialog, viewParams, activity, iPayCallback, kubVar, mxbVar};
+            Object[] objArr = {executor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i + " userChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = dialog;
-        this.d = viewParams;
-        this.e = activity;
-        this.f = iPayCallback;
-        this.g = kubVar;
-        this.h = mxbVar;
+        this.a = executor;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void onRefreshViewFail(int i, String str) {
+    @Override // com.baidu.tieba.atb
+    public atb.a createWorker() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            PayFinishInfo a = wwb.a(PayDialogType.PAY_AMOUNT_DIALOG, i, str);
-            RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i + " failReason:" + str + " message:" + a, new Object[0]);
-            this.g.l(a);
-            vwb.b(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this.a);
         }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void onStartPay(gwb gwbVar, cwb cwbVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gwbVar, cwbVar, appCustomExpand, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "onStartPay payType=" + gwbVar.a + ", payAmount=" + cwbVar);
-            this.g.k(this.e, gwbVar, cwbVar, this.c, this.h, appCustomExpand, exb.a(cwbVar, list, str, this.d), this.f);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void onStartSignPay(gwb gwbVar, cwb cwbVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, gwbVar, cwbVar, appCustomExpand, list, str) == null) {
-            gwb gwbVar2 = new gwb(PayType.ALI_PAY_SIGN, gwbVar.b, gwbVar.c, gwbVar.d, gwbVar.e, gwbVar.f, gwbVar.g);
-            RLog.info("PayAmountViewCallback", "onStartSignPay payType=" + gwbVar2.a + ", payAmount=" + cwbVar);
-            this.g.p(this.e, cwbVar, gwbVar2, this.c, this.h, appCustomExpand, exb.a(cwbVar, list, str, this.d), this.f);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "showInputNumberDialog bubbleActMsg:" + str);
-            vwb.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.g.n(activity, list, str, this.d, this.f);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toPayWayDialog(cwb cwbVar, List<PayWayInfo> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, cwbVar, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "toPayWayDialog bubbleActMsg:" + str);
-            vwb.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.g.t(this.e, cwbVar, list, str, this.d, this.f);
-            lwb.b(this.a, this.b, PayUIEventType.purchasegotopay);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toBannerConfigWebPage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.g.q(this.e, str);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toHelpCenterPage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.g.u(this.e);
-        }
+        return (atb.a) invokeV.objValue;
     }
 }

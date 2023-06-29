@@ -1,26 +1,29 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 /* loaded from: classes6.dex */
-public class kj0<T> {
+public class kj0 extends se1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public T a;
+    public AdBaseModel a;
+    public View b;
+    public View.OnClickListener c;
 
-    public kj0(T t) {
+    public kj0(AdBaseModel adBaseModel, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {adBaseModel, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,98 +33,65 @@ public class kj0<T> {
                 return;
             }
         }
-        this.a = t;
+        this.a = adBaseModel;
+        this.b = view2;
     }
 
-    public boolean d(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.tieba.se1
+    public void a(String str) {
+        AdBaseModel adBaseModel;
+        ur0 ur0Var;
+        pr0 pr0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            if (!(this.a instanceof File) || System.currentTimeMillis() - ((File) this.a).lastModified() <= j) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (adBaseModel = this.a) != null && (ur0Var = adBaseModel.f) != null && !TextUtils.isEmpty(ur0Var.d)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK);
+            clogBuilder.j(str);
+            qr0 qr0Var = adBaseModel.m;
+            if (qr0Var != null && (pr0Var = qr0Var.q) != null) {
+                clogBuilder.v(pr0Var.a);
             }
-            return true;
+            clogBuilder.p(adBaseModel.f.d);
+            r31.b(clogBuilder);
         }
-        return invokeJ.booleanValue;
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.se1
+    public void b(@NonNull as0 as0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, as0Var) == null) {
+            if (as0Var.c) {
+                xj0.b(as0Var.a);
+                g(ClogBuilder.LogType.CLICK, "detailbtn", this.a);
+            }
+            View.OnClickListener onClickListener = this.c;
+            if (onClickListener != null) {
+                onClickListener.onClick(this.b);
+            }
         }
-        return (T) invokeV.objValue;
     }
 
-    public Class<?> c() {
-        InterceptResult invokeV;
+    public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getClass();
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c = onClickListener;
         }
-        return (Class) invokeV.objValue;
     }
 
-    public byte[] b() {
-        InterceptResult invokeV;
+    public final void g(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
+        ur0 ur0Var;
+        pr0 pr0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            T t = this.a;
-            if (t instanceof Bitmap) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ((Bitmap) this.a).compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                return byteArrayOutputStream.toByteArray();
-            } else if (t instanceof File) {
-                return g61.g((File) t);
-            } else {
-                if (t instanceof byte[]) {
-                    return (byte[]) t;
-                }
-                return null;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, str, adBaseModel) == null) && adBaseModel != null && (ur0Var = adBaseModel.f) != null && !TextUtils.isEmpty(ur0Var.d)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.j(str);
+            qr0 qr0Var = adBaseModel.m;
+            if (qr0Var != null && (pr0Var = qr0Var.q) != null) {
+                clogBuilder.v(pr0Var.a);
             }
+            clogBuilder.p(adBaseModel.f.d);
+            r31.b(clogBuilder);
         }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        boolean delete;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            T t = this.a;
-            if (t instanceof Bitmap) {
-                if (!((Bitmap) t).isRecycled()) {
-                    ((Bitmap) this.a).recycle();
-                }
-            } else if (t instanceof File) {
-                delete = ((File) t).delete();
-                this.a = null;
-                return delete;
-            }
-            delete = true;
-            this.a = null;
-            return delete;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            T t = this.a;
-            if (t instanceof Bitmap) {
-                return ((Bitmap) t).getByteCount();
-            }
-            if (t instanceof File) {
-                return (int) ((File) t).length();
-            }
-            if (t instanceof byte[]) {
-                return ((byte[]) t).length;
-            }
-            return 1;
-        }
-        return invokeV.intValue;
     }
 }

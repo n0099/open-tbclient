@@ -1,16 +1,26 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.core.view.InputDeviceCompat;
+import android.app.ActivityManager;
+import android.util.Log;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class ddb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "BaseKeyUtil";
+    public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,96 +38,127 @@ public class ddb {
         }
     }
 
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
-            if (i2 < i) {
-                i = i2;
-            }
-            return i3 < i ? i3 : i;
-        }
-        return invokeIII.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 16 : invokeI.booleanValue;
-    }
-
-    public static boolean c(int i, byte[] bArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
-            return b(i) & d(bArr);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public static boolean d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr.length >= 16) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static byte[] e(String str, String str2, String str3, String str4, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, fdb.b(str4), i, z);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public static byte[] g(String str, String str2, String str3, byte[] bArr, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return f(str, str2, str3, bArr, 10000, i, z);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static byte[] f(String str, String str2, String str3, byte[] bArr, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            byte[] b = fdb.b(str);
-            byte[] b2 = fdb.b(str2);
-            byte[] b3 = fdb.b(str3);
-            int a2 = a(b.length, b2.length, b3.length);
-            if (c(a2, bArr)) {
-                char[] cArr = new char[a2];
-                for (int i3 = 0; i3 < a2; i3++) {
-                    cArr[i3] = (char) ((b[i3] ^ b2[i3]) ^ b3[i3]);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if (!z) {
-                    idb.d(a, "exportRootKey: sha1");
-                    return adb.b(cArr, bArr, i, i2 * 8);
-                }
-                idb.d(a, "exportRootKey: sha256");
-                return adb.c(cArr, bArr, i, i2 * 8);
             }
-            throw new IllegalArgumentException("key length must be more than 128bit.");
         }
-        return (byte[]) invokeCommon.objValue;
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                return Pattern.matches("cpu[0-9]", file.getName());
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    @SuppressLint({"NewApi"})
-    public static byte[] h(String str, String str2, String str3, byte[] bArr, boolean z) {
-        InterceptResult invokeCommon;
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, bArr, Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, bArr, 16, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) vcb.getContext().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return memoryInfo.availMem / 1024;
         }
-        return (byte[]) invokeCommon.objValue;
+        return invokeV.longValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == 0) {
+                try {
+                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+                } catch (Exception e) {
+                    Log.e("PerformanceUtils", "getNumCores exception", e);
+                    a = 1;
+                }
+            }
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static long c() {
+        InterceptResult invokeV;
+        FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == 0) {
+                long j = -1;
+                FileReader fileReader2 = null;
+                try {
+                    try {
+                        try {
+                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
+                        } catch (IOException e) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
+                        }
+                    } catch (IOException e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
+                    String readLine = bufferedReader.readLine();
+                    String str = readLine;
+                    if (readLine != null) {
+                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
+                        j = valueOf.intValue();
+                        str = valueOf;
+                    }
+                    bufferedReader.close();
+                    fileReader.close();
+                    fileReader2 = str;
+                } catch (IOException e3) {
+                    e = e3;
+                    fileReader2 = fileReader;
+                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
+                    if (fileReader2 != null) {
+                        fileReader2.close();
+                        fileReader2 = fileReader2;
+                    }
+                    b = j;
+                    return b;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileReader2 = fileReader;
+                    if (fileReader2 != null) {
+                        try {
+                            fileReader2.close();
+                        } catch (IOException e4) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
+                        }
+                    }
+                    throw th;
+                }
+                b = j;
+            }
+            return b;
+        }
+        return invokeV.longValue;
     }
 }

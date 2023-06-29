@@ -1,176 +1,331 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.StatFs;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.sl3;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import org.json.JSONObject;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class po3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
+    public static final boolean a;
+    public static List<String> b;
+    public static List<String> c;
+    public static final Object d;
+    public static int e;
+    public static int f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ sq3 c;
+        public final boolean a;
 
-        public a(int i, long j, sq3 sq3Var) {
+        public a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), sq3Var};
+                Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i;
-            this.b = j;
-            this.c = sq3Var;
+            this.a = z;
         }
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    po3.f(jSONObject, m33.c(), this.a, this.b);
-                } catch (Exception e) {
-                    zo3.f(jSONObject, "errorMsg", e.getMessage());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948068725, "Lcom/baidu/tieba/po3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948068725, "Lcom/baidu/tieba/po3;");
+                return;
+            }
+        }
+        a = ms1.a;
+        b = new ArrayList();
+        c = new ArrayList();
+        d = new Object();
+        e = 0;
+        f = 0;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e()) {
+                if (a) {
+                    Log.d("SwanAppCompat", "has used ab description");
                 }
-                this.c.a(jSONObject);
+                return true;
+            }
+            return !qk3.a().getBoolean("swan_app_js_native_ab_update_key", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "on App upgrade");
+            }
+            if (nj4.b() != null && jo4.b()) {
+                nj4.b().i().putString("key_online_description_fix_version", "0");
+            }
+            qk3.a().putBoolean("swan_app_js_native_ab_update_key", true);
+        }
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "start release descriptions");
+            }
+            synchronized (d) {
+                e = 0;
+                b = new ArrayList();
+                c = new ArrayList();
             }
         }
     }
 
-    public po3() {
+    public static void k() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            if (a) {
+                Log.d("SwanAppCompat", "start prepare ab description");
+            }
+            synchronized (d) {
+                l(true);
+                l(false);
+            }
+            if (a) {
+                Log.d("SwanAppCompat", "end prepare ab description");
             }
         }
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            c92.c("JsNative", f + "-true");
+            return f + "-true-" + str + "-" + c();
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (po3.class) {
-                    a = e();
+            StringBuilder sb = new StringBuilder();
+            synchronized (d) {
+                if (b != null) {
+                    sb.append("v8list:{");
+                    for (String str : b) {
+                        if (!TextUtils.isEmpty(str)) {
+                            if (str.length() > 100) {
+                                sb.append(str.substring(0, 99));
+                                sb.append("...");
+                            } else {
+                                sb.append(str);
+                            }
+                            sb.append(ParamableElem.DIVIDE_PARAM);
+                        }
+                    }
+                    sb.append("},");
+                }
+                if (c != null) {
+                    sb.append("weblist:{");
+                    for (String str2 : c) {
+                        if (!TextUtils.isEmpty(str2)) {
+                            if (str2.length() > 100) {
+                                sb.append(str2.substring(0, 99));
+                                sb.append("...");
+                            } else {
+                                sb.append(str2);
+                            }
+                            sb.append(ParamableElem.DIVIDE_PARAM);
+                        }
+                    }
+                    sb.append("}");
                 }
             }
-            return a;
+            return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public static String b(long j) {
-        InterceptResult invokeJ;
+    public static String d(int i, String str) {
+        InterceptResult invokeIL;
+        List<String> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+            f = 0;
+            if (e == 1) {
+                c92.i("SwanAppCompat", "type support default");
+                f = 1;
+                return SchemeCollecter.getSchemesDes(str, i);
+            } else if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_WEB)) {
+                return SchemeCollecter.getSchemesDes(str, i);
+            } else {
+                if (a() && !qw2.b().isEmpty()) {
+                    synchronized (d) {
+                        if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_V8)) {
+                            list = b;
+                        } else {
+                            list = c;
+                        }
+                        if (list != null && list.size() > 0) {
+                            if (a) {
+                                Log.d("SwanAppCompat", "support ab js native descriptions");
+                            }
+                            e = 2;
+                            f = 2;
+                            return list.get(i);
+                        } else if (list != null) {
+                            f = 3;
+                        } else {
+                            f = 4;
+                        }
+                    }
+                }
+                if (a) {
+                    Log.d("SwanAppCompat", "use default descriptions");
+                }
+                e = 1;
+                return SchemeCollecter.getSchemesDes(str, i);
+            }
         }
-        return (String) invokeJ.objValue;
+        return (String) invokeIL.objValue;
     }
 
-    public static void d(@NonNull ww2 ww2Var, @NonNull sq3<JSONObject> sq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ww2Var, sq3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(ww2Var.i("host_launch_type"), ww2Var.k("box_cold_launch"), sq3Var), "getDeviceInfoAsync", 2);
-        }
-    }
-
-    public static String e() {
+    public static boolean e() {
         InterceptResult invokeV;
-        String replace;
-        String replace2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String str2 = "NUL";
-            if (TextUtils.isEmpty(str)) {
-                replace = "NUL";
-            } else {
-                replace = str.replace("_", "-");
+            if (e == 2) {
+                return true;
             }
-            String str3 = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str3)) {
-                replace2 = "0.0";
-            } else {
-                replace2 = str3.replace("_", "-");
-            }
-            int i = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            if (!TextUtils.isEmpty(str4)) {
-                str2 = str4.replace("_", "-");
-            }
-            return replace + "_" + replace2 + "_" + i + "_" + str2;
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
-        int i3;
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return !rp3.f("3.320.0");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return !rp3.f("3.120.2");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && a) {
+            Log.e("JsNative", f + "-true");
+        }
+    }
+
+    public static void l(boolean z) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            zo3.f(jSONObject, "model", Build.MODEL);
-            zo3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            zo3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            sl3.a a2 = sl3.a(gv2.c());
-            if (a2 == null) {
-                i3 = -1;
-            } else {
-                i3 = a2.a;
-            }
-            zo3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
-            zo3.f(jSONObject, "appCurVersion", tp3.D());
-            zo3.f(jSONObject, "startupType", String.valueOf(i2));
-            zo3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(vu2.i());
-            zo3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            zo3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) yb3.K().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                zo3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                zo3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                if (memoryInfo.lowMemory) {
-                    str = "1";
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            if (a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("start prepare ab description :");
+                if (z) {
+                    str = V8Engine.TYPE_V8;
                 } else {
-                    str = "0";
+                    str = AlbumActivityConfig.FROM_WEB_VIEW;
                 }
-                zo3.f(jSONObject, "lowMemory", str);
+                sb.append(str);
+                Log.d("SwanAppCompat", sb.toString());
             }
+            nq3 nq3Var = new nq3(z);
+            String a2 = qw2.a();
+            String string = qk3.a().getString("swan_app_js_native_ab_sign", null);
+            if (!TextUtils.equals(a2, string)) {
+                if (a) {
+                    Log.w("SwanAppCompat", "js desc sign change: old=" + string + ", new=" + a2);
+                }
+                if (!nq3Var.a(3)) {
+                    return;
+                }
+                qk3.a().putString("swan_app_js_native_ab_sign", a2);
+            } else if (qk3.a().getBoolean("swan_app_js_native_ab_update_key", false)) {
+                if (!nq3Var.a(3)) {
+                    return;
+                }
+                qk3.a().putBoolean("swan_app_js_native_ab_update_key", false);
+            }
+            List<String> d2 = nq3Var.d();
+            if (d2 != null) {
+                m(d2, z);
+            }
+        }
+    }
+
+    public static void m(List<String> list, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65549, null, list, z) != null) || list == null || e != 0) {
+            return;
+        }
+        if (z) {
+            b = list;
+        } else {
+            c = list;
+        }
+        if (a) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("has update descriptions, list :");
+            sb.append(list.toString());
+            sb.append(" type :");
+            if (z) {
+                str = V8Engine.TYPE_V8;
+            } else {
+                str = AlbumActivityConfig.FROM_WEB_VIEW;
+            }
+            sb.append(str);
+            Log.d("SwanAppCompat", sb.toString());
         }
     }
 }

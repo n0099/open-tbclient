@@ -1,232 +1,204 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class vo8 implements ro8 {
+public final class vo8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final vo8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StatisticItem a;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements ro8 {
+    public /* synthetic */ class a {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.ro8
-        public void a(ICardInfo iCardInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.ro8
-        public ro8 b(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (ro8) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.tieba.ro8
-        public ro8 c(String str, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (ro8) invokeLJ.objValue;
-        }
-
-        @Override // com.baidu.tieba.ro8
-        public ro8 d(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (ro8) invokeLL.objValue;
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-339791507, "Lcom/baidu/tieba/vo8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-339791507, "Lcom/baidu/tieba/vo8$a;");
+                    return;
                 }
             }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
+            int[] iArr = new int[NotifyType.values().length];
+            iArr[NotifyType.AT_ME.ordinal()] = 1;
+            iArr[NotifyType.AGREE_ME.ordinal()] = 2;
+            iArr[NotifyType.REPLY_ME.ordinal()] = 3;
+            iArr[NotifyType.FANS.ordinal()] = 4;
+            $EnumSwitchMapping$0 = iArr;
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public vo8(BaseLegoCardInfo baseLegoCardInfo) {
-        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948247626, "Lcom/baidu/tieba/vo8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948247626, "Lcom/baidu/tieba/vo8;");
+                return;
+            }
+        }
+        a = new vo8();
+    }
+
+    public vo8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseLegoCardInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public vo8(String str, int i, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        this.a = statisticItem;
-        statisticItem.param("obj_source", i);
-        this.a.param("obj_type", i2);
-        if (!TextUtils.isEmpty(str2)) {
-            this.a.param("obj_card", str2);
         }
     }
 
-    public static ro8 e(BaseLegoCardInfo baseLegoCardInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
-            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
-                z = true;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
+        }
+    }
+
+    public final void a(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            StatisticItem param = new StatisticItem("c12926").param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (i > 0) {
+                i2 = 1;
             } else {
-                z = false;
+                i2 = 2;
             }
-            if (z) {
-                return new vo8(baseLegoCardInfo);
-            }
-            return new b(null);
-        }
-        return (ro8) invokeL.objValue;
-    }
-
-    public static ro8 f(String str, int i, int i2, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                return new vo8(str, i, i2, str2);
-            }
-            return new b(null);
-        }
-        return (ro8) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.ro8
-    public void a(ICardInfo iCardInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
-            g(iCardInfo);
-            TiebaStatic.log(this.a);
+            TiebaStatic.log(param.param("obj_type", i2).param("obj_param1", i));
         }
     }
 
-    @Override // com.baidu.tieba.ro8
-    public ro8 b(String str, int i) {
-        InterceptResult invokeLI;
+    public final void b(int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, i);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            TiebaStatic.log("c12925");
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (i > 0) {
+                i2 = 1;
+            } else {
+                i2 = 2;
             }
-            return this;
+            TiebaStatic.log(param.param("obj_type", i2).param("obj_param1", i));
         }
-        return (ro8) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.ro8
-    public ro8 c(String str, long j) {
-        InterceptResult invokeLJ;
+    public final void c() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.a.param(str, String.valueOf(j));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int y = qe5.p0().y();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_FANS_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (y > 0) {
+                i = 1;
+            } else {
+                i = 2;
             }
-            return this;
+            TiebaStatic.log(param.param("obj_type", i).param("obj_param1", y));
         }
-        return (ro8) invokeLJ.objValue;
     }
 
-    @Override // com.baidu.tieba.ro8
-    public ro8 d(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void e() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                this.a.param(str, str2);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int B = qe5.p0().B();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_REPLY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (B > 0) {
+                i = 1;
+            } else {
+                i = 2;
             }
-            return this;
+            TiebaStatic.log(param.param("obj_type", i).param("obj_param1", B));
         }
-        return (ro8) invokeLL.objValue;
     }
 
-    public final void g(ICardInfo iCardInfo) {
+    public final void d(cm8 cm8Var) {
+        NotifyType notifyType;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
-            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
-            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
-                List<Object> params = this.a.getParams();
-                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
-                    String[] split = str.split("=");
-                    if (split.length == 2) {
-                        String str2 = split[0];
-                        String str3 = split[1];
-                        boolean z = false;
-                        for (int i = 0; i < params.size() && !z; i += 2) {
-                            if (TextUtils.equals(str2, params.get(i).toString())) {
-                                int i2 = i + 1;
-                                if (i2 < params.size()) {
-                                    params.set(i2, str3);
-                                }
-                                z = true;
-                            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, cm8Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13720");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            if (cm8Var != null) {
+                notifyType = cm8Var.getType();
+            } else {
+                notifyType = null;
+            }
+            if (notifyType == null) {
+                i = -1;
+            } else {
+                i = a.$EnumSwitchMapping$0[notifyType.ordinal()];
+            }
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            statisticItem.param("obj_type", 4);
                         }
-                        if (!z) {
-                            this.a.param(str2, str3);
-                        }
+                    } else {
+                        statisticItem.param("obj_type", 3);
                     }
+                } else {
+                    statisticItem.param("obj_type", 2);
                 }
-                d(TiebaStatic.Params.OBJ_PARAM3, xn6.e());
+            } else {
+                statisticItem.param("obj_type", 1);
             }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void f(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && context != null) {
+            TiebaStatic.eventStat(context, "msg_atme_tab_click", "click", 1, new Object[0]);
+        }
+    }
+
+    public final void h(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13616");
+            if (z) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

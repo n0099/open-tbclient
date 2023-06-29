@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9a;
-import com.baidu.tieba.o05;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.xs5;
+import com.baidu.tieba.ct5;
+import com.baidu.tieba.mda;
+import com.baidu.tieba.r05;
+import com.baidu.tieba.xi;
 /* loaded from: classes4.dex */
 public class InitViewConfigTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -31,9 +31,9 @@ public class InitViewConfigTask extends LaunchTask {
 
     private void initCustomToastView() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (TbadkCoreApplication.getInst().mToast == null && wi.x() == null) {
-            TbadkCoreApplication.getInst().mToast = new wi.d() { // from class: com.baidu.searchbox.task.sync.appcreate.InitViewConfigTask.1
-                @Override // com.baidu.tieba.wi.d
+        if (TbadkCoreApplication.getInst().mToast == null && xi.x() == null) {
+            TbadkCoreApplication.getInst().mToast = new xi.d() { // from class: com.baidu.searchbox.task.sync.appcreate.InitViewConfigTask.1
+                @Override // com.baidu.tieba.xi.d
                 public void createToastView(boolean z) {
                     if (z) {
                         TbadkCoreApplication.getInst().mCustomToastView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.custom_toast_textview_center, (ViewGroup) null);
@@ -42,27 +42,27 @@ public class InitViewConfigTask extends LaunchTask {
                     TbadkCoreApplication.getInst().mCustomToastView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.custom_toast_textview, (ViewGroup) null);
                 }
 
-                @Override // com.baidu.tieba.wi.d
+                @Override // com.baidu.tieba.xi.d
                 public void setToastString(String str) {
                     if (getToastContentView() instanceof TextView) {
                         ((TextView) getToastContentView()).setText(str);
                     }
                 }
 
-                @Override // com.baidu.tieba.wi.d
+                @Override // com.baidu.tieba.xi.d
                 public View getToastContentView() {
                     return TbadkCoreApplication.getInst().mCustomToastView;
                 }
             };
-            wi.K(TbadkCoreApplication.getInst().mToast);
-            xs5.b().H(System.currentTimeMillis() - currentTimeMillis);
+            xi.K(TbadkCoreApplication.getInst().mToast);
+            ct5.b().H(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         ViewHelper.initSkinDataOnStartup(AppRuntime.getAppContext());
-        o05.c().f();
+        r05.c().f();
         TbConfig.initBigImageWidth(TbadkCoreApplication.getInst());
         TbConfig.initBigImageMaxUsedMemory(TbadkCoreApplication.getInst().getContext());
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
@@ -73,7 +73,7 @@ public class InitViewConfigTask extends LaunchTask {
         TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
         TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));
         TbDimenManager.getInstance().init(AppRuntime.getApplication());
-        a9a.c();
+        mda.c();
         initCustomToastView();
     }
 }

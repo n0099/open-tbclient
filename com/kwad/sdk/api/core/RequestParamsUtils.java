@@ -1,7 +1,7 @@
 package com.kwad.sdk.api.core;
 
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class RequestParamsUtils {
     public static final String USER_AGENT = getUserAgentParams() + "ksad-android-3.3.26";
     public static final String USER_AGENT_KEY = "User-Agent";

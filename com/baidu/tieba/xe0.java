@@ -1,111 +1,138 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mario.gldraw2d.params.MirrorType;
+import com.baidu.mario.gldraw2d.params.ScaleType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xe0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "xe0";
+public class xe0 implements Cloneable {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public MirrorType c;
+    public int d;
+    public ScaleType e;
+    public float f;
+    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948297350, "Lcom/baidu/tieba/xe0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public xe0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948297350, "Lcom/baidu/tieba/xe0;");
+        this.a = 0.0f;
+        this.b = 0.0f;
+        this.c = MirrorType.NO_MIRROR;
+        this.d = 0;
+        this.e = ScaleType.FIT_XY;
+        this.f = 1.0f;
+        this.g = -90;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public xe0 clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (xe0) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (xe0) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public MirrorType d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (MirrorType) invokeV.objValue;
+    }
+
+    public ScaleType e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (ScaleType) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.d = i;
         }
     }
 
-    public static void a(String str) {
-        int glGetError;
+    public void j(MirrorType mirrorType) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && (glGetError = GLES20.glGetError()) != 0) {
-            Log.e(a, str + ": glError 0x" + Integer.toHexString(glGetError));
+        if (interceptable == null || interceptable.invokeL(1048586, this, mirrorType) == null) {
+            this.c = mirrorType;
         }
-    }
-
-    public static FloatBuffer b(float[] fArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fArr)) == null) {
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(fArr.length * 4);
-            allocateDirect.order(ByteOrder.nativeOrder());
-            FloatBuffer asFloatBuffer = allocateDirect.asFloatBuffer();
-            asFloatBuffer.put(fArr);
-            asFloatBuffer.position(0);
-            return asFloatBuffer;
-        }
-        return (FloatBuffer) invokeL.objValue;
-    }
-
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
-        int d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            int d2 = d(35633, str);
-            if (d2 == 0 || (d = d(35632, str2)) == 0) {
-                return -1;
-            }
-            int glCreateProgram = GLES20.glCreateProgram();
-            a("glCreateProgram");
-            if (glCreateProgram == 0) {
-                Log.e(a, "Could not create program");
-            }
-            GLES20.glAttachShader(glCreateProgram, d2);
-            a("glAttachShader");
-            GLES20.glAttachShader(glCreateProgram, d);
-            a("glAttachShader");
-            GLES20.glLinkProgram(glCreateProgram);
-            int[] iArr = new int[1];
-            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-            if (iArr[0] != 1) {
-                Log.e(a, "Could not link program: ");
-                Log.e(a, GLES20.glGetProgramInfoLog(glCreateProgram));
-                GLES20.glDeleteProgram(glCreateProgram);
-                return -1;
-            }
-            return glCreateProgram;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static int d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            int glCreateShader = GLES20.glCreateShader(i);
-            a("glCreateShader type=" + i);
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            int[] iArr = new int[1];
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 0) {
-                String str2 = a;
-                Log.e(str2, "Could not compile shader " + i + ":");
-                String str3 = a;
-                Log.e(str3, " " + GLES20.glGetShaderInfoLog(glCreateShader));
-                GLES20.glDeleteShader(glCreateShader);
-                return 0;
-            }
-            return glCreateShader;
-        }
-        return invokeIL.intValue;
     }
 }

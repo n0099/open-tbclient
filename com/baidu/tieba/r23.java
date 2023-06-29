@@ -1,46 +1,47 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r23 extends q23 {
+public class r23 extends t23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap e;
+    public za3 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r23(String str, Bitmap bitmap, boolean z) {
-        super(5, str);
+    public r23(za3 za3Var) {
+        super(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bitmap, Boolean.valueOf(z)};
+            Object[] objArr = {za3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = bitmap;
-        this.d = z;
+        this.e = za3Var;
     }
 
-    public Bitmap e() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            za3 za3Var = this.e;
+            if (za3Var != null && "show".equals(za3Var.a())) {
+                return true;
+            }
+            return false;
         }
-        return (Bitmap) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

@@ -1,64 +1,113 @@
 package com.baidu.tieba;
 
-import androidx.annotation.DrawableRes;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import tbclient.ThreadInfo;
+import tbclient.VideoInfo;
 /* loaded from: classes8.dex */
-public class v49 extends b0a {
+public class v49 implements xn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId k1;
     public transient /* synthetic */ FieldHolder $fh;
-    @DrawableRes
-    public int g1;
-    public String h1;
-    public int i1;
-    public int j1;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public int e;
+    public int f;
+    public boolean g;
+    public ThreadData h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948190958, "Lcom/baidu/tieba/v49;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948190958, "Lcom/baidu/tieba/v49;");
-                return;
-            }
-        }
-        k1 = BdUniqueId.gen();
-    }
-
-    public v49() {
+    public v49(ThreadInfo threadInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadInfo, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j1 = 0;
+        b(threadInfo);
+        this.g = z;
     }
 
-    @Override // com.baidu.tieba.b0a, com.baidu.tieba.wn
-    public BdUniqueId getType() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return k1;
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return u49.a;
         }
         return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void b(ThreadInfo threadInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) != null) || threadInfo == null) {
+            return;
+        }
+        ThreadData threadData = new ThreadData();
+        this.h = threadData;
+        threadData.parserProtobuf(threadInfo);
+        this.a = threadInfo.title;
+        this.b = threadInfo.reply_num.intValue();
+        this.c = threadInfo.agree_num.intValue();
+        if (!ListUtils.isEmpty(this.h.getMedias())) {
+            Iterator<MediaData> it = this.h.getMedias().iterator();
+            while (it.hasNext()) {
+                MediaData next = it.next();
+                if (next != null && next.getType() == 3) {
+                    String picUrl = next.getPicUrl();
+                    this.d = picUrl;
+                    if (StringUtils.isNull(picUrl)) {
+                        this.d = next.getSmallUrl();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getThumbnails_url();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getSrc_pic();
+                    }
+                    if (!StringUtils.isNull(this.d)) {
+                        break;
+                    }
+                }
+            }
+        }
+        VideoInfo videoInfo = threadInfo.video_info;
+        if (videoInfo != null) {
+            this.e = videoInfo.video_duration.intValue();
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f = i;
+        }
     }
 }

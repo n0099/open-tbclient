@@ -6,16 +6,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.tj8;
-import com.baidu.tieba.uj8;
-import com.baidu.tieba.vq5;
+import com.baidu.tieba.ar5;
+import com.baidu.tieba.fl8;
+import com.baidu.tieba.gl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ReplyMeNetModel extends NetAutoModel<tj8, uj8, ReplyMessageFragment> {
+public class ReplyMeNetModel extends NetAutoModel<fl8, gl8, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,19 +44,19 @@ public class ReplyMeNetModel extends NetAutoModel<tj8, uj8, ReplyMessageFragment
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReplyMeNetModel(TbPageContext tbPageContext, tj8 tj8Var) {
-        super(tbPageContext, tj8Var);
+    public ReplyMeNetModel(TbPageContext tbPageContext, fl8 fl8Var) {
+        super(tbPageContext, fl8Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tj8Var};
+            Object[] objArr = {tbPageContext, fl8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (vq5) objArr2[1]);
+                super((TbPageContext) objArr2[0], (ar5) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,11 +65,11 @@ public class ReplyMeNetModel extends NetAutoModel<tj8, uj8, ReplyMessageFragment
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<uj8> getResponseDataClass() {
+    public Class<gl8> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return uj8.class;
+            return gl8.class;
         }
         return (Class) invokeV.objValue;
     }

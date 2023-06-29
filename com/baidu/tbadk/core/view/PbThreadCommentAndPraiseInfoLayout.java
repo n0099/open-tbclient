@@ -23,11 +23,11 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.FriendBotView;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o15;
-import com.baidu.tieba.p75;
+import com.baidu.tieba.r15;
+import com.baidu.tieba.s75;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -127,11 +127,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public void W(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && this.F != null && !TextUtils.isEmpty(str) && str.equals(this.F.getTid())) {
-            o15 o15Var = new o15();
-            o15Var.b = 4;
-            o15Var.d = 2;
-            o15Var.j = str2;
-            this.e.setStatisticData(o15Var);
+            r15 r15Var = new r15();
+            r15Var.b = 4;
+            r15Var.d = 2;
+            r15Var.j = str2;
+            this.e.setStatisticData(r15Var);
             this.e.O();
         }
     }
@@ -280,13 +280,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = -1;
             findViewById.setLayoutParams(layoutParams);
-            int g = wi.g(getContext(), R.dimen.tbds68);
-            int g2 = wi.g(getContext(), R.dimen.T_X09);
-            int g3 = wi.g(getContext(), R.dimen.tbds15);
-            int g4 = wi.g(getContext(), R.dimen.M_W_X003);
-            int g5 = wi.g(getContext(), R.dimen.tbds10);
-            wi.g(getContext(), R.dimen.tbds32);
-            wi.g(getContext(), R.dimen.tbds16);
+            int g = xi.g(getContext(), R.dimen.tbds68);
+            int g2 = xi.g(getContext(), R.dimen.T_X09);
+            int g3 = xi.g(getContext(), R.dimen.tbds15);
+            int g4 = xi.g(getContext(), R.dimen.M_W_X003);
+            int g5 = xi.g(getContext(), R.dimen.tbds10);
+            xi.g(getContext(), R.dimen.tbds32);
+            xi.g(getContext(), R.dimen.tbds16);
             this.A0 = (LinearLayout) findViewById(R.id.share_more_container);
             int i = 0;
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1);
@@ -311,21 +311,21 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             if (UbsABTestHelper.isPbEnterForumStyle()) {
                 this.A0.setOrientation(0);
                 layoutParams4.leftMargin = g4;
-                layoutParams3.topMargin = wi.g(getContext(), R.dimen.tbds3);
+                layoutParams3.topMargin = xi.g(getContext(), R.dimen.tbds3);
             } else {
                 this.A0.setOrientation(1);
-                layoutParams4.topMargin = -wi.g(getContext(), R.dimen.tbds3);
+                layoutParams4.topMargin = -xi.g(getContext(), R.dimen.tbds3);
                 layoutParams3.topMargin = g3;
             }
             this.D0.setLayoutParams(layoutParams4);
             TextView textView = this.D0;
             if (UbsABTestHelper.isPbEnterForumStyle()) {
-                f2 = wi.g(getContext(), R.dimen.T_X07);
+                f2 = xi.g(getContext(), R.dimen.T_X07);
             } else {
                 f2 = g2;
             }
             textView.setTextSize(0, f2);
-            this.D0.setText(this.G.getString(R.string.obfuscated_res_0x7f0f1343));
+            this.D0.setText(this.G.getString(R.string.obfuscated_res_0x7f0f1360));
             if (a0()) {
                 this.M = true;
                 setNeedAddReplyIcon(true);
@@ -336,7 +336,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 linearLayout.setOrientation(1);
                 ImageView imageView2 = (ImageView) findViewById(R.id.thread_info_commont_img);
                 RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(g, g);
-                layoutParams6.topMargin = wi.g(getContext(), R.dimen.tbds25);
+                layoutParams6.topMargin = xi.g(getContext(), R.dimen.tbds25);
                 layoutParams6.addRule(13, -1);
                 imageView2.setLayoutParams(layoutParams6);
                 WebPManager.setPureDrawable(imageView2, R.drawable.icon_pure_card_comment22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
@@ -368,7 +368,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             AgreeView agreeView = (AgreeView) findViewById(R.id.new_agree_view);
             LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(0, -1);
             if (!UbsABTestHelper.isPbEnterForumStyle()) {
-                i = wi.g(getContext(), R.dimen.tbds18);
+                i = xi.g(getContext(), R.dimen.tbds18);
             }
             layoutParams10.topMargin = i;
             if (Y()) {
@@ -409,7 +409,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             AgreeView agreeView = this.e;
             if (agreeView != null) {
                 if (agreeView.getFriendBotView().getAshRunnable() != null) {
-                    xg.a().removeCallbacks(this.e.getFriendBotView().getAshRunnable());
+                    yg.a().removeCallbacks(this.e.getFriendBotView().getAshRunnable());
                 }
                 this.e.getFriendBotView().setRobotEntrance(null);
             }
@@ -433,10 +433,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_pb_operate_commen, R.color.CAM_X0107, null);
             EMTextView eMTextView = this.h;
             if (eMTextView != null) {
-                p75 d = p75.d(eMTextView);
+                s75 d = s75.d(eMTextView);
                 d.D(R.string.F_X02);
                 d.x(R.color.CAM_X0107);
-                SkinManager.setBackgroundShapeDrawable(this.h, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
+                SkinManager.setBackgroundShapeDrawable(this.h, xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
             }
             SkinManager.setViewTextColor(this.y0, (int) R.drawable.selector_comment_and_prise_item_text_color);
             SkinManager.setViewTextColor(this.z0, (int) R.drawable.selector_comment_and_prise_item_text_color);

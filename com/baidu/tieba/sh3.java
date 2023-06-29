@@ -1,42 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.so.SoLoader;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class sh3 {
+public final class sh3 implements th3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public sh3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return gv2.e0().c();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static boolean b() {
+    public static sh3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
+            return new sh3();
         }
-        return invokeV.booleanValue;
+        return (sh3) invokeV.objValue;
     }
 
-    public static uh3 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.th3
+    @SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
+    public void load(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!gv2.w0().d()) {
-                return zh2.c(false);
-            }
-            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            System.load(str);
         }
-        return (uh3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.th3
+    @SuppressLint({"BDSoLoader"})
+    public void loadLibrary(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            System.loadLibrary(str);
+        }
     }
 }

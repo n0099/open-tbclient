@@ -1,120 +1,109 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
+import com.baidu.tieba.personPolymeric.holder.PersonCommentHolder;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
-public class il9 {
+public class il9 extends kn<PersonPostModel.PostInfoList, PersonCommentHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pg9 a;
-    public qg9 b;
-    public ih9 c;
-    public List<jn> d;
-    public ArrayList<wn> e;
-    public BdTypeListView f;
+    public String a;
+    public TbPageContext<PersonPolymericActivity> b;
+    public boolean c;
 
-    public il9(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public il9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.e = new ArrayList<>();
-        this.f = bdTypeListView;
-        a(tbPageContext);
+        this.b = tbPageContext;
     }
 
-    public final void a(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.a = new pg9(tbPageContext);
-            this.b = new qg9(tbPageContext, ai9.b);
-            ag9 ag9Var = new ag9(tbPageContext, this, tbPageContext.getUniqueId());
-            this.c = ag9Var;
-            this.b.u(ag9Var);
-            this.d.add(this.a);
-            this.d.add(this.b);
-            this.f.addAdapters(this.d);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f.getAdapter2() instanceof nn)) {
-            this.f.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void e() {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (bdTypeListView = this.f) != null) {
-            bdTypeListView.E();
-        }
-    }
-
-    public boolean c(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public PersonCommentHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        ArrayList<wn> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = false;
-            if (vi.isEmpty(str)) {
-                return false;
-            }
-            if (this.f != null && (arrayList = this.e) != null) {
-                Iterator<wn> it = arrayList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    wn next = it.next();
-                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).b)) {
-                        z = true;
-                        it.remove();
-                        break;
-                    }
-                }
-                if (z) {
-                    ArrayList<wn> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.e);
-                    this.e = mergeDynamicThreadByTime;
-                    this.f.setData(mergeDynamicThreadByTime);
-                    b();
-                }
-            }
-            return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PersonCommentHolder(LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07cb, viewGroup, false), this.b, this.c);
         }
-        return invokeL.booleanValue;
+        return (PersonCommentHolder) invokeL.objValue;
     }
 
-    public void d(ArrayList<wn> arrayList) {
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) && arrayList != null && this.f != null) {
-            this.e.clear();
-            this.e.addAll(arrayList);
-            this.f.setData(this.e);
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.kn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
+        t(i, view2, viewGroup, postInfoList, personCommentHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, postInfoList, personCommentHolder})) == null) {
+            if (postInfoList != null && personCommentHolder != null) {
+                if (this.a == null) {
+                    this.a = postInfoList.user_portrait;
+                }
+                personCommentHolder.c(postInfoList, false, this.a);
+                personCommentHolder.a.setContent(postInfoList.content);
+                if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
+                    personCommentHolder.b.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
+                } else {
+                    personCommentHolder.b.setText(postInfoList.title);
+                }
+                personCommentHolder.b.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
+                if (postInfoList.thread_type == 33) {
+                    personCommentHolder.b.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                } else {
+                    personCommentHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                }
+                SkinManager.setBackgroundResource(personCommentHolder.b, R.drawable.person_post_line);
+                SkinManager.setViewTextColor(personCommentHolder.b, R.color.common_color_10039, 1);
+                int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
+                personCommentHolder.b.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+                personCommentHolder.a(TbadkCoreApplication.getInst().getSkinType());
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

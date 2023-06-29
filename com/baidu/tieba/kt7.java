@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.funad.adapter.FunAdNativeNewAdapter;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kt7 implements dt7 {
+public class kt7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile kt7 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, FunAdSidConfigData> a;
 
     public kt7() {
         Interceptable interceptable = $ic;
@@ -25,104 +31,110 @@ public class kt7 implements dt7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.clear();
+        this.a.putAll(c());
     }
 
-    @Override // com.baidu.tieba.dt7
-    public jn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
+    public final Map<String, FunAdSidConfigData> c() {
+        InterceptResult invokeV;
+        FunAdSidConfigData d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str : lt7.e().c()) {
+                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
+                    hashMap.put(str, d);
+                }
             }
-            if (bdUniqueId == AdvertAppInfo.F) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(gt7.e().d("pb_banner"));
-                funAdNativeNewAdapter.setPageType("pb");
-                funAdNativeNewAdapter.setSceneKey("pb_banner");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId == AdvertAppInfo.I) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter2 = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter2.setSid(at7.f());
-                funAdNativeNewAdapter2.setPageType("pb");
-                return funAdNativeNewAdapter2;
-            } else if (bdUniqueId != AdvertAppInfo.G) {
-                return null;
-            } else {
-                return new lt7(baseFragmentActivity, bdUniqueId);
-            }
+            return hashMap;
         }
-        return (jn) invokeLL.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dt7
-    public jn<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
+    public static kt7 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (kt7.class) {
+                    if (b == null) {
+                        b = new kt7();
+                    }
+                }
             }
-            if (bdUniqueId == AdvertAppInfo.H) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(at7.g());
-                funAdNativeNewAdapter.setPageType("personalize");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId != AdvertAppInfo.G) {
-                return null;
-            } else {
-                return new lt7(baseFragmentActivity, bdUniqueId);
-            }
+            return b;
         }
-        return (jn) invokeLL.objValue;
+        return (kt7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dt7
-    public jn<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
+    public final FunAdSidConfigData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
-            if (baseFragmentActivity == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            if (bdUniqueId == AdvertAppInfo.H) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(gt7.e().d("frs_feed"));
-                funAdNativeNewAdapter.setPageType("frs");
-                funAdNativeNewAdapter.setSceneKey("frs_feed");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId != AdvertAppInfo.G) {
-                return null;
-            } else {
-                return new lt7(baseFragmentActivity, bdUniqueId);
-            }
+            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
+            funAdSidConfigData.parserJson(jSONObject);
+            return funAdSidConfigData;
         }
-        return (jn) invokeLL.objValue;
+        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dt7
-    public jn<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
-        InterceptResult invokeLLL;
+    public FunAdSidConfigData b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, baseFragmentActivity, bdUniqueId, str)) == null) {
-            if (baseFragmentActivity == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                return this.a.get(str);
             }
-            if (bdUniqueId == AdvertAppInfo.H) {
-                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
-                funAdNativeNewAdapter.setSid(gt7.e().d("frs_feed"));
-                funAdNativeNewAdapter.setPageType("frs");
-                funAdNativeNewAdapter.setPageTab(str);
-                funAdNativeNewAdapter.setSceneKey("frs_feed");
-                return funAdNativeNewAdapter;
-            } else if (bdUniqueId != AdvertAppInfo.G) {
-                return null;
-            } else {
-                return new lt7(baseFragmentActivity, bdUniqueId);
-            }
+            return null;
         }
-        return (jn) invokeLLL.objValue;
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public final FunAdSidConfigData d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            JSONObject jSONObject = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String string = lt7.g().getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(string);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
+            }
+            return a(jSONObject);
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public final void g(String str) {
+        FunAdSidConfigData funAdSidConfigData;
+        JSONObject json;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
+            return;
+        }
+        EditorHelper.putString(lt7.g(), str, json.toString());
+    }
+
+    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) && this.a != null && !TextUtils.isEmpty(str)) {
+            this.a.put(str, funAdSidConfigData);
+            g(str);
+        }
     }
 }

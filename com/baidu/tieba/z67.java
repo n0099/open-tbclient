@@ -1,57 +1,107 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.Agree;
-import tbclient.FeedSocialComponent;
+import tbclient.FeedLinkComponent;
+import tbclient.PbLinkInfo;
 /* loaded from: classes8.dex */
 public final class z67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedSocialComponent feedSocialComponent, List<o87<?>> dataList, q57 feedExtraData, k67 videoSchemaData) {
-        boolean z;
+    public static final void a(FeedLinkComponent feedLinkComponent, List<t87<? extends Object>> mutableList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, feedSocialComponent, dataList, feedExtraData, videoSchemaData) == null) {
-            Intrinsics.checkNotNullParameter(feedSocialComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            g67 g67Var = new g67();
-            Agree agree = feedSocialComponent.agree;
-            if (agree != null) {
-                Integer num = agree.agree_type;
-                Intrinsics.checkNotNullExpressionValue(num, "agree.agree_type");
-                g67Var.e = num.intValue();
-                Integer num2 = feedSocialComponent.agree.has_agree;
-                Intrinsics.checkNotNullExpressionValue(num2, "agree.has_agree");
-                if (num2.intValue() > 0) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            List<PbLinkInfo> list = feedLinkComponent.links;
+            if (list != null) {
+                ArrayList arrayList = new ArrayList();
+                for (PbLinkInfo it : list) {
+                    Intrinsics.checkNotNullExpressionValue(it, "it");
+                    b67 b = b(it);
+                    if (b != null) {
+                        arrayList.add(b);
+                    }
                 }
-                g67Var.f = z;
-                g67Var.g = feedSocialComponent.agree.agree_num.longValue();
-                Long l = feedSocialComponent.agree.diff_agree_num;
-                Intrinsics.checkNotNullExpressionValue(l, "agree.diff_agree_num");
-                g67Var.h = l.longValue();
-                Long l2 = feedSocialComponent.agree.disagree_num;
-                Intrinsics.checkNotNullExpressionValue(l2, "agree.disagree_num");
-                g67Var.i = l2.longValue();
+                if (arrayList.size() > 1) {
+                    mutableList.add(new s47(arrayList));
+                } else {
+                    mutableList.add(new v47((b67) arrayList.get(0)));
+                }
             }
-            g67Var.a = feedSocialComponent.share_num.intValue();
-            g67Var.b = feedSocialComponent.comment_num.intValue();
-            g67Var.c = String.valueOf(feedSocialComponent.tid);
-            Long fid = feedSocialComponent.fid;
-            Intrinsics.checkNotNullExpressionValue(fid, "fid");
-            g67Var.d = fid.longValue();
-            g67Var.l = feedExtraData.a();
-            videoSchemaData.f(g67Var.f);
-            videoSchemaData.e(g67Var.g);
-            g67Var.j = videoSchemaData;
-            dataList.add(new p87(new y47(g67Var, r57.b(feedExtraData, "comment_btn_click"), null, null, null, 28, null), "social_bar"));
         }
+    }
+
+    public static final b67 b(PbLinkInfo pbLinkInfo) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        int intValue;
+        String str6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
+            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
+            String str7 = pbLinkInfo.title;
+            if (str7 == null) {
+                str = "";
+            } else {
+                str = str7;
+            }
+            String str8 = pbLinkInfo.to_url;
+            if (str8 == null) {
+                str2 = "";
+            } else {
+                str2 = str8;
+            }
+            String str9 = pbLinkInfo.pic_url;
+            if (str9 == null) {
+                str3 = "";
+            } else {
+                str3 = str9;
+            }
+            String str10 = pbLinkInfo.link_from;
+            if (str10 == null) {
+                str4 = "";
+            } else {
+                str4 = str10;
+            }
+            String str11 = pbLinkInfo.ext_txt;
+            if (str11 == null) {
+                str5 = "";
+            } else {
+                str5 = str11;
+            }
+            Integer num = pbLinkInfo.sort;
+            int i = 0;
+            if (num == null) {
+                intValue = 0;
+            } else {
+                intValue = num.intValue();
+            }
+            Integer num2 = pbLinkInfo.url_type;
+            if (num2 != null) {
+                i = num2.intValue();
+            }
+            String str12 = pbLinkInfo.content1;
+            if (str12 == null) {
+                str6 = "";
+            } else {
+                str6 = str12;
+            }
+            String str13 = pbLinkInfo.content2;
+            if (str13 == null) {
+                str13 = "";
+            }
+            return new b67(str, str2, str3, str4, str5, intValue, i, str6, str13);
+        }
+        return (b67) invokeL.objValue;
     }
 }

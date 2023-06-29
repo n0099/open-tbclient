@@ -20,11 +20,11 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jya;
-import com.baidu.tieba.kya;
-import com.baidu.tieba.lya;
-import com.baidu.tieba.mya;
-import com.baidu.tieba.oya;
+import com.baidu.tieba.a3b;
+import com.baidu.tieba.b3b;
+import com.baidu.tieba.c3b;
+import com.baidu.tieba.e3b;
+import com.baidu.tieba.z2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ValidationActivity extends Activity implements View.OnClickListener, jya {
+public class ValidationActivity extends Activity implements View.OnClickListener, z2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ValidationWebView a;
@@ -130,12 +130,12 @@ public class ValidationActivity extends Activity implements View.OnClickListener
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
                 ValidationLog.e(ValidationLog.TAG, str2);
-                lya a = lya.a(str2);
+                b3b a = b3b.a(str2);
                 if (a == null) {
                     jsPromptResult.cancel();
                     return true;
                 }
-                BaseInterpreter a2 = kya.b().a(a.b());
+                BaseInterpreter a2 = a3b.b().a(a.b());
                 if (a2 == null) {
                     jsPromptResult.cancel();
                     return true;
@@ -319,7 +319,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         }
     }
 
-    @Override // com.baidu.tieba.jya
+    @Override // com.baidu.tieba.z2b
     public void a(String str, Object obj) {
         char c2;
         Interceptable interceptable = $ic;
@@ -380,7 +380,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         int height;
         int a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (height = this.e.getHeight()) == (a2 = mya.a(this, i))) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (height = this.e.getHeight()) == (a2 = c3b.a(this, i))) {
             return;
         }
         ValueAnimator valueAnimator = this.j;
@@ -438,7 +438,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
             this.a.setWebChromeClient(new b(this));
             this.a.setWebViewClient(new c(this));
             this.a.setWebViewClient(new d(this));
-            this.a.loadUrl(oya.b(oya.a("https://wappass.baidu.com/static/activity/pass-machine.html"), this.i));
+            this.a.loadUrl(e3b.b(e3b.a("https://wappass.baidu.com/static/activity/pass-machine.html"), this.i));
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.fq;
+import com.baidu.tieba.gq;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,21 +13,21 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, "()Lkotlin/Unit;"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class BDPTask$INSTANCE$registerTaskListenerWithActionId$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String $actonId;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ fq $taskCallback;
+    public final /* synthetic */ gq $taskCallback;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerTaskListenerWithActionId$1(String str, fq fqVar) {
+    public BDPTask$INSTANCE$registerTaskListenerWithActionId$1(String str, gq gqVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, fqVar};
+            Object[] objArr = {str, gqVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,7 +39,7 @@ public final class BDPTask$INSTANCE$registerTaskListenerWithActionId$1 extends L
             }
         }
         this.$actonId = str;
-        this.$taskCallback = fqVar;
+        this.$taskCallback = gqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,34 +1,57 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
-import com.baidu.tieba.recapp.view.AdVideoFlowView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wp9 implements po9 {
+public class wp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z56 a;
-    public TbPageContext<BaseFragmentActivity> b;
-    public Map<AdvertAppInfo, AdVideoFlowView> c;
+    public List<a> a;
+    public o35 b;
 
-    public wp9(IAdBaseAsyncController.a aVar) {
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public long c;
+        public String d;
+        public String e;
+        public long f;
+        public int g;
+        public int h;
+        public String i;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public wp9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,70 +61,95 @@ public class wp9 implements po9 {
                 return;
             }
         }
-        z56 z56Var = new z56(PlaceId.VIDEO_FLOW, "VIDEO_FLOW", aVar);
-        this.a = z56Var;
-        z56Var.e(false);
-        this.c = new HashMap();
+        this.a = new ArrayList();
+        this.b = new o35();
     }
 
-    @Override // com.baidu.tieba.po9
-    @Nullable
-    public pn9 i(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo)) == null) {
-            if (this.b == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<a> list = this.a;
+            if (list != null && list.size() != 0) {
+                return true;
             }
-            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
-            if (adVideoFlowView == null) {
-                adVideoFlowView = new AdVideoFlowView(this.b.getPageActivity());
-                this.c.put(advertAppInfo, adVideoFlowView);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            o35 o35Var = this.b;
+            if (o35Var != null && o35Var.b() == 1) {
+                return true;
             }
-            adVideoFlowView.setPageContext(this.b);
-            adVideoFlowView.setData(advertAppInfo);
-            return adVideoFlowView;
+            return false;
         }
-        return (pn9) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.po9
-    public void a(TbPageContext<BaseFragmentActivity> tbPageContext) {
+    public void c(JSONObject jSONObject) {
+        JSONArray jSONArray;
+        String str;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.b = tbPageContext;
-        }
-    }
-
-    @Override // com.baidu.tieba.po9
-    public void m(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, advertAppInfo) == null) {
-            this.c.remove(advertAppInfo);
-        }
-    }
-
-    @Override // com.baidu.tieba.po9
-    public void c(AdvertAppInfo advertAppInfo, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z) == null) {
-            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
-            if (adVideoFlowView != null) {
-                adVideoFlowView.onPageSelected(z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            String str2 = "";
+            if (jSONObject == null) {
+                return;
             }
-            for (AdVideoFlowView adVideoFlowView2 : this.c.values()) {
-                if (adVideoFlowView2 != adVideoFlowView) {
-                    adVideoFlowView2.onPageSelected(false);
+            try {
+                this.b.i(jSONObject.getJSONObject("page"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+                if (optJSONArray != null && optJSONArray.length() != 0) {
+                    this.a.clear();
+                    int i2 = 0;
+                    while (i2 < optJSONArray.length()) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                        if (jSONObject2 == null) {
+                            jSONArray = optJSONArray;
+                            str = str2;
+                            i = i2;
+                        } else {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
+                            String optString = jSONObject3.optString("name_show", str2);
+                            jSONObject3.optString("name", str2);
+                            long optLong = jSONObject2.optLong("pid", 0L);
+                            String optString2 = jSONObject2.optString("title", str2);
+                            long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
+                            String optString3 = jSONObject2.optString("content", str2);
+                            String optString4 = jSONObject2.optString("fname", str2);
+                            long optLong3 = jSONObject2.optLong("tid", 0L);
+                            jSONArray = optJSONArray;
+                            int optInt = jSONObject2.optInt("is_floor", 0);
+                            str = str2;
+                            int optInt2 = jSONObject2.optInt("is_replay", 0);
+                            i = i2;
+                            if (jSONObject2.optInt("thread_type", 0) != 33) {
+                                a aVar = new a();
+                                aVar.a = optLong;
+                                aVar.b = optString2;
+                                aVar.c = optLong2;
+                                aVar.d = optString3;
+                                aVar.e = optString4;
+                                aVar.f = optLong3;
+                                aVar.g = optInt;
+                                aVar.h = optInt2;
+                                aVar.i = optString;
+                                this.a.add(aVar);
+                            }
+                        }
+                        i2 = i + 1;
+                        optJSONArray = jSONArray;
+                        str2 = str;
+                    }
                 }
+            } catch (Exception e) {
+                BdLog.d(e.getMessage());
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.po9
-    public void loadAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.d(1, null);
         }
     }
 }

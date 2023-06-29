@@ -1,31 +1,21 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.tieba.kc3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Callback;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-@SuppressLint({"StaticFieldLeak"})
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ga4 extends HttpManager {
+public final class ga4 implements qt1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ga4 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<Integer> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ga4() {
-        super(gv2.c());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,88 +23,82 @@ public class ga4 extends HttpManager {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    public static ga4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qt1
+    public void a(j42 j42Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (ga4.class) {
-                    if (a == null) {
-                        a = new ga4();
-                    }
-                }
-            }
-            return a;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, j42Var) == null) && j42Var != null) {
+            d(j42Var.B("action"), j42Var.B("menuItemName"));
         }
-        return (ga4) invokeV.objValue;
     }
 
-    public static ga4 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qt1
+    public void b(ji4 ji4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ga4 ga4Var = new ga4();
-            ga4Var.setHttpDnsEnable(a().getHttpDnsEnable());
-            return ga4Var;
-        }
-        return (ga4) invokeV.objValue;
-    }
-
-    public void call(Request request, List<Interceptor> list, Callback callback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, request, list, callback) != null) || request == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ji4Var) != null) || this.a.isEmpty()) {
             return;
         }
-        OkHttpClient.Builder newBuilder = getOkHttpClient().newBuilder();
-        if (list != null && !list.isEmpty()) {
-            for (Interceptor interceptor : list) {
-                if (interceptor != null) {
-                    newBuilder.addInterceptor(interceptor);
+        Iterator<Integer> it = this.a.iterator();
+        while (it.hasNext()) {
+            Integer id = it.next();
+            if (ji4Var != null) {
+                Intrinsics.checkNotNullExpressionValue(id, "id");
+                ji4Var.l(id.intValue());
+            }
+        }
+    }
+
+    public final boolean c(ji4 ji4Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ji4Var, str)) == null) {
+            Integer a = ha4.a(str);
+            if (a != null) {
+                if (!this.a.contains(a)) {
+                    this.a.add(a);
                 }
+                if (ji4Var != null) {
+                    ji4Var.l(a.intValue());
+                }
+                return true;
             }
+            return false;
         }
-        newBuilder.build().newCall(request).enqueue(callback);
+        return invokeLL.booleanValue;
     }
 
-    public void call(Request request, Callback callback) {
+    public final boolean d(String str, String str2) {
+        InterceptResult invokeLL;
+        z74 z74Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, callback) == null) && request != null) {
-            getOkHttpClient().newCall(request).enqueue(callback);
-        }
-    }
-
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    public OkHttpClient initClient() {
-        InterceptResult invokeV;
-        kc3.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (zb3.M() == null) {
-                return super.initClient();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (str != null && str.hashCode() == 3202370 && str.equals("hide")) {
+                px2 T2 = px2.T();
+                Intrinsics.checkNotNullExpressionValue(T2, "SwanAppController.getInstance()");
+                lb2 U = T2.U();
+                ji4 ji4Var = null;
+                if (U != null) {
+                    z74Var = (z74) U.n(z74.class);
+                } else {
+                    z74Var = null;
+                }
+                if (z74Var != null) {
+                    ji4Var = z74Var.z3();
+                }
+                if (ji4Var != null && z74Var != null) {
+                    z74Var.L3(true);
+                }
+                return c(ji4Var, str2);
             }
-            tb4 tb4Var = (tb4) zb3.M().T();
-            OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
-            int i = 60000;
-            if (tb4Var != null && (aVar = tb4Var.a) != null) {
-                i = aVar.a;
-                newBuilder.connectTimeout(aVar.b, TimeUnit.MILLISECONDS);
-                newBuilder.addNetworkInterceptor(new s33());
-            }
-            long j = i;
-            newBuilder.readTimeout(j, TimeUnit.MILLISECONDS);
-            newBuilder.writeTimeout(j, TimeUnit.MILLISECONDS);
-            OkHttpClient build = newBuilder.build();
-            build.dispatcher().setMaxRequests(10);
-            return build;
+            return false;
         }
-        return (OkHttpClient) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

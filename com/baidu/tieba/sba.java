@@ -1,42 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.ueg.UEGCancelModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class sba extends ai5 {
+public class sba {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public UEGCancelModel a;
+    public UEGCancelModel.b b;
+    public int c;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948147031, "Lcom/baidu/tieba/sba;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948147031, "Lcom/baidu/tieba/sba;");
+        }
     }
 
     /* loaded from: classes7.dex */
-    public class a implements zh5 {
+    public class a implements UEGCancelModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rba a;
-        public final /* synthetic */ sba b;
+        public final /* synthetic */ sba a;
 
-        public a(sba sbaVar, rba rbaVar) {
+        public a(sba sbaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sbaVar, rbaVar};
+                Object[] objArr = {sbaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sbaVar;
+        }
+
+        @Override // com.baidu.tieba.ueg.UEGCancelModel.b
+        public void a(BlockPopInfoData blockPopInfoData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, blockPopInfoData) != null) || blockPopInfoData == null || sba.d) {
+                return;
+            }
+            this.a.d(blockPopInfoData);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements g55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BlockPopInfoData a;
+        public final /* synthetic */ sba b;
+
+        public b(sba sbaVar, BlockPopInfoData blockPopInfoData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sbaVar, blockPopInfoData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,37 +98,52 @@ public class sba extends ai5 {
                 }
             }
             this.b = sbaVar;
-            this.a = rbaVar;
+            this.a = blockPopInfoData;
         }
 
-        @Override // com.baidu.tieba.zh5
-        public void C(yh5 yh5Var) {
-            rba rbaVar;
+        @Override // com.baidu.tieba.g55.e
+        public void onClick(g55 g55Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, yh5Var) != null) || (rbaVar = this.a) == null || rbaVar.b() == null || yh5Var == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, g55Var) == null) {
+                g55Var.dismiss();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
             }
-            int i = yh5Var.a;
-            if (i != 4) {
-                if (i != 7) {
-                    if (i == 8) {
-                        this.a.z();
-                        if (!this.b.h(this.a.getContext(), 25066)) {
-                            return;
-                        }
-                        this.a.p();
-                        if (this.b.a != null) {
-                            this.b.a.a(this.a.m());
-                            return;
-                        }
-                        return;
-                    }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements g55.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BlockPopInfoData a;
+        public final /* synthetic */ sba b;
+
+        public c(sba sbaVar, BlockPopInfoData blockPopInfoData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sbaVar, blockPopInfoData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                this.a.getContext().showToast((int) R.string.over_limit_tip);
-                return;
             }
-            this.a.v((String) yh5Var.c);
+            this.b = sbaVar;
+            this.a = blockPopInfoData;
+        }
+
+        @Override // com.baidu.tieba.g55.e
+        public void onClick(g55 g55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, g55Var) == null) {
+                this.b.e(this.a);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
+            }
         }
     }
 
@@ -85,85 +151,94 @@ public class sba extends ai5 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
+        this.a = new UEGCancelModel();
+        if (this.b == null) {
+            this.b = new a(this);
+        }
+        this.a.W(this.b);
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.c = i;
+            this.a.V();
+        }
+    }
+
+    public final void e(BlockPopInfoData blockPopInfoData) {
+        Activity b2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, blockPopInfoData) != null) || blockPopInfoData == null || (b2 = h9.f().b()) == null) {
+            return;
+        }
+        AntiHelper.p(b2, blockPopInfoData.ahead_url);
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            d = z;
+        }
+    }
+
+    public final void d(BlockPopInfoData blockPopInfoData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, blockPopInfoData) != null) || blockPopInfoData == null || h9.f().b() == null) {
+            return;
+        }
+        String str = blockPopInfoData.block_id_code;
+        int i = blockPopInfoData.win_type;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        String str2 = blockPopInfoData.ahead_url;
+        String str3 = blockPopInfoData.ok_info;
+        String str4 = blockPopInfoData.ahead_info;
+        String str5 = blockPopInfoData.block_info;
+        if ((i == 1 || i == 2 || i == 3 || i == 4) && !wi.isEmpty(currentAccount) && !wi.isEmpty(str)) {
+            r95 p = r95.p();
+            boolean z = false;
+            boolean l = p.l(str + i + currentAccount, false);
+            if ((!wi.isEmpty(str2) || i == 4) && !wi.isEmpty(str3) && ((!wi.isEmpty(str4) || i == 4) && !wi.isEmpty(str5))) {
+                z = true;
+            }
+            if (!l && z) {
+                r95 p2 = r95.p();
+                p2.A(str + i + currentAccount, true);
+                h(blockPopInfoData);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.c).param("obj_type", i));
             }
         }
     }
 
-    @Override // com.baidu.tieba.ai5
-    public ci5 b(Context context) {
-        InterceptResult invokeL;
+    public void f() {
+        UEGCancelModel uEGCancelModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setHideBigEmotion(true);
-            editorTools.setBarLauncherType(4);
-            editorTools.setBackgroundColorId(R.color.CAM_X0207);
-            return new rba(editorTools);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (uEGCancelModel = this.a) != null) {
+            uEGCancelModel.onDestroy();
         }
-        return (ci5) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ai5
-    public void c(ci5 ci5Var) {
+    public final void h(BlockPopInfoData blockPopInfoData) {
+        Activity b2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ci5Var) != null) || !(ci5Var instanceof rba)) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, blockPopInfoData) != null) || blockPopInfoData == null || (b2 = h9.f().b()) == null) {
             return;
         }
-        EditorTools b2 = ci5Var.b();
-        a aVar = new a(this, (rba) ci5Var);
-        b2.setActionListener(4, aVar);
-        b2.setActionListener(7, aVar);
-        b2.setActionListener(8, aVar);
-    }
-
-    @Override // com.baidu.tieba.ai5
-    public void d(ci5 ci5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ci5Var) != null) || ci5Var == null) {
-            return;
-        }
-        EditorTools b2 = ci5Var.b();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(5);
-        b2.h(arrayList);
-        ki5 p = b2.p(5);
-        if (p != null) {
-            p.e(false);
-            p.d = 0;
-        }
-        b2.d(new tba(b2.getContext()));
-        b2.f();
-        b2.C(new yh5(35, 5, Boolean.FALSE));
-        b2.q();
-    }
-
-    public ci5 g(Context context, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
-            this.a = bVar;
-            return super.a(context);
-        }
-        return (ci5) invokeLL.objValue;
-    }
-
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                return true;
-            }
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-            return false;
-        }
-        return invokeLI.booleanValue;
+        g55 g55Var = new g55(b2);
+        g55Var.setMessage(blockPopInfoData.block_info);
+        g55Var.setNegativeButton(blockPopInfoData.ok_info, new b(this, blockPopInfoData));
+        g55Var.setPositiveButton(blockPopInfoData.ahead_info, new c(this, blockPopInfoData));
+        g55Var.create(((m9) b2).getPageContext());
+        g55Var.show();
     }
 }

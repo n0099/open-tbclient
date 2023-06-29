@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class oa6 {
+public class oa6 implements jw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static oa6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
 
     public oa6() {
         Interceptable interceptable = $ic;
@@ -32,46 +34,38 @@ public class oa6 {
         }
     }
 
-    public static oa6 b() {
-        InterceptResult invokeV;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (oa6.class) {
-                    if (b == null) {
-                        b = new oa6();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return TbadkCoreApplication.getInst().getZid(context, null, 0, null);
         }
-        return (oa6) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void a(StatisticItem statisticItem) {
+    @Override // com.baidu.tieba.jw2
+    public String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                return c(context);
+            }
+            return b(context);
         }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(statisticItem);
-        }
+        return (String) invokeL.objValue;
     }
 
-    public void c() {
+    public final String c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, na6.class, null);
+            if (!callOnMainWithContentProvider.isOk()) {
+                return "";
             }
+            return callOnMainWithContentProvider.mResult.getString("result", "");
         }
-        this.a.clear();
+        return (String) invokeL.objValue;
     }
 }

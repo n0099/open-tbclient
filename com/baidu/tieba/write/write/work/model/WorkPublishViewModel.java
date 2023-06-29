@@ -10,7 +10,7 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VideoCategoryClassData;
-import com.baidu.tieba.ez9;
+import com.baidu.tieba.q3a;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.write.write.work.model.WorkPublishViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,18 +74,18 @@ public final class WorkPublishViewModel extends ViewModel {
         this.m = true;
     }
 
-    public static final void q(WorkPublishViewModel this$0, String it) {
+    public static final void t(WorkPublishViewModel this$0, String it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, it) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullExpressionValue(it, "it");
-            this$0.r(it);
+            this$0.u(it);
         }
     }
 
-    public final void x(String newTitle, int i) {
+    public final void A(String newTitle, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, newTitle, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, newTitle, i) == null) {
             Intrinsics.checkNotNullParameter(newTitle, "newTitle");
             this.d.setValue(newTitle);
             this.n = i;
@@ -93,12 +93,44 @@ public final class WorkPublishViewModel extends ViewModel {
         }
     }
 
+    public final void B(VideoInfo newVideo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, newVideo) == null) {
+            Intrinsics.checkNotNullParameter(newVideo, "newVideo");
+            this.b.setValue(newVideo);
+            a();
+        }
+    }
+
+    public final void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.m = z;
+        }
+    }
+
+    public final void y(SelectForumData selectForumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, selectForumData) == null) {
+            Intrinsics.checkNotNullParameter(selectForumData, "<set-?>");
+            this.h = selectForumData;
+        }
+    }
+
+    public final void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.c.setValue(Integer.valueOf(i));
+            a();
+        }
+    }
+
     public final void a() {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MutableLiveData<Boolean> mutableLiveData = this.l;
-            if (b() && c()) {
+            if (c() && e()) {
                 z = true;
             } else {
                 z = false;
@@ -107,11 +139,11 @@ public final class WorkPublishViewModel extends ViewModel {
         }
     }
 
-    public final boolean c() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.getValue() != null && d()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b.getValue() != null && g()) {
                 return true;
             }
             return false;
@@ -119,54 +151,27 @@ public final class WorkPublishViewModel extends ViewModel {
         return invokeV.booleanValue;
     }
 
-    public final void e() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ez9.y("");
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            q3a.y("");
         }
     }
 
-    public final MutableLiveData<SelectForumData> g() {
+    public final MutableLiveData<SelectForumData> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.g;
         }
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final MutableLiveData<VideoCategoryClassData> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public final MutableLiveData<String> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public final MutableLiveData<ResponsedSelectLocation> j() {
+    public final MutableLiveData<VideoCategoryClassData> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (MutableLiveData) invokeV.objValue;
-    }
-
-    public final MutableLiveData<ArrayList<String>> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.k;
+            return this.f;
         }
         return (MutableLiveData) invokeV.objValue;
     }
@@ -174,70 +179,97 @@ public final class WorkPublishViewModel extends ViewModel {
     public final MutableLiveData<String> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.e;
+        }
+        return (MutableLiveData) invokeV.objValue;
+    }
+
+    public final MutableLiveData<ResponsedSelectLocation> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.j;
+        }
+        return (MutableLiveData) invokeV.objValue;
+    }
+
+    public final MutableLiveData<ArrayList<String>> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.k;
+        }
+        return (MutableLiveData) invokeV.objValue;
+    }
+
+    public final MutableLiveData<String> o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.d;
         }
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final MutableLiveData<ArrayList<String>> m() {
+    public final MutableLiveData<ArrayList<String>> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.i;
         }
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final MutableLiveData<VideoInfo> n() {
+    public final MutableLiveData<VideoInfo> q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.b;
         }
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final MutableLiveData<Boolean> o() {
+    public final MutableLiveData<Boolean> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.l;
         }
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final void p() {
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            ez9.o(new ez9.h() { // from class: com.baidu.tieba.sma
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            q3a.o(new q3a.h() { // from class: com.baidu.tieba.ira
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.ez9.h
+                @Override // com.baidu.tieba.q3a.h
                 public final void a(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        WorkPublishViewModel.q(WorkPublishViewModel.this, str);
+                        WorkPublishViewModel.t(WorkPublishViewModel.this, str);
                     }
                 }
             });
         }
     }
 
-    public final void t() {
+    public final void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            ez9.y(f());
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            q3a.y(i());
         }
     }
 
-    public final boolean b() {
+    public final boolean c() {
         InterceptResult invokeV;
         boolean z;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String value = this.d.getValue();
             if (value != null && value.length() != 0) {
                 z = false;
@@ -252,10 +284,10 @@ public final class WorkPublishViewModel extends ViewModel {
         return invokeV.booleanValue;
     }
 
-    public final boolean d() {
+    public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.c.getValue() == null) {
                 return true;
             }
@@ -272,13 +304,13 @@ public final class WorkPublishViewModel extends ViewModel {
         return invokeV.booleanValue;
     }
 
-    public final String f() {
+    public final String i() {
         InterceptResult invokeV;
         String str;
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("mTitle", this.d.getValue());
@@ -336,9 +368,9 @@ public final class WorkPublishViewModel extends ViewModel {
         return (String) invokeV.objValue;
     }
 
-    public final void r(String json) {
+    public final void u(String json) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, json) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, json) == null) {
             Intrinsics.checkNotNullParameter(json, "json");
             if (StringUtils.isNullStr(json)) {
                 return;
@@ -380,9 +412,9 @@ public final class WorkPublishViewModel extends ViewModel {
         }
     }
 
-    public final void s(WriteData writeData) {
+    public final void v(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, writeData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, writeData) == null) {
             Intrinsics.checkNotNullParameter(writeData, "writeData");
             this.d.setValue(writeData.getTitle());
             this.e.setValue(writeData.getContent());
@@ -396,38 +428,6 @@ public final class WorkPublishViewModel extends ViewModel {
             selectForumData.forumId = writeData.getForumId();
             selectForumData.forumName = writeData.getForumName();
             this.g.setValue(selectForumData);
-            a();
-        }
-    }
-
-    public final void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.m = z;
-        }
-    }
-
-    public final void v(SelectForumData selectForumData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, selectForumData) == null) {
-            Intrinsics.checkNotNullParameter(selectForumData, "<set-?>");
-            this.h = selectForumData;
-        }
-    }
-
-    public final void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.c.setValue(Integer.valueOf(i));
-            a();
-        }
-    }
-
-    public final void y(VideoInfo newVideo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, newVideo) == null) {
-            Intrinsics.checkNotNullParameter(newVideo, "newVideo");
-            this.b.setValue(newVideo);
             a();
         }
     }

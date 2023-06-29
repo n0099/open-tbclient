@@ -1,62 +1,109 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.EditText;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tba extends ki5 {
+public class tba extends BdAsyncTask<String, String, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText t;
+    public String a;
+    public a b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tba(Context context) {
-        super(context, (String) null, 28);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
+
+        void onError(String str);
+    }
+
+    public tba(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
-        this.m = videoPlayInputContainer;
-        this.t = videoPlayInputContainer.getInputView();
-        this.p = new int[]{4, 24, 3, 9, 6};
+        this.a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.b = aVar;
     }
 
-    public EditText g() {
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
+            return UrlUtils.getParamValue(this.a, "url", true).contains("yandex.");
         }
-        return (EditText) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public VideoPlayInputContainer h() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Integer doInBackground(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (VideoPlayInputContainer) this.m;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+            try {
+                if (b()) {
+                    return 5;
+                }
+                NetWork netWork = new NetWork(this.a);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            return Integer.valueOf(optJSONObject.optInt("main", -1));
+                        }
+                    }
+                    return -1;
+                }
+                return -1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
         }
-        return (VideoPlayInputContainer) invokeV.objValue;
+        return (Integer) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(Integer num) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, num) == null) && this.b != null && num != null) {
+            if (num.intValue() == -1) {
+                this.b.onError(null);
+            } else if (num.intValue() == 1) {
+                this.b.c();
+            } else if (num.intValue() != 2 && num.intValue() != 0) {
+                this.b.a();
+            } else {
+                this.b.b();
+            }
+        }
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdAlertData;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tieba.vi;
 import com.baidu.tieba.wi;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public class TBAlertBuilderHelper {
     public static void sendReturnMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921811, str));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921814, str));
         }
     }
 
@@ -85,7 +85,7 @@ public class TBAlertBuilderHelper {
                             BdAlertData.AlertBtn alertBtn2;
                             TBAlertBuilder tBAlertBuilder2;
                             Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && (alertBtn2 = this.val$AlertBtn) != null && alertBtn2.getConfig() != null && this.val$AlertBtn.getConfig().getAction() != null && vi.isEquals(this.val$AlertBtn.getConfig().getAction(), TBAlertBuilderHelper.ACTION_RETURN) && (tBAlertBuilder2 = this.val$builder) != null) {
+                            if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && (alertBtn2 = this.val$AlertBtn) != null && alertBtn2.getConfig() != null && this.val$AlertBtn.getConfig().getAction() != null && wi.isEquals(this.val$AlertBtn.getConfig().getAction(), TBAlertBuilderHelper.ACTION_RETURN) && (tBAlertBuilder2 = this.val$builder) != null) {
                                 tBAlertBuilder2.dismiss();
                                 TBAlertBuilderHelper.sendReturnMessage(TBAlertBuilderHelper.ACTION_RETURN);
                             }
@@ -96,10 +96,10 @@ public class TBAlertBuilderHelper {
             }
             tBAlertBuilder.u(aVarArr);
             tBAlertBuilder.j(false);
-            if (wi.E()) {
+            if (xi.E()) {
                 tBAlertBuilder.z();
             } else {
-                xg.a().post(new Runnable(tBAlertBuilder) { // from class: com.baidu.tbadk.core.util.TBAlertBuilderHelper.2
+                yg.a().post(new Runnable(tBAlertBuilder) { // from class: com.baidu.tbadk.core.util.TBAlertBuilderHelper.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ TBAlertBuilder val$builder;

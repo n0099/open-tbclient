@@ -35,9 +35,9 @@ public final class d extends com.kwad.sdk.core.download.kwai.b {
         }
     };
 
-    public static int a(a.C0631a c0631a, int i) {
-        Context context = c0631a.getContext();
-        AdTemplate adTemplate = c0631a.getAdTemplate();
+    public static int a(a.C0641a c0641a, int i) {
+        Context context = c0641a.getContext();
+        AdTemplate adTemplate = c0641a.getAdTemplate();
         if (adTemplate == null || context == null) {
             return 0;
         }
@@ -46,7 +46,7 @@ public final class d extends com.kwad.sdk.core.download.kwai.b {
         com.kwad.sdk.core.c.b.a(Eq);
         int s = com.kwad.sdk.core.download.kwai.b.s(context, com.kwad.sdk.core.response.a.a.bM(com.kwad.sdk.core.response.a.d.bQ(adTemplate)));
         if (s == 1) {
-            com.kwad.sdk.core.report.a.a(adTemplate, 1, c0631a.getClientParams());
+            com.kwad.sdk.core.report.a.a(adTemplate, 1, c0641a.getClientParams());
             c(adTemplate, 1);
         } else if (s == -1) {
             com.kwad.sdk.core.report.a.k(adTemplate, 1);

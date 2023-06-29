@@ -1,61 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.FriendBotPostConfigData;
-import com.baidu.tbadk.util.DataExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes8.dex */
-public final class xj5 implements ef5 {
+public class xj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public xj5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948302310, "Lcom/baidu/tieba/xj5;")) == null) {
+            return;
         }
-        this.a = "wl_config";
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948302310, "Lcom/baidu/tieba/xj5;");
+        }
     }
 
-    @Override // com.baidu.tieba.ef5
-    public void parseJson(JSONObject json) {
+    public static boolean a(boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            try {
-                JSONObject optJSONObject = json.optJSONObject(this.a);
-                if (optJSONObject != null) {
-                    String botConfigStr = optJSONObject.optString("friend_bot_post_config");
-                    if (!TextUtils.isEmpty(botConfigStr)) {
-                        Intrinsics.checkNotNullExpressionValue(botConfigStr, "botConfigStr");
-                        TbSingleton.getInstance().setFriendBotPostConfigData((FriendBotPostConfigData) DataExt.toEntity(botConfigStr, FriendBotPostConfigData.class));
-                    }
-                }
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    e.printStackTrace();
-                    return;
-                }
-                throw e;
-            }
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) ? z || (z2 && !z3) : invokeCommon.booleanValue;
     }
 }

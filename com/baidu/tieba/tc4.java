@@ -1,138 +1,107 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class tc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tc4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public volatile ArrayList<sc4> b;
 
-    public static void a(CallbackHandler callbackHandler, String str) {
+    public tc4() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        ad4 ad4Var = new ad4();
-        ad4Var.a = str;
-        qc4.c().a(new pc4(50000, ad4Var));
+        this.b = new ArrayList<>(20);
     }
 
-    public static void b(CallbackHandler callbackHandler, String str) {
+    public static tc4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (tc4.class) {
+                    if (c == null) {
+                        c = new tc4();
+                    }
+                }
+            }
+            return c;
         }
-        ad4 ad4Var = new ad4();
-        ad4Var.a = str;
-        qc4.c().a(new pc4(90000, ad4Var));
+        return (tc4) invokeV.objValue;
     }
 
-    public static void e(CallbackHandler callbackHandler, String str) {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        ad4 ad4Var = new ad4();
-        ad4Var.a = str;
-        qc4.c().a(new pc4(60000, ad4Var));
-    }
-
-    public static void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        ad4 ad4Var = new ad4();
-        ad4Var.a = str;
-        qc4.c().a(new pc4(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, ad4Var));
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            yc4 yc4Var = new yc4();
-            yc4Var.b = str;
-            yc4Var.a = str2;
-            qc4.c().a(new pc4(30000, yc4Var));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+                this.a = 0;
+            }
         }
     }
 
-    public static void c(String str, int i, String str2, boolean z) {
+    public synchronized void a(sc4 sc4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            xc4 xc4Var = new xc4();
-            xc4Var.b = str;
-            xc4Var.c = i;
-            xc4Var.d = z ? 1 : 0;
-            xc4Var.a = str2;
-            qc4.c().a(new pc4(DefaultOggSeeker.MATCH_BYTE_RANGE, xc4Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, sc4Var) == null) {
+            synchronized (this) {
+                if (sc4Var == null) {
+                    return;
+                }
+                if (this.b.size() < 20) {
+                    this.b.add(sc4Var);
+                } else {
+                    this.a++;
+                }
+            }
         }
     }
 
-    public static void h(String str, int i, String str2, boolean z) {
+    public synchronized JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            xc4 xc4Var = new xc4();
-            xc4Var.b = str;
-            xc4Var.c = i;
-            xc4Var.d = z ? 1 : 0;
-            xc4Var.a = str2;
-            qc4.c().a(new pc4(70000, xc4Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                int size = this.b.size();
+                if (size == 0) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("dropcnt", this.a);
+                    jSONObject.put("errorcnt", size);
+                    JSONArray jSONArray = new JSONArray();
+                    jSONObject.put("errors", jSONArray);
+                    Iterator<sc4> it = this.b.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next().a());
+                    }
+                } catch (JSONException unused) {
+                }
+                this.b.clear();
+                return jSONObject;
+            }
         }
-    }
-
-    public static void k(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            xc4 xc4Var = new xc4();
-            xc4Var.b = str;
-            xc4Var.c = i;
-            xc4Var.d = z ? 1 : 0;
-            xc4Var.a = str2;
-            qc4.c().a(new pc4(110000, xc4Var));
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            ad4 ad4Var = new ad4();
-            ad4Var.a = str;
-            qc4.c().a(new pc4(20000, ad4Var));
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            ad4 ad4Var = new ad4();
-            ad4Var.a = str;
-            qc4.c().a(new pc4(10000, ad4Var));
-        }
-    }
-
-    public static void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            ad4 ad4Var = new ad4();
-            ad4Var.a = str;
-            qc4.c().a(new pc4(120000, ad4Var));
-        }
-    }
-
-    public static void j(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
-            zc4 zc4Var = new zc4();
-            zc4Var.b = str;
-            zc4Var.c = i;
-            zc4Var.a = str2;
-            qc4.c().a(new pc4(80000, zc4Var));
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

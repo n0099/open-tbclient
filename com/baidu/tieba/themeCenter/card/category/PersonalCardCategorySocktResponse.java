@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.card.category;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o6a;
-import com.baidu.tieba.w6a;
+import com.baidu.tieba.aba;
+import com.baidu.tieba.iba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,13 +17,13 @@ import tbclient.Error;
 import tbclient.GetCardByCategory.DataRes;
 import tbclient.GetCardByCategory.GetCardByCategoryResIdl;
 import tbclient.GetCardByCategory.ThemeCardInMain;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<o6a> mCardCategoryList;
-    public w6a mRecommand;
+    public List<aba> mCardCategoryList;
+    public iba mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardCategorySocktResponse() {
@@ -69,18 +69,18 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
                 this.hasMore = false;
             }
             if (getCardByCategoryResIdl.data.recommend != null) {
-                w6a w6aVar = new w6a();
-                this.mRecommand = w6aVar;
-                w6aVar.d(getCardByCategoryResIdl.data.recommend);
+                iba ibaVar = new iba();
+                this.mRecommand = ibaVar;
+                ibaVar.d(getCardByCategoryResIdl.data.recommend);
             }
             List<ThemeCardInMain> list = getCardByCategoryResIdl.data.cards;
             if (list != null && list.size() > 0) {
                 this.mCardCategoryList = new ArrayList();
                 for (ThemeCardInMain themeCardInMain : list) {
                     if (themeCardInMain != null) {
-                        o6a o6aVar = new o6a();
-                        o6aVar.c(themeCardInMain);
-                        this.mCardCategoryList.add(o6aVar);
+                        aba abaVar = new aba();
+                        abaVar.c(themeCardInMain);
+                        this.mCardCategoryList.add(abaVar);
                     }
                 }
             }
@@ -89,7 +89,7 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<o6a> getCardCategoryList() {
+    public List<aba> getCardCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -98,13 +98,13 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public w6a getRecommand() {
+    public iba getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (w6a) invokeV.objValue;
+        return (iba) invokeV.objValue;
     }
 
     public boolean isHasMore() {

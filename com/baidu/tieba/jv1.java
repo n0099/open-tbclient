@@ -1,45 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class jv1 {
+public class jv1 implements zx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public Resources b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (Resources) invokeV.objValue;
-    }
-
-    public abstract void c(boolean z);
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-        }
-    }
-
-    public void f(Object obj, nh3 nh3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, nh3Var) == null) {
-        }
-    }
-
-    public void g(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-        }
-    }
 
     public jv1() {
         Interceptable interceptable = $ic;
@@ -55,19 +25,39 @@ public abstract class jv1 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zx1
+    public void a(Context context, vq3<Boolean> vq3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return nk3.a().getBoolean("PREFS_NIGHT_MODE", false);
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, vq3Var) != null) || vq3Var == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        vq3Var.a(null);
     }
 
-    public void e(boolean z) {
+    @Override // com.baidu.tieba.zx1
+    public void b(boolean z, vq3<String> vq3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            nk3.a().putBoolean("PREFS_NIGHT_MODE", z);
+        if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, vq3Var) != null) || vq3Var == null) {
+            return;
         }
+        vq3Var.a(null);
+    }
+
+    @Override // com.baidu.tieba.zx1
+    public void c(Context context, vq3<String> vq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, vq3Var) != null) || vq3Var == null) {
+            return;
+        }
+        vq3Var.a(null);
+    }
+
+    @Override // com.baidu.tieba.zx1
+    public void d(vq3<Integer> vq3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, vq3Var) != null) || vq3Var == null) {
+            return;
+        }
+        vq3Var.a(null);
     }
 }

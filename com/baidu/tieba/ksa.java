@@ -1,76 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.nio.channels.ReadableByteChannel;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public final class ksa {
+public final class ksa implements ReadableByteChannel {
     public static /* synthetic */ Interceptable $ic;
-    public static List<WeakReference<ScheduledFuture<?>>> a;
-    public static ExecutorService b;
-    public static ScheduledExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final InputStream a;
+    public final AtomicBoolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925040, "Lcom/baidu/tieba/ksa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947925040, "Lcom/baidu/tieba/ksa;");
+    public ksa(@NonNull InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList();
-        b = Executors.newFixedThreadPool(2);
-        c = Executors.newScheduledThreadPool(2);
+        this.b = new AtomicBoolean(true);
+        this.a = inputStream;
     }
 
-    public static synchronized void a(Runnable runnable) {
+    public static ReadableByteChannel a(@NonNull InputStream inputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            synchronized (ksa.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            if (inputStream instanceof FileInputStream) {
+                return ((FileInputStream) inputStream).getChannel();
+            }
+            return new ksa(inputStream);
+        }
+        return (ReadableByteChannel) invokeL.objValue;
+    }
+
+    @Override // java.nio.channels.Channel, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.compareAndSet(true, false)) {
+            this.a.close();
+        }
+    }
+
+    @Override // java.nio.channels.Channel
+    public boolean isOpen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.nio.channels.ReadableByteChannel
+    public int read(ByteBuffer byteBuffer) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer)) == null) {
+            if (byteBuffer.hasArray()) {
+                int read = this.a.read(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), byteBuffer.remaining());
+                if (read > 0) {
+                    byteBuffer.position(byteBuffer.position() + read);
+                    return read;
                 }
-                c.execute(runnable);
+                return read;
             }
-        }
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            ExecutorService executorService = b;
-            if (executorService == null || executorService.isShutdown()) {
-                b = Executors.newFixedThreadPool(2);
+            byte[] bArr = new byte[Math.min(16384, Math.min(Math.max(this.a.available(), 4096), byteBuffer.remaining()))];
+            int read2 = this.a.read(bArr);
+            if (read2 > 0) {
+                byteBuffer.put(bArr, 0, read2);
             }
-            b.execute(runnable);
+            return read2;
         }
-    }
-
-    public static synchronized void b(Runnable runnable, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            synchronized (ksa.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
-                }
-                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
-            }
-        }
+        return invokeL.intValue;
     }
 }

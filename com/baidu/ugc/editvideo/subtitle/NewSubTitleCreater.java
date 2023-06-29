@@ -12,8 +12,8 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import com.baidu.tieba.kxa;
-import com.baidu.tieba.uwa;
+import com.baidu.tieba.a2b;
+import com.baidu.tieba.k1b;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
@@ -94,7 +94,7 @@ public class NewSubTitleCreater {
             if (i2 > 0 && (i = subTitleUnit.height) > 0) {
                 Bitmap createBitmap = Bitmap.createBitmap(i2, i, Bitmap.Config.ARGB_8888);
                 Canvas canvas = new Canvas(createBitmap);
-                uwa.b(this.mNineBitmap, this.mNinePatchChunk, canvas, subTitleUnit.padding);
+                k1b.b(this.mNineBitmap, this.mNinePatchChunk, canvas, subTitleUnit.padding);
                 int i3 = 0;
                 if (!TextUtils.isEmpty(subTitleUnit.line)) {
                     SubTitleConfig.StrokeConfig strokeConfig = subTitleUnit.chineseStrokeConfig;
@@ -143,7 +143,7 @@ public class NewSubTitleCreater {
         if (shadowConfig != null) {
             textPaint.setShadowLayer(shadowConfig.shadowRadius, shadowConfig.shadowDx, shadowConfig.shadowDy, subTitleUnit.chineseShadowColor);
         }
-        uwa.c(textPaint, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+        k1b.c(textPaint, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
         textPaint.setFakeBoldText(subTitleUnit.isChineseBold == 1);
         textPaint.setTextSkewX(subTitleUnit.isChineseItalic == 1 ? -0.5f : 0.0f);
         Typeface typeface = subTitleUnit.chineseTypeface;
@@ -161,7 +161,7 @@ public class NewSubTitleCreater {
                 textPaint.setColor(subTitleUnit.chineseStrokeConfig.strokeColor);
             }
         }
-        int g = uwa.g(textPaint);
+        int g = k1b.g(textPaint);
         int i5 = subTitleUnit.padding;
         int i6 = subTitleUnit.backgroudPaddingLeft;
         int abs = (g / 2) + ((int) (Math.abs(textPaint.ascent() + textPaint.descent()) / 2.0f)) + subTitleUnit.padding + subTitleUnit.backgroudPaddingTop;
@@ -178,10 +178,10 @@ public class NewSubTitleCreater {
             } else if (i13 != 3) {
                 i = subTitleUnit.padding + subTitleUnit.backgroudPaddingLeft;
                 int i14 = i;
-                d = uwa.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                d = k1b.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                 int i15 = i7;
                 int i16 = abs;
-                uwa.e(canvas, textPaint, i14, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                k1b.e(canvas, textPaint, i14, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                 if (d[0] == 0) {
                     i2 = i14;
                     i3 = i16;
@@ -202,10 +202,10 @@ public class NewSubTitleCreater {
             }
             i = (int) measureText;
             int i142 = i;
-            d = uwa.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+            d = k1b.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
             int i152 = i7;
             int i162 = abs;
-            uwa.e(canvas, textPaint, i142, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+            k1b.e(canvas, textPaint, i142, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
             if (d[0] == 0) {
             }
             if (d[1] == 0) {
@@ -279,7 +279,7 @@ public class NewSubTitleCreater {
             float f = subTitleConfig.mScale;
             return (int) ((subTitleConfig.mVideoWidth - (subTitleConfig.mMinLeftPadding / f)) - (subTitleConfig.mMinRightPadding / f));
         }
-        return (int) (kxa.e() * 0.8d);
+        return (int) (a2b.e() * 0.8d);
     }
 
     public static StaticLayout getMeasuredStaticLayout(String str, TextPaint textPaint, int i, int i2, Layout.Alignment alignment, int i3) {
@@ -480,9 +480,9 @@ public class NewSubTitleCreater {
 
     private void initXY(SubTitleUnit subTitleUnit) {
         int[] subtileWH = getSubtileWH(subTitleUnit);
-        Bitmap a = uwa.a(subTitleUnit.mTextStyleEntity);
+        Bitmap a = k1b.a(subTitleUnit.mTextStyleEntity);
         this.mNineBitmap = a;
-        NinePatchChunk f = uwa.f(a, subTitleUnit.mTextStyleEntity);
+        NinePatchChunk f = k1b.f(a, subTitleUnit.mTextStyleEntity);
         this.mNinePatchChunk = f;
         int i = subtileWH[0];
         subTitleUnit.width = i;

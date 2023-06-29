@@ -1,187 +1,62 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.tieba.o11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class p11 {
+public abstract class p11<T extends o11> extends n11<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public c01 a;
-    public PlayerStatus b;
-    public StringBuilder c;
+    public final Object c;
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public p11() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p11(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = PlayerStatus.IDLE;
-        d();
+        this.c = new Object();
     }
 
+    @Override // com.baidu.tieba.n11
     @NonNull
-    public PlayerStatus c() {
+    public T a() {
         InterceptResult invokeV;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.c) {
+                t = (T) super.a();
+            }
+            return t;
         }
-        return (PlayerStatus) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public void f() {
+    @Override // com.baidu.tieba.n11
+    public void d(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h();
-            this.b = PlayerStatus.IDLE;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public void a(vw0 vw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vw0Var) == null) {
-            if (vw0Var.getType() != 4 && vw0Var.getType() != 2) {
-                return;
-            }
-            String c = vw0Var.c();
-            char c2 = 65535;
-            switch (c.hashCode()) {
-                case -525235558:
-                    if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case -461848373:
-                    if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case 154871702:
-                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 1370689931:
-                    if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 == 3) {
-                            g(PlayerStatus.ERROR);
-                            return;
-                        }
-                        return;
-                    }
-                    g(PlayerStatus.PREPARED);
-                    return;
-                }
-                g(PlayerStatus.COMPLETE);
-                return;
-            }
-            int g = vw0Var.g(1);
-            if (904 == g || 956 == g) {
-                g(PlayerStatus.PLAYING);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            synchronized (this.c) {
+                super.d(t);
             }
         }
-    }
-
-    public void b(@NonNull c01 c01Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c01Var) == null) {
-            this.a = c01Var;
-        }
-    }
-
-    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
-            for (PlayerStatus playerStatus : playerStatusArr) {
-                if (playerStatus == c()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(PlayerStatus playerStatus) {
-        PlayerStatus playerStatus2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, playerStatus) != null) || playerStatus == (playerStatus2 = this.b)) {
-            return;
-        }
-        this.b = playerStatus;
-        c01 c01Var = this.a;
-        if (c01Var != null) {
-            c01Var.d(qw0.w(playerStatus2, playerStatus));
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (au0.f()) {
-                StringBuilder sb = this.c;
-                if (sb == null) {
-                    this.c = new StringBuilder();
-                } else if (sb.length() > 0) {
-                    StringBuilder sb2 = this.c;
-                    sb2.delete(0, sb2.length());
-                }
-                StringBuilder sb3 = this.c;
-                sb3.append("，Courier :");
-                sb3.append(this.a);
-                sb3.append("，status :");
-                sb3.append(this.b);
-                sb3.append("，hash :");
-                sb3.append(hashCode());
-                sb3.append("】");
-                return this.c.toString();
-            }
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,29 +1,37 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.text.TextUtils;
-import android.util.Base64;
+import android.util.Log;
+import android.webkit.WebSettings;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.nad.jni.NADNativeHelper;
 import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.core.atomData.AbsMsgImageActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.d61;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.text.DecimalFormat;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,395 +39,50 @@ import org.json.JSONObject;
 public class pk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public int B;
-    public String C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public String H;
-    public float I;
-    public int J;
-    public JSONObject K;
-    public JSONObject L;
-    public int M;
-    public int N;
-    public String O;
-    public float P;
-    public int Q;
-    public long R;
-    public long S;
-
-    /* renamed from: T  reason: collision with root package name */
-    public int f1159T;
-    public float U;
-    public String V;
-    public String W;
-    public int X;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
-    public String g;
-    public int h;
-    public int i;
-    public String j;
-    public String k;
-    public String l;
-    public int m;
-    public int n;
-    public String o;
-    public String p;
-    public String[] q;
-    public String[] r;
-    public long s;
-    public long t;
-    public int u;
-    public int v;
-    public int w;
-    public int x;
-    public boolean y;
-    public String z;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ pk1 b;
 
-        public static void a(JSONObject jSONObject, pk1 pk1Var) {
+        public a(pk1 pk1Var, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, pk1Var) == null) {
-                try {
-                    pk1Var.a = jSONObject.optInt("advisible");
-                    pk1Var.b = jSONObject.optString("id");
-                    pk1Var.c = jSONObject.optString("ukey");
-                    pk1Var.d = jSONObject.optString("extra");
-                    pk1Var.e = jSONObject.optString(TtmlNode.TAG_LAYOUT);
-                    pk1Var.f = jSONObject.optInt("type");
-                    pk1Var.k = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                    pk1Var.o = jSONObject.optString("action");
-                    pk1Var.p = jSONObject.optString("action_cmd");
-                    pk1Var.l = jSONObject.optString("flag_name");
-                    pk1Var.m = jSONObject.optInt("logo_type");
-                    pk1Var.n = jSONObject.optInt(CriusAttrConstants.DISPLAY);
-                    if (pk1Var.n()) {
-                        b.a(jSONObject, pk1Var);
-                    } else {
-                        c.a(jSONObject, pk1Var);
-                    }
-                    JSONArray optJSONArray = jSONObject.optJSONArray("show_urls");
-                    if (optJSONArray != null) {
-                        pk1Var.q = new String[optJSONArray.length()];
-                        int length = optJSONArray.length();
-                        for (int i = 0; i < length; i++) {
-                            pk1Var.q[i] = optJSONArray.optString(i);
-                        }
-                    }
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("click_urls");
-                    if (optJSONArray2 != null) {
-                        pk1Var.r = new String[optJSONArray2.length()];
-                        int length2 = optJSONArray2.length();
-                        for (int i2 = 0; i2 < length2; i2++) {
-                            pk1Var.r[i2] = optJSONArray2.optString(i2);
-                        }
-                    }
-                    pk1Var.s = jSONObject.optLong("start");
-                    pk1Var.t = jSONObject.optLong("end");
-                    pk1Var.u = jSONObject.optInt("expose_interval");
-                    pk1Var.v = jSONObject.optInt("expose_times");
-                    pk1Var.w = jSONObject.optInt("preload_type");
-                    pk1Var.z = jSONObject.optString("click_float_lottie_url");
-                    pk1Var.A = jSONObject.optInt("float_bar_show", 1);
-                    pk1Var.B = jSONObject.optInt("click_float_opt", 1);
-                    pk1Var.C = jSONObject.optString("style_desc");
-                    pk1Var.x = jSONObject.optInt("curRate");
-                    pk1Var.E = jSONObject.optInt(TiebaStatic.Params.AD_TYPE);
-                    pk1Var.F = jSONObject.optInt("ad_sort");
-                    pk1Var.G = jSONObject.optInt("gesture_lottie_type");
-                    pk1Var.H = jSONObject.optString("gesture_lottie_url");
-                    pk1Var.I = (float) jSONObject.optDouble("gesture_lottie_sensitivity", 0.0d);
-                    pk1Var.X = jSONObject.optInt("gesture_lottie_direction", 1);
-                    int optInt = jSONObject.optInt("is_topview", 0);
-                    pk1Var.J = optInt;
-                    if (optInt == 1 && jSONObject.optJSONObject("topview_data") != null) {
-                        pk1Var.K = jSONObject.optJSONObject("topview_data");
-                    }
-                    if (jSONObject.optJSONObject("animation_data") != null) {
-                        pk1Var.L = jSONObject.optJSONObject("animation_data");
-                    }
-                    pk1Var.M = jSONObject.optInt("shake_update_interval", 67);
-                    pk1Var.N = jSONObject.optInt("shake_direction_count", 2);
-                    pk1Var.O = jSONObject.optString("key");
-                    pk1Var.P = (float) jSONObject.optDouble("hot_shake_sensitivity", 0.0d);
-                    pk1Var.Q = jSONObject.optInt("hot_background_time", 0);
-                    pk1Var.V = jSONObject.optString("m_ua");
-                    pk1Var.W = jSONObject.optString("m_pn");
-                    pk1Var.R = jSONObject.optLong("start_backup");
-                    pk1Var.S = jSONObject.optLong("end_backup");
-                    pk1Var.f1159T = jSONObject.optInt("virtual", 0);
-                    pk1Var.U = (float) jSONObject.optDouble("shake_action_delay_time", -1.0d);
-                } catch (Exception unused) {
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pk1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = pk1Var;
+            this.a = str;
         }
 
-        public static void c(JSONObject jSONObject, pk1 pk1Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, jSONObject, pk1Var) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                String f = this.b.f(this.a, currentTimeMillis);
+                String f2 = this.b.f(this.a, 86400000 + currentTimeMillis);
+                String f3 = this.b.f(this.a, 172800000 + currentTimeMillis);
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("advisible", pk1Var.a);
-                    jSONObject.put("id", pk1Var.b);
-                    jSONObject.put("ukey", pk1Var.c);
-                    jSONObject.put("extra", pk1Var.d);
-                    jSONObject.put(TtmlNode.TAG_LAYOUT, pk1Var.e);
-                    jSONObject.put("type", pk1Var.f);
-                    jSONObject.put(BigdayActivityConfig.JUMP_URL, pk1Var.k);
-                    jSONObject.put("action", pk1Var.o);
-                    jSONObject.put("action_cmd", pk1Var.p);
-                    jSONObject.put("flag_name", pk1Var.l);
-                    jSONObject.put("logo_type", pk1Var.m);
-                    jSONObject.put(CriusAttrConstants.DISPLAY, pk1Var.n);
-                    jSONObject.put("start", pk1Var.s);
-                    jSONObject.put("end", pk1Var.t);
-                    jSONObject.put("expose_times", pk1Var.v);
-                    jSONObject.put("expose_interval", pk1Var.u);
-                    jSONObject.put("preload_type", pk1Var.w);
-                    jSONObject.put("curRate", pk1Var.x);
-                    jSONObject.put("click_float_lottie_url", pk1Var.z);
-                    jSONObject.put("float_bar_show", pk1Var.A);
-                    jSONObject.put("click_float_opt", pk1Var.B);
-                    jSONObject.put("style_desc", pk1Var.C);
-                    jSONObject.put(TiebaStatic.Params.AD_TYPE, pk1Var.E);
-                    jSONObject.put("ad_sort", pk1Var.F);
-                    jSONObject.put("gesture_lottie_type", pk1Var.G);
-                    jSONObject.put("gesture_lottie_url", pk1Var.H);
-                    jSONObject.put("gesture_lottie_sensitivity", pk1Var.I);
-                    jSONObject.put("gesture_lottie_direction", pk1Var.X);
-                    jSONObject.put("is_topview", pk1Var.J);
-                    jSONObject.put("start_backup", pk1Var.R);
-                    jSONObject.put("end_backup", pk1Var.S);
-                    if (pk1Var.J == 1 && pk1Var.K != null) {
-                        jSONObject.put("topview_data", pk1Var.K);
-                    }
-                    if (pk1Var.L != null) {
-                        jSONObject.put("animation_data", pk1Var.L);
-                    }
-                    jSONObject.put("shake_update_interval", pk1Var.M);
-                    jSONObject.put("shake_direction_count", pk1Var.N);
-                    jSONObject.put("key", pk1Var.O);
-                    jSONObject.put("hot_shake_sensitivity", pk1Var.P);
-                    jSONObject.put("hot_background_time", pk1Var.Q);
-                    jSONObject.put("virtual", pk1Var.f1159T);
-                    jSONObject.put("shake_action_delay_time", pk1Var.U);
-                    jSONObject.put("m_ua", pk1Var.V);
-                    jSONObject.put("m_pn", pk1Var.W);
-                    if (pk1Var.q != null) {
-                        if (d61.b.c()) {
-                            jSONObject.put("show_urls", new JSONArray(pk1Var.q));
-                        } else {
-                            jSONObject.put("show_urls", new JSONArray((Collection) Arrays.asList(pk1Var.q)));
-                        }
-                    }
-                    if (pk1Var.r != null) {
-                        if (d61.b.c()) {
-                            jSONObject.put("click_urls", new JSONArray(pk1Var.r));
-                        } else {
-                            jSONObject.put("click_urls", new JSONArray((Collection) Arrays.asList(pk1Var.r)));
-                        }
-                    }
-                    if (pk1Var.n()) {
-                        b.b(jSONObject, pk1Var);
-                    } else {
-                        c.b(jSONObject, pk1Var);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    jSONObject.put(AbsMsgImageActivityConfig.CURRENT_URL, f);
+                    jSONObject.put("tomorrow_url", f2);
+                    jSONObject.put("after_tomorrow_url", f3);
+                    jSONObject.put("cache_time", currentTimeMillis);
+                } catch (JSONException unused) {
                 }
-            }
-        }
-
-        public static void b(JSONObject jSONObject, pk1 pk1Var) {
-            JSONObject optJSONObject;
-            JSONObject optJSONObject2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, pk1Var) == null) {
-                try {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("adInfo");
-                    if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
-                        return;
-                    }
-                    pk1Var.a = optJSONObject.optInt("advisible", 1);
-                    pk1Var.b = optJSONObject.optString("id");
-                    pk1Var.c = optJSONObject.optString("ukey");
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("extra");
-                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                        int i = 0;
-                        while (true) {
-                            if (i >= optJSONArray2.length()) {
-                                break;
-                            }
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i);
-                            if (optJSONObject3 != null) {
-                                String optString = optJSONObject3.optString("k");
-                                String optString2 = optJSONObject3.optString("v");
-                                if (!TextUtils.isEmpty(optString2) && TextUtils.equals("extraParam", optString)) {
-                                    pk1Var.d = optString2;
-                                    break;
-                                }
-                            }
-                            i++;
-                        }
-                    }
-                    JSONArray optJSONArray3 = optJSONObject.optJSONArray("material");
-                    if (optJSONArray3 != null && (optJSONObject2 = optJSONArray3.optJSONObject(0)) != null) {
-                        JSONArray optJSONArray4 = optJSONObject2.optJSONArray("info");
-                        if (optJSONArray4 == null) {
-                            String optString3 = optJSONObject2.optString("info");
-                            if (!TextUtils.isEmpty(optString3)) {
-                                optJSONArray4 = new JSONArray(optString3);
-                            }
-                        }
-                        if (optJSONArray4 != null) {
-                            JSONObject optJSONObject4 = optJSONArray4.optJSONObject(0);
-                            pk1Var.e = optJSONObject4.optString(TtmlNode.TAG_LAYOUT);
-                            JSONObject optJSONObject5 = optJSONObject4.optJSONObject("common");
-                            if (optJSONObject5 != null) {
-                                pk1Var.f = optJSONObject5.optInt("type");
-                                pk1Var.k = optJSONObject5.optString(BigdayActivityConfig.JUMP_URL);
-                                pk1Var.o = optJSONObject5.optString("action");
-                                pk1Var.p = optJSONObject5.optString("action_cmd");
-                                pk1Var.l = optJSONObject5.optString("flag_name");
-                                pk1Var.m = optJSONObject5.optInt("logo_type");
-                                pk1Var.n = optJSONObject5.optInt(CriusAttrConstants.DISPLAY);
-                                JSONArray optJSONArray5 = optJSONObject5.optJSONArray("image_list");
-                                pk1Var.z = optJSONObject5.optString("click_float_lottie_url");
-                                pk1Var.E = optJSONObject5.optInt(TiebaStatic.Params.AD_TYPE);
-                                pk1Var.F = optJSONObject5.optInt("ad_sort");
-                                pk1Var.G = optJSONObject5.optInt("gesture_lottie_type");
-                                pk1Var.H = optJSONObject5.optString("gesture_lottie_url");
-                                pk1Var.I = (float) optJSONObject5.optDouble("gesture_lottie_sensitivity", 0.0d);
-                                pk1Var.X = optJSONObject5.optInt("gesture_lottie_direction", 1);
-                                pk1Var.J = optJSONObject5.optInt("is_topview", 0);
-                                if (pk1Var.n() && optJSONArray5 != null && optJSONArray5.length() > 0) {
-                                    b.a(optJSONArray5.optJSONObject(0), pk1Var);
-                                } else {
-                                    c.a(optJSONObject5, pk1Var);
-                                }
-                                pk1Var.L = optJSONObject5.optJSONObject("animation_data");
-                                pk1Var.M = optJSONObject5.optInt("shake_update_interval", 67);
-                                pk1Var.N = optJSONObject5.optInt("shake_direction_count", 2);
-                                pk1Var.O = optJSONObject5.optString("key");
-                                pk1Var.P = (float) optJSONObject5.optDouble("hot_shake_sensitivity", 0.0d);
-                                pk1Var.f1159T = optJSONObject5.optInt("virtual", 0);
-                                pk1Var.U = (float) optJSONObject5.optDouble("shake_action_delay_time", -1.0d);
-                            }
-                            JSONArray optJSONArray6 = optJSONObject4.optJSONArray("show_urls");
-                            if (optJSONArray6 != null) {
-                                pk1Var.q = new String[optJSONArray6.length()];
-                                int length = optJSONArray6.length();
-                                for (int i2 = 0; i2 < length; i2++) {
-                                    pk1Var.q[i2] = optJSONArray6.optString(i2);
-                                }
-                            }
-                            JSONArray optJSONArray7 = optJSONObject4.optJSONArray("click_urls");
-                            if (optJSONArray7 != null) {
-                                pk1Var.r = new String[optJSONArray7.length()];
-                                int length2 = optJSONArray7.length();
-                                for (int i3 = 0; i3 < length2; i3++) {
-                                    pk1Var.r[i3] = optJSONArray7.optString(i3);
-                                }
-                            }
-                            JSONObject optJSONObject6 = optJSONObject4.optJSONObject("policy");
-                            if (optJSONObject6 != null) {
-                                JSONObject optJSONObject7 = optJSONObject6.optJSONObject("expire_time");
-                                if (optJSONObject7 != null) {
-                                    pk1Var.s = optJSONObject7.optLong("start");
-                                    pk1Var.t = optJSONObject7.optLong("end");
-                                }
-                                pk1Var.u = optJSONObject6.optInt("expose_interval");
-                                pk1Var.v = optJSONObject6.optInt("expose_times");
-                                pk1Var.w = optJSONObject6.optInt("preload_type");
-                                pk1Var.A = optJSONObject6.optInt("float_bar_show", 1);
-                                pk1Var.B = optJSONObject6.optInt("click_float_opt", 1);
-                                pk1Var.C = optJSONObject6.optString("style_desc");
-                                pk1Var.Q = optJSONObject6.optInt("hot_background_time", 0);
-                                JSONObject optJSONObject8 = optJSONObject6.optJSONObject("expire_time_backup");
-                                String optString4 = optJSONObject6.optString("m_ua");
-                                if (!TextUtils.isEmpty(optString4)) {
-                                    pk1Var.V = new String(Base64.decode(optString4.getBytes(), 0));
-                                }
-                                String optString5 = optJSONObject6.optString("m_pn");
-                                if (!TextUtils.isEmpty(optString5)) {
-                                    pk1Var.W = new String(Base64.decode(optString5.getBytes(), 0));
-                                }
-                                if (optJSONObject8 != null) {
-                                    pk1Var.R = optJSONObject8.optLong("start");
-                                    pk1Var.S = optJSONObject8.optLong("end");
-                                }
-                            }
-                            JSONObject optJSONObject9 = optJSONObject4.optJSONObject("topview_data");
-                            if (pk1Var.J == 1 && optJSONObject9 != null) {
-                                JSONObject optJSONObject10 = optJSONObject9.optJSONObject("content");
-                                if (optJSONObject10 == null) {
-                                    pk1Var.J = 0;
-                                    return;
-                                }
-                                JSONObject jSONObject2 = new JSONObject();
-                                z21.f(jSONObject2, "click_float_lottie_url", pk1Var.z);
-                                z21.d(jSONObject2, "click_float_opt", pk1Var.B);
-                                z21.d(jSONObject2, "float_bar_show", pk1Var.A);
-                                z21.g(jSONObject2, "switch", true);
-                                z21.f(jSONObject2, "style_desc", pk1Var.C);
-                                z21.d(jSONObject2, "countdown", pk1Var.n);
-                                z21.f(jSONObject2, "source_path", nk1.r(pk1Var.g));
-                                z21.f(optJSONObject10, "topview", jSONObject2);
-                                pk1Var.K = optJSONObject9;
-                            }
-                        }
-                    }
-                } catch (Exception unused) {
-                }
-            }
-        }
-
-        public static void d(pk1 pk1Var, pk1 pk1Var2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65539, null, pk1Var, pk1Var2) == null) {
-                pk1Var.a = pk1Var2.a;
-                pk1Var.b = pk1Var2.b;
-                pk1Var.c = pk1Var2.c;
-                pk1Var.d = pk1Var2.d;
-                pk1Var.e = pk1Var2.e;
-                pk1Var.f = pk1Var2.f;
-                pk1Var.g = pk1Var2.g;
-                pk1Var.h = pk1Var2.h;
-                pk1Var.i = pk1Var2.i;
-                pk1Var.j = pk1Var2.j;
-                pk1Var.k = pk1Var2.k;
-                pk1Var.l = pk1Var2.l;
-                pk1Var.m = pk1Var2.m;
-                pk1Var.n = pk1Var2.n;
-                pk1Var.o = pk1Var2.o;
-                pk1Var.p = pk1Var2.p;
-                pk1Var.q = pk1Var2.q;
-                pk1Var.r = pk1Var2.r;
-                pk1Var.s = pk1Var2.s;
-                pk1Var.t = pk1Var2.t;
-                pk1Var.u = pk1Var2.u;
-                pk1Var.v = pk1Var2.v;
-                pk1Var.x = pk1Var2.x;
-                pk1Var.z = pk1Var2.z;
-                pk1Var.A = pk1Var2.A;
-                pk1Var.B = pk1Var2.B;
-                pk1Var.C = pk1Var2.C;
-                pk1Var.E = pk1Var2.E;
-                pk1Var.F = pk1Var2.F;
-                pk1Var.G = pk1Var2.G;
-                pk1Var.H = pk1Var2.H;
-                pk1Var.I = pk1Var2.I;
+                o31.a().b("splash_sp_name").i("splash_query_cache_url", jSONObject.toString(), false);
             }
         }
     }
@@ -427,66 +90,23 @@ public class pk1 {
     /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final pk1 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static void a(JSONObject jSONObject, pk1 pk1Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65536, null, jSONObject, pk1Var) == null) && jSONObject != null) {
-                try {
-                    pk1Var.g = jSONObject.optString("url");
-                    pk1Var.h = jSONObject.optInt("width");
-                    pk1Var.i = jSONObject.optInt("height");
-                    pk1Var.j = jSONObject.optString("imageMd5");
-                } catch (Exception unused) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-515469003, "Lcom/baidu/tieba/pk1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-515469003, "Lcom/baidu/tieba/pk1$b;");
+                    return;
                 }
             }
-        }
-
-        public static void b(JSONObject jSONObject, pk1 pk1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, pk1Var) == null) {
-                try {
-                    jSONObject.put("url", pk1Var.g);
-                    jSONObject.put("imageMd5", pk1Var.j);
-                    jSONObject.put("width", pk1Var.h);
-                    jSONObject.put("height", pk1Var.i);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a(JSONObject jSONObject, pk1 pk1Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65536, null, jSONObject, pk1Var) == null) && jSONObject != null) {
-                try {
-                    pk1Var.g = jSONObject.optString("url");
-                    pk1Var.h = jSONObject.optInt("width");
-                    pk1Var.i = jSONObject.optInt("height");
-                    pk1Var.j = jSONObject.optString(PackageTable.MD5);
-                } catch (Exception unused) {
-                }
-            }
-        }
-
-        public static void b(JSONObject jSONObject, pk1 pk1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, pk1Var) == null) {
-                try {
-                    jSONObject.put("url", pk1Var.g);
-                    jSONObject.put(PackageTable.MD5, pk1Var.j);
-                    jSONObject.put("width", pk1Var.h);
-                    jSONObject.put("height", pk1Var.i);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+            a = new pk1(null);
         }
     }
 
@@ -500,315 +120,501 @@ public class pk1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.x = 0;
-        this.y = false;
-        this.U = -1.0f;
     }
 
-    public float g() {
+    public static pk1 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            float f = ok1.f;
-            if (f > 0.0f) {
-                return f;
-            }
-            return this.U;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeV.floatValue;
+        return (pk1) invokeV.objValue;
     }
 
-    public int h() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = ok1.e;
-            if (i > 0) {
-                return i;
-            }
-            return this.N;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && rk1.u()) {
+            h("query");
         }
-        return invokeV.intValue;
     }
 
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = ok1.d;
-            if (i > 0) {
-                return i;
-            }
-            return this.M;
-        }
-        return invokeV.intValue;
+    public /* synthetic */ pk1(a aVar) {
+        this();
     }
 
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.equals(this.e, "splash_image")) {
-                return "image";
-            }
-            if (TextUtils.equals(this.e, "splash_video")) {
-                return "video";
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.E == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i = this.E;
-            if (i == 0 || i == 1 || i == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return TextUtils.equals(this.e, "splash_image");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i = this.G;
-            if (i == 1 || i == 7) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return TextUtils.equals(this.e, "splash_video");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f1159T == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            a.c(jSONObject, this);
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean b(pk1 pk1Var) {
-        InterceptResult invokeL;
-        String str;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pk1Var)) == null) {
-            if (TextUtils.isEmpty(pk1Var.d)) {
-                str = "7";
-                z = false;
-            } else {
-                str = "";
-                z = true;
-            }
-            String str2 = PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW;
-            if (z && TextUtils.isEmpty(pk1Var.g)) {
-                str = PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW;
-                z = false;
-            }
-            if (z && System.currentTimeMillis() / 1000 > pk1Var.t) {
-                str = PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK;
-                z = false;
-            }
-            if (z && pk1Var.p() && (pk1Var.g.endsWith(".jpeg") || pk1Var.g.endsWith(".jpg") || pk1Var.g.endsWith(".png") || pk1Var.g.endsWith(".webp"))) {
-                str = PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW;
-                z = false;
-            }
-            if (z && pk1Var.n() && (pk1Var.g.endsWith(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) || pk1Var.g.endsWith(".MP4") || pk1Var.g.endsWith(".mov"))) {
-                z = false;
-            } else {
-                str2 = str;
-            }
-            if (z) {
-                return true;
-            }
-            new BaseVM(pk1Var).g(str2);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static pk1 c(JSONObject jSONObject) {
+    public String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            pk1 pk1Var = new pk1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return f(str, System.currentTimeMillis());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            s41.d(new a(this, str), "cache splash request url");
+        }
+    }
+
+    public final void a(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || ek1.a().d() == null || !ek1.a().d().has("client_ext") || (optJSONObject = ek1.a().d().optJSONObject("client_ext")) == null) {
+            return;
+        }
+        Iterator<String> keys = optJSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
             try {
-                a.a(jSONObject, pk1Var);
-            } catch (Exception unused) {
+                jSONObject.put(next, optJSONObject.opt(next));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return pk1Var;
         }
-        return (pk1) invokeL.objValue;
     }
 
-    public static pk1 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final String j(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            int a2 = f61.a(j, System.currentTimeMillis());
+            if (a2 >= 2) {
+                return o31.a().b("splash_sp_name").getString("after_tomorrow_reason", "");
+            }
+            if (a2 == 1) {
+                return o31.a().b("splash_sp_name").getString("tomorrow_reason", "");
+            }
+            return o31.a().b("splash_sp_name").getString("current_reason", "");
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public final void b(HashMap<String, String> hashMap) {
+        String p;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
+            wk0 a2 = ok0.a();
+            if (TextUtils.isEmpty(a2.p())) {
+                p = a2.w();
+            } else {
+                p = a2.p();
+            }
+            hashMap.put("ver", p);
+            hashMap.put("sv", "1.0");
+            hashMap.put("uid", a2.t());
+            hashMap.put(TiebaStatic.Params.BDID, a2.o());
+            hashMap.put("cuid", a2.g());
+            String e = gl0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                hashMap.put(SearchJsBridge.COOKIE_MOD, e);
+            }
+            String h = gl0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                hashMap.put("ov", h);
+            }
+            String b2 = gl0.c().b(false);
+            if (!TextUtils.isEmpty(b2)) {
+                hashMap.put("imei", b2);
+            }
+            hashMap.put("ua", a2.q());
+            hashMap.put("fmt", "json");
+            hashMap.put("apna", a2.packageName());
+            hashMap.put("eid", a2.i());
+            hashMap.put("st", "1");
+            hashMap.put("ot", "2");
+            hashMap.put("nt", String.valueOf(new lt0().c()));
+            hashMap.put(Config.EXCEPTION_CRASH_TYPE, "2");
+            hashMap.put("is_https", "1");
+            String a3 = gl0.c().a(false);
+            if (!TextUtils.isEmpty(a3)) {
+                hashMap.put(HttpRequest.ANDROID_ID, a3);
+            }
+            hashMap.put("from", ek1.a().from());
+            hashMap.put("cfrom", ek1.a().a());
+            hashMap.put("User-Agent", ok0.e());
+        }
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(19:4|5|6|(1:8)|9|(3:46|47|(15:49|(6:52|(2:54|(4:56|(1:58)|59|(1:61))(2:62|(1:64)))|65|(2:67|68)(1:70)|69|50)|71|12|(2:14|(4:(1:17)|18|19|20)(1:44))(1:45)|21|(1:23)(1:38)|24|(1:26)|27|(1:29)|30|31|32|34))|11|12|(0)(0)|21|(0)(0)|24|(0)|27|(0)|30|31|32|34) */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00fb A[Catch: JSONException -> 0x027e, TryCatch #3 {JSONException -> 0x027e, blocks: (B:11:0x005b, B:13:0x0061, B:14:0x0066, B:16:0x006c, B:18:0x0086, B:20:0x00a3, B:22:0x00a9, B:23:0x00ae, B:25:0x00b4, B:26:0x00ba, B:28:0x00c0, B:29:0x00c1, B:31:0x00d2, B:34:0x00dd, B:36:0x00fb, B:40:0x012c), top: B:72:0x005b }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0143  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x01aa A[Catch: JSONException -> 0x0282, TRY_LEAVE, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x01b3 A[Catch: all -> 0x01bc, TRY_ENTER, TRY_LEAVE, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x01d7 A[Catch: JSONException -> 0x0282, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0212 A[Catch: JSONException -> 0x0282, TRY_LEAVE, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void c(@NonNull HashMap<String, String> hashMap, String str, String str2, long j) {
+        int i;
+        pk1 pk1Var;
+        String defaultUserAgent;
+        String a2;
+        String f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{hashMap, str, str2, Long.valueOf(j)}) == null) {
+            long j2 = j;
             try {
-                pk1 pk1Var = new pk1();
-                a.b(jSONObject, pk1Var);
-                return pk1Var;
-            } catch (Exception unused) {
-                return null;
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject = new JSONObject();
+                if (p8.f().h()) {
+                    jSONObject.put("k", "cmd");
+                    jSONObject.put("v", str2);
+                    jSONArray.put(jSONObject);
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("k", AdExtParam.KEY_NAD_CORE_VERSION);
+                jSONObject2.put("v", "5.11.0.5");
+                jSONArray.put(jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                List<sk1> s = qk1.s();
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                JSONArray jSONArray2 = new JSONArray();
+                if (s != null) {
+                    try {
+                        if (s.size() > 0) {
+                            Iterator<sk1> it = s.iterator();
+                            i = 0;
+                            while (it.hasNext()) {
+                                sk1 next = it.next();
+                                JSONObject jSONObject4 = new JSONObject();
+                                Iterator<sk1> it2 = it;
+                                jSONObject4.put("k", next.c);
+                                if (!TextUtils.isEmpty(next.c)) {
+                                    int h = qk1.h(next, false, 0, j2);
+                                    Log.e("RequestUrlManager", "onAdSuccess: " + h);
+                                    if (h == 0) {
+                                        if (next.m()) {
+                                            b31.b(arrayList2, next.c);
+                                        }
+                                        if (next.k()) {
+                                            b31.b(arrayList, next.c);
+                                        }
+                                    } else if (next.m()) {
+                                        i |= h;
+                                    }
+                                }
+                                jSONObject4.put("r", String.valueOf(next.x));
+                                if (next.m()) {
+                                    jSONArray2.put(jSONObject4);
+                                }
+                                j2 = j;
+                                it = it2;
+                            }
+                            jSONObject3.put("d", jSONArray2);
+                            jSONObject3.put("s", uk1.d());
+                            jSONArray.put(new JSONObject());
+                            if (!TextUtils.equals(str2, "query")) {
+                                JSONObject jSONObject5 = new JSONObject();
+                                jSONObject5.put("k", "ukey");
+                                jSONObject5.put("v", TextUtils.join(",", arrayList));
+                                jSONArray.put(jSONObject5);
+                                JSONObject jSONObject6 = new JSONObject();
+                                jSONObject6.put("k", "xz_ukey");
+                                jSONObject6.put("v", TextUtils.join(",", arrayList2));
+                                jSONArray.put(jSONObject6);
+                                if (arrayList2.isEmpty()) {
+                                    if (i == 0) {
+                                        i = 1;
+                                    }
+                                    String valueOf = String.valueOf(i);
+                                    BaseVM.d = valueOf;
+                                    pk1Var = this;
+                                    pk1Var.n(j, valueOf);
+                                } else {
+                                    pk1Var = this;
+                                    BaseVM.d = "";
+                                }
+                            } else {
+                                pk1Var = this;
+                            }
+                            JSONObject jSONObject7 = new JSONObject();
+                            jSONObject7.put("k", "logid");
+                            jSONObject7.put("v", String.valueOf(j));
+                            jSONArray.put(jSONObject7);
+                            JSONObject jSONObject8 = new JSONObject();
+                            jSONObject8.put("k", "uid");
+                            jSONObject8.put("v", ok0.a().t());
+                            jSONArray.put(jSONObject8);
+                            JSONObject jSONObject9 = new JSONObject();
+                            jSONObject9.put("k", MigrateStatisticUtils.EXT_INFO);
+                            JSONObject jSONObject10 = new JSONObject();
+                            jSONObject10.put("ipdx", yo0.a().a());
+                            jSONObject10.put("update_mark", NADNativeHelper.b());
+                            jSONObject10.put("boot_mark", NADNativeHelper.a());
+                            pk1Var.a(jSONObject10);
+                            if (Build.VERSION.SDK_INT >= 19) {
+                                defaultUserAgent = qk0.c().a();
+                            } else {
+                                defaultUserAgent = WebSettings.getDefaultUserAgent(ok0.b());
+                            }
+                            jSONObject10.put("sys_ua", defaultUserAgent);
+                            a2 = e61.b().a();
+                            if (!TextUtils.isEmpty(a2)) {
+                                jSONObject10.put("custom_ua", a2);
+                            }
+                            jSONObject10.put("adinfo", jSONObject3);
+                            jSONObject9.put("v", jSONObject10.toString());
+                            jSONArray.put(jSONObject9);
+                            JSONObject jSONObject11 = new JSONObject();
+                            jSONObject11.put("k", AdExtParam.KEY_IADEX);
+                            jSONObject11.put("v", ok0.d().m());
+                            jSONArray.put(jSONObject11);
+                            f = gl0.c().f(false);
+                            if (!TextUtils.isEmpty(f)) {
+                                JSONObject jSONObject12 = new JSONObject();
+                                jSONObject12.put("k", "oaid_v");
+                                jSONObject12.put("v", f);
+                                jSONArray.put(jSONObject12);
+                            }
+                            JSONObject jSONObject13 = new JSONObject();
+                            jSONObject13.put("k", "encoded_ua_new");
+                            jSONObject13.put("v", URLEncoder.encode(ok0.e(), "utf-8"));
+                            jSONArray.put(jSONObject13);
+                            JSONObject jSONObject14 = new JSONObject();
+                            jSONObject14.put("k", "boot_type");
+                            jSONObject14.put("v", "__boot_type__");
+                            jSONArray.put(jSONObject14);
+                            JSONObject jSONObject15 = new JSONObject();
+                            jSONObject15.put("k", "hot_background_time");
+                            jSONObject15.put("v", "__hot_background_time__");
+                            jSONArray.put(jSONObject15);
+                            JSONObject jSONObject16 = new JSONObject();
+                            jSONObject16.put("k", "is_block_shake_gesture");
+                            jSONObject16.put("v", "__is_block_shake_gesture__");
+                            jSONArray.put(jSONObject16);
+                            hashMap.put("ext", jSONArray.toString());
+                        }
+                    } catch (JSONException e) {
+                        e = e;
+                        e.printStackTrace();
+                        return;
+                    }
+                }
+                i = 0;
+                jSONObject3.put("d", jSONArray2);
+                jSONObject3.put("s", uk1.d());
+                jSONArray.put(new JSONObject());
+                if (!TextUtils.equals(str2, "query")) {
+                }
+                JSONObject jSONObject72 = new JSONObject();
+                jSONObject72.put("k", "logid");
+                jSONObject72.put("v", String.valueOf(j));
+                jSONArray.put(jSONObject72);
+                JSONObject jSONObject82 = new JSONObject();
+                jSONObject82.put("k", "uid");
+                jSONObject82.put("v", ok0.a().t());
+                jSONArray.put(jSONObject82);
+                JSONObject jSONObject92 = new JSONObject();
+                jSONObject92.put("k", MigrateStatisticUtils.EXT_INFO);
+                JSONObject jSONObject102 = new JSONObject();
+                jSONObject102.put("ipdx", yo0.a().a());
+                jSONObject102.put("update_mark", NADNativeHelper.b());
+                jSONObject102.put("boot_mark", NADNativeHelper.a());
+                pk1Var.a(jSONObject102);
+                if (Build.VERSION.SDK_INT >= 19) {
+                }
+                jSONObject102.put("sys_ua", defaultUserAgent);
+                a2 = e61.b().a();
+                if (!TextUtils.isEmpty(a2)) {
+                }
+                jSONObject102.put("adinfo", jSONObject3);
+                jSONObject92.put("v", jSONObject102.toString());
+                jSONArray.put(jSONObject92);
+                JSONObject jSONObject112 = new JSONObject();
+                jSONObject112.put("k", AdExtParam.KEY_IADEX);
+                jSONObject112.put("v", ok0.d().m());
+                jSONArray.put(jSONObject112);
+                f = gl0.c().f(false);
+                if (!TextUtils.isEmpty(f)) {
+                }
+                JSONObject jSONObject132 = new JSONObject();
+                jSONObject132.put("k", "encoded_ua_new");
+                jSONObject132.put("v", URLEncoder.encode(ok0.e(), "utf-8"));
+                jSONArray.put(jSONObject132);
+                JSONObject jSONObject142 = new JSONObject();
+                jSONObject142.put("k", "boot_type");
+                jSONObject142.put("v", "__boot_type__");
+                jSONArray.put(jSONObject142);
+                JSONObject jSONObject152 = new JSONObject();
+                jSONObject152.put("k", "hot_background_time");
+                jSONObject152.put("v", "__hot_background_time__");
+                jSONArray.put(jSONObject152);
+                JSONObject jSONObject162 = new JSONObject();
+                jSONObject162.put("k", "is_block_shake_gesture");
+                jSONObject162.put("v", "__is_block_shake_gesture__");
+                jSONArray.put(jSONObject162);
+                hashMap.put("ext", jSONArray.toString());
+            } catch (JSONException e2) {
+                e = e2;
             }
         }
-        return (pk1) invokeL.objValue;
     }
 
-    public static List<pk1> r(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        pk1 d;
+    public final String d(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String query;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, map)) == null) {
+            if (map != null && map.size() != 0) {
+                URI create = URI.create(str);
+                if (TextUtils.isEmpty(create.getQuery())) {
+                    query = "";
+                } else {
+                    query = create.getQuery();
+                }
+                StringBuilder sb = new StringBuilder(query);
+                if (sb.length() > 0) {
+                    sb.append('&');
+                }
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append('&');
+                }
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
                 try {
-                    d = d((JSONObject) jSONArray.get(i));
-                } catch (JSONException e) {
+                    return new URI(create.getScheme(), create.getAuthority(), create.getPath(), sb.toString(), create.getFragment()).toString();
+                } catch (URISyntaxException e) {
                     e.printStackTrace();
                 }
-                if (d == null) {
-                    break;
-                }
-                if (d.a != 0 && b(d)) {
-                    arrayList.add(d);
-                }
             }
-            return arrayList;
+            return str;
         }
-        return (List) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static void t(pk1 pk1Var, pk1 pk1Var2) {
+    public String f(String str, long j) {
+        InterceptResult invokeLJ;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, pk1Var, pk1Var2) == null) {
-            a.d(pk1Var, pk1Var2);
-        }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            DecimalFormat decimalFormat = new DecimalFormat("0.00");
-            return decimalFormat.format(e()) + "-" + i() + "-" + h() + "_" + g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.G != 7) {
-                return this.I;
-            }
-            if (hk1.b() == 1) {
-                float f = ok1.c;
-                if (f > 0.0f) {
-                    return f;
-                }
-                float f2 = this.P;
-                if (f2 > 0.0f) {
-                    return f2;
-                }
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) {
+            String a2 = ak1.a();
+            StringBuilder sb = new StringBuilder();
+            sb.append(a2);
+            if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                str2 = "?action=update";
             } else {
-                float f3 = ok1.b;
-                if (f3 > 0.0f) {
-                    return f3;
-                }
-                float f4 = this.I;
-                if (f4 > 0.0f) {
-                    return f4;
-                }
+                str2 = "?action=query";
             }
-            return this.I;
+            sb.append(str2);
+            String sb2 = sb.toString();
+            String i = i(str);
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                str3 = String.valueOf(rk1.o());
+            } else {
+                str3 = "1";
+            }
+            hashMap.put("ac", str3);
+            hashMap.put("pid", i);
+            hashMap.put("product_id ", ok0.a().s());
+            b(hashMap);
+            c(hashMap, i, str, j);
+            return d(sb2, hashMap);
         }
-        return invokeV.floatValue;
+        return (String) invokeLJ.objValue;
     }
 
-    public JSONObject f() {
-        InterceptResult invokeV;
+    public final String i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.C)) {
-                try {
-                    return new JSONObject(this.C);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                String optString = ek1.a().d().optString("na_cpc_update_pid");
+                if (TextUtils.isEmpty(optString)) {
+                    return ek1.a().e();
                 }
+                return optString;
             }
-            return new JSONObject();
+            return rk1.l();
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public String k(String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (TextUtils.equals(str, "query")) {
+                str2 = l(str);
+                Log.d("RequestUrlManager", " getQueryUrl from cache url ： " + str2);
+            } else {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str2 = e(str);
+                Log.d("RequestUrlManager", " getQueryUrl NOCache url ： " + str2);
+            }
+            String replace = str2.replace("__boot_type__", String.valueOf(kk1.b())).replace("__hot_background_time__", String.valueOf((System.currentTimeMillis() - kk1.a()) / 1000));
+            if (rk1.M()) {
+                str3 = "1";
+            } else {
+                str3 = "0";
+            }
+            return replace.replace("__is_block_shake_gesture__", str3);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String l(String str) {
+        InterceptResult invokeL;
+        String optString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            String string = o31.a().b("splash_sp_name").getString("splash_query_cache_url", "");
+            if (TextUtils.isEmpty(string)) {
+                return "";
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(string);
+                long optLong = jSONObject.optLong("cache_time");
+                int a2 = f61.a(optLong, System.currentTimeMillis());
+                if (a2 >= 2) {
+                    optString = jSONObject.optString("after_tomorrow_url");
+                } else if (a2 == 1) {
+                    optString = jSONObject.optString("tomorrow_url");
+                } else {
+                    optString = jSONObject.optString(AbsMsgImageActivityConfig.CURRENT_URL);
+                }
+                String str2 = optString;
+                if (!TextUtils.isEmpty(str2)) {
+                    BaseVM.d = j(optLong);
+                    if (zh0.a) {
+                        return str2 + "&cache_time=" + (optLong / 1000);
+                    }
+                    return str2;
+                }
+                return str2;
+            } catch (JSONException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void n(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048588, this, j, str) == null) {
+            int a2 = f61.a(System.currentTimeMillis(), j);
+            if (a2 >= 2) {
+                o31.a().b("splash_sp_name").h("after_tomorrow_reason", str);
+            } else if (a2 == 1) {
+                o31.a().b("splash_sp_name").h("tomorrow_reason", str);
+            } else {
+                o31.a().b("splash_sp_name").h("current_reason", str);
+            }
+        }
     }
 }

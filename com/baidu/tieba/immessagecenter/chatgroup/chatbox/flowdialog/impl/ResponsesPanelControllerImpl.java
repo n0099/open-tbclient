@@ -6,16 +6,16 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cf8;
+import com.baidu.tieba.df8;
+import com.baidu.tieba.ef8;
+import com.baidu.tieba.ff8;
+import com.baidu.tieba.gf8;
+import com.baidu.tieba.hf8;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.rd8;
-import com.baidu.tieba.sd8;
-import com.baidu.tieba.td8;
-import com.baidu.tieba.ud8;
-import com.baidu.tieba.vd8;
-import com.baidu.tieba.wd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,8 +25,8 @@ import java.util.Map;
 public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ud8 a;
-    public final td8 b;
+    public final ff8 a;
+    public final ef8 b;
     @NonNull
     public GroupChatFragment c;
 
@@ -46,8 +46,8 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
             }
         }
         this.c = groupChatFragment;
-        this.b = new vd8(groupChatFragment.getPageContext());
-        this.a = new wd8(groupChatFragment.getPageContext(), this);
+        this.b = new gf8(groupChatFragment.getPageContext());
+        this.a = new hf8(groupChatFragment.getPageContext(), this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -98,17 +98,17 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
-    public void c(@NonNull sd8 sd8Var) {
+    public void c(@NonNull df8 df8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sd8Var) == null) {
-            this.a.c(sd8Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, df8Var) == null) {
+            this.a.c(df8Var);
         }
     }
 
-    public void m(@NonNull rd8 rd8Var) {
+    public void m(@NonNull cf8 cf8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, rd8Var) == null) {
-            this.b.n(rd8Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, cf8Var) == null) {
+            this.b.n(cf8Var);
         }
     }
 

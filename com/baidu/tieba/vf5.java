@@ -1,619 +1,111 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
-import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.ie5;
-import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
-import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
-import com.baidu.tieba.tr6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Collections;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 /* loaded from: classes8.dex */
 public class vf5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static WeakReference<ie5> b;
-    public static WeakReference<SpriteAnimationTipManager> c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948238884, "Lcom/baidu/tieba/vf5;")) == null) {
+            return;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String b = jn5.b("", 0);
-                tr8 defaultLog = DefaultLog.getInstance();
-                defaultLog.b("HotEventTip", "精灵动画提示控件：精灵点击跳转，scheme" + b);
-                if (b.startsWith("tiebaapp://router/portal")) {
-                    vf5.d(b);
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948238884, "Lcom/baidu/tieba/vf5;");
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class b implements Function0<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tr6.e a;
-
-        public b(tr6.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // kotlin.jvm.functions.Function0
-        /* renamed from: a */
-        public Unit invoke() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                boolean unused = vf5.a = false;
-                DefaultLog.getInstance().b("HotEventTip", "精灵动画提示控件：动画执行完成，触发弹窗管理器监听");
-                this.a.onDismiss();
-                return null;
-            }
-            return (Unit) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class c implements SpriteBottomTipView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HotEventData a;
-        public final /* synthetic */ SpriteAnimationTipManager b;
-
-        public c(HotEventData hotEventData, SpriteAnimationTipManager spriteAnimationTipManager) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotEventData, spriteAnimationTipManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hotEventData;
-            this.b = spriteAnimationTipManager;
-        }
-
-        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SpriteAnimationTipManager spriteAnimationTipManager = this.b;
-                if (spriteAnimationTipManager != null) {
-                    spriteAnimationTipManager.i();
-                }
-                vf5.n();
-            }
-        }
-
-        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
-        public void onBtnClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                vf5.d(this.a.getBtnSchema());
-                vf5.n();
-            }
-        }
-
-        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                vf5.d(this.a.getBtnSchema());
-                vf5.n();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d implements ie5.j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tr6.e a;
-
-        public d(tr6.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        @Override // com.baidu.tieba.ie5.j
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = vf5.a = false;
-                tr6.e eVar = this.a;
-                if (eVar != null) {
-                    eVar.onDismiss();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class e implements ie5.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HotEventData a;
-
-        public e(HotEventData hotEventData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotEventData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hotEventData;
-        }
-
-        @Override // com.baidu.tieba.ie5.h
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vf5.d(this.a.getBtnSchema());
-                vf5.n();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class f implements ie5.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HotEventData a;
-
-        public f(HotEventData hotEventData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotEventData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hotEventData;
-        }
-
-        @Override // com.baidu.tieba.ie5.i
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vf5.d(this.a.getBtnSchema());
-                vf5.n();
-            }
-        }
-    }
-
-    public static void q(HotEventData hotEventData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65552, null, hotEventData) == null) && hotEventData != null && hotEventData.getWindowType() == 1) {
-            o95.p().H("key_hot_event_tip_show_time", System.currentTimeMillis());
-        }
-    }
-
-    public static void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void u(HotEventData hotEventData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, hotEventData) == null) {
-            g(hotEventData);
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity == null) {
-                return;
-            }
-            u55.g(Collections.singletonList(new v55(currentActivity, hotEventData)));
-        }
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            a = false;
-            SpriteAnimationTipManager k = k();
-            if (k != null) {
-                k.i();
-            }
-            c = null;
-        }
-    }
-
-    public static ie5 i() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            WeakReference<ie5> weakReference = b;
-            if (weakReference != null) {
-                return weakReference.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (wi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                return 3;
             }
-            return null;
+            return r95.p().q("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
         }
-        return (ie5) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static boolean j() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().b()) {
+                int a2 = a();
+                if (a2 != 2) {
+                    if (a2 == 3) {
+                        return R.drawable.icon_mask_share_wechat40_svg;
+                    }
+                    if (a2 != 4) {
+                        if (a2 != 6) {
+                            if (a2 != 8) {
+                                return R.drawable.icon_mask_share_wechat40_svg;
+                            }
+                            return R.drawable.icon_mask_share_qq40_svg;
+                        }
+                        return R.drawable.icon_mask_share_weibo40_svg;
+                    }
+                    return R.drawable.icon_mask_share_qqzone40_svg;
+                }
+                return R.drawable.icon_mask_share_circle40_svg;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            long j = a;
+            if (j >= 0) {
+                return j;
+            }
+            if (!wi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                a = r95.p().r("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            }
             return a;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public static SpriteAnimationTipManager k() {
-        InterceptResult invokeV;
+    public static void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            WeakReference<SpriteAnimationTipManager> weakReference = c;
-            if (weakReference != null) {
-                return weakReference.get();
-            }
-            return null;
-        }
-        return (SpriteAnimationTipManager) invokeV.objValue;
-    }
-
-    public static void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            a = false;
-            SpriteAnimationTipManager k = k();
-            if (k != null) {
-                k.p();
-            }
-            c = null;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i > 0 && !wi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            r95.p().F("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+            r95.p().Q("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
+            a = 0L;
         }
     }
 
-    public static void n() {
+    public static void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_CLICK));
+        if ((interceptable == null || interceptable.invokeJ(65541, null, j) == null) && !wi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            r95.p().H("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
+            a = j;
         }
     }
 
-    public static void o() {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_SHOW));
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            a = -1L;
         }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            tr8 defaultLog = DefaultLog.getInstance();
-            defaultLog.b("HotEventTip", "精灵动画提示控件：气泡点击跳转，scheme" + str);
-            UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{str});
-        }
-    }
-
-    public static void r(HotEventData hotEventData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, hotEventData) == null) {
-            if (TextUtils.isEmpty(hotEventData.getDesc())) {
-                hotEventData.setDesc(TbadkApplication.getInst().getString(R.string.hot_event_desc_text));
-            }
-            if (TextUtils.isEmpty(hotEventData.getBtnText())) {
-                hotEventData.setBtnText(TbadkApplication.getInst().getString(R.string.hot_event_btn_text));
-                return;
-            }
-            String btnText = hotEventData.getBtnText();
-            if (StringHelper.getChineseAndEnglishLength(btnText) > 8) {
-                hotEventData.setBtnText(StringHelper.cutChineseAndEnglishWithEmoji(btnText, 8, null));
-            }
-        }
-    }
-
-    @NonNull
-    public static FrameLayout.LayoutParams e(Activity activity) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 83;
-            if (rp6.b(activity, "com.baidu.tieba.frs.FrsActivity")) {
-                i = R.dimen.tbds95;
-            } else {
-                i = R.dimen.tbds141;
-            }
-            layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(i);
-            return layoutParams;
-        }
-        return (FrameLayout.LayoutParams) invokeL.objValue;
-    }
-
-    public static void g(HotEventData hotEventData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, hotEventData) == null) {
-            Context curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity();
-            if (curGlobalActivity != null && !(curGlobalActivity instanceof TbPageContextSupport)) {
-                return;
-            }
-            if (curGlobalActivity == null) {
-                curGlobalActivity = TbadkCoreApplication.getInst();
-            }
-            if (hotEventData != null && hotEventData.getWindowType() == 3) {
-                mq9.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
-            }
-        }
-    }
-
-    public static SpriteBottomTipView f(HotEventData hotEventData, Activity activity, SpriteAnimationTipManager spriteAnimationTipManager) {
-        InterceptResult invokeLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, hotEventData, activity, spriteAnimationTipManager)) == null) {
-            SpriteBottomTipView.a aVar = new SpriteBottomTipView.a(activity);
-            aVar.c(hotEventData.getBtnText());
-            aVar.j(hotEventData.getTitle());
-            aVar.d(hotEventData.getDesc());
-            aVar.f(hotEventData.getIcon());
-            aVar.i(hotEventData.isShowCloseBtn());
-            aVar.e(R.drawable.hot_event_icon);
-            if (hotEventData.isUseRightBg()) {
-                i = R.drawable.funny_sprite_tip_bg_right;
-            } else {
-                i = R.drawable.funny_sprite_tip_bg_left;
-            }
-            aVar.b(Integer.valueOf(i));
-            aVar.h(new c(hotEventData, spriteAnimationTipManager));
-            return aVar.a();
-        }
-        return (SpriteBottomTipView) invokeLLL.objValue;
-    }
-
-    public static boolean m(HotEventData hotEventData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, hotEventData)) == null) {
-            if (!TextUtils.isEmpty(hotEventData.getBtnSchema()) && !TextUtils.isEmpty(hotEventData.getTitle())) {
-                if (hotEventData.getWindowType() != 1 && hotEventData.getWindowType() != 2) {
-                    tr8 defaultLog = DefaultLog.getInstance();
-                    defaultLog.b("HotEventTip", "S级事件弹窗无法展示，WindowType不对" + hotEventData.getWindowType());
-                    return false;
-                }
-                Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
-                if (TbadkCoreApplication.getInst().isMainProcess(true) && currentActivity == null) {
-                    HotEvent hotEvent = new HotEvent();
-                    hotEvent.hotEventData = hotEventData;
-                    hotEventData.setSkinType(TbadkCoreApplication.getInst().getSkinType());
-                    np5.i(hotEvent);
-                    DefaultLog.getInstance().b("HotEventTip", "S级事件弹窗无法展示，Activity为空");
-                    return false;
-                }
-                if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    TbadkCoreApplication.getInst().setSkinType(hotEventData.getSkinType());
-                }
-                if (a) {
-                    DefaultLog.getInstance().b("HotEventTip", "S级事件弹窗无法展示，正在展示");
-                    return false;
-                }
-                if (hotEventData.getWindowType() == 1) {
-                    if (System.currentTimeMillis() - o95.p().r("key_hot_event_tip_show_time", 0L) <= 600000) {
-                        DefaultLog.getInstance().b("HotEventTip", "S级事件弹窗无法展示，十分钟内只弹一次");
-                        return false;
-                    }
-                }
-                return true;
-            }
-            tr8 defaultLog2 = DefaultLog.getInstance();
-            defaultLog2.b("HotEventTip", "S级事件弹窗无法展示，数据不合法 schema:" + hotEventData.getBtnSchema() + " title:" + hotEventData.getTitle());
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static ie5 p(HotEventData hotEventData, tr6.e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, hotEventData, eVar)) == null) {
-            if (!m(hotEventData)) {
-                eVar.onDismiss();
-                return null;
-            }
-            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
-            if (currentActivity == null) {
-                eVar.onDismiss();
-                return null;
-            }
-            if (ke5.c() && ke5.b() != null) {
-                ke5.b().t();
-            }
-            r(hotEventData);
-            ie5.g gVar = new ie5.g(currentActivity);
-            gVar.m(hotEventData.getBtnText());
-            gVar.u(hotEventData.getTitle());
-            gVar.o(hotEventData.getDesc());
-            gVar.q(hotEventData.getIcon());
-            gVar.n(R.drawable.hot_event_icon);
-            gVar.p(5000);
-            gVar.s(new f(hotEventData));
-            gVar.r(new e(hotEventData));
-            gVar.t(new d(eVar));
-            ie5 l = gVar.l();
-            l.p();
-            b = new WeakReference<>(l);
-            o();
-            q(hotEventData);
-            a = true;
-            return l;
-        }
-        return (ie5) invokeLL.objValue;
-    }
-
-    public static SpriteAnimationTipManager t(HotEventData hotEventData, tr6.e eVar) {
-        InterceptResult invokeLL;
-        boolean z;
-        String str;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, hotEventData, eVar)) == null) {
-            if (!m(hotEventData)) {
-                if (eVar != null) {
-                    eVar.onDismiss();
-                }
-                return null;
-            }
-            if (ke5.c() && ke5.b() != null) {
-                ke5.b().t();
-            }
-            r(hotEventData);
-            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && !currentActivity.isFinishing()) {
-                if (currentActivity instanceof r3a) {
-                    DefaultLog.getInstance().b("HotEventTip", "精灵动画提示控件：通知首页展示S级事件");
-                    bs6.b().b(new rx9(new sx9(hotEventData, eVar), 1));
-                    return null;
-                }
-                if (rp6.b(currentActivity, "com.baidu.tieba.frs.FrsActivity")) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921769));
-                }
-                SpriteAnimationTipManager spriteAnimationTipManager = new SpriteAnimationTipManager(currentActivity);
-                if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    str = "funny_sprite_appear_day";
-                } else {
-                    str = "funny_sprite_appear_dark";
-                }
-                js6 a2 = jn5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
-                if (z) {
-                    str2 = "funny_sprite_show_day";
-                } else {
-                    str2 = "funny_sprite_show_dark";
-                }
-                js6 a3 = jn5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
-                if (z) {
-                    str3 = "funny_sprite_exit_day";
-                } else {
-                    str3 = "funny_sprite_exit_dark";
-                }
-                spriteAnimationTipManager.u(a2, a3, jn5.a(FunnySpriteResDownloadUtil.i(str3, "rush_res", true), false, 2));
-                spriteAnimationTipManager.x(f(hotEventData, currentActivity, spriteAnimationTipManager));
-                spriteAnimationTipManager.y(5000L);
-                spriteAnimationTipManager.w(0, UtilHelper.getDimenPixelSize(R.dimen.tbds16), 0, UtilHelper.getDimenPixelSize(R.dimen.tbds16));
-                spriteAnimationTipManager.s(UtilHelper.getDimenPixelSize(R.dimen.tbds146), UtilHelper.getDimenPixelSize(R.dimen.tbds187));
-                spriteAnimationTipManager.t(e(currentActivity));
-                spriteAnimationTipManager.v(new a());
-                spriteAnimationTipManager.r(new b(eVar));
-                spriteAnimationTipManager.z();
-                c = new WeakReference<>(spriteAnimationTipManager);
-                a = true;
-                o();
-                q(hotEventData);
-                return spriteAnimationTipManager;
-            }
-            DefaultLog.getInstance().b("HotEventTip", "精灵动画提示控件：当前页面Activity为空或者正在关闭");
-            if (eVar != null) {
-                eVar.onDismiss();
-            }
-            return null;
-        }
-        return (SpriteAnimationTipManager) invokeLL.objValue;
     }
 }

@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.imagepipeline.memory.DefaultByteArrayPoolParams;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class kgb {
+public class kgb extends bgb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static volatile String b;
-    public static BufferedWriter c;
+    public static final Map<String, bgb> a;
+    public static final Object b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,97 +32,59 @@ public class kgb {
                 return;
             }
         }
-        a = new Object();
+        a = new HashMap();
+        b = new Object();
     }
 
-    public static void a() {
+    public kgb(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            synchronized (a) {
-                if (c != null) {
-                    try {
-                        c.flush();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        ggb.d(context, str);
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean c(String str) {
+    public static bgb a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null) {
+                context = applicationContext;
             }
-            new File(str).mkdirs();
-            if (!str.endsWith(File.separator)) {
-                str = str + File.separator;
-            }
-            b = str;
-            b += qgb.n() + ".syslog";
-            ngb.d("CrashLog", "Log file path : " + b);
-            File file = new File(b);
-            if (file.exists()) {
-                file.delete();
-            }
-            if (!file.exists()) {
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            try {
-                c = new BufferedWriter(new FileWriter(b, true), DefaultByteArrayPoolParams.MAX_SIZE_SOFT_CAP);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                c = null;
-            }
-            return true;
+            String packageName = context.getPackageName();
+            c = packageName;
+            return b(context, packageName);
         }
-        return invokeL.booleanValue;
+        return (bgb) invokeL.objValue;
     }
 
-    public static void d(String str, String str2) {
+    public static bgb b(Context context, String str) {
+        InterceptResult invokeLL;
+        bgb bgbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            e(str, str2, true);
-        }
-    }
-
-    public static void e(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            if (z) {
-                ngb.d(str, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                throw new IllegalArgumentException("packageName can not be empty");
             }
-            try {
-                synchronized (a) {
-                    if (c == null) {
-                        c(qgb.s());
-                        return;
-                    }
-                    long currentTimeMillis = System.currentTimeMillis();
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                    new Date(currentTimeMillis);
-                    c.write(String.format("%s\n", str2));
+            synchronized (b) {
+                bgbVar = a.get(str);
+                if (bgbVar == null) {
+                    a.put(str, new kgb(context, str));
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            return bgbVar;
         }
+        return (bgb) invokeLL.objValue;
     }
 }

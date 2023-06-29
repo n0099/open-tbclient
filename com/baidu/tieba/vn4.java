@@ -2,95 +2,70 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vn4 extends hn4 {
+public class vn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    public vn4() {
+    public vn4(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.hn4, com.baidu.tieba.kn4
-    public void b(JSONObject jSONObject, uj4 uj4Var, @Nullable uj4 uj4Var2, @Nullable uj4 uj4Var3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048576, this, jSONObject, uj4Var, uj4Var2, uj4Var3) != null) || jSONObject == null) {
-            return;
-        }
-        xn4.b().e(jSONObject.optJSONObject("tipmsgs"));
-        bo4.f().k(jSONObject.optJSONObject("page_tips"));
-        tn4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
-        do4.a().d(jSONObject.optJSONObject("pkg_preload"));
-        lo4.f(jSONObject.optJSONObject("app_inner_preload"));
-        wn4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
-        io4.b().d(jSONObject.optJSONObject("tts"));
-        eo4.a().e(jSONObject.optJSONObject("simple_control_item"));
-        jo4.e(jSONObject.optJSONObject("update_expire_time"));
-        if (fo4.a) {
-            c(jSONObject);
-        }
-        ho4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
-        yn4.a().c(jSONObject.optJSONObject("local_debug"));
-        kj4.a().b(jSONObject.optJSONObject(kj4.a().c()));
-        if (go4.b()) {
-            ao4.a().b(jSONObject.optJSONObject("api_description"));
-        }
-        zn4.a().e(jSONObject.optJSONObject("no_history_apps"));
-    }
-
-    public final void c(@NonNull JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (optJSONObject = jSONObject.optJSONObject("heartbeat")) == null || optJSONObject.optLong("errno") != 0) {
-            return;
-        }
-        ij4 b = kj4.b();
-        bs4 bs4Var = null;
-        if (b != null) {
-            bs4Var = b.i();
-        }
-        String optString = optJSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString)) {
-            fo4.b = optString;
-            if (bs4Var != null) {
-                bs4Var.putString("key_h2_heart_beat_version", optString);
-            }
-        }
-        JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-        if (optJSONObject2 != null) {
-            if (optJSONObject2.optInt("switch") > 0) {
-                int optInt = optJSONObject2.optInt("timespan");
-                int optInt2 = optJSONObject2.optInt("timeout");
-                if (bs4Var != null) {
-                    if (optInt > 0) {
-                        bs4Var.putInt("key_h2_heart_beat_timespan", optInt);
-                    }
-                    if (optInt2 > 0) {
-                        bs4Var.putInt("key_h2_heart_beat_timeout", optInt2);
-                        return;
-                    }
-                    return;
-                }
                 return;
             }
-            fo4.a = false;
         }
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i5;
+        this.e = i4;
+    }
+
+    @NonNull
+    public static vn4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new vn4(24, 70, 1440, 720, 30);
+        }
+        return (vn4) invokeV.objValue;
+    }
+
+    @NonNull
+    public static vn4 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return a();
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new vn4(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
+            } catch (JSONException unused) {
+                return a();
+            }
+        }
+        return (vn4) invokeL.objValue;
     }
 }

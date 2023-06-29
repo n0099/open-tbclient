@@ -9,11 +9,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.c55;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.rw9;
-import com.baidu.tieba.sw9;
-import com.baidu.tieba.we;
+import com.baidu.tieba.d1a;
+import com.baidu.tieba.e1a;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.xe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,15 +39,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes7.dex */
     public interface c {
-        void a(boolean z, int i, sw9 sw9Var, String str, boolean z2);
+        void a(boolean z, int i, e1a e1aVar, String str, boolean z2);
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<Object, Integer, rw9> {
+    public class b extends BdAsyncTask<Object, Integer, d1a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public rw9 b;
+        public d1a b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new rw9();
+            this.b = new d1a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,14 +90,14 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public rw9 doInBackground(Object... objArr) {
+        public d1a doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                c55.d();
-                we<String> e = c55.e("tb.my_posts");
+                f55.d();
+                xe<String> e = f55.e("tb.my_posts");
                 if (e != null) {
                     str = e.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir");
                 } else {
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (rw9) invokeL.objValue;
+            return (d1a) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(rw9 rw9Var) {
+        public void onPostExecute(d1a d1aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rw9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d1aVar) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, rw9Var.b(), this.c.g);
-                } else if (rw9Var.h() != null) {
-                    this.c.b.a(true, rw9Var.a(), rw9Var.h(), rw9Var.b(), this.c.g);
+                    this.c.b.a(false, -1, null, d1aVar.b(), this.c.g);
+                } else if (d1aVar.h() != null) {
+                    this.c.b.a(true, d1aVar.a(), d1aVar.h(), d1aVar.b(), this.c.g);
                 }
             }
         }
@@ -177,7 +177,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

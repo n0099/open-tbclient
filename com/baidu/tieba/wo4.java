@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface wo4 {
-    jn4<JSONArray> g();
+    void l(JSONObject jSONObject);
 
-    uj4 getCallback();
-
-    fn4 getRequest();
+    void o();
 }

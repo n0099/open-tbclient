@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh;
+import com.baidu.tieba.ch;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.ug;
-import com.baidu.tieba.x7a;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.jca;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.vg;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,7 +81,7 @@ public class SubscribeSlice extends Slice {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     this.a.a.k0();
-                    this.a.a.p.E();
+                    this.a.a.p.I();
                 }
             }
         }
@@ -108,30 +108,30 @@ public class SubscribeSlice extends Slice {
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == TbSingleton.getInstance().getSecond() && !this.a.o.o2().s0() && !this.a.o.o2().j0()) {
-                bh.e(new a(this));
+                ch.g(new a(this));
             }
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
         public void b(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i != ug.e(TbSingleton.getInstance().getMsgCount(), -1) || this.a.e0()) {
+            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i != vg.e(TbSingleton.getInstance().getMsgCount(), -1) || this.a.e0()) {
                 return;
             }
             this.a.k = true;
             this.a.o.o2().p0();
-            this.a.o.M2();
+            this.a.o.N2();
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
         public void c(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || i != ug.e(TbSingleton.getInstance().getDayCount(), -1) || this.a.g0()) {
+            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || i != vg.e(TbSingleton.getInstance().getDayCount(), -1) || this.a.g0()) {
                 return;
             }
             this.a.l = true;
             this.a.o.o2().p0();
-            this.a.o.M2();
+            this.a.o.N2();
         }
     }
 
@@ -195,7 +195,7 @@ public class SubscribeSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 c cVar = new c();
                 cVar.a = view2;
-                cVar.b = (SubscribeGuideView) view2.findViewById(R.id.obfuscated_res_0x7f09222f);
+                cVar.b = (SubscribeGuideView) view2.findViewById(R.id.obfuscated_res_0x7f09228f);
                 return cVar;
             }
             return (c) invokeL.objValue;
@@ -280,7 +280,7 @@ public class SubscribeSlice extends Slice {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08ca, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08df, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -290,7 +290,7 @@ public class SubscribeSlice extends Slice {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             i0(8);
             j0(true);
-            x7a.b(this.m.b, 600);
+            jca.b(this.m.b, 600);
             this.m.b.a();
         }
     }
@@ -327,7 +327,7 @@ public class SubscribeSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            xg.a().removeCallbacks(this.q);
+            yg.a().removeCallbacks(this.q);
         }
     }
 
@@ -340,14 +340,14 @@ public class SubscribeSlice extends Slice {
                 long id = this.n.getBasicInfo().getId();
                 int isSubscription = this.n.getUserInfo().getIsSubscription();
                 if (id > 0 && isSubscription != 1) {
-                    o95 p = o95.p();
-                    String t = o95.t("key_show_subscribe_guide" + id);
+                    r95 p = r95.p();
+                    String t = r95.t("key_show_subscribe_guide" + id);
                     long r = p.r(t, 0L);
                     if (r > 0 && TimeHelper.isSameDay(r, System.currentTimeMillis())) {
                         return false;
                     }
                     p.H(t, System.currentTimeMillis());
-                    this.p.C(new b(this));
+                    this.p.G(new b(this));
                     return true;
                 }
             }
@@ -366,7 +366,7 @@ public class SubscribeSlice extends Slice {
             if (guideTips != null) {
                 this.m.b.d(guideTips);
             }
-            xg.a().postDelayed(this.q, 3000L);
+            yg.a().postDelayed(this.q, 3000L);
             TiebaStatic.log(new StatisticItem("c15256"));
         }
     }

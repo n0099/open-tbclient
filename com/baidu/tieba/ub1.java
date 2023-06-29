@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Intent;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,12 +13,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface ub1 {
     public static final ub1 a = new a();
 
-    void a(Activity activity);
+    boolean a(Intent intent);
 
     /* loaded from: classes8.dex */
     public static class a implements ub1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ub1
+        public boolean a(Intent intent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -31,14 +41,6 @@ public interface ub1 {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.ub1
-        public void a(Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null) {
-                activity.finish();
             }
         }
     }
@@ -62,7 +64,7 @@ public interface ub1 {
                     return;
                 }
             }
-            a = qb1.c();
+            a = tb1.d();
         }
 
         @NonNull

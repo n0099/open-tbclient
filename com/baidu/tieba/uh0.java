@@ -1,60 +1,109 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.minivideo.effect.core.Rotation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class uh0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final float[] a;
+    public static final float[] b;
+    public static final float[] c;
+    public static final float[] d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static MediaOneAEffect a(long j) {
-        InterceptResult invokeJ;
+    public static float a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
-            mediaOneAEffect.start = 0L;
-            mediaOneAEffect.end = j;
-            ArrayList arrayList = new ArrayList();
-            mediaOneAEffect.aParams = arrayList;
-            arrayList.add(c());
-            return mediaOneAEffect;
-        }
-        return (MediaOneAEffect) invokeJ.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? f == 0.0f ? 1.0f : 0.0f : invokeF.floatValue;
     }
 
-    public static MediaAEffect b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            MediaAEffect mediaAEffect = new MediaAEffect();
-            mediaAEffect.name = "defaultScene";
-            mediaAEffect.duration = j;
-            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
-            mediaAEffect.effectType = "scene";
-            mediaAEffect.shaderConfigKey = vh0.b;
-            ArrayList arrayList = new ArrayList();
-            mediaAEffect.mediaOneAEffects = arrayList;
-            arrayList.add(a(j));
-            return mediaAEffect;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-375123633, "Lcom/baidu/tieba/uh0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-375123633, "Lcom/baidu/tieba/uh0$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[Rotation.values().length];
+            a = iArr;
+            try {
+                iArr[Rotation.ROTATION_90.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[Rotation.ROTATION_180.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[Rotation.ROTATION_270.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[Rotation.NORMAL.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
         }
-        return (MediaAEffect) invokeJ.objValue;
     }
 
-    public static ShaderParams c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ShaderParams shaderParams = new ShaderParams();
-            shaderParams.name = "scale";
-            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
-            shaderParams.values = new float[]{1.0f, 1.2f};
-            return shaderParams;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948210860, "Lcom/baidu/tieba/uh0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948210860, "Lcom/baidu/tieba/uh0;");
+                return;
+            }
         }
-        return (ShaderParams) invokeV.objValue;
+        a = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
+        b = new float[]{1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
+        c = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
+        d = new float[]{0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
+    }
+
+    public static float[] b(Rotation rotation, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        float[] fArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int i = a.a[rotation.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        fArr = a;
+                    } else {
+                        fArr = d;
+                    }
+                } else {
+                    fArr = c;
+                }
+            } else {
+                fArr = b;
+            }
+            if (z) {
+                fArr = new float[]{a(fArr[0]), fArr[1], a(fArr[2]), fArr[3], a(fArr[4]), fArr[5], a(fArr[6]), fArr[7]};
+            }
+            return z2 ? new float[]{fArr[0], a(fArr[1]), fArr[2], a(fArr[3]), fArr[4], a(fArr[5]), fArr[6], a(fArr[7])} : fArr;
+        }
+        return (float[]) invokeCommon.objValue;
     }
 }

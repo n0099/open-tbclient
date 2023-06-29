@@ -1,19 +1,19 @@
 package com.baidu.tieba;
+
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Files;
+import com.badlogic.gdx.Graphics;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface x0 {
-    boolean a(int i, int i2, int i3, int i4);
-
-    boolean b(int i, int i2, int i3, int i4);
-
-    boolean c(float f, float f2);
-
-    boolean d(int i, int i2, int i3);
-
-    boolean e(int i, int i2);
-
-    boolean f(int i);
-
-    boolean g(int i);
-
-    boolean h(char c);
+public class x0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static Application a;
+    public static Graphics b;
+    public static w0 c;
+    public static Files d;
+    public static f3 e;
+    public static f3 f;
+    public static g3 g;
+    public transient /* synthetic */ FieldHolder $fh;
 }

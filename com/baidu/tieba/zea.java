@@ -1,81 +1,136 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.hardware.Camera;
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class zea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public float c;
-    public long d;
-    public Bitmap e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public xea j;
+    public int a;
+    public float b;
+    public int c;
+    public Camera d;
+    public ffa e;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zea a;
-
-        public a(zea zeaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zeaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zeaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Bitmap bitmap;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zea zeaVar = this.a;
-                if (zeaVar.j != null && (bitmap = zeaVar.e) != null && !bitmap.isRecycled()) {
-                    zea zeaVar2 = this.a;
-                    zeaVar2.j.a(zeaVar2.f, zeaVar2.e);
-                }
-            }
-        }
-    }
-
-    public zea() {
+    public zea(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {camera};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = 0;
+        this.d = camera;
+    }
+
+    public void c(ffa ffaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ffaVar) == null) {
+            this.e = ffaVar;
         }
     }
 
-    public void a() {
+    public final void d(int i) {
+        Camera camera;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jxa.a().post(new a(this));
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (camera = this.d) == null) {
+            return;
         }
+        Camera.Parameters parameters = camera.getParameters();
+        if (!parameters.isZoomSupported()) {
+            return;
+        }
+        parameters.setZoom(i);
+        this.d.setParameters(parameters);
+        this.c = i;
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Camera camera = this.d;
+            if (camera == null) {
+                return -1;
+            }
+            Camera.Parameters parameters = camera.getParameters();
+            if (!parameters.isZoomSupported()) {
+                return -1;
+            }
+            if (parameters.getMaxZoom() > 40) {
+                return 40;
+            }
+            return parameters.getMaxZoom();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean b(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            ffa ffaVar = this.e;
+            if (ffaVar != null && ffaVar.j()) {
+                return true;
+            }
+            int action = motionEvent.getAction() & 255;
+            int i = 0;
+            if (action != 0) {
+                if (action != 2) {
+                    if (action == 5) {
+                        this.a = 1;
+                        this.b = e(motionEvent);
+                    }
+                } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
+                    return true;
+                } else {
+                    float e = e(motionEvent);
+                    int i2 = (int) ((e - this.b) / 10.0f);
+                    if (i2 >= 1 || i2 <= -1) {
+                        int i3 = this.c + i2;
+                        if (i3 > a()) {
+                            i3 = a();
+                        }
+                        if (i3 >= 0) {
+                            i = i3;
+                        }
+                        d(i);
+                        this.b = e;
+                    }
+                }
+            } else {
+                this.a = 0;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final float e(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            double x = motionEvent.getX(0) - motionEvent.getX(1);
+            double y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
+        }
+        return invokeL.floatValue;
     }
 }

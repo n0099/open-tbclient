@@ -1,47 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.tieba.bs0;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.widget.uitemplate.SimpleFeedAdInfoView;
+import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
+import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
+import com.baidu.tieba.g61;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ne1 extends Dialog implements View.OnClickListener {
+/* loaded from: classes7.dex */
+public class ne1 extends pe1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final b a;
+    public final SimpleFeedAdInfoView j;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements DialogInterface.OnDismissListener {
+    /* loaded from: classes7.dex */
+    public class a implements SimpleAdInfoView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ne1 a;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ ne1 b;
 
-        public a(ne1 ne1Var) {
+        public a(ne1 ne1Var, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ne1Var};
+                Object[] objArr = {ne1Var, adBaseModel};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,123 +44,145 @@ public class ne1 extends Dialog implements View.OnClickListener {
                     return;
                 }
             }
-            this.a = ne1Var;
+            this.b = ne1Var;
+            this.a = adBaseModel;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView.c
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.a.a(false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                ne1 ne1Var = this.b;
+                ne1Var.q(ClogBuilder.LogType.FREE_CLICK.type, ne1Var.c, str, this.a.f.d);
             }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ ne1 b;
+
+        public b(ne1 ne1Var, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ne1Var, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ne1Var;
+            this.a = adBaseModel;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                de1 de1Var = this.b.d;
+                if (de1Var != null) {
+                    de1Var.a(this.a);
+                }
+                r31.b(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(this.a.f.d));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947999471, "Lcom/baidu/tieba/ne1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947999471, "Lcom/baidu/tieba/ne1;");
+                return;
+            }
+        }
+        k = g61.c.a(ok0.b(), 15.0f);
+    }
+
+    private void m() {
+        SimpleFeedAdInfoView simpleFeedAdInfoView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (simpleFeedAdInfoView = this.j) != null) {
+            simpleFeedAdInfoView.c();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ne1(Context context, @NonNull AdBaseModel adBaseModel, @NonNull b bVar) {
-        super(context);
+    public ne1(int i, View view2) {
+        super(i, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, adBaseModel, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {Integer.valueOf(i), view2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        c(adBaseModel);
-        this.a = bVar;
+        this.j = (SimpleFeedAdInfoView) view2.findViewById(R.id.feed_ad_operate_app_info_view);
+        m();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public final void q(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.nad_reward_stay_continue) {
-                this.a.a(false);
-            } else if (view2.getId() == R.id.nad_reward_stay_cancel) {
-                this.a.a(true);
-            }
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.z(str);
+            clogBuilder.v(str2);
+            clogBuilder.p(str4);
+            clogBuilder.j(str3);
+            r31.b(clogBuilder);
         }
     }
 
-    public final void b(AdBaseModel adBaseModel) {
-        bs0.b bVar;
-        String string;
-        String string2;
-        String string3;
-        bs0 bs0Var;
+    public final void r(AdBaseModel adBaseModel) {
+        SimpleFeedAdInfoView simpleFeedAdInfoView;
+        View findViewById;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
-            if (adBaseModel != null && (bs0Var = adBaseModel.p) != null) {
-                bVar = bs0Var.f;
-            } else {
-                bVar = null;
-            }
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_reward_stay_view, (ViewGroup) null);
-            if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
-                string = bVar.a;
-            } else {
-                string = getContext().getResources().getString(R.string.nad_reward_stay_title);
-            }
-            if (bVar != null && !TextUtils.isEmpty(bVar.b)) {
-                string2 = bVar.b;
-            } else {
-                string2 = getContext().getResources().getString(R.string.nad_reward_stay_confirm);
-            }
-            if (bVar != null && !TextUtils.isEmpty(bVar.c)) {
-                string3 = bVar.c;
-            } else {
-                string3 = getContext().getResources().getString(R.string.nad_reward_stay_cancel);
-            }
-            ((TextView) inflate.findViewById(R.id.nad_reward_stay_content)).setText(string);
-            TextView textView = (TextView) inflate.findViewById(R.id.nad_reward_stay_continue);
-            textView.setText(string2);
-            textView.setOnClickListener(this);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.nad_reward_stay_cancel);
-            textView2.setText(string3);
-            textView2.setOnClickListener(this);
-            setContentView(inflate);
-            setOnDismissListener(new a(this));
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) != null) || adBaseModel == null || (simpleFeedAdInfoView = this.j) == null || (findViewById = simpleFeedAdInfoView.findViewById(R.id.nad_base_delete_id)) == null) {
+            return;
         }
+        cd1.a(this.j, findViewById, k);
+        findViewById.setOnClickListener(new b(this, adBaseModel));
     }
 
-    public final void c(@NonNull AdBaseModel adBaseModel) {
+    @Override // com.baidu.tieba.pe1, com.baidu.tieba.le1
+    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
-            Window window = getWindow();
-            window.requestFeature(1);
-            b(adBaseModel);
-            window.getDecorView().setPadding(0, 0, 0, 0);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.width = -1;
-            attributes.height = -2;
-            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003de;
-            attributes.gravity = 17;
-            window.setAttributes(attributes);
-            window.setBackgroundDrawableResource(17170445);
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Window window = getWindow();
-            if (window == null) {
-                super.show();
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel, nadExpressNaBaseView) == null) {
+            super.update(adBaseModel, nadExpressNaBaseView);
+            m();
+            SimpleFeedAdInfoView simpleFeedAdInfoView = this.j;
+            if (simpleFeedAdInfoView != null) {
+                simpleFeedAdInfoView.update(adBaseModel);
+                es0 es0Var = adBaseModel.p;
+                if (es0Var == null || es0Var.k) {
+                    this.j.setBackground(getResources().getDrawable(R.drawable.nad_operate_download_bg));
+                }
+                this.j.setAfterListener(new a(this, adBaseModel));
             }
-            window.setFlags(8, 8);
-            super.show();
-            u61.a(window);
-            window.clearFlags(8);
+            r(adBaseModel);
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.vivo.push.util;
 
 import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -89,7 +88,7 @@ public final class v {
             if (insideNotificationItem.getParams() != null) {
                 jSONArray.put(new JSONObject(insideNotificationItem.getParams()));
             } else {
-                jSONArray.put(StringUtil.EMPTY_ARRAY);
+                jSONArray.put("{}");
             }
             jSONArray.put(insideNotificationItem.getAppType());
             jSONArray.put(insideNotificationItem.getReactPackage());

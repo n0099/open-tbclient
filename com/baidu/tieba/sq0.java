@@ -1,13 +1,7 @@
 package com.baidu.tieba;
-
-import android.widget.FrameLayout;
 /* loaded from: classes7.dex */
-public interface sq0 extends kk0 {
-    int getVideoHeight();
+public interface sq0 extends nk0 {
+    void a(String str, String str2);
 
-    FrameLayout h();
-
-    boolean k();
-
-    int l();
+    void c(String str, String str2, String str3);
 }

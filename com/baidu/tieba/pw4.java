@@ -1,86 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class pw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static pw4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<rw4> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948076444, "Lcom/baidu/tieba/pw4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948076444, "Lcom/baidu/tieba/pw4;");
-        }
-    }
-
-    public pw4() {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String queryParameter;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-        }
-        this.a = new SparseArray<>();
-    }
-
-    public static pw4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (pw4.class) {
-                    if (b == null) {
-                        b = new pw4();
-                    }
-                }
+            Uri parse = Uri.parse(str);
+            if (parse.isOpaque()) {
+                queryParameter = "";
+            } else {
+                queryParameter = parse.getQueryParameter("key");
             }
-            return b;
-        }
-        return (pw4) invokeV.objValue;
-    }
-
-    public View a(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (this.a.get(i) != null) {
-                return this.a.get(i).a(context);
+            if (queryParameter == null) {
+                return "";
             }
-            return null;
+            return queryParameter;
         }
-        return (View) invokeLI.objValue;
-    }
-
-    public void c(int i, rw4 rw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, rw4Var) == null) {
-            this.a.put(i, rw4Var);
-        }
+        return (String) invokeL.objValue;
     }
 }

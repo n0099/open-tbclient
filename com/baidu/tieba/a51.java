@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.searchbox.elasticthread.queue.QueueManager;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,8 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class a51 {
     public static /* synthetic */ Interceptable $ic;
+    public static a51 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z41[] a;
+    @NonNull
+    public b51 a;
 
     public a51() {
         Interceptable interceptable = $ic;
@@ -28,78 +27,35 @@ public class a51 {
                 return;
             }
         }
-        this.a = new z41[4];
-        if (o41.s.length != 4) {
-            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
-        }
-        for (int i3 = 0; i3 < 4; i3++) {
-            this.a[i3] = new z41();
+        this.a = new y41();
+        if (!r41.a()) {
+            this.a = new z41();
         }
     }
 
-    public double a() {
+    public static a51 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (a51.class) {
+                    if (b == null) {
+                        b = new a51();
+                    }
+                }
+            }
+            return b;
+        }
+        return (a51) invokeV.objValue;
+    }
+
+    @NonNull
+    public b51 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!c(0).d()) {
-                return 9999999.0d;
-            }
-            double d = 0.0d;
-            for (int i = 0; i < 4; i++) {
-                d += this.a[i].a() * o41.s[i];
-            }
-            return d / 1000.0d;
+            return this.a;
         }
-        return invokeV.doubleValue;
-    }
-
-    public ElasticTask b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            for (int i = 0; i < 4; i++) {
-                if (!this.a[i].d()) {
-                    return this.a[i].b();
-                }
-            }
-            return null;
-        }
-        return (ElasticTask) invokeV.objValue;
-    }
-
-    public z41 c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = 0;
-            while (true) {
-                int[] iArr = o41.a;
-                if (i2 < iArr.length) {
-                    if (iArr[i2] == i) {
-                        return this.a[i2];
-                    }
-                    i2++;
-                } else {
-                    z41[] z41VarArr = this.a;
-                    return z41VarArr[z41VarArr.length - 1];
-                }
-            }
-        } else {
-            return (z41) invokeI.objValue;
-        }
-    }
-
-    public void e(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            c(elasticTask.b()).e(elasticTask);
-        }
-    }
-
-    public void d(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
-            c(i).c(runnable, str, i);
-        }
+        return (b51) invokeV.objValue;
     }
 }

@@ -1,15 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.abtest.MemoryThreadOptSwitch;
+import com.baidu.tbadk.switchs.CsjInitSwitch;
+import com.baidu.tbadk.switchs.GdtInitSwitch;
+import com.baidu.tbadk.switchs.KsInitSwitch;
+import com.baidu.tbadk.switchs.PicCaptureModeSwitch;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public interface ff {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("UniKVTest", "UniKVTest");
+public class ff implements gl1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean isTypeDoubleKv();
+    public ff() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean isTypeKv();
-
-    boolean isTypeSp();
+    @Override // com.baidu.tieba.gl1
+    public Object get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new MemoryThreadOptSwitch());
+            arrayList.add(new pk5());
+            arrayList.add(new CsjInitSwitch());
+            arrayList.add(new GdtInitSwitch());
+            arrayList.add(new KsInitSwitch());
+            arrayList.add(new PicCaptureModeSwitch());
+            arrayList.add(new ik6());
+            arrayList.add(new jk6());
+            arrayList.add(new tp6());
+            arrayList.add(new r28());
+            arrayList.add(new dp8());
+            arrayList.add(new ep8());
+            return arrayList;
+        }
+        return invokeV.objValue;
+    }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.tail.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.bx5;
+import com.baidu.tieba.gx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class AddTailNetMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             AddTailReqIdl.Builder builder = new AddTailReqIdl.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                bx5.a(this.data, true);
+                gx5.a(this.data, true);
             }
             builder.data = this.data.build(false);
             return builder.build(false);

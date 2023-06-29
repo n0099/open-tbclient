@@ -1,98 +1,82 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.tabfeed.view.NearbyForumFriendCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class r38 {
+public class r38 extends kn<w39, AdapterViewHolder<NearbyForumFriendCardView>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragment a;
-    public boolean b;
-    public String c;
+    public TbPageContext a;
+    public AdapterViewHolder<NearbyForumFriendCardView> b;
 
-    public r38(BaseFragment fragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r38(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), w39.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragment};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(fragment, "fragment");
-        this.a = fragment;
+        this.a = tbPageContext;
     }
 
-    @SuppressLint({"UseRequireInsteadOfGet"})
-    public final void a(Bundle bundle) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: s */
+    public AdapterViewHolder<NearbyForumFriendCardView> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            if (this.a.getArguments() != null) {
-                Bundle arguments = this.a.getArguments();
-                Intrinsics.checkNotNull(arguments);
-                this.b = arguments.getBoolean("tab_is_second_tab");
-                Bundle arguments2 = this.a.getArguments();
-                Intrinsics.checkNotNull(arguments2);
-                this.c = arguments2.getString("tab_code");
-            } else if (bundle != null) {
-                this.b = bundle.getBoolean("tab_is_second_tab");
-                this.c = bundle.getString("tab_code");
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder = new AdapterViewHolder<>(new NearbyForumFriendCardView(this.a.getPageActivity()));
+            this.b = adapterViewHolder;
+            return adapterViewHolder;
         }
+        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    public final void b() {
+    public void u(boolean z) {
+        AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a65.n(z55.h);
-            a65.n(z55.a(this.c));
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (adapterViewHolder = this.b) != null) {
+            adapterViewHolder.a().setNeedCompleteProfile(z);
         }
     }
 
-    public final void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w39 w39Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w39Var, adapterViewHolder})) == null) {
+            NearbyForumFriendCardView a = adapterViewHolder.a();
+            a.a(w39Var);
+            a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return adapterViewHolder.getView();
         }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b) {
-            return;
-        }
-        if (this.a.isPrimary()) {
-            c();
-        } else {
-            b();
-        }
-    }
-
-    @SuppressLint({"UseRequireInsteadOfGet"})
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a.getContext() == null) {
-            return;
-        }
-        Context context = this.a.getContext();
-        Intrinsics.checkNotNull(context);
-        a65.o(context, z55.h);
-        Context context2 = this.a.getContext();
-        Intrinsics.checkNotNull(context2);
-        a65.o(context2, z55.a(this.c));
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,134 +1,44 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f3b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.PidLoaderSession;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class i3b implements TTNativeExpressAd.ExpressAdInteractionListener {
-    public static /* synthetic */ Interceptable $ic;
+public class i3b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
+    public static long e = 300000;
+    public static int f = 10;
+    public static long g = 604800000;
+    public static long h = 104857600;
+    public static int i = 100;
+    public static int j = 5;
+    public static int k = 10;
+    public static long l = 104857600;
+    public static int m = 0;
+    public static int n = 1;
+    public static int o = 1;
+    public static int p = 0;
+    public static int q = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ h3b c;
-    public final /* synthetic */ ExpressAdListenerWrapper d;
-    public final /* synthetic */ String e;
-    public final /* synthetic */ f3b.b f;
-    public final /* synthetic */ TTNativeExpressAd g;
-    public final /* synthetic */ f3b h;
 
-    public i3b(f3b f3bVar, h3b h3bVar, ExpressAdListenerWrapper expressAdListenerWrapper, String str, f3b.b bVar, TTNativeExpressAd tTNativeExpressAd) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947803985, "Lcom/baidu/tieba/i3b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f3bVar, h3bVar, expressAdListenerWrapper, str, bVar, tTNativeExpressAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.h = f3bVar;
-        this.c = h3bVar;
-        this.d = expressAdListenerWrapper;
-        this.e = str;
-        this.f = bVar;
-        this.g = tTNativeExpressAd;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            LogPrinter.d();
-            this.h.onAdClicked((f3b) this.c, this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.h.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.h.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-            LogPrinter.d();
-            this.h.onAdShow((f3b) this.c, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.h.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.h.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
-            LogPrinter.d();
-            f3b.b bVar = this.f;
-            h3b h3bVar = this.c;
-            if (!bVar.d) {
-                int i2 = bVar.a + 1;
-                bVar.a = i2;
-                if (i2 == bVar.b) {
-                    bVar.e.onAdError(h3bVar, i, str);
-                }
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
-        boolean z;
-        PidLoaderSession<h3b> session;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            LogPrinter.d();
-            this.g.setCanInterruptVideoPlay(true);
-            this.h.g.put(this.c, this.d);
-            f3b.b bVar = this.f;
-            h3b h3bVar = this.c;
-            if (!bVar.d) {
-                bVar.e.onAdLoaded(h3bVar, new String[0]);
-                bVar.d = true;
-                session = bVar.e.getSession(h3bVar);
-                bVar.c = session;
-                return;
-            }
-            PidLoaderSession<h3b> pidLoaderSession = bVar.c;
-            if (pidLoaderSession != null) {
-                z = bVar.e.isSupportCaching;
-                pidLoaderSession.cacheOrDestroy(h3bVar, z);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947803985, "Lcom/baidu/tieba/i3b;");
         }
     }
 }

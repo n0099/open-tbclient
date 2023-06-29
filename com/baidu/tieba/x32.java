@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,15 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x32 implements v32 {
+public class x32 extends BasePendingOperation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile x32 c;
+    public static final CopyOnWriteArrayList<String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<v32> a;
+    public q12 a;
+    public cc3 b;
+    public JSONObject c;
+    public String d;
+    public String e;
+
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "request" : (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,13 +45,21 @@ public class x32 implements v32 {
                 return;
             }
         }
-        b = js1.a;
+        CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+        f = copyOnWriteArrayList;
+        copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
+        f.add("https://dxp.baidu.com/mini");
+        f.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
+        f.add("https://eclick.baidu.com/se.jpg");
+        f.add("https://miniapp-ad.cdn.bcebos.com/miniapp_ad/config/cg.json");
     }
 
-    public x32() {
+    public x32(@NonNull q12 q12Var, @NonNull cc3 cc3Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q12Var, cc3Var, jSONObject, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,65 +69,76 @@ public class x32 implements v32 {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add(new w32());
+        this.a = q12Var;
+        this.b = cc3Var;
+        this.c = jSONObject;
+        this.d = str;
+        this.e = str2;
     }
 
-    public static x32 c() {
+    public static Collection<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (x32.class) {
-                    if (c == null) {
-                        c = new x32();
-                    }
-                }
-            }
-            return c;
+            return f;
         }
-        return (x32) invokeV.objValue;
+        return (Collection) invokeV.objValue;
     }
 
-    public synchronized void d() {
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.d("Api-Marker", "release: ");
-                }
-                if (c == null) {
-                    return;
-                }
-                c = null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e(this.c.optString("url"));
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return String.format("%s : %s", this.b.getAppId(), this.c.optString("url"));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public BasePendingOperation.OperationType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST;
+        }
+        return (BasePendingOperation.OperationType) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.I(this.b, this.c, this.d, this.e);
         }
     }
 
-    @Override // com.baidu.tieba.v32
-    public void a(String str) {
+    public final boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markStart: " + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).a(str);
+            int size = f.size();
+            for (int i = 0; i < size; i++) {
+                String str2 = f.get(i);
+                if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
+                    return true;
+                }
             }
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.v32
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markEnd: " + str);
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).b(str);
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -242,8 +242,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     }
 
     private void bW() {
-        final AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913a7);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ce, (ViewGroup) adBaseFrameLayout, false);
+        final AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913b7);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04cf, (ViewGroup) adBaseFrameLayout, false);
         this.eP = viewGroup;
         viewGroup.setVisibility(0);
         Resources resources = this.eP.getResources();
@@ -251,9 +251,9 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
         final int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049b);
         int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b0);
         int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049a);
-        FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04cf, (ViewGroup) adBaseFrameLayout, false);
+        FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04d0, (ViewGroup) adBaseFrameLayout, false);
         this.eV = frameLayout;
-        this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0913b7);
+        this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0913c7);
         this.eV.setVisibility(4);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, dimensionPixelSize4);
         layoutParams.leftMargin = dimensionPixelSize;
@@ -278,11 +278,11 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     }
 
     private void initView() {
-        this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913b4);
-        this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913b3);
-        this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913b1);
-        this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f0913af);
-        this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913b0);
+        this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913c4);
+        this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913c3);
+        this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913c1);
+        this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f0913bf);
+        this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0913c0);
         this.eQ.setOnClickListener(this);
         this.eR.setOnClickListener(this);
         this.eT.setOnClickListener(this);

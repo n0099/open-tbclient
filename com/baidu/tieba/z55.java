@@ -1,110 +1,107 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class z55 {
+public abstract class z55 extends w55 {
     public static /* synthetic */ Interceptable $ic;
-    public static final z55 c;
-    public static final z55 d;
-    public static final z55 e;
-    public static final z55 f;
-    public static final z55 g;
-    public static final z55 h;
-    public static final z55 i;
-    public static final z55 j;
-    public static final z55 k;
-    public static final z55 l;
-    public static final z55 m;
-    public static final z55 n;
-    public static final z55 o;
-    public static final z55 p;
-    public static final z55 q;
-    public static final z55 r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
+    public final Activity c;
+    public TBAlertBuilder d;
+    public DialogInterface.OnDismissListener e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310959, "Lcom/baidu/tieba/z55;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310959, "Lcom/baidu/tieba/z55;");
-                return;
-            }
+    public abstract void h(TBAlertBuilder tBAlertBuilder);
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        c = new z55("sync_finish", false);
-        d = new z55("main_page_load_finish", false);
-        e = new z55("pb_load_finish", false);
-        f = new z55("frs_load_finish", false);
-        g = new z55("main_page_recommend", true);
-        h = new z55("main_page_common_tab", true);
-        i = new z55("main_page_hot_topic", true);
-        j = new z55("main_page_concern", true);
-        k = new z55("main_page_enter_forum", true);
-        l = new z55("main_page_message", true);
-        m = new z55("main_page_person_info", true);
-        n = new z55("write_page", true);
-        o = new z55("pb_page", true);
-        p = new z55("frs_page", true);
-        q = new z55("main_page_idle", false);
-        r = new z55("splash_close", false);
     }
 
-    public z55(String str, boolean z) {
+    public abstract void j();
+
+    /* loaded from: classes8.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z55 a;
+
+        public a(z55 z55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z55Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.i();
+                this.a.c();
+                if (this.a.e != null) {
+                    this.a.e.onDismiss(dialogInterface);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z55(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = z;
+        this.c = activity;
     }
 
-    public static z55 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.w55
+    public void b() {
+        TBAlertBuilder tBAlertBuilder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new z55("main_page_common_tab_" + str, true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBAlertBuilder = this.d) != null) {
+            tBAlertBuilder.dismiss();
         }
-        return (z55) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w55
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.c);
+            this.d = tBAlertBuilder;
+            tBAlertBuilder.s(new a(this));
+            h(this.d);
+            j();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
     }
 }

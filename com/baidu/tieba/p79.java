@@ -1,284 +1,394 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.editortools.pb.PbNewInputContainer;
-import com.baidu.tieba.pb.pb.main.PbCommentFloatActivity;
-import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.payment.PaymentConfirmActivity;
+import com.baidu.tieba.payment.data.PaymentConfirmInfoData;
+import com.baidu.tieba.wallet.CurrencyHelper;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class p79 {
+public class p79 extends j9<PaymentConfirmActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gk5 a;
-    public TbPageContext b;
-    public RelativeLayout c;
-    public PbFakeFloorModel d;
-    public String e;
-    public String f;
-    public NewWriteModel.d g;
-    public j49 h;
-    public View.OnClickListener i;
-    public int j;
-    public Runnable k;
+    public PaymentConfirmActivity a;
+    public ViewGroup b;
+    public NavigationBar c;
+    public ViewGroup d;
+    public ViewGroup e;
+    public TbImageView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public CheckBox m;
+    public ViewGroup n;
+    public TbImageView o;
+    public TextView p;
+    public TextView q;
+    public ViewGroup r;
+    public EditText s;
+    public ViewGroup t;
+    public TextView u;
+    public TextView v;
+    public boolean w;
+    public int x;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p79 a;
-
-        public a(p79 p79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p79Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !(TbadkCoreApplication.getInst().getCurrentActivity() instanceof PbCommentFloatActivity) || ((PbCommentFloatActivity) TbadkCoreApplication.getInst().getCurrentActivity()).l2() || this.a.a == null) {
-                return;
-            }
-            for (ki5 ki5Var : this.a.a.b().getAllTools()) {
-                if (ki5Var != null) {
-                    li5 li5Var = ki5Var.m;
-                    if ((li5Var instanceof PbNewInputContainer) && ((View) li5Var).getVisibility() == 0 && !ki5Var.o) {
-                        ki5Var.m.display();
-                    }
-                }
-            }
-            if (this.a.j < 5) {
-                p79.c(this.a);
-                xg.a().postDelayed(this.a.k, 200L);
-            }
-        }
-    }
-
-    public p79(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p79(PaymentConfirmActivity paymentConfirmActivity, boolean z, int i) {
+        super(paymentConfirmActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, pbFakeFloorModel, relativeLayout};
+            Object[] objArr = {paymentConfirmActivity, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = 0;
-        this.k = new a(this);
-        this.b = tbPageContext;
-        this.c = relativeLayout;
-        this.d = pbFakeFloorModel;
+        this.w = false;
+        this.a = paymentConfirmActivity;
+        this.w = z;
+        this.x = i;
+        paymentConfirmActivity.setContentView(R.layout.obfuscated_res_0x7f0d0763);
+        N(paymentConfirmActivity);
+        M(paymentConfirmActivity);
     }
 
-    public static /* synthetic */ int c(p79 p79Var) {
-        int i = p79Var.j;
-        p79Var.j = i + 1;
-        return i;
-    }
-
-    public void l(int i) {
-        gk5 gk5Var;
+    public void A(boolean z) {
+        EditText editText;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (gk5Var = this.a) != null && gk5Var.b() != null) {
-            this.a.b().y(i);
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (editText = this.s) != null) {
+            editText.setEnabled(z);
         }
     }
 
-    public void o(String str) {
+    public void B(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.q.setEnabled(z);
         }
     }
 
-    public void p(View.OnClickListener onClickListener) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
-            this.i = onClickListener;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            qt5.a(this.a.getPageContext(), this.b);
+            this.c.onChangeSkinType(this.a.getPageContext(), i);
         }
     }
 
-    public void q(int i) {
-        gk5 gk5Var;
+    public final SpannableStringBuilder C(long j, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (gk5Var = this.a) != null) {
-            gk5Var.R(i);
-        }
-    }
-
-    public void r(j49 j49Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, j49Var) == null) {
-            this.h = j49Var;
-        }
-    }
-
-    public void s(NewWriteModel.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
-            this.g = dVar;
-            gk5 gk5Var = this.a;
-            if (gk5Var != null) {
-                gk5Var.S(dVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            String str = "" + j;
+            if (CurrencySwitchUtil.isYyIsConvert(i)) {
+                str = "" + CurrencyHelper.getFormatOverBaiwanNum(i, j);
             }
+            String K = K(str);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(K);
+            int indexOf = K.indexOf(str);
+            if (indexOf >= 0) {
+                spannableStringBuilder.insert(indexOf, (CharSequence) " ");
+                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
+                en enVar = new en(getPageContext().getPageActivity(), CurrencySwitchUtil.getMoneyIconBitmap(i), 1);
+                int i2 = indexOf + 1;
+                spannableStringBuilder.setSpan(enVar, indexOf, i2, 33);
+                spannableStringBuilder.setSpan(foregroundColorSpan, i2, str.length() + i2, 33);
+            }
+            return spannableStringBuilder;
         }
+        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public final void e() {
-        gk5 gk5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c != null && (gk5Var = this.a) != null && gk5Var.b() != null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.addRule(12);
-            this.c.addView(this.a.b(), layoutParams);
-            l(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public gk5 f() {
+    public ViewGroup D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        return (gk5) invokeV.objValue;
+        return (ViewGroup) invokeV.objValue;
     }
 
-    public void g() {
-        gk5 gk5Var;
+    public String E() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (gk5Var = this.a) != null) {
-            gk5Var.A();
-            if (StringUtils.isNull(this.e)) {
-                this.a.F();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            EditText editText = this.s;
+            if (editText != null) {
+                return editText.getText().toString();
             }
-            this.a.b().A();
+            return "";
         }
+        return (String) invokeV.objValue;
     }
 
-    public void h() {
-        gk5 gk5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (gk5Var = this.a) != null && gk5Var.b() != null) {
-            this.a.b().s();
-        }
-    }
-
-    public boolean j() {
+    public CheckBox F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            gk5 gk5Var = this.a;
-            if (gk5Var != null && gk5Var.b() != null) {
-                return this.a.b().w();
+            return this.m;
+        }
+        return (CheckBox) invokeV.objValue;
+    }
+
+    public EditText G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.s;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    public TextView H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.v;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public TextView J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.q;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public void O() {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (viewGroup = this.r) != null && viewGroup.getParent() != null) {
+            ((ViewGroup) this.r.getParent()).removeAllViews();
+        }
+    }
+
+    public void y() {
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (editText = this.s) != null) {
+            editText.setText("");
+        }
+    }
+
+    public ViewGroup I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.r == null) {
+                this.r = (ViewGroup) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0445, (ViewGroup) null, false);
+                qt5.a(this.a.getPageContext(), this.r);
+                this.s = (EditText) this.r.findViewById(R.id.obfuscated_res_0x7f0908a5);
+                this.t = (ViewGroup) this.r.findViewById(R.id.obfuscated_res_0x7f091a22);
+                this.u = (TextView) this.r.findViewById(R.id.obfuscated_res_0x7f091a21);
+                this.v = (TextView) this.r.findViewById(R.id.obfuscated_res_0x7f091a24);
             }
-            return false;
+            return this.r;
         }
-        return invokeV.booleanValue;
+        return (ViewGroup) invokeV.objValue;
     }
 
-    public void m() {
+    public final String K(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            xg.a().removeCallbacks(this.k);
-        }
-    }
-
-    public void n() {
-        gk5 gk5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (gk5Var = this.a) != null) {
-            gk5Var.G();
-        }
-    }
-
-    public final void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && this.c != null && this.a == null) {
-            hk5 hk5Var = new hk5(z);
-            hk5Var.i(str);
-            gk5 gk5Var = (gk5) hk5Var.a(this.b.getPageActivity());
-            this.a = gk5Var;
-            gk5Var.P(this.b);
-            this.a.c0(this.d);
-            this.a.Q(1);
-            j49 j49Var = this.h;
-            if (j49Var != null) {
-                this.a.e0(j49Var.N());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (this.w) {
+                return this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f7e, str);
             }
-            this.a.b().E(true);
-            this.a.b().setOnCancelClickListener(this.i);
-            this.a.B(this.b);
-            e();
-            this.a.S(this.g);
+            return this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f7f, str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void M(PaymentConfirmActivity paymentConfirmActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, paymentConfirmActivity) == null) {
+            this.d = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a3c);
+            this.e = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a3d);
+            this.f = (TbImageView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a30);
+            this.g = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a2d);
+            this.h = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a2f);
+            this.i = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a34);
+            this.j = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a31);
+            this.k = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a2e);
+            this.l = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a33);
+            this.m = (CheckBox) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a39);
+            this.n = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a37);
+            this.o = (TbImageView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a36);
+            this.p = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a35);
+            this.q = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091a3a);
         }
     }
 
-    public void k(int i, int i2, Intent intent) {
-        gk5 gk5Var;
+    public final void N(PaymentConfirmActivity paymentConfirmActivity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) && (gk5Var = this.a) != null) {
-            gk5Var.E(i, i2, intent);
-        }
-    }
-
-    public void t(String str, String str2, String str3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            this.e = str2;
-            gk5 gk5Var = this.a;
-            if (gk5Var == null) {
-                i(str3, z);
+        if (interceptable == null || interceptable.invokeL(1048588, this, paymentConfirmActivity) == null) {
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091a3b);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f091a38);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            if (CurrencySwitchUtil.isYyIsConvert(this.x)) {
+                if (this.w) {
+                    this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f92));
+                } else {
+                    this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f94));
+                }
+            } else if (this.w) {
+                this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f7a));
             } else {
-                gk5Var.c0(this.d);
-                if (StringUtils.isNull(this.e)) {
-                    this.a.B(this.b);
+                this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f85));
+            }
+        }
+    }
+
+    public void Q(int i) {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (viewGroup = this.t) != null) {
+            if (i == 5) {
+                viewGroup.setVisibility(0);
+                this.u.setText("");
+                this.v.setText(R.string.obfuscated_res_0x7f0f0f8d);
+            } else if (i > 0) {
+                viewGroup.setVisibility(0);
+                this.u.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f8f, Integer.valueOf(i)));
+                this.v.setText(R.string.obfuscated_res_0x7f0f0f8d);
+            } else {
+                viewGroup.setVisibility(0);
+                this.u.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f8e));
+                this.v.setText(R.string.sapi_forget_password_title);
+            }
+        }
+    }
+
+    public final SpannableString P(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048590, this, str, str2, i)) == null) {
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (indexOf = str.indexOf(str2)) >= 0) {
+                return x(str, indexOf, str2.length() + indexOf, i);
+            }
+            return new SpannableString(str);
+        }
+        return (SpannableString) invokeLLI.objValue;
+    }
+
+    public final SpannableString x(String str, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048593, this, str, i, i2, i3)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            spannableString.setSpan(new ForegroundColorSpan(i3), i, i2, 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeLIII.objValue;
+    }
+
+    public void z(PaymentConfirmInfoData paymentConfirmInfoData, boolean z) {
+        PaymentConfirmInfoData.OrderInfo.Cpath cpath;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048595, this, paymentConfirmInfoData, z) != null) || paymentConfirmInfoData == null) {
+            return;
+        }
+        this.e.setVisibility(0);
+        PaymentConfirmInfoData.GoodsInfo goods_info = paymentConfirmInfoData.getGoods_info();
+        if (goods_info != null) {
+            this.f.N(goods_info.getGoods_pic(), 10, false);
+            this.g.setText(goods_info.getGoods_name());
+            String numFormatOver10000 = StringHelper.numFormatOver10000(goods_info.getGoods_num());
+            this.h.setText(P(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f7c, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, SkinManager.getColor(R.color.CAM_X0305)));
+            int goods_duration = goods_info.getGoods_duration();
+            if (goods_duration > 0) {
+                String numFormatOver100002 = StringHelper.numFormatOver10000(goods_duration);
+                this.i.setText(P(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f81, numFormatOver100002), numFormatOver100002, SkinManager.getColor(R.color.CAM_X0305)));
+            } else {
+                this.i.setText(x(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f82), 3, 5, SkinManager.getColor(R.color.CAM_X0305)));
+            }
+            this.j.setCompoundDrawablesWithIntrinsicBounds(CurrencySwitchUtil.getMoneyIcon(goods_info.getCurrency()), (Drawable) null, (Drawable) null, (Drawable) null);
+            if (CurrencySwitchUtil.isYyIsConvert(goods_info.getCurrency())) {
+                this.j.setText(CurrencyHelper.getFormatOverBaiwanNum(goods_info.getCurrency(), goods_info.getTdou_num()));
+            } else {
+                this.j.setText(StringHelper.numFormatOver10000wan(goods_info.getTdou_num()));
+            }
+            this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f7b, goods_info.getGoods_name()));
+            if (z) {
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+                this.l.setText(C(goods_info.getTdou_num(), goods_info.getCurrency()));
+            } else {
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0301, 1);
+                if (CurrencySwitchUtil.isYyIsConvert(goods_info.getCurrency())) {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0f93);
+                } else {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0f80);
                 }
             }
-            this.a.Y(str);
-            this.a.X(str2, "");
-            xg.a().postDelayed(this.k, 200L);
-            this.a.q(this.f);
-            if (this.a.z()) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 10).param("obj_type", 2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
-                this.a.w(null);
-                return;
+        }
+        PaymentConfirmInfoData.OrderInfo order_info = paymentConfirmInfoData.getOrder_info();
+        if (order_info != null && (cpath = order_info.getCpath()) != null) {
+            PaymentConfirmInfoData.OrderInfo.Cpath.Member member = cpath.getMember();
+            if (member != null) {
+                String icon = member.getIcon();
+                String desc = member.getDesc();
+                if (!StringUtils.isNull(icon) && !StringUtils.isNull(desc)) {
+                    this.n.setVisibility(0);
+                    this.o.N(icon, 10, false);
+                    this.p.setText(desc);
+                } else {
+                    this.n.setVisibility(8);
+                }
             }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 9).param("obj_type", 2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
+            if (cpath.getTip_exist() == 1) {
+                this.m.setButtonDrawable(SkinManager.getDrawable(R.drawable.payment_confirm_price_tip_check_button));
+                this.m.setVisibility(0);
+                this.m.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f83, Integer.valueOf(cpath.getTip_days())));
+            } else {
+                this.m.setVisibility(8);
+            }
+        }
+        if (z) {
+            if (this.w) {
+                this.q.setText(R.string.buy_now);
+            } else {
+                this.q.setText(R.string.goto_exchange);
+            }
+        } else if (CurrencySwitchUtil.isYyIsConvert(this.x)) {
+            this.q.setText(R.string.get_ybean);
+        } else {
+            this.q.setText(R.string.get_tdou);
         }
     }
 }

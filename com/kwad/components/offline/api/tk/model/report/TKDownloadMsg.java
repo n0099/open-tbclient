@@ -5,7 +5,7 @@ import com.kwad.components.offline.api.core.model.BaseOfflineCompoJsonParse;
 import com.kwad.components.offline.api.core.utils.JsonHelper;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TKDownloadMsg extends BaseOfflineCompoJsonParse<TKDownloadMsg> implements Serializable {
     public static final int FAIL = 2;
     public static final int INVALID_DOWNLOAD_STATE = -1;

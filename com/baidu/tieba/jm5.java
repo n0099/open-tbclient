@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.FutureTask;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FutureTask<Boolean>> a;
-    public List<im5> b;
-    public ErrorData c;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public jm5() {
         Interceptable interceptable = $ic;
@@ -30,31 +33,23 @@ public class jm5 {
         }
     }
 
-    public void a(ErrorData errorData) {
+    public static jm5 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, errorData) != null) || this.c != null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                jm5 jm5Var = new jm5();
+                jm5Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                jm5Var.b = jSONObject.optInt("width");
+                jm5Var.c = jSONObject.optInt("height");
+                jm5Var.d = jSONObject.optString("pic_url");
+                jm5Var.e = jSONObject.optString("thumbnail");
+                jm5Var.g = jSONObject.optString("origin_url");
+                return jm5Var;
+            } catch (Exception unused) {
+                return null;
+            }
         }
-        this.c = errorData;
-        for (FutureTask<Boolean> futureTask : this.a) {
-            futureTask.cancel(true);
-        }
-        for (im5 im5Var : this.b) {
-            im5Var.a();
-        }
-    }
-
-    public void b(List<im5> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    public void c(List<FutureTask<Boolean>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-        }
+        return (jm5) invokeL.objValue;
     }
 }

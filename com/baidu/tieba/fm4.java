@@ -1,12 +1,6 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.rtc.RTCConst;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.ConnectManager;
-import com.baidu.searchbox.pms.constants.ErrorConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,24 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class fm4<T> {
+public class fm4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final bp4 f;
+    public static final ep4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public am4 b;
-    public bm4<T> c;
-    public AtomicBoolean d;
-    public T e;
+    public am4 a;
+    public AtomicBoolean b;
+    public zl4 c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,258 +31,61 @@ public class fm4<T> {
                 return;
             }
         }
-        f = bp4.e();
+        d = ep4.e();
     }
 
-    public fm4(bm4<T> bm4Var, int i) {
+    public fm4(AtomicBoolean atomicBoolean, am4 am4Var, zl4 zl4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bm4Var, Integer.valueOf(i)};
+            Object[] objArr = {atomicBoolean, am4Var, zl4Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = bm4Var;
-        this.b = bm4Var.a;
-        this.a = i;
-        this.e = bm4Var.b;
-        this.d = bm4Var.d;
+        this.b = atomicBoolean;
+        this.a = am4Var;
+        this.c = zl4Var;
     }
 
-    public final boolean a(InputStream inputStream, OutputStream outputStream, long j) throws IOException {
-        InterceptResult invokeCommon;
+    public final <T> void a(em4<T> em4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{inputStream, outputStream, Long.valueOf(j)})) == null) {
-            int i = 32768;
-            byte[] bArr = new byte[32768];
-            long j2 = 0;
-            int i2 = 0;
-            while (!this.d.get() && i2 != -1) {
-                if (j > 0) {
-                    if (j2 >= j) {
-                        break;
-                    } else if (i + j2 > j) {
-                        i = (int) (j - j2);
-                    }
-                }
-                i2 = inputStream.read(bArr, 0, i);
-                if (i2 > 0) {
-                    outputStream.write(bArr, 0, i2);
-                    j2 += i2;
-                    this.b.b.b = j2;
-                    this.c.l();
-                }
-            }
-            kj4.b().y("PMSTaskProcessor", "#copyStream canceled=" + this.d.get() + " readed" + j2 + " totalBytes=" + j);
-            if (j2 != j) {
-                return false;
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public void b() {
-        vl4 vl4Var;
-        Exception e;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.d.get()) {
-            return;
-        }
-        vl4 vl4Var2 = null;
-        if (!ConnectManager.isNetworkConnected(AppRuntime.getAppContext())) {
-            f.g("PMSTaskProcessor", "#downloadLogic 没有网络连接", null);
-            this.b.a = new tk4(ErrorConstant.Code.DOWNLOAD_ERROR_MISS_PARAM, "download : no network");
-            this.b.a.a("没有网络连接");
-        } else if (!this.c.c()) {
-            f.g("PMSTaskProcessor", "#downloadLogic 无法创建本地文件", null);
-            this.b.a = new tk4(ErrorConstant.Code.DOWNLOAD_ERROR_PATH, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_CREATEFILE);
-        } else {
-            this.c.p();
+        if (interceptable == null || interceptable.invokeL(1048576, this, em4Var) == null) {
+            this.a.a(em4Var);
             try {
                 try {
-                    vl4Var = kj4.b().A().c(this.b.b.n, this.a);
-                    try {
-                        int code = vl4Var.code();
-                        int d = d(vl4Var, code);
-                        if (this.b.a.a != d) {
-                            this.b.a = new tk4(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                            this.b.a.a("状态不匹配错误，可能有未捕获的异常");
-                            f.g("PMSTaskProcessor", "#downloadLogic 状态不匹配错误 errorCode=" + d + " errNo=" + this.b.a.a + " httpStatus=" + code, null);
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        f.g("PMSTaskProcessor", "#downloadLogic 包下载异常", e);
-                        this.b.a = new tk4(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                        this.b.a.a(Log.getStackTraceString(e));
-                        ds4.d(vl4Var);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    vl4Var2 = vl4Var;
-                    ds4.d(vl4Var2);
-                    throw th;
-                }
-            } catch (Exception e3) {
-                vl4Var = null;
-                e = e3;
-            } catch (Throwable th2) {
-                th = th2;
-                ds4.d(vl4Var2);
-                throw th;
-            }
-            ds4.d(vl4Var);
-        }
-    }
-
-    public final boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!new File(str).exists()) {
-                this.b.a = new tk4(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, fp4.a("local file save failed:", str)));
-                return false;
-            }
-            String str2 = this.b.b.l;
-            String b = dp4.b(new File(str), true);
-            if (str2 != null && b != null) {
-                String upperCase = str2.toUpperCase();
-                if (upperCase.equals(b)) {
-                    return true;
-                }
-                this.b.a = new tk4(2202, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5 + fp4.a("server:", upperCase, ",local", b));
-                return false;
-            }
-            this.b.a = new tk4(ErrorConstant.Code.DOWNLOAD_ERROR_WRITE, String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, fp4.a("server:", str2, ",local", b)));
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final int d(vl4 vl4Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, vl4Var, i)) == null) {
-            kj4.b().y("PMSTaskProcessor", "#parseResponse url=" + this.b.b.n + " code=" + vl4Var.code());
-            this.b.a = null;
-            if (i >= 200 && i <= 300) {
-                ul4 body = vl4Var.body();
-                if (body != null) {
-                    long b = body.b();
-                    f.g("PMSTaskProcessor", "#parseResponse currentSize=" + this.b.b.b + " pkgSize=" + this.b.b.k + " contentLength=" + b, null);
-                    if (!this.c.j(this.b.b.k)) {
-                        f.g("PMSTaskProcessor", "#parseResponse 磁盘空间不足", null);
-                        this.b.a = new tk4(ErrorConstant.Code.DOWNLOAD_ERROR_CREATEFILE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NOSPACE);
-                        return this.b.a.a;
-                    }
-                    try {
-                        if (e(body, b)) {
-                            this.b.a = new tk4(2200, ErrorConstant.ErrorMsg.DOWNLOAD_SUCCESS);
-                            return this.b.a.a;
-                        }
-                    } catch (IOException e) {
-                        f.g("PMSTaskProcessor", "#parseResponse 写到文件过程中出错", e);
-                        this.b.a = new tk4(ErrorConstant.Code.DOWNLOAD_ERROR_NOSPACE, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_WRITE);
-                        return this.b.a.a;
-                    }
-                }
-                am4 am4Var = this.b;
-                if (am4Var.a == null) {
-                    am4Var.a = new tk4(2201, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                    this.b.a.a("错误码为空时设置的默认错误");
-                }
-                return this.b.a.a;
-            }
-            String str = "statusCode=" + i;
-            f.g("PMSTaskProcessor", "#parseResponse error " + str, null);
-            am4 am4Var2 = this.b;
-            tk4 tk4Var = new tk4(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4, ErrorConstant.ErrorMsg.META_ERROR_CONNECTION);
-            tk4Var.a(str);
-            am4Var2.a = tk4Var;
-            return this.b.a.a;
-        }
-        return invokeLI.intValue;
-    }
-
-    public final boolean e(ul4 ul4Var, long j) throws IOException {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, ul4Var, j)) == null) {
-            bm4<T> bm4Var = this.c;
-            yl4<T> yl4Var = bm4Var.e;
-            ReadableByteChannel readableByteChannel = null;
-            try {
-                T t = this.e;
-                File file = bm4Var.c;
-                ReadableByteChannel a = ul4Var.a();
-                try {
-                    tk4 h = yl4Var.h(t, file, j, a);
-                    if (h.a == 2302) {
-                        if (f(Channels.newInputStream(a), new FileOutputStream(this.c.c), j) && c(this.b.b.a)) {
-                            if (a != null && a.isOpen()) {
-                                ds4.d(a);
-                            }
-                            return true;
-                        }
-                        if (a != null && a.isOpen()) {
-                            ds4.d(a);
-                        }
-                        return false;
-                    } else if (h.a == 2300) {
-                        this.b.b.b = j;
-                        this.c.l();
-                        if (a != null && a.isOpen()) {
-                            ds4.d(a);
-                        }
-                        return true;
-                    } else {
-                        this.b.a = h;
-                        if (a != null && a.isOpen()) {
-                            ds4.d(a);
-                        }
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    readableByteChannel = a;
-                    if (readableByteChannel != null && readableByteChannel.isOpen()) {
-                        ds4.d(readableByteChannel);
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return invokeLJ.booleanValue;
-        }
-    }
-
-    public final boolean f(InputStream inputStream, OutputStream outputStream, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inputStream, outputStream, Long.valueOf(j)})) == null) {
-            try {
-                try {
-                    return a(inputStream, outputStream, j);
-                } catch (IOException e) {
-                    kj4.b().G("PMSTaskProcessor", "#safeCopyStream 写入输出流出错", e);
-                    ds4.d(inputStream);
-                    ds4.d(outputStream);
-                    return false;
+                    em4Var.run();
+                } catch (Exception e) {
+                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
                 }
             } finally {
-                ds4.d(inputStream);
-                ds4.d(outputStream);
+                this.a.b(em4Var);
             }
         }
-        return invokeCommon.booleanValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.b.get()) {
+                Runnable a = this.c.a(true);
+                if (a instanceof em4) {
+                    try {
+                        a((em4) a);
+                    } catch (Throwable th) {
+                        d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
+                    }
+                } else {
+                    return;
+                }
+            }
+        }
     }
 }

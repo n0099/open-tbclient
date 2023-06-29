@@ -2,14 +2,13 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v31 extends t31 {
+public class v31 extends u31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,41 +22,49 @@ public class v31 extends t31 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        d(TiePlusStat.RichTextType.STAT_KEY, "every");
     }
 
-    @Override // com.baidu.tieba.t31, com.baidu.tieba.u31
+    @Override // com.baidu.tieba.x31
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String sb = this.a.toString();
-            if (!TextUtils.isEmpty(sb) && sb.contains("c_id")) {
-                return super.isValid();
+            if (!TextUtils.isEmpty(sb) && sb.contains("ci") && sb.contains("ext")) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public v31 g(String str) {
+    public v31 e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("c_id", str);
+            d("cr", str);
             return this;
         }
         return (v31) invokeL.objValue;
     }
 
-    public v31 h(String str) {
+    public v31 f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("extra_param", str);
+            d("ci", str);
+            return this;
+        }
+        return (v31) invokeL.objValue;
+    }
+
+    public v31 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            d("ext", str);
             return this;
         }
         return (v31) invokeL.objValue;

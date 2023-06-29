@@ -215,7 +215,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             this.c = threadData;
             if (!StringUtils.isNull(threadData.getForum_name()) && !this.g) {
                 TextView textView = this.a;
-                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, "...") + getResources().getString(R.string.obfuscated_res_0x7f0f0767));
+                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, "...") + getResources().getString(R.string.obfuscated_res_0x7f0f076a));
                 this.a.setVisibility(0);
             } else {
                 this.a.setVisibility(8);

@@ -2,22 +2,21 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.PrivateForumShareinfo;
-import tbclient.FrsPage.PrivateForumTotalInfo;
-import tbclient.PrivateForumInfo;
-import tbclient.PrivatePopInfo;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class u35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PrivatePopInfo a;
-    public PrivateForumInfo b;
-    public Integer c;
+    public ArrayList<UserData> a;
+    public ArrayList<UserData> b;
+    public o35 c;
 
     public u35() {
         Interceptable interceptable = $ic;
@@ -32,48 +31,49 @@ public class u35 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new o35();
     }
 
-    public PrivateForumInfo a() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                b(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
-        return (PrivateForumInfo) invokeV.objValue;
     }
 
-    public Integer b() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public PrivatePopInfo c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (PrivatePopInfo) invokeV.objValue;
-    }
-
-    public void d(PrivateForumTotalInfo privateForumTotalInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, privateForumTotalInfo) != null) || privateForumTotalInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
-            PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
-            this.b = privateForumTotalInfo.private_forum_info;
-            this.c = privateForumTotalInfo.private_forum_taskpercent;
-            this.a = privateForumTotalInfo.private_forum_popinfo;
+            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    UserData userData = new UserData();
+                    userData.parserJson(optJSONArray.getJSONObject(i));
+                    userData.mAttentionType = 2;
+                    this.a.add(userData);
+                }
+            }
+            if (optJSONArray2 != null) {
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    UserData userData2 = new UserData();
+                    userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                    userData2.mAttentionType = 1;
+                    this.b.add(userData2);
+                }
+            }
+            this.c.i(jSONObject.optJSONObject("page"));
+            jSONObject.optInt("tafriendnum", 0);
+            jSONObject.optInt("commonfriendnum", 0);
         } catch (Exception e) {
             BdLog.detailException(e);
         }

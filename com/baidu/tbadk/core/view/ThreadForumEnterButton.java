@@ -27,8 +27,8 @@ import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,9 +63,9 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        wi.l(TbadkCoreApplication.getInst());
-        wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        xi.l(TbadkCoreApplication.getInst());
+        xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,7 +101,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             this.c = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
             this.f = textView;
-            textView.setCompoundDrawablePadding(wi.g(this.b, R.dimen.M_W_X002));
+            textView.setCompoundDrawablePadding(xi.g(this.b, R.dimen.M_W_X002));
         }
     }
 
@@ -143,7 +143,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 setVisibility(0);
                 f();
                 TextView textView = this.f;
-                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, "...") + this.b.getString(R.string.obfuscated_res_0x7f0f0767));
+                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, "...") + this.b.getString(R.string.obfuscated_res_0x7f0f076a));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(forum_name)) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -201,8 +201,8 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 }
                 setVisibility(0);
                 f();
-                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f0767));
-                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f0767));
+                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f076a));
+                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f076a));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(threadData.getForum_name())) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -245,7 +245,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         }
         this.i = skinType;
         if (this.e) {
-            p75 d = p75.d(this.f);
+            s75 d = s75.d(this.f);
             d.D(R.string.F_X01);
             d.C(R.dimen.T_X09);
             d.x(R.color.CAM_X0304);
@@ -254,7 +254,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d.m(R.dimen.L_X01);
             d.l(R.color.CAM_X0304);
         } else {
-            p75 d2 = p75.d(this.f);
+            s75 d2 = s75.d(this.f);
             d2.D(R.string.F_X01);
             d2.C(R.dimen.T_X09);
             d2.x(R.color.CAM_X0304);
@@ -266,7 +266,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
         this.g = pureDrawable;
         if (pureDrawable != null) {
-            int g = wi.g(this.b, R.dimen.T_X09);
+            int g = xi.g(this.b, R.dimen.T_X09);
             this.g.setBounds(0, 0, g, g);
         }
         f();

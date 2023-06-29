@@ -2,8 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.oy2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,67 +10,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class og4 extends lg4<ly2> {
+public abstract class og4<T extends oy2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948031277, "Lcom/baidu/tieba/og4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948031277, "Lcom/baidu/tieba/og4;");
-                return;
-            }
-        }
-        boolean z = js1.a;
-    }
+    public abstract boolean b(Context context, T t, ly2 ly2Var, cc3 cc3Var, JSONObject jSONObject);
 
     public og4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static og4 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new og4();
-        }
-        return (og4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lg4
-    public boolean b(Context context, ly2 ly2Var, iy2 iy2Var, zb3 zb3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, ly2Var, iy2Var, zb3Var, jSONObject)) == null) {
-            return e(context, ly2Var, iy2Var, zb3Var);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, ly2 ly2Var, iy2 iy2Var, zb3 zb3Var) {
+    public boolean c(Context context, T t, ly2 ly2Var, cc3 cc3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ly2Var, iy2Var, zb3Var)) == null) {
-            z82.i("map", "MapUpdateAction start");
-            boolean update = ig4.b().update(context, ly2Var);
-            z82.i("map", "MapUpdateAction end");
-            return update;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, t, ly2Var, cc3Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!b(context, t, ly2Var, cc3Var, jSONObject)) {
+                ly2Var.d(1001);
+                c92.c("map", "doAction fail");
+                return false;
+            }
+            if (jSONObject.length() <= 0) {
+                jSONObject = null;
+            }
+            ly2Var.e(jSONObject);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

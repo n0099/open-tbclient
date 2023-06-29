@@ -7,22 +7,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c78;
-import com.baidu.tieba.i78;
+import com.baidu.tieba.h78;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.sw5;
+import com.baidu.tieba.n78;
+import com.baidu.tieba.xw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements c78 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements h78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
 
-    public abstract boolean U1(c78 c78Var);
+    public abstract boolean U1(h78 h78Var);
 
     public abstract boolean V1(Bundle bundle);
 
@@ -89,7 +89,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // com.baidu.tieba.c78
+    @Override // com.baidu.tieba.h78
     public void l1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -163,7 +163,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             }
             X1();
             a2();
-            i78.a = sw5.b();
+            n78.a = xw5.b();
         }
     }
 

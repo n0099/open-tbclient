@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e05;
-import com.baidu.tieba.kz9;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.q9;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.r9;
 import com.baidu.tieba.s45;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.v45;
+import com.baidu.tieba.w3a;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public p45 k;
-    public s45 l;
+    public s45 k;
+    public v45 l;
     public ImageView m;
     public View n;
     public int o;
@@ -78,17 +78,17 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) || !wi.F()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) || !xi.F()) {
                 return;
             }
             if (view2 == this.a.b) {
                 if (this.a.k != null && !TextUtils.isEmpty(this.a.k.b())) {
                     TiebaStatic.eventStat(this.a.a.getPageActivity(), "num_click", "click", 1, new Object[0]);
-                    UrlManager.getInstance().dealOneLink((TbPageContext) q9.a(this.a.a.getPageActivity()), new String[]{this.a.k.b()});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) r9.a(this.a.a.getPageActivity()), new String[]{this.a.k.b()});
                 }
             } else if (view2 == this.a.c && this.a.l != null && !TextUtils.isEmpty(this.a.l.z1())) {
                 TiebaStatic.eventStat(this.a.a.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                UrlManager.getInstance().dealOneLink((TbPageContext) q9.a(this.a.a.getPageActivity()), new String[]{this.a.l.z1()});
+                UrlManager.getInstance().dealOneLink((TbPageContext) r9.a(this.a.a.getPageActivity()), new String[]{this.a.l.z1()});
             }
         }
     }
@@ -134,25 +134,25 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         h();
     }
 
-    public void f(kz9 kz9Var) {
+    public void f(w3a w3aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, kz9Var) != null) || kz9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, w3aVar) != null) || w3aVar == null) {
             return;
         }
-        p45 c = kz9Var.c();
-        s45 d = kz9Var.d();
+        s45 c = w3aVar.c();
+        v45 d = w3aVar.d();
         this.k = c;
         this.l = d;
-        if (kz9Var.e()) {
+        if (w3aVar.e()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        p45 p45Var = this.k;
-        if (p45Var == null) {
+        s45 s45Var = this.k;
+        if (s45Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(p45Var.g())) {
+        } else if (StringUtils.isNull(s45Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
@@ -207,7 +207,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
             SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
             SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
             SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
-            e05 layoutMode = this.a.getLayoutMode();
+            h05 layoutMode = this.a.getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

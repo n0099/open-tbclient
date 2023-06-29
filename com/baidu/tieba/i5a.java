@@ -1,146 +1,142 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.os.Build;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.je5;
-import com.baidu.tieba.t55;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class i5a extends t55 {
+public class i5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public LiveRemindRecommendData d;
-    public Map<String, Object> e;
-    public je5 f;
+    public final ArrayList<d5a> a;
 
-    /* loaded from: classes6.dex */
-    public class a implements je5.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i5a a;
-
-        public a(i5a i5aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i5aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i5aVar;
-        }
-
-        @Override // com.baidu.tieba.je5.h
-        public void dismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i5a(MainTabActivity mainTabActivity, s2a s2aVar) {
-        super(mainTabActivity);
+    public i5a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, s2aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = mainTabActivity;
+        this.a = new ArrayList<>();
     }
 
-    @Override // com.baidu.tieba.t55
-    public void b() {
-        je5 je5Var;
+    public void a(d5a d5aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (je5Var = this.f) != null) {
-            je5Var.t();
+        if (interceptable == null || interceptable.invokeL(1048576, this, d5aVar) == null) {
+            this.a.add(d5aVar);
         }
     }
 
-    @Override // com.baidu.tieba.t55
-    public void e() {
+    public final void b(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = ke5.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
-            c95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
-        }
-    }
-
-    @Override // com.baidu.tieba.t55
-    public void d(t55.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (a65.j()) {
-                aVar.callback(false);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) {
+            ew8 hybridLog = HybridLog.getInstance();
+            hybridLog.c("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
+            if (webView != null && !wi.isEmpty(str) && !wi.isEmpty(str2)) {
+                if (Build.VERSION.SDK_INT >= 19) {
+                    webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+                    return;
+                }
+                webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
             }
-            LiveRemindRecommendData c = b95.a().c(0);
-            this.d = c;
-            if (c != null && c95.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
-                this.e = new HashMap();
-                int i = 3;
-                if (this.d.getRemindType() != 1) {
-                    if (this.d.getRemindType() == 2) {
-                        i = 4;
-                    } else if (this.d.getRemindType() == 3) {
-                        i = 2;
-                    } else {
-                        i = 0;
+        }
+    }
+
+    public f5a c(h5a h5aVar, f5a f5aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, h5aVar, f5aVar)) == null) {
+            if (f5aVar == null) {
+                f5aVar = new f5a();
+            }
+            if ("notification".equals(h5aVar.c()) && "addObserver".equals(h5aVar.a())) {
+                Iterator<d5a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    f5aVar = it.next().addObserver(h5aVar.d(), f5aVar, true);
+                    if (f5aVar.j()) {
+                        return f5aVar;
                     }
                 }
-                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
-                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
-                this.e.put("view_top_params_user_name", this.d.getUserName());
-                this.e.put("view_top_params_key_desc", this.d.getDesc());
-                this.e.put("view_top_params_room_id", this.d.getRoomId());
-                this.e.put("view_top_params_btn_text", this.d.getBtnText());
-                this.e.put("view_top_params_key_title", this.d.getTitle());
-                this.e.put("view_top_params_key_nid", this.d.getFeedId());
-                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
-                this.e.put("view_top_params_key_type", Integer.valueOf(i));
-                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
-                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !vf5.j()) {
-                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !vf5.j()) {
-                        aVar.callback(true);
-                        return;
-                    } else {
-                        aVar.callback(false);
-                        return;
+                if (!f5aVar.j()) {
+                    f5aVar.z(202);
+                    f5aVar.v(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
+                }
+            } else {
+                String c = h5aVar.c();
+                if (!wi.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
+                    f5aVar.z(201);
+                    return f5aVar;
+                }
+                Iterator<d5a> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    f5aVar = it2.next().dispatch(h5aVar, f5aVar);
+                    if (f5aVar.i()) {
+                        return f5aVar;
                     }
                 }
-                aVar.callback(false);
-                return;
+                if (!f5aVar.i()) {
+                    f5aVar.z(202);
+                }
             }
-            aVar.callback(false);
+            return f5aVar;
         }
+        return (f5a) invokeLL.objValue;
+    }
+
+    public void d(WebView webView, f5a f5aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, f5aVar) != null) || webView == null || f5aVar == null || !f5aVar.k()) {
+            return;
+        }
+        b(webView, f5aVar.c(), f5aVar.d());
+    }
+
+    public void e(WebView webView, List<f5a> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
+            for (f5a f5aVar : list) {
+                if (f5aVar != null && f5aVar.k()) {
+                    b(webView, f5aVar.c(), f5aVar.d());
+                }
+            }
+        }
+    }
+
+    public List<f5a> f(WebView webView, String str, HashMap hashMap) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
+            List<f5a> list = null;
+            if (wi.isEmpty(str)) {
+                return null;
+            }
+            Iterator<d5a> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(webView, str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
+        }
+        return (List) invokeLLL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import com.ksad.json.annotation.KsJson;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class x implements com.kwad.sdk.core.webview.kwai.a {
     public Handler Ll = new Handler(Looper.getMainLooper());
     public com.kwad.sdk.core.webview.kwai.c Lu;
@@ -15,7 +15,7 @@ public final class x implements com.kwad.sdk.core.webview.kwai.a {
     public String mUrl;
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String errorMsg;
         public int status;
@@ -25,7 +25,7 @@ public final class x implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         @MainThread
         void a(a aVar);

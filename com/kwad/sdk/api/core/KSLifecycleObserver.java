@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KSLifecycleObserver {
     public static KSLifecycleObserver sKSLifecycleObserver;
     public WeakReference<Activity> currentActivity;

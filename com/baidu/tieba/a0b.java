@@ -1,324 +1,295 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.media.MediaCodec;
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
+import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.nio.ByteBuffer;
+@SuppressLint({"NewApi"})
 /* loaded from: classes4.dex */
-public class a0b {
+public class a0b implements uza {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public MediaCodec a;
+    public MediaFormat b;
+    public ByteBuffer[] c;
+    public ByteBuffer[] d;
+    public BufferedOutputStream e;
+    public boolean f;
+    public ByteBuffer g;
+    public byte[] h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public c0b m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947562774, "Lcom/baidu/tieba/a0b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public final int g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            switch (i) {
+                case 7350:
+                    return 12;
+                case 8000:
+                    return 11;
+                case 11025:
+                    return 10;
+                case 12000:
+                    return 9;
+                case 16000:
+                    return 8;
+                case 22050:
+                    return 7;
+                case 24000:
+                    return 6;
+                case 32000:
+                    return 5;
+                case OpusReader.SAMPLE_RATE /* 48000 */:
+                    return 3;
+                case 64000:
+                    return 2;
+                case 88200:
+                    return 1;
+                case 96000:
+                    return 0;
+                default:
+                    return 4;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947562774, "Lcom/baidu/tieba/a0b;");
+        }
+        return invokeI.intValue;
+    }
+
+    public a0b(int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = AppConfig.isDebug();
+        this.k = i2;
+        this.l = g(i);
+        MediaCodecInfo h = h("audio/mp4a-latm");
+        if (h == null) {
+            c0b c0bVar = this.m;
+            if (c0bVar != null) {
+                c0bVar.onExceptionThrown("not suport aac encoder");
+                return;
+            }
+            return;
+        }
+        this.a = MediaCodec.createByCodecName(h.getName());
+        MediaFormat mediaFormat = new MediaFormat();
+        this.b = mediaFormat;
+        mediaFormat.setString("mime", "audio/mp4a-latm");
+        this.b.setInteger("aac-profile", 2);
+        this.b.setInteger("sample-rate", i);
+        this.b.setInteger("channel-count", i2);
+        this.b.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+        this.b.setInteger("max-input-size", 8192);
+        this.b.setInteger("bitrate-mode", 16);
+        this.a.configure(this.b, (Surface) null, (MediaCrypto) null, 1);
+        this.a.start();
+        this.c = this.a.getInputBuffers();
+        this.d = this.a.getOutputBuffers();
+        this.g = ByteBuffer.allocateDirect(8192);
+        this.h = new byte[4096];
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0049 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b4 */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x008a, code lost:
-        if (com.baidu.tieba.a0b.a == false) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x008c, code lost:
-        r5.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b0, code lost:
-        if (com.baidu.tieba.a0b.a == false) goto L49;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x00bf A[Catch: IOException -> 0x00bb, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x00c4 A[Catch: IOException -> 0x00bb, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r2v10 */
-    /* JADX WARN: Type inference failed for: r2v2 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5 */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r3v0 */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v5 */
-    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r5v14 */
-    /* JADX WARN: Type inference failed for: r5v15 */
-    /* JADX WARN: Type inference failed for: r5v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r5v2 */
-    /* JADX WARN: Type inference failed for: r5v3 */
-    /* JADX WARN: Type inference failed for: r5v5 */
-    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r5v8, types: [java.io.BufferedInputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(File file) {
-        ?? r2;
-        ?? r3;
-        BufferedReader bufferedReader;
+    @Override // com.baidu.tieba.uza
+    public void a() throws IOException {
+        int dequeueInputBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            r2 = interceptable;
-            r3 = 65537;
-            InterceptResult invokeL = r2.invokeL(65537, null, file);
-            if (invokeL != null) {
-                return (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            h1b.j("VideoMuxer: ", "----set BUFFER_FLAG_END_OF_STREAM to encoder-----");
+            do {
+                dequeueInputBuffer = this.a.dequeueInputBuffer(10000L);
+                if (dequeueInputBuffer >= 0) {
+                    h1b.j("VideoMuxer: ", "----MediaCodec.BUFFER_FLAG_END_OF_STREAM-----");
+                    this.a.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                }
+                i();
+            } while (dequeueInputBuffer < 0);
+            while (!this.f) {
+                i();
             }
         }
-        if (file == 0 || !file.exists()) {
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            try {
+                this.a.stop();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                this.a.release();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            this.a = null;
+            try {
+                this.e.flush();
+                this.e.close();
+            } catch (IOException e3) {
+                e3.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.uza
+    public void b(String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.e = new BufferedOutputStream(new FileOutputStream(str));
+        }
+    }
+
+    @Override // com.baidu.tieba.uza
+    public void d(c0b c0bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, c0bVar) == null) {
+            this.m = c0bVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.uza
+    public int c(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            if (this.g.capacity() < i2) {
+                this.g = ByteBuffer.allocateDirect(i2);
+            }
+            this.g.clear();
+            this.g.put(bArr, i, i2);
+            this.g.flip();
+            while (this.g.hasRemaining()) {
+                int dequeueInputBuffer = this.a.dequeueInputBuffer(10000L);
+                if (dequeueInputBuffer >= 0) {
+                    ByteBuffer byteBuffer = this.c[dequeueInputBuffer];
+                    int min = Math.min(byteBuffer.capacity(), this.g.remaining());
+                    if (min != this.h.length) {
+                        this.h = new byte[min];
+                    }
+                    this.g.get(this.h, 0, min);
+                    byteBuffer.clear();
+                    byteBuffer.put(this.h);
+                    this.a.queueInputBuffer(dequeueInputBuffer, 0, min, 0L, 0);
+                    this.i += min;
+                }
+                i();
+            }
+            return 0;
+        }
+        return invokeLII.intValue;
+    }
+
+    public final void e(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, bArr, i) == null) {
+            int i2 = this.l;
+            int i3 = this.k;
+            bArr[0] = -1;
+            bArr[1] = -7;
+            bArr[2] = (byte) (64 + (i2 << 2) + (i3 >> 2));
+            bArr[3] = (byte) (((i3 & 3) << 6) + (i >> 11));
+            bArr[4] = (byte) ((i & 2047) >> 3);
+            bArr[5] = (byte) (((i & 7) << 5) + 31);
+            bArr[6] = -4;
+        }
+    }
+
+    public final MediaCodecInfo h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            int codecCount = MediaCodecList.getCodecCount();
+            for (int i = 0; i < codecCount; i++) {
+                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
+                if (codecInfoAt.isEncoder()) {
+                    for (String str2 : codecInfoAt.getSupportedTypes()) {
+                        if (str2.equalsIgnoreCase(str)) {
+                            return codecInfoAt;
+                        }
+                    }
+                    continue;
+                }
+            }
             return null;
         }
-        StringBuilder sb = new StringBuilder();
-        try {
-            try {
-                r2 = new FileInputStream((File) file);
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (FileNotFoundException e) {
-            e = e;
-            file = 0;
-            r2 = 0;
-            bufferedReader = null;
-        } catch (IOException e2) {
-            e = e2;
-            file = 0;
-            r2 = 0;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            r2 = 0;
-            r3 = 0;
-        }
-        try {
-            file = new BufferedInputStream(r2);
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(file));
-                while (true) {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e4) {
-                                e = e4;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (r2 != 0) {
-                            r2.close();
-                        }
-                        return null;
-                    } catch (IOException e5) {
-                        e = e5;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e6) {
-                                e = e6;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (r2 != 0) {
-                            r2.close();
-                        }
-                        return null;
-                    }
-                }
-                String sb2 = sb.toString();
-                try {
-                    bufferedReader.close();
-                    file.close();
-                    r2.close();
-                } catch (IOException e7) {
-                    if (a) {
-                        e7.printStackTrace();
-                    }
-                }
-                return sb2;
-            } catch (FileNotFoundException e8) {
-                e = e8;
-                bufferedReader = null;
-            } catch (IOException e9) {
-                e = e9;
-                bufferedReader = null;
-            } catch (Throwable th3) {
-                r3 = 0;
-                th = th3;
-                if (r3 != 0) {
-                    try {
-                        r3.close();
-                    } catch (IOException e10) {
-                        if (a) {
-                            e10.printStackTrace();
-                        }
-                        throw th;
-                    }
-                }
-                if (file != 0) {
-                    file.close();
-                }
-                if (r2 != 0) {
-                    r2.close();
-                }
-                throw th;
-            }
-        } catch (FileNotFoundException e11) {
-            e = e11;
-            file = 0;
-            bufferedReader = null;
-        } catch (IOException e12) {
-            e = e12;
-            file = 0;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            th = th4;
-            r3 = 0;
-            r2 = r2;
-            th = th;
-            file = r3;
-            if (r3 != 0) {
-            }
-            if (file != 0) {
-            }
-            if (r2 != 0) {
-            }
-            throw th;
-        }
+        return (MediaCodecInfo) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x004d, code lost:
-        if (com.baidu.tieba.a0b.a == false) goto L32;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x004f, code lost:
-        r4.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0064, code lost:
-        if (com.baidu.tieba.a0b.a == false) goto L32;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
+    public final void i() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, file)) == null) {
-            if (TextUtils.isEmpty(str) || !file.exists()) {
-                return false;
-            }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+            int dequeueOutputBuffer = this.a.dequeueOutputBuffer(bufferInfo, 10000L);
+            if (dequeueOutputBuffer == -2) {
+                this.b = this.a.getOutputFormat();
+            } else if (dequeueOutputBuffer == -3) {
+                this.d = this.a.getOutputBuffers();
+            } else if (dequeueOutputBuffer == -1) {
+                h1b.j("VideoMuxer", "writeOutput INFO_TRY_AGAIN_LATER");
+            } else if (dequeueOutputBuffer >= 0) {
+                if ((bufferInfo.flags & 2) != 0) {
+                    this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    return;
                 }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            }
-            try {
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e3) {
-                    if (a) {
-                        e3.printStackTrace();
-                    }
+                int i = bufferInfo.size;
+                if (i > 0) {
+                    int i2 = i + 7;
+                    ByteBuffer byteBuffer = this.d[dequeueOutputBuffer];
+                    byteBuffer.position(bufferInfo.offset);
+                    byteBuffer.limit(bufferInfo.offset + i);
+                    byte[] bArr = new byte[i2];
+                    e(bArr, i2);
+                    byteBuffer.get(bArr, 7, i);
+                    byteBuffer.position(bufferInfo.offset);
+                    this.e.write(bArr, 0, i2);
+                    this.j += bufferInfo.size;
+                    byteBuffer.clear();
                 }
-                return true;
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                fileOutputStream2 = fileOutputStream;
-                if (a) {
-                    e.printStackTrace();
-                }
-                if (fileOutputStream2 != null) {
+                this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
+                if ((bufferInfo.flags & 4) != 0) {
+                    this.f = true;
                     try {
-                        fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e = e5;
+                        f();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (this.m != null) {
+                        h1b.j("VideoMuxer: ", "----Encode done-----,numBytesSubmitted:" + this.i + ",numBytesDequeued:" + this.j);
+                        this.m.onFinishedWriting(true);
                     }
                 }
-                return false;
-            } catch (IOException e6) {
-                e = e6;
-                fileOutputStream2 = fileOutputStream;
-                if (a) {
-                    e.printStackTrace();
-                }
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e7) {
-                        e = e7;
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e8) {
-                        if (a) {
-                            e8.printStackTrace();
-                        }
-                    }
-                }
-                throw th;
             }
         }
-        return invokeLL.booleanValue;
     }
 }

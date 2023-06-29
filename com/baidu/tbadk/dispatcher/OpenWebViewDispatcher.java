@@ -11,17 +11,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.lq9;
-import com.baidu.tieba.mz4;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.xu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class OpenWebViewDispatcher implements lq9 {
+public class OpenWebViewDispatcher implements xu9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/tbwebview";
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,11 +42,10 @@ public class OpenWebViewDispatcher implements lq9 {
         }
     }
 
-    @Override // com.baidu.tieba.lq9
+    @Override // com.baidu.tieba.xu9
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         String str;
-        Bundle bundle;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048576, this, jSONObject, context) != null) || jSONObject == null || context == null || (currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(context)) == null || FullBrowseHelper.checkAndShowFullBrowseModeDialog(currentPageContext) || StringUtils.isNull(jSONObject.optString("url"))) {
             return;
@@ -65,6 +66,7 @@ public class OpenWebViewDispatcher implements lq9 {
         JSONObject optJSONObject = jSONObject.optJSONObject("initData");
         try {
             Uri parse = Uri.parse(optString);
+            Bundle bundle = null;
             if (parse != null) {
                 str = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_OPEN_TYPE);
             } else {
@@ -77,10 +79,8 @@ public class OpenWebViewDispatcher implements lq9 {
             if (!StringUtils.isNull(str)) {
                 bundle = new Bundle();
                 bundle.putString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE, str);
-            } else {
-                bundle = null;
             }
-            mz4 j = mz4.j(context, optString);
+            pz4 j = pz4.j(context, optString);
             j.p(optString2);
             j.m(optBoolean);
             j.k(optBoolean2);
@@ -93,9 +93,22 @@ public class OpenWebViewDispatcher implements lq9 {
             j.a(bundle);
             if (optJSONObject != null) {
                 HashMap<String, Serializable> hashMap = new HashMap<>();
-                JSONLikeSerializable jSONLikeSerializable = new JSONLikeSerializable();
-                jSONLikeSerializable.parseJsonObject(optJSONObject);
-                hashMap.put("initData", jSONLikeSerializable);
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    Object opt = optJSONObject.opt(next);
+                    if (opt instanceof JSONObject) {
+                        JSONLikeSerializable jSONLikeSerializable = new JSONLikeSerializable();
+                        jSONLikeSerializable.parseJsonObject((JSONObject) opt);
+                        hashMap.put(next, jSONLikeSerializable);
+                    } else if (opt instanceof JSONArray) {
+                        JSONLikeSerializable jSONLikeSerializable2 = new JSONLikeSerializable();
+                        jSONLikeSerializable2.parseJsonArray((JSONArray) opt);
+                        hashMap.put(next, jSONLikeSerializable2);
+                    } else if (opt instanceof Serializable) {
+                        hashMap.put(next, (Serializable) opt);
+                    }
+                }
                 j.f(hashMap);
             }
             j.o();

@@ -1,7 +1,7 @@
 package com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class CanExcellent extends OrmObject implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ug.e(this.canOpExcellent, 0);
+            return vg.e(this.canOpExcellent, 0);
         }
         return invokeV.intValue;
     }

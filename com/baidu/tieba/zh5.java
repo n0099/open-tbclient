@@ -1,5 +1,8 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
+import java.util.List;
 /* loaded from: classes8.dex */
 public interface zh5 {
-    void C(yh5 yh5Var);
+    void a(List<Bitmap> list);
 }

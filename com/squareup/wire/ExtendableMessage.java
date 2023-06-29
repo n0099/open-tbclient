@@ -1,6 +1,5 @@
 package com.squareup.wire;
 
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -160,7 +159,7 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ExtensionMap<T> extensionMap = this.extensionMap;
             if (extensionMap == null) {
-                return StringUtil.EMPTY_ARRAY;
+                return "{}";
             }
             return extensionMap.toString();
         }

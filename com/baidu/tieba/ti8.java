@@ -1,63 +1,24 @@
 package com.baidu.tieba;
 
-import android.widget.ListView;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.model.MsglistModel;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.AbilityTagItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.ElementFileItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.ElementItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.SkillIconViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.SkillTagItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.TagItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.TagSugItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class ti8 {
+/* loaded from: classes8.dex */
+public class ti8 extends yj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<si8> a;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ListView a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ si8 c;
-        public final /* synthetic */ ChatMessage d;
-        public final /* synthetic */ ChatMessage e;
-
-        public a(ti8 ti8Var, ListView listView, List list, si8 si8Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ti8Var, listView, list, si8Var, chatMessage, chatMessage2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = listView;
-            this.b = list;
-            this.c = si8Var;
-            this.d = chatMessage;
-            this.e = chatMessage2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getLastVisiblePosition() != this.b.size() - 1) {
-                return;
-            }
-            this.c.b(this.a, this.d, this.e);
-        }
-    }
 
     public ti8() {
         Interceptable interceptable = $ic;
@@ -69,32 +30,38 @@ public class ti8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        ArrayList<si8> arrayList = new ArrayList<>(2);
-        this.a = arrayList;
-        arrayList.add(new ri8());
-        this.a.add(new ui8());
     }
 
-    public void a(MsglistModel msglistModel, ListView listView) {
+    @Override // com.baidu.tieba.yj8
+    public BaseTagItemViewHolder b(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) && msglistModel != null && msglistModel.getData() != null) {
-            List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
-            if (ListUtils.isEmpty(chatMessages)) {
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i == bj8.b) {
+                return new TagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0932, viewGroup, false), this.a);
             }
-            ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
-            ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
-            Iterator<si8> it = this.a.iterator();
-            while (it.hasNext()) {
-                si8 next = it.next();
-                if (next.a(chatMessage, chatMessage2)) {
-                    listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
-                    return;
-                }
+            if (i == zi8.d) {
+                return new ElementItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d092f, viewGroup, false), this.a);
             }
+            if (i == yi8.c) {
+                return new SkillTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0899, viewGroup, false), this.a);
+            }
+            if (i == xi8.a) {
+                return new SkillIconViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0898, viewGroup, false), this.a);
+            }
+            if (i == aj8.f) {
+                return new ElementFileItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0931, viewGroup, false), this.a);
+            }
+            if (i == wi8.d) {
+                return new AbilityTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d092e, viewGroup, false), this.b, this.c);
+            }
+            if (i == cj8.b) {
+                return new TagSugItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d092f, viewGroup, false), this.a);
+            }
+            return null;
         }
+        return (BaseTagItemViewHolder) invokeLI.objValue;
     }
 }

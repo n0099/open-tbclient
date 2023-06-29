@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.RequiresApi;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.yf2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,24 +14,89 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceRequest;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class bg2 implements ig2 {
+public final class bg2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<ng2> b;
+    public yf2 a;
+    public zf2 b;
+    public ConcurrentHashMap<String, PrefetchEvent> c;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PrefetchEvent a;
+        public final /* synthetic */ bg2 b;
+
+        public a(bg2 bg2Var, PrefetchEvent prefetchEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bg2Var, prefetchEvent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bg2Var;
+            this.a = prefetchEvent;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.b.e(this.a);
+        }
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public class b implements yf2.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PrefetchEvent a;
+        public final /* synthetic */ bg2 b;
+
+        public b(bg2 bg2Var, PrefetchEvent prefetchEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bg2Var, prefetchEvent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bg2Var;
+            this.a = prefetchEvent;
+        }
+
+        @Override // com.baidu.tieba.yf2.e
+        public void a(b93 b93Var, PMSAppInfo pMSAppInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, b93Var, pMSAppInfo) == null) {
+                this.b.b.b(this.a, b93Var, pMSAppInfo);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final bg2 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +104,13 @@ public class bg2 implements ig2 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-919941410, "Lcom/baidu/tieba/bg2$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-919941379, "Lcom/baidu/tieba/bg2$c;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-919941410, "Lcom/baidu/tieba/bg2$b;");
+                    classClinitInterceptable.invokePostClinit(-919941379, "Lcom/baidu/tieba/bg2$c;");
                     return;
                 }
             }
@@ -50,65 +118,100 @@ public class bg2 implements ig2 {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947643932, "Lcom/baidu/tieba/bg2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947643932, "Lcom/baidu/tieba/bg2;");
+                return;
+            }
+        }
+        d = ms1.a;
+    }
+
+    public static bg2 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c.a;
+        }
+        return (bg2) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.clear();
+        }
+    }
+
     public bg2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new CopyOnWriteArrayList<>();
-    }
-
-    public static bg2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (bg2) invokeV.objValue;
+        this.c = new ConcurrentHashMap<>();
+        this.a = new yf2();
+        this.b = new zf2();
     }
 
     public /* synthetic */ bg2(a aVar) {
         this();
     }
 
-    public void a(ng2 ng2Var) {
+    public void c(PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ng2Var) == null) && ng2Var != null && !this.b.contains(ng2Var)) {
-            this.b.add(ng2Var);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, prefetchEvent) != null) || prefetchEvent == null) {
+            return;
+        }
+        this.c.put(e42.a(prefetchEvent.appId), prefetchEvent);
+    }
+
+    public final void e(PrefetchEvent prefetchEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent) == null) {
+            this.a.g(prefetchEvent, new b(this, prefetchEvent));
         }
     }
 
-    @RequiresApi(api = 21)
-    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
-        InterceptResult invokeLZ;
-        Uri url;
+    public final boolean h(PrefetchEvent prefetchEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
-            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, prefetchEvent)) == null) {
+            if (!cg2.h() || prefetchEvent == null || !prefetchEvent.isValid() || !TextUtils.equals(prefetchEvent.state, "show")) {
+                return true;
             }
-            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
+            return false;
         }
-        return (WebResourceResponse) invokeLZ.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final WebResourceResponse d(String str, Map<String, String> map, boolean z) {
-        InterceptResult invokeLLZ;
+    public void f(PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
-            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, prefetchEvent) == null) {
+            if (d) {
+                Log.d("SwanAppPrefetchManager", "fire preloadEvent abSwitch: " + cg2.h());
             }
-            return new qg2(this.b, str, map, 0, z).b(str, map, z);
+            if (h(prefetchEvent)) {
+                return;
+            }
+            if (d) {
+                Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
+            }
+            ExecutorUtilsExt.postOnSerial(new a(this, prefetchEvent), "prefetch-event-thread");
         }
-        return (WebResourceResponse) invokeLLZ.objValue;
     }
 }

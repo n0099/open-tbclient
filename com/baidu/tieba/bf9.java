@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +14,69 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class bf9 extends BaseCardInfo implements wn {
+public class bf9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ye9> a;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ View b;
+
+        public a(Context context, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = view2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || BreatheTipWidget.f() || this.a == null) {
+                return;
+            }
+            ia5 ia5Var = new ia5();
+            ia5Var.b = R.raw.lottie_bubble_breath_tip;
+            ia5Var.a = BreatheTipWidget.PointType.LOTTIE;
+            ia5Var.c = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds130);
+            ja5 ja5Var = new ja5();
+            ja5Var.a = cd9.t(R.string.obfuscated_res_0x7f0f05a6, new Object[0]);
+            ja5Var.b = cd9.t(R.string.agree_tip_content, new Object[0]);
+            ja5Var.e = R.drawable.pic_guidecard;
+            ja5Var.f = xi.g(this.a, R.dimen.tbds156);
+            ja5Var.g = xi.g(this.a, R.dimen.tbds489);
+            ja5Var.h = xi.g(this.a, R.dimen.tbds286);
+            if (this.b == null) {
+                return;
+            }
+            BreatheTipWidget breatheTipWidget = new BreatheTipWidget(this.a);
+            breatheTipWidget.j(this.b);
+            breatheTipWidget.h(ja5Var, ia5Var);
+            if (breatheTipWidget.k((Activity) this.a, 4000L)) {
+                r95 p = r95.p();
+                p.A("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), true);
+                bg5.c("c14828");
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,46 +91,61 @@ public class bf9 extends BaseCardInfo implements wn {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = r95.t("key_show_god_agree_tips_count");
+        b = r95.t("key_show_god_agree_tips_timestamp");
     }
 
-    public bf9() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && !b()) {
+            r95.p().H(b, System.currentTimeMillis());
+            r95.p().F(a, 0);
+        }
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long r = r95.p().r(b, 0L);
+            if (r >= 0) {
+                return TimeHelper.isSameDay(currentTimeMillis, r);
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public List<ye9> c() {
-        InterceptResult invokeV;
+    public static boolean c(u89 u89Var) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, u89Var)) == null) {
+            if (u89Var == null || u89Var.N() == null || !TbadkCoreApplication.isLogin() || !u89Var.N().isExcellentThread() || u89Var.N().getHasAgree() == 1) {
+                return false;
+            }
+            if (b()) {
+                i = r95.p().q(a, 0);
+            } else {
+                i = 0;
+            }
+            if (i >= 2) {
+                return false;
+            }
+            return true;
         }
-        return (List) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void d(Context context, View view2, u89 u89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, view2, u89Var) != null) || u79.c() || c(u89Var)) {
+            return;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void d(List<ye9> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        r95 p = r95.p();
+        if (!p.l("key_pb_double_click_agree_" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            yg.a().postDelayed(new a(context, view2), 500L);
         }
     }
 }

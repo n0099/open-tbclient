@@ -2,7 +2,7 @@ package com.kwad.sdk.api.model;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SplashAdExtraData {
     public boolean isDisableRotate;
     public boolean isDisableShake;

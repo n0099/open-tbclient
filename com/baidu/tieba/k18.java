@@ -1,83 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.Personalized.CardForum;
+import tbclient.Personalized.PersonalForum;
 /* loaded from: classes6.dex */
-public class k18 {
+public class k18 extends ep6 implements mp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    @NonNull
-    public List<a> d;
+    public CardForum e;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public String c;
-        public String d;
-        public int e;
-        public String f;
+    public static boolean i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.mp6
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
         }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.e == 1) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static a b(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optLong("id");
-                aVar.b = jSONObject.optString("name");
-                aVar.c = jSONObject.optString("avatar");
-                aVar.d = jSONObject.optString("recommend_tip");
-                aVar.e = jSONObject.optInt("is_liked");
-                aVar.f = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
+        return invokeV.booleanValue;
     }
 
     public k18() {
@@ -90,91 +42,78 @@ public class k18 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = new ArrayList();
     }
 
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String c() {
+    @Override // com.baidu.tieba.mp6
+    public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.c;
-            if (str == null) {
-                return "";
+            CardForum cardForum = this.e;
+            if (cardForum != null) {
+                return cardForum.position.intValue();
             }
-            return str;
+            return 0;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @NonNull
-    public List<a> d() {
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+            if (ListUtils.getCount(getDataList()) <= 0) {
+                return false;
+            }
+            return true;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static k18 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.mp6
+    public void N(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.showBottomDivider = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.mp6
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.showTopDivider = z;
+        }
+    }
+
+    public void l(CardForum cardForum) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) && cardForum != null) {
+            this.e = cardForum;
+            this.mGroupTitle = cardForum.card_title;
+            if (cardForum.position != null) {
+                h(e() + cardForum.position.intValue());
+            } else {
+                h(e() + 0);
             }
-            k18 k18Var = new k18();
-            k18Var.c = jSONObject.optString("card_guide");
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    a b = a.b(optJSONArray.optJSONObject(i));
-                    if (b != null) {
-                        arrayList.add(b);
+            if (ListUtils.getCount(cardForum.forum_list) > 0) {
+                for (PersonalForum personalForum : cardForum.forum_list) {
+                    if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
+                        dp6 dp6Var = new dp6();
+                        dp6Var.b = personalForum.avatar;
+                        dp6Var.c = personalForum.forum_name;
+                        dp6Var.d = vg.e("" + personalForum.forum_id, -1);
+                        boolean z = true;
+                        if (personalForum.is_like.intValue() != 1) {
+                            z = false;
+                        }
+                        dp6Var.e = z;
+                        c(dp6Var);
                     }
                 }
-                k18Var.d = arrayList;
             }
-            return k18Var;
-        }
-        return (k18) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a = str;
         }
     }
 }

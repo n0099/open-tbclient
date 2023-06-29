@@ -94,7 +94,7 @@ public class EmotionFloatView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d028b, (ViewGroup) this, true);
             this.a = (GifView) findViewById(R.id.emotion_view);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09085e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090864);
         }
     }
 

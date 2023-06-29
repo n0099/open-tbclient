@@ -1,6 +1,6 @@
 package com.baidu.swan.bdtls.impl.model;
 
-import com.baidu.tieba.dv3;
+import com.baidu.tieba.gv3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -78,7 +78,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bdtls$Random buildPartial() {
-            Bdtls$Random bdtls$Random = new Bdtls$Random(this, (dv3) null);
+            Bdtls$Random bdtls$Random = new Bdtls$Random(this, (gv3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -373,7 +373,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, dv3 dv3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, gv3 gv3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -408,7 +408,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, dv3 dv3Var) {
+    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, gv3 gv3Var) {
         this(builder);
     }
 

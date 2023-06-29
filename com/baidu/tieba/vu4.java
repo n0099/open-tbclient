@@ -1,25 +1,100 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.webkit.CookieManager;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.BdToken.NewUserGetMoneyResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vu4 {
     public static /* synthetic */ Interceptable $ic;
+    public static vu4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public hu4 a;
+    public CustomMessageListener b;
+    public CustomMessageListener c;
+
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vu4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vu4 vu4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vu4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vu4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && customResponsedMessage != null) {
+                Object data = customResponsedMessage.getData();
+                if ((data instanceof n6a) && ((n6a) data).b) {
+                    this.a.e();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(vu4 vu4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vu4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
     public vu4() {
         Interceptable interceptable = $ic;
@@ -34,34 +109,64 @@ public class vu4 {
                 return;
             }
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEW_USER_GET_MONEY, TbConfig.NEW_USER_GET_MONEY_URL);
-        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
-        tbHttpMessageTask.setResponsedClass(NewUserGetMoneyResMsg.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        messageManager.registerTask(tbHttpMessageTask);
+        this.b = new a(this, 2001437);
+        this.c = new b(this, 2005016);
     }
 
-    public void a() {
+    public void d(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
-            if (sl9.b()) {
-                httpMessage.addParam("brand", Build.BRAND);
-            } else {
-                httpMessage.addParam(HttpRequest.NEED_DECRYPT, sl9.c());
-                String g = sl9.g("brand");
-                if (!TextUtils.isEmpty(g)) {
-                    httpMessage.addParam(g, sl9.e());
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            this.b.setTag(bdUniqueId);
+            this.c.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.b);
+            MessageManager.getInstance().registerListener(this.c);
+        }
+    }
+
+    public void f(hu4 hu4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hu4Var) == null) {
+            this.a = hu4Var;
+        }
+    }
+
+    public static vu4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (d == null) {
+                synchronized (vu4.class) {
+                    if (d == null) {
+                        d = new vu4();
+                    }
                 }
             }
-            httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            httpMessage.addParam("client_version", TbConfig.getVersion());
-            httpMessage.addParam("client_type", "Android");
-            httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            httpMessage.addParam("ua", gy5.b());
-            httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
-            MessageManager.getInstance().sendMessage(httpMessage);
+            return d;
+        }
+        return (vu4) invokeV.objValue;
+    }
+
+    public final void e() {
+        hu4 hu4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (hu4Var = this.a) == null || hu4Var.d() == 0 || this.a.q() == 0 || this.a.x() != 9) {
+            return;
+        }
+        try {
+            String valueOf = String.valueOf(this.a.d());
+            String valueOf2 = String.valueOf(this.a.q());
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(valueOf, valueOf2);
+            CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
+            completeTaskReqMsg.completeId = jSONObject.toString();
+            JSONObject a2 = nv4.a(null, this.a.d(), this.a.q(), this.a.E());
+            if (a2 != null) {
+                completeTaskReqMsg.setToken(a2.toString());
+            }
+            completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
+            MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -1,164 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.itemtab.card.CardItemHotVideoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ApkDetail;
-import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class em7 extends i15 {
+public class em7 extends wx<l15> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<jm7> a;
+    public CardItemHotVideoLayout f;
 
-    @Override // com.baidu.tieba.i15
-    public h35 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (h35) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i15
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947739226, "Lcom/baidu/tieba/em7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947739226, "Lcom/baidu/tieba/em7;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public em7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public em7(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        setSupportType(BaseCardInfo.SupportType.FULL);
+        this.f = new CardItemHotVideoLayout(context);
     }
 
-    public ArrayList<jm7> c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qy
+    /* renamed from: s */
+    public void a(l15 l15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, l15Var) == null) {
+            this.f.setData((lm7) l15Var);
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public boolean d() {
+    @Override // com.baidu.tieba.wx
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !ListUtils.isEmpty(this.a);
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ry
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void e(ItemInfo itemInfo) {
-        ApkDetail apkDetail;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            this.a.clear();
-            if (itemInfo != null && (apkDetail = itemInfo.apk_detail) != null) {
-                if (!vi.isEmpty(apkDetail.developer)) {
-                    this.a.add(new jm7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0583), itemInfo.apk_detail.developer, null));
-                }
-                if (!vi.isEmpty(itemInfo.apk_detail.publisher)) {
-                    this.a.add(new jm7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f113e), itemInfo.apk_detail.publisher, null));
-                }
-                if (!vi.isEmpty(itemInfo.apk_detail.version)) {
-                    this.a.add(new jm7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0513), itemInfo.apk_detail.version, null));
-                }
-                if (!vi.isEmpty(itemInfo.apk_detail.update_time)) {
-                    this.a.add(new jm7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1763), itemInfo.apk_detail.update_time, null));
-                }
-                if (ug.g(itemInfo.apk_detail.size, 0L) > 0) {
-                    this.a.add(new jm7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0720), StringHelper.getFormatSize(ug.g(itemInfo.apk_detail.size, 0L)), null));
-                }
-                int intValue = itemInfo.apk_detail.need_network.intValue();
-                int i2 = R.string.editor_dialog_yes;
-                if (intValue > 0) {
-                    ArrayList<jm7> arrayList = this.a;
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b0a);
-                    Resources resources = TbadkCoreApplication.getInst().getResources();
-                    if (itemInfo.apk_detail.need_network.intValue() == 1) {
-                        i = R.string.editor_dialog_yes;
-                    } else {
-                        i = R.string.editor_dialog_no;
-                    }
-                    arrayList.add(new jm7(string, resources.getString(i), null));
-                }
-                if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
-                    ArrayList<jm7> arrayList2 = this.a;
-                    String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f098f);
-                    Resources resources2 = TbadkCoreApplication.getInst().getResources();
-                    if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
-                        i2 = R.string.editor_dialog_no;
-                    }
-                    arrayList2.add(new jm7(string2, resources2.getString(i2), null));
-                }
-                if (!vi.isEmpty(itemInfo.apk_detail.authority_url)) {
-                    this.a.add(new jm7(TbadkCoreApplication.getInst().getResources().getString(R.string.permission_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.authority_url));
-                }
-                if (!vi.isEmpty(itemInfo.apk_detail.privacy_url)) {
-                    this.a.add(new jm7(TbadkCoreApplication.getInst().getResources().getString(R.string.privacy_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.privacy_url));
-                }
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 }

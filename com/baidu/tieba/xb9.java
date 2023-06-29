@@ -1,94 +1,92 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ub9;
+import com.baidu.tieba.w55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class xb9 {
+public final class xb9 extends w55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<bc9> a;
+    public final ub9 c;
 
-    public xb9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xb9(Activity activity, ub9 controller) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, controller};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        Intrinsics.checkNotNullParameter(controller, "controller");
+        this.c = controller;
     }
 
-    public ArrayList<bc9> a() {
-        InterceptResult invokeV;
+    public static final void g(xb9 this$0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public final boolean b(ExcContent excContent) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.w55
+    public void d(w55.a shouldShowCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
-            long longValue = excContent.type.longValue();
-            if (longValue == 2 || longValue == 0 || longValue == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
+            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
+            shouldShowCallback.callback(this.c.d());
         }
-        return invokeL.booleanValue;
     }
 
-    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
-        ec9 ec9Var;
+    @Override // com.baidu.tieba.w55
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
-            loop0: while (true) {
-                ec9Var = null;
-                for (ExcContent excContent : list) {
-                    if (excContent != null && excContent.type != null) {
-                        if (b(excContent)) {
-                            ac9 a = dc9.a(tbPageContext, excContent);
-                            if (a == null) {
-                                continue;
-                            } else if (a.a()) {
-                                if (ec9Var != null) {
-                                    this.a.add(ec9Var);
-                                }
-                                this.a.add(a);
-                            } else {
-                                if (ec9Var == null) {
-                                    ec9Var = new ec9();
-                                }
-                                ec9Var.c(a.b());
-                            }
-                        } else {
-                            if (ec9Var != null) {
-                                this.a.add(ec9Var);
-                            }
-                            this.a.add(dc9.b(excContent));
-                        }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.g();
+        }
+    }
+
+    @Override // com.baidu.tieba.w55
+    public void e() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.p(new ub9.d() { // from class: com.baidu.tieba.eb9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.ub9.d
+                public final void onDismiss() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        xb9.g(xb9.this);
                     }
                 }
-                break loop0;
+            });
+            if (nn5.e(true)) {
+                z = this.c.r();
+            } else {
+                z = false;
             }
-            if (ec9Var != null) {
-                this.a.add(ec9Var);
+            if (!z) {
+                c();
             }
         }
     }

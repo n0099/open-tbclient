@@ -1,32 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
-@Service
 /* loaded from: classes5.dex */
-public class dj0 extends vj0 {
+public final class dj0 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
+    public static dj0 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.vj0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
-    }
+    public ej0 a;
 
     public dj0() {
         Interceptable interceptable = $ic;
@@ -42,28 +32,87 @@ public class dj0 extends vj0 {
         }
     }
 
-    @Override // com.baidu.tieba.vj0
-    public boolean b(@NonNull Context context, @NonNull zj0 zj0Var, @Nullable Map<String, Object> map, @Nullable dk0 dk0Var) {
-        InterceptResult invokeLLLL;
+    public static dj0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, zj0Var, map, dk0Var)) == null) {
-            super.b(context, zj0Var, map, dk0Var);
-            HashMap<String, String> d = zj0Var.d();
-            String str = d.get("key");
-            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
-            String str3 = d.get("ext");
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String b = ej0.a().b(str);
-                JSONObject jSONObject = new JSONObject();
-                z21.f(jSONObject, "key", str);
-                z21.f(jSONObject, "message", b);
-                z21.f(jSONObject, "ext", str3);
-                d(dk0Var, zj0Var, jSONObject.toString(), 0, true);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (dj0.class) {
+                    if (b == null) {
+                        b = new dj0();
+                    }
+                }
             }
-            c(dk0Var, zj0Var, 202, false);
-            return true;
+            return b;
         }
-        return invokeLLLL.booleanValue;
+        return (dj0) invokeV.objValue;
+    }
+
+    public void b(ej0 ej0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ej0Var) == null) {
+            synchronized (ej0.class) {
+                if (this.a != null) {
+                    return;
+                }
+                this.a = ej0Var;
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            this.a.onActivityDestroyed(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            this.a.onActivityPaused(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+            this.a.onActivityResumed(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            this.a.onActivityStarted(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            this.a.onActivityStopped(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
+            this.a.onActivityCreated(activity, bundle);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) {
+            this.a.onActivitySaveInstanceState(activity, bundle);
+        }
     }
 }

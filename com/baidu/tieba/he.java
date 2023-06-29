@@ -1,81 +1,51 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.SparseArray;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
+import java.util.Locale;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public class he {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final vc a(Object obj) {
-        InterceptResult invokeL;
+    public static final boolean a(hd hdVar, oc ocVar) {
+        InterceptResult invokeLL;
+        Object objectByType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            Class<?> cls = obj.getClass();
-            if (cls != Boolean.TYPE && cls != Boolean.class) {
-                if (cls == Bundle.class) {
-                    return new qc((Bundle) obj);
-                }
-                if (cls != Byte.TYPE && cls != Byte.class) {
-                    if (cls != Character.TYPE && cls != Character.class) {
-                        if (cls != Double.TYPE && cls != Double.class) {
-                            if (cls != Float.TYPE && cls != Float.class) {
-                                if (cls != Integer.TYPE && cls != Integer.class) {
-                                    if (cls != Long.TYPE && cls != Long.class) {
-                                        if (cls != Short.TYPE && cls != Short.class) {
-                                            if (cls == String.class) {
-                                                return new fd((String) obj);
-                                            }
-                                            if (cls.isArray()) {
-                                                return new oc(obj);
-                                            }
-                                            if (cls == SparseArray.class) {
-                                                return new ed((SparseArray) obj);
-                                            }
-                                            if (obj instanceof List) {
-                                                return new xc((List) obj);
-                                            }
-                                            if (obj instanceof Queue) {
-                                                return new bd((Queue) obj);
-                                            }
-                                            if (obj instanceof Map) {
-                                                return new zc((Map) obj);
-                                            }
-                                            if (obj instanceof Set) {
-                                                return new cd((Set) obj);
-                                            }
-                                            if (!lc.e(cls, OrmObject.class)) {
-                                                return null;
-                                            }
-                                            return new ad((OrmObject) obj);
-                                        }
-                                        return new dd(((Short) obj).shortValue());
-                                    }
-                                    return new yc(((Long) obj).longValue());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, hdVar, ocVar)) == null) {
+            if (ocVar != null && hdVar != null) {
+                List<Field> b = mc.b(ocVar.getClass());
+                Set<String> keys = hdVar.getKeys();
+                for (Field field : b) {
+                    if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
+                        String name = field.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            if (keys.contains(name)) {
+                                Object objectByType2 = hdVar.getObjectByType(name, field.getGenericType());
+                                if (objectByType2 != null) {
+                                    mc.i(ocVar, name, objectByType2);
                                 }
-                                return new wc(((Integer) obj).intValue());
+                            } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
+                                Object objectByType3 = hdVar.getObjectByType(name.toLowerCase(Locale.getDefault()), field.getGenericType());
+                                if (objectByType3 != null) {
+                                    mc.i(ocVar, name, objectByType3);
+                                }
+                            } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (objectByType = hdVar.getObjectByType(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
+                                mc.i(ocVar, name, objectByType);
                             }
-                            return new uc(((Float) obj).floatValue());
                         }
-                        return new tc(((Double) obj).doubleValue());
                     }
-                    return new sc(((Character) obj).charValue());
                 }
-                return new rc(((Byte) obj).byteValue());
+                return true;
             }
-            return new pc(((Boolean) obj).booleanValue());
+            return false;
         }
-        return (vc) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

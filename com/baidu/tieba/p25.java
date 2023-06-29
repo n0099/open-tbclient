@@ -1,46 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import tbclient.ForumPresentInfo;
-import tbclient.UserRankPresentInfo;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes7.dex */
 public class p25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
-
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(p25 p25Var, UserRankPresentInfo userRankPresentInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p25Var, userRankPresentInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (userRankPresentInfo == null) {
-                return;
-            }
-            Integer num = userRankPresentInfo.user_id;
-            String str = userRankPresentInfo.user_name;
-            String str2 = userRankPresentInfo.portrait;
-        }
-    }
+    public String a;
+    public String b;
+    public l25 c;
 
     public p25() {
         Interceptable interceptable = $ic;
@@ -52,19 +26,48 @@ public class p25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
     }
 
-    public void a(ForumPresentInfo forumPresentInfo) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, forumPresentInfo) != null) || forumPresentInfo == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
             return;
         }
-        String str = forumPresentInfo.content;
-        this.a = new ArrayList<>();
-        for (int i = 0; i < forumPresentInfo.user_list.size(); i++) {
-            this.a.add(new a(this, forumPresentInfo.user_list.get(i)));
+        forumHeadlineImgInfo.thread_id.longValue();
+        forumHeadlineImgInfo.thread_user_id.longValue();
+        String str = forumHeadlineImgInfo.thread_user_name;
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str2 = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        this.b = forumHeadlineImgInfo.headline_url;
+        this.c = new l25();
+        ArrayList<o25> arrayList = new ArrayList<>();
+        String str3 = this.a;
+        String str4 = "";
+        if (str3 == null) {
+            str3 = "";
         }
+        String str5 = this.b;
+        if (str5 != null) {
+            str4 = str5;
+        }
+        o25 o25Var = new o25(str3, str4, null);
+        o25Var.r(true);
+        arrayList.add(o25Var);
+        this.c.g(arrayList);
     }
 }

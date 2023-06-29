@@ -13,7 +13,7 @@ import java.util.Map;
 import org.json.JSONObject;
 @KsAdSdkDynamicApi("com.kwad.sdk.KsAdSDKImpl")
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IKsAdSDK {
     @Keep
     void addHp(@NonNull Map<String, String> map);

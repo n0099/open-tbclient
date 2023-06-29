@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e05;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.ma5;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -174,8 +174,8 @@ public class NoDataView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             Drawable drawable = SkinManager.getDrawable(i);
-            int g = wi.g(this.a, R.dimen.obfuscated_res_0x7f070207);
-            int g2 = wi.g(this.a, R.dimen.obfuscated_res_0x7f070416);
+            int g = xi.g(this.a, R.dimen.obfuscated_res_0x7f070207);
+            int g2 = xi.g(this.a, R.dimen.obfuscated_res_0x7f070416);
             drawable.setBounds(0, 0, g, g);
             this.f.setCompoundDrawablePadding(g2);
             this.f.setCompoundDrawables(drawable, null, null, null);
@@ -272,10 +272,10 @@ public class NoDataView extends LinearLayout {
             this.f = (TextView) this.b.findViewById(R.id.tv_subtitle);
             this.g = (TextView) this.b.findViewById(R.id.tv_title);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.btn_func);
-            ma5 ma5Var = new ma5();
-            ma5Var.r(R.color.CAM_X0905, R.color.CAM_X0304);
+            pa5 pa5Var = new pa5();
+            pa5Var.r(R.color.CAM_X0905, R.color.CAM_X0304);
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(ma5Var);
+            this.h.setConfig(pa5Var);
             this.l = (LinearLayout) this.b.findViewById(R.id.two_button_layout);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
@@ -292,10 +292,10 @@ public class NoDataView extends LinearLayout {
         }
     }
 
-    public void d(k9<?> k9Var) {
+    public void d(l9<?> l9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, k9Var) == null) {
-            f(k9Var, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeL(1048579, this, l9Var) == null) {
+            f(l9Var, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -348,13 +348,13 @@ public class NoDataView extends LinearLayout {
         return (TextView) invokeV.objValue;
     }
 
-    public void f(k9<?> k9Var, int i) {
+    public void f(l9<?> l9Var, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, k9Var, i) == null) {
-            if (k9Var instanceof TbPageContext) {
-                TbPageContext tbPageContext = (TbPageContext) k9Var;
-                e05 layoutMode = tbPageContext.getLayoutMode();
+        if (interceptable == null || interceptable.invokeLI(1048581, this, l9Var, i) == null) {
+            if (l9Var instanceof TbPageContext) {
+                TbPageContext tbPageContext = (TbPageContext) l9Var;
+                h05 layoutMode = tbPageContext.getLayoutMode();
                 if (i == 4) {
                     z = true;
                 } else {
@@ -392,11 +392,11 @@ public class NoDataView extends LinearLayout {
         }
     }
 
-    public void g(NoDataViewFactory.d dVar, k9<?> k9Var) {
+    public void g(NoDataViewFactory.d dVar, l9<?> l9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, dVar, k9Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, dVar, l9Var) == null) {
             setImgOption(dVar);
-            f(k9Var, TbadkCoreApplication.getInst().getSkinType());
+            f(l9Var, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -411,7 +411,7 @@ public class NoDataView extends LinearLayout {
     public final void h() {
         int j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (j = wi.j(TbadkCoreApplication.getInst())) > 0) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (j = xi.j(TbadkCoreApplication.getInst())) > 0) {
             int i = (int) (j * 0.16d);
             ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -445,12 +445,12 @@ public class NoDataView extends LinearLayout {
             if (bVar2 != null && bVar != null) {
                 this.i = (TBSpecificationBtn) this.l.findViewById(R.id.btn_left);
                 this.j = (TBSpecificationBtn) this.l.findViewById(R.id.btn_right);
-                ma5 ma5Var = new ma5();
-                ma5Var.r(R.color.CAM_X0905, R.color.CAM_X0304);
+                pa5 pa5Var = new pa5();
+                pa5Var.r(R.color.CAM_X0905, R.color.CAM_X0304);
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(ma5Var);
+                this.i.setConfig(pa5Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(ma5Var);
+                this.j.setConfig(pa5Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);

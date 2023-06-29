@@ -11,7 +11,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.AbilityEf
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BubbleInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ExcellentInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.UserExtraInfo;
-import com.baidu.tieba.nw5;
+import com.baidu.tieba.sw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public static final String FROM_ANDROID = "android";
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @nw5(deserialize = false, serialize = false)
+    @sw5(deserialize = false, serialize = false)
     public AbilityEffectItem abilityEffectItem;
     @Nullable
     @SerializedName("bubble_info")
@@ -47,12 +47,12 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public boolean isLocalMsgId;
     public int level;
     @SerializedName("msg_id")
-    @nw5(serialize = false)
+    @sw5(serialize = false)
     public long msgId;
     @SerializedName("msg_key")
-    @nw5(serialize = false)
+    @sw5(serialize = false)
     public String msgKey;
-    @nw5(serialize = false)
+    @sw5(serialize = false)
     public String portrait;
     @Nullable
     @SerializedName("quick_operate")
@@ -61,24 +61,24 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public int robotRole;
     public int role;
     @SerializedName("room_id")
-    @nw5(serialize = false)
+    @sw5(serialize = false)
     public long roomId;
     @Nullable
     @SerializedName("second_data")
     public List<EnableDegradeUserData> secondDegradeUserDataList;
     @Nullable
     @SerializedName("task_info")
-    @nw5(serialize = false)
+    @sw5(serialize = false)
     public TaskInfo taskInfo;
     public int type;
     @Nullable
     @SerializedName("user_extra_info")
     public UserExtraInfo userExtraInfo;
     @SerializedName("user_id")
-    @nw5(serialize = false)
+    @sw5(serialize = false)
     public long userId;
     @SerializedName("user_name")
-    @nw5(serialize = false)
+    @sw5(serialize = false)
     public String userName;
     @Nullable
     public String version;

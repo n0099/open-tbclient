@@ -3,13 +3,13 @@ package com.kwad.components.core.webview.jshandler;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ah implements com.kwad.sdk.core.webview.kwai.a {
     public a Na;
     public AdTemplate mAdTemplate;
     public Context mContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         boolean dc();
     }

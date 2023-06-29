@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.Pair;
-import android.webkit.WebSettings;
+import android.text.TextUtils;
 import android.webkit.WebView;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class ak6 {
+public class ak6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
+    public ArrayList<d5a> a;
 
-    public ak6(WebView webView) {
+    public ak6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,83 +34,126 @@ public abstract class ak6 {
                 return;
             }
         }
-        this.a = webView;
-        webView.setDrawingCacheEnabled(false);
-        webView.setLayerType(2, null);
-        webView.setScrollBarStyle(0);
-        webView.requestFocusFromTouch();
-        if (Build.VERSION.SDK_INT >= 26) {
-            webView.setRendererPriorityPolicy(2, false);
-        }
+        this.a = new ArrayList<>();
     }
 
-    public void a() {
+    public void a(d5a d5aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebSettings c = c();
-            c.setJavaScriptEnabled(true);
-            c.setCacheMode(-1);
-            if (Build.VERSION.SDK_INT >= 21) {
-                c.setMixedContentMode(0);
-            }
-            c.setGeolocationEnabled(true);
-            c.setLoadsImagesAutomatically(true);
-            c.setBlockNetworkImage(false);
-            c.setBlockNetworkLoads(false);
-            c.setLoadWithOverviewMode(true);
-            c.setAllowFileAccess(true);
-            c.setUseWideViewPort(true);
-            c.setSupportZoom(true);
-            c.setBuiltInZoomControls(false);
-            c.setDisplayZoomControls(false);
-            c.setMediaPlaybackRequiresUserGesture(false);
-            c.setDomStorageEnabled(true);
-            try {
-                c.setAppCacheEnabled(true);
-                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
-            } catch (IOException unused) {
-                c.setAppCachePath(getContext().getCacheDir().getPath());
-            }
-            String userAgentString = c().getUserAgentString();
-            Pair<Boolean, String> i = ij6.i(userAgentString);
-            if (((Boolean) i.first).booleanValue()) {
-                tr8 hybridLog = HybridLog.getInstance();
-                hybridLog.c("WebSetting", "更新UA信息：" + ((String) i.second) + " 原UA：" + userAgentString);
-                c.setUserAgentString((String) i.second);
-            }
-            c.setJavaScriptCanOpenWindowsAutomatically(true);
-            c.setTextZoom(100);
+        if (interceptable == null || interceptable.invokeL(1048576, this, d5aVar) == null) {
+            this.a.add(d5aVar);
         }
     }
 
-    public final File b(Context context, String str) throws IOException {
+    public void f(List<Pair<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty()) {
+            Iterator<d5a> it = this.a.iterator();
+            while (it.hasNext()) {
+                d5a next = it.next();
+                next.removeObserverBridge(list);
+                next.onDestroy();
+            }
+        }
+    }
+
+    public final boolean b(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2)) == null) {
+            ew8 hybridLog = HybridLog.getInstance();
+            hybridLog.c("JsBridge", "端能力返回结果：callJsMethod methodName:" + str + " param:" + str2 + " " + webView);
+            if (webView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public f5a c(WebView webView, h5a h5aVar, f5a f5aVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, h5aVar, f5aVar)) == null) {
+            if (f5aVar == null) {
+                f5aVar = new f5a();
+            }
+            if ("notification".equals(h5aVar.c()) && "addObserver".equals(h5aVar.a())) {
+                Iterator<d5a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    f5aVar = it.next().addObserver(webView, h5aVar.d(), f5aVar, true);
+                    if (f5aVar.j()) {
+                        return f5aVar;
+                    }
+                }
+                if (!f5aVar.j()) {
+                    f5aVar.z(202);
+                    f5aVar.v(tl6.getContext().getString(R.string.can_find_notification_name));
+                }
+            } else {
+                Iterator<d5a> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    f5aVar = it2.next().dispatch(webView, h5aVar, f5aVar);
+                    if (f5aVar.i()) {
+                        return f5aVar;
+                    }
+                }
+                if (!f5aVar.i()) {
+                    f5aVar.z(202);
+                }
+            }
+            return f5aVar;
+        }
+        return (f5a) invokeLLL.objValue;
+    }
+
+    public void d(WebView webView, f5a f5aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, f5aVar) != null) || webView == null || f5aVar == null || !f5aVar.k()) {
+            return;
+        }
+        b(webView, f5aVar.c(), f5aVar.d());
+    }
+
+    public boolean e(WebView webView, List<f5a> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            File file = new File(context.getCacheDir(), str);
-            if (!file.exists() && !file.mkdirs()) {
-                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, list)) == null) {
+            if (webView == null || ListUtils.isEmpty(list)) {
+                return false;
             }
-            return file;
+            while (true) {
+                boolean z = false;
+                for (f5a f5aVar : list) {
+                    if (f5aVar != null && f5aVar.k()) {
+                        if (b(webView, f5aVar.c(), f5aVar.d()) || z) {
+                            z = true;
+                        }
+                    }
+                }
+                return z;
+            }
         }
-        return (File) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public WebSettings c() {
-        InterceptResult invokeV;
+    public List<f5a> g(WebView webView, String str, HashMap hashMap) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getSettings();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, webView, str, hashMap)) == null) {
+            List<f5a> list = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Iterator<d5a> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(webView, str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
         }
-        return (WebSettings) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getContext();
-        }
-        return (Context) invokeV.objValue;
+        return (List) invokeLLL.objValue;
     }
 }

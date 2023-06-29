@@ -11,8 +11,8 @@ import android.os.CancellationSignal;
 import android.provider.MediaStore;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tieba.a0;
-import com.baidu.tieba.y;
+import com.baidu.tieba.b0;
+import com.baidu.tieba.z;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -162,11 +162,11 @@ public class MediaFileProcessor {
         return (Uri) invokeL.objValue;
     }
 
-    public static int delete(Context context, Uri uri, String str, String[] strArr, y yVar) {
+    public static int delete(Context context, Uri uri, String str, String[] strArr, z zVar) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, uri, str, strArr, yVar)) == null) {
-            return a0.a(context).delete(uri, str, strArr, yVar);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, uri, str, strArr, zVar)) == null) {
+            return b0.a(context).delete(uri, str, strArr, zVar);
         }
         return invokeLLLLL.intValue;
     }
@@ -175,7 +175,7 @@ public class MediaFileProcessor {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65543, null, context, inputStream, uriSource, contentValues, str)) == null) {
-            return a0.a(context).insert(inputStream, uriSource, contentValues, str);
+            return b0.a(context).insert(inputStream, uriSource, contentValues, str);
         }
         return (Uri) invokeLLLLL.objValue;
     }
@@ -190,11 +190,11 @@ public class MediaFileProcessor {
         return (Cursor) invokeLLLLL.objValue;
     }
 
-    public static int delete(Context context, Uri uri, String str, String[] strArr, String str2, y yVar) {
+    public static int delete(Context context, Uri uri, String str, String[] strArr, String str2, z zVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, uri, str, strArr, str2, yVar})) == null) {
-            return a0.a(context).delete(uri, str, strArr, str2, yVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, uri, str, strArr, str2, zVar})) == null) {
+            return b0.a(context).delete(uri, str, strArr, str2, zVar);
         }
         return invokeCommon.intValue;
     }
@@ -208,20 +208,20 @@ public class MediaFileProcessor {
         return (Cursor) invokeCommon.objValue;
     }
 
-    public static int update(Context context, Uri uri, ContentValues contentValues, String str, String[] strArr, y yVar) {
+    public static int update(Context context, Uri uri, ContentValues contentValues, String str, String[] strArr, z zVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{context, uri, contentValues, str, strArr, yVar})) == null) {
-            return a0.a(context).update(uri, contentValues, str, strArr, yVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{context, uri, contentValues, str, strArr, zVar})) == null) {
+            return b0.a(context).update(uri, contentValues, str, strArr, zVar);
         }
         return invokeCommon.intValue;
     }
 
-    public static int delete(Context context, UriSource uriSource, String str, String[] strArr, y yVar) {
+    public static int delete(Context context, UriSource uriSource, String str, String[] strArr, z zVar) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, context, uriSource, str, strArr, yVar)) == null) {
-            return delete(context, a(uriSource), str, strArr, yVar);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, context, uriSource, str, strArr, zVar)) == null) {
+            return delete(context, a(uriSource), str, strArr, zVar);
         }
         return invokeLLLLL.intValue;
     }
@@ -235,11 +235,11 @@ public class MediaFileProcessor {
         return (Cursor) invokeLLLLL.objValue;
     }
 
-    public static int delete(Context context, UriSource uriSource, String str, String[] strArr, String str2, y yVar) {
+    public static int delete(Context context, UriSource uriSource, String str, String[] strArr, String str2, z zVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, uriSource, str, strArr, str2, yVar})) == null) {
-            return delete(context, a(uriSource), str, strArr, str2, yVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, uriSource, str, strArr, str2, zVar})) == null) {
+            return delete(context, a(uriSource), str, strArr, str2, zVar);
         }
         return invokeCommon.intValue;
     }
@@ -253,11 +253,11 @@ public class MediaFileProcessor {
         return (Cursor) invokeCommon.objValue;
     }
 
-    public static int update(Context context, UriSource uriSource, ContentValues contentValues, String str, String[] strArr, y yVar) {
+    public static int update(Context context, UriSource uriSource, ContentValues contentValues, String str, String[] strArr, z zVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, uriSource, contentValues, str, strArr, yVar})) == null) {
-            return update(context, a(uriSource), contentValues, str, strArr, yVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, uriSource, contentValues, str, strArr, zVar})) == null) {
+            return update(context, a(uriSource), contentValues, str, strArr, zVar);
         }
         return invokeCommon.intValue;
     }

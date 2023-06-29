@@ -1,80 +1,73 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.entelechy.adapter.FrsGroupCardLayoutHolder;
-import com.baidu.tieba.frs.view.FrsGroupCardLayout;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ch7 extends jn<fi7, FrsGroupCardLayoutHolder> {
+public class ch7 extends sd7<w66, CardViewHolder<s66>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
+    public TbPageContext l;
+    public s66 m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ch7(TbPageContext<?> pageContext) {
-        super(pageContext.getPageActivity(), fi7.c.a());
+    public ch7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.a = pageContext;
+        this.m = null;
+        this.l = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: s */
-    public FrsGroupCardLayoutHolder onCreateViewHolder(ViewGroup parent) {
+    @Override // com.baidu.tieba.kn
+    /* renamed from: G */
+    public CardViewHolder<s66> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            Activity pageActivity = this.a.getPageActivity();
-            Intrinsics.checkNotNullExpressionValue(pageActivity, "pageContext.pageActivity");
-            return new FrsGroupCardLayoutHolder(new FrsGroupCardLayout(pageActivity, null, 2, null));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            this.m = new s66(this.l);
+            return new CardViewHolder<>(this.m);
         }
-        return (FrsGroupCardLayoutHolder) invokeL.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View convertView, ViewGroup parent, fi7 data, FrsGroupCardLayoutHolder holder) {
+    public View H(int i, View view2, ViewGroup viewGroup, w66 w66Var, CardViewHolder<s66> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, data, holder})) == null) {
-            Intrinsics.checkNotNullParameter(convertView, "convertView");
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            holder.a().setData(data);
-            View view2 = holder.getView();
-            Intrinsics.checkNotNullExpressionValue(view2, "holder.view");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w66Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(w66Var);
             return view2;
         }
         return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.sd7, com.baidu.tieba.kn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (w66) obj, (CardViewHolder) viewHolder);
+        return view2;
     }
 }

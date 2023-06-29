@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
+import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xp5 implements hp5<HistoryEvent> {
+public class xp5 implements mp5<BackBaiduBoxViewEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,17 +26,17 @@ public class xp5 implements hp5<HistoryEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hp5
+    @Override // com.baidu.tieba.mp5
     /* renamed from: a */
-    public boolean onEvent(HistoryEvent historyEvent) {
+    public boolean onEvent(BackBaiduBoxViewEvent backBaiduBoxViewEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
-            if (historyEvent != null && !TextUtils.isEmpty(historyEvent.tid)) {
-                xn6.a(historyEvent.tid);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backBaiduBoxViewEvent)) == null) {
+            if (backBaiduBoxViewEvent == null) {
+                return false;
             }
-            return false;
+            iw5.m().u(backBaiduBoxViewEvent.isShow);
+            return true;
         }
         return invokeL.booleanValue;
     }

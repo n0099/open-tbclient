@@ -1,11 +1,15 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hh3;
+import com.baidu.tieba.ph3;
+import com.baidu.tieba.zw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,16 +19,95 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class g32 extends y22 {
+public class g32 extends b32 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.c02
+    @Override // com.baidu.tieba.f02
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "DesktopShortcutApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements vq3<fh3<hh3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ cc3 b;
+        public final /* synthetic */ g32 c;
+
+        public a(g32 g32Var, String str, cc3 cc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g32Var, str, cc3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = g32Var;
+            this.a = str;
+            this.b = cc3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vq3
+        /* renamed from: b */
+        public void a(fh3<hh3.e> fh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fh3Var) == null) {
+                if (!ah3.h(fh3Var)) {
+                    int b = fh3Var.b();
+                    this.c.d(this.a, new c42(b, ah3.f(b)));
+                    return;
+                }
+                if (g32.f) {
+                    Log.d("DesktopShortcutApi", "start add to desktop");
+                }
+                this.c.A(this.b.w(), this.b);
+                this.c.d(this.a, new c42(0));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ph3.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(g32 g32Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g32Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ph3.f
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
+                return;
+            }
+            g32.C(i);
+        }
     }
 
     static {
@@ -40,22 +123,22 @@ public class g32 extends y22 {
                 return;
             }
         }
-        f = js1.a;
+        f = ms1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g32(@NonNull a02 a02Var) {
-        super(a02Var);
+    public g32(@NonNull d02 d02Var) {
+        super(d02Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a02Var};
+            Object[] objArr = {d02Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a02) newInitContext.callArgs[0]);
+                super((d02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -63,54 +146,61 @@ public class g32 extends y22 {
         }
     }
 
-    public static String z(Object obj) {
-        InterceptResult invokeL;
+    public static void C(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (!TextUtils.isEmpty(str)) {
-                    return str;
-                }
-                return "log info is invalid";
-            } else if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.length() != 0) {
-                    return jSONObject.toString();
-                }
-                return "log info is invalid";
-            } else {
-                return "log info is invalid";
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            fj3 fj3Var = new fj3();
+            bc3 K = bc3.K();
+            String appId = K.getAppId();
+            String n = vi3.n(K.k());
+            fj3Var.f = appId;
+            fj3Var.b = "api";
+            fj3Var.a = n;
+            fj3Var.e = "addshortcut";
+            zw2.a W = K.q().W();
+            if (W != null) {
+                fj3Var.c = W.T();
             }
+            fj3Var.a("appid", appId);
+            fj3Var.a("resultstate", Integer.valueOf(i));
+            li3.b(fj3Var);
         }
-        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void x(String str) {
+    public final void A(@NonNull Context context, @NonNull cc3 cc3Var) {
+        zw2.a Y;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || str == null || str.length() <= 3145728) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, cc3Var) != null) || (Y = cc3Var.Y()) == null) {
             return;
         }
-        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
+        ph3.k(context, Y, new b(this));
     }
 
-    public z32 y(String str) {
+    public c42 B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#addToDesktop", false);
             if (f) {
-                Log.d("LogApi", "start logToFile action, params = " + str);
-                x(str);
+                Log.d("DesktopShortcutApi", "#addToDesktop params = " + str);
             }
-            Pair<z32, JSONObject> s = s(str);
-            if (!((z32) s.first).isSuccess()) {
-                return (z32) s.first;
-            }
+            Pair<c42, JSONObject> s = s(str);
             JSONObject jSONObject = (JSONObject) s.second;
-            z82.k(jSONObject.optString("tag", "logToFile-swanjsLog"), z(jSONObject.opt("data")));
-            return z32.f();
+            if (((c42) s.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    return new c42(202, "cb is empty");
+                }
+                cc3 b0 = cc3.b0();
+                Context context = getContext();
+                if (!(context instanceof Activity) && (context = b0.w()) == null) {
+                    return new c42(1001, "the context is not an activity");
+                }
+                b0.e0().g(context, "scope_add_to_desktop", new a(this, optString, b0));
+                return c42.f();
+            }
+            return (c42) s.first;
         }
-        return (z32) invokeL.objValue;
+        return (c42) invokeL.objValue;
     }
 }

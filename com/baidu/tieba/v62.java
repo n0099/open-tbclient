@@ -8,11 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class v62 extends f52 {
+public class v62 extends i52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public q52 a;
 
     public v62() {
         Interceptable interceptable = $ic;
@@ -28,23 +27,26 @@ public class v62 extends f52 {
         }
     }
 
-    @Override // com.baidu.tieba.f52
-    public void a(g52 g52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.i52
+    public void a(j52 j52Var, Canvas canvas) {
+        q52 q52Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) {
-            if (g52Var.a() == 0) {
-                g52Var.b(canvas.save());
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) && (q52Var = this.a) != null && q52Var.d()) {
+            if (this.a.c()) {
+                j52Var.c.setShader(this.a.b());
+                return;
             }
-            canvas.translate(this.a, this.b);
+            j52Var.m = this.a.a();
+            j52Var.c.setColor(this.a.a());
+            j52Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.f52
+    @Override // com.baidu.tieba.i52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = qp3.g((float) jSONArray.optDouble(0));
-            this.b = qp3.g((float) jSONArray.optDouble(1));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new q52(jSONArray);
         }
     }
 }

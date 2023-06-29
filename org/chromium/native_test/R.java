@@ -1,102 +1,102 @@
 package org.chromium.native_test;
 
-import com.baidu.tieba.glb;
+import com.baidu.tieba.xpb;
 /* loaded from: classes2.dex */
 public final class R {
 
     /* loaded from: classes2.dex */
-    public static final class anim extends glb.a {
+    public static final class anim extends xpb.a {
     }
 
     /* loaded from: classes2.dex */
-    public static final class animator extends glb.b {
+    public static final class animator extends xpb.b {
     }
 
     /* loaded from: classes2.dex */
-    public static final class array extends glb.c {
+    public static final class array extends xpb.c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr extends glb.d {
+    public static final class attr extends xpb.d {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool extends glb.e {
+    public static final class bool extends xpb.e {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color extends glb.f {
+    public static final class color extends xpb.f {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen extends glb.g {
+    public static final class dimen extends xpb.g {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable extends glb.h {
+    public static final class drawable extends xpb.h {
     }
 
     /* loaded from: classes2.dex */
-    public static final class font extends glb.i {
+    public static final class font extends xpb.i {
     }
 
     /* loaded from: classes2.dex */
-    public static final class fraction extends glb.j {
+    public static final class fraction extends xpb.j {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id extends glb.k {
+    public static final class id extends xpb.k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer extends glb.l {
+    public static final class integer extends xpb.l {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator extends glb.m {
+    public static final class interpolator extends xpb.m {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout extends glb.n {
+    public static final class layout extends xpb.n {
     }
 
     /* loaded from: classes2.dex */
-    public static final class menu extends glb.o {
+    public static final class menu extends xpb.o {
     }
 
     /* loaded from: classes2.dex */
-    public static final class mipmap extends glb.p {
+    public static final class mipmap extends xpb.p {
     }
 
     /* loaded from: classes2.dex */
-    public static final class plurals extends glb.q {
+    public static final class plurals extends xpb.q {
     }
 
     /* loaded from: classes2.dex */
-    public static final class raw extends glb.r {
+    public static final class raw extends xpb.r {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string extends glb.s {
+    public static final class string extends xpb.s {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style extends glb.t {
+    public static final class style extends xpb.t {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable extends glb.u {
+    public static final class styleable extends xpb.u {
     }
 
     /* loaded from: classes2.dex */
-    public static final class transition extends glb.v {
+    public static final class transition extends xpb.v {
     }
 
     /* loaded from: classes2.dex */
-    public static final class xml extends glb.w {
+    public static final class xml extends xpb.w {
     }
 
     public static void onResourcesLoaded(int i) {
-        glb.a(i);
+        xpb.a(i);
     }
 }

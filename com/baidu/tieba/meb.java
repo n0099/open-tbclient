@@ -1,553 +1,308 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.DashPathEffect;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
-import android.graphics.Shader;
-import android.media.SoundPool;
-import android.text.StaticLayout;
-import android.text.TextPaint;
-import android.widget.ImageView;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.content.pm.SigningInfo;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.leb;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import java.util.HashMap;
-import kotlin.TypeCastException;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function4;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes6.dex */
-public final class meb extends leb {
+public class meb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b c;
-    public final HashMap<String, Bitmap> d;
-    public final a e;
-    public final float[] f;
-    public final ieb g;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public final HashMap<SVGAVideoShapeEntity, Path> c;
+    public static String f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            if (bArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
+                    if (hexString.length() == 1) {
+                        sb.append(TransactionIdCreater.FILL_BYTE);
+                    }
+                    sb.append(hexString);
+                }
+                return sb.toString();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static byte[] h(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
+            }
+            String upperCase = str.toUpperCase(Locale.ENGLISH);
+            int length = upperCase.length() / 2;
+            byte[] bArr = new byte[length];
+            try {
+                byte[] bytes = upperCase.getBytes(StandardCharsets.UTF_8);
+                for (int i2 = 0; i2 < length; i2++) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("0x");
+                    sb.append(new String(new byte[]{bytes[i2 * 2]}, StandardCharsets.UTF_8));
+                    bArr[i2] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i + 1]}, StandardCharsets.UTF_8)).byteValue());
+                }
+            } catch (NumberFormatException e) {
+                String str2 = "hex string 2 byte array exception : " + e.getMessage();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] i(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
+            if (bArr == null) {
+                return bArr;
+            }
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                if (i < 0) {
+                    bArr[i2] = (byte) (bArr[i2] << (-i));
+                } else {
+                    bArr[i2] = (byte) (bArr[i2] >> i);
                 }
             }
-            this.c = new HashMap<>();
+            return bArr;
         }
-
-        public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sVGAVideoShapeEntity)) == null) {
-                if (!this.c.containsKey(sVGAVideoShapeEntity)) {
-                    Path path = new Path();
-                    path.set(sVGAVideoShapeEntity.b());
-                    this.c.put(sVGAVideoShapeEntity, path);
-                }
-                Path path2 = this.c.get(sVGAVideoShapeEntity);
-                if (path2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                return path2;
-            }
-            return (Path) invokeL.objValue;
-        }
-
-        public final void b(Canvas canvas) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-                if (this.a != canvas.getWidth() || this.b != canvas.getHeight()) {
-                    this.c.clear();
-                }
-                this.a = canvas.getWidth();
-                this.b = canvas.getHeight();
-            }
-        }
+        return (byte[]) invokeLI.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Paint a;
-        public final Path b;
-        public final Path c;
-        public final Matrix d;
-        public final Matrix e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static byte[] j(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr != null) {
+                int length = bArr.length;
+                if (length != bArr2.length) {
+                    return null;
+                }
+                bArr3 = new byte[length];
+                for (int i = 0; i < length; i++) {
+                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
                 }
             }
-            this.a = new Paint();
-            this.b = new Path();
-            this.c = new Path();
-            this.d = new Matrix();
-            this.e = new Matrix();
+            return bArr3;
         }
-
-        public final Matrix a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.d.reset();
-                return this.d;
-            }
-            return (Matrix) invokeV.objValue;
-        }
-
-        public final Matrix b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                this.e.reset();
-                return this.e;
-            }
-            return (Matrix) invokeV.objValue;
-        }
-
-        public final Paint c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.a.reset();
-                return this.a;
-            }
-            return (Paint) invokeV.objValue;
-        }
-
-        public final Path d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                this.b.reset();
-                return this.b;
-            }
-            return (Path) invokeV.objValue;
-        }
-
-        public final Path e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                this.c.reset();
-                return this.c;
-            }
-            return (Path) invokeV.objValue;
-        }
+        return (byte[]) invokeLL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public meb(SVGAVideoEntity sVGAVideoEntity, ieb iebVar) {
-        super(sVGAVideoEntity);
+    public static RequestHeader a() throws ApiException {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity, iebVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((SVGAVideoEntity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = teb.e.a();
+            String str2 = null;
+            try {
+                Object obj = a.getPackageManager().getApplicationInfo(a.getPackageName(), 128).metaData.get("com.hihonor.push.app_id");
+                if (obj != null) {
+                    str2 = String.valueOf(obj);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                oeb.b("ConfigUtils", "getPushAppId", e);
             }
+            if (!TextUtils.isEmpty(str2)) {
+                String str3 = "checkPushAppId Parameter is " + str2;
+                String e2 = e(a, a.getPackageName());
+                if (!TextUtils.isEmpty(e2)) {
+                    String str4 = "checkPushCertFingerprint Parameter is " + e2;
+                    RequestHeader requestHeader = new RequestHeader();
+                    requestHeader.setPackageName(a.getPackageName());
+                    requestHeader.setAppId(str2);
+                    requestHeader.setCertificateFingerprint(e2);
+                    reb rebVar = reb.b;
+                    requestHeader.setPushToken(rebVar.c(a));
+                    synchronized (rebVar) {
+                        rebVar.a(a);
+                        SharedPreferences sharedPreferences = reb.a.a;
+                        if (sharedPreferences != null) {
+                            str = sharedPreferences.getString("key_aaid", "");
+                        } else {
+                            str = "";
+                        }
+                        if (TextUtils.isEmpty(str)) {
+                            str = UUID.randomUUID().toString().replace("-", "");
+                            String str5 = "getRandomUUID UUID =" + str;
+                            reb.a.b("key_aaid", str);
+                        }
+                    }
+                    requestHeader.setAAID(str);
+                    requestHeader.setSdkVersion(70001103);
+                    return requestHeader;
+                }
+                oeb.a("checkPushConfig Parameter is missing.");
+                throw HonorPushErrorEnum.ERROR_CERT_FINGERPRINT_EMPTY.toApiException();
+            }
+            oeb.a("checkPushConfig Parameter is missing");
+            throw HonorPushErrorEnum.ERROR_NO_APPID.toApiException();
         }
-        this.g = iebVar;
-        this.c = new b();
-        this.d = new HashMap<>();
-        this.e = new a();
-        this.f = new float[16];
+        return (RequestHeader) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.leb
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
+    public static ApiException b(Exception exc) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            super.a(canvas, i, scaleType);
-            this.e.b(canvas);
-            for (leb.a aVar : d(i)) {
-                h(aVar, canvas, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) {
+            if (exc.getCause() instanceof ApiException) {
+                return (ApiException) exc.getCause();
             }
-            k(i);
+            if (exc instanceof ApiException) {
+                return (ApiException) exc;
+            }
+            return new ApiException(-1, exc.getMessage());
         }
+        return (ApiException) invokeL.objValue;
     }
 
-    public final void h(leb.a aVar, Canvas canvas, int i) {
+    public static <TResult> ffb<TResult> c(Callable<TResult> callable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, aVar, canvas, i) == null) {
-            f(aVar, canvas);
-            g(aVar, canvas);
-            e(aVar, canvas, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) {
+            ExecutorService executorService = yfb.c.b;
+            xfb xfbVar = new xfb();
+            try {
+                executorService.execute(new cfb(xfbVar, callable));
+            } catch (Exception e) {
+                xfbVar.a(e);
+            }
+            return xfbVar.a;
         }
+        return (ffb) invokeL.objValue;
     }
 
-    public final void e(leb.a aVar, Canvas canvas, int i) {
-        String b2;
+    public static void g(Handler handler) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, canvas, i) == null) && (b2 = aVar.b()) != null) {
-            Function2<Canvas, Integer, Boolean> function2 = this.g.a().get(b2);
-            if (function2 != null) {
-                Matrix l = l(aVar.a().e());
-                canvas.save();
-                canvas.concat(l);
-                function2.invoke(canvas, Integer.valueOf(i));
-                canvas.restore();
-            }
-            Function4<Canvas, Integer, Integer, Integer, Boolean> function4 = this.g.b().get(b2);
-            if (function4 != null) {
-                Matrix l2 = l(aVar.a().e());
-                canvas.save();
-                canvas.concat(l2);
-                function4.invoke(canvas, Integer.valueOf(i), Integer.valueOf((int) aVar.a().b().b()), Integer.valueOf((int) aVar.a().b().a()));
-                canvas.restore();
-            }
-        }
-    }
-
-    public final void f(leb.a aVar, Canvas canvas) {
-        String b2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, canvas) != null) || (b2 = aVar.b()) == null || Intrinsics.areEqual(this.g.c().get(b2), Boolean.TRUE)) {
+        if ((interceptable != null && interceptable.invokeL(65542, null, handler) != null) || Looper.myLooper() == handler.getLooper()) {
             return;
         }
-        Bitmap bitmap = this.g.d().get(b2);
-        if (bitmap == null) {
-            bitmap = c().e().get(b2);
-        }
-        if (bitmap != null) {
-            Matrix l = l(aVar.a().e());
-            Paint c = this.c.c();
-            c.setAntiAlias(c().a());
-            c.setFilterBitmap(c().a());
-            c.setAlpha((int) (aVar.a().a() * 255));
-            if (aVar.a().c() != null) {
-                oeb c2 = aVar.a().c();
-                if (c2 != null) {
-                    canvas.save();
-                    c.reset();
-                    Path d = this.c.d();
-                    c2.a(d);
-                    d.transform(l);
-                    canvas.clipPath(d);
-                    l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
-                    canvas.drawBitmap(bitmap, l, c);
-                    canvas.restore();
-                } else {
-                    return;
-                }
-            } else {
-                l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
-                canvas.drawBitmap(bitmap, l, c);
-            }
-            i(canvas, bitmap, aVar, l);
-        }
+        throw new IllegalStateException("Must be called on the handler thread");
     }
 
-    public final void g(leb.a aVar, Canvas canvas) {
-        SVGAVideoShapeEntity.a c;
-        float[] c2;
-        String d;
-        String b2;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, canvas) == null) {
-            Matrix l = l(aVar.a().e());
-            for (SVGAVideoShapeEntity sVGAVideoShapeEntity : aVar.a().d()) {
-                sVGAVideoShapeEntity.a();
-                if (sVGAVideoShapeEntity.b() != null) {
-                    Paint c3 = this.c.c();
-                    c3.reset();
-                    c3.setAntiAlias(c().a());
-                    double d2 = 255;
-                    c3.setAlpha((int) (aVar.a().a() * d2));
-                    Path d3 = this.c.d();
-                    d3.reset();
-                    d3.addPath(this.e.a(sVGAVideoShapeEntity));
-                    Matrix b3 = this.c.b();
-                    b3.reset();
-                    Matrix d4 = sVGAVideoShapeEntity.d();
-                    if (d4 != null) {
-                        b3.postConcat(d4);
-                    }
-                    b3.postConcat(l);
-                    d3.transform(b3);
-                    SVGAVideoShapeEntity.a c4 = sVGAVideoShapeEntity.c();
-                    if (c4 != null && (a2 = c4.a()) != 0) {
-                        c3.setStyle(Paint.Style.FILL);
-                        c3.setColor(a2);
-                        c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
-                        if (aVar.a().c() != null) {
-                            canvas.save();
-                        }
-                        oeb c5 = aVar.a().c();
-                        if (c5 != null) {
-                            Path e = this.c.e();
-                            c5.a(e);
-                            e.transform(l);
-                            canvas.clipPath(e);
-                        }
-                        canvas.drawPath(d3, c3);
-                        if (aVar.a().c() != null) {
-                            canvas.restore();
-                        }
-                    }
-                    SVGAVideoShapeEntity.a c6 = sVGAVideoShapeEntity.c();
-                    if (c6 != null) {
-                        float f = 0;
-                        if (c6.g() > f) {
-                            c3.setStyle(Paint.Style.STROKE);
-                            SVGAVideoShapeEntity.a c7 = sVGAVideoShapeEntity.c();
-                            if (c7 != null) {
-                                c3.setColor(c7.f());
-                                c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
-                            }
-                            float j = j(l);
-                            SVGAVideoShapeEntity.a c8 = sVGAVideoShapeEntity.c();
-                            if (c8 != null) {
-                                c3.setStrokeWidth(c8.g() * j);
-                            }
-                            SVGAVideoShapeEntity.a c9 = sVGAVideoShapeEntity.c();
-                            if (c9 != null && (b2 = c9.b()) != null) {
-                                if (StringsKt__StringsJVMKt.equals(b2, "butt", true)) {
-                                    c3.setStrokeCap(Paint.Cap.BUTT);
-                                } else if (StringsKt__StringsJVMKt.equals(b2, "round", true)) {
-                                    c3.setStrokeCap(Paint.Cap.ROUND);
-                                } else if (StringsKt__StringsJVMKt.equals(b2, "square", true)) {
-                                    c3.setStrokeCap(Paint.Cap.SQUARE);
-                                }
-                            }
-                            SVGAVideoShapeEntity.a c10 = sVGAVideoShapeEntity.c();
-                            if (c10 != null && (d = c10.d()) != null) {
-                                if (StringsKt__StringsJVMKt.equals(d, "miter", true)) {
-                                    c3.setStrokeJoin(Paint.Join.MITER);
-                                } else if (StringsKt__StringsJVMKt.equals(d, "round", true)) {
-                                    c3.setStrokeJoin(Paint.Join.ROUND);
-                                } else if (StringsKt__StringsJVMKt.equals(d, "bevel", true)) {
-                                    c3.setStrokeJoin(Paint.Join.BEVEL);
-                                }
-                            }
-                            if (sVGAVideoShapeEntity.c() != null) {
-                                c3.setStrokeMiter(c.e() * j);
-                            }
-                            SVGAVideoShapeEntity.a c11 = sVGAVideoShapeEntity.c();
-                            if (c11 != null && (c2 = c11.c()) != null && c2.length == 3 && (c2[0] > f || c2[1] > f)) {
-                                float[] fArr = new float[2];
-                                float f2 = 1.0f;
-                                if (c2[0] >= 1.0f) {
-                                    f2 = c2[0];
-                                }
-                                fArr[0] = f2 * j;
-                                float f3 = 0.1f;
-                                if (c2[1] >= 0.1f) {
-                                    f3 = c2[1];
-                                }
-                                fArr[1] = f3 * j;
-                                c3.setPathEffect(new DashPathEffect(fArr, c2[2] * j));
-                            }
-                            if (aVar.a().c() != null) {
-                                canvas.save();
-                            }
-                            oeb c12 = aVar.a().c();
-                            if (c12 != null) {
-                                Path e2 = this.c.e();
-                                c12.a(e2);
-                                e2.transform(l);
-                                canvas.clipPath(e2);
-                            }
-                            canvas.drawPath(d3, c3);
-                            if (aVar.a().c() != null) {
-                                canvas.restore();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public final void i(Canvas canvas, Bitmap bitmap, leb.a aVar, Matrix matrix) {
-        TextPaint drawingTextPaint;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, canvas, bitmap, aVar, matrix) == null) {
-            if (this.g.h()) {
-                this.d.clear();
-                this.g.i(false);
-            }
-            String b2 = aVar.b();
-            if (b2 != null) {
-                Bitmap bitmap2 = null;
-                String str = this.g.f().get(b2);
-                if (str != null && (drawingTextPaint = this.g.g().get(b2)) != null && (bitmap2 = this.d.get(b2)) == null) {
-                    bitmap2 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-                    Canvas canvas2 = new Canvas(bitmap2);
-                    Intrinsics.checkExpressionValueIsNotNull(drawingTextPaint, "drawingTextPaint");
-                    drawingTextPaint.setAntiAlias(true);
-                    Rect rect = new Rect();
-                    drawingTextPaint.getTextBounds(str, 0, str.length(), rect);
-                    canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((bitmap.getHeight() + 0) - drawingTextPaint.getFontMetrics().bottom) - drawingTextPaint.getFontMetrics().top) / 2, drawingTextPaint);
-                    HashMap<String, Bitmap> hashMap = this.d;
-                    if (bitmap2 != null) {
-                        hashMap.put(b2, bitmap2);
-                    } else {
-                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
-                    }
-                }
-                StaticLayout it = this.g.e().get(b2);
-                if (it != null && (bitmap2 = this.d.get(b2)) == null) {
-                    Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                    TextPaint paint = it.getPaint();
-                    Intrinsics.checkExpressionValueIsNotNull(paint, "it.paint");
-                    paint.setAntiAlias(true);
-                    StaticLayout staticLayout = new StaticLayout(it.getText(), 0, it.getText().length(), it.getPaint(), bitmap.getWidth(), it.getAlignment(), it.getSpacingMultiplier(), it.getSpacingAdd(), false);
-                    Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-                    Canvas canvas3 = new Canvas(createBitmap);
-                    canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout.getHeight()) / 2);
-                    staticLayout.draw(canvas3);
-                    HashMap<String, Bitmap> hashMap2 = this.d;
-                    if (createBitmap != null) {
-                        hashMap2.put(b2, createBitmap);
-                        bitmap2 = createBitmap;
-                    } else {
-                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
-                    }
-                }
-                if (bitmap2 != null) {
-                    Paint c = this.c.c();
-                    c.setAntiAlias(c().a());
-                    if (aVar.a().c() != null) {
-                        oeb c2 = aVar.a().c();
-                        if (c2 != null) {
-                            canvas.save();
-                            canvas.concat(matrix);
-                            canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                            Shader.TileMode tileMode = Shader.TileMode.REPEAT;
-                            c.setShader(new BitmapShader(bitmap2, tileMode, tileMode));
-                            Path d = this.c.d();
-                            c2.a(d);
-                            canvas.drawPath(d, c);
-                            canvas.restore();
-                            return;
-                        }
-                        return;
-                    }
-                    c.setFilterBitmap(c().a());
-                    canvas.drawBitmap(bitmap2, matrix, c);
-                }
-            }
-        }
-    }
-
-    public final float j(Matrix matrix) {
+    public static <TResult> TResult d(ffb<TResult> ffbVar) throws ExecutionException, InterruptedException {
         InterceptResult invokeL;
-        float f;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, matrix)) == null) {
-            matrix.getValues(this.f);
-            float[] fArr = this.f;
-            if (fArr[0] == 0.0f) {
-                return 0.0f;
-            }
-            double d = fArr[0];
-            double d2 = fArr[3];
-            double d3 = fArr[1];
-            double d4 = fArr[4];
-            if (d * d4 == d2 * d3) {
-                return 0.0f;
-            }
-            double sqrt = Math.sqrt((d * d) + (d2 * d2));
-            double d5 = d / sqrt;
-            double d6 = d2 / sqrt;
-            double d7 = (d5 * d3) + (d6 * d4);
-            double d8 = d3 - (d5 * d7);
-            double d9 = d4 - (d7 * d6);
-            double sqrt2 = Math.sqrt((d8 * d8) + (d9 * d9));
-            if (d5 * (d9 / sqrt2) < d6 * (d8 / sqrt2)) {
-                sqrt = -sqrt;
-            }
-            if (b().a()) {
-                f = (float) sqrt;
-            } else {
-                f = (float) sqrt2;
-            }
-            return Math.abs(f);
-        }
-        return invokeL.floatValue;
-    }
-
-    public final void k(int i) {
-        SoundPool f;
-        Integer c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            for (neb nebVar : c().b()) {
-                if (nebVar.d() == i && (f = c().f()) != null && (c = nebVar.c()) != null) {
-                    nebVar.e(Integer.valueOf(f.play(c.intValue(), 1.0f, 1.0f, 1, 0, 1.0f)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ffbVar)) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                synchronized (ffbVar.a) {
+                    z = ffbVar.b;
                 }
-                if (nebVar.a() <= i) {
-                    Integer b2 = nebVar.b();
-                    if (b2 != null) {
-                        int intValue = b2.intValue();
-                        SoundPool f2 = c().f();
-                        if (f2 != null) {
-                            f2.stop(intValue);
-                        }
+                if (z) {
+                    if (ffbVar.f()) {
+                        return ffbVar.d();
                     }
-                    nebVar.e(null);
+                    throw new ExecutionException(ffbVar.c());
                 }
+                jfb jfbVar = new jfb();
+                yfb yfbVar = yfb.c;
+                ffbVar.a(new afb(yfbVar.a, jfbVar));
+                ffbVar.a(new web(yfbVar.a, jfbVar));
+                ffbVar.a(new neb(yfbVar.a, jfbVar));
+                jfbVar.a.await();
+                if (ffbVar.f()) {
+                    return ffbVar.d();
+                }
+                throw new ExecutionException(ffbVar.c());
             }
+            throw new IllegalStateException("await must not be called on the UI thread");
         }
+        return (TResult) invokeL.objValue;
     }
 
-    public final Matrix l(Matrix matrix) {
-        InterceptResult invokeL;
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0054 -> B:20:0x0055). Please submit an issue!!! */
+    public static String e(Context context, String str) {
+        InterceptResult invokeLL;
+        Signature[] signatureArr;
+        String str2;
+        SigningInfo signingInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, matrix)) == null) {
-            Matrix a2 = this.c.a();
-            a2.postScale(b().b(), b().c());
-            a2.postTranslate(b().d(), b().e());
-            a2.preConcat(matrix);
-            return a2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            String str3 = "getCertFingerprint pkgName=" + str + "onlyOne=true";
+            ArrayList arrayList = new ArrayList();
+            PackageManager packageManager = context.getPackageManager();
+            if (Build.VERSION.SDK_INT >= 30) {
+                PackageInfo packageInfo = packageManager.getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+                if (packageInfo != null && (signingInfo = packageInfo.signingInfo) != null) {
+                    if (signingInfo.hasMultipleSigners()) {
+                        signatureArr = signingInfo.getApkContentsSigners();
+                    } else {
+                        signatureArr = signingInfo.getSigningCertificateHistory();
+                    }
+                }
+                signatureArr = null;
+            } else {
+                PackageInfo packageInfo2 = packageManager.getPackageInfo(str, 64);
+                if (packageInfo2 != null) {
+                    signatureArr = packageInfo2.signatures;
+                }
+                signatureArr = null;
+            }
+            if (signatureArr != null && signatureArr.length > 0) {
+                int length = signatureArr.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        break;
+                    }
+                    try {
+                        byte[] digest = MessageDigest.getInstance("SHA256").digest(signatureArr[i].toByteArray());
+                        StringBuilder sb = new StringBuilder();
+                        for (byte b : digest) {
+                            String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
+                            if (upperCase.length() == 1) {
+                                sb.append("0");
+                            }
+                            sb.append(upperCase);
+                        }
+                        str2 = sb.toString();
+                    } catch (NoSuchAlgorithmException unused) {
+                        str2 = null;
+                    }
+                    if (str2 != null) {
+                        arrayList.add(str2);
+                        break;
+                    }
+                    i++;
+                }
+            }
+            if (arrayList.isEmpty()) {
+                return null;
+            }
+            return (String) arrayList.get(0);
         }
-        return (Matrix) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

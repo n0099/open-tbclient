@@ -35,15 +35,15 @@ import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b0a;
-import com.baidu.tieba.d26;
-import com.baidu.tieba.nt5;
-import com.baidu.tieba.p75;
+import com.baidu.tieba.i26;
+import com.baidu.tieba.n4a;
 import com.baidu.tieba.pb.pb.main.view.CommentFloatSusPendedView;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.st5;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,13 +57,13 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout A;
-    public nt5 B;
+    public st5 B;
     public BdUniqueId C;
     public TextView D;
     public ImageView E;
     public LinearLayout F;
     public TiePlusEventController G;
-    public d26 H;
+    public i26 H;
     public int I;
     public boolean J;
     public int K;
@@ -80,7 +80,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public int F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0754 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0767 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -372,9 +372,9 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            nt5 nt5Var = this.B;
-            if (nt5Var != null) {
-                Intent resultIntent = nt5Var.getResultIntent();
+            st5 st5Var = this.B;
+            if (st5Var != null) {
+                Intent resultIntent = st5Var.getResultIntent();
                 if (resultIntent != null) {
                     setResult(-1, resultIntent);
                 }
@@ -386,7 +386,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             } else {
                 super.finish();
             }
-            xg.a().postDelayed(new f(this), 400L);
+            yg.a().postDelayed(new f(this), 400L);
         }
     }
 
@@ -397,7 +397,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             super.onResume();
             n2(true);
             if (this.B == null) {
-                nt5 e2 = e2(this.A, this.w);
+                st5 e2 = e2(this.A, this.w);
                 this.B = e2;
                 if (e2 != null) {
                     this.u.setContentViewTop(e2);
@@ -458,8 +458,8 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public void b2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            nt5 nt5Var = this.B;
-            if (nt5Var != null && !nt5Var.Q0()) {
+            st5 st5Var = this.B;
+            if (st5Var != null && !st5Var.Q0()) {
                 return;
             }
             if (this.v != null) {
@@ -510,14 +510,14 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public final void g2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.A = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09079b);
+            this.A = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907a1);
         }
     }
 
     public final void i2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f092242);
+            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0922a2);
             this.x = noNetworkView;
             noNetworkView.a(this.L);
         }
@@ -583,7 +583,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         ImageView imageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            p75.d(this.D).x(R.color.CAM_X0304);
+            s75.d(this.D).x(R.color.CAM_X0304);
             int i = this.I;
             if (i != 0 && (imageView = this.E) != null) {
                 if (i != 3 && i != 7) {
@@ -610,11 +610,11 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         PbModel pbModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && (pbModel = this.a) != null && pbModel.y1() != null && this.a.y1().N() != null) {
-            this.w.setCenterTextTitle(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1444), Integer.valueOf(this.a.y1().N().getReply_num())));
+            this.w.setCenterTextTitle(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1461), Integer.valueOf(this.a.y1().N().getReply_num())));
         }
     }
 
-    public final nt5 e2(FrameLayout frameLayout, NavigationBar navigationBar) {
+    public final st5 e2(FrameLayout frameLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, frameLayout, navigationBar)) == null) {
@@ -629,7 +629,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             }
             return null;
         }
-        return (nt5) invokeLL.objValue;
+        return (st5) invokeLL.objValue;
     }
 
     public final void f2() {
@@ -647,9 +647,9 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             this.u.setTranView(this.v);
             this.u.setContentView(this.A);
             this.u.s();
-            this.D = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5e);
-            this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f092464);
-            this.F = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092462);
+            this.D = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb9);
+            this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924c4);
+            this.F = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924c2);
             this.G = new TiePlusEventController(this, TiePlusStat.Locate.VIDEO_COMMENT_TOP);
             registerListener(this.M);
         }
@@ -661,14 +661,14 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
             this.w = navigationBar;
-            navigationBar.mCenterText.setTextSize(0, wi.g(getPageContext().getPageActivity(), R.dimen.T_X07));
+            navigationBar.mCenterText.setTextSize(0, xi.g(getPageContext().getPageActivity(), R.dimen.T_X07));
             this.w.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
             this.y = this.w.getBackImageView();
             this.w.setIsCorner(true);
             this.w.setStatusBarVisibility(8);
             this.w.isShowBottomLine(true);
-            this.z = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09185d);
-            int g = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds562);
+            this.z = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918a7);
+            int g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds562);
             if (!TbSingleton.getInstance().isNotchScreen(this) && !TbSingleton.getInstance().isCutoutScreen(this)) {
                 i = UtilHelper.getStatusBarHeight();
             } else {
@@ -684,16 +684,16 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         TiebaPlusInfo tiebaPlusInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (pbModel = this.a) != null && pbModel.y1() != null && this.a.y1().N() != null && this.a.y1().F() != null) {
-            b0a b0aVar = (b0a) ListUtils.getItem(this.a.y1().F(), 0);
+            n4a n4aVar = (n4a) ListUtils.getItem(this.a.y1().F(), 0);
             List<PbContent> list = null;
-            if (b0aVar != null) {
-                list = b0aVar.j0;
+            if (n4aVar != null) {
+                list = n4aVar.j0;
             }
             PbContent pbContent = (PbContent) ListUtils.getItem(TiePlusHelper.t(list), 0);
             if (pbContent != null && (tiebaPlusInfo = pbContent.tiebaplus_info) != null) {
                 Integer num = pbContent.type;
                 this.I = tiebaPlusInfo.jump_type.intValue();
-                d26 c2 = d26.c(num.intValue(), tiebaPlusInfo, this.a.y1().N());
+                i26 c2 = i26.c(num.intValue(), tiebaPlusInfo, this.a.y1().N());
                 this.H = c2;
                 c2.b(this.a.y1().N().statFloor);
                 this.H.q(TiePlusStat.StatType.EXPOSE);
@@ -723,9 +723,9 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             this.u.p(i);
             SkinManager.setBackgroundColor(this.u, R.color.CAM_X0608);
             SkinManager.setBackgroundColor(this.A, R.color.CAM_X0201);
-            nt5 nt5Var = this.B;
-            if (nt5Var != null) {
-                nt5Var.q(i);
+            st5 st5Var = this.B;
+            if (st5Var != null) {
+                st5Var.q(i);
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,15 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class o62 extends f52 {
+public class o62 extends i52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public int e;
-    public int f;
+    public q52 a;
 
     public o62() {
         Interceptable interceptable = $ic;
@@ -33,40 +27,26 @@ public class o62 extends f52 {
         }
     }
 
-    @Override // com.baidu.tieba.f52
-    public void a(g52 g52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.i52
+    public void a(j52 j52Var, Canvas canvas) {
+        q52 q52Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) {
-            if (g52Var.a() == 0) {
-                g52Var.b(canvas.save());
-            } else {
-                canvas.restoreToCount(g52Var.a());
-                g52Var.b(canvas.save());
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) && (q52Var = this.a) != null && q52Var.d()) {
+            if (this.a.c()) {
+                j52Var.c.setShader(this.a.b());
+                return;
             }
-            Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
-            canvas.concat(matrix);
+            j52Var.m = this.a.a();
+            j52Var.c.setColor(this.a.a());
+            j52Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.f52
+    @Override // com.baidu.tieba.i52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 6) {
-                    this.a = (float) jSONArray.optDouble(0);
-                    this.b = (float) jSONArray.optDouble(1);
-                    this.c = (float) jSONArray.optDouble(2);
-                    this.d = (float) jSONArray.optDouble(3);
-                    this.e = qp3.g((float) jSONArray.optDouble(4));
-                    this.f = qp3.g((float) jSONArray.optDouble(5));
-                }
-            } catch (Exception e) {
-                if (js1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new q52(jSONArray);
         }
     }
 }

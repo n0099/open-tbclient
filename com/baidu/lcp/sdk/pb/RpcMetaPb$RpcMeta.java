@@ -6,7 +6,7 @@ import com.baidu.lcp.sdk.pb.RpcMetaPb$ChunkInfo;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcNotifyMeta;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcResponseMeta;
-import com.baidu.tieba.la0;
+import com.baidu.tieba.oa0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -319,7 +319,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                RpcMetaPb$RpcMeta rpcMetaPb$RpcMeta = new RpcMetaPb$RpcMeta(this, (la0) null);
+                RpcMetaPb$RpcMeta rpcMetaPb$RpcMeta = new RpcMetaPb$RpcMeta(this, (oa0) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -432,7 +432,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, rpcMetaPb$RpcNotifyMeta)) == null) {
                 if ((this.a & 128) == 128 && this.i != RpcMetaPb$RpcNotifyMeta.getDefaultInstance()) {
                     RpcMetaPb$RpcNotifyMeta.b newBuilder = RpcMetaPb$RpcNotifyMeta.newBuilder(this.i);
-                    newBuilder.s(rpcMetaPb$RpcNotifyMeta);
+                    newBuilder.r(rpcMetaPb$RpcNotifyMeta);
                     this.i = newBuilder.buildPartial();
                 } else {
                     this.i = rpcMetaPb$RpcNotifyMeta;
@@ -449,7 +449,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, rpcMetaPb$RpcRequestMeta)) == null) {
                 if ((this.a & 1) == 1 && this.b != RpcMetaPb$RpcRequestMeta.getDefaultInstance()) {
                     RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder(this.b);
-                    newBuilder.t(rpcMetaPb$RpcRequestMeta);
+                    newBuilder.s(rpcMetaPb$RpcRequestMeta);
                     this.b = newBuilder.buildPartial();
                 } else {
                     this.b = rpcMetaPb$RpcRequestMeta;
@@ -466,7 +466,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, rpcMetaPb$RpcResponseMeta)) == null) {
                 if ((this.a & 2) == 2 && this.c != RpcMetaPb$RpcResponseMeta.getDefaultInstance()) {
                     RpcMetaPb$RpcResponseMeta.b newBuilder = RpcMetaPb$RpcResponseMeta.newBuilder(this.c);
-                    newBuilder.s(rpcMetaPb$RpcResponseMeta);
+                    newBuilder.r(rpcMetaPb$RpcResponseMeta);
                     this.c = newBuilder.buildPartial();
                 } else {
                     this.c = rpcMetaPb$RpcResponseMeta;
@@ -902,7 +902,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
                                                             RpcMetaPb$RpcNotifyMeta rpcMetaPb$RpcNotifyMeta = (RpcMetaPb$RpcNotifyMeta) codedInputStream.readMessage(RpcMetaPb$RpcNotifyMeta.PARSER, extensionRegistryLite);
                                                             this.notify_ = rpcMetaPb$RpcNotifyMeta;
                                                             if (builder != null) {
-                                                                builder.s(rpcMetaPb$RpcNotifyMeta);
+                                                                builder.r(rpcMetaPb$RpcNotifyMeta);
                                                                 this.notify_ = builder.buildPartial();
                                                             }
                                                             this.bitField0_ |= 128;
@@ -938,7 +938,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
                                     RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = (RpcMetaPb$RpcResponseMeta) codedInputStream.readMessage(RpcMetaPb$RpcResponseMeta.PARSER, extensionRegistryLite);
                                     this.response_ = rpcMetaPb$RpcResponseMeta;
                                     if (builder3 != null) {
-                                        builder3.s(rpcMetaPb$RpcResponseMeta);
+                                        builder3.r(rpcMetaPb$RpcResponseMeta);
                                         this.response_ = builder3.buildPartial();
                                     }
                                     this.bitField0_ |= 2;
@@ -948,7 +948,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
                                 RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta = (RpcMetaPb$RpcRequestMeta) codedInputStream.readMessage(RpcMetaPb$RpcRequestMeta.PARSER, extensionRegistryLite);
                                 this.request_ = rpcMetaPb$RpcRequestMeta;
                                 if (builder4 != null) {
-                                    builder4.t(rpcMetaPb$RpcRequestMeta);
+                                    builder4.s(rpcMetaPb$RpcRequestMeta);
                                     this.request_ = builder4.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
@@ -967,7 +967,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ RpcMetaPb$RpcMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, la0 la0Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$RpcMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, oa0 oa0Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -993,7 +993,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ RpcMetaPb$RpcMeta(GeneratedMessageLite.Builder builder, la0 la0Var) {
+    public /* synthetic */ RpcMetaPb$RpcMeta(GeneratedMessageLite.Builder builder, oa0 oa0Var) {
         this(builder);
     }
 

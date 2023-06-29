@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.schemeaction.SchemeActionName;
 import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCallback;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.ey9;
-import com.baidu.tieba.xx4;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.q2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,9 +115,9 @@ public class DeepLinkAction {
                 deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, -1);
                 return false;
             }
-            TbPageContext<?> a = ey9.a(context);
-            if (a != null) {
-                int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(a, new String[]{str});
+            TbPageContext<?> c = q2a.c(context);
+            if (c != null) {
+                int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(c, new String[]{str});
                 SchemeActionHelper.printLog("inner tryOpenInnerLink-->" + str + ",retType=" + dealOneLinkWithOutJumpWebView);
                 if (dealOneLinkWithOutJumpWebView == 0 || dealOneLinkWithOutJumpWebView == 1) {
                     SchemeActionHelper.printLog("inner open success-->" + str);
@@ -256,19 +256,19 @@ public class DeepLinkAction {
 
     public static boolean openWebUrl(Context context, String str, Bundle bundle) {
         InterceptResult invokeLLL;
-        TbPageContext<?> a;
+        TbPageContext<?> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, str, bundle)) == null) {
-            String[] strArr = {xx4.k(str)};
+            String[] strArr = {ay4.k(str)};
             UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (a = ey9.a(context)) == null) {
+            if (urlManager == null || (c = q2a.c(context)) == null) {
                 return false;
             }
             if (urlManager.UrlValidated(str)) {
-                urlManager.dealOneLink(a, strArr, true, bundle);
+                urlManager.dealOneLink(c, strArr, true, bundle);
                 return true;
             }
-            return urlManager.dealOneLink(a, strArr, bundle);
+            return urlManager.dealOneLink(c, strArr, bundle);
         }
         return invokeLLL.booleanValue;
     }

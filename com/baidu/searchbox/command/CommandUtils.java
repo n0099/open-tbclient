@@ -657,7 +657,7 @@ public final class CommandUtils {
             doUBCForCommand(commandEntity.mCommand.toString(), 0);
             return startActivitySafely;
         }
-        Toast.makeText(appContext, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f00b8, 0).show();
+        Toast.makeText(appContext, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f00ba, 0).show();
         if (commandEntity == null || (jSONObject = commandEntity.mCommand) == null) {
             return false;
         }
@@ -717,7 +717,7 @@ public final class CommandUtils {
             }
             return invokeCommand(context, new CommandEntity(jSONObject.toString(), parseCommandEx), z);
         }
-        Toast.makeText(appContext, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f00b8, 0).show();
+        Toast.makeText(appContext, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f00ba, 0).show();
         return false;
     }
 

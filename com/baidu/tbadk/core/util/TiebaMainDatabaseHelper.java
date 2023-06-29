@@ -5,13 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.t9;
+import com.baidu.tieba.u9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class TiebaMainDatabaseHelper extends t9 {
+public class TiebaMainDatabaseHelper extends u9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 25;
     public static final String TABLE_NAME_DOWNLOAD_INFO = "download_info";
@@ -39,7 +39,7 @@ public class TiebaMainDatabaseHelper extends t9 {
         }
     }
 
-    @Override // com.baidu.tieba.t9
+    @Override // com.baidu.tieba.u9
     public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
@@ -75,7 +75,7 @@ public class TiebaMainDatabaseHelper extends t9 {
         }
     }
 
-    @Override // com.baidu.tieba.t9
+    @Override // com.baidu.tieba.u9
     public void createAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
@@ -106,7 +106,7 @@ public class TiebaMainDatabaseHelper extends t9 {
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.tieba.r9
+    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.tieba.s9
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {

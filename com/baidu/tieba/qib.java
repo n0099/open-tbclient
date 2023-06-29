@@ -1,80 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class qib {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ArrayList<Long> b;
-    public long c;
-    public int d;
-    public boolean e;
 
-    public qib(int i) {
+    public static void a(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) && Build.VERSION.SDK_INT >= 11) {
+            webSettings.setAllowContentAccess(false);
         }
-        this.b = new ArrayList<>();
-        this.c = 0L;
-        this.d = 0;
-        this.e = false;
-        this.a = i;
     }
 
-    public synchronized long a() {
-        InterceptResult invokeV;
+    public static void b(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.b.isEmpty()) {
-                    return 0L;
-                }
-                long longValue = this.b.remove(0).longValue();
-                this.c -= longValue;
-                if (!this.b.isEmpty()) {
-                    long size = this.c / this.b.size();
-                }
-                return longValue;
+        if (interceptable == null || interceptable.invokeL(65537, null, webSettings) == null) {
+            webSettings.setAllowFileAccess(false);
+            if (Build.VERSION.SDK_INT >= 16) {
+                webSettings.setAllowFileAccessFromFileURLs(false);
+                webSettings.setAllowUniversalAccessFromFileURLs(false);
             }
         }
-        return invokeV.longValue;
     }
 
-    public synchronized void b(long j) {
+    public static void c(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            synchronized (this) {
-                this.b.add(Long.valueOf(j));
-                this.c += j;
-                if (this.b.size() > this.a) {
-                    this.c -= this.b.remove(0).longValue();
-                }
-                long size = this.c / this.b.size();
-                if (this.d == 0) {
-                    return;
-                }
-                if (this.e && this.b.size() <= this.d) {
-                    long size2 = this.c / this.b.size();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
+            webSettings.setGeolocationEnabled(false);
+        }
+    }
+
+    public static void d(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, webSettings) == null) && Build.VERSION.SDK_INT >= 21) {
+            webSettings.setMixedContentMode(1);
+        }
+    }
+
+    public static void e(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings) == null) && Build.VERSION.SDK_INT <= 18) {
+            webSettings.setSavePassword(false);
+        }
+    }
+
+    public static void f(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, webView) == null) {
+            WebSettings settings = webView.getSettings();
+            b(settings);
+            g(webView);
+            e(settings);
+            c(settings);
+            d(settings);
+            a(settings);
+        }
+    }
+
+    public static void g(WebView webView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, webView) == null) && Build.VERSION.SDK_INT >= 11) {
+            webView.removeJavascriptInterface("searchBoxJavaBridge_");
+            webView.removeJavascriptInterface("accessibility");
+            webView.removeJavascriptInterface("accessibilityTraversal");
         }
     }
 }

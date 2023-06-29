@@ -1,19 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes7.dex */
 public interface oa7 {
-    void a(pa7 pa7Var);
+    void setRadius(float f);
 
-    boolean b(DownloadData downloadData, pa7 pa7Var);
+    void setRadius(float f, float f2, float f3, float f4);
 
-    void c(DownloadData downloadData);
+    void setRadiusBottom(float f);
 
-    int d(DownloadData downloadData);
+    void setRadiusBottomLeft(float f);
 
-    void e(DownloadData downloadData);
+    void setRadiusBottomRight(float f);
 
-    int f(DownloadData downloadData);
+    void setRadiusLeft(float f);
 
-    void g(pa7 pa7Var);
+    void setRadiusRight(float f);
+
+    void setRadiusTop(float f);
+
+    void setRadiusTopLeft(float f);
+
+    void setRadiusTopRight(float f);
+
+    void setStrokeColor(int i);
+
+    void setStrokeWidth(float f);
+
+    void setStrokeWidthColor(float f, int i);
 }

@@ -15,12 +15,12 @@ import java.util.List;
 import java.util.Map;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface AdInteractionListener {
         boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener);
 
@@ -43,7 +43,7 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface VideoPlayListener {
         @KsAdSdkApi
         @Keep

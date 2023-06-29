@@ -1,148 +1,32 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.PopupWindow;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.webpanel.PanelScrollView;
-import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class m81 extends PopupWindow implements r81, ViewTreeObserver.OnWindowFocusChangeListener {
+public final class m81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public AdImageView b;
-    public ViewGroup c;
-    public j81 d;
-    public t81 e;
-    public s81 f;
+    public s81 a;
+    public PanelScrollView b;
+    public final Activity c;
+    public final ViewGroup d;
 
-    /* loaded from: classes6.dex */
-    public class a implements PanelScrollView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m81 a;
-
-        public a(m81 m81Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m81Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m81Var;
-        }
-
-        @Override // com.baidu.nadcore.webpanel.PanelScrollView.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
-                this.a.f.e();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements PanelScrollView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m81 a;
-
-        public b(m81 m81Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m81Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m81Var;
-        }
-
-        @Override // com.baidu.nadcore.webpanel.PanelScrollView.d
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
-                this.a.f.c();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t81 a;
-        public final /* synthetic */ m81 b;
-
-        public c(m81 m81Var, t81 t81Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m81Var, t81Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = m81Var;
-            this.a = t81Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.f != null) {
-                if (this.a.q()) {
-                    this.b.g();
-                    this.b.b.setVisibility(8);
-                    this.b.f.a();
-                    return;
-                }
-                this.b.f.b();
-            }
-        }
-    }
-
-    public m81(Context context) {
+    public m81(Activity activity, ViewGroup rootView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {activity, rootView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -152,175 +36,107 @@ public class m81 extends PopupWindow implements r81, ViewTreeObserver.OnWindowFo
                 return;
             }
         }
-        this.c = null;
-        setFocusable(true);
-        setBackgroundDrawable(new ColorDrawable(0));
-        setAnimationStyle(R.style.obfuscated_res_0x7f1003e7);
-        setClippingEnabled(true);
-        setWidth(-1);
-        setHeight(-1);
-        setContentView(f(context));
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        Intrinsics.checkNotNullParameter(rootView, "rootView");
+        this.c = activity;
+        this.d = rootView;
+        this.a = n81.a().a(this.c);
+        this.b = new PanelScrollView(this.c);
     }
 
-    public void h(t81 t81Var) {
+    public final void a(u81 listener) {
+        PanelScrollView panelScrollView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t81Var) == null) {
-            this.e = t81Var;
-            j81 j81Var = new j81((Activity) this.a.getContext(), (ViewGroup) this.a);
-            this.d = j81Var;
-            j81Var.f(t81Var);
-            this.d.a(this);
-            PanelScrollView b2 = this.d.b();
-            if (b2 != null) {
-                b2.setOnGestureScrollListener(new a(this));
-                b2.setOnGestureSingleTapUpListener(new b(this));
+        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            s81 s81Var = this.a;
+            if (s81Var != null && (panelScrollView = this.b) != null) {
+                panelScrollView.k(s81Var, listener);
             }
-            l(t81Var);
-        }
-    }
-
-    public final View f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.nad_panel_pop_view, (ViewGroup) null);
-            this.a = inflate;
-            this.b = (AdImageView) inflate.findViewById(R.id.top_right_icon);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void i(@NonNull s81 s81Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, s81Var) == null) {
-            this.f = s81Var;
-        }
-    }
-
-    @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
-    public void onWindowFocusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && this.e.o()) {
-            b91.a(this.a.getContext(), this);
-        }
-    }
-
-    @Override // com.baidu.tieba.r81
-    public void a(int i) {
-        s81 s81Var;
-        s81 s81Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (this.e.l() && (s81Var2 = this.f) != null) {
-                s81Var2.d();
-                return;
-            }
-            z81.a(ClogBuilder.LogType.NAVIDEO_POP_CLOSE, String.valueOf(i), "", this.e.c());
-            g();
-            if (i == 0 && (s81Var = this.f) != null) {
-                s81Var.f();
+            PanelScrollView panelScrollView2 = this.b;
+            if (panelScrollView2 != null) {
+                this.d.setClipChildren(false);
+                this.d.addView(panelScrollView2, new FrameLayout.LayoutParams(-1, -1));
             }
         }
     }
 
-    public final void l(t81 t81Var) {
+    public final PanelScrollView b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, t81Var) != null) || !t81Var.s()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        if (t81Var.q()) {
-            this.b.setImageResource(R.drawable.nad_reward_video_lp_down_arrow);
-        }
-        this.b.setVisibility(0);
-        this.b.setOnClickListener(new c(this, t81Var));
+        return (PanelScrollView) invokeV.objValue;
     }
 
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
+    public final View.OnTouchListener c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                StackTraceElement[] stackTrace = new Exception().getStackTrace();
-                if (stackTrace.length >= 2 && stackTrace[1] != null && "dispatchKeyEvent".equals(stackTrace[1].getMethodName())) {
-                    if (this.e.p()) {
-                        if (this.d != null) {
-                            this.d.d("javascript:onAndroidBack()");
-                        }
-                    } else if (!this.d.g()) {
-                        a(0);
-                    }
-                } else {
-                    a(0);
-                }
-            } catch (Exception unused) {
-                a(0);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (View.OnTouchListener) invokeV.objValue;
     }
 
-    public final void g() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            qn0.a().a(new o81(5, this.e.a()));
-            this.d.e();
-            this.a.getViewTreeObserver().removeOnWindowFocusChangeListener(this);
-            if (this.e.k()) {
-                this.c = b91.b(this.a.getContext(), this.c, false);
+            PanelScrollView panelScrollView = this.b;
+            if (panelScrollView != null) {
+                panelScrollView.r();
             }
-            i81.a.b(false);
-            i81.a.a(false);
-            super.dismiss();
-            s81 s81Var = this.f;
+            s81 s81Var = this.a;
             if (s81Var != null) {
-                s81Var.dismiss();
+                s81Var.onDestroy();
             }
         }
     }
 
-    public void e() {
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            s81 s81Var = this.a;
+            if (s81Var != null) {
+                return s81Var.h();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public final void d(String javaScript) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, javaScript) == null) {
+            Intrinsics.checkNotNullParameter(javaScript, "javaScript");
+            s81 s81Var = this.a;
+            if (s81Var != null) {
+                s81Var.r(javaScript);
+            }
         }
     }
 
-    public void j() {
+    public final void f(w81 nadWebPanelModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.getViewTreeObserver().addOnWindowFocusChangeListener(this);
-            if (this.e.o()) {
-                b91.a(this.a.getContext(), this);
+        if (interceptable == null || interceptable.invokeL(1048581, this, nadWebPanelModel) == null) {
+            Intrinsics.checkNotNullParameter(nadWebPanelModel, "nadWebPanelModel");
+            s81 s81Var = this.a;
+            if (s81Var != null) {
+                s81Var.l(nadWebPanelModel);
             }
-            View.OnTouchListener c2 = this.d.c();
-            if (c2 != null && !this.e.m()) {
-                setTouchInterceptor(c2);
-            }
-            if (this.e.k()) {
-                this.c = b91.b(this.a.getContext(), this.c, true);
-            }
-            k(this.a.getContext(), ((Activity) this.a.getContext()).getWindow().getDecorView(), 80, 0, 0);
-            i81.a.b(true);
-            i81.a.a(false);
-            z81.a(ClogBuilder.LogType.FREE_SHOW, "", "", this.e.c());
-        }
-    }
-
-    public final void k(Context context, View view2, int i, int i2, int i3) {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (context instanceof Activity) {
-                activity = (Activity) context;
-            } else {
-                activity = null;
-            }
-            if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-                try {
-                    showAtLocation(view2, i, i2, i3);
-                } catch (Exception e) {
-                    ra1.d(e);
-                }
+            PanelScrollView panelScrollView = this.b;
+            if (panelScrollView != null) {
+                panelScrollView.setPanelData(nadWebPanelModel);
             }
         }
     }

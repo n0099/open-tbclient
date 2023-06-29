@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.queue.QueueManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,300 +12,94 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class d51 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d51 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public b51 c;
-    public c51 d;
-    public a51 e;
-    public e51 f;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947655433, "Lcom/baidu/tieba/d51;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947655433, "Lcom/baidu/tieba/d51;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d51 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(d51 d51Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d51Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d51Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                switch (message.what) {
-                    case 1:
-                        Object obj = message.obj;
-                        if (obj instanceof b) {
-                            b bVar = (b) obj;
-                            this.a.e.d(bVar.a, bVar.b, bVar.c);
-                        }
-                        this.a.r();
-                        return;
-                    case 2:
-                        this.a.r();
-                        return;
-                    case 3:
-                        if (this.a.d.a() > 0) {
-                            this.a.r();
-                            return;
-                        }
-                        return;
-                    case 4:
-                        Object obj2 = message.obj;
-                        if (obj2 instanceof b) {
-                            b bVar2 = (b) obj2;
-                            this.a.f.b(bVar2.a, bVar2.b, bVar2.c);
-                            this.a.t();
-                            return;
-                        }
-                        return;
-                    case 5:
-                        this.a.t();
-                        return;
-                    case 6:
-                        this.a.f.a();
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Runnable a;
-        public String b;
-        public int c;
-
-        public b(Runnable runnable, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-            this.b = str;
-            this.c = i;
-        }
-    }
+    public final c51[] a;
 
     public d51() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        synchronized (o41.b()) {
-            h();
+        this.a = new c51[4];
+        if (r41.s.length != 4) {
+            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
+        }
+        for (int i3 = 0; i3 < 4; i3++) {
+            this.a[i3] = new c51();
         }
     }
 
-    public static d51 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (g == null) {
-                synchronized (d51.class) {
-                    if (g == null) {
-                        g = new d51();
-                    }
-                }
-            }
-            return g;
-        }
-        return (d51) invokeV.objValue;
-    }
-
-    public a51 g() {
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            if (!c(0).d()) {
+                return 9999999.0d;
+            }
+            double d = 0.0d;
+            for (int i = 0; i < 4; i++) {
+                d += this.a[i].a() * r41.s[i];
+            }
+            return d / 1000.0d;
         }
-        return (a51) invokeV.objValue;
+        return invokeV.doubleValue;
     }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j(0L);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            l(0L);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            p(0L);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            do {
-            } while (s());
-            i();
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f.c();
-        }
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 3;
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 2;
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 6;
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 5;
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new b51();
-            this.d = new c51();
-            this.e = new a51();
-            this.f = new e51();
-            HandlerThread handlerThread = new HandlerThread("ElasticSchedulerThread");
-            this.a = handlerThread;
-            handlerThread.start();
-            this.a.setPriority(10);
-            this.b = new a(this, this.a.getLooper());
-        }
-    }
-
-    public void m(Runnable runnable, String str, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            obtain.obj = new b(runnable, str, i);
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public void q(Runnable runnable, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 4;
-            obtain.obj = new b(runnable, str, 4);
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public final boolean s() {
+    public ElasticTask b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ElasticTask b2 = this.e.b();
-            if (b2 == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            for (int i = 0; i < 4; i++) {
+                if (!this.a[i].d()) {
+                    return this.a[i].b();
+                }
             }
-            if (this.c.a(b2)) {
-                this.e.e(b2);
-                return true;
-            } else if (!this.d.c(b2)) {
-                return false;
-            } else {
-                this.e.e(b2);
-                return true;
-            }
+            return null;
         }
-        return invokeV.booleanValue;
+        return (ElasticTask) invokeV.objValue;
+    }
+
+    public c51 c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = 0;
+            while (true) {
+                int[] iArr = r41.a;
+                if (i2 < iArr.length) {
+                    if (iArr[i2] == i) {
+                        return this.a[i2];
+                    }
+                    i2++;
+                } else {
+                    c51[] c51VarArr = this.a;
+                    return c51VarArr[c51VarArr.length - 1];
+                }
+            }
+        } else {
+            return (c51) invokeI.objValue;
+        }
+    }
+
+    public void e(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
+            c(elasticTask.b()).e(elasticTask);
+        }
+    }
+
+    public void d(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
+            c(i).c(runnable, str, i);
+        }
     }
 }

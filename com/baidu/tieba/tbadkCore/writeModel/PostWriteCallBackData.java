@@ -9,10 +9,10 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
-import com.baidu.tieba.e45;
+import com.baidu.tieba.h45;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.vg;
 import com.baidu.tieba.video.VideoTitleData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,7 +48,7 @@ public class PostWriteCallBackData implements Serializable {
     public AdverSegmentData mAdverSegmentData;
     public ContriInfo mContriInfo;
     public int mFrom;
-    public e45 mReplyPrivacyTip;
+    public h45 mReplyPrivacyTip;
     public VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -167,7 +167,7 @@ public class PostWriteCallBackData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return ug.e(this.inviteesNumber, 0);
+            return vg.e(this.inviteesNumber, 0);
         }
         return invokeV.intValue;
     }
@@ -217,13 +217,13 @@ public class PostWriteCallBackData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public e45 getReplyPrivacyTip() {
+    public h45 getReplyPrivacyTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.mReplyPrivacyTip;
         }
-        return (e45) invokeV.objValue;
+        return (h45) invokeV.objValue;
     }
 
     public ArrayList<String> getSensitiveWords() {
@@ -503,10 +503,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setReplyPrivacyTip(e45 e45Var) {
+    public void setReplyPrivacyTip(h45 h45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, e45Var) == null) {
-            this.mReplyPrivacyTip = e45Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, h45Var) == null) {
+            this.mReplyPrivacyTip = h45Var;
         }
     }
 

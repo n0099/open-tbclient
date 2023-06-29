@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static boolean JD;
     public static final AtomicInteger JE = new AtomicInteger(0);
@@ -70,8 +70,8 @@ public final class b {
             com.kwad.sdk.core.e.b.i(b.this.TAG, "onCompletion ——> STATE_COMPLETED");
         }
     };
-    public c.InterfaceC0672c JU = new c.InterfaceC0672c() { // from class: com.kwad.components.core.video.b.5
-        @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0672c
+    public c.InterfaceC0682c JU = new c.InterfaceC0682c() { // from class: com.kwad.components.core.video.b.5
+        @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0682c
         public final boolean j(int i, int i2) {
             if (i != -38) {
                 b.this.JF = -1;
@@ -281,7 +281,7 @@ public final class b {
         if (cVar == null) {
             return;
         }
-        cVar.a((c.InterfaceC0672c) null);
+        cVar.a((c.InterfaceC0682c) null);
         this.JG.a((c.b) null);
         this.JG.b(null);
         this.JG.a((c.h) null);

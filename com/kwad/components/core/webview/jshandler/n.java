@@ -6,11 +6,11 @@ import com.ksad.json.annotation.KsJson;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.az;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class n implements com.kwad.sdk.core.webview.kwai.a {
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String LF;
         public int LG;

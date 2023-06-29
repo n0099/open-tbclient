@@ -1,35 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class d95 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d95 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
-            ch chVar = new ch();
-            chVar.c("cmd", Integer.valueOf(i));
-            if (!TextUtils.isEmpty(str2)) {
-                chVar.b("action", str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 600000L;
+        }
+        return invokeV.longValue;
+    }
+
+    public d95() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            chVar.b("errNo", String.valueOf(i2));
-            if (!TextUtils.isEmpty(str3) && i2 != 0) {
-                chVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
+        }
+        this.a = 300000L;
+    }
+
+    public static d95 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (d95.class) {
+                    if (b == null) {
+                        b = new d95();
+                    }
+                }
             }
-            if (objArr != null && objArr.length > 0) {
-                chVar.c(objArr);
-            }
-            if (i2 == 0) {
-                BdStatisticsManager.getInstance().debug(str, j, null, chVar);
-            } else {
-                BdStatisticsManager.getInstance().error(str, j, (String) null, chVar);
-            }
+            return b;
+        }
+        return (d95) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a = j;
         }
     }
 }

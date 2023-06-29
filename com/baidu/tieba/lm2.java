@@ -1,32 +1,21 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.ln2;
-import com.baidu.tieba.on2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class lm2<P extends ln2, R extends on2> {
+public class lm2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public P a;
-    @NonNull
-    public R b;
-
-    public abstract String b(int i);
-
-    @Nullable
-    public abstract ExtensionCore c();
 
     static {
         InterceptResult invokeClinit;
@@ -41,104 +30,113 @@ public abstract class lm2<P extends ln2, R extends on2> {
                 return;
             }
         }
-        c = js1.a;
+        a = ms1.a;
     }
 
-    @NonNull
-    public P e() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (P) invokeV.objValue;
-    }
-
-    @NonNull
-    public R f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (R) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.q();
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            f(0).f().c();
+            f(0).e().f();
+            if (f(1) != null) {
+                f(1).f().c();
+                f(1).e().f();
+            }
         }
     }
 
-    public lm2(@NonNull P p, @NonNull R r) {
+    public static <T extends in2> Exception b(int i, T t) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p, r};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, t)) == null) {
+            om2 f = f(i);
+            if (f == null) {
+                return new Exception("SwanExtCore-Manager doRemoteUpdate: null extensionCoreManager");
+            }
+            return f.a(t);
+        }
+        return (Exception) invokeIL.objValue;
+    }
+
+    public static void h(int i, @Nullable vq3<Exception> vq3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, vq3Var) == null) {
+            om2 f = f(i);
+            if (f != null) {
+                f.g(vq3Var);
+            } else if (vq3Var != null) {
+                vq3Var.a(null);
+            }
+        }
+    }
+
+    public static ExtensionCore c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            om2 f = f(i);
+            if (f == null) {
+                return null;
+            }
+            return f.c();
+        }
+        return (ExtensionCore) invokeI.objValue;
+    }
+
+    public static long d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ExtensionCore c = c(i);
+            if (c != null) {
+                return c.extensionCoreVersionCode;
+            }
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            ExtensionCore c = c(i);
+            if (c != null && !TextUtils.isEmpty(c.extensionCoreVersionName)) {
+                return c.extensionCoreVersionName;
+            }
+            return "0";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static om2 f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i == 1) {
+                om2 t = kv2.i().t();
+                if (t == null && ms1.a) {
+                    Log.e("SwanGameRuntime", "非手百环境依赖注入接口getSwanGameExtensionCoreManager未实现，直接返回");
+                }
+                return t;
+            }
+            return km2.k();
+        }
+        return (om2) invokeI.objValue;
+    }
+
+    public static void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
+            if (a) {
+                Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            }
+            if (!"com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) && i == i2) {
                 return;
             }
+            a();
+            tn2.i(0, true);
+            tn2.i(1, true);
         }
-        this.a = p;
-        this.b = r;
-    }
-
-    public <T extends fn2> Exception a(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
-            }
-            return this.b.e(t);
-        }
-        return (Exception) invokeL.objValue;
-    }
-
-    public void g(@Nullable sq3<Exception> sq3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sq3Var) == null) {
-            this.a.p(sq3Var);
-        }
-    }
-
-    @NonNull
-    public ExtensionCore d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int c2 = this.a.a.c();
-            if (qn2.f(c2)) {
-                ExtensionCore extensionCore = new ExtensionCore();
-                extensionCore.extensionCoreVersionCode = 0L;
-                extensionCore.extensionCoreVersionName = "0";
-                extensionCore.extensionCorePath = b(c2);
-                extensionCore.extensionCoreType = 2;
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
-                }
-                return extensionCore;
-            }
-            ExtensionCore h = this.a.h();
-            ExtensionCore f = this.b.f();
-            if (h.extensionCoreVersionCode < f.extensionCoreVersionCode && f.isAvailable()) {
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + f.toString());
-                }
-                return f;
-            }
-            if (c) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + h.toString());
-            }
-            return h;
-        }
-        return (ExtensionCore) invokeV.objValue;
     }
 }

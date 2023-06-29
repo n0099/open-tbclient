@@ -88,7 +88,7 @@ public interface IChatRoomEnterListener extends IMListener {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("room_type", this.roomInfo.roomType);
+                    jSONObject2.put(Constants.EXTRA_ROOM_TYPE, this.roomInfo.roomType);
                     jSONObject2.put("room_id", this.roomId);
                     jSONObject2.put(DpStatConstants.KEY_ROOM_NAME, this.roomInfo.roomName);
                     jSONObject2.put("room_image", this.roomInfo.roomImage);

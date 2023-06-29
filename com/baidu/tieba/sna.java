@@ -1,117 +1,188 @@
 package com.baidu.tieba;
 
-import android.os.RemoteException;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.TurbonetEngine;
-import java.net.BindException;
-import java.net.ConnectException;
-import java.net.NoRouteToHostException;
-import java.net.PortUnreachableException;
-import java.net.ProtocolException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-import javax.net.ssl.SSLHandshakeException;
-import javax.net.ssl.SSLKeyException;
-import javax.net.ssl.SSLPeerUnverifiedException;
-import javax.net.ssl.SSLProtocolException;
 /* loaded from: classes7.dex */
-public class sna {
+public class sna extends tna<soa> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
-    public long i;
+    public RelativeLayout g;
+    public TbImageView h;
+    public View i;
+    public EMTextView j;
+    public ImageView k;
+    public b l;
 
-    public sna(String str) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onClick();
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void c(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sna a;
+
+        public a(sna snaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {snaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = snaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.l != null) {
+                this.a.l.onClick();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sna(@NonNull TbPageContext<?> tbPageContext) {
+        super(tbPageContext, soa.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = -14;
-        this.d = -1;
-        this.e = -1L;
-        this.f = -1L;
-        this.g = -1L;
-        this.h = -1L;
-        this.i = -1L;
-        this.a = str;
-        this.g = System.nanoTime() / 1000;
-        this.f = System.currentTimeMillis();
     }
 
-    public void a(Exception exc) {
+    public void A(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            if (exc instanceof SocketTimeoutException) {
-                this.c = -1;
-            } else if (exc instanceof UnknownHostException) {
-                this.c = -2;
-            } else if (exc instanceof ConnectException) {
-                this.c = -5;
-            } else if (exc instanceof ProtocolException) {
-                this.c = -3;
-            } else if (exc instanceof BindException) {
-                this.c = -4;
-            } else if (exc instanceof SSLHandshakeException) {
-                this.c = -8;
-            } else if (exc instanceof SSLProtocolException) {
-                this.c = -9;
-            } else if (exc instanceof RemoteException) {
-                this.c = -13;
-            } else if (exc instanceof NoRouteToHostException) {
-                this.c = -6;
-            } else if (exc instanceof PortUnreachableException) {
-                this.c = -7;
-            } else if (exc instanceof SSLKeyException) {
-                this.c = -10;
-            } else if (exc instanceof SSLPeerUnverifiedException) {
-                this.c = -11;
-            } else {
-                this.c = -14;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.l = bVar;
         }
     }
 
-    public void d(TurbonetEngine turbonetEngine) {
+    public void B(int i) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, turbonetEngine) == null) {
-            Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.a, this.b, Integer.valueOf(this.c), Integer.valueOf(this.d), Long.valueOf(this.e), Long.valueOf(this.f), Long.valueOf(this.h), Long.valueOf(this.i)));
-            turbonetEngine.e(this.a, this.b, this.c, this.d, this.e, this.f, this.h, this.i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (relativeLayout = this.g) != null) {
+            relativeLayout.setVisibility(i);
         }
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.yna
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.h = (System.nanoTime() / 1000) - this.g;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            s75 d = s75.d(this.g);
+            d.o(R.string.J_X05);
+            d.m(R.dimen.L_X01);
+            d.l(R.color.CAM_X0112);
+            d.f(R.color.CAM_X0212);
+            s75.d(this.i).f(R.color.CAM_X0203);
+            s75 d2 = s75.d(this.j);
+            d2.x(R.color.CAM_X0107);
+            d2.C(R.dimen.T_X08);
+            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080be7, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setMaskDrawable(this.h, R.drawable.obfuscated_res_0x7f080a1f, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.yna
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.i = (System.nanoTime() / 1000) - this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
+            this.g = new RelativeLayout(this.a.getPageActivity());
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, xi.g(this.a.getPageActivity(), R.dimen.tbds117));
+            marginLayoutParams.setMargins(xi.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0, xi.g(this.a.getPageActivity(), R.dimen.M_W_X007), xi.g(this.a.getPageActivity(), R.dimen.M_H_X004));
+            this.g.setLayoutParams(marginLayoutParams);
+            LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
+            linearLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            linearLayout.setOrientation(0);
+            linearLayout.setGravity(16);
+            this.h = new TbImageView(this.a.getPageActivity());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(xi.g(this.a.getPageActivity(), R.dimen.tbds104), xi.g(this.a.getPageActivity(), R.dimen.tbds75));
+            layoutParams.setMargins(xi.g(this.a.getPageActivity(), R.dimen.tbds39), 0, 0, 0);
+            this.h.setLayoutParams(layoutParams);
+            linearLayout.addView(this.h);
+            this.i = new View(this.a.getPageActivity());
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(xi.g(this.a.getPageActivity(), R.dimen.L_X01), xi.g(this.a.getPageActivity(), R.dimen.tbds69));
+            layoutParams2.setMargins(xi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0, xi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0);
+            this.i.setLayoutParams(layoutParams2);
+            linearLayout.addView(this.i);
+            EMTextView eMTextView = new EMTextView(this.a.getPageActivity());
+            this.j = eMTextView;
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f042a);
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams3.setMargins(0, 0, xi.g(this.a.getPageActivity(), R.dimen.tbds55), 0);
+            layoutParams3.weight = 1.0f;
+            this.j.setLayoutParams(layoutParams3);
+            linearLayout.addView(this.j);
+            ImageView imageView = new ImageView(this.a.getPageActivity());
+            this.k = imageView;
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(xi.g(this.a.getPageActivity(), R.dimen.tbds42), xi.g(this.a.getPageActivity(), R.dimen.tbds42));
+            layoutParams4.setMargins(0, 0, xi.g(this.a.getPageActivity(), R.dimen.M_W_X004), 0);
+            this.k.setLayoutParams(layoutParams4);
+            linearLayout.addView(this.k);
+            this.k.setOnClickListener(new a(this));
+            this.g.addView(linearLayout);
+            return this.g;
         }
+        return (View) invokeL.objValue;
     }
 }

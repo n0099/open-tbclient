@@ -1,7 +1,7 @@
 package com.kwad.components.offline.api.tk.jsbridge;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IOfflineCompoBridgeHandler {
     @NonNull
     String getKey();

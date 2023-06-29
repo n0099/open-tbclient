@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Ref;
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/flow/FlowCollector;", "Lkotlinx/coroutines/flow/SharingCommand;"}, k = 3, mv = {1, 6, 0}, xi = 48)
 @DebugMetadata(c = "kotlinx.coroutines.flow.StartedLazily$command$1", f = "SharingStarted.kt", i = {}, l = {155}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class StartedLazily$command$1 extends SuspendLambda implements Function2<FlowCollector<? super SharingCommand>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ StateFlow<Integer> $subscriptionCount;
     public /* synthetic */ Object L$0;
@@ -40,7 +40,7 @@ public final class StartedLazily$command$1 extends SuspendLambda implements Func
 
     @Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "count", "", "emit", "(ILkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
     /* renamed from: kotlinx.coroutines.flow.StartedLazily$command$1$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class AnonymousClass1<T> implements FlowCollector, SuspendFunction {
         public final /* synthetic */ FlowCollector<SharingCommand> $$this$flow;
         public final /* synthetic */ Ref.BooleanRef $started;

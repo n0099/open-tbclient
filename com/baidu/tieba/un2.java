@@ -1,36 +1,64 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import android.text.TextUtils;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class un2 extends z73 {
+public class un2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public un2() {
+    public static String a() {
+        InterceptResult invokeV;
+        String optString;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            cc3 b0 = cc3.b0();
+            JSONObject jSONObject = new JSONObject();
+            if (b0 != null) {
+                jSONObject = b0.W().M();
             }
+            if (jSONObject != null && (optString = jSONObject.optString("keyfeed")) != null && (indexOf = optString.indexOf("_")) >= 0 && TextUtils.equals("miniapp", optString.substring(0, indexOf))) {
+                return optString.substring(indexOf + 1);
+            }
+            return "";
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z73
-    public void b(@NonNull Bundle bundle) {
+    public static Map<String, Object> b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put("op_type", str2);
+            String a = a();
+            if (!TextUtils.isEmpty(a)) {
+                hashMap.put("nid", a);
+            }
+            return hashMap;
         }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static Map<String, Object> c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
+            hashMap.put("op_type", "add");
+            return hashMap;
+        }
+        return (Map) invokeLI.objValue;
     }
 }

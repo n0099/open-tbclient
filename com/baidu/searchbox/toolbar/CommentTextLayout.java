@@ -63,7 +63,7 @@ public class CommentTextLayout extends RelativeLayout implements IFontSizeViewLi
         addView(this.mCommentIcon);
         TextView textView = new TextView(getContext());
         this.mCommentText = textView;
-        textView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f049d));
+        textView.setText(getResources().getText(R.string.obfuscated_res_0x7f0f049f));
         this.mCommentText.setGravity(16);
         this.mCommentText.setTextSize(1, FontSizeHelper.getScaledSize(0, 14.0f, 2));
         this.mCommentText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601c3));

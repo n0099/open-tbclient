@@ -1,20 +1,95 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.os.Message;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class s83 {
+public final class s83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public c a;
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a();
+
+        void b(@NonNull u83 u83Var);
+
+        void c(String str);
+
+        void d(String str);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u83 a;
+        public final /* synthetic */ s83 b;
+
+        public a(s83 s83Var, u83 u83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s83Var, u83Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = s83Var;
+            this.a = u83Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.g(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static s83 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-476621539, "Lcom/baidu/tieba/s83$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-476621539, "Lcom/baidu/tieba/s83$b;");
+                    return;
+                }
+            }
+            a = new s83();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,99 +104,102 @@ public class s83 {
                 return;
             }
         }
-        a = js1.a;
+        b = ms1.a;
     }
 
-    public static void a(Message message) {
-        Bundle bundle;
+    public s83() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
-            if (a) {
-                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            int i = message.arg1;
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
-            }
-            a83.a(i, str2, str, bundle);
         }
     }
 
-    public static void b(Message message) {
-        Bundle bundle;
+    public static s83 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
-            }
-            a83.a(-1000, str2, str, bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (s83) invokeV.objValue;
+    }
+
+    public void c() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cVar = this.a) != null) {
+            cVar.a();
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void c(Message message) {
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && b) {
+            Log.i("SwanAppMessenger", str);
+        }
+    }
+
+    public void b(String str) {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (cVar = this.a) != null) {
+            cVar.d(str);
+        }
+    }
+
+    public void d(String str) {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (cVar = this.a) != null) {
+            cVar.c(str);
+        }
+    }
+
+    public final void g(@NonNull u83 u83Var) {
+        c y83Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, u83Var) == null) {
+            boolean isMainProcess = ProcessUtils.isMainProcess();
+            if (!isMainProcess && !SwanAppProcessInfo.isInited()) {
+                f("send: return by process check");
+                return;
+            }
+            if (this.a == null) {
+                if (isMainProcess) {
+                    y83Var = new c93();
+                } else {
+                    y83Var = new y83();
                 }
-                throw new RuntimeException("delegation msg obj is not a bundle");
+                this.a = y83Var;
             }
-            Bundle bundle = (Bundle) obj;
-            c83 c83Var = new c83(bundle.getString("key_observer_id", ""));
-            c83Var.setResult(bundle.getBundle("key_result_data"));
-            d83.b().c(c83Var);
+            f("send: sender=" + this.a);
+            this.a.a();
+            this.a.b(u83Var);
+            this.a.a();
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void d(Message message) {
+    public void h(@NonNull u83 u83Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("delegation msg obj is not a bundle");
+        if (interceptable == null || interceptable.invokeL(1048580, this, u83Var) == null) {
+            long i = u83Var.i();
+            int i2 = (i > 0L ? 1 : (i == 0L ? 0 : -1));
+            if (i2 <= 0 && Looper.getMainLooper() == Looper.myLooper()) {
+                g(u83Var);
+                return;
             }
-            Bundle bundle = (Bundle) obj;
-            c83 c83Var = new c83(bundle.getString("key_observer_id", ""));
-            c83Var.setResult(bundle.getBundle("key_result_data"));
-            d83.b().c(c83Var);
-        }
-    }
-
-    public static void e(int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
-            p83 e = p83.e();
-            r83 r83Var = new r83(126, bundle);
-            r83Var.a(i);
-            e.h(r83Var);
-        }
-    }
-
-    public static void f(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
-            p83.e().h(new r83(21, bundle));
+            Handler M = bc3.M();
+            a aVar = new a(this, u83Var);
+            if (i2 < 0) {
+                i = 0;
+            }
+            M.postDelayed(aVar, i);
         }
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.tieba.pb.pb.main;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tieba.lq9;
+import com.baidu.tieba.xu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class PbFloorDispatcher implements lq9 {
+public class PbFloorDispatcher implements xu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class PbFloorDispatcher implements lq9 {
         }
     }
 
-    @Override // com.baidu.tieba.lq9
+    @Override // com.baidu.tieba.xu9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

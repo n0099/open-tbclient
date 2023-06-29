@@ -140,7 +140,7 @@ public abstract class BdMenu {
                     popupWindow.setAnimationStyle(this.mPopAnimStyle);
                 }
                 if (z) {
-                    this.mPopupWindow.setBackgroundDrawable(this.mResources.getDrawable(R.drawable.obfuscated_res_0x7f0811fd));
+                    this.mPopupWindow.setBackgroundDrawable(this.mResources.getDrawable(R.drawable.obfuscated_res_0x7f08122f));
                     this.mPopupWindow.setTouchable(true);
                 } else {
                     this.mPopupWindow.setTouchable(false);

@@ -1,25 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.ItemManage.DataRes;
+import tbclient.ManageInfo;
 /* loaded from: classes7.dex */
-public final class sw6 {
+public class sw6 implements br5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final boolean b;
+    public List<jw6> a;
+    public List<jw6> b;
+    public Integer c;
+
+    @Override // com.baidu.tieba.br5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.br5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+        }
+    }
 
     public sw6() {
         Interceptable interceptable = $ic;
@@ -34,44 +46,30 @@ public final class sw6 {
                 return;
             }
         }
-        this.b = UbsABTestHelper.isAddExtraDuration();
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = 0;
     }
 
-    public final void a(Activity activity) {
+    public void a(sw6 sw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!this.b) {
-                return;
-            }
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                if (!(activity instanceof BaseActivity) && !(activity instanceof BaseFragmentActivity)) {
-                    String localClassName = activity.getLocalClassName();
-                    Intrinsics.checkNotNullExpressionValue(localClassName, "activity.localClassName");
-                    if (StringsKt__StringsKt.contains$default((CharSequence) localClassName, (CharSequence) "FlutterPageActivity", false, 2, (Object) null)) {
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
-            long currentTimeMillis = (System.currentTimeMillis() - this.a) / 1000;
-            if (PermissionUtil.isAgreePrivacyPolicy() && currentTimeMillis > 0) {
-                PvThread pvThread = new PvThread("use", String.valueOf(currentTimeMillis));
-                pvThread.setPageName(activity.getLocalClassName());
-                pvThread.start();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, sw6Var) == null) {
+            this.a.addAll(sw6Var.a);
+            this.b = sw6Var.b;
+            this.c = sw6Var.c;
         }
     }
 
-    public final void b(Activity activity) {
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!this.b) {
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
+            for (ManageInfo manageInfo : dataRes.manage_list) {
+                this.a.add(jw6.c(manageInfo));
             }
-            this.a = System.currentTimeMillis();
+            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
+                this.b.add(jw6.c(manageInfo2));
+            }
+            this.c = dataRes.has_more;
         }
     }
 }

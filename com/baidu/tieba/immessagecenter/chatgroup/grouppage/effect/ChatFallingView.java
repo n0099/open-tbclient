@@ -12,11 +12,11 @@ import com.baidu.tbadk.data.FallingData;
 import com.baidu.tbadk.widget.falling.FallingEventType;
 import com.baidu.tbadk.widget.falling.FallingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mz5;
-import com.baidu.tieba.nz5;
-import com.baidu.tieba.oz5;
-import com.baidu.tieba.rx4;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.rz5;
+import com.baidu.tieba.sz5;
+import com.baidu.tieba.tz5;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class ChatFallingView extends FallingView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements mz5.c {
+    public class a implements rz5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Random a;
@@ -54,7 +54,7 @@ public class ChatFallingView extends FallingView {
             this.a = random;
         }
 
-        @Override // com.baidu.tieba.mz5.c
+        @Override // com.baidu.tieba.rz5.c
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -129,11 +129,11 @@ public class ChatFallingView extends FallingView {
 
     @Override // com.baidu.tbadk.widget.falling.FallingView
     @NonNull
-    public nz5 p() {
+    public sz5 p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            nz5 a2 = nz5.a();
+            sz5 a2 = sz5.a();
             a2.g(7000);
             a2.k(19);
             a2.j(false);
@@ -141,36 +141,36 @@ public class ChatFallingView extends FallingView {
             a2.i(false);
             return a2;
         }
-        return (nz5) invokeV.objValue;
+        return (sz5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.falling.FallingView
     @NonNull
-    public mz5 q(@NonNull Bitmap bitmap) {
+    public rz5 q(@NonNull Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
             Random random = new Random();
-            mz5.b bVar = new mz5.b(bitmap);
+            rz5.b bVar = new rz5.b(bitmap);
             bVar.p(true, true);
-            bVar.o(wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
-            bVar.n(wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
-            bVar.l(wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds100), wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds100));
+            bVar.o(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
+            bVar.n(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
+            bVar.l(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds100), xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds100));
             bVar.m(new a(this, random));
             return bVar.k();
         }
-        return (mz5) invokeL.objValue;
+        return (rz5) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.falling.FallingView
     public void u(@NonNull View view2, @NonNull FallingData fallingData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, fallingData) == null) {
-            oz5 oz5Var = this.r;
-            if (oz5Var != null) {
-                oz5Var.a(FallingEventType.CLICK, fallingData);
+            tz5 tz5Var = this.r;
+            if (tz5Var != null) {
+                tz5Var.a(FallingEventType.CLICK, fallingData);
             }
-            rx4.s(getContext(), fallingData.getJumpUrl());
+            ux4.s(getContext(), fallingData.getJumpUrl());
         }
     }
 }

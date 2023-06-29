@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
@@ -408,7 +407,7 @@ public class CyberCfgManager {
             } else if (".groups".equals(str)) {
                 if (jSONObject == null) {
                     try {
-                        jSONObject = new JSONObject(a(this.d, ".groups", StringUtil.EMPTY_ARRAY));
+                        jSONObject = new JSONObject(a(this.d, ".groups", "{}"));
                     } catch (Exception unused2) {
                         jSONObject = null;
                     }

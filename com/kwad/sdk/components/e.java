@@ -2,7 +2,7 @@ package com.kwad.sdk.components;
 
 import android.content.Context;
 import com.kwad.sdk.api.SdkConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class e implements DevelopMangerComponents {
     @Override // com.kwad.sdk.components.a
     public final Class getComponentsType() {

@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tr6;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.yr6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public tr6 b;
+    public yr6 b;
     public b c;
 
     /* loaded from: classes4.dex */
@@ -154,20 +154,20 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        tr6 tr6Var;
+        yr6 yr6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tr6Var = this.b) != null) {
-            tr6Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (yr6Var = this.b) != null) {
+            yr6Var.h();
         }
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !vi.isEmpty(str) && !vi.isEmpty(str2)) {
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !wi.isEmpty(str) && !wi.isEmpty(str2)) {
             if (this.b == null) {
-                tr6 tr6Var = new tr6(this.a, view2);
-                this.b = tr6Var;
-                tr6Var.L(R.drawable.pic_post_findlink);
+                yr6 yr6Var = new yr6(this.a, view2);
+                this.b = yr6Var;
+                yr6Var.L(R.drawable.pic_post_findlink);
                 this.b.v(2);
                 this.b.r(true);
                 this.b.K(19);

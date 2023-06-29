@@ -6,8 +6,8 @@ import androidx.lifecycle.LifecycleOwner;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.k;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.l;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,22 +34,22 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onPause(@NonNull LifecycleOwner lifecycleOwner) {
-        k.$default$onPause(this, lifecycleOwner);
+        l.$default$onPause(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onResume(@NonNull LifecycleOwner lifecycleOwner) {
-        k.$default$onResume(this, lifecycleOwner);
+        l.$default$onResume(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onStart(@NonNull LifecycleOwner lifecycleOwner) {
-        k.$default$onStart(this, lifecycleOwner);
+        l.$default$onStart(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onStop(@NonNull LifecycleOwner lifecycleOwner) {
-        k.$default$onStop(this, lifecycleOwner);
+        l.$default$onStop(this, lifecycleOwner);
     }
 
     /* loaded from: classes4.dex */
@@ -91,7 +91,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
                         pollingModel.C0(this.a.b);
                     }
                 }
-                xg.a().postDelayed(this, this.a.c);
+                yg.a().postDelayed(this, this.a.c);
             }
         }
     }
@@ -139,8 +139,8 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
-            xg.a().removeCallbacks(this.f);
-            k.$default$onDestroy(this, owner);
+            yg.a().removeCallbacks(this.f);
+            l.$default$onDestroy(this, owner);
         }
     }
 
@@ -149,15 +149,15 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
-            k.$default$onCreate(this, owner);
+            l.$default$onCreate(this, owner);
             if (owner instanceof TbPageContextSupport) {
                 TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) owner;
                 this.e = new PollingModel(tbPageContextSupport.getPageContext(), tbPageContextSupport.getPageContext().getUniqueId());
                 if (this.a > 0) {
-                    xg.a().postDelayed(this.f, this.a);
+                    yg.a().postDelayed(this.f, this.a);
                     return;
                 } else {
-                    xg.a().post(this.f);
+                    yg.a().post(this.f);
                     return;
                 }
             }

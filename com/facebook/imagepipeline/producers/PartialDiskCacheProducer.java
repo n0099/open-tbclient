@@ -2,8 +2,8 @@ package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
 import com.baidu.searchbox.player.model.YYOption;
-import com.baidu.tieba.r;
 import com.baidu.tieba.s;
+import com.baidu.tieba.t;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.internal.VisibleForTesting;
@@ -152,8 +152,8 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
         return imageRequest.getSourceUri().buildUpon().appendQueryParameter("fresco_partial", YYOption.IsLive.VALUE_TRUE).build();
     }
 
-    public static boolean isTaskCancelled(s<?> sVar) {
-        if (!sVar.n() && (!sVar.p() || !(sVar.k() instanceof CancellationException))) {
+    public static boolean isTaskCancelled(t<?> tVar) {
+        if (!tVar.n() && (!tVar.p() || !(tVar.k() instanceof CancellationException))) {
             return false;
         }
         return true;
@@ -176,20 +176,20 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
         this.mInputProducer.produceResults(new PartialDiskCacheConsumer(consumer, this.mDefaultBufferedDiskCache, cacheKey, this.mPooledByteBufferFactory, this.mByteArrayPool, encodedImage), producerContext);
     }
 
-    private r<EncodedImage, Void> onFinishDiskReads(final Consumer<EncodedImage> consumer, final ProducerContext producerContext, final CacheKey cacheKey) {
+    private s<EncodedImage, Void> onFinishDiskReads(final Consumer<EncodedImage> consumer, final ProducerContext producerContext, final CacheKey cacheKey) {
         final ProducerListener2 producerListener = producerContext.getProducerListener();
-        return new r<EncodedImage, Void>() { // from class: com.facebook.imagepipeline.producers.PartialDiskCacheProducer.1
+        return new s<EncodedImage, Void>() { // from class: com.facebook.imagepipeline.producers.PartialDiskCacheProducer.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.r
-            public Void then(s<EncodedImage> sVar) throws Exception {
-                if (PartialDiskCacheProducer.isTaskCancelled(sVar)) {
+            @Override // com.baidu.tieba.s
+            public Void then(t<EncodedImage> tVar) throws Exception {
+                if (PartialDiskCacheProducer.isTaskCancelled(tVar)) {
                     producerListener.onProducerFinishWithCancellation(producerContext, PartialDiskCacheProducer.PRODUCER_NAME, null);
                     consumer.onCancellation();
-                } else if (sVar.p()) {
-                    producerListener.onProducerFinishWithFailure(producerContext, PartialDiskCacheProducer.PRODUCER_NAME, sVar.k(), null);
+                } else if (tVar.p()) {
+                    producerListener.onProducerFinishWithFailure(producerContext, PartialDiskCacheProducer.PRODUCER_NAME, tVar.k(), null);
                     PartialDiskCacheProducer.this.startInputProducer(consumer, producerContext, cacheKey, null);
                 } else {
-                    EncodedImage l = sVar.l();
+                    EncodedImage l = tVar.l();
                     if (l != null) {
                         ProducerListener2 producerListener2 = producerListener;
                         ProducerContext producerContext2 = producerContext;

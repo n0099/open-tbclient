@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.ci6;
-import com.baidu.tieba.rh6;
-import com.baidu.tieba.sh6;
-import com.baidu.tieba.th6;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.hi6;
+import com.baidu.tieba.vg;
+import com.baidu.tieba.wh6;
+import com.baidu.tieba.xh6;
+import com.baidu.tieba.yh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public th6 c;
-    public rh6 d;
+    public yh6 c;
+    public wh6 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -73,7 +73,7 @@ public class FloatMyRecordCard extends LinearLayout {
             boolean z;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.d.l() != 0) {
-                long g = ug.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+                long g = vg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
                 long l = this.a.d.l();
                 if (this.a.getContext() instanceof Activity) {
                     PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(this.a.getContext());
@@ -142,16 +142,16 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0926e4);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092746);
             BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
             this.g = (TextView) findViewById(R.id.user_name);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e42);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0928fe);
-            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f0917c5);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e4c);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092960);
+            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f09180c);
         }
     }
 
@@ -167,12 +167,12 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i) {
-        rh6 rh6Var;
+        wh6 wh6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (rh6Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (wh6Var = this.d) == null) {
             return;
         }
-        if (rh6Var.i() > 3) {
+        if (wh6Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -183,21 +183,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(th6 th6Var) {
-        rh6 rh6Var;
+    public void setData(yh6 yh6Var) {
+        wh6 wh6Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, th6Var) == null) {
-            this.c = th6Var;
-            if (th6Var != null && th6Var.a() != null) {
-                sh6 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, yh6Var) == null) {
+            this.c = yh6Var;
+            if (yh6Var != null && yh6Var.a() != null) {
+                xh6 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (rh6Var = this.d) != null && this.b == ci6.c) {
-                int i = rh6Var.i();
+            if (this.c != null && (wh6Var = this.d) != null && this.b == hi6.c) {
+                int i = wh6Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

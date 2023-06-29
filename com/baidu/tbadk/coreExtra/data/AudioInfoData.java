@@ -2,8 +2,8 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.b25;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.y15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class AudioInfoData extends y15 implements Serializable {
+public class AudioInfoData extends b25 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3295150133270063363L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class AudioInfoData extends y15 implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y15
+    @Override // com.baidu.tieba.b25
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || str == null) {
@@ -84,7 +84,7 @@ public class AudioInfoData extends y15 implements Serializable {
         }
     }
 
-    @Override // com.baidu.tieba.y15
+    @Override // com.baidu.tieba.b25
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {

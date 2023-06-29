@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.coreExtra.message.HotEventRequestMessage;
-import com.baidu.tbadk.coreExtra.message.HotEventRespondedMessage;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,52 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ue5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ue5 d;
+    public static ue5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public pe5 a;
     public String b;
-    public final HttpMessageListener c;
-
-    /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ue5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ue5 ue5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ue5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ue5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.a = false;
-                if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003543 || !(httpResponsedMessage instanceof HotEventRespondedMessage) || httpResponsedMessage.getError() != 0) {
-                    return;
-                }
-                vf5.u(HotEventData.getInstance());
-            }
-        }
-    }
 
     public ue5() {
         Interceptable interceptable = $ic;
@@ -78,69 +35,148 @@ public class ue5 {
                 return;
             }
         }
-        this.a = false;
-        this.b = "";
-        this.c = new a(this, CmdConfigHttp.CMD_HOT_EVENT);
-        c();
+        this.a = b();
     }
 
-    public static ue5 b() {
+    public static ue5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
                 synchronized (ue5.class) {
-                    if (d == null) {
-                        d = new ue5();
+                    if (c == null) {
+                        c = new ue5();
                     }
                 }
             }
-            return d;
+            return c;
         }
         return (ue5) invokeV.objValue;
     }
 
-    public final void c() {
+    public final pe5 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, pe5.class);
+            if (runTask != null) {
+                return (pe5) runTask.getData();
+            }
+            return null;
+        }
+        return (pe5) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            pe5 pe5Var = this.a;
+            if (pe5Var != null) {
+                return pe5Var.g();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            pe5 pe5Var = this.a;
+            if (pe5Var != null) {
+                return pe5Var.b();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            pe5 pe5Var = this.a;
+            if (pe5Var != null) {
+                return pe5Var.a();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        pe5 pe5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (pe5Var = this.a) != null) {
+            pe5Var.c();
         }
     }
 
-    public final void e() {
+    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
+        pe5 pe5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (pe5Var = this.a) != null) {
+            pe5Var.f(i, tbPageContext, viewGroup, z);
         }
     }
 
-    public final void g() {
+    public void h(boolean z, int i, int i2) {
+        pe5 pe5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HOT_EVENT);
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (pe5Var = this.a) != null) {
+            pe5Var.i(z, i, i2);
         }
     }
 
-    public final void d(String str) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_EVENT, TbConfig.SERVER_ADDRESS + str);
-            tbHttpMessageTask.setResponsedClass(HotEventRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.a) {
-            return;
-        }
-        if (!this.b.equals(str)) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.b = str;
-            g();
-            d(str);
         }
-        MessageManager.getInstance().sendMessage(new HotEventRequestMessage(CmdConfigHttp.CMD_HOT_EVENT));
-        this.a = true;
+    }
+
+    public NavigationBarCoverTip j(Activity activity, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup)) == null) {
+            pe5 pe5Var = this.a;
+            if (pe5Var != null) {
+                return pe5Var.e(activity, viewGroup);
+            }
+            return null;
+        }
+        return (NavigationBarCoverTip) invokeLL.objValue;
+    }
+
+    public void m(boolean z, long j) {
+        pe5 pe5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (pe5Var = this.a) != null) {
+            pe5Var.h(z, j);
+        }
+    }
+
+    public Dialog k(int i, TbPageContext tbPageContext, t26 t26Var, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), tbPageContext, t26Var, Boolean.valueOf(z)})) == null) {
+            pe5 pe5Var = this.a;
+            if (pe5Var != null) {
+                return pe5Var.d(i, tbPageContext, t26Var, z);
+            }
+            return null;
+        }
+        return (Dialog) invokeCommon.objValue;
     }
 }

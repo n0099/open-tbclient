@@ -19,8 +19,8 @@ public class BdLoadingDialog extends Dialog {
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0709);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f09170b)).setText(this.mMessage);
+        setContentView(R.layout.obfuscated_res_0x7f0d071c);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f09171b)).setText(this.mMessage);
     }
 
     public void setMessage(int i) {

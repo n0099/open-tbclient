@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: ChatBoxDialogService.java */
 /* loaded from: classes8.dex */
-public interface uo5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "GroupChatService");
+public final /* synthetic */ class uo5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull Context context, long j, int i, String str);
-
-    void b(@NonNull Context context, long j);
-
-    void c(@NonNull Context context, long j, String str);
-
-    void d(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z);
+    public static vo5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (vo5) ServiceManager.getService(vo5.a);
+        }
+        return (vo5) invokeV.objValue;
+    }
 }

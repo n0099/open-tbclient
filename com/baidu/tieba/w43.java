@@ -1,191 +1,214 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.pay.panel.PaymentPanelManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes8.dex */
-public class w43 extends k43 {
+public class w43 extends qb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public Timer N0;
 
-    @Override // com.baidu.tieba.c02
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentPanelApi" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public class a extends nd2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w43 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948220563, "Lcom/baidu/tieba/w43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(w43 w43Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w43Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948220563, "Lcom/baidu/tieba/w43;");
-                return;
+            this.c = w43Var;
+        }
+
+        @Override // com.baidu.tieba.nd2, com.baidu.tieba.qd2
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                c92.k("SwanAppWxPayFragment", "onReceivedSslError:  statusCode = " + i);
             }
         }
-        f = js1.a;
+
+        @Override // com.baidu.tieba.nd2, com.baidu.tieba.qd2
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                c92.k("SwanAppWxPayFragment", "title: " + str);
+            }
+        }
+
+        @Override // com.baidu.tieba.nd2, com.baidu.tieba.qd2
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                c92.k("SwanAppWxPayFragment", "url: " + str);
+            }
+        }
+
+        @Override // com.baidu.tieba.nd2, com.baidu.tieba.qd2
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str != null && str.startsWith("weixin://wap/pay")) {
+                    c92.i("SwanAppWxPayFragment", " weixin  url:   " + str);
+                    vi3.K("wechatH5Action", "intoPayment", 0);
+                    this.c.N0.cancel();
+                    this.c.N0 = null;
+                    qb2.a3();
+                    return false;
+                }
+                return super.a(str);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.nd2, com.baidu.tieba.qd2
+        public void c(int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
+                String str3 = "onReceivedError:  failingUrl = " + str2 + " errorCode = " + i + " description = " + str;
+                c92.k("SwanAppWxPayFragment", str3);
+                vi3.H(false, "wechatH5Action", vi3.m(str2, str3));
+            }
+        }
+
+        @Override // com.baidu.tieba.nd2, com.baidu.tieba.qd2
+        public void goBack() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                c92.k("SwanAppWxPayFragment", "goBack: ");
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w43(@NonNull a02 a02Var) {
-        super(a02Var);
+    /* loaded from: classes8.dex */
+    public class b extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w43 a;
+
+        public b(w43 w43Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w43Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w43Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                c92.k("SwanAppWxPayFragment", " WeChat H5 pay redirect time out : ");
+                vi3.K("wechatH5Action", "outOfTime", 0);
+            }
+        }
+    }
+
+    public w43() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a02Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public z32 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qb2
+    public qd2 b3() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#chooseCoupon", false);
-            zb3 b0 = zb3.b0();
-            if (b0 == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new z32(1001, "swan app is null");
-            }
-            SwanAppActivity w = b0.w();
-            if (w == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan activity is null");
-                }
-                return new z32(1001, "swan activity is null");
-            }
-            Pair<z32, JSONObject> s = s(str);
-            z32 z32Var = (z32) s.first;
-            if (!z32Var.isSuccess()) {
-                return z32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new z32(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new z32(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("appKey");
-            if (TextUtils.isEmpty(optString3)) {
-                return new z32(202, "empty appKey");
-            }
-            String optString4 = jSONObject.optString("totalAmount");
-            if (TextUtils.isEmpty(optString4)) {
-                return new z32(202, "empty totalAmount");
-            }
-            PaymentPanelManager.z().s(this, w, optString2, optString3, optString4, optString);
-            return z32.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a(this);
         }
-        return (z32) invokeL.objValue;
+        return (qd2) invokeV.objValue;
     }
 
-    public z32 y(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qb2
+    public ly1 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getPaymentInfo", false);
-            if (zb3.b0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: null swan runtime");
-                }
-                return new z32(1001, "swan app is null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.N0 == null) {
+                this.N0 = k3();
             }
-            Pair<z32, JSONObject> s = s(str);
-            z32 z32Var = (z32) s.first;
-            if (!z32Var.isSuccess()) {
-                return z32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new z32(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new z32(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("dealId");
-            if (TextUtils.isEmpty(optString3)) {
-                return new z32(202, "empty dealId");
-            }
-            String optString4 = jSONObject.optString("appKey");
-            if (TextUtils.isEmpty(optString4)) {
-                return new z32(202, "empty appKey");
-            }
-            String optString5 = jSONObject.optString("totalAmount");
-            if (TextUtils.isEmpty(optString5)) {
-                return new z32(202, "empty totalAmount");
-            }
-            PaymentPanelManager.z().C(this, optString2, optString3, optString4, optString5, optString);
-            return z32.f();
+            return wi2.U().f0().i(getContext());
         }
-        return (z32) invokeL.objValue;
+        return (ly1) invokeV.objValue;
     }
 
-    public z32 z(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qb2, com.baidu.tieba.ib2
+    public void W1(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#setPaymentInfo", false);
-            if (zb3.b0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new z32(1001, "swan app is null");
-            }
-            Pair<z32, JSONObject> s = s(str);
-            z32 z32Var = (z32) s.first;
-            if (!z32Var.isSuccess()) {
-                return z32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new z32(202, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("componentId");
-            if (TextUtils.isEmpty(optString2)) {
-                return new z32(202, "empty componentId");
-            }
-            String optString3 = jSONObject.optString("chosenChannel");
-            if (TextUtils.isEmpty(optString3)) {
-                return new z32(202, "empty chosenChannel");
-            }
-            PaymentPanelManager.z().J(this, optString2, optString3, optString);
-            return z32.f();
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            super.W1(view2);
+            this.f0.setTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0218));
+            z2(false);
         }
-        return (z32) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.qb2
+    public void Y2(FrameLayout frameLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) {
+            frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00e4, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
+        }
+    }
+
+    public Timer k3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            c92.k("SwanAppWxPayFragment", " start WeChat H5 redirect timer start : ");
+            Timer timer = new Timer();
+            try {
+                timer.schedule(new b(this), 10000L);
+            } catch (Exception e) {
+                if (qb2.M0) {
+                    e.printStackTrace();
+                }
+                c92.k("SwanAppWxPayFragment", e.getMessage());
+            }
+            return timer;
+        }
+        return (Timer) invokeV.objValue;
     }
 }

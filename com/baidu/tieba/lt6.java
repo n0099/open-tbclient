@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class lt6 extends i0 {
+public final class lt6 extends mt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final it6 d;
+    public final lv6 a;
+    public long b;
+    public long c;
 
-    public abstract void j();
-
-    public lt6(it6 danmakuContext) {
+    public lt6(lv6 timer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {danmakuContext};
+            Object[] objArr = {timer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,27 +30,33 @@ public abstract class lt6 extends i0 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
-        this.d = danmakuContext;
+        Intrinsics.checkNotNullParameter(timer, "timer");
+        this.a = timer;
     }
 
-    @Override // com.baidu.tieba.i0
-    @CallSuper
-    public void g(f0 engine) {
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = this.c;
+            long j2 = 0;
+            if (this.b > 0) {
+                j2 = this.a.a() - this.b;
+            }
+            return j + j2;
         }
+        return invokeV.longValue;
     }
 
-    public final it6 i() {
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            if (this.b > 0) {
+                return true;
+            }
+            return false;
         }
-        return (it6) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

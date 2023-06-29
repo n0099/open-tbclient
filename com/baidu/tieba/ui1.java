@@ -1,83 +1,161 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
 /* loaded from: classes8.dex */
 public class ui1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static InetAddress a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            InetAddress inetAddress = null;
             try {
-                b.put("orderId", str);
-                b.put("payInfo", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                if (networkInterfaces == null) {
+                    return null;
+                }
+                InetAddress inetAddress2 = null;
+                do {
+                    try {
+                        if (networkInterfaces.hasMoreElements()) {
+                            Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                            while (true) {
+                                if (inetAddresses.hasMoreElements()) {
+                                    InetAddress nextElement = inetAddresses.nextElement();
+                                    try {
+                                        if (!nextElement.isLoopbackAddress() && !nextElement.getHostAddress().contains(":")) {
+                                            inetAddress2 = nextElement;
+                                            continue;
+                                            break;
+                                        }
+                                        inetAddress2 = null;
+                                    } catch (Exception unused) {
+                                        return nextElement;
+                                    }
+                                }
+                            }
+                        } else {
+                            return inetAddress2;
+                        }
+                    } catch (Exception unused2) {
+                        inetAddress = inetAddress2;
+                        return inetAddress;
+                    }
+                } while (inetAddress2 == null);
+                return inetAddress2;
+            } catch (Exception unused3) {
             }
-            return b.toString();
+        } else {
+            return (InetAddress) invokeV.objValue;
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static String d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static String d() {
+        InterceptResult invokeV;
+        byte[] hardwareAddress;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             try {
-                b.put("orderId", str);
-                b.put("payUrl", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                NetworkInterface byName = NetworkInterface.getByName("wlan0");
+                if (byName != null && (hardwareAddress = ApiReplaceUtil.getHardwareAddress(byName)) != null) {
+                    StringBuilder sb = new StringBuilder();
+                    int length = hardwareAddress.length;
+                    for (int i = 0; i < length; i++) {
+                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                    }
+                    if (sb.length() > 0) {
+                        sb.deleteCharAt(sb.length() - 1);
+                    }
+                    return sb.toString();
+                }
+            } catch (Exception unused) {
             }
-            return b.toString();
+            return "";
         }
-        return (String) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static JSONObject b(String str) {
-        InterceptResult invokeL;
+    public static String e() {
+        InterceptResult invokeV;
+        byte[] hardwareAddress;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
-                jSONObject.put("returnData", a);
-                jSONObject.put("msg", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                InetAddress a = a();
+                if (a == null || (hardwareAddress = ApiReplaceUtil.getHardwareAddress(NetworkInterface.getByInetAddress(a))) == null) {
+                    return "";
+                }
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hardwareAddress.length; i++) {
+                    if (i != 0) {
+                        sb.append(':');
+                    }
+                    String hexString = Integer.toHexString(hardwareAddress[i] & 255);
+                    if (hexString.length() == 1) {
+                        hexString = 0 + hexString;
+                    }
+                    sb.append(hexString);
+                }
+                return sb.toString();
+            } catch (Exception unused) {
+                return "";
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return b(str).toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return ApiReplaceUtil.getMacAddress(((WifiManager) fj1.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo());
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void e(Bundle bundle) {
+    public static String c() {
+        InterceptResult invokeV;
+        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
-            if (bundle != null) {
-                a = bundle.getString("returnData");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                d = b();
             } else {
-                a = "";
+                d = d();
             }
+            if (!f(d)) {
+                d = e();
+            }
+            if (!TextUtils.isEmpty(d)) {
+                return d.toUpperCase();
+            }
+            return d;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !str.equals(Config.DEF_MAC_ID)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

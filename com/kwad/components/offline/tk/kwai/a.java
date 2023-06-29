@@ -3,7 +3,7 @@ package com.kwad.components.offline.tk.kwai;
 import com.kwad.components.offline.api.tk.jsbridge.IOfflineCompoCallBackFunction;
 import com.kwad.sdk.core.webview.kwai.e;
 import com.kwad.sdk.core.webview.kwai.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a implements com.kwad.sdk.core.webview.kwai.c {
     public final IOfflineCompoCallBackFunction Qn;
 

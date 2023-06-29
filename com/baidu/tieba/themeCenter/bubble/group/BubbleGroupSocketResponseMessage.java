@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k6a;
-import com.baidu.tieba.w6a;
+import com.baidu.tieba.iba;
+import com.baidu.tieba.waa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<k6a> mBubbleGroupList;
-    public w6a mRecommand;
+    public List<waa> mBubbleGroupList;
+    public iba mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupSocketResponseMessage() {
@@ -43,7 +43,7 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<k6a> getGroupList() {
+    public List<waa> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -52,13 +52,13 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public w6a getRecommand() {
+    public iba getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (w6a) invokeV.objValue;
+        return (iba) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -79,17 +79,17 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
             DataRes dataRes = getBubbleByCategoryResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    w6a w6aVar = new w6a();
-                    this.mRecommand = w6aVar;
-                    w6aVar.d(getBubbleByCategoryResIdl.data.recommend);
+                    iba ibaVar = new iba();
+                    this.mRecommand = ibaVar;
+                    ibaVar.d(getBubbleByCategoryResIdl.data.recommend);
                 }
                 if (getBubbleByCategoryResIdl.data.bubbles != null) {
                     this.mBubbleGroupList = new ArrayList();
                     for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                         if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                            k6a k6aVar = new k6a();
-                            k6aVar.c(themeBubbleInMain);
-                            this.mBubbleGroupList.add(k6aVar);
+                            waa waaVar = new waa();
+                            waaVar.c(themeBubbleInMain);
+                            this.mBubbleGroupList.add(waaVar);
                         }
                     }
                 }

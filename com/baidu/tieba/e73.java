@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class e73 {
     public static /* synthetic */ Interceptable $ic;
@@ -32,96 +30,123 @@ public class e73 {
                 return;
             }
         }
-        a = js1.a;
+        a = ms1.a;
     }
 
-    public static void a(SwanAppConfigData swanAppConfigData) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean a(Context context, @NonNull f73 f73Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, swanAppConfigData) != null) || swanAppConfigData == null) {
-            return;
-        }
-        List<t73> e = swanAppConfigData.e();
-        if (e != null && !e.isEmpty()) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            b(e, jSONObject, jSONObject2);
-            if (om2.k()) {
-                boolean z = false;
-                for (t73 t73Var : e) {
-                    String h = om2.h(t73Var.a);
-                    if (!TextUtils.isEmpty(h) && new File(h).exists()) {
-                        t73Var.e = h;
-                        c(jSONObject, jSONObject2, t73Var);
-                        z = true;
-                        z82.i("Module-Plugin", "use debug dependencies，name=" + t73Var.a + " path=" + t73Var.e);
-                    } else {
-                        z82.o("Module-Plugin", "debug dependencies not exist，name=" + t73Var.a + " path=" + t73Var.e);
-                    }
-                }
-                if (!z) {
-                    rb3.g(AppRuntime.getAppContext(), "no debug dependency").G();
-                    z82.c("Module-Plugin", "no debug dependency");
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, f73Var)) == null) {
+            if (context instanceof SwanAppBaseActivity) {
+                return true;
             }
-            String jSONObject3 = jSONObject.toString();
-            String jSONObject4 = jSONObject2.toString();
-            x73.c("dependenciesPath", jSONObject3);
-            x73.c("dependenciesConfig", jSONObject4);
-            return;
+            f73Var.b(2, "method should be called after setActivityRef");
+            if (!a) {
+                return false;
+            }
+            throw new IllegalStateException("this method should be called after setActivityRef");
         }
-        x73.c("dependenciesPath", null);
-        x73.c("dependenciesConfig", null);
-        if (a) {
-            r73.b("this swan app not apply on someone dynamic lib");
-        }
+        return invokeLL.booleanValue;
     }
 
-    public static void b(@NonNull List<t73> list, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2) {
+    public static boolean c(ArrayList<String> arrayList, @NonNull f73 f73Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65538, null, list, jSONObject, jSONObject2) != null) || list.isEmpty()) {
-            return;
-        }
-        for (t73 t73Var : list) {
-            if (t73Var != null) {
-                if (t73Var.g) {
-                    c(jSONObject, jSONObject2, t73Var);
-                } else {
-                    al4 q = wj4.i().q(t73Var.a, t73Var.h, t73Var.i);
-                    if (q == null) {
-                        r73.a(Log.getStackTraceString(new Throwable(t73Var.a + " query db fail")));
-                    } else {
-                        File t = vu2.t(t73Var.a, String.valueOf(q.i));
-                        if (t != null && t.exists()) {
-                            t73Var.e = t.getAbsolutePath();
-                            c(jSONObject, jSONObject2, t73Var);
-                        } else {
-                            r73.a(Log.getStackTraceString(new Throwable(t73Var.a + " local file not exist")));
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, f73Var)) == null) {
+            if (arrayList != null && !arrayList.isEmpty()) {
+                return false;
             }
+            f73Var.a("permission has already granted");
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static void c(@NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull t73 t73Var) {
+    @NonNull
+    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, jSONObject, jSONObject2, t73Var) == null) {
-            String str = t73Var.e;
-            String str2 = t73Var.f;
-            if (a) {
-                r73.b("apply dep path, name = " + t73Var.a + "; inline = " + t73Var.g + "; path = " + str + "; config = " + str2);
-            }
-            if (TextUtils.isEmpty(str)) {
-                r73.b(Log.getStackTraceString(new Throwable(t73Var.a + " path is empty")));
-                return;
-            }
-            zo3.f(jSONObject, t73Var.a, str);
-            if (!TextUtils.isEmpty(t73Var.f)) {
-                File file = new File(str, str2);
-                if (file.exists() && file.isFile()) {
-                    zo3.f(jSONObject2, t73Var.a, zo3.d(ds4.E(file)));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (String str : strArr) {
+                if (!ys4.a(context, str)) {
+                    arrayList.add(str);
                 }
             }
+            return arrayList;
         }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull f73 f73Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, f73Var)) == null) {
+            if (ys4.a(context, str)) {
+                f73Var.a("permission has already granted");
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull f73 f73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, f73Var}) != null) || !a(context, f73Var) || b(context, str, f73Var)) {
+            return;
+        }
+        g(context, strArr, i, f73Var);
+    }
+
+    @Deprecated
+    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull f73 f73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLIL(65542, null, context, strArr, i, f73Var) != null) || !a(context, f73Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, f73Var)) {
+            return;
+        }
+        ((SwanAppBaseActivity) context).z(i, (String[]) d.toArray(new String[0]), new a73(i, f73Var));
+    }
+
+    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull f73 f73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLIL(65543, null, context, strArr, i, f73Var) != null) || !a(context, f73Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, f73Var)) {
+            return;
+        }
+        ((SwanAppBaseActivity) context).z(i, (String[]) d.toArray(new String[0]), new b73(context, i, f73Var));
+    }
+
+    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull f73 f73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65544, null, strArr, i, context, f73Var) != null) || !a(context, f73Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, f73Var)) {
+            return;
+        }
+        g(context, (String[]) d.toArray(new String[0]), i, f73Var);
+    }
+
+    @Deprecated
+    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull f73 f73Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLILL(65545, null, strArr, i, context, f73Var) != null) || !a(context, f73Var)) {
+            return;
+        }
+        ArrayList<String> d = d(context, strArr);
+        if (c(d, f73Var)) {
+            return;
+        }
+        f(context, (String[]) d.toArray(new String[0]), i, f73Var);
     }
 }

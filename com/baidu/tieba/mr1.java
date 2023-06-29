@@ -1,45 +1,77 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes6.dex */
-public class mr1 {
-    public static /* synthetic */ Interceptable $ic;
+public final class mr1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                return PreferencesUtil.LEFT_MOUNT + Thread.currentThread().getName() + ZeusCrashHandler.NAME_SEPERATOR + Thread.currentThread().getId() + "] " + str2;
             } catch (Throwable th) {
-                c(th);
+                lr1.d(th);
+            }
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            a = vp1.g(context).F();
+            return a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                if (!TextUtils.isEmpty(b)) {
+                    return b;
+                }
+                String c = c(context);
+                b = c;
+                if (!TextUtils.isEmpty(c)) {
+                    return b;
+                }
+                String a2 = new yp1(context).a();
+                b = a2;
+                if (!TextUtils.isEmpty(a2)) {
+                    return b;
+                }
+                return "";
+            } catch (Throwable th) {
+                lr1.d(th);
                 return "";
             }
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void b(String str) {
+    public static String c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                Log.d("SSOSDK", a("", str));
+                Class<?> cls = Class.forName("com.baidu.sofire.ac.F");
+                Object invoke = cls.getDeclaredMethod("getInstance", new Class[0]).invoke(cls, new Object[0]);
+                if (invoke == null) {
+                    return "";
+                }
+                return (String) cls.getDeclaredMethod("gzd", Context.class).invoke(invoke, context);
             } catch (Throwable th) {
-                c(th);
+                lr1.d(th);
+                return "";
             }
         }
-    }
-
-    public static void c(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
-            ir1.d(th);
-        }
+        return (String) invokeL.objValue;
     }
 }

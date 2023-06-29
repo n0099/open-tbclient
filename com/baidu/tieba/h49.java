@@ -1,82 +1,68 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.SendCardInfo;
 /* loaded from: classes6.dex */
-public class h49 {
+public abstract class h49<T, V extends TypeAdapter.ViewHolder> extends kn<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
+    public boolean a;
+    public TbPageContext<HotTopicDetailActivity> b;
 
-    public h49() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h49(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = tbPageContext;
     }
 
-    public boolean a() {
+    public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.e == 3) {
-                return true;
-            }
-            return false;
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean b() {
+    public TbPageContext t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.e == 1) {
-                return true;
-            }
-            return false;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (TbPageContext) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
-            this.b = jSONObject.optString("card_logo");
-            this.c = jSONObject.optString("card_name");
-            this.d = jSONObject.optString("card_pro");
-            this.e = jSONObject.optInt("card_get_status");
-            this.a = jSONObject.optLong("packet_id");
-            this.f = jSONObject.optString("card_num");
-        }
-    }
-
-    public void d(SendCardInfo sendCardInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) && sendCardInfo != null) {
-            this.b = sendCardInfo.card_logo;
-            this.c = sendCardInfo.card_name;
-            this.d = sendCardInfo.card_pro;
-            this.e = sendCardInfo.card_get_status.intValue();
-            this.a = sendCardInfo.packet_id.longValue();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
         }
     }
 }

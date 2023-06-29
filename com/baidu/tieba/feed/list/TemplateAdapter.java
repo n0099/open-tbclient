@@ -10,17 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a87;
-import com.baidu.tieba.c87;
-import com.baidu.tieba.d87;
-import com.baidu.tieba.e87;
+import com.baidu.tieba.aa7;
 import com.baidu.tieba.f87;
 import com.baidu.tieba.h87;
+import com.baidu.tieba.i87;
 import com.baidu.tieba.j87;
 import com.baidu.tieba.k87;
-import com.baidu.tieba.n87;
+import com.baidu.tieba.m87;
 import com.baidu.tieba.o87;
-import com.baidu.tieba.v97;
+import com.baidu.tieba.p87;
+import com.baidu.tieba.s87;
+import com.baidu.tieba.t87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,30 +30,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
+public class TemplateAdapter extends RecyclerView.Adapter<e> implements j87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<? extends o87<?>> a;
-    public final Map<String, n87<?, ?>> b;
+    public List<? extends t87<?>> a;
+    public final Map<String, s87<?, ?>> b;
     public final Map<String, Integer> c;
-    public final Map<Integer, n87<?, ?>> d;
+    public final Map<Integer, s87<?, ?>> d;
     public RecyclerView e;
     public boolean f;
-    public c87.a g;
-    public c87.d h;
-    public c87.c i;
-    public c87.b j;
+    public h87.a g;
+    public h87.d h;
+    public h87.c i;
+    public h87.b j;
     public final RecyclerView.OnScrollListener k;
 
     /* loaded from: classes5.dex */
     public static class e extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final n87<?, ?> a;
+        public final s87<?, ?> a;
         public final View b;
-        public o87<?> c;
-        public c87.a d;
-        public c87.d e;
+        public t87<?> c;
+        public h87.a d;
+        public h87.d e;
         public GestureDetector f;
         public d g;
 
@@ -89,7 +89,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                    v97.o(this.a, motionEvent);
+                    aa7.o(this.a, motionEvent);
                     return this.b.f.onTouchEvent(motionEvent);
                 }
                 return invokeLL.booleanValue;
@@ -97,13 +97,13 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(@NonNull n87<?, ?> n87Var, @NonNull View view2) {
+        public e(@NonNull s87<?, ?> s87Var, @NonNull View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n87Var, view2};
+                Object[] objArr = {s87Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -115,7 +115,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
                 }
             }
             this.b = view2;
-            this.a = n87Var;
+            this.a = s87Var;
             this.g = new d(this, view2);
             GestureDetector gestureDetector = new GestureDetector(view2.getContext(), this.g);
             this.f = gestureDetector;
@@ -130,22 +130,22 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
             }
         }
 
-        public void c(o87<?> o87Var) {
+        public void c(t87<?> t87Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o87Var) == null) {
-                this.c = o87Var;
-                this.a.b(this.b, o87Var.b());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t87Var) == null) {
+                this.c = t87Var;
+                this.a.b(this.b, t87Var.b());
             }
         }
 
-        public void d(c87.a aVar) {
+        public void d(h87.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
                 this.d = aVar;
             }
         }
 
-        public void e(c87.d dVar) {
+        public void e(h87.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
                 this.e = dVar;
@@ -154,7 +154,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            c87.a aVar;
+            h87.a aVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (aVar = this.d) != null) {
                 aVar.a(view2, this.c, this.a);
@@ -166,7 +166,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-                c87.d dVar = this.e;
+                h87.d dVar = this.e;
                 if (dVar != null) {
                     return dVar.a(view2, this.c, this.a);
                 }
@@ -206,8 +206,8 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) && i == 0) {
                 for (int i2 = 0; i2 < recyclerView.getChildCount(); i2++) {
                     View childAt = recyclerView.getChildAt(i2);
-                    if (childAt instanceof j87) {
-                        ((j87) childAt).d();
+                    if (childAt instanceof o87) {
+                        ((o87) childAt).d();
                     }
                 }
                 if (this.a.i != null) {
@@ -221,15 +221,15 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o87 a;
+        public final /* synthetic */ t87 a;
         public final /* synthetic */ TemplateAdapter b;
 
-        public b(TemplateAdapter templateAdapter, o87 o87Var) {
+        public b(TemplateAdapter templateAdapter, t87 t87Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {templateAdapter, o87Var};
+                Object[] objArr = {templateAdapter, t87Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -240,7 +240,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
                 }
             }
             this.b = templateAdapter;
-            this.a = o87Var;
+            this.a = t87Var;
         }
 
         @Override // java.lang.Runnable
@@ -254,18 +254,18 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements k87 {
+    public class c implements p87 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o87 a;
+        public final /* synthetic */ t87 a;
         public final /* synthetic */ TemplateAdapter b;
 
-        public c(TemplateAdapter templateAdapter, o87 o87Var) {
+        public c(TemplateAdapter templateAdapter, t87 t87Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {templateAdapter, o87Var};
+                Object[] objArr = {templateAdapter, t87Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -276,10 +276,10 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
                 }
             }
             this.b = templateAdapter;
-            this.a = o87Var;
+            this.a = t87Var;
         }
 
-        @Override // com.baidu.tieba.k87
+        @Override // com.baidu.tieba.p87
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.j != null) {
@@ -351,23 +351,23 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
         this.k = new a(this);
     }
 
-    @Override // com.baidu.tieba.c87
-    public final void c(c87.b bVar) {
+    @Override // com.baidu.tieba.h87
+    public final void c(h87.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.j = bVar;
         }
     }
 
-    @Override // com.baidu.tieba.c87
-    public void e(c87.c cVar) {
+    @Override // com.baidu.tieba.h87
+    public void e(h87.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.i = cVar;
         }
     }
 
-    @Override // com.baidu.tieba.b87
+    @Override // com.baidu.tieba.g87
     public final void f(@NonNull RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, recyclerView) == null) {
@@ -385,34 +385,34 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.c87
-    public void i(c87.a aVar) {
+    @Override // com.baidu.tieba.h87
+    public void i(h87.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.g = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.b87
-    public final void j(f87 f87Var) {
+    @Override // com.baidu.tieba.g87
+    public final void j(k87 k87Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f87Var) == null) && f87Var != null) {
-            n(f87Var.a());
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k87Var) == null) && k87Var != null) {
+            n(k87Var.a());
         }
     }
 
-    public final void n(List<n87<?, ?>> list) {
+    public final void n(List<s87<?, ?>> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, list) == null) && list != null) {
-            for (n87<?, ?> n87Var : list) {
-                m(n87Var);
+            for (s87<?, ?> s87Var : list) {
+                m(s87Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.b87
+    @Override // com.baidu.tieba.g87
     @SuppressLint({"NotifyDataSetChanged"})
-    public void setList(List<? extends o87<?>> list) {
+    public void setList(List<? extends t87<?>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             this.a = list;
@@ -420,14 +420,14 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
         }
     }
 
-    @Override // com.baidu.tieba.h87
+    @Override // com.baidu.tieba.m87
     public final void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e != null) {
             for (int i = 0; i < this.e.getChildCount(); i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt instanceof h87) {
-                    ((h87) childAt).b();
+                if (childAt instanceof m87) {
+                    ((m87) childAt).b();
                 }
             }
         }
@@ -438,7 +438,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<? extends o87<?>> list = this.a;
+            List<? extends t87<?>> list = this.a;
             if (list == null) {
                 return 0;
             }
@@ -447,7 +447,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.b87
+    @Override // com.baidu.tieba.g87
     public final void d(@NonNull RecyclerView recyclerView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, recyclerView, z) == null) {
@@ -471,21 +471,21 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, viewGroup, i)) == null) {
-            n87<?, ?> n87Var = this.d.get(Integer.valueOf(i));
-            return new e(n87Var, n87Var.a(viewGroup));
+            s87<?, ?> s87Var = this.d.get(Integer.valueOf(i));
+            return new e(s87Var, s87Var.a(viewGroup));
         }
         return (e) invokeLI.objValue;
     }
 
-    public final void m(n87<?, ?> n87Var) {
+    public final void m(s87<?, ?> s87Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, n87Var) == null) {
-            String c2 = n87Var.c();
+        if (interceptable == null || interceptable.invokeL(1048585, this, s87Var) == null) {
+            String c2 = s87Var.c();
             if (!this.b.containsKey(c2) && !TextUtils.isEmpty(c2)) {
                 int size = this.b.size();
-                this.b.put(n87Var.c(), n87Var);
-                this.c.put(n87Var.c(), Integer.valueOf(size));
-                this.d.put(Integer.valueOf(size), n87Var);
+                this.b.put(s87Var.c(), s87Var);
+                this.c.put(s87Var.c(), Integer.valueOf(size));
+                this.d.put(Integer.valueOf(size), s87Var);
                 return;
             }
             throw new IllegalStateException("template name is unique，please check it！+【" + c2 + "】");
@@ -498,23 +498,23 @@ public class TemplateAdapter extends RecyclerView.Adapter<e> implements e87 {
     public final void onBindViewHolder(@NonNull e eVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, eVar, i) == null) {
-            o87<?> o87Var = this.a.get(i);
+            t87<?> t87Var = this.a.get(i);
             eVar.d(this.g);
             eVar.e(this.h);
             if (this.f) {
                 eVar.b(this.e);
             }
-            if (o87Var.b() instanceof a87) {
-                ((a87) o87Var.b()).a(new b(this, o87Var));
+            if (t87Var.b() instanceof f87) {
+                ((f87) t87Var.b()).a(new b(this, t87Var));
             }
-            eVar.c(o87Var);
-            c87.c cVar = this.i;
+            eVar.c(t87Var);
+            h87.c cVar = this.i;
             if (cVar != null) {
-                cVar.a(o87Var, this.b.get(o87Var.a()), i);
+                cVar.a(t87Var, this.b.get(t87Var.a()), i);
             }
             View view2 = eVar.itemView;
-            if (view2 instanceof d87) {
-                ((d87) view2).setOnTemplateClickListener(new c(this, o87Var));
+            if (view2 instanceof i87) {
+                ((i87) view2).setOnTemplateClickListener(new c(this, t87Var));
             }
         }
     }

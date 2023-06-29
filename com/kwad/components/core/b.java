@@ -44,7 +44,7 @@ public final class b {
 
     /* renamed from: com.kwad.components.core.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0630b implements com.kwad.sdk.service.kwai.b {
+    public static class C0640b implements com.kwad.sdk.service.kwai.b {
     }
 
     /* loaded from: classes9.dex */
@@ -303,7 +303,7 @@ public final class b {
     }
 
     public static void lj() {
-        ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0630b());
+        ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0640b());
     }
 
     public static void lk() {

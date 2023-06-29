@@ -1,43 +1,17 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
 /* loaded from: classes6.dex */
 public interface l94 {
-    String a();
+    boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull d04 d04Var);
 
-    String b();
+    boolean b(Context context, String str, String str2, String str3);
 
-    String c();
+    boolean c();
 
-    String d();
+    String getPackageName();
 
-    String e();
-
-    String f();
-
-    String g();
-
-    String h();
-
-    String i();
-
-    String j();
-
-    String k();
-
-    String l();
-
-    String m();
-
-    String n();
-
-    String o();
-
-    String p();
-
-    String q();
-
-    String r();
-
-    String s();
-
-    String t();
+    void init();
 }

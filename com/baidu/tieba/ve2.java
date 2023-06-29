@@ -1,165 +1,69 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ve2 {
+public class ve2 extends f02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<xk4, Set<c>> a;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.f02
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Preload" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void a(PMSDownloadType pMSDownloadType);
-
-        void b(PMSDownloadType pMSDownloadType, sn3 sn3Var);
+    @Override // com.baidu.tieba.f02
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadStatusApi" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static ve2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-349205432, "Lcom/baidu/tieba/ve2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-349205432, "Lcom/baidu/tieba/ve2$b;");
-                    return;
-                }
-            }
-            a = new ve2(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948237830, "Lcom/baidu/tieba/ve2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948237830, "Lcom/baidu/tieba/ve2;");
-                return;
-            }
-        }
-        b = js1.a;
-    }
-
-    public ve2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ve2(@NonNull d02 d02Var) {
+        super(d02Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d02Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((d02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public static ve2 c() {
-        InterceptResult invokeV;
+    public c42 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (ve2) invokeV.objValue;
-    }
-
-    public /* synthetic */ ve2(a aVar) {
-        this();
-    }
-
-    public synchronized void a(xk4 xk4Var, PMSDownloadType pMSDownloadType, sn3 sn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, xk4Var, pMSDownloadType, sn3Var) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.i("PMSDownloadRepeatSync", "downloadError:" + xk4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
-                }
-                Set<c> set = this.a.get(xk4Var);
-                if (set != null) {
-                    for (c cVar : set) {
-                        if (cVar != null) {
-                            cVar.b(pMSDownloadType, sn3Var);
-                        }
-                    }
-                    this.a.remove(xk4Var);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#preloadStatus", false);
+            if (cc3.b0() == null) {
+                return new c42(1001, "SwanApp is null");
             }
-        }
-    }
-
-    public synchronized void b(xk4 xk4Var, PMSDownloadType pMSDownloadType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xk4Var, pMSDownloadType) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + xk4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
-                }
-                Set<c> set = this.a.get(xk4Var);
-                if (set != null) {
-                    for (c cVar : set) {
-                        if (cVar != null) {
-                            cVar.a(pMSDownloadType);
-                        }
-                    }
-                    this.a.remove(xk4Var);
-                }
+            Pair<c42, JSONObject> s = s(str);
+            c42 c42Var = (c42) s.first;
+            if (!c42Var.isSuccess()) {
+                return c42Var;
             }
+            se2.c().j((JSONObject) s.second);
+            return c42.f();
         }
-    }
-
-    public synchronized void d(xk4 xk4Var, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, xk4Var, cVar) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.i("PMSDownloadRepeatSync", "registerResultListener:" + xk4Var);
-                }
-                if (xk4Var != null && cVar != null) {
-                    Set<c> set = this.a.get(xk4Var);
-                    if (set != null) {
-                        set.add(cVar);
-                    } else {
-                        HashSet hashSet = new HashSet();
-                        hashSet.add(cVar);
-                        this.a.put(xk4Var, hashSet);
-                    }
-                }
-            }
-        }
+        return (c42) invokeL.objValue;
     }
 }

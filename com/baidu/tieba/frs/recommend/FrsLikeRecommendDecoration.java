@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +31,7 @@ public class FrsLikeRecommendDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.a = wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        this.a = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration

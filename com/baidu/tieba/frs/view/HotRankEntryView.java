@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
 import com.baidu.tieba.view.ImageOverlayView;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -120,18 +120,18 @@ public class HotRankEntryView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03f6, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b05);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03f7, (ViewGroup) this, true);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b0c);
             int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62);
             int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
             int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds20);
-            ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(R.id.obfuscated_res_0x7f091057);
+            ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(R.id.obfuscated_res_0x7f091062);
             this.c = imageOverlayView;
             imageOverlayView.a(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
             this.c.setStrokeStyle(1);
             this.c.setLoadImageType(12);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a1a);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a21);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c6);
             setOnClickListener(new a(this, context));
             b(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -170,7 +170,7 @@ public class HotRankEntryView extends RelativeLayout {
             this.c.setData(arrayList);
             this.f = z;
             TextView textView = this.d;
-            if (!vi.isEmpty(hotUserRankEntry.module_name)) {
+            if (!wi.isEmpty(hotUserRankEntry.module_name)) {
                 string = hotUserRankEntry.module_name;
             } else {
                 string = getResources().getString(R.string.hot_rank);

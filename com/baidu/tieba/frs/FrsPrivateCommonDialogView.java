@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ks6;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.wk5;
+import com.baidu.tieba.al5;
+import com.baidu.tieba.ps6;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,11 +61,11 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 return;
             }
         }
-        j = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        k = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds250);
-        l = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        m = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds405);
-        n = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds220);
+        j = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        k = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds250);
+        l = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        m = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds405);
+        n = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds220);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -117,7 +117,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, privateForumPopInfoData, z)) == null) {
-            if (!o95.p().l(e(privateForumPopInfoData, z), false)) {
+            if (!r95.p().l(e(privateForumPopInfoData, z), false)) {
                 return false;
             }
             return true;
@@ -128,7 +128,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
     public static void setDialogShown(PrivateForumPopInfoData privateForumPopInfoData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, null, privateForumPopInfoData, z) == null) {
-            o95.p().A(e(privateForumPopInfoData, z), true);
+            r95.p().A(e(privateForumPopInfoData, z), true);
         }
     }
 
@@ -187,7 +187,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                     this.f.setText(R.string.frs_private_create_button);
                     h();
                     SkinManager.setImageResource(this.c, R.drawable.pic_frs_private_create_success);
-                    Glide.with(this.a).load(ks6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
+                    Glide.with(this.a).load(ps6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
                 }
             } else {
                 this.f.setText(R.string.frs_private_fail_button);
@@ -221,18 +221,18 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.h = findViewById(R.id.header_bg);
             this.i = findViewById(R.id.private_pop_content);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
-            p75 d = p75.d(this.f);
+            s75 d = s75.d(this.f);
             d.m(R.dimen.tbds1);
             d.o(R.string.J_X07);
             d.l(R.color.CAM_X0304);
             d.x(R.color.CAM_X0304);
-            p75 d2 = p75.d(this.d);
+            s75 d2 = s75.d(this.d);
             d2.D(R.string.F_X02);
             d2.x(R.color.CAM_X0105);
-            p75 d3 = p75.d(this.h);
+            s75 d3 = s75.d(this.h);
             d3.o(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            p75 d4 = p75.d(this.i);
+            s75 d4 = s75.d(this.i);
             d4.o(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
@@ -243,7 +243,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = wk5.d().e().getAvater();
+            String avater = al5.d().e().getAvater();
             if (avater.startsWith("http")) {
                 this.b.N(avater, 10, false);
             } else {

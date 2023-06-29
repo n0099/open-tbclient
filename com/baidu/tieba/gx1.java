@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface gx1 {
-    void a(boolean z);
 
-    boolean b();
+import android.content.Context;
+/* loaded from: classes6.dex */
+public interface gx1 {
+    void a(String str, d23 d23Var, Context context);
 }

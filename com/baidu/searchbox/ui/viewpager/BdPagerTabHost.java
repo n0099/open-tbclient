@@ -213,7 +213,7 @@ public class BdPagerTabHost extends FrameLayout {
 
     public void setTabBarHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0919a6);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0919fd);
         if (findViewById != null && (layoutParams = findViewById.getLayoutParams()) != null) {
             layoutParams.height = i;
             findViewById.setLayoutParams(layoutParams);
@@ -384,11 +384,11 @@ public class BdPagerTabHost extends FrameLayout {
         }
         this.mContext = context;
         if (this.mCanViewPagerScroll) {
-            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d072d, this);
+            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0740, this);
         } else {
-            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d072e, this);
+            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0741, this);
         }
-        BdPagerTabBar bdPagerTabBar = (BdPagerTabBar) inflate.findViewById(R.id.obfuscated_res_0x7f0919a5);
+        BdPagerTabBar bdPagerTabBar = (BdPagerTabBar) inflate.findViewById(R.id.obfuscated_res_0x7f0919fc);
         this.mPagerTabBar = bdPagerTabBar;
         bdPagerTabBar.setUIStandard(this.mUseStandardStyle, this.mLayoutInActionBar);
         if (!isInEditMode()) {
@@ -401,10 +401,10 @@ public class BdPagerTabHost extends FrameLayout {
                 }
             });
         }
-        this.mViewPager = (ViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f0928af);
-        this.mDivider = inflate.findViewById(R.id.obfuscated_res_0x7f0922b7);
+        this.mViewPager = (ViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f092911);
+        this.mDivider = inflate.findViewById(R.id.obfuscated_res_0x7f092317);
         this.mViewPager.setOffscreenPageLimit(3);
-        DrawablePageIndicator drawablePageIndicator = (DrawablePageIndicator) inflate.findViewById(R.id.obfuscated_res_0x7f0910ec);
+        DrawablePageIndicator drawablePageIndicator = (DrawablePageIndicator) inflate.findViewById(R.id.obfuscated_res_0x7f0910f8);
         this.mPageIndicator = drawablePageIndicator;
         drawablePageIndicator.setUseStandardStyle(this.mUseStandardStyle);
         if (!this.mEnableIndicator) {
@@ -490,9 +490,9 @@ public class BdPagerTabHost extends FrameLayout {
                 }
             }
         });
-        this.pagerTabBarContainer = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0919a6);
-        this.settingLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920cd);
-        this.settingImage = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920cc);
+        this.pagerTabBarContainer = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0919fd);
+        this.settingLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09212c);
+        this.settingImage = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09212b);
         if (this.mLayoutInActionBar) {
             setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701bb));
         } else {
@@ -593,7 +593,7 @@ public class BdPagerTabHost extends FrameLayout {
     public void setPageResources() {
         ViewPager viewPager = this.mViewPager;
         if (viewPager != null) {
-            viewPager.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b89));
+            viewPager.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b8b));
         }
         View view2 = this.mDivider;
         if (view2 != null) {
@@ -601,7 +601,7 @@ public class BdPagerTabHost extends FrameLayout {
         }
         setTabTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603a9), getResources().getColor(R.color.obfuscated_res_0x7f0603a8));
         this.mPageIndicator.updateStandardDrawable();
-        setTabBarBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b89));
+        setTabBarBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b8b));
     }
 
     public void setTabNightModeRes(int i, int i2, int i3, int i4, int i5) {

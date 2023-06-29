@@ -1,94 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.download.util.MigrateStatisticUtils;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.BusinessPromot;
-import tbclient.FrsPage.HeadImgs;
-import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
-public class cz9 {
+public class cz9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TiebaPlusInfo b;
+    @NonNull
+    public final zy9 a;
+    @NonNull
+    public final az9 b;
 
-    public cz9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cz9(@NonNull zy9 zy9Var, @NonNull az9 az9Var) {
+        super(2016311);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zy9Var, az9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = zy9Var;
+        this.b = az9Var;
     }
 
-    public TiebaPlusInfo a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (TiebaPlusInfo) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(BusinessPromot businessPromot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromot) == null) {
-            this.a = businessPromot.is_download.booleanValue();
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = businessPromot.download_developer;
-            builder.title = businessPromot.download_appname;
-            builder.app_privacy = businessPromot.download_privacy_policy;
-            builder.download_url = businessPromot.download_url;
-            builder.app_icon = businessPromot.download_img;
-            builder.app_version = businessPromot.download_version;
-            builder.app_power = businessPromot.download_user_power;
-            builder.app_package = businessPromot.download_package_name;
-            builder.app_id = businessPromot.download_appid;
-            builder.item_id = businessPromot.download_item_id;
-            this.b = builder.build(true);
-        }
-    }
-
-    public void d(HeadImgs headImgs) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, headImgs) == null) {
-            if (headImgs.download_is_thirdpage.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016311) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
+            Object data = customResponsedMessage.getData();
+            if (data instanceof String) {
+                String str2 = (String) data;
+                y6a.a("SplashClickListener link:" + str2);
+                if (!TextUtils.isEmpty(str2) && !TextUtils.equals("advertevent", Uri.parse(str2).getScheme())) {
+                    Intent intent = new Intent();
+                    int indexOf = str2.indexOf("&extInfo=");
+                    if (indexOf > 0) {
+                        str = str2.substring(0, indexOf);
+                    } else {
+                        str = str2;
+                    }
+                    String substring = str2.substring(str.length() + 9, str2.length());
+                    if (str.startsWith("https://") || str.startsWith("http://")) {
+                        intent.putExtra("gd_ad", true);
+                        intent.putExtra(MigrateStatisticUtils.EXT_INFO, substring);
+                    }
+                    if (!this.a.h() && ((StringUtils.isNull(str) || !str.startsWith("bdtiebalive")) && this.a.g() != 2)) {
+                        intent.putExtra("class", 30);
+                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
+                        intent.putExtra("is_ad", true);
+                        TbadkCoreApplication.setIntent(intent);
+                    } else {
+                        intent.putExtra("class", 30);
+                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
+                        intent.putExtra("is_ad", true);
+                        UtilHelper.commenDealIntent(this.a.getActivity(), intent);
+                    }
+                }
+                this.a.e();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
+                if (!this.a.d() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
+                    SpeedStatsManager.getInstance().setStatsFlag(-1);
+                    if (!this.a.h()) {
+                        TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click"));
+                        return;
+                    }
+                    return;
+                }
+                this.b.a();
             }
-            this.a = z;
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = headImgs.download_developer;
-            builder.title = headImgs.download_appname;
-            builder.app_privacy = headImgs.download_privacy_policy;
-            builder.download_url = headImgs.download_url;
-            builder.app_icon = headImgs.download_img;
-            builder.app_version = headImgs.download_version;
-            builder.app_power = headImgs.download_user_power;
-            builder.app_package = headImgs.download_package_name;
-            builder.app_id = headImgs.download_appid;
-            builder.item_id = String.valueOf(headImgs.download_item_id);
-            this.b = builder.build(true);
         }
     }
 }

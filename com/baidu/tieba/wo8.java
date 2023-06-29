@@ -1,354 +1,74 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.lego.activity.LegoListActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class wo8 {
+public final class wo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NavigationBar a;
-    public final RelativeLayout b;
-    public final TextView c;
-    public final TbImageView d;
-    public final View e;
-    public final LinearLayout f;
-    public final TbImageView g;
-    public final TbImageView h;
-    public final TbImageView i;
-    public final List<TbImageView> j;
-    public LegoListActivity k;
 
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ wo8 c;
-
-        public a(wo8 wo8Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wo8Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = wo8Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.f(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ wo8 b;
-
-        public b(wo8 wo8Var, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wo8Var, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wo8Var;
-            this.a = list;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.b.e(this.a);
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ wo8 b;
-
-        public c(wo8 wo8Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wo8Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wo8Var;
-            this.a = str;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                az9.c(this.b.k.getPageContext(), this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jq8 a;
-        public final /* synthetic */ wo8 b;
-
-        public d(wo8 wo8Var, jq8 jq8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wo8Var, jq8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wo8Var;
-            this.a = jq8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.h(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ wo8 b;
-
-        public e(wo8 wo8Var, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wo8Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wo8Var;
-            this.a = shareItem;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                mi.a(this.a.x);
-                wi.Q(this.b.k.getActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
-            }
-        }
-    }
-
-    public wo8(LegoListActivity legoListActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {legoListActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.k = legoListActivity;
-        NavigationBar navigationBar = (NavigationBar) legoListActivity.findViewById(R.id.view_navigation_bar);
-        this.a = navigationBar;
-        this.e = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, legoListActivity.v);
-        this.b = (RelativeLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d095a, (View.OnClickListener) null);
-        ((LinearLayout) this.a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_CENTER)).setGravity(17);
-        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0914b5);
-        this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0914b6);
-        LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0915eb);
-        this.f = linearLayout;
-        this.g = (TbImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0911b7);
-        this.h = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0911b8);
-        this.i = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0911b9);
-        ArrayList arrayList = new ArrayList();
-        this.j = arrayList;
-        arrayList.add(this.g);
-        this.j.add(this.h);
-        this.j.add(this.i);
-    }
-
-    public final void e(List<jq8> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948277417, "Lcom/baidu/tieba/wo8;")) == null) {
             return;
         }
-        this.f.setVisibility(0);
-        for (int i = 0; i < list.size() && i < this.j.size(); i++) {
-            this.j.get(i).setVisibility(0);
-            if (list.get(i).d == 2) {
-                SkinManager.setImageResource(this.j.get(i), R.drawable.icon_nav_share_n);
-            } else {
-                this.j.get(i).N(list.get(i).a, 10, false);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948277417, "Lcom/baidu/tieba/wo8;");
+        }
+    }
+
+    @JvmStatic
+    public static final void a(ImMessageCenterShowItemData imMessageCenterShowItemData, Context context, BdUniqueId uniqueId) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, imMessageCenterShowItemData, context, uniqueId) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", "1");
+            Intrinsics.checkNotNull(imMessageCenterShowItemData);
+            TiebaStatic.log(param.param("obj_param1", imMessageCenterShowItemData.getUnReadCount()).param(TiebaStatic.Params.FRIEND_UID, imMessageCenterShowItemData.getFriendId()));
+            if (imMessageCenterShowItemData.getUnReadCount() > 0) {
+                qe5.p0().i0(qe5.p0().x() - imMessageCenterShowItemData.getUnReadCount());
+                imMessageCenterShowItemData.setUnReadCount(0);
             }
-            if (!TextUtils.isEmpty(list.get(i).c)) {
-                String str = list.get(i).c;
-                if (list.get(i).d == 1) {
-                    this.j.get(i).setOnClickListener(new c(this, str));
-                } else if (list.get(i).d == 2) {
-                    this.j.get(i).setOnClickListener(new d(this, list.get(i)));
+            try {
+                String friendId = imMessageCenterShowItemData.getFriendId();
+                Intrinsics.checkNotNullExpressionValue(friendId, "data.friendId");
+                long parseLong = Long.parseLong(friendId);
+                TiebaStatic.log("tab_msg_personal_chat_click");
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
+                if (imMessageCenterShowItemData.getRelation() == 1) {
+                    i = 1;
+                } else {
+                    i = 0;
                 }
-            }
-        }
-        for (int size = list.size(); size < this.j.size(); size++) {
-            this.j.get(size).setVisibility(8);
-        }
-    }
-
-    public final void f(String str, String str2) {
-        TbImageView tbImageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && (tbImageView = this.d) != null && this.c != null) {
-            tbImageView.setVisibility(0);
-            this.c.setVisibility(8);
-            this.d.N(str, 10, false);
-        }
-    }
-
-    public void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            f(str, str2);
-            this.d.postDelayed(new a(this, str, str2), 1000L);
-        }
-    }
-
-    public void g(List<jq8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            if (ListUtils.isEmpty(list)) {
-                this.f.setVisibility(8);
-                return;
-            }
-            e(list);
-            this.f.postDelayed(new b(this, list), 1000L);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.setVisibility(8);
-        }
-    }
-
-    public void h(jq8 jq8Var) {
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, jq8Var) == null) && jq8Var != null && jq8Var.d == 2) {
-            String str = jq8Var.g;
-            if (str == null) {
-                parse = null;
-            } else {
-                parse = Uri.parse(str);
-            }
-            ShareItem shareItem = new ShareItem();
-            shareItem.v = jq8Var.e;
-            shareItem.w = jq8Var.f;
-            shareItem.x = jq8Var.c;
-            if (parse != null) {
-                shareItem.z = parse;
-            }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.k.getActivity(), shareItem, true);
-            shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.setCopyLinkListener(new e(this, shareItem));
-            this.k.sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            this.c.setVisibility(0);
-            this.d.setVisibility(8);
-            if (!TextUtils.isEmpty(str)) {
-                this.c.setText(str);
-            } else {
-                this.c.setText("");
+                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(context, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, i);
+                personalChatActivityConfig.setFrom(3);
+                personalChatActivityConfig.setLastUniqueId(uniqueId.getId());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

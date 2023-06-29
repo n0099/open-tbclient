@@ -1,12 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.view.ScaleGestureDetector;
+import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface x21 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "adRequester");
+public class x21 extends ScaleGestureDetector.SimpleOnScaleGestureListener implements wx0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull RequestParameters requestParameters, @NonNull NadRequester.b bVar);
+    public final View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            throw null;
+        }
+        return (View) invokeV.objValue;
+    }
 }

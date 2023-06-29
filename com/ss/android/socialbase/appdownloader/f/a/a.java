@@ -17,7 +17,7 @@ public class a implements i {
     public int n;
     public int o;
     public boolean c = false;
-    public C0730a f = new C0730a();
+    public C0740a f = new C0740a();
 
     @Override // com.ss.android.socialbase.appdownloader.f.a.g
     public int f() {
@@ -26,7 +26,7 @@ public class a implements i {
 
     /* renamed from: com.ss.android.socialbase.appdownloader.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C0730a {
+    public static final class C0740a {
         public int[] a = new int[32];
         public int b;
         public int c;

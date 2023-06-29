@@ -1,178 +1,256 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.Camera;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class rda {
+public class rda extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public l9 a;
+    public List<MusicData> b;
+    public int c;
+    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948119162, "Lcom/baidu/tieba/rda;")) == null) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public View b;
+        public TextView c;
+
+        public a(rda rdaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rdaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public rda(l9 l9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {l9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = l9Var;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c = i;
+            notifyDataSetChanged();
+        }
+    }
+
+    public void f(List<MusicData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || list == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948119162, "Lcom/baidu/tieba/rda;");
-        }
+        this.b = list;
+        e(this.d);
+        notifyDataSetChanged();
     }
 
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    public static int b(TbPageContext tbPageContext, int i) {
-        InterceptResult invokeLI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, tbPageContext, i)) == null) {
-            int i3 = 0;
-            try {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                int d = d(tbPageContext);
-                if (cameraInfo.facing == 1) {
-                    i3 = (cameraInfo.orientation + d) % 360;
-                    i2 = (360 - i3) % 360;
-                } else {
-                    i2 = ((cameraInfo.orientation - d) + 360) % 360;
-                }
-                return i2;
-            } catch (RuntimeException e) {
-                rwa.g(e);
-                return i3;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            List<MusicData> list = this.b;
+            if (list == null) {
+                return null;
             }
+            return list.get(i);
         }
-        return invokeLI.intValue;
+        return invokeI.objValue;
     }
 
-    public static int c(Camera.Parameters parameters) {
-        InterceptResult invokeL;
+    public void a(TextView textView, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parameters)) == null) {
-            if (parameters == null) {
-                return -1;
-            }
-            try {
-                if (!parameters.isZoomSupported()) {
-                    return -1;
-                }
-                return Math.min(parameters.getMaxZoom(), 40);
-            } catch (Exception e) {
-                rwa.g(e);
-                return -1;
-            }
+        if ((interceptable != null && interceptable.invokeLIL(1048576, this, textView, i, str) != null) || i <= 0) {
+            return;
         }
-        return invokeL.intValue;
+        float g = xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702b3);
+        TextPaint textPaint = new TextPaint();
+        textPaint.setTextSize(g);
+        while (textPaint.measureText(str) > i) {
+            g -= 1.0f;
+            textPaint.setTextSize(g);
+        }
+        textView.setTextSize(0, g);
     }
 
-    public static int d(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            int rotation = tbPageContext.getPageActivity().getWindowManager().getDefaultDisplay().getRotation();
-            if (rotation == 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public List<MusicData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<MusicData> list = this.b;
+            if (list == null) {
                 return 0;
             }
-            if (rotation != 1) {
-                if (rotation != 2) {
-                    if (rotation != 3) {
-                        return 0;
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
+            if (!TextUtils.isEmpty(str) && this.b != null) {
+                int i = -1;
+                for (int i2 = 0; i2 < this.b.size(); i2++) {
+                    if (str.equals(this.b.get(i2).id)) {
+                        i = i2;
                     }
-                    return 270;
                 }
-                return 180;
+                if (i == -1) {
+                    i = 1;
+                }
+                this.c = i;
             }
-            return 90;
         }
-        return invokeL.intValue;
     }
 
-    public static void e(TbPageContext tbPageContext, int i, Matrix matrix) {
-        float f;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65541, null, tbPageContext, i, matrix) != null) || matrix == null) {
-            return;
-        }
-        if (1 == i) {
-            f = -1.0f;
-        } else {
-            f = 1.0f;
-        }
-        matrix.setScale(f, 1.0f);
-        matrix.postRotate(b(tbPageContext, i));
-        matrix.postScale(kxa.e() / 2000.0f, kxa.d() / 2000.0f);
-        matrix.postTranslate(kxa.e() / 2.0f, kxa.d() / 2.0f);
-    }
-
-    public static void g(int i, int i2, Camera camera) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, camera) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(i2, cameraInfo);
-            int i4 = 0;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            i4 = 270;
-                        }
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            boolean z = true;
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0521, (ViewGroup) null);
+                aVar = new a(this);
+                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917f7);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917fb);
+                aVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0917f8);
+                aVar.a.setDrawerType(1);
+                aVar.a.setIsRound(true);
+                aVar.a.setDefaultBgResource(R.color.transparent);
+                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f08036c);
+                aVar.a.setBorderWidth(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
+                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                aVar.a.setConrers(15);
+                view2.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
+            }
+            MusicData musicData = this.b.get(i);
+            if (musicData != null) {
+                int i2 = musicData.editMusicType;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        aVar.a.N(musicData.img, 10, false);
                     } else {
-                        i4 = 180;
+                        aVar.a.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f080d0f), 24, false);
                     }
                 } else {
-                    i4 = 90;
+                    aVar.a.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f080d25), 24, false);
+                }
+                aVar.b.setVisibility(4);
+                aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+                aVar.c.setText(musicData.name);
+                a(aVar.c, xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07035e), musicData.name);
+                if (i == this.c) {
+                    aVar.a.setDrawBorder(true);
+                } else {
+                    aVar.a.setDrawBorder(false);
+                }
+                if (i == 0) {
+                    view2.setPadding(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0703d7), 0, 0);
+                } else if (i == this.b.size() - 1) {
+                    view2.setPadding(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0703d7), xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
+                } else {
+                    view2.setPadding(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9), xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0703d7), 0, 0);
+                }
+                if (this.a.getPageActivity() instanceof BaseActivity) {
+                    h05 layoutMode = ((BaseActivity) this.a.getPageActivity()).getLayoutMode();
+                    if (TbadkCoreApplication.getInst().getSkinType() != 4) {
+                        z = false;
+                    }
+                    layoutMode.l(z);
+                    ((BaseActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
+                } else if (this.a.getPageActivity() instanceof BaseFragmentActivity) {
+                    h05 layoutMode2 = ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode();
+                    if (TbadkCoreApplication.getInst().getSkinType() != 4) {
+                        z = false;
+                    }
+                    layoutMode2.l(z);
+                    ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
                 }
             }
-            if (cameraInfo.facing == 1) {
-                i3 = (360 - ((cameraInfo.orientation + i4) % 360)) % 360;
-            } else {
-                i3 = ((cameraInfo.orientation - i4) + 360) % 360;
-            }
-            camera.setDisplayOrientation(i3);
+            return view2;
         }
-    }
-
-    public static void f(RectF rectF, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, rectF, rect) == null) {
-            rect.left = Math.round(rectF.left);
-            rect.top = Math.round(rectF.top);
-            rect.right = Math.round(rectF.right);
-            rect.bottom = Math.round(rectF.bottom);
-        }
-    }
-
-    public static void h(TbPageContext tbPageContext, int i, Camera camera) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65544, null, tbPageContext, i, camera) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(i, cameraInfo);
-            int d = d(tbPageContext);
-            if (cameraInfo.facing == 1) {
-                i2 = (360 - ((cameraInfo.orientation + d) % 360)) % 360;
-            } else {
-                i2 = ((cameraInfo.orientation - d) + 360) % 360;
-            }
-            camera.setDisplayOrientation(i2);
-        }
+        return (View) invokeILL.objValue;
     }
 }

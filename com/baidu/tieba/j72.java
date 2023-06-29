@@ -1,79 +1,140 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.text.style.LineHeightSpan;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j72 implements LineHeightSpan {
+public class j72 extends o72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public int H;
+    public String I;
+    public boolean J;
+    public int K;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836132, "Lcom/baidu/tieba/j72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947836132, "Lcom/baidu/tieba/j72;");
-                return;
-            }
-        }
-        b = js1.a;
-    }
-
-    public j72(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j72(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.I = "";
     }
 
-    @Override // android.text.style.LineHeightSpan
-    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
-        int i5;
+    private void i() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
-            if (b) {
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
+            this.u = SwanAppConfigData.t(jSONObject.optString("color"));
+            this.v = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.o72, com.baidu.tieba.q72, com.baidu.tieba.s72, com.baidu.tieba.b23
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("maxLength");
+        this.E = k(jSONObject);
+        this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+        this.G = jSONObject.optInt("selectionStart");
+        this.H = jSONObject.optInt("selectionEnd");
+        this.I = jSONObject.optString("confirmType");
+        boolean z = true;
+        if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m) != 1) {
+            z = false;
+        }
+        this.J = z;
+        i();
+    }
+
+    @Override // com.baidu.tieba.o72, com.baidu.tieba.q72, com.baidu.tieba.s72
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
+                this.E = k(jSONObject);
             }
-            if (this.a >= 0 && (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) >= 0) {
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
-                }
-                int i6 = (this.a - i5) / 2;
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
-                }
-                fontMetricsInt.descent += i6;
-                fontMetricsInt.ascent -= i6;
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
+            this.D = jSONObject.optInt("maxLength", this.D);
+            this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.F);
+            this.G = jSONObject.optInt("selectionStart", this.G);
+            this.H = jSONObject.optInt("selectionEnd", this.H);
+            this.I = jSONObject.optString("confirmType", this.I);
+            boolean z = true;
+            if (jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m, this.J ? 1 : 0) != 1) {
+                z = false;
+            }
+            this.J = z;
+            this.t = jSONObject.optString("value", this.t);
+            i();
+        }
+    }
+
+    public final int k(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            String optString = jSONObject.optString("cursorSpacing");
+            if (TextUtils.isEmpty(optString)) {
+                return 0;
+            }
+            if (optString.endsWith("rpx")) {
+                try {
+                    return tp3.g(Integer.parseInt(optString.replace("rpx", "")));
+                } catch (NumberFormatException unused) {
+                    return 0;
                 }
             }
+            try {
+                return Integer.parseInt(optString.replace("px", ""));
+            } catch (NumberFormatException unused2) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public void l(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.G = i;
+            this.H = i2;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.K = i;
         }
     }
 }

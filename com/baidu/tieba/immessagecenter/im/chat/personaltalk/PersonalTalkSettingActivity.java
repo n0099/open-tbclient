@@ -20,24 +20,24 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bc8;
-import com.baidu.tieba.cj8;
-import com.baidu.tieba.d55;
-import com.baidu.tieba.e05;
-import com.baidu.tieba.e98;
-import com.baidu.tieba.ej8;
-import com.baidu.tieba.f7a;
+import com.baidu.tieba.fca;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.hc8;
 import com.baidu.tieba.im.message.ClearChatMsgResponsedMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingModel;
-import com.baidu.tieba.lb;
-import com.baidu.tieba.nx5;
-import com.baidu.tieba.rw5;
-import com.baidu.tieba.rx5;
-import com.baidu.tieba.sa8;
-import com.baidu.tieba.t7a;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.k98;
+import com.baidu.tieba.mb;
+import com.baidu.tieba.ok8;
+import com.baidu.tieba.qk8;
+import com.baidu.tieba.rba;
+import com.baidu.tieba.sx5;
+import com.baidu.tieba.ww5;
+import com.baidu.tieba.wx5;
+import com.baidu.tieba.ya8;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,22 +47,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettingActivity> implements PersonalTalkSettingModel.g, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ej8 a;
+    public qk8 a;
     public PersonalTalkSettingModel b;
-    public f7a c;
-    public t7a d;
+    public rba c;
+    public fca d;
     public long e;
     public final CustomMessageListener f;
-    public lb g;
+    public mb g;
 
     /* loaded from: classes6.dex */
-    public class c implements d55.e {
+    public class c implements g55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
 
         /* loaded from: classes6.dex */
-        public class a extends nx5<Boolean> {
+        public class a extends sx5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -87,19 +87,19 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.nx5
+            @Override // com.baidu.tieba.sx5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return Boolean.valueOf(e98.w().p(String.valueOf(this.a.a.e)));
+                    return Boolean.valueOf(k98.w().p(String.valueOf(this.a.a.e)));
                 }
                 return (Boolean) invokeV.objValue;
             }
         }
 
         /* loaded from: classes6.dex */
-        public class b implements rw5<Boolean> {
+        public class b implements ww5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -123,7 +123,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rw5
+            @Override // com.baidu.tieba.ww5
             /* renamed from: a */
             public void onReturnDataInUI(Boolean bool) {
                 Interceptable interceptable = $ic;
@@ -154,14 +154,14 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // com.baidu.tieba.d55.e
-        public void onClick(d55 d55Var) {
+        @Override // com.baidu.tieba.g55.e
+        public void onClick(g55 g55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
-                d55Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, g55Var) == null) {
+                g55Var.dismiss();
                 this.a.showLoadingDialog(null);
-                rx5.c(new a(this), new b(this));
-                cj8.a("c14632");
+                wx5.c(new a(this), new b(this));
+                ok8.a("c14632");
             }
         }
     }
@@ -204,7 +204,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     }
 
     /* loaded from: classes6.dex */
-    public class b implements d55.e {
+    public class b implements g55.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -227,17 +227,17 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             this.a = personalTalkSettingActivity;
         }
 
-        @Override // com.baidu.tieba.d55.e
-        public void onClick(d55 d55Var) {
+        @Override // com.baidu.tieba.g55.e
+        public void onClick(g55 g55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d55Var) == null) {
-                d55Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, g55Var) == null) {
+                g55Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d extends lb {
+    public class d extends mb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingActivity a;
@@ -320,10 +320,10 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
                 if (!this.a) {
-                    sa8.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.e), false);
+                    ya8.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.e), false);
                     return null;
                 }
-                sa8.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.e), true);
+                ya8.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.e), true);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -390,7 +390,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            e05 layoutMode = getLayoutMode();
+            h05 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -431,7 +431,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                 this.e = bundle.getLong("userId");
             }
             this.b = new PersonalTalkSettingModel(this, this, this.e);
-            this.d = new t7a(getPageContext(), getUniqueId());
+            this.d = new fca(getPageContext(), getUniqueId());
         }
     }
 
@@ -449,17 +449,17 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                 }
                 return;
             }
-            xg.a().postDelayed(new f(this, z2), 500L);
+            yg.a().postDelayed(new f(this, z2), 500L);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void d0(View view2, BdSwitchView.SwitchState switchState) {
-        ej8 ej8Var;
+        qk8 qk8Var;
         PersonalTalkSettingModel personalTalkSettingModel;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, view2, switchState) != null) || view2 == null || (ej8Var = this.a) == null || ej8Var.n == null || (personalTalkSettingModel = this.b) == null || personalTalkSettingModel.getUid() != this.e) {
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, view2, switchState) != null) || view2 == null || (qk8Var = this.a) == null || qk8Var.n == null || (personalTalkSettingModel = this.b) == null || personalTalkSettingModel.getUid() != this.e) {
             return;
         }
         boolean z2 = true;
@@ -468,9 +468,9 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
             if (BdSwitchView.SwitchState.ON != switchState) {
                 z2 = false;
             }
-            bc8.c(valueOf, z2);
+            hc8.c(valueOf, z2);
             if (view2.getTag() != null) {
-                cj8.b("c14654", switchState);
+                ok8.b("c14654", switchState);
                 view2.setTag(null);
             }
         } else if (view2 == this.a.n.getChatNeglectSwitch()) {
@@ -489,7 +489,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                 this.b.l0(false);
             }
             if (view2.getTag() != null) {
-                cj8.b("c14631", switchState);
+                ok8.b("c14631", switchState);
                 view2.setTag(null);
             }
         }
@@ -501,9 +501,9 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             closeLoadingDialog();
-            ej8 ej8Var = this.a;
-            if (ej8Var != null && (personalTalkSettingModel = this.b) != null) {
-                ej8Var.h(personalTalkSettingModel);
+            qk8 qk8Var = this.a;
+            if (qk8Var != null && (personalTalkSettingModel = this.b) != null) {
+                qk8Var.h(personalTalkSettingModel);
             }
         }
     }
@@ -511,9 +511,9 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ej8 ej8Var = new ej8(this);
-            this.a = ej8Var;
-            ej8Var.f(this);
+            qk8 qk8Var = new qk8(this);
+            this.a = qk8Var;
+            qk8Var.f(this);
         }
     }
 
@@ -530,34 +530,34 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        t7a t7aVar;
+        fca fcaVar;
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092770) {
+            if (id == R.id.obfuscated_res_0x7f0927d2) {
                 PersonalTalkSettingModel personalTalkSettingModel = this.b;
                 if (personalTalkSettingModel != null && personalTalkSettingModel.f0() != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.e), this.b.f0().name)));
-                    cj8.a("c14629");
+                    ok8.a("c14629");
                 }
-            } else if (id == R.id.obfuscated_res_0x7f0921e9) {
-                d55 d55Var = new d55(getPageContext().getPageActivity());
-                d55Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f11e6)).setPositiveButton(R.string.alert_yes_button, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f03ca, new b(this)).create(getPageContext());
-                d55Var.show();
-            } else if (id == R.id.obfuscated_res_0x7f0921ea) {
-                if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921343, f7a.class, getPageContext().getPageActivity())) != null) {
-                    this.c = (f7a) runTask.getData();
+            } else if (id == R.id.obfuscated_res_0x7f092249) {
+                g55 g55Var = new g55(getPageContext().getPageActivity());
+                g55Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1203)).setPositiveButton(R.string.alert_yes_button, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f03cc, new b(this)).create(getPageContext());
+                g55Var.show();
+            } else if (id == R.id.obfuscated_res_0x7f09224a) {
+                if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921343, rba.class, getPageContext().getPageActivity())) != null) {
+                    this.c = (rba) runTask.getData();
                 }
-                f7a f7aVar = this.c;
-                if (f7aVar != null) {
-                    f7aVar.b(getUniqueId());
+                rba rbaVar = this.c;
+                if (rbaVar != null) {
+                    rbaVar.b(getUniqueId());
                     this.c.c(String.valueOf(this.e));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_PERSON_TALK_REPORT_CLICK).param("obj_locate", 2));
                 }
-                cj8.a("c14635");
-            } else if (id == R.id.obfuscated_res_0x7f09013d && (t7aVar = this.d) != null && this.b != null) {
-                t7aVar.n(this.e);
+                ok8.a("c14635");
+            } else if (id == R.id.obfuscated_res_0x7f09013d && (fcaVar = this.d) != null && this.b != null) {
+                fcaVar.n(this.e);
             }
         }
     }

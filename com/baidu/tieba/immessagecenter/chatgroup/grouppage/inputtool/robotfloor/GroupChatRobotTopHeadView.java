@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p75;
+import com.baidu.tieba.s75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -94,10 +94,10 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            p75 d = p75.d(this.b);
+            s75 d = s75.d(this.b);
             d.o(R.string.deprecated_J_X18);
             d.f(R.color.CAM_X0207);
-            p75 d2 = p75.d(this.e);
+            s75 d2 = s75.d(this.e);
             d2.x(R.color.CAM_X0107);
             d2.C(R.dimen.T_X06);
         }
@@ -170,16 +170,16 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (context = this.a) == null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03d5, (ViewGroup) this, true);
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092175);
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092172);
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092173);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03d6, (ViewGroup) this, true);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921d4);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921d1);
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921d2);
         this.d = headImageView;
         headImageView.setIsRound(true);
         this.d.setIsBigV(false);
-        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092174);
-        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092171);
-        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092170);
+        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921d3);
+        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921d0);
+        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921cf);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -188,7 +188,7 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.d.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f081145), 24, false);
+                this.d.N(String.valueOf((int) R.drawable.obfuscated_res_0x7f081176), 24, false);
             } else {
                 this.d.N(str, 12, false);
             }

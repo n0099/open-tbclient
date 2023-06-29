@@ -10,7 +10,7 @@ import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -147,7 +147,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        a = wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703b6);
+        a = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0703b6);
     }
 
     public static int a(HeadType headType) {
@@ -160,15 +160,15 @@ public class BdListViewHelper {
                 if (i != 2) {
                     if (i != 3) {
                         if (i != 4) {
-                            return UtilHelper.getLightStatusBarHeight() + wi.g(context, R.dimen.obfuscated_res_0x7f07041a);
+                            return UtilHelper.getLightStatusBarHeight() + xi.g(context, R.dimen.obfuscated_res_0x7f07041a);
                         }
-                        return wi.g(context, R.dimen.obfuscated_res_0x7f0703f1);
+                        return xi.g(context, R.dimen.obfuscated_res_0x7f0703f1);
                     }
-                    return UtilHelper.getLightStatusBarHeight() + wi.g(context, R.dimen.obfuscated_res_0x7f070378);
+                    return UtilHelper.getLightStatusBarHeight() + xi.g(context, R.dimen.obfuscated_res_0x7f070378);
                 }
-                return UtilHelper.getLightStatusBarHeight() + wi.g(context, R.dimen.obfuscated_res_0x7f07037d);
+                return UtilHelper.getLightStatusBarHeight() + xi.g(context, R.dimen.obfuscated_res_0x7f07037d);
             }
-            return UtilHelper.getLightStatusBarHeight() + wi.g(context, R.dimen.obfuscated_res_0x7f07041a);
+            return UtilHelper.getLightStatusBarHeight() + xi.g(context, R.dimen.obfuscated_res_0x7f07041a);
         }
         return invokeL.intValue;
     }
@@ -185,10 +185,10 @@ public class BdListViewHelper {
             }
             if (HeadType.DEFAULT == headType) {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                g = wi.g(context, R.dimen.obfuscated_res_0x7f07037a);
+                g = xi.g(context, R.dimen.obfuscated_res_0x7f07037a);
             } else {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                g = wi.g(context, R.dimen.obfuscated_res_0x7f07039b);
+                g = xi.g(context, R.dimen.obfuscated_res_0x7f07039b);
             }
             return lightStatusBarHeight + g;
         }
@@ -204,9 +204,9 @@ public class BdListViewHelper {
                 if (z) {
                     layoutParams.height = a(headType);
                 } else if (HeadType.DEFAULT == headType) {
-                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + wi.g(context, R.dimen.obfuscated_res_0x7f07037a);
+                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + xi.g(context, R.dimen.obfuscated_res_0x7f07037a);
                 } else {
-                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + wi.g(context, R.dimen.obfuscated_res_0x7f07039b);
+                    layoutParams.height = UtilHelper.getLightStatusBarHeight() + xi.g(context, R.dimen.obfuscated_res_0x7f07039b);
                 }
                 view2.setLayoutParams(layoutParams);
             }

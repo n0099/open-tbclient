@@ -1,41 +1,167 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class n95 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "com.baidu.tieba";
-    public static String b = "com.baidu.tieba:remote";
-    public static String c = "com.baidu.tieba:bdservice_v1";
-    public static String d = "com.baidu.tieba:pluginInstaller";
-    public static String e = "com.baidu.tieba:daemon";
-    public static String f = "com.baidu.tieba:cdnTachometer";
-    public static String g = "plugininstaller_settings";
-    public static String h = "daemon_settings";
-    public static String i = "cdnTachometer_settings";
-    public static String j = "download_product_info";
-    public static final String[] k;
-    public static final String[] l;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957311, "Lcom/baidu/tieba/n95;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947957311, "Lcom/baidu/tieba/n95;");
-                return;
+    public n95() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        k = new String[]{"skin_", "from_id", "bd_loc_crash_count", "webview_crash_count", "bd_loc_switcher", "install_other_app_file_name", "cuid", "new_cuid", "framework_ver", "naws_game_ver", "new_cuid_galaxy2", "gpu_open", "client_id", "keepalive_wifi", "keepalive_nonwifi", "networkcore_type", "socket_reconn_strategy", "image_quality", "capable_of_webp_format", "webp_failure_count", "log_stat_upload_time ", "log_stat_debug_time", "log_stat_switch_data", "log_stat_error_time", "is_motu_forbidden", "cdn_iplist_cache_key_three", "report_user_info_time_key", "image_viewer_tip", "location_lat", "location_lng", "location_pos", "location_on", "xiaoying_crash_count", "plugin_patch_hook_failed_count", "page_stay_duration_switch", "page_stay_max_cost", "applist_intalled_apk_ids", "applist_intalled_apk_ids_timestamp", "KEY_UPLOAD_LOG_INTERVAL", "KEY_LOG_REAL_TIME_UPLOAD_SWITCH", "smart_app_tid", "smart_app_id", "smart_app_name", "key_ai_app_guide_display", "AD_SNIFF_RESULT_KEY", "key_baiduid_for_anti", "key_secret_is_show_new", "key_qq_share_h5_enable", "key_wechat_small_app_to_h5", "key_launch_up_speed", "fun_ad_big_image_floor", "fun_ad_big_image_density", "fun_ad_big_image_size", "fun_ad_big_image_switch", "key_post_thread_has_request_location", "key_sync_extra_field", "key_member_auto_ban_renewal_show", "key_server_picpage_bear_sid", "key_live_bubble_remind_show_count", "key_live_top_float_remind_show_count", "key_hot_event_tip_show_time", "switch_immersive_sticky_status", "key_live_bubble_icon_cache_key", "key_live_gif_load_library_key", "key_big_imagecache_optimize_scale", "key_big_image_pre_page_limit", "privacy_common_param_android", "privacy_cookie_param_android", "privacy_mac_param_android"};
-        l = new String[0];
+    }
+
+    public void a(AgreeData agreeData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, agreeData, str) == null) {
+            AgreeEvent agreeEvent = new AgreeEvent();
+            agreeEvent.agreeData = agreeData;
+            agreeEvent.agreeExtra = str;
+            sp5.i(agreeEvent);
+        }
+    }
+
+    public void b(Context context, r15 r15Var, AgreeData agreeData, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, r15Var, agreeData, threadData) == null) && r15Var != null && agreeData != null) {
+            int i = 0;
+            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+            if (baijiahaoData != null) {
+                i = baijiahaoData.oriUgcType;
+            }
+            StatisticItem param = new StatisticItem("c13271").param("obj_type", r15Var.g).param("obj_locate", r15Var.h).param("obj_id", r15Var.i).param("obj_name", i).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+            if (threadData != null) {
+                param.param("tid", threadData.getId()).param("nid", threadData.getNid()).param("fid", threadData.getFid()).param("ab_tag", threadData.mRecomAbTag).param("recom_source", threadData.mRecomSource).param("weight", threadData.mRecomWeight).param("extra", threadData.mRecomExtra);
+                if (threadData.getBaijiahaoData() != null) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                    if (threadData.isBJHVideoThreadType() || threadData.isBJHVideoDynamicThreadType()) {
+                        param.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                    }
+                }
+                if (threadData.isBjhDynamicThread()) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+                } else if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
+                    int i2 = threadData.threadType;
+                    if (i2 == 0 || i2 == 40) {
+                        param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                    }
+                } else {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+                }
+            } else {
+                param.param("tid", agreeData.threadId);
+                param.param("nid", agreeData.nid);
+                param.param("fid", agreeData.forumId);
+                param.param("card_type", agreeData.cardType);
+                param.param("ab_tag", agreeData.recomAbTag);
+                param.param("recom_source", agreeData.recomSource);
+                param.param("weight", agreeData.recomWeight);
+                param.param("extra", agreeData.recomExtra);
+                BaijiahaoData baijiahaoData2 = agreeData.baijiahaoData;
+                if (baijiahaoData2 != null) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData2.oriUgcVid);
+                }
+            }
+            if (context != null) {
+                bs5.b(context, param);
+            }
+            TiebaStatic.log(param);
+        }
+    }
+
+    public void c(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{agreeData, Integer.valueOf(i), bdUniqueId, Boolean.valueOf(z)}) == null) {
+            if (agreeData == null) {
+                l85.a(3, -1);
+                return;
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+            httpMessage.addParam("thread_id", agreeData.threadId);
+            httpMessage.addParam("op_type", i);
+            if (agreeData.objType == 0) {
+                agreeData.objType = 3;
+            }
+            httpMessage.addParam("obj_type", agreeData.objType);
+            httpMessage.addParam("agree_type", agreeData.agreeType);
+            httpMessage.addParam("forum_id", agreeData.forumId);
+            httpMessage.addParam("is_long_press_agree", agreeData.agreeClickType);
+            if (!StringUtil.isEmpty(agreeData.objSource)) {
+                httpMessage.addParam("obj_source", agreeData.objSource);
+            }
+            if (!TextUtils.isEmpty(agreeData.postId)) {
+                httpMessage.addParam("post_id", agreeData.postId);
+            }
+            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+            if (baijiahaoData != null) {
+                httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+                httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+                httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+            }
+            httpMessage.setTag(bdUniqueId);
+            httpMessage.setExtra(Integer.valueOf(i));
+            httpMessage.addHeader("needSig", "1");
+            if (z) {
+                if (!TextUtils.isEmpty(qp5.b())) {
+                    httpMessage.addParam(HttpRequest.BDUSS, qp5.b());
+                }
+                if (!TextUtils.isEmpty(qp5.f())) {
+                    httpMessage.addParam("tbs", qp5.f());
+                }
+                if (!TextUtils.isEmpty(qp5.e())) {
+                    httpMessage.addParam("stoken", qp5.e());
+                }
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void d(AgreeData agreeData, d4a d4aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, d4aVar) == null) {
+            d4aVar.b = agreeData;
+            if (agreeData.isInThread) {
+                BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    agreeData.nid = baijiahaoData.oriUgcNid;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, d4aVar));
+                a(agreeData, AgreeEvent.IS_THREAD);
+            } else if (agreeData.isInPost) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, d4aVar));
+                a(agreeData, AgreeEvent.IS_POST);
+            }
+        }
     }
 }

@@ -62,7 +62,7 @@ public class SimpleErrorLayer extends ElementLayer<FrameLayout, AbsElement> {
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2.getId() == R.id.obfuscated_res_0x7f09048a || view2.getId() == R.id.obfuscated_res_0x7f091c13) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f09048c || view2.getId() == R.id.obfuscated_res_0x7f091c6b) {
             onRetryClick();
         }
     }

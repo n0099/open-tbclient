@@ -1,27 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class gf5 {
+public final class gf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public hl1<hf5> a;
+    public final kl1<ef5> a;
 
-    public void a() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            fl1 b = fl1.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            il1 b = il1.b();
             this.a = b;
-            b.a(new if5());
+            b.a(new ff5());
         }
     }
 
@@ -38,19 +38,26 @@ public class gf5 {
                 return;
             }
         }
-        a();
+        b();
     }
 
-    public void b(@NonNull JSONObject jSONObject) {
-        hl1<hf5> hl1Var;
+    public final xe5 a(String schema) {
+        InterceptResult invokeL;
+        List<ef5> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || (hl1Var = this.a) == null || ListUtils.isEmpty(hl1Var.getList())) {
-            return;
-        }
-        for (hf5 hf5Var : this.a.getList()) {
-            if (hf5Var != null) {
-                hf5Var.parseJson(jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, schema)) == null) {
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            kl1<ef5> kl1Var = this.a;
+            if (kl1Var != null && (list = kl1Var.getList()) != null) {
+                for (ef5 ef5Var : list) {
+                    xe5 a = ef5Var.a(schema);
+                    if (a.b()) {
+                        return a;
+                    }
+                }
             }
+            return new xe5();
         }
+        return (xe5) invokeL.objValue;
     }
 }

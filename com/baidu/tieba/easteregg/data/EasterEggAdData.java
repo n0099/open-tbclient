@@ -5,6 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.tieba.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -164,7 +165,7 @@ public final class EasterEggAdData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            int a2 = ((((com.baidu.tieba.a.a(this.validTime) * 31) + this.countdown) * 31) + this.resType) * 31;
+            int a2 = ((((b.a(this.validTime) * 31) + this.countdown) * 31) + this.resType) * 31;
             String str = this.iconUrl;
             int hashCode = (a2 + (str == null ? 0 : str.hashCode())) * 31;
             String str2 = this.videoUrl;

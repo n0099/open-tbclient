@@ -1,122 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.bdtask.model.response.TaskResponseData;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
-import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.WorkPublishManager;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class qka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewGroup a;
+    public boolean b;
+    public ForumWriteData c;
+    public int d;
+    public ska e;
+    public String f;
+    public String g;
+    public String h;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
-        String str;
-        int i;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, writeData) == null) {
-            String str2 = "";
-            if (dga.b()) {
-                if (TextUtils.isEmpty(writeData.getTitle())) {
-                    str = "";
-                    i = 1;
-                } else {
-                    str = writeData.getTitle();
-                    i = 5;
-                }
-                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
-                    dga.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), 3, Boolean.FALSE, "", "", "");
-                    return;
-                }
-                dga.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), i, Boolean.TRUE, "", "", "");
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public qka(TbPageContext tbPageContext, ViewGroup viewGroup, String str, int i, @Nullable fe5 fe5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup, str, Integer.valueOf(i), fe5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (writeData.getWriteImagesInfo() != null) {
-                str2 = writeData.getWriteImagesInfo().toJsonString();
-            }
-            c(tbPageContext, writeData, str2, writeData.getFrom(), writeData.getDisableAudioMessage(), writeData.isVoiceEnable(), writeData.getPrefixData(), true);
+        }
+        this.b = false;
+        this.d = 3;
+        this.f = "";
+        this.g = "write";
+        this.h = "0";
+        this.a = viewGroup;
+        this.g = str;
+        if (!"main_tab".equals(str)) {
+            "frs".equals(this.g);
+        }
+        this.e = new ska(tbPageContext, str);
+        d(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(l9 l9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l9Var) == null) {
+            this.e.b(l9Var, this.c, this.f);
         }
     }
 
-    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, @NonNull WriteImagesInfo writeImagesInfo, String str, String str2, boolean z, PostPrefixData postPrefixData) {
-        String str3;
-        JSONObject json;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, writeData, writeImagesInfo, str, str2, Boolean.valueOf(z), postPrefixData}) == null) {
-            String jsonString = writeImagesInfo.toJsonString();
-            if (writeData.getType() == 11 && (json = writeImagesInfo.toJson()) != null) {
-                try {
-                    json.put("maxImagesAllowed", 9 - writeImagesInfo.size());
-                    json.put("chosedFiles", (Object) null);
-                    jsonString = json.toString();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    str3 = null;
-                }
-            }
-            str3 = jsonString;
-            c(tbPageContext, writeData, str3, str, str2, z, postPrefixData, false);
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.d != i) {
+            this.d = i;
         }
     }
 
-    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, String str, String str2, String str3, boolean z, PostPrefixData postPrefixData, boolean z2) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, writeData, str, str2, str3, Boolean.valueOf(z), postPrefixData, Boolean.valueOf(z2)}) == null) {
-            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(tbPageContext.getPageActivity(), str, true, true);
-            albumFloatActivityConfig.getIntent().putExtra("forum_id", writeData.getForumId());
-            albumFloatActivityConfig.getIntent().putExtra("forum_name", writeData.getForumName());
-            albumFloatActivityConfig.getIntent().putExtra("from", str2);
-            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-            albumFloatActivityConfig.setAlbumThread(0);
-            albumFloatActivityConfig.setCanSelectVideo(z2);
-            albumFloatActivityConfig.setCanSelectOnlyVideo(z2);
-            albumFloatActivityConfig.setCanEditImage(false);
-            albumFloatActivityConfig.setFromWrite(3);
-            albumFloatActivityConfig.setCallFrom(writeData.getCallFrom());
-            albumFloatActivityConfig.setStatisticFrom(writeData.getStatisticFrom());
-            albumFloatActivityConfig.setFrsTabInfo(writeData.getFrsTabInfoData());
-            if (z2) {
-                if (!TextUtils.isEmpty(writeData.getTitle())) {
-                    albumFloatActivityConfig.setVideoTitle(writeData.getTitle());
-                } else {
-                    albumFloatActivityConfig.setVideoTitle("");
-                }
-                albumFloatActivityConfig.setBarName(writeData.getForumName());
-                albumFloatActivityConfig.setBarID(writeData.getForumId());
-                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
-                    albumFloatActivityConfig.setCanChangeBarName(false);
-                } else {
-                    albumFloatActivityConfig.setCanChangeBarName(true);
-                }
-                albumFloatActivityConfig.setVideoAbstract(writeData.getContent());
-            }
-            AntiData antiData = new AntiData();
-            antiData.voice_message = str3;
-            antiData.setIfVoice(z);
-            albumFloatActivityConfig.setExtraData(antiData, postPrefixData, writeData.getFirstDir(), writeData.getSecondDir());
-            tbPageContext.sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.h = str;
         }
     }
 
-    public static void d(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, writeData) == null) {
-            int a = dga.a();
-            if (dga.c(a)) {
-                dga.e(tbPageContext.getPageActivity(), a, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
-            } else {
-                a(tbPageContext, writeData);
-            }
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            WorkPublishManager.setObjLocate(this.h);
+            a(false);
+            this.e.i(this.c, i, this.f);
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", this.h).param("obj_type", 3));
         }
     }
 }

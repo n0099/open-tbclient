@@ -1,345 +1,255 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.graphics.SurfaceTexture;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.os.Message;
-import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.video.MediaCodecVideoRenderer;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediafilter.MediaCodecFilter;
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
-@TargetApi(16)
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.Message;
+import com.squareup.wire2.Message.a;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.WireField;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public final class ujb extends MediaCodecFilter {
+public final class ujb<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int P;
-    public int Q;
-    public int R;
-    public boolean S;
+    public final Class<M> a;
+    public final Class<B> b;
+    public final Map<Integer, pjb<M, B>> c;
 
-    /* renamed from: T  reason: collision with root package name */
-    public boolean f1172T;
-
-    public ujb(ikb ikbVar, boolean z, boolean z2, sib sibVar, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ujb(Class<M> cls, Class<B> cls2, Map<Integer, pjb<M, B>> map) {
+        super(FieldEncoding.LENGTH_DELIMITED, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ikbVar, Boolean.valueOf(z), Boolean.valueOf(z2), sibVar, Integer.valueOf(i)};
+            Object[] objArr = {cls, cls2, map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.P = 0;
-        this.Q = 0;
-        this.R = 0;
-        this.S = false;
-        this.f1172T = false;
-        this.H = new WeakReference<>(ikbVar);
-        this.O = z;
-        this.S = z2;
-        this.w = true;
-        this.s = new WeakReference<>(sibVar);
-        this.b = i;
-        this.o = 1;
-        TLog.g(this, "videoHwDecoder decodeOutputToBuffer : " + this.O);
+        this.a = cls;
+        this.b = cls2;
+        this.c = map;
     }
 
-    @Override // com.yy.transvod.player.mediafilter.MediaCodecFilter
-    public int N(long j) {
-        int i;
-        int i2;
-        InterceptResult invokeJ;
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> ujb<M, B> a(Class<M> cls) {
+        InterceptResult invokeL;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
+            Class e = e(cls);
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            for (Field field : cls.getDeclaredFields()) {
+                WireField wireField = (WireField) field.getAnnotation(WireField.class);
+                if (wireField != null) {
+                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new pjb(wireField, field, e));
+                }
+            }
+            return new ujb<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
+        }
+        return (ujb) invokeL.objValue;
+    }
+
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
             try {
-                if (this.B == null) {
-                    return -1;
+                return (Class<B>) Class.forName(cls.getName() + "$Builder");
+            } catch (ClassNotFoundException unused) {
+                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
+            }
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: d */
+    public int encodedSize(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
+            int i = m.cachedSerializedSize;
+            if (i != 0) {
+                return i;
+            }
+            int i2 = 0;
+            for (pjb<M, B> pjbVar : this.c.values()) {
+                Object b = pjbVar.b(m);
+                if (b != null) {
+                    i2 += pjbVar.a().encodedSizeWithTag(pjbVar.c, b);
                 }
-                if (!this.f1172T && this.L > 2) {
-                    j = 10000;
-                }
-                int dequeueOutputBuffer = this.B.dequeueOutputBuffer(this.C, j);
-                if (dequeueOutputBuffer >= 0) {
-                    if (!this.f1172T) {
-                        TLog.l(this, "mediaCodec got first decoded frame, decode cost: " + (System.currentTimeMillis() - this.M) + " mCodecDequeueCount:" + this.L);
-                        this.f1172T = true;
-                    }
-                    ByteBuffer byteBuffer = this.E[dequeueOutputBuffer];
-                    if (byteBuffer != null && byteBuffer.remaining() != this.C.size) {
-                        byteBuffer.position(this.C.offset).limit(this.C.offset + this.C.size);
-                    }
-                    MediaSample c = this.r.c();
-                    if (c != null && c.g != null && c.i != null && MediaInfo.g(this.q)) {
-                        c.i.c(this.q);
-                        this.u++;
-                        wib.c(c, 6);
-                        n(c);
-                        sib sibVar = this.s.get();
-                        if (sibVar != null && c.g != null) {
-                            sibVar.t((int) c.g.l);
-                        }
-                        if (this.F == null) {
-                            c.i.k = byteBuffer;
-                            synchronized (this.k) {
-                                if (this.d != null) {
-                                    this.d.f(c);
-                                }
-                            }
-                            this.B.releaseOutputBuffer(dequeueOutputBuffer, false);
-                        } else {
-                            c.i.k = null;
-                            c.h = this.G.get();
-                            synchronized (this.k) {
-                                if (this.d != null) {
-                                    this.d.f(c);
-                                }
-                            }
-                            this.B.releaseOutputBuffer(dequeueOutputBuffer, true);
-                        }
-                    }
-                    return -1;
-                } else if (dequeueOutputBuffer == -3) {
-                    this.E = this.B.getOutputBuffers();
-                    TLog.g(this, "mediaCodec output buffers have been changed.");
-                    this.l.f(2004);
-                } else if (dequeueOutputBuffer == -2) {
-                    MediaFormat outputFormat = this.B.getOutputFormat();
-                    TLog.g(this, "mediaCodec output format has been changed from " + this.p + " to " + outputFormat);
-                    this.p = outputFormat;
-                    if (this.F != null) {
-                        this.q.a = 8;
-                    } else {
-                        int integer = outputFormat.getInteger("color-format");
-                        if (integer != 21 && integer != 2135033992) {
-                            if (integer == 19) {
-                                this.q.a = 2;
+            }
+            int size = i2 + m.unknownFields().size();
+            m.cachedSerializedSize = size;
+            return size;
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public M decode(rjb rjbVar) throws IOException {
+        InterceptResult invokeL;
+        ProtoAdapter<?> i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rjbVar)) == null) {
+            B f = f();
+            long c = rjbVar.c();
+            while (true) {
+                int f2 = rjbVar.f();
+                if (f2 != -1) {
+                    pjb<M, B> pjbVar = this.c.get(Integer.valueOf(f2));
+                    if (pjbVar != null) {
+                        try {
+                            if (pjbVar.f()) {
+                                i = pjbVar.a();
                             } else {
-                                this.q.a = 3;
+                                i = pjbVar.i();
                             }
+                            pjbVar.j(f, i.decode(rjbVar));
+                        } catch (ProtoAdapter.EnumConstantNotFoundException e) {
+                            f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
                         }
-                        this.q.a = 3;
-                    }
-                    if (this.p.containsKey("stride")) {
-                        i = this.p.getInteger("stride");
                     } else {
-                        i = 0;
-                    }
-                    if (this.p.containsKey("slice-height")) {
-                        i2 = this.p.getInteger("slice-height");
-                    } else {
-                        i2 = 0;
-                    }
-                    this.q.d = this.p.getInteger("width");
-                    this.q.e = this.p.getInteger("height");
-                    if ((i > 0 || i2 > 0) && this.q.a != 8) {
-                        MediaInfo mediaInfo = this.q;
-                        if (this.q.d > i) {
-                            i = this.q.d;
-                        }
-                        mediaInfo.d = i;
-                        MediaInfo mediaInfo2 = this.q;
-                        if (this.q.e > i2) {
-                            i2 = this.q.e;
-                        }
-                        mediaInfo2.e = i2;
-                    }
-                    int i3 = this.q.b;
-                    int i4 = this.q.c;
-                    if (this.p.containsKey(MediaCodecVideoRenderer.KEY_CROP_LEFT) && this.p.containsKey(MediaCodecVideoRenderer.KEY_CROP_TOP) && this.p.containsKey(MediaCodecVideoRenderer.KEY_CROP_RIGHT) && this.p.containsKey(MediaCodecVideoRenderer.KEY_CROP_BOTTOM)) {
-                        this.q.b = (this.p.getInteger(MediaCodecVideoRenderer.KEY_CROP_RIGHT) + 1) - this.p.getInteger(MediaCodecVideoRenderer.KEY_CROP_LEFT);
-                        this.q.c = (this.p.getInteger(MediaCodecVideoRenderer.KEY_CROP_BOTTOM) + 1) - this.p.getInteger(MediaCodecVideoRenderer.KEY_CROP_TOP);
-                    } else {
-                        this.q.b = this.q.d;
-                        this.q.c = this.q.e;
-                    }
-                    if (!this.O && (this.q.d >= this.q.b + 16 || this.q.e >= this.q.c + 16)) {
-                        this.q.d = (int) fjb.j(this.q.b, 16L);
-                        this.q.e = (int) fjb.j(this.q.c, 16L);
-                    }
-                    if (!this.O && this.S) {
-                        this.q.e = this.q.c;
-                        this.q.d = this.q.b;
-                        TLog.g(this, "force not crop  planeHeight = height");
-                    }
-                    this.q.i = this.q.d * this.q.e;
-                    if (this.G != null && this.G.get() != null) {
-                        this.G.get().setDefaultBufferSize(this.q.d, this.q.e);
-                    }
-                    j(i3, i4, this.q);
-                    this.l.f(2004);
-                } else if (dequeueOutputBuffer == -1) {
-                    if (!this.f1172T && this.L > 2 && this.Q < 10) {
-                        this.Q++;
-                        this.l.a(2004, 5L);
-                    }
-                    if (this.R < 5) {
-                        TLog.g(this, "mediaCodec decode again output:" + dequeueOutputBuffer + " mInputCnt=" + this.L + " drainMsgCnt= " + this.Q);
-                        this.R = this.R + 1;
+                        FieldEncoding g = rjbVar.g();
+                        f.addUnknownField(f2, g, g.rawProtoAdapter().decode(rjbVar));
                     }
                 } else {
-                    TLog.g(this, "mediaCodec decode output:" + dequeueOutputBuffer + " mInputCnt=" + this.L);
+                    rjbVar.d(c);
+                    return (M) f.build();
                 }
-                if (dequeueOutputBuffer < 0) {
-                    return 0;
-                }
-                return 1;
-            } catch (Exception e) {
-                e.printStackTrace();
-                TLog.c(this, "mediaCodec decode error.");
-                throw e;
             }
-        }
-        return invokeJ.intValue;
-    }
-
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TLog.g(this, "VideoHwDecodeFilter.releaseSurface enter.");
-            super.onStop();
-            Surface surface = this.F;
-            if (surface != null) {
-                surface.release();
-                this.F = null;
-            }
-            this.G = null;
-            TLog.g(this, "VideoHwDecodeFilter.releaseSurface leave.");
+        } else {
+            return (M) invokeL.objValue;
         }
     }
 
-    @Override // com.yy.transvod.player.mediafilter.MediaCodecFilter, com.baidu.tieba.jjb, com.baidu.tieba.sjb, com.baidu.tieba.aib.a
-    public void handleMessage(Message message) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: h */
+    public String toString(M m) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-            int i = message.what;
-            if (i != 1002) {
-                if (i == 2004) {
-                    TLog.g(this, "VideoHwDecodeFilter.CODEC_FILTER_DRAIN_OUTPUT.");
-                    if (!this.f1172T) {
-                        try {
-                            N(0L);
-                        } catch (Exception e) {
-                            TLog.c(this, "mediaCodec decode error::get first frame" + e.toString());
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (pjb<M, B> pjbVar : this.c.values()) {
+                Object b = pjbVar.b(m);
+                if (b != null) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(pjbVar.b);
+                    sb.append('=');
+                    if (pjbVar.f) {
+                        b = "██";
                     }
+                    sb.append(b);
                 }
-            } else {
-                P();
             }
-            super.handleMessage(message);
+            sb.replace(0, 2, this.a.getSimpleName() + '{');
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public void encode(sjb sjbVar, M m) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sjbVar, m) == null) {
+            for (pjb<M, B> pjbVar : this.c.values()) {
+                Object b = pjbVar.b(m);
+                if (b != null) {
+                    pjbVar.a().encodeWithTag(sjbVar, pjbVar.c, b);
+                }
+            }
+            sjbVar.k(m.unknownFields());
         }
     }
 
-    @Override // com.baidu.tieba.jjb
-    public void z(MediaFormat mediaFormat, int i) {
-        boolean z;
-        SurfaceTexture surfaceTexture;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, mediaFormat, i) == null) {
-            if (this.P % 200 == 0) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if ((obj instanceof ujb) && ((ujb) obj).a == this.a) {
+                return true;
             }
-            this.P++;
-            ikb ikbVar = this.H.get();
-            if (!this.z.get() && (ikbVar == null || ikbVar.y() == null)) {
-                try {
-                    Thread.sleep(30L);
-                } catch (Exception unused) {
-                    TLog.g(this, "videoHwDecoder sleep exception");
-                }
-                Message obtain = Message.obtain();
-                obtain.what = 2001;
-                obtain.obj = mediaFormat;
-                obtain.arg1 = i;
-                this.l.g(2001);
-                this.l.sendMessage(obtain);
-                if (z) {
-                    TLog.g(this, "handleCreateDecoder try again ");
-                }
-            } else {
-                this.x = System.currentTimeMillis();
-                TLog.g(this, "VideoHwDecoder do create codec. taskId " + i);
-                MediaCodec mediaCodec = this.B;
-                try {
-                    if (mediaCodec != null) {
-                        try {
-                            mediaCodec.stop();
-                            this.B.release();
-                            TLog.l(this, "VideoHwDecodeFilter stop old codec when create decoder");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            TLog.c(this, "VideoHwDecodeFilter mediaCodec stop error");
-                        }
-                        this.B.release();
-                        this.B = null;
-                    }
-                    if (this.O) {
-                        MediaCodec J = J(null, mediaFormat);
-                        this.B = J;
-                        this.a = i;
-                        this.L = 0;
-                        if (J == null) {
-                            A();
-                        }
-                    } else {
-                        if (ikbVar != null) {
-                            surfaceTexture = ikbVar.y();
-                        } else {
-                            surfaceTexture = null;
-                        }
-                        WeakReference<SurfaceTexture> weakReference = new WeakReference<>(surfaceTexture);
-                        this.G = weakReference;
-                        if (weakReference.get() != null) {
-                            Surface surface = this.F;
-                            if (surface != null) {
-                                surface.release();
-                                this.F = null;
-                            }
-                            TLog.g(this, "mSurfaceTexture " + this.G.get());
-                            Surface surface2 = new Surface(this.G.get());
-                            this.F = surface2;
-                            MediaCodec J2 = J(surface2, mediaFormat);
-                            this.B = J2;
-                            this.a = i;
-                            this.L = 0;
-                            if (J2 == null) {
-                                A();
-                            }
-                        }
-                    }
-                    this.f1172T = false;
-                    this.Q = 0;
-                    this.R = 0;
-                    this.y = System.currentTimeMillis();
-                    TLog.l(this, "VideoHwDecodeFilter.handleCreateDecoder suceess, cost= " + (this.y - this.x));
-                } catch (Throwable th) {
-                    this.B.release();
-                    throw th;
-                }
-            }
-            if (z) {
-                TLog.g(this, "VideoHwDecodeFilter.handleCreateDecoder leave ");
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public B f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            try {
+                return this.b.newInstance();
+            } catch (IllegalAccessException | InstantiationException e) {
+                throw new AssertionError(e);
             }
         }
+        return (B) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: g */
+    public M redact(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
+            Message.a<M, B> newBuilder = m.newBuilder();
+            for (pjb<M, B> pjbVar : this.c.values()) {
+                if (pjbVar.f && pjbVar.a == WireField.Label.REQUIRED) {
+                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", pjbVar.b, this.javaType.getName()));
+                }
+                boolean isAssignableFrom = Message.class.isAssignableFrom(pjbVar.i().javaType);
+                if (!pjbVar.f && (!isAssignableFrom || pjbVar.a.isRepeated())) {
+                    if (isAssignableFrom && pjbVar.a.isRepeated()) {
+                        wjb.k((List) pjbVar.e(newBuilder), pjbVar.i());
+                    }
+                } else {
+                    Object e = pjbVar.e(newBuilder);
+                    if (e != null) {
+                        pjbVar.h(newBuilder, pjbVar.a().redact(e));
+                    }
+                }
+            }
+            newBuilder.clearUnknownFields();
+            return newBuilder.build();
+        }
+        return (M) invokeL.objValue;
     }
 }

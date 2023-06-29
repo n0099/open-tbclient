@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.recommendcard.RecommendCardView;
-import com.baidu.tieba.jn;
+import com.baidu.tieba.kn;
 import com.baidu.tieba.pb.data.PbFirstFloorRecommendData;
 import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorRecommendAdapter;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\u0018\u0000 \u00172\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\b\u0012\u00060\u0003R\u00020\u00000\u0001:\u0002\u0017\u0018B\u0019\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u0016\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0002J\u0014\u0010\u000e\u001a\u00060\u0003R\u00020\u00002\u0006\u0010\u000f\u001a\u00020\u0010H\u0014J6\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00122\u0006\u0010\u000f\u001a\u00020\u00102\b\u0010\r\u001a\u0004\u0018\u00010\u00022\n\u0010\u0016\u001a\u00060\u0003R\u00020\u0000H\u0014¨\u0006\u0019"}, d2 = {"Lcom/baidu/tieba/pb/pb/main/adapter/PbFirstFloorRecommendAdapter;", "Lcom/baidu/adp/widget/ListView/AbsDelegateAdapter;", "Lcom/baidu/tieba/pb/data/PbFirstFloorRecommendData;", "Lcom/baidu/tieba/pb/pb/main/adapter/PbFirstFloorRecommendAdapter$PbFirstFloorRecommendViewHolder;", "context", "Landroid/content/Context;", "type", "Lcom/baidu/adp/BdUniqueId;", "(Landroid/content/Context;Lcom/baidu/adp/BdUniqueId;)V", "eventStat", "", "statisticItem", "Lcom/baidu/tbadk/core/util/StatisticItem;", "data", "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", "onFillViewHolder", "Landroid/view/View;", CriusAttrConstants.POSITION, "", "convertView", "viewHolder", "Companion", "PbFirstFloorRecommendViewHolder", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class PbFirstFloorRecommendAdapter extends jn<PbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder> {
+public final class PbFirstFloorRecommendAdapter extends kn<PbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,7 +153,7 @@ public final class PbFirstFloorRecommendAdapter extends jn<PbFirstFloorRecommend
             this.a.setText(this.d.mContext.getText(R.string.related_recommendation));
             RecommendCardView recommendCardView = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter = this.d;
-            recommendCardView.setRootOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z89
+            recommendCardView.setRootOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ld9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -167,7 +167,7 @@ public final class PbFirstFloorRecommendAdapter extends jn<PbFirstFloorRecommend
             });
             RecommendCardView recommendCardView2 = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter2 = this.d;
-            recommendCardView2.setRightButtonOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.b99
+            recommendCardView2.setRightButtonOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nd9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -181,7 +181,7 @@ public final class PbFirstFloorRecommendAdapter extends jn<PbFirstFloorRecommend
             });
             RecommendCardView recommendCardView3 = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter3 = this.d;
-            recommendCardView3.setBottomGroupOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.c99
+            recommendCardView3.setBottomGroupOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.od9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -219,7 +219,7 @@ public final class PbFirstFloorRecommendAdapter extends jn<PbFirstFloorRecommend
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder pbFirstFloorRecommendViewHolder) {
         x(i, view2, viewGroup, pbFirstFloorRecommendData, pbFirstFloorRecommendViewHolder);
         return view2;
@@ -235,7 +235,7 @@ public final class PbFirstFloorRecommendAdapter extends jn<PbFirstFloorRecommend
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     /* renamed from: u */
     public PbFirstFloorRecommendViewHolder onCreateViewHolder(ViewGroup parent) {
         InterceptResult invokeL;
@@ -245,12 +245,12 @@ public final class PbFirstFloorRecommendAdapter extends jn<PbFirstFloorRecommend
             LinearLayout linearLayout = new LinearLayout(this.mContext);
             linearLayout.setOrientation(1);
             linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            int g = wi.g(this.mContext, R.dimen.M_W_X007);
-            int g2 = wi.g(this.mContext, R.dimen.T_X09);
-            int g3 = wi.g(this.mContext, R.dimen.M_H_X005);
-            int g4 = wi.g(this.mContext, R.dimen.M_H_X003);
+            int g = xi.g(this.mContext, R.dimen.M_W_X007);
+            int g2 = xi.g(this.mContext, R.dimen.T_X09);
+            int g3 = xi.g(this.mContext, R.dimen.M_H_X005);
+            int g4 = xi.g(this.mContext, R.dimen.M_H_X003);
             View view2 = new View(this.mContext);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, wi.g(this.mContext, R.dimen.tbds1));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, xi.g(this.mContext, R.dimen.tbds1));
             layoutParams.leftMargin = g;
             layoutParams.rightMargin = g;
             linearLayout.addView(view2, layoutParams);

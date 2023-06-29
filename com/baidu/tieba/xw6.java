@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import com.baidu.tieba.easteregg.EasterEggAdController;
-import com.baidu.tieba.easteregg.data.EasterEggAdData;
-import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes8.dex */
-public final class xw6 extends k65 {
+public final class xw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public final boolean b;
 
     public xw6() {
         Interceptable interceptable = $ic;
@@ -26,33 +31,47 @@ public final class xw6 extends k65 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = UbsABTestHelper.isAddExtraDuration();
+    }
+
+    public final void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!this.b) {
+                return;
+            }
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                if (!(activity instanceof BaseActivity) && !(activity instanceof BaseFragmentActivity)) {
+                    String localClassName = activity.getLocalClassName();
+                    Intrinsics.checkNotNullExpressionValue(localClassName, "activity.localClassName");
+                    if (StringsKt__StringsKt.contains$default((CharSequence) localClassName, (CharSequence) "FlutterPageActivity", false, 2, (Object) null)) {
+                        return;
+                    }
+                } else {
+                    return;
+                }
+            }
+            long currentTimeMillis = (System.currentTimeMillis() - this.a) / 1000;
+            if (PermissionUtil.isAgreePrivacyPolicy() && currentTimeMillis > 0) {
+                PvThread pvThread = new PvThread("use", String.valueOf(currentTimeMillis));
+                pvThread.setPageName(activity.getLocalClassName());
+                pvThread.start();
             }
         }
     }
 
-    @Override // com.baidu.tieba.k65
-    public void a(Context context, c65 data) {
-        Unit unit;
+    public final void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if ((context instanceof Activity) && (context instanceof r3a)) {
-                EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
-                if (b != null) {
-                    new EasterEggAdController((Activity) context).o(b);
-                    a65.m("easterEgg");
-                    unit = Unit.INSTANCE;
-                } else {
-                    unit = null;
-                }
-                if (unit == null) {
-                    a65.s("easterEgg");
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!this.b) {
                 return;
             }
-            a65.s("easterEgg");
+            this.a = System.currentTimeMillis();
         }
     }
 }

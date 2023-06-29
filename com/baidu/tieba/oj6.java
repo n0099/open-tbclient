@@ -1,151 +1,217 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Build;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.content.res.Resources;
+import android.util.TypedValue;
+import android.webkit.WebView;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import androidx.appcompat.view.ContextThemeWrapper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.core.cache.prefetch.FetchStaticResourceManager;
+import com.baidu.tieba.browser.core.webview.base.BaseWebView;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oj6 {
+public final class oj6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final qj6<MonitorWebView> a;
+    public boolean b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948034222, "Lcom/baidu/tieba/oj6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final oj6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-544872720, "Lcom/baidu/tieba/oj6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-544872720, "Lcom/baidu/tieba/oj6$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948034222, "Lcom/baidu/tieba/oj6;");
+            a = new oj6(null);
+        }
+    }
+
+    public oj6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap<>();
+        this.c = -1;
+        this.a = new sj6(8);
+    }
+
+    public static oj6 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (oj6) invokeV.objValue;
+    }
+
+    public void a() {
+        qj6<MonitorWebView> qj6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (qj6Var = this.a) != null) {
+            qj6Var.d();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            FetchStaticResourceManager.e();
+        }
+    }
+
+    public /* synthetic */ oj6(a aVar) {
+        this();
     }
 
     @NonNull
-    public static Map<String, String> a(Uri uri) {
+    public MonitorWebView b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            HashMap hashMap = new HashMap();
-            Set<String> queryParameterNames = uri.getQueryParameterNames();
-            if (!om6.a(queryParameterNames)) {
-                for (String str : queryParameterNames) {
-                    hashMap.put("{" + str + "}", uri.getQueryParameter(str));
-                }
-            }
-            hashMap.putAll(b());
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new BaseWebView(new MutableContextWrapper(d(context)));
         }
-        return (Map) invokeL.objValue;
+        return (MonitorWebView) invokeL.objValue;
     }
 
-    public static Map<String, String> b() {
+    public final ContextThemeWrapper d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            TypedValue typedValue = new TypedValue();
+            Resources.Theme theme = context.getTheme();
+            if (theme != null) {
+                theme.resolveAttribute(16973840, typedValue, true);
+            }
+            return new ContextThemeWrapper(context, typedValue.resourceId);
+        }
+        return (ContextThemeWrapper) invokeL.objValue;
+    }
+
+    public void f(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            try {
+                if (mi.a()) {
+                    i(b(context));
+                    this.b = true;
+                    i(b(context));
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public int c() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (om6.b(a)) {
-                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                a.put("{device.cuid}", inst.getCuid());
-                a.put("{device.imei}", inst.getImei());
-                a.put("{device.shoubaiCuid}", inst.getCuidGalaxy2());
-                a.put("{device.brand}", Build.BRAND);
-                a.put("{device.platform}", "Android");
-                a.put("{device.clientVersion}", TbConfig.getVersion());
-                a.put("{device.zid}", inst.getZid());
-                a.put("{device.sign}", "tiebaclient!!!");
-                a.put("{device.clientType}", "2");
-                HashMap<String, String> hashMap = a;
-                String str2 = "1";
-                if (TbSingleton.getInstance().getSyncYYSwitch()) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                hashMap.put("{device.is_yy_user}", str);
-                a.put("{device.androidId}", inst.getAndroidId());
-                a.put("{device.imsi}", inst.getIMsi());
-                a.put("{device.model}", yi.g());
-                a.put("{device.pkgName}", inst.getPackageName());
-                HashMap<String, String> hashMap2 = a;
-                hashMap2.put("{device.network}", BdNetTypeUtil.netType() + "");
-                HashMap<String, String> hashMap3 = a;
-                hashMap3.put("{device.carrier}", BdNetTypeUtil.curOperatorType() + "");
-                a.put("{device.manufacturer}", DeviceInfoUtil.getDevicesManufacturer());
-                a.put("{device.hardware}", Build.HARDWARE);
-                a.put("{device.board}", Build.BOARD);
-                HashMap<String, String> hashMap4 = a;
-                if (!DeviceInfoUtil.isSupportGyroScope(inst)) {
-                    str2 = "0";
-                }
-                hashMap4.put("{device.imu}", str2);
-                a.put("{baiduId}", TbSingleton.getInstance().getBaiduIdForAnti());
-                a.put("{user.tbs}", inst.getTbs());
-                a.put("{client_version}", TbConfig.getVersion());
-                a.put("{client_type}", "2");
-                a.put("{User-Agent}", gy5.b());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.c < 0) {
+                this.c = r95.p().q("webview_blank_page_switch_android", 1);
+                ew8 hybridLog = HybridLog.getInstance();
+                hybridLog.c("CachedManager", "初始化空白页设置开关：" + this.c);
             }
-            return a;
+            return this.c;
         }
-        return (Map) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static String c(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
-        String str2;
+    @NonNull
+    public MonitorWebView h(Context context) {
+        InterceptResult invokeL;
+        MonitorWebView b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, str)) == null) {
-            String str3 = "";
-            if (map != null) {
-                try {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        str2 = map.getOrDefault(str, "");
-                    } else if (map.containsKey(str)) {
-                        str2 = map.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            if (context == null) {
+                context = tl6.getContext();
+            }
+            if (mi.a()) {
+                b2 = this.a.b();
+                ew8 hybridLog = HybridLog.getInstance();
+                hybridLog.c("CachedManager", "尝试获取可复用WebView：" + b2);
+                if (b2 == null) {
+                    if (!this.b) {
+                        ew8 hybridLog2 = HybridLog.getInstance();
+                        hybridLog2.b("CachedManager", "冷启立刻就加载WebView？：" + context);
                     }
-                    str3 = str2;
-                } catch (Exception unused) {
-                    return str3;
+                    b2 = b(context);
                 }
+            } else {
+                b2 = b(context);
             }
-            return Uri.encode(str3);
+            Context context2 = b2.getContext();
+            if (context2 instanceof MutableContextWrapper) {
+                ((MutableContextWrapper) context2).setBaseContext(context);
+            } else {
+                b2.destroy();
+                b2 = b(context);
+            }
+            gk6.d(b2);
+            return b2;
         }
-        return (String) invokeLL.objValue;
+        return (MonitorWebView) invokeL.objValue;
     }
 
-    public static String d(Map<String, String> map, String str) {
-        InterceptResult invokeLL;
+    public void i(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, str)) == null) {
-            if (map == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeL(1048583, this, webView) == null) {
+            if (webView instanceof MonitorWebView) {
+                MonitorWebView monitorWebView = (MonitorWebView) webView;
+                boolean z = false;
+                Context context = monitorWebView.getContext();
+                if (context instanceof MutableContextWrapper) {
+                    ((MutableContextWrapper) context).setBaseContext(tl6.getContext());
+                    z = true;
+                }
+                if (mi.a() && z && monitorWebView.v()) {
+                    this.a.a(monitorWebView);
+                    ew8 hybridLog = HybridLog.getInstance();
+                    hybridLog.c("CachedManager", "WebView放回缓存池：" + monitorWebView + " url:" + monitorWebView.getOriginalUrl());
+                    return;
+                }
+                ew8 hybridLog2 = HybridLog.getInstance();
+                hybridLog2.c("CachedManager", "销毁WebView：" + monitorWebView + " url:" + monitorWebView.getOriginalUrl());
+                monitorWebView.destroy();
+            } else if (webView != null) {
+                webView.destroy();
             }
-            if (Build.VERSION.SDK_INT >= 24) {
-                return map.getOrDefault(str, "");
-            }
-            if (!map.containsKey(str)) {
-                return "";
-            }
-            return map.get(str);
         }
-        return (String) invokeLL.objValue;
     }
 }

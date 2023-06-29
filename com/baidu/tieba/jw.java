@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +12,12 @@ public final class jw {
     public static /* synthetic */ Interceptable $ic;
     public static final jw a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public final boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 301 : invokeI.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -42,17 +47,5 @@ public final class jw {
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-    }
-
-    public final TaskStatus a(TaskStatus taskStatus) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskStatus)) == null) {
-            TaskStatus deepCopy = taskStatus.deepCopy();
-            deepCopy.setCurStatus(22);
-            deepCopy.getTaskStatusRuntime().setDuplicated(true);
-            return deepCopy;
-        }
-        return (TaskStatus) invokeL.objValue;
     }
 }

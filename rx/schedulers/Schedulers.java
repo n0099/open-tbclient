@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.fqb;
-import com.baidu.tieba.gqb;
-import com.baidu.tieba.hqb;
-import com.baidu.tieba.job;
-import com.baidu.tieba.kqb;
-import com.baidu.tieba.mqb;
-import com.baidu.tieba.qsb;
-import com.baidu.tieba.tsb;
-import com.baidu.tieba.usb;
+import com.baidu.tieba.atb;
+import com.baidu.tieba.avb;
+import com.baidu.tieba.bvb;
+import com.baidu.tieba.evb;
+import com.baidu.tieba.gvb;
+import com.baidu.tieba.kxb;
+import com.baidu.tieba.nxb;
+import com.baidu.tieba.oxb;
+import com.baidu.tieba.zub;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final job a;
-    public final job b;
-    public final job c;
+    public final atb a;
+    public final atb b;
+    public final atb c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static job computation() {
-        return qsb.f(a().a);
+    public static atb computation() {
+        return kxb.f(a().a);
     }
 
-    public static job immediate() {
-        return hqb.a;
+    public static atb immediate() {
+        return bvb.a;
     }
 
-    public static job io() {
-        return qsb.k(a().b);
+    public static atb io() {
+        return kxb.k(a().b);
     }
 
-    public static job newThread() {
-        return qsb.l(a().c);
+    public static atb newThread() {
+        return kxb.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            gqb.d.shutdown();
+            avb.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            gqb.d.start();
+            avb.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static job trampoline() {
-        return mqb.a;
+    public static atb trampoline() {
+        return gvb.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof kqb) {
-            ((kqb) this.a).shutdown();
+        if (this.a instanceof evb) {
+            ((evb) this.a).shutdown();
         }
-        if (this.b instanceof kqb) {
-            ((kqb) this.b).shutdown();
+        if (this.b instanceof evb) {
+            ((evb) this.b).shutdown();
         }
-        if (this.c instanceof kqb) {
-            ((kqb) this.c).shutdown();
+        if (this.c instanceof evb) {
+            ((evb) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof kqb) {
-            ((kqb) this.a).start();
+        if (this.a instanceof evb) {
+            ((evb) this.a).start();
         }
-        if (this.b instanceof kqb) {
-            ((kqb) this.b).start();
+        if (this.b instanceof evb) {
+            ((evb) this.b).start();
         }
-        if (this.c instanceof kqb) {
-            ((kqb) this.c).start();
+        if (this.c instanceof evb) {
+            ((evb) this.c).start();
         }
     }
 
     public Schedulers() {
-        usb f = tsb.c().f();
-        job g = f.g();
+        oxb f = nxb.c().f();
+        atb g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = usb.a();
+            this.a = oxb.a();
         }
-        job i = f.i();
+        atb i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = usb.c();
+            this.b = oxb.c();
         }
-        job j = f.j();
+        atb j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = usb.e();
+            this.c = oxb.e();
         }
     }
 
-    public static job from(Executor executor) {
-        return new fqb(executor);
+    public static atb from(Executor executor) {
+        return new zub(executor);
     }
 }

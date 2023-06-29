@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk.system;
 
 import com.baidu.webkit.sdk.HttpAuthHandler;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class HttpAuthHandlerImpl extends HttpAuthHandler {
     public final android.webkit.HttpAuthHandler mHandler;
 

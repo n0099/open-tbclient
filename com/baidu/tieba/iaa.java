@@ -1,578 +1,213 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tieba.haa;
-import com.baidu.tieba.video.meida.MultiAudioMixer;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.coremedia.iso.boxes.Container;
-import com.facebook.imageutils.JfifUtil;
-import com.googlecode.mp4parser.FileDataSourceImpl;
-import com.googlecode.mp4parser.authoring.Movie;
-import com.googlecode.mp4parser.authoring.Track;
-import com.googlecode.mp4parser.authoring.builder.DefaultMp4Builder;
-import com.googlecode.mp4parser.authoring.container.mp4.MovieCreator;
-import com.googlecode.mp4parser.authoring.tracks.AACTrackImpl;
-import com.googlecode.mp4parser.authoring.tracks.AppendTrack;
-import com.googlecode.mp4parser.authoring.tracks.CroppedTrack;
-import com.qq.e.comm.adevent.AdEventType;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileChannel;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class iaa {
+public class iaa extends j9<AvatarPendantActivity> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile iaa a;
     public transient /* synthetic */ FieldHolder $fh;
+    public jaa a;
+    public BdListView b;
+    public NoNetworkView c;
+    public MemberRecommendView d;
+    public NavigationBar e;
+    public int f;
+    public TextView g;
+    public TextView h;
+    public AvatarPendantActivity i;
+    public View j;
+    public TextView k;
 
     /* loaded from: classes6.dex */
-    public class a implements MultiAudioMixer.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public FileOutputStream a;
-        public final /* synthetic */ String b;
-
-        public a(iaa iaaVar, String str) throws FileNotFoundException {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iaaVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = str;
-            this.a = new FileOutputStream(this.b);
-        }
-
-        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
-        public void onMixComplete() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a != null) {
-                        this.a.close();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
-        public void onMixError(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                try {
-                    if (this.a != null) {
-                        this.a.close();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
-        public void onMixing(byte[] bArr) throws IOException {
-            FileOutputStream fileOutputStream;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) && (fileOutputStream = this.a) != null) {
-                fileOutputStream.write(bArr);
-            }
-        }
+    public interface a {
+        void R0(DressItemData dressItemData);
     }
 
-    public iaa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iaa(AvatarPendantActivity avatarPendantActivity) {
+        super(avatarPendantActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {avatarPendantActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        haa.g();
+        this.f = 0;
+        this.i = avatarPendantActivity;
+        avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d0130);
+        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091f38);
+        this.f = xi.g(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703b6);
+        this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09031d);
+        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
+        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.view_navigation_bar);
+        this.e = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e.setTitleText(R.string.obfuscated_res_0x7f0f0303);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09031f);
+        this.d = memberRecommendView;
+        memberRecommendView.setFromType(8);
+        this.d.getButton().setOnClickListener(avatarPendantActivity);
+        TextView textView = new TextView(avatarPendantActivity.getActivity());
+        this.g = textView;
+        textView.setHeight(xi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        this.k = new TextView(avatarPendantActivity.getActivity());
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + xi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f070282));
+        TextView textView2 = new TextView(avatarPendantActivity.getActivity());
+        this.h = textView2;
+        textView2.setHeight(xi.g(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f0703e6));
+        this.k.setLayoutParams(layoutParams);
+        this.b.w(this.k, 0);
+        this.b.addFooterView(this.h);
+        jaa jaaVar = new jaa(avatarPendantActivity);
+        this.a = jaaVar;
+        this.b.setAdapter((ListAdapter) jaaVar);
     }
 
-    public static iaa e() {
+    public View A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (iaa.class) {
-                    if (a == null) {
-                        a = new iaa();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.j;
         }
-        return (iaa) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final void a(long j, long j2, List<Track> list, List<Track> list2) throws Exception {
+    public TextView B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list, list2}) == null) {
-            Movie movie = new Movie();
-            long j3 = 0;
-            while (j > j3) {
-                long j4 = j - j3;
-                if (j4 >= j2) {
-                    movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
-                    j3 += j2;
-                } else {
-                    double d = j4 / 1000;
-                    double d2 = 0.0d;
-                    boolean z = false;
-                    for (Track track : list) {
-                        if (track.getSyncSamples() != null && track.getSyncSamples().length > 0) {
-                            if (!z) {
-                                d2 = d(track, d2, false);
-                                d = d(track, d, true);
-                                z = true;
-                            } else {
-                                throw new RuntimeException("The startTime has already been corrected by another track with SyncSample. Not Supported.");
-                            }
-                        }
-                    }
-                    for (Track track2 : list) {
-                        long j5 = -1;
-                        long j6 = -1;
-                        int i = 0;
-                        long j7 = 0;
-                        double d3 = -1.0d;
-                        double d4 = 0.0d;
-                        while (i < track2.getSampleDurations().length) {
-                            long j8 = j3;
-                            long j9 = track2.getSampleDurations()[i];
-                            int i2 = (d4 > d3 ? 1 : (d4 == d3 ? 0 : -1));
-                            if (i2 > 0 && d4 <= d2) {
-                                j5 = j7;
-                            }
-                            if (i2 > 0 && d4 <= d) {
-                                j6 = j7;
-                            }
-                            j7++;
-                            i++;
-                            d3 = d4;
-                            d2 = d2;
-                            d4 = (j9 / track2.getTrackMetaData().getTimescale()) + d4;
-                            j3 = j8;
-                        }
-                        movie.addTrack(new CroppedTrack(track2, j5, j6));
-                        d2 = d2;
-                    }
-                    j3 += j4;
-                }
-            }
-            for (Track track3 : movie.getTracks()) {
-                if (track3.getHandler().equals("soun")) {
-                    list2.add(track3);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.k;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.i.hideNetRefreshView(this.j);
+            this.b.setVisibility(0);
         }
     }
 
-    public final long b(String str, List<Track> list) {
-        InterceptResult invokeLL;
+    public MemberRecommendView z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list)) == null) {
-            try {
-                long j = 0;
-                for (Track track : MovieCreator.build(str).getTracks()) {
-                    if (track.getHandler().equals("soun")) {
-                        list.add(track);
-                        j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
-                    }
-                }
-                return j;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1L;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.d;
         }
-        return invokeLL.longValue;
+        return (MemberRecommendView) invokeV.objValue;
     }
 
-    public final faa c(String str, List<Track> list, List<Track> list2) {
-        InterceptResult invokeLLL;
+    public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, list2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new faa(-1L, 1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a29));
-            }
-            if (!new File(str).exists()) {
-                return new faa(-1L, 2, TbadkCoreApplication.getInst().getString(R.string.file_not_exist));
-            }
-            long j = 0;
-            try {
-                for (Track track : MovieCreator.build(str).getTracks()) {
-                    if (list2 != null && track.getHandler().equals("soun")) {
-                        list2.add(track);
-                    }
-                    if (track.getHandler().equals("vide")) {
-                        list.add(track);
-                        j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
-                    }
-                }
-                return new faa(j, 0, "");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new faa(-1L, 3, gy8.a(e));
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            qt5.a(this.i.getPageContext(), this.j);
+            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
+            this.a.notifyDataSetChanged();
+            this.e.onChangeSkinType(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.c.d(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.d.d();
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
         }
-        return (faa) invokeLLL.objValue;
     }
 
-    public jaa i(List<String> list, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        LinkedList linkedList;
+    public void D(List<gaa> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048583, this, list, str, z)) == null) {
-            if (list != null && !TextUtils.isEmpty(str)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File file = new File(str);
-                file.mkdirs();
-                if (file.exists()) {
-                    file.delete();
-                }
-                LinkedList linkedList2 = new LinkedList();
-                LinkedList linkedList3 = new LinkedList();
-                for (int i = 0; i < list.size(); i++) {
-                    try {
-                        String str2 = list.get(i);
-                        if (z) {
-                            linkedList = linkedList3;
-                        } else {
-                            linkedList = null;
-                        }
-                        faa c = c(str2, linkedList2, linkedList);
-                        if (c.a != -1) {
-                            long j = c.a;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return new jaa(11, gy8.a(e));
-                    }
-                }
-                j(str, linkedList2, linkedList3);
-                BdLog.e("mixingVideoByVideo videoList length = " + list.size() + " cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                return new jaa(0, "");
-            }
-            return new jaa(10, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a29));
-        }
-        return (jaa) invokeLLZ.objValue;
-    }
-
-    public final double d(Track track, double d, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{track, Double.valueOf(d), Boolean.valueOf(z)})) == null) {
-            int length = track.getSyncSamples().length;
-            double[] dArr = new double[length];
-            int i = 0;
-            double d2 = 0.0d;
-            long j = 0;
-            double d3 = 0.0d;
-            for (int i2 = 0; i2 < track.getSampleDurations().length; i2++) {
-                long j2 = track.getSampleDurations()[i2];
-                j++;
-                if (Arrays.binarySearch(track.getSyncSamples(), j) >= 0) {
-                    dArr[Arrays.binarySearch(track.getSyncSamples(), j)] = d3;
-                }
-                d3 += j2 / track.getTrackMetaData().getTimescale();
-            }
-            while (i < length) {
-                double d4 = dArr[i];
-                if (d4 > d) {
-                    if (z) {
-                        return d4;
-                    }
-                    return d2;
-                }
-                i++;
-                d2 = d4;
-            }
-            return dArr[length - 1];
-        }
-        return invokeCommon.doubleValue;
-    }
-
-    public final void j(String str, List<Track> list, List<Track> list2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, list, list2) == null) {
-            Movie movie = new Movie();
-            if (list2 != null && list2.size() > 0) {
-                movie.addTrack(new AppendTrack((Track[]) list2.toArray(new Track[list2.size()])));
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             if (list != null && list.size() > 0) {
-                movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
+                this.b.setVisibility(0);
+                this.a.c(list);
+                this.a.notifyDataSetChanged();
+                return;
             }
-            Container build = new DefaultMp4Builder().build(movie);
-            FileChannel channel = new RandomAccessFile(String.format(str, new Object[0]), "rw").getChannel();
-            build.writeContainer(channel);
-            channel.close();
+            this.b.setVisibility(8);
         }
     }
 
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    public boolean f(String str, String str2, String... strArr) {
-        InterceptResult invokeLLL;
+    public void F(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, strArr)) == null) {
-            ?? r2 = 0;
-            if (strArr != null) {
-                int i = 2;
-                if (strArr.length >= 2) {
-                    String str3 = str2 + "temp_" + System.currentTimeMillis();
-                    File[] fileArr = new File[strArr.length];
-                    try {
-                        haa.a d = haa.d(strArr[0]);
-                        if (d == null) {
-                            return false;
-                        }
-                        haa.a aVar = new haa.a();
-                        char c = 1;
-                        int i2 = 0;
-                        boolean z = true;
-                        while (i2 < strArr.length) {
-                            if (i2 != 0) {
-                                aVar = haa.d(strArr[i2]);
-                                if (aVar == null) {
-                                    return r2;
-                                }
-                                haa.a[] aVarArr = new haa.a[i];
-                                aVarArr[r2] = d;
-                                aVarArr[c] = aVar;
-                                z = haa.h(aVarArr);
-                            }
-                            String str4 = str2 + "temp_" + i2 + "_" + System.currentTimeMillis();
-                            if (new caa(strArr[i2]).a(str4, z, d, aVar) != null) {
-                                if (!z && i2 != 0 && aVar.c()) {
-                                    String str5 = str2 + "resample_" + System.currentTimeMillis();
-                                    long currentTimeMillis = System.currentTimeMillis();
-                                    boolean i3 = haa.i(str4, str5, aVar.a, d.a);
-                                    BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                                    if (i3) {
-                                        str4 = str5;
-                                    }
-                                }
-                                fileArr[i2] = new File(str4);
-                            }
-                            i2++;
-                            r2 = 0;
-                            i = 2;
-                            c = 1;
-                        }
-                        MultiAudioMixer a2 = MultiAudioMixer.a();
-                        try {
-                            a2.d(new a(this, str3));
-                            a2.b(fileArr);
-                            eaa a3 = eaa.a(str3);
-                            a3.d(d.a);
-                            a3.c(d.b);
-                            a3.b(str);
-                            return true;
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            return false;
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.a.b(aVar);
+        }
+    }
+
+    public void x(NoNetworkView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.c.a(bVar);
+        }
+    }
+
+    public final boolean E(iba ibaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ibaVar)) == null) {
+            if (ibaVar != null && !StringUtils.isNull(ibaVar.c())) {
+                this.d.setVisibility(0);
+                this.d.e(ibaVar);
+                return true;
             }
+            this.d.setVisibility(8);
             return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public jaa g(String str, String str2) {
-        InterceptResult invokeLL;
-        int i;
+    public void G() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File file = new File(str2);
-                file.mkdirs();
-                if (file.exists()) {
-                    file.delete();
-                }
-                LinkedList linkedList = new LinkedList();
-                try {
-                    faa c = c(str, linkedList, null);
-                    if (c.a == -1) {
-                        if (c.b == 1) {
-                            i = 218;
-                        } else if (c.b == 2) {
-                            i = 219;
-                        } else {
-                            i = PassFaceRecogManager.j;
-                        }
-                        return new jaa(i, c.c);
-                    }
-                    BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
-                    j(str2, linkedList, null);
-                    return new jaa(0, "");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return new jaa(221, gy8.a(e));
-                } finally {
-                    BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                }
-            }
-            return new jaa(217, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a29));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b.setVisibility(8);
+            String string = this.i.getPageContext().getResources().getString(R.string.no_data_text);
+            this.i.setNetRefreshViewTopMargin(this.f);
+            this.i.showNetRefreshView(this.j, string, false);
         }
-        return (jaa) invokeLL.objValue;
     }
 
-    public jaa h(String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
-        LinkedList linkedList;
-        int i;
-        jaa jaaVar;
-        StringBuilder sb;
-        int i2;
+    public void H(iba ibaVar, List<gaa> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                String str5 = v8a.f + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
-                new File(str5).mkdirs();
-                File file = new File(str3);
-                file.mkdirs();
-                if (file.exists()) {
-                    file.delete();
+        if (interceptable == null || interceptable.invokeLL(1048583, this, ibaVar, list) == null) {
+            if ((ibaVar != null && !StringUtils.isNull(ibaVar.c())) || (list != null && list.size() > 0)) {
+                y();
+                if (E(ibaVar)) {
+                    this.b.removeHeaderView(this.g);
+                    this.b.addHeaderView(this.g);
+                } else {
+                    this.b.removeHeaderView(this.g);
                 }
-                LinkedList linkedList2 = new LinkedList();
-                LinkedList linkedList3 = new LinkedList();
-                LinkedList linkedList4 = new LinkedList();
-                LinkedList linkedList5 = new LinkedList();
-                try {
-                    faa c = c(str, linkedList2, linkedList3);
-                    long j = c.a;
-                    if (j == -1) {
-                        if (c.b == 1) {
-                            i2 = 210;
-                        } else if (c.b == 2) {
-                            i2 = AdEventType.VIDEO_LOADING;
-                        } else {
-                            i2 = AdEventType.VIDEO_PRELOADED;
-                        }
-                        jaaVar = new jaa(i2, c.c);
-                        FileHelper.deleteFileOrDir(new File(str5));
-                        sb = new StringBuilder();
-                    } else {
-                        long b = b(str2, linkedList4);
-                        if (b == -1) {
-                            if (c.b == 1) {
-                                i = AdEventType.VIDEO_PRELOAD_ERROR;
-                            } else if (c.b == 2) {
-                                i = 214;
-                            } else {
-                                i = 215;
-                            }
-                            jaaVar = new jaa(i, c.c);
-                            FileHelper.deleteFileOrDir(new File(str5));
-                            sb = new StringBuilder();
-                        } else {
-                            try {
-                                a(j, b, linkedList4, linkedList5);
-                                if (z && linkedList3.size() > 0 && Build.VERSION.SDK_INT >= 16) {
-                                    String str6 = str5 + "temp_" + System.currentTimeMillis();
-                                    j(str6, null, linkedList5);
-                                    String str7 = str5 + "temp_" + System.currentTimeMillis();
-                                    linkedList = linkedList3;
-                                    j(str7, null, linkedList);
-                                    String str8 = str5 + "temp_" + System.currentTimeMillis() + ".acc";
-                                    if (f(str8, str5, str6, str7)) {
-                                        AACTrackImpl aACTrackImpl = new AACTrackImpl(new FileDataSourceImpl(str8));
-                                        linkedList5.clear();
-                                        linkedList5.add(aACTrackImpl);
-                                    }
-                                    BdLog.e("mixingVideoByAudio mixing cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                                } else {
-                                    linkedList = linkedList3;
-                                }
-                                BdLog.e("mixingVideoByAudio audioTracks = " + linkedList.size() + " musicTracks = " + linkedList5.size() + " videoTracks = " + linkedList2.size());
-                                j(str3, linkedList2, linkedList5);
-                                jaa jaaVar2 = new jaa(0, "");
-                                FileHelper.deleteFileOrDir(new File(str5));
-                                BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
-                                return jaaVar2;
-                            } catch (Exception e) {
-                                e = e;
-                                str4 = "mixingVideoByAudio cost = ";
-                                try {
-                                    e.printStackTrace();
-                                    jaa jaaVar3 = new jaa(JfifUtil.MARKER_SOI, gy8.a(e));
-                                    FileHelper.deleteFileOrDir(new File(str5));
-                                    BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
-                                    return jaaVar3;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    FileHelper.deleteFileOrDir(new File(str5));
-                                    BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
-                                    throw th;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                str4 = "mixingVideoByAudio cost = ";
-                                FileHelper.deleteFileOrDir(new File(str5));
-                                BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
-                                throw th;
-                            }
-                        }
-                    }
-                    sb.append("mixingVideoByAudio cost = ");
-                    sb.append(System.currentTimeMillis() - currentTimeMillis);
-                    BdLog.e(sb.toString());
-                    return jaaVar;
-                } catch (Exception e2) {
-                    e = e2;
-                    str4 = "mixingVideoByAudio cost = ";
-                } catch (Throwable th3) {
-                    th = th3;
-                    str4 = "mixingVideoByAudio cost = ";
-                }
-            } else {
-                return new jaa(209, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a29));
+                D(list);
+                return;
             }
-        } else {
-            return (jaa) invokeCommon.objValue;
+            G();
         }
     }
 }

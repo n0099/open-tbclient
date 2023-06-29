@@ -67,28 +67,28 @@ public class ErrorConstant {
 
     /* loaded from: classes4.dex */
     public static final class TipMsg {
-        public static final String META_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0035);
-        public static final String META_ERROR_CONNECTION = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0033);
-        public static final String META_ERROR_PARAMS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0036);
-        public static final String META_ERROR_RESPONSE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0037);
-        public static final String META_ERROR_FATAL = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0034);
-        public static final String DOWNLOAD_SUCCESS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001c);
-        public static final String DOWNLOAD_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0014);
-        public static final String DOWNLOAD_ERROR_MD5 = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0012);
-        public static final String DOWNLOAD_ERROR_PATH = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0018);
-        public static final String DOWNLOAD_ERROR_CREATEFILE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0010);
-        public static final String DOWNLOAD_ERROR_NOSPACE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0017);
-        public static final String DOWNLOAD_ERROR_NETWROK_CHANGE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0015);
-        public static final String DOWNLOAD_ERROR_WRITE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0019);
-        public static final String DOWNLOAD_PAUSED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001a);
-        public static final String DOWNLOAD_RESUMED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001b);
-        public static final String DOWNLOAD_CANCELED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f000f);
-        public static final String DOWNLOAD_ERROR_DUPLICATED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0011);
-        public static final String DOWNLOAD_ERROR_NETWROK_LIMIT = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0016);
-        public static final String DOWNLOAD_ERROR_MISS_PARAM = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0013);
-        public static final String INSTALL_ERROR = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001f);
-        public static final String INSTALL_SUCCESS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0020);
-        public static final String DATA_WRITE_DB = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f000e);
+        public static final String META_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0037);
+        public static final String META_ERROR_CONNECTION = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0035);
+        public static final String META_ERROR_PARAMS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0038);
+        public static final String META_ERROR_RESPONSE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0039);
+        public static final String META_ERROR_FATAL = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0036);
+        public static final String DOWNLOAD_SUCCESS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001d);
+        public static final String DOWNLOAD_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0015);
+        public static final String DOWNLOAD_ERROR_MD5 = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0013);
+        public static final String DOWNLOAD_ERROR_PATH = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0019);
+        public static final String DOWNLOAD_ERROR_CREATEFILE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0011);
+        public static final String DOWNLOAD_ERROR_NOSPACE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0018);
+        public static final String DOWNLOAD_ERROR_NETWROK_CHANGE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0016);
+        public static final String DOWNLOAD_ERROR_WRITE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001a);
+        public static final String DOWNLOAD_PAUSED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001b);
+        public static final String DOWNLOAD_RESUMED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001c);
+        public static final String DOWNLOAD_CANCELED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0010);
+        public static final String DOWNLOAD_ERROR_DUPLICATED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0012);
+        public static final String DOWNLOAD_ERROR_NETWROK_LIMIT = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0017);
+        public static final String DOWNLOAD_ERROR_MISS_PARAM = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0014);
+        public static final String INSTALL_ERROR = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0020);
+        public static final String INSTALL_SUCCESS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0021);
+        public static final String DATA_WRITE_DB = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f000f);
     }
 
     public static String getTipMsg(int i) {

@@ -1,7 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes7.dex */
 public interface se8 {
-    void a(BaseMsg baseMsg, int i, int i2);
+    @NonNull
+    HeadImageView a();
+
+    @NonNull
+    TextView b();
+
+    TextView c();
+
+    @Nullable
+    TextView d();
+
+    @NonNull
+    TextView e();
+
+    FrameLayout f();
+
+    void g(@NonNull kf8 kf8Var);
+
+    int h();
+
+    void i();
 }

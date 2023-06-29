@@ -37,7 +37,6 @@ public final class ImMessageCenterDelegateStaticAutoGenerateUrlCollectorImpl imp
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2007002", "com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic");
-            hashMap.put("2921002", "com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

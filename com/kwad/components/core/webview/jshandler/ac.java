@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ac implements com.kwad.sdk.core.webview.kwai.a {
     @Nullable
     public KsAppDownloadListener KW;
@@ -13,7 +13,7 @@ public final class ac implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.components.core.c.a.c mApkDownloadHelper;
     public final com.kwad.sdk.core.webview.b mJsBridgeContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public float MO;
         public long creativeId;

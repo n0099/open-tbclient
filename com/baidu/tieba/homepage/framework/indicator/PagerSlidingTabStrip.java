@@ -35,11 +35,11 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.tab.FrsTabItemCustomeView;
 import com.baidu.tieba.homepage.HomePageStatic;
-import com.baidu.tieba.hx7;
-import com.baidu.tieba.kd5;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.mx7;
+import com.baidu.tieba.nd5;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,7 +73,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public RectF S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1105T;
+    public int f1104T;
     public d U;
     public Context V;
     public boolean W;
@@ -209,7 +209,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.currentPosition = parcel.readInt();
         }
 
-        public /* synthetic */ SavedState(Parcel parcel, hx7 hx7Var) {
+        public /* synthetic */ SavedState(Parcel parcel, mx7 mx7Var) {
             this(parcel);
         }
 
@@ -364,7 +364,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.a = pagerSlidingTabStrip;
         }
 
-        public /* synthetic */ e(PagerSlidingTabStrip pagerSlidingTabStrip, hx7 hx7Var) {
+        public /* synthetic */ e(PagerSlidingTabStrip pagerSlidingTabStrip, mx7 mx7Var) {
             this(pagerSlidingTabStrip);
         }
 
@@ -766,12 +766,12 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.D = (int) TypedValue.applyDimension(1, this.D, displayMetrics);
             this.E = i;
             this.F = i2;
-            int g = wi.g(getContext(), R.dimen.tbds46);
+            int g = xi.g(getContext(), R.dimen.tbds46);
             this.G = g;
             int i4 = this.E;
             this.H = (this.F * 1.0f) / i4;
             this.I = (g * 1.0f) / i4;
-            this.f1105T = -wi.g(getContext(), R.dimen.tbds11);
+            this.f1104T = -xi.g(getContext(), R.dimen.tbds11);
             this.y = i3;
             this.r = z;
             Paint paint = new Paint();
@@ -786,14 +786,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.m.setColor(SkinManager.getColor(R.color.CAM_X0301));
             setLayerType(1, null);
             this.n = new RectF();
-            this.J = wi.g(getContext(), R.dimen.tbds20);
-            this.K = (int) (wi.g(getContext(), R.dimen.tbds28) * 0.5d);
-            this.L = (int) (wi.g(getContext(), R.dimen.tbds22) * 0.4d);
+            this.J = xi.g(getContext(), R.dimen.tbds20);
+            this.K = (int) (xi.g(getContext(), R.dimen.tbds28) * 0.5d);
+            this.L = (int) (xi.g(getContext(), R.dimen.tbds22) * 0.4d);
             this.a = new LinearLayout.LayoutParams(-2, -1);
-            this.b = new LinearLayout.LayoutParams(wi.g(getContext(), R.dimen.tbds165), -1);
+            this.b = new LinearLayout.LayoutParams(xi.g(getContext(), R.dimen.tbds165), -1);
             this.A = this.M + Math.round(i * 0.5f);
-            this.z = wi.g(getContext(), R.dimen.tbds5);
-            this.B = wi.g(getContext(), R.dimen.tbds8);
+            this.z = xi.g(getContext(), R.dimen.tbds5);
+            this.B = xi.g(getContext(), R.dimen.tbds8);
             if (this.R == null) {
                 this.R = getResources().getConfiguration().locale;
             }
@@ -959,14 +959,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                             }
                             if (i2 >= 0) {
                                 if (i == this.j) {
-                                    p75.d(textView).D(R.string.F_X02);
+                                    s75.d(textView).D(R.string.F_X02);
                                 } else {
-                                    p75.d(textView).D(R.string.F_X01);
+                                    s75.d(textView).D(R.string.F_X01);
                                 }
                             } else if (i == this.h) {
-                                p75.d(textView).D(R.string.F_X02);
+                                s75.d(textView).D(R.string.F_X02);
                             } else {
-                                p75.d(textView).D(R.string.F_X01);
+                                s75.d(textView).D(R.string.F_X01);
                             }
                         }
                     }
@@ -1051,7 +1051,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048589, this, i, str) == null) {
-            kd5 b2 = kd5.b(str);
+            nd5 b2 = nd5.b(str);
             if (b2 != null && !this.W) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds47);
                 FrsTabItemCustomeView frsTabItemCustomeView = new FrsTabItemCustomeView(getContext());
@@ -1060,7 +1060,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 frsTabItemCustomeView.setTabHeight(dimenPixelSize);
                 frsTabItemCustomeView.e(b2.g);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-                layoutParams.rightMargin = wi.g(getContext(), R.dimen.tbds5);
+                layoutParams.rightMargin = xi.g(getContext(), R.dimen.tbds5);
                 layoutParams.gravity = 16;
                 frsTabItemCustomeView.setLayoutParams(layoutParams);
                 q(i, frsTabItemCustomeView);
@@ -1068,7 +1068,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 LinearLayout linearLayout = new LinearLayout(getContext());
                 linearLayout.setOrientation(0);
                 TextView textView = new TextView(getContext());
-                if (TbadkCoreApplication.isLogin() && o95.p().q("key_home_concern_all_status", 0) == 1) {
+                if (TbadkCoreApplication.isLogin() && r95.p().q("key_home_concern_all_status", 0) == 1) {
                     string = getResources().getString(R.string.attention_person);
                 } else {
                     string = getResources().getString(R.string.tab_name_concern);
@@ -1084,7 +1084,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_unfold16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
                 linearLayout.addView(textView);
                 linearLayout.addView(imageView);
-                ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.f1105T;
+                ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.f1104T;
                 linearLayout.setGravity(16);
                 q(i, linearLayout);
             } else {
@@ -1093,7 +1093,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                     str = b2.d();
                 }
                 if (i == 0 && !this.W) {
-                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && o95.p().q("key_home_concern_all_status", 0) == 1) {
+                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && r95.p().q("key_home_concern_all_status", 0) == 1) {
                         str = getResources().getString(R.string.attention_person);
                     } else {
                         str = getResources().getString(R.string.tab_name_concern);

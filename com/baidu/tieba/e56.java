@@ -1,152 +1,276 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.IMConstants;
-import com.baidu.searchbox.download.statistics.ApkStaticNetService;
-import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
-import com.baidu.searchbox.settings.base.UpdatePackageDownloadInfo;
-import com.baidu.tbadk.TbSingleton;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.design.TbTabLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e56 {
+public class e56 implements v36, View.OnClickListener, TbTabLayout.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<SelectForumActivity> a;
+    public String b;
+    public NavigationBar c;
+    public ImageView d;
+    public LinearLayout e;
+    public TbTabLayout f;
+    public BdBaseViewPager g;
+    public SelectForumPagerAdapter h;
+    public Intent i;
+    public boolean j;
 
-    public static String a() {
+    @Override // com.baidu.tieba.st5
+    public boolean Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String w = o95.p().w(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, "");
-                if (TextUtils.isEmpty(versionName)) {
-                    return null;
-                }
-                if (versionName.equals(w)) {
-                    return o95.p().w("apk_md5", "");
-                }
-                o95.p().J(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, versionName);
-                String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                o95.p().J("apk_md5", aPKMd5);
-                return aPKMd5;
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.detailException(e);
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void b(Context context, VersionData versionData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, versionData) == null) {
-            try {
-                str = TbMd5.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.detailException(e);
-                str = "-1";
-                Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-                intent.setFlags(268435488);
-                intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-                intent.putExtra("backup", "0");
-                intent.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
-                Bundle bundle = new Bundle();
-                bundle.putInt("versioncode", versionData.getNewVersionCode());
-                bundle.putLong("patch_size", ug.g(versionData.getPatchSize(), 0L));
-                bundle.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
-                bundle.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
-                bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-                bundle.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
-                bundle.putString("versionname", versionData.getNewVersion());
-                bundle.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
-                bundle.putString("updatetime", vi.getDateStringDay(new Date(System.currentTimeMillis())));
-                bundle.putString("size", versionData.getSize());
-                bundle.putString("signmd5", str);
-                bundle.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
-                intent.putExtra("extra_client_downloadinfo", bundle);
-                context.startActivity(intent);
-            } catch (NumberFormatException e2) {
-                BdLog.detailException(e2);
-                str = "-1";
-                Intent intent2 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-                intent2.setFlags(268435488);
-                intent2.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-                intent2.putExtra("backup", "0");
-                intent2.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt("versioncode", versionData.getNewVersionCode());
-                bundle2.putLong("patch_size", ug.g(versionData.getPatchSize(), 0L));
-                bundle2.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
-                bundle2.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
-                bundle2.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-                bundle2.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
-                bundle2.putString("versionname", versionData.getNewVersion());
-                bundle2.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
-                bundle2.putString("updatetime", vi.getDateStringDay(new Date(System.currentTimeMillis())));
-                bundle2.putString("size", versionData.getSize());
-                bundle2.putString("signmd5", str);
-                bundle2.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
-                intent2.putExtra("extra_client_downloadinfo", bundle2);
-                context.startActivity(intent2);
-            }
-            Intent intent22 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-            intent22.setFlags(268435488);
-            intent22.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-            intent22.putExtra("backup", "0");
-            intent22.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
-            Bundle bundle22 = new Bundle();
-            bundle22.putInt("versioncode", versionData.getNewVersionCode());
-            bundle22.putLong("patch_size", ug.g(versionData.getPatchSize(), 0L));
-            bundle22.putString(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL, versionData.getPatch());
-            bundle22.putString(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, context.getString(R.string.obfuscated_res_0x7f0f029e));
-            bundle22.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-            bundle22.putString(ApkStaticNetService.STATIC_DOWNLOAD_URL, versionData.getUrl());
-            bundle22.putString("versionname", versionData.getNewVersion());
-            bundle22.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
-            bundle22.putString("updatetime", vi.getDateStringDay(new Date(System.currentTimeMillis())));
-            bundle22.putString("size", versionData.getSize());
-            bundle22.putString("signmd5", str);
-            bundle22.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
-            intent22.putExtra("extra_client_downloadinfo", bundle22);
-            context.startActivity(intent22);
-        }
-    }
-
-    public static boolean c(Context context, CombineDownload combineDownload) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) {
-            if (combineDownload == null || fz9.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void d() {
+    @Override // com.baidu.adp.widget.design.TbTabLayout.c
+    public void a(TbTabLayout.f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && TbSingleton.getInstance().getSyncModel() != null) {
-            xe5 syncModel = TbSingleton.getInstance().getSyncModel();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().u(), syncModel.j())));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
         }
+    }
+
+    @Override // com.baidu.adp.widget.design.TbTabLayout.c
+    public void c(TbTabLayout.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.v36
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.st5
+    public boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e56 a;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
+
+        public a(e56 e56Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e56Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e56Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                e56 e56Var = this.a;
+                if (i == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                e56Var.j = z;
+            }
+        }
+    }
+
+    public e56(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, linearLayout, navigationBar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+        this.e = linearLayout;
+        this.c = navigationBar;
+        this.b = "key_select_forum_tab_index";
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (!StringUtils.isNull(currentAccount)) {
+            this.b += currentAccount;
+        }
+        f();
+        d();
+        g();
+        h();
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0054, (ViewGroup) this.e, true);
+            this.f = (TbTabLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09008c);
+            this.g = (BdBaseViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f09008d);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SelectForumPagerAdapter selectForumPagerAdapter = new SelectForumPagerAdapter(this.a);
+            this.h = selectForumPagerAdapter;
+            this.g.setAdapter(selectForumPagerAdapter);
+            this.f.setupWithViewPager(this.g);
+            i(r95.p().q(this.b, 0));
+            this.f.setOnTabSelectedListener(this);
+            this.g.addOnPageChangeListener(new a(this));
+        }
+    }
+
+    @Override // com.baidu.adp.widget.design.TbTabLayout.c
+    public void e(TbTabLayout.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+            TiebaStatic.log(new StatisticItem("c13994").param("obj_type", fVar.e() + 1));
+            r95.p().F(this.b, fVar.e());
+        }
+    }
+
+    @Override // com.baidu.tieba.st5
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
+            this.h.c();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f00c0));
+            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+            this.d = imageView;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
+            layoutParams.setMargins(0, 0, xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070353), 0);
+            this.d.setLayoutParams(layoutParams);
+            this.d.setOnClickListener(this);
+            this.d.setVisibility(8);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f.setSelectedTabTextBlod(true);
+            this.f.setSelectedTabIndicatorColor(0);
+            TbTabLayout.f z = this.f.z();
+            z.s(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00bf));
+            TbTabLayout.f z2 = this.f.z();
+            z2.s(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00be));
+            this.f.f(z, false);
+            this.f.f(z2, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.st5
+    public Intent getResultIntent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v36
+    public void onDestroy() {
+        SelectForumPagerAdapter selectForumPagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (selectForumPagerAdapter = this.h) != null) {
+            selectForumPagerAdapter.onDestroy();
+        }
+    }
+
+    public boolean i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (i >= 0 && i <= 1) {
+                TbTabLayout.f w = this.f.w(i);
+                if (w != null && !w.h()) {
+                    w.l();
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 }

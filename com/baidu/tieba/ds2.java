@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class ds2 extends tp2<ks2> {
+public class ds2 extends wp2<ns2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.tp2
+    @Override // com.baidu.tieba.wp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "unPublishLocalStream" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSoundModel" : (String) invokeV.objValue;
     }
 
     public ds2() {
@@ -36,13 +37,22 @@ public class ds2 extends tp2<ks2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tp2
+    @Override // com.baidu.tieba.wp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ks2 ks2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull ns2 ns2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ks2Var) == null) {
-            d(ks2Var, command.what, null, true);
-            ks2Var.f();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ns2Var) == null) {
+            String str = command.what;
+            d(ns2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals(str2, "ear")) {
+                    ns2Var.r(str2);
+                } else if (TextUtils.equals(str2, "speaker")) {
+                    ns2Var.r(str2);
+                }
+            }
         }
     }
 }

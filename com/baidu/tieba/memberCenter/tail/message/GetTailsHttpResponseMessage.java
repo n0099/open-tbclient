@@ -4,17 +4,17 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.IDataResponseMessage;
-import com.baidu.tieba.yw8;
+import com.baidu.tieba.j19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class GetTailsHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<yw8> {
+public class GetTailsHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<j19> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yw8 resultData;
+    public j19 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTailsHttpResponseMessage() {
@@ -36,13 +36,13 @@ public class GetTailsHttpResponseMessage extends HttpResponsedMessage implements
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public yw8 getResultData() {
+    public j19 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.resultData;
         }
-        return (yw8) invokeV.objValue;
+        return (j19) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

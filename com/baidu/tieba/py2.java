@@ -1,62 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Color;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class py2 extends ly2 {
+public class py2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sy2 z;
 
-    public py2() {
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
+        long parseLong;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                c92.o("map", "color string is empty, use default " + Integer.toHexString(i));
+                return i;
+            }
+            try {
+                if (str.charAt(0) == '#') {
+                    String substring = str.substring(1);
+                    if (substring.length() != 6 && substring.length() != 8) {
+                        throw new IllegalArgumentException("char count not right");
+                    }
+                    if (substring.length() == 6) {
+                        parseLong = Long.parseLong(substring, 16) | (-16777216);
+                    } else {
+                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
+                    }
+                    return (int) parseLong;
+                }
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                c92.o("map", "parse color error, use default " + Integer.toHexString(i));
+                return i;
             }
         }
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.p72, com.baidu.tieba.y13
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public static float b(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.z != null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            return (float) (d * tp3.l(AppRuntime.getAppContext()));
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ly2, com.baidu.tieba.p72, com.baidu.tieba.y13
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        jSONObject.optString("cb");
-        double optDouble = jSONObject.optDouble("latitude");
-        double optDouble2 = jSONObject.optDouble("longitude");
-        jSONObject.optString("guideKey");
-        jSONObject.optString("guideIcon");
-        if (!Double.isNaN(optDouble) && !Double.isNaN(optDouble2) && optDouble >= -90.0d && optDouble <= 90.0d && optDouble2 >= -180.0d && optDouble2 <= 180.0d) {
-            sy2 sy2Var = new sy2();
-            this.z = sy2Var;
-            sy2Var.a(jSONObject);
-        }
+        return invokeCommon.floatValue;
     }
 }

@@ -1,25 +1,11 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes5.dex */
 public interface ay1 {
-    iy1 a(Context context);
+    bp4 a();
 
-    ey1 b(Context context);
+    void b(gi2 gi2Var, ei2 ei2Var);
 
-    iy1 c(Context context);
+    boolean c();
 
-    ud2 d();
-
-    fy1 e(Context context, int i);
-
-    iy1 f(Context context);
-
-    iy1 g(Context context);
-
-    vd2 h(Context context, int i);
-
-    iy1 i(Context context);
-
-    boolean j(int i);
+    boolean d();
 }

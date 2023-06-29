@@ -38,7 +38,7 @@ public class UserReportHttpResponseMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject == null) {
             setError(-1);
-            setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0695));
+            setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0698));
         }
     }
 }

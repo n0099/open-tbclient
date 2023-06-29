@@ -1,62 +1,202 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActivityPage.DataRes;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.ActivityPage.RecommendForumList;
+import tbclient.ActivityPage.RecommendUserList;
+import tbclient.ActivityPage.SpecialColumnList;
+import tbclient.BannerImage;
+import tbclient.Page;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public final class t38 extends LaunchTask {
+public class t38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948130384, "Lcom/baidu/tieba/t38;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948130384, "Lcom/baidu/tieba/t38;");
-        }
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "funnySpriteResDownloadTask" : (String) invokeV.objValue;
-    }
+    public boolean a;
+    public int b;
+    public ArrayList<ThreadData> c;
+    public z15 d;
+    public z25 e;
+    public c45 f;
+    public g45 g;
+    public u38 h;
+    public SpecialColumnListData i;
 
     public t38() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
+        this.b = 1;
     }
 
-    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
-    public void execute() {
+    public z15 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            FunnySpriteResDownloadUtil.h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (z15) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public z25 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (z25) invokeV.objValue;
+    }
+
+    public u38 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return (u38) invokeV.objValue;
+    }
+
+    public c45 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (c45) invokeV.objValue;
+    }
+
+    public g45 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (g45) invokeV.objValue;
+    }
+
+    public SpecialColumnListData g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return (SpecialColumnListData) invokeV.objValue;
+    }
+
+    public ArrayList<ThreadData> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        Page page = dataRes.page_info;
+        if (page != null) {
+            this.b = page.current_page.intValue();
+            boolean z = true;
+            if (page.has_more.intValue() != 1) {
+                z = false;
+            }
+            this.a = z;
+        }
+        this.c = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        for (ThreadInfo threadInfo : dataRes.thread_list) {
+            ThreadData threadData = new ThreadData();
+            threadData.parserProtobuf(threadInfo);
+            threadData.insertItemToTitleOrAbstractText();
+            this.c.add(threadData);
+        }
+        List<BannerImage> list = dataRes.banner_image;
+        if (!ListUtils.isEmpty(list)) {
+            z15 z15Var = new z15();
+            this.d = z15Var;
+            z15Var.parserProtobuf(list);
+        }
+        List<BannerImage> list2 = dataRes.grid;
+        if (ListUtils.getCount(list2) >= 4) {
+            z25 z25Var = new z25();
+            this.e = z25Var;
+            z25Var.parserProtobuf(list2);
+        }
+        RecommendForumList recommendForumList = dataRes.recommend_forum;
+        if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
+            c45 c45Var = new c45();
+            this.f = c45Var;
+            c45Var.f(recommendForumList.forum_list);
+            c45 c45Var2 = this.f;
+            c45Var2.f = recommendForumList.class_name;
+            c45Var2.floorPosition = recommendForumList.floor_position.intValue();
+            this.f.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11cc);
+            this.f.e = R.color.CAM_X0108;
+        }
+        RecommendUserList recommendUserList = dataRes.recommend_user;
+        if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
+            g45 g45Var = new g45();
+            this.g = g45Var;
+            g45Var.d(recommendUserList.user_list);
+            this.g.floorPosition = recommendUserList.floor_position.intValue();
+            this.g.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11e3);
+            this.g.b = R.color.CAM_X0108;
+        }
+        HotTopic hotTopic = dataRes.hot_topic;
+        if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
+            u38 u38Var = new u38();
+            this.h = u38Var;
+            u38Var.e(hotTopic);
+        }
+        SpecialColumnList specialColumnList = dataRes.special_column;
+        if (specialColumnList != null && ListUtils.getCount(specialColumnList.item_list) >= 3) {
+            SpecialColumnListData specialColumnListData = new SpecialColumnListData();
+            this.i = specialColumnListData;
+            specialColumnListData.parserProtobuf(specialColumnList);
         }
     }
 }

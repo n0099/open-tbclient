@@ -1,58 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes6.dex */
-public class hvb implements dyb {
+public final class hvb<T> implements ysb<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public final ltb<? super T> a;
+    public final ltb<? super Throwable> b;
+    public final ktb c;
 
-    @Override // com.baidu.tieba.dyb
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public hvb(int i, int i2) {
+    public hvb(ltb<? super T> ltbVar, ltb<? super Throwable> ltbVar2, ktb ktbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {ltbVar, ltbVar2, ktbVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        this.a = ltbVar;
+        this.b = ltbVar2;
+        this.c = ktbVar;
     }
 
-    @Override // com.baidu.tieba.dyb
-    public void a(CancelType cancelType) {
+    @Override // com.baidu.tieba.ysb
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PaySignDialogListener", "PaySignDialogListener cancel clickArea:" + cancelType);
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                mwb.b(this.a, this.b, "64", "", "", "");
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.call();
+        }
+    }
+
+    @Override // com.baidu.tieba.ysb
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.b.call(th);
+        }
+    }
+
+    @Override // com.baidu.tieba.ysb
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.a.call(t);
         }
     }
 }

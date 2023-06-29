@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KsAutoCloseView extends LinearLayout implements View.OnClickListener {
     public static String wD = "%s秒后自动关闭";
     public TextView Pr;
@@ -19,7 +19,7 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     public boolean Pv;
     public int countDown;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void dg();
 
@@ -60,9 +60,9 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     }
 
     private void L(Context context) {
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0476, this);
-        this.Pr = (TextView) findViewById(R.id.obfuscated_res_0x7f091243);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091242);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0477, this);
+        this.Pr = (TextView) findViewById(R.id.obfuscated_res_0x7f091253);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091252);
         this.Ps = imageView;
         imageView.setOnClickListener(this);
     }

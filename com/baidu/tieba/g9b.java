@@ -1,62 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
 /* loaded from: classes5.dex */
-public final class g9b extends BroadcastReceiver {
+public class g9b extends v9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ d9b a;
-    public final /* synthetic */ c9b b;
 
-    public g9b(c9b c9bVar, d9b d9bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g9b(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid, moduleConfigGdt);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c9bVar, d9bVar};
+            Object[] objArr = {pid, moduleConfigGdt};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigGdt) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = c9bVar;
-        this.a = d9bVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    @Override // com.baidu.tieba.v9b, com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            Bundle extras = intent.getExtras();
-            if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
-                return;
-            }
-            this.b.p();
-            int i = extras.getInt("install.status");
-            if (i != 1 && i != 2 && i != 3) {
-                if (i != 4) {
-                    if (i == 6) {
-                        this.a.a(com.google.ar.core.p.CANCELLED);
-                        return;
-                    }
-                    return;
-                }
-                this.a.a(com.google.ar.core.p.COMPLETED);
-                return;
-            }
-            this.a.a(com.google.ar.core.p.ACCEPTED);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new z8b(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.v9b
+    public void f(Activity activity, UnifiedInterstitialAD unifiedInterstitialAD) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.showFullScreenAD(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.v9b
+    public void k(UnifiedInterstitialAD unifiedInterstitialAD) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.loadFullScreenAD();
         }
     }
 }

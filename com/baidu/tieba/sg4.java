@@ -2,10 +2,8 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sg4 extends lg4<ky2> {
+public class sg4 extends og4<oy2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +31,7 @@ public class sg4 extends lg4<ky2> {
                 return;
             }
         }
-        boolean z = js1.a;
+        boolean z = ms1.a;
     }
 
     public sg4() {
@@ -50,7 +48,7 @@ public class sg4 extends lg4<ky2> {
         }
     }
 
-    public static sg4 e() {
+    public static sg4 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -59,58 +57,46 @@ public class sg4 extends lg4<ky2> {
         return (sg4) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lg4
-    /* renamed from: d */
-    public boolean b(Context context, ky2 ky2Var, iy2 iy2Var, zb3 zb3Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.og4
+    public boolean b(Context context, oy2 oy2Var, ly2 ly2Var, cc3 cc3Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ky2Var, iy2Var, zb3Var, jSONObject)) == null) {
-            return f(context, ky2Var, iy2Var, zb3Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, oy2Var, ly2Var, cc3Var, jSONObject)) == null) {
+            return e(context, oy2Var, ly2Var, cc3Var, jSONObject);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean f(Context context, ky2 ky2Var, iy2 iy2Var, zb3 zb3Var) {
-        InterceptResult invokeLLLL;
+    public final boolean e(Context context, oy2 oy2Var, ly2 ly2Var, cc3 cc3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, ky2Var, iy2Var, zb3Var)) == null) {
-            z82.i("map", "IncludePointsAction start");
-            hy1 A = mx2.T().A(ky2Var.c);
-            if (!(A instanceof fy1)) {
-                z82.c("map", "WebViewManager is null");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, oy2Var, ly2Var, cc3Var, jSONObject)) == null) {
+            c92.i("map", "GetCenterLcationAction start");
+            ky1 A = px2.T().A(oy2Var.c);
+            if (!(A instanceof iy1)) {
+                c92.c("map", "WebViewManager is null");
                 return false;
             }
-            jh4 d = ig4.b().c((fy1) A).d(ky2Var.b);
+            mh4 d = lg4.b().c((iy1) A).d(oy2Var.b);
             if (d == null) {
-                z82.c("map", "can not find map by id " + ky2Var.b);
+                c92.c("map", "can not find map by id " + oy2Var.b);
                 return false;
             }
-            z82.i("map", "IncludePointsAction end");
-            return g(ky2Var, d);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean g(ky2 ky2Var, jh4 jh4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, ky2Var, jh4Var)) == null) {
-            if (ky2Var == null || !ky2Var.isValid()) {
-                return false;
+            MapStatus mapStatus = d.l.getMap().getMapStatus();
+            vy2 vy2Var = new vy2();
+            LatLng latLng = mapStatus.target;
+            double d2 = latLng.latitude;
+            vy2Var.a = d2;
+            vy2Var.b = latLng.longitude;
+            try {
+                jSONObject.put("latitude", d2);
+                jSONObject.put("longitude", vy2Var.b);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            BaiduMap map = jh4Var.l.getMap();
-            LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            Iterator<sy2> it = ky2Var.z.iterator();
-            while (it.hasNext()) {
-                sy2 next = it.next();
-                builder.include(new LatLng(next.a, next.b));
-            }
-            LatLngBounds build = builder.build();
-            int[] iArr = ky2Var.A;
-            map.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(build, iArr[3], iArr[0], iArr[1], iArr[2]));
+            c92.i("map", "GetCenterLocationAction end");
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-
-import android.view.View;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface n04 {
-    void d(String str, String str2);
-
-    void f(View view2);
+    void h(l04 l04Var);
 }

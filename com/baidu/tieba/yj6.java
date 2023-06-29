@@ -1,27 +1,15 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 /* loaded from: classes8.dex */
-public abstract class yj6 implements wj6 {
+public class yj6 extends wl1<cm6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
 
     public yj6() {
         Interceptable interceptable = $ic;
@@ -37,31 +25,15 @@ public abstract class yj6 implements wj6 {
         }
     }
 
-    public boolean c(Class<?> cls) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wl1
+    /* renamed from: a */
+    public cm6 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            boolean z = false;
-            for (Method method : cls.getMethods()) {
-                Annotation[] annotations = method.getAnnotations();
-                int length = annotations.length;
-                int i = 0;
-                while (true) {
-                    if (i >= length) {
-                        break;
-                    } else if (annotations[i] instanceof JavascriptInterface) {
-                        z = true;
-                        break;
-                    } else {
-                        i++;
-                    }
-                }
-                if (z) {
-                    break;
-                }
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new zj6();
         }
-        return invokeL.booleanValue;
+        return (cm6) invokeV.objValue;
     }
 }

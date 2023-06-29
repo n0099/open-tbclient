@@ -1,116 +1,180 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wp2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.HashMap;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes8.dex */
-public final class vp2<W extends wp2> {
+public class vp2 extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, tp2<W>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248401, "Lcom/baidu/tieba/vp2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+
+        public a(vp2 vp2Var, Context context, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vp2Var, context, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948248401, "Lcom/baidu/tieba/vp2;");
-                return;
+            this.a = context;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                rp2.n().f(this.a, this.b);
             }
         }
-        b = js1.a;
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public b(vp2 vp2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vp2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean i = tp2.c().i(this.a);
+                rp2 n = rp2.n();
+                n.p("cloneResult = " + i);
+            }
+        }
     }
 
     public vp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public void a(tp2<W> tp2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tp2Var) == null) {
-            if (b) {
-                Log.v("CommandDispatcher", tp2Var.b() + " command added to supported command list");
-            }
-            this.a.put(tp2Var.b(), tp2Var);
-        }
-    }
-
-    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
-            if (command != null && !TextUtils.isEmpty(command.what)) {
-                if (w == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
-                        return;
-                    }
-                    return;
-                }
-                tp2<W> tp2Var = this.a.get(command.what);
-                if (tp2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
-                        return;
-                    }
-                    return;
-                }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " command dispatched");
-                }
-                tp2Var.a(command, w);
-            } else if (b) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void c(@Nullable ZeusPlugin.Command command) {
+    public final String a(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            if (command != null && !TextUtils.isEmpty(command.what)) {
-                tp2<W> tp2Var = this.a.get(command.what);
-                if (tp2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
-                        return;
-                    }
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, unitedSchemeEntity)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                return null;
+            }
+            return optParamsAsJo.optString("appKey");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean b(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            String trim = str.trim();
+            if (trim.length() == 0 || trim.contains("../")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            if (uri == null || !TextUtils.equals(uri.getHost(), "swanAPI")) {
+                return false;
+            }
+            String path = uri.getPath();
+            if (TextUtils.isEmpty(path)) {
+                return false;
+            }
+            if (TextUtils.equals(path, "/clone")) {
+                String a2 = a(unitedSchemeEntity);
+                if (!b(a2)) {
+                    return false;
                 }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " cached command return value processed");
+                wo3.k(new a(this, context, a2), "cloneSwanAppRunnable");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
+            } else if (!TextUtils.equals(path, "/install")) {
+                return false;
+            } else {
+                String a3 = a(unitedSchemeEntity);
+                if (TextUtils.isEmpty(a3)) {
+                    return false;
                 }
-                tp2Var.c(command);
-            } else if (b) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
+                wo3.k(new b(this, a3), "installSwanAppRunnable");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
             }
         }
+        return invokeLLL.booleanValue;
     }
 }

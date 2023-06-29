@@ -1,134 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class kp3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean d(int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    public static void a(SwanAppActivity swanAppActivity) {
+        Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                return false;
-            }
-            float f = i;
-            if (f > 100.0f) {
-                float f2 = i2;
-                if (f2 > 100.0f) {
-                    float f3 = f / f2;
-                    return f3 > 2.5f || 1.0f / f3 > 2.5f;
-                }
-                return false;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(65536, null, swanAppActivity) != null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
+            return;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public static BitmapFactory.Options a(Uri uri) {
-        InterceptResult invokeL;
-        InputStream openInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            InputStream inputStream = null;
-            if (appContext == null || uri == null) {
-                return null;
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            try {
-                try {
-                    openInputStream = appContext.getContentResolver().openInputStream(uri);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            }
-            try {
-                BitmapFactory.decodeStream(openInputStream, null, options);
-                ds4.d(openInputStream);
-            } catch (FileNotFoundException e2) {
-                e = e2;
-                inputStream = openInputStream;
-                e.printStackTrace();
-                ds4.d(inputStream);
-                return options;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = openInputStream;
-                ds4.d(inputStream);
-                throw th;
-            }
-            return options;
+        if (b83.D()) {
+            n92.k().s();
         }
-        return (BitmapFactory.Options) invokeL.objValue;
-    }
-
-    public static boolean b(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            BitmapFactory.Options a = a(uri);
-            if (a == null) {
-                return false;
-            }
-            String str = a.outMimeType;
-            if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("image/gif")) {
-                return false;
-            }
-            return true;
+        Bundle bundle = new Bundle();
+        bundle.putAll(intent.getExtras());
+        bundle.putBoolean("should_ignore_launch_time", true);
+        Bundle bundle2 = bundle.getBundle("mExtraData");
+        if (bundle2 == null) {
+            bundle2 = new Bundle();
+            bundle.putBundle("mExtraData", bundle2);
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return b(rp3.p(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
-            BitmapFactory.Options a = a(uri);
-            if (a != null && d(a.outWidth, a.outHeight, b(uri))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return e(rp3.p(str));
-        }
-        return invokeL.booleanValue;
+        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
+        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
+        bc3.K().n(new String[0]);
+        bundle.remove("pms_db_info_onload");
+        bundle.remove("pms_db_info_updated");
+        bundle.remove("mPage");
+        bundle.putString("launch_id", SwanLauncher.h());
+        bc3.K().l(bundle, "update_tag_by_activity_on_relaunch");
     }
 }

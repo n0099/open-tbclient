@@ -1,9 +1,14 @@
 package com.baidu.tieba;
+
+import android.app.Activity;
+import android.content.Intent;
 /* loaded from: classes5.dex */
 public interface ea1 {
-    void onHideLoading();
+    void d();
 
-    void onLoadFailure();
+    boolean f();
 
-    void onLoadSuccess();
+    Activity getActivity();
+
+    Intent getIntent();
 }

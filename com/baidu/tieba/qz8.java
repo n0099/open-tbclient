@@ -1,18 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import tbclient.RecomTopicList;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface qz8 {
-    void O(@NonNull RecomTopicList recomTopicList);
+public class qz8 extends wl1<ThirdPartAliRechargeService> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void V0(a68 a68Var);
+    public qz8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void d1(int i);
-
-    void p(int i, z58 z58Var);
-
-    void p0(int i, a68 a68Var);
-
-    void p1(int i, long j, long j2, int i2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wl1
+    /* renamed from: a */
+    public ThirdPartAliRechargeService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new rz8();
+        }
+        return (ThirdPartAliRechargeService) invokeV.objValue;
+    }
 }

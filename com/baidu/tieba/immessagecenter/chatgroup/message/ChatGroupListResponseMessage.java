@@ -4,11 +4,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ae8;
-import com.baidu.tieba.be8;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.lf8;
+import com.baidu.tieba.mf8;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,6 +22,7 @@ import org.json.JSONObject;
 public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long groupId;
     public List mList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,15 +52,16 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            int e = ug.e(jSONObject.optString("error_code"), -1);
+            int e = vg.e(jSONObject.optString("error_code"), -1);
             if (e == 0) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
+                    this.groupId = optJSONObject.optLong("mid_group_id", 0L);
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
                     if (optJSONObject2 != null) {
-                        be8 be8Var = new be8();
-                        be8Var.f(optJSONObject2);
-                        this.mList.add(be8Var);
+                        mf8 mf8Var = new mf8();
+                        mf8Var.h(optJSONObject2);
+                        this.mList.add(mf8Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
@@ -75,9 +77,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        ae8 ae8Var = new ae8();
-                        ae8Var.c(optJSONObject4);
-                        this.mList.add(ae8Var);
+                        lf8 lf8Var = new lf8();
+                        lf8Var.c(optJSONObject4);
+                        this.mList.add(lf8Var);
                         return;
                     }
                     return;
@@ -96,5 +98,14 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
             return this.mList;
         }
         return (List) invokeV.objValue;
+    }
+
+    public long getGroupId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.groupId;
+        }
+        return invokeV.longValue;
     }
 }

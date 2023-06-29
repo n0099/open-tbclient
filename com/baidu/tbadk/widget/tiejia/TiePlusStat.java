@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.gx5;
-import com.baidu.tieba.ix5;
-import com.baidu.tieba.jw4;
+import com.baidu.tieba.lx5;
+import com.baidu.tieba.mw4;
+import com.baidu.tieba.nx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,8 +23,8 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes4.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-    public static final ix5<Integer> a;
-    public static final ix5<Integer> b;
+    public static final nx5<Integer> a;
+    public static final nx5<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -225,7 +225,7 @@ public final class TiePlusStat {
                         landingType = null;
                         break;
                 }
-                gx5.b(landingType);
+                lx5.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
@@ -441,8 +441,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, jw4.h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, jw4.i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, mw4.h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, mw4.i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -663,8 +663,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        a = new ix5<>(3000, TimeUnit.MILLISECONDS);
-        b = new ix5<>(3000, TimeUnit.MILLISECONDS);
+        a = new nx5<>(3000, TimeUnit.MILLISECONDS);
+        b = new nx5<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -714,7 +714,7 @@ public final class TiePlusStat {
             if (statType == StatType.EXPOSE && !b.a(Integer.valueOf(i))) {
                 return;
             }
-            jw4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
+            mw4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
         }
     }
 

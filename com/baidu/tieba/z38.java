@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+@Service
 /* loaded from: classes8.dex */
-public class z38 {
+public final class z38 implements po5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x38 a;
-    public ArrayList<y38> b;
 
     public z38() {
         Interceptable interceptable = $ic;
@@ -30,32 +29,13 @@ public class z38 {
         }
     }
 
-    public static z38 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.po5
+    public List<LaunchTask> asyncList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            z38 z38Var = new z38();
-            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
-            z38Var.a = x38.a(optJSONObject);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                z38Var.b = new ArrayList<>();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    try {
-                        y38 a = y38.a(optJSONArray.getJSONObject(i));
-                        if (a != null) {
-                            z38Var.b.add(a);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return z38Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CollectionsKt__CollectionsKt.mutableListOf(new y38());
         }
-        return (z38) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 }

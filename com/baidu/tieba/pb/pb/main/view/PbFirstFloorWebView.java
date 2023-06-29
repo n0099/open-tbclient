@@ -14,20 +14,20 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj6;
-import com.baidu.tieba.bj6;
+import com.baidu.tieba.a99;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.em6;
-import com.baidu.tieba.fm6;
-import com.baidu.tieba.im6;
-import com.baidu.tieba.nn6;
-import com.baidu.tieba.p49;
-import com.baidu.tieba.p75;
+import com.baidu.tieba.ew8;
+import com.baidu.tieba.fj6;
+import com.baidu.tieba.gj6;
+import com.baidu.tieba.jm6;
+import com.baidu.tieba.kb9;
+import com.baidu.tieba.km6;
+import com.baidu.tieba.nm6;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.view.PbFirstFloorWebView;
-import com.baidu.tieba.tr8;
-import com.baidu.tieba.z69;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.sn6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,12 +44,12 @@ import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\f\u0018\u0000 )2\b\u0012\u0004\u0012\u00020\u00020\u0001:\u0001)B'\u0012\f\u0010\u0003\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u0004\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tJ\u0010\u0010\u0017\u001a\u00020\u00182\b\u0010\u0019\u001a\u0004\u0018\u00010\u001aJ\b\u0010\u001b\u001a\u00020\u001cH\u0016J\u0006\u0010\u001d\u001a\u00020\u001eJ\u0012\u0010\u001f\u001a\u00020\u001e2\b\u0010 \u001a\u0004\u0018\u00010\u0002H\u0016J\u001e\u0010!\u001a\u00020\u001e2\f\u0010\"\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u00042\u0006\u0010#\u001a\u00020\u001cH\u0016J\u0012\u0010$\u001a\u00020\u001e2\b\u0010%\u001a\u0004\u0018\u00010\u0011H\u0016J\b\u0010&\u001a\u00020\u001eH\u0016J\b\u0010'\u001a\u00020\u001eH\u0016J\b\u0010(\u001a\u00020\u001eH\u0016R\u001b\u0010\n\u001a\u00020\u000b8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\rR\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u000f\u001a\u0004\b\u0012\u0010\u0013R\u0017\u0010\u0003\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0016R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006*"}, d2 = {"Lcom/baidu/tieba/pb/pb/main/view/PbFirstFloorWebView;", "Lcom/baidu/tieba/card/BaseCardView;", "Lcom/baidu/tieba/pb/data/PbFirstFloorWebViewItemData;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "pbFirstFloorWebViewSizeChange", "Lcom/baidu/tieba/pb/pb/main/IPbFirstFloorWebViewChange;", "webViewClickListener", "Lcom/baidu/tieba/browser/listener/IWebViewClickListener;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/pb/pb/main/IPbFirstFloorWebViewChange;Lcom/baidu/tieba/browser/listener/IWebViewClickListener;)V", "mFirstFloorWebView", "Lcom/baidu/tieba/browser/TbWebView;", "getMFirstFloorWebView", "()Lcom/baidu/tieba/browser/TbWebView;", "mFirstFloorWebView$delegate", "Lkotlin/Lazy;", "mFirstFloorWebViewBottom", "Landroid/view/View;", "getMFirstFloorWebViewBottom", "()Landroid/view/View;", "mFirstFloorWebViewBottom$delegate", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "generatorHeadlines4WebView", "Lorg/json/JSONObject;", "headlinesData", "", "getLayout", "", "init", "", "onBindDataToView", "data", "onChangeSkinType", "context", WriteMulitImageActivityConfig.SKIN_TYPE, "onClick", "v", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "Companion", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class PbFirstFloorWebView extends nn6<p49> {
+public final class PbFirstFloorWebView extends sn6<a99> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> i;
-    public final z69 j;
-    public final em6 k;
+    public final kb9 j;
+    public final jm6 k;
     public final Lazy l;
     public final Lazy m;
 
@@ -68,11 +68,11 @@ public final class PbFirstFloorWebView extends nn6<p49> {
         }
     }
 
-    @Override // com.baidu.tieba.nn6
+    @Override // com.baidu.tieba.sn6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0759 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d076c : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -83,18 +83,18 @@ public final class PbFirstFloorWebView extends nn6<p49> {
     }
 
     /* loaded from: classes7.dex */
-    public static final class a implements bj6<Object> {
+    public static final class a implements gj6<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbFirstFloorWebView a;
-        public final /* synthetic */ p49 b;
+        public final /* synthetic */ a99 b;
 
-        public a(PbFirstFloorWebView pbFirstFloorWebView, p49 p49Var) {
+        public a(PbFirstFloorWebView pbFirstFloorWebView, a99 a99Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbFirstFloorWebView, p49Var};
+                Object[] objArr = {pbFirstFloorWebView, a99Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -105,11 +105,11 @@ public final class PbFirstFloorWebView extends nn6<p49> {
                 }
             }
             this.a = pbFirstFloorWebView;
-            this.b = p49Var;
+            this.b = a99Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bj6, java.util.concurrent.Callable
+        @Override // com.baidu.tieba.gj6, java.util.concurrent.Callable
         public JSONObject call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -121,13 +121,13 @@ public final class PbFirstFloorWebView extends nn6<p49> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbFirstFloorWebView(TbPageContext<?> tbPageContext, z69 z69Var, em6 em6Var) {
+    public PbFirstFloorWebView(TbPageContext<?> tbPageContext, kb9 kb9Var, jm6 jm6Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, z69Var, em6Var};
+            Object[] objArr = {tbPageContext, kb9Var, jm6Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -139,8 +139,8 @@ public final class PbFirstFloorWebView extends nn6<p49> {
             }
         }
         this.i = tbPageContext;
-        this.j = z69Var;
-        this.k = em6Var;
+        this.j = kb9Var;
+        this.k = jm6Var;
         this.l = LazyKt__LazyJVMKt.lazy(new Function0<TbWebView>(this) { // from class: com.baidu.tieba.pb.pb.main.view.PbFirstFloorWebView$mFirstFloorWebView$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public final class PbFirstFloorWebView extends nn6<p49> {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (TbWebView) this.this$0.h().findViewById(R.id.obfuscated_res_0x7f090af9);
+                    return (TbWebView) this.this$0.h().findViewById(R.id.obfuscated_res_0x7f090b00);
                 }
                 return (TbWebView) invokeV.objValue;
             }
@@ -212,7 +212,7 @@ public final class PbFirstFloorWebView extends nn6<p49> {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return this.this$0.h().findViewById(R.id.obfuscated_res_0x7f090afa);
+                    return this.this$0.h().findViewById(R.id.obfuscated_res_0x7f090b01);
                 }
                 return (View) invokeV.objValue;
             }
@@ -224,9 +224,9 @@ public final class PbFirstFloorWebView extends nn6<p49> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, view2, motionEvent) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            em6 em6Var = this$0.k;
-            if (em6Var != null) {
-                em6Var.g(view2, motionEvent);
+            jm6 jm6Var = this$0.k;
+            if (jm6Var != null) {
+                jm6Var.g(view2, motionEvent);
             }
         }
     }
@@ -265,14 +265,14 @@ public final class PbFirstFloorWebView extends nn6<p49> {
                 layoutParams.height = (int) t2.doubleValue();
             }
             this$0.s().requestLayout();
-            z69 z69Var = this$0.j;
-            if (z69Var != null) {
+            kb9 kb9Var = this$0.j;
+            if (kb9Var != null) {
                 Intrinsics.checkNotNullExpressionValue(t1, "t1");
                 int intValue = t1.intValue();
                 Intrinsics.checkNotNullExpressionValue(t2, "t2");
-                z69Var.a(intValue, t2.doubleValue());
+                kb9Var.a(intValue, t2.doubleValue());
             }
-            tr8 defaultLog = DefaultLog.getInstance();
+            ew8 defaultLog = DefaultLog.getInstance();
             defaultLog.c("PbFirstFloorWebView", "pb首楼WebView尺寸发生变化，resultCode：" + t1 + ", resultCode: " + t2 + ", url: " + this$0.s().getUrl());
         }
     }
@@ -282,24 +282,24 @@ public final class PbFirstFloorWebView extends nn6<p49> {
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{this$0, webView, webResourceRequest, Integer.valueOf(i), charSequence}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (webResourceRequest.isForMainFrame()) {
-                tr8 defaultLog = DefaultLog.getInstance();
+                ew8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c("PbFirstFloorWebView", "pb首楼WebView,初始化WebView异常回调, url: " + this$0.s().getUrl());
-                z69 z69Var = this$0.j;
-                if (z69Var != null) {
-                    z69Var.b();
+                kb9 kb9Var = this$0.j;
+                if (kb9Var != null) {
+                    kb9Var.b();
                 }
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nn6
+    @Override // com.baidu.tieba.sn6
     /* renamed from: B */
-    public void i(p49 p49Var) {
+    public void i(a99 a99Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, p49Var) == null) && p49Var != null) {
-            String d = p49Var.d();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, a99Var) == null) && a99Var != null) {
+            String d = a99Var.d();
             boolean z2 = false;
             if (d != null && !StringsKt__StringsJVMKt.isBlank(d)) {
                 z = false;
@@ -307,13 +307,13 @@ public final class PbFirstFloorWebView extends nn6<p49> {
                 z = true;
             }
             if (!z) {
-                String c = p49Var.c();
+                String c = a99Var.c();
                 if (!((c == null || StringsKt__StringsJVMKt.isBlank(c)) ? true : true)) {
-                    s().v("pbToutiaoCard", new a(this, p49Var));
+                    s().v("pbToutiaoCard", new a(this, a99Var));
                 }
-                tr8 defaultLog = DefaultLog.getInstance();
-                defaultLog.c("PbFirstFloorWebView", "loadUrl: " + p49Var.d());
-                s().loadUrl(p49Var.d());
+                ew8 defaultLog = DefaultLog.getInstance();
+                defaultLog.c("PbFirstFloorWebView", "loadUrl: " + a99Var.d());
+                s().loadUrl(a99Var.d());
             }
         }
     }
@@ -377,11 +377,11 @@ public final class PbFirstFloorWebView extends nn6<p49> {
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nn6
+    @Override // com.baidu.tieba.sn6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
-            p75 d = p75.d(t());
+            s75 d = s75.d(t());
             d.o(R.string.J_X14);
             d.f(R.color.CAM_X0201);
         }
@@ -391,11 +391,11 @@ public final class PbFirstFloorWebView extends nn6<p49> {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            s().setOnLoadUrlListener(new fm6() { // from class: com.baidu.tieba.za9
+            s().setOnLoadUrlListener(new km6() { // from class: com.baidu.tieba.lf9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.fm6
+                @Override // com.baidu.tieba.km6
                 public final boolean shouldOverrideUrlLoading(WebView webView, String str) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -404,11 +404,11 @@ public final class PbFirstFloorWebView extends nn6<p49> {
             });
             s().setNestedScrollingEnabled(false);
             s().setScrollBarEnabled(1, false);
-            s().setOnSizeChangedListener(new aj6() { // from class: com.baidu.tieba.bb9
+            s().setOnSizeChangedListener(new fj6() { // from class: com.baidu.tieba.nf9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.aj6
+                @Override // com.baidu.tieba.fj6
                 public final void call(Object obj, Object obj2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, obj, obj2) == null) {
@@ -416,11 +416,11 @@ public final class PbFirstFloorWebView extends nn6<p49> {
                     }
                 }
             });
-            s().setOnReceivedErrorListener(new im6() { // from class: com.baidu.tieba.cb9
+            s().setOnReceivedErrorListener(new nm6() { // from class: com.baidu.tieba.of9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.im6
+                @Override // com.baidu.tieba.nm6
                 public final void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLIL(1048576, this, webView, webResourceRequest, i, charSequence) == null) {
@@ -428,11 +428,11 @@ public final class PbFirstFloorWebView extends nn6<p49> {
                     }
                 }
             });
-            s().setOnDoubleClickListener(new em6() { // from class: com.baidu.tieba.ab9
+            s().setOnDoubleClickListener(new jm6() { // from class: com.baidu.tieba.mf9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.em6
+                @Override // com.baidu.tieba.jm6
                 public final void g(View view2, MotionEvent motionEvent) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, motionEvent) == null) {

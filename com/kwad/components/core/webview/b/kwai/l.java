@@ -5,11 +5,11 @@ import com.baidu.android.ext.manage.PopItemMethodConstant;
 import com.kwad.components.core.webview.b.a.p;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class l implements com.kwad.sdk.core.webview.kwai.a {
     public a NG;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(p pVar);
     }

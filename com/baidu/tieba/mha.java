@@ -1,38 +1,41 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.graphics.RectF;
+import android.os.Build;
 import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class mha extends i9 {
+public final class mha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k9 a;
-    public View b;
 
-    public abstract void u();
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mha(k9 k9Var) {
-        super(k9Var);
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static final boolean d(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return view2.isAttachedToWindow();
             }
+            if (view2.getWindowToken() != null) {
+                return true;
+            }
+            return false;
         }
-        this.a = k9Var;
-        u();
+        return invokeL.booleanValue;
+    }
+
+    public static final RectF c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            int[] iArr = {0, 0};
+            view2.getLocationOnScreen(iArr);
+            return new RectF(iArr[0], iArr[1], iArr[0] + view2.getWidth(), iArr[1] + view2.getHeight());
+        }
+        return (RectF) invokeL.objValue;
     }
 }

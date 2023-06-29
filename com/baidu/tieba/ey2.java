@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,118 +15,75 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public final class ey2 {
+public class ey2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean c;
+    public static final ey2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gy2 a;
-    public final List<fy2> b;
-    public Boolean c;
-    public fy2 d;
+    public final AtomicBoolean a;
+    public final List<by2> b;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public gy2 a;
-        public List<fy2> b;
-        public RuntimeException c;
+    }
 
-        public a() {
+    /* loaded from: classes5.dex */
+    public class b extends kx2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ ey2 b;
+
+        public b(ey2 ey2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ey2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ey2Var;
+            this.a = 0;
+        }
+
+        @Override // com.baidu.tieba.kx2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b.d(activity);
                 }
             }
         }
 
-        @SuppressLint({"BDThrowableCheck"})
-        public a a(@NonNull List<fy2> list) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.kx2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                if (list.contains(null)) {
-                    this.c = new IllegalArgumentException("branches contains null value");
-                    if (!ey2.e) {
-                        this.b = null;
-                        return this;
-                    }
-                    throw this.c;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.e(activity);
                 }
-                for (fy2 fy2Var : list) {
-                    if (fy2Var.c() + 0 > 100) {
-                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
-                        if (!ey2.e) {
-                            this.b = null;
-                            return this;
-                        }
-                        throw this.c;
-                    }
-                }
-                this.b = Collections.unmodifiableList(list);
-                return this;
             }
-            return (a) invokeL.objValue;
         }
 
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public ey2 b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.c != null) {
-                    if (!ey2.e) {
-                        return null;
-                    }
-                    throw this.c;
-                } else if (this.a == null) {
-                    this.c = new IllegalStateException("testSwitch == null");
-                    if (!ey2.e) {
-                        return null;
-                    }
-                    throw this.c;
-                } else {
-                    List<fy2> list = this.b;
-                    if (list == null) {
-                        this.c = new IllegalStateException("branches == null");
-                        if (!ey2.e) {
-                            return null;
-                        }
-                        throw this.c;
-                    }
-                    for (fy2 fy2Var : list) {
-                        if (!gy2.c(this.a.f(), fy2Var.e)) {
-                            this.c = new IllegalStateException("branch valueType error");
-                            if (!ey2.e) {
-                                return null;
-                            }
-                            throw this.c;
-                        }
-                    }
-                    return new ey2(this);
-                }
-            }
-            return (ey2) invokeV.objValue;
-        }
-
-        public a c(@NonNull gy2 gy2Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gy2Var)) == null) {
-                this.a = gy2Var;
-                return this;
-            }
-            return (a) invokeL.objValue;
+        public /* synthetic */ b(ey2 ey2Var, a aVar) {
+            this(ey2Var);
         }
     }
 
@@ -139,25 +100,36 @@ public final class ey2 {
                 return;
             }
         }
-        e = js1.a;
+        c = ms1.a;
+        d = new ey2();
     }
 
-    @NonNull
-    public gy2 c() {
+    public static ey2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
+        }
+        return (ey2) invokeV.objValue;
+    }
+
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
+                return true;
+            }
+            return false;
         }
-        return (gy2) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ey2(a aVar) {
+    public ey2() {
+        List<by2> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -167,33 +139,59 @@ public final class ey2 {
                 return;
             }
         }
-        this.c = Boolean.FALSE;
-        this.a = aVar.a;
-        this.b = aVar.b;
+        this.a = new AtomicBoolean(false);
+        kl1<by2> kl1Var = new dy2().a;
+        if (kl1Var == null) {
+            list = null;
+        } else {
+            list = kl1Var.getList();
+        }
+        this.b = list;
     }
 
-    @Nullable
-    public synchronized fy2 b() {
-        InterceptResult invokeV;
+    public void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.c.booleanValue()) {
-                    return this.d;
-                }
-                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
-                this.c = Boolean.TRUE;
-                for (int i = 0; i < this.b.size(); i++) {
-                    fy2 fy2Var = this.b.get(i);
-                    currentTimeMillis -= fy2Var.c();
-                    if (currentTimeMillis < 0) {
-                        this.d = fy2Var;
-                        return fy2Var;
-                    }
-                }
-                return null;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof Application) {
+                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
             }
         }
-        return (fy2) invokeV.objValue;
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (by2 by2Var : this.b) {
+                    if (current == by2Var.b()) {
+                        by2Var.a(true, activity);
+                    }
+                }
+            }
+        }
+    }
+
+    public void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (by2 by2Var : this.b) {
+                    if (current == by2Var.b()) {
+                        by2Var.a(false, activity);
+                    }
+                }
+            }
+        }
     }
 }

@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.kwad.components.core.webview.KsAdWebView;
 import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c extends com.kwad.components.core.webview.kwai.a {
     public long KK;
     public boolean KQ;
     public a gX;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public boolean KN;
         public KsAdWebView.b KR;

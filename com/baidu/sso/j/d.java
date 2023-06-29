@@ -4,10 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.tieba.hq1;
-import com.baidu.tieba.ir1;
-import com.baidu.tieba.up1;
-import com.baidu.tieba.vq1;
+import com.baidu.tieba.kq1;
+import com.baidu.tieba.lr1;
+import com.baidu.tieba.xp1;
+import com.baidu.tieba.yq1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,12 +49,12 @@ public class d extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     if ("sso_action_t_m".equals(this.a)) {
-                        ir1.j(this.b);
-                    } else if (NetworkMonitor.NET_CHANGE_ACTION.equals(this.a) && ir1.h(this.b) != 0 && up1.a(this.b).e(false)) {
-                        hq1.m().h(this.b.getApplicationContext(), false);
+                        lr1.j(this.b);
+                    } else if (NetworkMonitor.NET_CHANGE_ACTION.equals(this.a) && lr1.h(this.b) != 0 && xp1.a(this.b).e(false)) {
+                        kq1.m().h(this.b.getApplicationContext(), false);
                     }
                 } catch (Throwable th) {
-                    ir1.d(th);
+                    lr1.d(th);
                 }
             }
         }
@@ -80,6 +80,6 @@ public class d extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
             return;
         }
-        vq1.b().post(new a(this, intent.getAction(), context));
+        yq1.b().post(new a(this, intent.getAction(), context));
     }
 }

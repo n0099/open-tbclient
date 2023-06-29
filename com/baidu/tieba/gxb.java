@@ -1,79 +1,80 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Point;
-import android.os.Build;
-import android.view.WindowManager;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class gxb {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class gxb<T> extends dtb<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static Point a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ysb<T> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947810712, "Lcom/baidu/tieba/gxb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947810712, "Lcom/baidu/tieba/gxb;");
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public gxb(dtb<? super T> dtbVar) {
+        this(dtbVar, true);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dtbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((dtb) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Point();
     }
 
-    public static Point a(Context context, Point point) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gxb(dtb<? super T> dtbVar, boolean z) {
+        super(dtbVar, z);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, point)) == null) {
-            Point point2 = a;
-            if (point2 != null && point2.x > 0 && point2.y > 0) {
-                if (point == null) {
-                    point = new Point();
-                }
-                Point point3 = a;
-                point.x = point3.x;
-                point.y = point3.y;
-                return point;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dtbVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((dtb) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-            if (point == null) {
-                point = new Point();
-            }
-            if (Build.VERSION.SDK_INT >= 17) {
-                windowManager.getDefaultDisplay().getRealSize(point);
-            } else {
-                windowManager.getDefaultDisplay().getSize(point);
-            }
-            if (point.x > 0 && point.y > 0) {
-                if (a == null) {
-                    a = new Point();
-                }
-                Point point4 = a;
-                point4.x = point.x;
-                point4.y = point.y;
-            }
-            return point;
         }
-        return (Point) invokeLL.objValue;
+        this.e = new fxb(dtbVar);
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ysb
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return a(context, null).x;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.onCompleted();
         }
-        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.ysb
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.e.onError(th);
+        }
+    }
+
+    @Override // com.baidu.tieba.ysb
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.e.onNext(t);
+        }
     }
 }

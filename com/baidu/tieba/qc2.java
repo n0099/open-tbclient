@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.w23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,30 +17,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 /* loaded from: classes7.dex */
-public class qc2 {
+public final class qc2 extends lc2<pc2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer a;
-    public volatile boolean b;
-    public final rc2 c;
+    public final w23 a;
+    public final x23 b;
 
     /* loaded from: classes7.dex */
-    public class a extends TimerTask {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qc2 a;
+        public final /* synthetic */ pc2 a;
+        public final /* synthetic */ qc2 b;
 
-        public a(qc2 qc2Var) {
+        public a(qc2 qc2Var, pc2 pc2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qc2Var};
+                Object[] objArr = {qc2Var, pc2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,41 +47,17 @@ public class qc2 {
                     return;
                 }
             }
-            this.a = qc2Var;
+            this.b = qc2Var;
+            this.a = pc2Var;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
+        @Override // java.lang.Runnable
         public void run() {
+            Bitmap p;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (qc2.d) {
-                    Log.d("RequestMonitor", ">> finish collecting request info.");
-                }
-                this.a.b = false;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (p = tp3.p()) != null) {
+                Message.obtain(this.b, 2, pc2.a(this.a.b, p)).sendToTarget();
             }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final qc2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-494198229, "Lcom/baidu/tieba/qc2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-494198229, "Lcom/baidu/tieba/qc2$b;");
-                    return;
-                }
-            }
-            a = new qc2(null);
         }
     }
 
@@ -95,112 +74,121 @@ public class qc2 {
                 return;
             }
         }
-        d = js1.a;
+        c = ms1.a;
     }
 
-    public qc2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qc2(Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {looper};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = true;
-        this.c = new rc2();
+        this.a = w23.a.a("simple_parser");
+        this.b = (x23) w23.a.a("hsv_parser");
     }
 
-    public static qc2 d() {
-        InterceptResult invokeV;
+    public final boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return TextUtils.equals(wp3.B(), str);
         }
-        return (qc2) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public List<pc2> c() {
-        InterceptResult invokeV;
+    public final void f(pc2 pc2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.a.d();
+        if ((interceptable != null && interceptable.invokeL(1048581, this, pc2Var) != null) || pc2Var == null) {
+            return;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            h();
-            this.c.h();
+        if (c) {
+            Log.d("WhitePageHandler", ">> start to get capture.");
         }
+        wp3.e0(new a(this, pc2Var));
     }
 
-    public final void h() {
-        Timer timer;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lc2
+    /* renamed from: c */
+    public void a(pc2 pc2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (timer = this.a) != null) {
-            timer.cancel();
-            this.a = null;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pc2Var) != null) || pc2Var == null) {
+            return;
         }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = false;
-            h();
-            if (d) {
-                Log.d("RequestMonitor", ">> stop to collect request info.");
+        if (!e(pc2Var.b)) {
+            if (c) {
+                Log.d("WhitePageHandler", ">> stop to capture, page is not top, webViewId =" + pc2Var.b);
+                return;
             }
+            return;
         }
+        f(pc2Var);
     }
 
-    public /* synthetic */ qc2(a aVar) {
-        this();
-    }
-
-    public void e(pc2 pc2Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lc2
+    /* renamed from: d */
+    public void b(pc2 pc2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc2Var) == null) && this.b) {
-            if (d) {
-                Log.d("RequestMonitor", ">> add request " + pc2Var.toString());
-            }
-            this.c.a(pc2Var);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, pc2Var) != null) || pc2Var == null) {
+            return;
         }
-    }
-
-    @NonNull
-    public sc2 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            sc2 g = this.c.g();
-            if (d) {
-                Log.d("RequestMonitor", ">> requestResult: " + g.d() + g.c());
+        if (!e(pc2Var.b)) {
+            if (c) {
+                Log.d("WhitePageHandler", ">> stop to parse capture, page is not top, webViewId = " + pc2Var.b);
+                return;
             }
-            return g;
+            return;
         }
-        return (sc2) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (d) {
-                Log.d("RequestMonitor", ">> start to collect request info. ");
+        Bitmap bitmap = pc2Var.d;
+        kb2 f = l23.f();
+        View B = px2.T().B(pc2Var.b);
+        if (bitmap != null && f != null && B != null) {
+            if (c) {
+                Log.d("WhitePageHandler", ">> start parsing capture");
             }
-            this.c.i();
-            h();
-            Timer timer = new Timer();
-            this.a = timer;
-            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+            Rect b = l23.b(bitmap, f, B);
+            this.a.c(l23.d(f));
+            if (!l23.h() && this.a.a(bitmap, b)) {
+                if (c) {
+                    Log.d("WhitePageHandler", ">> capture is full white screen.");
+                }
+                cd2 cd2Var = new cd2();
+                cd2Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
+                cd2Var.d(pc2Var.b);
+                return;
+            }
+            double d = this.b.d(bitmap, b);
+            cd2 cd2Var2 = new cd2();
+            if (l23.g() && d >= 0.5d) {
+                if (c) {
+                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
+                }
+                cd2Var2.e(SceneType.SCENE_WHITE_SCREEN_L3);
+                cd2Var2.d(pc2Var.b);
+            } else if (d >= 0.7d) {
+                if (c) {
+                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
+                }
+                cd2Var2.e(SceneType.SCENE_WHITE_SCREEN_L2);
+                cd2Var2.d(pc2Var.b);
+            } else {
+                rc2.b().a();
+            }
+        } else if (c) {
+            Log.d("WhitePageHandler", ">> stop to parse capture, capture or fragment or webView is null.");
         }
     }
 }

@@ -1,227 +1,163 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.homepage.topic.topictab.view.CellTopicLinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkItem;
-import tbclient.NewHottopic.PkModule;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class u48 {
+public class u48 extends sn6<m48> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public a d;
-    public a e;
-    public int f;
+    public int i;
+    public CellTopicLinearLayout j;
+    public TextView k;
+    public TbImageView l;
+    public TextView m;
+    public TextView n;
+    public m48 o;
 
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-        public long f;
-        public String g;
-
-        public a(u48 u48Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u48Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    @Override // com.baidu.tieba.sn6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01dd : invokeV.intValue;
     }
 
-    public u48() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u48(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.i = 3;
+        View h = h();
+        this.j = (CellTopicLinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09260b);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09260f);
+        this.l = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09260d);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09260e);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09260c);
+        this.l.setRadius(xi.g(this.c, R.dimen.tbds10));
+        this.l.setConrers(15);
+        this.l.setPlaceHolder(2);
+        this.j.setTopicOnClickListener(this);
+    }
+
+    @Override // com.baidu.tieba.sn6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || i == this.i) {
+            return;
+        }
+        this.i = i;
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+        this.l.setSkinType(this.i);
+        SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0106);
+        SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        m48 m48Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (m48Var = this.o) != null && m48Var.e != null) {
+            TiebaStatic.log(new StatisticItem("c13354").param("tid", this.o.e.tid).param("topic_id", this.o.c).param("obj_locate", this.o.b));
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.b.getPageActivity()).createFromThreadCfg(this.o.e, null, "", 18005, true, false, false);
+            if (this.o.e.getForumData() == null) {
+                createFromThreadCfg.setForumId(String.valueOf(this.o.e.getFid()));
+                createFromThreadCfg.setForumName(this.o.e.getForum_name());
+            } else {
+                createFromThreadCfg.setForumId(this.o.e.getForumData().b());
+                createFromThreadCfg.setForumName(this.o.e.getForumData().d());
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
 
-    public void a(PkModule pkModule) {
-        String str;
-        boolean z;
-        String str2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sn6
+    /* renamed from: r */
+    public void i(m48 m48Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.b = pkModule.pk_id.longValue();
-            this.c = pkModule.user_pk_id.longValue();
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.a = pkModule.agree.pk_num.longValue();
-            a aVar2 = this.d;
-            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1683);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, m48Var) == null) && m48Var != null && m48Var.e != null) {
+            this.o = m48Var;
+            if (m48Var.a) {
+                if (StringUtils.isNull(m48Var.d)) {
+                    this.k.setText(R.string.obfuscated_res_0x7f0f16a9);
+                } else {
+                    this.k.setText(m48Var.d);
+                }
+            }
+            TextView textView = this.k;
+            if (m48Var.a) {
+                i = 0;
             } else {
-                str = pkModule.agree.pk_desc;
+                i = 8;
             }
-            aVar2.b = str;
-            a aVar3 = this.d;
-            PkItem pkItem = pkModule.agree;
-            aVar3.c = pkItem.last_username;
-            aVar3.d = pkItem.pk_icon;
-            boolean z2 = true;
-            if (pkItem.has_clicked.longValue() == 1) {
-                z = true;
+            textView.setVisibility(i);
+            String str = null;
+            if (!ListUtils.isEmpty(m48Var.e.getMedias())) {
+                Iterator<MediaData> it = m48Var.e.getMedias().iterator();
+                while (it.hasNext()) {
+                    MediaData next = it.next();
+                    if (next != null && next.getType() == 3) {
+                        str = next.getPicUrl();
+                        if (StringUtils.isNull(str)) {
+                            str = next.getSmallUrl();
+                        }
+                        if (StringUtils.isNull(str)) {
+                            str = next.getThumbnails_url();
+                        }
+                        if (StringUtils.isNull(str)) {
+                            str = next.getSrc_pic();
+                        }
+                        if (!StringUtils.isNull(str)) {
+                            break;
+                        }
+                    }
+                }
+            }
+            if (!StringHelper.equals(str, this.l.getUrl())) {
+                this.l.H();
+            }
+            this.l.N(str, 10, false);
+            if (StringUtils.isNull(m48Var.e.getTitle())) {
+                this.m.setVisibility(8);
             } else {
-                z = false;
+                this.m.setVisibility(0);
+                this.m.setText(m48Var.e.getTitle());
             }
-            aVar3.e = z;
-            this.d.f = pkModule.agree.pk_index.longValue();
-            this.d.g = pkModule.agree.pk_icon_after;
-            a aVar4 = new a(this);
-            this.e = aVar4;
-            aVar4.a = pkModule.disagree.pk_num.longValue();
-            a aVar5 = this.e;
-            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1682);
-            } else {
-                str2 = pkModule.disagree.pk_desc;
-            }
-            aVar5.b = str2;
-            a aVar6 = this.e;
-            PkItem pkItem2 = pkModule.disagree;
-            aVar6.c = pkItem2.last_username;
-            aVar6.d = pkItem2.pk_icon;
-            if (pkItem2.has_clicked.longValue() != 1) {
-                z2 = false;
-            }
-            aVar6.e = z2;
-            this.e.f = pkModule.disagree.pk_index.longValue();
-            this.e.g = pkModule.disagree.pk_icon_after;
-        }
-    }
-
-    public void b(tbclient.NewTopicList.PkModule pkModule) {
-        String str;
-        boolean z;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.b = pkModule.pk_id.longValue();
-            this.c = pkModule.user_pk_id.longValue();
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.a = pkModule.agree.pk_num.longValue();
-            a aVar2 = this.d;
-            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1683);
-            } else {
-                str = pkModule.agree.pk_desc;
-            }
-            aVar2.b = str;
-            a aVar3 = this.d;
-            tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
-            aVar3.c = pkItem.last_username;
-            aVar3.d = pkItem.pk_icon;
-            boolean z2 = true;
-            if (pkItem.has_clicked.longValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            aVar3.e = z;
-            this.d.f = pkModule.agree.pk_index.longValue();
-            this.d.g = pkModule.agree.pk_icon_after;
-            a aVar4 = new a(this);
-            this.e = aVar4;
-            aVar4.a = pkModule.disagree.pk_num.longValue();
-            a aVar5 = this.e;
-            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1682);
-            } else {
-                str2 = pkModule.disagree.pk_desc;
-            }
-            aVar5.b = str2;
-            a aVar6 = this.e;
-            tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
-            aVar6.c = pkItem2.last_username;
-            aVar6.d = pkItem2.pk_icon;
-            if (pkItem2.has_clicked.longValue() != 1) {
-                z2 = false;
-            }
-            aVar6.e = z2;
-            this.e.f = pkModule.disagree.pk_index.longValue();
-            this.e.g = pkModule.disagree.pk_icon_after;
-        }
-    }
-
-    public void c(tbclient.PkModule pkModule) {
-        String str;
-        boolean z;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.b = pkModule.pk_id.longValue();
-            this.c = pkModule.user_pk_id.longValue();
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.a = pkModule.agree.pk_num.longValue();
-            a aVar2 = this.d;
-            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1683);
-            } else {
-                str = pkModule.agree.pk_desc;
-            }
-            aVar2.b = str;
-            a aVar3 = this.d;
-            tbclient.PkItem pkItem = pkModule.agree;
-            aVar3.c = pkItem.last_username;
-            aVar3.d = pkItem.pk_icon;
-            boolean z2 = true;
-            if (pkItem.has_clicked.longValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            aVar3.e = z;
-            this.d.f = pkModule.agree.pk_index.longValue();
-            this.d.g = pkModule.agree.pk_icon_after;
-            a aVar4 = new a(this);
-            this.e = aVar4;
-            aVar4.a = pkModule.disagree.pk_num.longValue();
-            a aVar5 = this.e;
-            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1682);
-            } else {
-                str2 = pkModule.disagree.pk_desc;
-            }
-            aVar5.b = str2;
-            a aVar6 = this.e;
-            tbclient.PkItem pkItem2 = pkModule.disagree;
-            aVar6.c = pkItem2.last_username;
-            aVar6.d = pkItem2.pk_icon;
-            if (pkItem2.has_clicked.longValue() != 1) {
-                z2 = false;
-            }
-            aVar6.e = z2;
-            this.e.f = pkModule.disagree.pk_index.longValue();
-            this.e.g = pkModule.disagree.pk_icon_after;
+            this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f16a1), Integer.valueOf(m48Var.e.getReply_num())));
         }
     }
 }

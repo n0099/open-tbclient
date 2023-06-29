@@ -6,9 +6,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.nx5;
-import com.baidu.tieba.rw5;
-import com.baidu.tieba.rx5;
+import com.baidu.tieba.sx5;
+import com.baidu.tieba.ww5;
+import com.baidu.tieba.wx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class PersonalChatUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends nx5<Boolean> {
+    public static class a extends sx5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -45,7 +45,7 @@ public class PersonalChatUtil {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.nx5
+        @Override // com.baidu.tieba.sx5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class PersonalChatUtil {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements rw5<Boolean> {
+    public static class b implements ww5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -92,7 +92,7 @@ public class PersonalChatUtil {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rw5
+        @Override // com.baidu.tieba.ww5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class PersonalChatUtil {
     public static void a(Context context, long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j), str, str2, str3}) == null) {
-            rx5.b(new a(j), new b(context, j, str, str2, str3));
+            wx5.b(new a(j), new b(context, j, str, str2, str3));
         }
     }
 

@@ -1,55 +1,130 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.pb.main.PbPageReadLocalRequestMessage;
-import com.baidu.tieba.pb.pb.main.PbPageReadLocalResponseMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
-public class v89 implements CustomMessageTask.CustomRunnable<Object> {
+public class v89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v89() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public static String a(TbRichTextData tbRichTextData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof PbPageReadLocalRequestMessage)) {
-                PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-                byte[] a = d79.b().a(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
-                PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
-                pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
-                pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
-                pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
-                try {
-                    pbPageReadLocalResponseMessage.decodeInBackGround(2004003, a);
-                } catch (Exception e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
+            if (tbRichTextData == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder(150);
+            TbRichTextImageInfo c0 = tbRichTextData.c0();
+            if (c0 == null) {
+                return null;
+            }
+            if (!StringUtils.isNull(c0.U())) {
+                return c0.U();
+            }
+            if (c0.getHeight() * c0.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (c0.getHeight() * c0.getWidth()));
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (c0.getWidth() * sqrt)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) (c0.getHeight() * sqrt)));
+            } else {
+                double width = c0.getWidth() / c0.getHeight();
+                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (width * sqrt2)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) sqrt2));
+            }
+            sb.append("&src=");
+            sb.append(wi.getUrlEncode(c0.getSrc()));
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(n4a n4aVar, AbsPbActivity.e eVar) {
+        ImageUrlData imageUrlData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, n4aVar, eVar) != null) || n4aVar == null || n4aVar.e0() == null || n4aVar.e0().W() == null || eVar == null || eVar.a == null || eVar.b == null || n4aVar.e0().W().size() == 0) {
+            return;
+        }
+        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
+        if (StringUtils.isNull(str)) {
+            return;
+        }
+        eVar.a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
+        eVar.b = new ConcurrentHashMap<>();
+        Iterator<TbRichTextData> it = n4aVar.e0().W().iterator();
+        while (it.hasNext()) {
+            TbRichTextData next = it.next();
+            if (next != null && next.getType() == 8) {
+                String a = a(next);
+                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
+                    eVar.a.add(a);
+                    eVar.b.put(a, imageUrlData);
                 }
-                return pbPageReadLocalResponseMessage;
+            }
+        }
+        eVar.j = ListUtils.getPosition(eVar.a, str);
+    }
+
+    public static n4a c(u89 u89Var, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{u89Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (z) {
+                if (u89Var != null && u89Var.F() != null && u89Var.F().size() > 0) {
+                    n4a n4aVar = u89Var.F().get(0);
+                    if (n4aVar.I() != 1) {
+                        return d(u89Var);
+                    }
+                    return n4aVar;
+                }
+                return null;
+            }
+            return d(u89Var);
+        }
+        return (n4a) invokeCommon.objValue;
+    }
+
+    public static n4a d(u89 u89Var) {
+        InterceptResult invokeL;
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, u89Var)) == null) {
+            if (u89Var != null && u89Var.N() != null && u89Var.N().getAuthor() != null) {
+                n4a n4aVar = new n4a();
+                MetaData author = u89Var.N().getAuthor();
+                String userId = author.getUserId();
+                HashMap<String, MetaData> userMap = u89Var.N().getUserMap();
+                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
+                    author = metaData;
+                }
+                n4aVar.S0(1);
+                n4aVar.Y0(u89Var.N().getFirstPostId());
+                n4aVar.p1(u89Var.N().getTitle());
+                n4aVar.o1(u89Var.N().getCreateTime());
+                n4aVar.N0(author);
+                return n4aVar;
             }
             return null;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (n4a) invokeL.objValue;
     }
 }

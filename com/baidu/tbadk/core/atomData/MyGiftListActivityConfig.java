@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,7 +41,7 @@ public class MyGiftListActivityConfig extends IntentConfig {
         }
         if (uri != null) {
             getIntent().putExtra("id", uri.getQueryParameter("id"));
-            getIntent().putExtra("sex", ug.e(uri.getQueryParameter("sex"), 0));
+            getIntent().putExtra("sex", vg.e(uri.getQueryParameter("sex"), 0));
             getIntent().putExtra("user_name", uri.getQueryParameter("user_name"));
             getIntent().putExtra("name_show", uri.getQueryParameter("name_show"));
         }

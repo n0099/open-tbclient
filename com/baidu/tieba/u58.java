@@ -1,163 +1,125 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.widget.ExpandableListView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class u58 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<u58> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity<?> a;
-    public SparseArray<String> b;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
 
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ u58 b;
-
-        public a(u58 u58Var, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948162097, "Lcom/baidu/tieba/u58;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u58Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = u58Var;
-            this.a = shareItem;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                mi.a(this.a.x);
-                wi.Q(this.b.a.getActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948162097, "Lcom/baidu/tieba/u58;");
+                return;
             }
         }
+        e = new ArrayList<>(5);
     }
 
-    public u58(BaseActivity<?> baseActivity) {
+    public u58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        this.b = null;
-        this.a = baseActivity;
-    }
-
-    public final void b(ShareItem shareItem, String str, long j, String str2) {
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, str, Long.valueOf(j), str2}) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (!StringUtils.isNull(str) && !StringUtil.NULL_STRING.equals(str)) {
-                if (str.length() > 20) {
-                    sb.append(str.substring(0, 20));
-                    sb.append("...");
-                } else {
-                    sb.append(str);
-                }
-                sb.append(StringUtils.lineSeparator);
-            }
-            if (j > 0) {
-                sb.append(this.a.getActivity().getString(R.string.topic_temperature));
-                sb.append(StringHelper.numFormatOver10000(j));
-            }
-            shareItem.J0 = sb.toString();
-            if (StringUtils.isNull(str2)) {
-                parse = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
-            } else {
-                parse = Uri.parse(str2);
-            }
-            shareItem.K0 = parse;
         }
     }
 
-    public final SparseArray<String> c() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                SparseArray<String> sparseArray = new SparseArray<>(8);
-                this.b = sparseArray;
-                sparseArray.put(2, "topic_wx_timeline");
-                this.b.put(3, "topic_wx_friend");
-                this.b.put(4, "topic_qq_zone");
-                this.b.put(5, "topic_tencent_weibo");
-                this.b.put(6, "topic_sina_weibo");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d == 1) {
+                return ExpandableListView.getPackedPositionForChild(this.a, this.b);
             }
-            return this.b;
+            return ExpandableListView.getPackedPositionForGroup(this.a);
         }
-        return (SparseArray) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public void d(String str, String str2, String str3, String str4, String str5, String str6, boolean z, long j) {
-        Uri parse;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            if (TextUtils.isEmpty(str) && z) {
-                BaseActivity<?> baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getActivity().getString(R.string.no_hot_topic_data));
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (e) {
+                if (e.size() < 5) {
+                    e.add(this);
+                }
             }
-            if (StringUtils.isNull(str3)) {
-                str3 = TbConfig.TIEBA_ADDRESS + "mo/q/hotMessage?topic_id=" + str + "&topic_name=" + URLEncoder.encode(str2);
-            }
-            if (StringUtils.isNull(str4)) {
-                parse = null;
-            } else {
-                parse = Uri.parse(str4);
-            }
-            ShareItem shareItem = new ShareItem();
-            shareItem.v = str2;
-            shareItem.w = str5;
-            shareItem.x = str3;
-            shareItem.b = true;
-            shareItem.u = str;
-            shareItem.z = parse;
-            shareItem.i = true;
-            b(shareItem, str5, j, str6);
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a.getActivity(), shareItem, true, c());
-            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
-            shareDialogConfig.setIsCopyLink(true);
-            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = 0;
+            this.d = 0;
+        }
+    }
+
+    public static u58 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (e) {
+                if (e.size() > 0) {
+                    u58 remove = e.remove(0);
+                    remove.f();
+                    return remove;
+                }
+                return new u58();
+            }
+        }
+        return (u58) invokeV.objValue;
+    }
+
+    public static u58 c(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i, i2, i3, i4)) == null) {
+            u58 b = b();
+            b.d = i;
+            b.a = i2;
+            b.b = i3;
+            b.c = i4;
+            return b;
+        }
+        return (u58) invokeIIII.objValue;
+    }
+
+    public static u58 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return c(2, i, 0, 0);
+        }
+        return (u58) invokeI.objValue;
     }
 }

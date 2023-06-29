@@ -1,475 +1,253 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.download.statistics.ApkStaticNetService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.Surface;
+import com.baidu.tieba.tza;
+import com.baidu.tieba.wza;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class sza {
+public class sza extends tza {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
-    public float g;
-    public List<uza> h;
-    public List<String> i;
-    public Map<String, String> j;
-    public Map<String, tza> k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948170095, "Lcom/baidu/tieba/sza;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948170095, "Lcom/baidu/tieba/sza;");
-                return;
-            }
-        }
-        l = AppConfig.isDebug();
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.equals("1", this.b)) {
-                this.b = "0";
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Map<String, String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public List<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TextUtils.equals("0", this.a)) {
-                this.a = "1";
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Map<String, tza> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public float f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            float f = this.g;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.g = 20.0f;
-            }
-            return this.g;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            float f = this.d;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.d = 1.0f;
-            }
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public List<uza> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public float i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            float f = this.e;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.e = 20.0f;
-            }
-            return this.e;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            float f = this.f;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.f = 7.0f;
-            }
-            return this.f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            float f = this.c;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.c = 100.0f;
-            }
-            return this.c;
-        }
-        return invokeV.floatValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return TextUtils.equals("1", a());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return TextUtils.equals("1", d());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a = "1";
-            this.b = "0";
-            this.c = 100.0f;
-            this.d = 1.0f;
-            this.e = 20.0f;
-            this.f = 7.0f;
-            this.g = 20.0f;
-        }
-    }
-
-    public sza() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sza(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new ArrayList();
-        this.i = new ArrayList();
-        this.j = new HashMap();
-        this.k = new HashMap();
     }
 
-    public void A(float f) {
+    /* JADX WARN: Removed duplicated region for block: B:49:0x015c A[Catch: all -> 0x0282, TryCatch #0 {all -> 0x0282, blocks: (B:27:0x00e3, B:29:0x00e9, B:31:0x00f2, B:47:0x0156, B:49:0x015c, B:51:0x0162, B:52:0x016f, B:55:0x0175, B:57:0x0178, B:59:0x0192, B:61:0x0198, B:63:0x01a6, B:65:0x01ac, B:69:0x01b9, B:76:0x01c9, B:78:0x01d0, B:79:0x01d9, B:81:0x01f7, B:83:0x0201, B:86:0x020f, B:89:0x021c, B:33:0x010d, B:35:0x0115, B:39:0x0126, B:44:0x0143, B:42:0x0131, B:93:0x0240, B:95:0x0246, B:96:0x024e), top: B:108:0x00e3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0209  */
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public tza.b a(String str, boolean z, wza.f fVar, wza.f fVar2, long j, long j2, long j3) throws Exception {
+        InterceptResult invokeCommon;
+        MediaFormat mediaFormat;
+        ByteBuffer[] byteBufferArr;
+        long j4;
+        int dequeueOutputBuffer;
+        ByteBuffer[] byteBufferArr2;
+        byte[] bArr;
+        byte[] bArr2;
+        byte[] bArr3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.c = f;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void r(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, map) == null) {
-            this.j = map;
-        }
-    }
-
-    public void s(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            this.i = list;
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void u(Map<String, tza> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, map) == null) {
-            this.k = map;
-        }
-    }
-
-    public void v(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
-            this.g = f;
-        }
-    }
-
-    public void w(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
-            this.d = f;
-        }
-    }
-
-    public void x(List<uza> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
-            this.h = list;
-        }
-    }
-
-    public void y(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
-            this.e = f;
-        }
-    }
-
-    public void z(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048602, this, f) == null) {
-            this.f = f;
-        }
-    }
-
-    public void n(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
-            if (jSONObject != null && jSONObject.length() != 0) {
-                if (l) {
-                    Log.d("YaLogConfigData", "yalog config params is: " + jSONObject.toString());
-                }
-                String optString = jSONObject.optString("switch");
-                this.a = optString;
-                if (!TextUtils.equals("0", optString)) {
-                    this.a = "1";
-                }
-                String optString2 = jSONObject.optString(DownloadStatisticConstants.UBC_VALUE_CLEAR);
-                this.b = optString2;
-                if (!TextUtils.equals("1", optString2)) {
-                    this.b = "0";
-                }
-                float optDouble = (float) jSONObject.optDouble(ApkStaticNetService.STATIC_DOWNLOAD_SIZE);
-                this.c = optDouble;
-                if (optDouble <= 0.0f || Float.isNaN(optDouble)) {
-                    this.c = 100.0f;
-                }
-                float optDouble2 = (float) jSONObject.optDouble("singlesize");
-                this.d = optDouble2;
-                if (optDouble2 <= 0.0f || Float.isNaN(optDouble2)) {
-                    this.d = 1.0f;
-                }
-                float optDouble3 = (float) jSONObject.optDouble("spacesize");
-                this.e = optDouble3;
-                if (optDouble3 <= 0.0f || Float.isNaN(optDouble3)) {
-                    this.e = 20.0f;
-                }
-                float optDouble4 = (float) jSONObject.optDouble("spacetimeout");
-                this.f = optDouble4;
-                if (optDouble4 <= 0.0f || Float.isNaN(optDouble4)) {
-                    this.f = 7.0f;
-                }
-                float optDouble5 = (float) jSONObject.optDouble("idsize");
-                this.g = optDouble5;
-                if (optDouble5 <= 0.0f || Float.isNaN(optDouble5)) {
-                    this.g = 20.0f;
-                }
-                this.i = new ArrayList();
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("set");
-                if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                    Iterator<String> keys = optJSONObject2.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next);
-                        if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("data")) != null && optJSONObject.length() != 0) {
-                            boolean z = !TextUtils.equals("0", optJSONObject.optString("switch"));
-                            float optDouble6 = (float) optJSONObject.optDouble("size");
-                            if (optDouble6 <= 0.0f || Float.isNaN(optDouble6)) {
-                                optDouble6 = this.e;
-                            }
-                            float optDouble7 = (float) optJSONObject.optDouble("timeout");
-                            if (optDouble7 <= 0.0f || Float.isNaN(optDouble7)) {
-                                optDouble7 = this.f;
-                            }
-                            uza uzaVar = new uza(next, z, optDouble6, optDouble7);
-                            if (uzaVar.e(z, this.e, this.f)) {
-                                this.i.add(next);
-                            } else {
-                                this.h.add(uzaVar);
-                            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), fVar, fVar2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            wza.f fVar3 = fVar2;
+            long j5 = j2;
+            if (!TextUtils.isEmpty(str) && fVar != null && fVar3 != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                String str2 = this.a;
+                MediaExtractor mediaExtractor = new MediaExtractor();
+                mediaExtractor.setDataSource(str2);
+                int i = 0;
+                while (true) {
+                    if (i < mediaExtractor.getTrackCount()) {
+                        mediaFormat = mediaExtractor.getTrackFormat(i);
+                        if (mediaFormat.getString("mime").startsWith("audio/")) {
+                            mediaExtractor.selectTrack(i);
+                            break;
                         }
+                        i++;
+                    } else {
+                        mediaFormat = null;
+                        break;
                     }
                 }
-            } else if (l) {
-                Log.d("YaLogConfigData", "ConfigData is null");
-            }
-        }
-    }
-
-    public void o(JSONObject jSONObject, boolean z) {
-        tza tzaVar;
-        long j;
-        long j2;
-        tza tzaVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048591, this, jSONObject, z) == null) {
-            if (jSONObject != null && jSONObject.length() != 0) {
-                if (l) {
-                    Log.d("YaLogConfigData", "yalog id content is: " + jSONObject.toString());
+                h1b.c("AndroidAudioDecoder", "startTime:" + j + ",endTime:" + j5);
+                if (j > 0) {
+                    mediaExtractor.seekTo(j * 1000, 0);
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject("set");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                        if (optJSONObject2 != null) {
-                            long optLong = optJSONObject2.optLong("version");
-                            if (this.j != null && this.j.containsKey(next)) {
-                                j2 = Long.parseLong(this.j.get(next));
-                            } else {
-                                if (this.k != null && this.k.containsKey(next) && (tzaVar2 = this.k.get(next)) != null) {
-                                    j2 = tzaVar2.c();
-                                }
-                                j2 = 0;
-                            }
-                            if (!z || j2 < optLong) {
-                                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
-                                if (optJSONObject3 != null && optJSONObject3.length() != 0 && optJSONObject3.has("yalogswitch")) {
-                                    boolean z2 = !TextUtils.equals(optJSONObject3.optString("yalogswitch"), "0");
-                                    float optDouble = (float) optJSONObject3.optDouble("yalogsize");
-                                    if (optDouble <= 0.0f || Float.isNaN(optDouble)) {
-                                        optDouble = f();
+                if (mediaFormat == null) {
+                    h1b.b("not a valid file with audio track..");
+                    mediaExtractor.release();
+                    return null;
+                }
+                h1b.b("mediaFormat " + mediaFormat);
+                tza.b bVar = new tza.b();
+                int i2 = fVar3.b;
+                int i3 = fVar3.a;
+                int i4 = fVar3.c;
+                bVar.a = str;
+                FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
+                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
+                createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
+                createDecoderByType.start();
+                ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
+                ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
+                double d = mediaFormat.getLong("durationUs");
+                MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                boolean z2 = false;
+                boolean z3 = false;
+                ByteBuffer[] byteBufferArr3 = outputBuffers;
+                while (!z2) {
+                    long j6 = currentTimeMillis;
+                    if (!z3) {
+                        try {
+                            int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
+                            if (dequeueInputBuffer >= 0) {
+                                int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], 0);
+                                if (readSampleData < 0) {
+                                    h1b.b("saw input EOS.");
+                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                    byteBufferArr = inputBuffers;
+                                    j4 = 5000;
+                                } else {
+                                    long sampleTime = mediaExtractor.getSampleTime();
+                                    if (j3 != 0) {
+                                        byteBufferArr = inputBuffers;
+                                        mediaExtractor.seekTo(sampleTime + j3, 0);
+                                    } else {
+                                        byteBufferArr = inputBuffers;
                                     }
-                                    tza tzaVar3 = new tza(next, optLong, z2, optDouble);
-                                    if (tzaVar3.d(z2, f())) {
-                                        Map<String, String> map = this.j;
-                                        if (map != null) {
-                                            map.put(next, String.valueOf(optLong));
-                                        }
-                                        Map<String, tza> map2 = this.k;
-                                        if (map2 != null && map2.containsKey(next)) {
-                                            this.k.remove(next);
+                                    if (j5 != -1 && sampleTime + j3 >= j5 * 1000) {
+                                        createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                        j4 = 5000;
+                                    }
+                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime, 0);
+                                    mediaExtractor.advance();
+                                    j4 = 5000;
+                                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                                    if (dequeueOutputBuffer >= 0) {
+                                        if ((bufferInfo.flags & 2) != 0) {
+                                            h1b.b("audio encoder: codec config buffer");
+                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            inputBuffers = byteBufferArr;
+                                            currentTimeMillis = j6;
+                                        } else {
+                                            if (bufferInfo.size != 0 && dequeueOutputBuffer >= 0 && byteBufferArr3.length > dequeueOutputBuffer) {
+                                                ByteBuffer byteBuffer = byteBufferArr3[dequeueOutputBuffer];
+                                                byteBuffer.position(bufferInfo.offset);
+                                                byteBufferArr2 = byteBufferArr3;
+                                                byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
+                                                byte[] bArr4 = new byte[bufferInfo.size];
+                                                byteBuffer.get(bArr4);
+                                                if (!z) {
+                                                    if (fVar2.a()) {
+                                                        bArr2 = wza.c(fVar3.c / 8, fVar.c / 8, bArr4);
+                                                    } else {
+                                                        bArr2 = null;
+                                                    }
+                                                    if (fVar2.b()) {
+                                                        int i5 = fVar3.b;
+                                                        int i6 = fVar.b;
+                                                        int i7 = fVar.c / 8;
+                                                        if (bArr2 == null) {
+                                                            bArr3 = bArr4;
+                                                        } else {
+                                                            bArr3 = bArr2;
+                                                        }
+                                                        bArr = wza.d(i5, i6, i7, bArr3);
+                                                    } else {
+                                                        bArr = null;
+                                                    }
+                                                } else {
+                                                    bArr = null;
+                                                    bArr2 = null;
+                                                }
+                                                if (bArr == null) {
+                                                    if (bArr2 == null) {
+                                                        bArr = bArr4;
+                                                    } else {
+                                                        bArr = bArr2;
+                                                    }
+                                                }
+                                                fileOutputStream.write(bArr);
+                                                if (this.b != null) {
+                                                    this.b.a(bArr4, bufferInfo.presentationTimeUs / d);
+                                                }
+                                                h1b.b(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                            } else {
+                                                byteBufferArr2 = byteBufferArr3;
+                                            }
+                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            if ((bufferInfo.flags & 4) != 0) {
+                                                h1b.b("saw output EOS.");
+                                                z2 = true;
+                                            }
                                         }
                                     } else {
-                                        Map<String, tza> map3 = this.k;
-                                        if (map3 != null) {
-                                            map3.put(next, tzaVar3);
-                                        }
-                                        Map<String, String> map4 = this.j;
-                                        if (map4 != null && map4.containsKey(next)) {
-                                            this.j.remove(next);
+                                        byteBufferArr2 = byteBufferArr3;
+                                        if (dequeueOutputBuffer == -3) {
+                                            byteBufferArr3 = createDecoderByType.getOutputBuffers();
+                                            h1b.b("output buffers have changed.");
+                                            fVar3 = fVar2;
+                                            inputBuffers = byteBufferArr;
+                                            j5 = j2;
+                                            currentTimeMillis = j6;
+                                        } else if (dequeueOutputBuffer == -2) {
+                                            h1b.b("output format has changed to " + createDecoderByType.getOutputFormat());
                                         }
                                     }
+                                    byteBufferArr3 = byteBufferArr2;
+                                    fVar3 = fVar2;
+                                    inputBuffers = byteBufferArr;
+                                    j5 = j2;
+                                    currentTimeMillis = j6;
                                 }
+                                z3 = true;
+                                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                                if (dequeueOutputBuffer >= 0) {
+                                }
+                                byteBufferArr3 = byteBufferArr2;
+                                fVar3 = fVar2;
+                                inputBuffers = byteBufferArr;
+                                j5 = j2;
+                                currentTimeMillis = j6;
                             }
+                        } finally {
+                            fileOutputStream.close();
+                            createDecoderByType.stop();
+                            createDecoderByType.release();
+                            mediaExtractor.release();
                         }
                     }
-                }
-                JSONObject optJSONObject4 = jSONObject.optJSONObject("del");
-                if (optJSONObject4 != null && optJSONObject4.length() > 0) {
-                    Iterator<String> keys2 = optJSONObject4.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        long optLong2 = optJSONObject4.optLong(next2, 0L);
-                        Map<String, String> map5 = this.j;
-                        if (map5 != null && !TextUtils.isEmpty(map5.get(next2))) {
-                            try {
-                                j = Long.parseLong(this.j.get(next2));
-                            } catch (NumberFormatException unused) {
-                                j = 0;
-                            }
-                            if (!z || j < optLong2) {
-                                this.j.remove(next2);
-                            }
-                        } else {
-                            Map<String, tza> map6 = this.k;
-                            if (map6 != null && map6.containsKey(next2) && (tzaVar = this.k.get(next2)) != null) {
-                                long c = tzaVar.c();
-                                if (!z || c < optLong2) {
-                                    this.k.remove(next2);
-                                }
-                            }
-                        }
+                    byteBufferArr = inputBuffers;
+                    j4 = 5000;
+                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                    if (dequeueOutputBuffer >= 0) {
                     }
+                    byteBufferArr3 = byteBufferArr2;
+                    fVar3 = fVar2;
+                    inputBuffers = byteBufferArr;
+                    j5 = j2;
+                    currentTimeMillis = j6;
                 }
-            } else if (l) {
-                Log.d("YaLogConfigData", "yalog id content is null");
+                long j7 = currentTimeMillis;
+                if (this.b != null) {
+                    this.b.a(null, 1.0d);
+                }
+                h1b.b("decode " + str + " cost " + (System.currentTimeMillis() - j7) + " milliseconds !");
+                return bVar;
             }
+            return null;
         }
+        return (tza.b) invokeCommon.objValue;
     }
 }

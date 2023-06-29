@@ -1,60 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardAppView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.h87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class y87 extends y77<CardAppView, i47> {
+public final class y87 implements h87.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final w87 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y87(String str) {
-        super(str);
+    public y87(w87 statStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {statStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        this.a = statStrategy;
     }
 
-    @Override // com.baidu.tieba.y77, com.baidu.tieba.n87
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.h87.b
+    public void a(t87<?> data) {
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            v97.j(a);
-            return a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n87
-    /* renamed from: e */
-    public void b(@NonNull CardAppView cardAppView, @NonNull i47 i47Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAppView, i47Var) == null) {
-            cardAppView.a(i47Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            e87 e87Var = (e87) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            i57 i57Var = new i57();
+            i57 i57Var2 = e87Var.b;
+            if (i57Var2 != null) {
+                i57Var = i57Var2;
+            }
+            if (e87Var.b != null) {
+                for (Map.Entry<String, String> entry : this.a.a(i57Var).entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
+                }
+            }
+            e67 e67Var = e87Var.a;
+            if (e67Var != null && (a = e67Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 }

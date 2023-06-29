@@ -1,46 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yc4 extends ad4 {
+public class yc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xc4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
 
-    public yc4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ad4
-    public JSONObject a() {
+    public static synchronized xc4 a() {
         InterceptResult invokeV;
+        xc4 xc4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("key", this.b);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (yc4.class) {
+                if (a == null) {
+                    a = new xc4();
+                }
+                xc4Var = a;
             }
-            return jSONObject;
+            return xc4Var;
         }
-        return (JSONObject) invokeV.objValue;
+        return (xc4) invokeV.objValue;
     }
 }

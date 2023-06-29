@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes6.dex */
-public class nd implements od {
+/* loaded from: classes7.dex */
+public class nd implements pd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Float a;
+    public Double a;
 
-    public nd(float f) {
+    public nd(double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
+            Object[] objArr = {Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +27,15 @@ public class nd implements od {
                 return;
             }
         }
-        this.a = Float.valueOf(f);
+        this.a = Double.valueOf(d);
     }
 
-    @Override // com.baidu.tieba.od
-    public Object a(ee eeVar) {
+    @Override // com.baidu.tieba.pd
+    public Object a(fe feVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eeVar)) == null) {
-            Class<?> a = eeVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, feVar)) == null) {
+            Class<?> a = feVar.a();
             if (a != Byte.class && a != Byte.TYPE) {
                 if (a != Short.class && a != Short.TYPE) {
                     if (a != Integer.class && a != Integer.TYPE) {
@@ -53,7 +53,7 @@ public class nd implements od {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return oi.e(String.valueOf(this.a), 0);
+                                                    return pi.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                     return null;

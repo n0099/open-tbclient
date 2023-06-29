@@ -1,25 +1,77 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.text.SpannableStringBuilder;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.tieba.l72;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public abstract class k72<V extends TextView, M extends l72> extends m72<V, M> {
+public abstract class k72<V extends SimpleDraweeView, M extends l72> extends p72<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-706608090, "Lcom/baidu/tieba/k72$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-706608090, "Lcom/baidu/tieba/k72$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[PathType.values().length];
+            a = iArr;
+            try {
+                iArr[PathType.BD_FILE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[PathType.RELATIVE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PathType.NETWORK.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[PathType.ERROR.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k72(@Nullable Context context, @NonNull M m) {
@@ -34,7 +86,7 @@ public abstract class k72<V extends TextView, M extends l72> extends m72<V, M> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (n72) objArr2[1]);
+                super((Context) objArr2[0], (q72) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,176 +94,126 @@ public abstract class k72<V extends TextView, M extends l72> extends m72<V, M> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m72
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull r82 r82Var) {
+    public static Uri W(@NonNull String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, r82Var) == null) {
-            super.C(v, m, r82Var);
-            if (r82Var.a(6)) {
-                U(v, m);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            PathType s = kj3.s(str);
+            cc3 M = cc3.M();
+            if (M != null) {
+                str2 = M.b;
+                str3 = M.k0();
+            } else {
+                str2 = null;
+                str3 = null;
             }
-            if (r82Var.a(4)) {
-                V(v, m);
+            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            int i = a.a[s.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return Uri.parse(str);
+                }
+                File file = new File(str);
+                if (file.exists()) {
+                    return Uri.fromFile(file);
+                }
+                String L = kj3.L(str, M, str3);
+                if (TextUtils.isEmpty(L)) {
+                    return null;
+                }
+                return Uri.fromFile(new File(L));
+            }
+            String M2 = kj3.M(str, str2);
+            if (TextUtils.isEmpty(M2)) {
+                return null;
+            }
+            return Uri.fromFile(new File(M2));
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p72
+    /* renamed from: T */
+    public void O(@NonNull V v, @NonNull M m, @NonNull u82 u82Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, u82Var) == null) {
+            super.C(v, m, u82Var);
+            if (u82Var.a(9)) {
+                U(v, m);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m72, com.baidu.tieba.o72
+    @Override // com.baidu.tieba.p72, com.baidu.tieba.r72
     @NonNull
     /* renamed from: S */
-    public r82 k(@NonNull M m, @NonNull M m2) {
+    public u82 k(@NonNull M m, @NonNull M m2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            r82 k = super.k(m, m2);
+            u82 k = super.k(m, m2);
             if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(6);
+                k.b(9);
             }
             return k;
         }
-        return (r82) invokeLL.objValue;
+        return (u82) invokeLL.objValue;
     }
 
-    public void X(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            Y(v, m, 48);
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.text.SpannableStringBuilder */
-    /* JADX WARN: Multi-variable type inference failed */
     public void U(@NonNull V v, @NonNull M m) {
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            if (o72.h) {
-                Log.d("Component-TextView", "renderText");
-            }
-            if (!TextUtils.isEmpty(m.t) && m.x >= 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            String str = m.t;
-            if (z) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(new j72(m.x), 0, str.length(), 33);
-                str = spannableStringBuilder;
-            }
-            v.setIncludeFontPadding(!z);
-            v.setText(str);
+            V(v, m, null);
         }
     }
 
-    public final void V(@NonNull V v, @NonNull M m) {
+    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
+        Uri W;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048582, this, v, m) != null) || m.j == null) {
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) != null) || m.j == null) {
             return;
         }
-        if (o72.h) {
-            Log.d("Component-TextView", "renderTextStyle");
+        if (r72.h) {
+            Log.d("Component-SimpleDrawee", "renderImageStyle");
         }
-        if (m.v) {
-            v.setTextColor(m.u);
-        }
-        float f = (float) m.w;
-        if (f > 0.0f) {
-            v.setTextSize(1, f);
-        }
-        X(v, m);
-        W(v, m);
-        String str = m.B;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == -1039592053 && str.equals("nowrap")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c != 0) {
-            if (c == 1) {
-                v.setSingleLine(true);
-            }
-        } else {
-            v.setSingleLine(false);
-        }
-        if ("ellipsis".equals(m.C)) {
-            v.setEllipsize(TextUtils.TruncateAt.END);
-        }
-    }
-
-    public void W(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, v, m) != null) || m.j == null) {
+        String str = m.t;
+        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
             return;
         }
-        if (o72.h) {
-            Log.d("Component-TextView", "renderTextStyleFontWeight");
+        c92.i("Component-SimpleDrawee", "Image Uri:" + W);
+        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
+        if (baseControllerListener != null) {
+            oldController.setControllerListener(baseControllerListener);
         }
-        String str = m.A;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == 3029637 && str.equals("bold")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
+        HashMap hashMap = new HashMap();
+        String g0 = wi2.U().g0();
+        if (!TextUtils.isEmpty(g0)) {
+            hashMap.put("User-Agent", g0);
         }
-        if (c != 0) {
-            if (c != 1) {
-                z82.o("Component-TextView", "invalid font weight : " + m.A);
-                v.setTypeface(Typeface.SANS_SERIF, 0);
-                return;
-            }
-            v.setTypeface(Typeface.SANS_SERIF, 1);
-            return;
+        String b = jp3.b();
+        if (!TextUtils.isEmpty(b) && jp3.c(W.toString())) {
+            hashMap.put("Referer", b);
         }
-        v.setTypeface(Typeface.SANS_SERIF, 0);
-    }
-
-    public final void Y(@NonNull V v, @NonNull M m, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048585, this, v, m, i) != null) || m.j == null) {
-            return;
-        }
-        if (o72.h) {
-            Log.d("Component-TextView", "renderTextStyleTextAlign");
-        }
-        String str = m.z;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1364013995) {
-            if (hashCode != 3317767) {
-                if (hashCode == 108511772 && str.equals("right")) {
-                    c = 1;
-                }
-            } else if (str.equals("left")) {
-                c = 0;
-            }
-        } else if (str.equals("center")) {
-            c = 2;
-        }
-        if (c != 0) {
-            if (c != 1) {
-                if (c != 2) {
-                    z82.o("Component-TextView", "invalid text align: " + m.z);
-                } else {
-                    i2 = i | 1;
-                }
-            } else {
-                i2 = 8388613 | i;
-            }
-            v.setGravity(i2);
-        }
-        i2 = i | GravityCompat.START;
-        v.setGravity(i2);
+        ww1 C = jv2.C();
+        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
+        C.e(newBuilderWithSource, hashMap);
+        oldController.setImageRequest(newBuilderWithSource.build());
+        AbstractDraweeController build = oldController.build();
+        RoundingParams roundingParams = new RoundingParams();
+        roundingParams.setCornersRadius(m.n);
+        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
+        build2.setRoundingParams(roundingParams);
+        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        v.setHierarchy(build2);
+        v.setController(build);
     }
 }

@@ -1,37 +1,152 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
 public class c28 {
     public static /* synthetic */ Interceptable $ic;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static int a(int i, @NonNull List<wn> list, @NonNull String str) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, list, str)) == null) {
-            if (!ListUtils.isEmpty(list) && i >= 0 && i < list.size()) {
-                while (i < list.size()) {
-                    i++;
-                    if (i >= list.size()) {
-                        return list.size();
-                    }
-                    if (list.get(i) instanceof to6) {
-                        to6 to6Var = (to6) list.get(i);
-                        if (to6Var.getThreadData() == null || (!TextUtils.isEmpty(to6Var.getThreadData().getTid()) && str.equals(to6Var.getThreadData().getTid()))) {
-                        }
-                    }
-                    return i;
+    /* loaded from: classes5.dex */
+    public static class a extends sx5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ThreadInfo a;
+
+        public a(ThreadInfo threadInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return -1;
+            this.a = threadInfo;
         }
-        return invokeILL.intValue;
+
+        @Override // com.baidu.tieba.sx5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                String[] split = r95.p().w("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
+                if (split.length != 2) {
+                    return null;
+                }
+                String str = split[0];
+                long g = vg.g(split[1], 0L);
+                if (g != 0 && !StringUtils.isNull(str)) {
+                    r95.p().J("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + g);
+                }
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    public c28() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void d(long j, int i, List<ThreadInfo> list, List<xn> list2) {
+        ThreadInfo threadInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), list, list2}) == null) && j == b && !ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+            if (i == 0) {
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    if (list2.get(i2) instanceof b28) {
+                        list2.remove(i2);
+                        return;
+                    }
+                }
+                return;
+            }
+            int i3 = i + 1;
+            if (ListUtils.getCount(list) > i3 && (threadInfo = list.get(i3)) != null && threadInfo.tid.longValue() != 0) {
+                b = threadInfo.tid.longValue();
+                wx5.b(new a(threadInfo), null);
+            }
+        }
+    }
+
+    public void a(List<xn> list) {
+        yo6 yo6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || !TbadkCoreApplication.isLogin()) {
+            return;
+        }
+        if (this.a == null) {
+            r95 p = r95.p();
+            this.a = p.w("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+        }
+        if (StringUtils.isNull(this.a)) {
+            return;
+        }
+        String[] split = this.a.split(",");
+        if (split.length != 2) {
+            return;
+        }
+        String str = split[0];
+        long g = vg.g(split[1], 0L);
+        if (g != 0 && !StringUtils.isNull(str) && !ListUtils.isEmpty(list)) {
+            for (int i = 0; i < list.size(); i++) {
+                if ((list.get(i) instanceof yo6) && (yo6Var = (yo6) list.get(i)) != null && !StringUtils.isNull(yo6Var.g) && yo6Var.g.equals(str)) {
+                    b28 b28Var = new b28();
+                    b28Var.a = g;
+                    b28Var.b = false;
+                    list.add(i, b28Var);
+                    return;
+                }
+            }
+        }
+    }
+
+    public void b(ThreadInfo threadInfo) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) == null) && s18.a && threadInfo != null && threadInfo != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
+            this.a = null;
+            b = threadInfo.tid.longValue();
+            r95.p().J("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+        }
+    }
+
+    public void c(boolean z, List<ThreadInfo> list) {
+        ThreadInfo threadInfo;
+        Long l;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) == null) && TbadkCoreApplication.isLogin() && !ListUtils.isEmpty(list) && z && (threadInfo = (ThreadInfo) ListUtils.getItem(list, 0)) != null && (l = threadInfo.tid) != null && l.longValue() != 0) {
+            this.a = null;
+            b = threadInfo.tid.longValue();
+            r95.p().J("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+        }
     }
 }

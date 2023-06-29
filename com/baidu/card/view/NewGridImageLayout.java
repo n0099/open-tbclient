@@ -30,16 +30,16 @@ import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fn;
-import com.baidu.tieba.i15;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.lo6;
-import com.baidu.tieba.o05;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.py;
-import com.baidu.tieba.r16;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.l15;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.qo6;
+import com.baidu.tieba.qy;
+import com.baidu.tieba.r05;
+import com.baidu.tieba.s75;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.w16;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class NewGridImageLayout extends LinearLayout implements py<i15>, View.OnClickListener {
+public class NewGridImageLayout extends LinearLayout implements qy<l15>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -60,22 +60,22 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
     public VoteView e;
     public GridImageLayout f;
     public Context g;
-    public i15 h;
+    public l15 h;
     public String i;
     public boolean j;
     public boolean k;
-    public lo6<i15> l;
+    public qo6<l15> l;
     public boolean m;
     public boolean n;
     public LinkedList<MediaData> o;
-    public r16 p;
+    public w16 p;
     public View.OnClickListener q;
     public boolean r;
     public int s;
 
-    public void setPreloadSizeReadyCallback(fn fnVar) {
+    public void setPreloadSizeReadyCallback(gn gnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, fnVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, gnVar) == null) {
         }
     }
 
@@ -105,7 +105,7 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            lo6<i15> subClickListener;
+            qo6<l15> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -140,7 +140,7 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            lo6<i15> subClickListener;
+            qo6<l15> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("1");
@@ -192,15 +192,15 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i15 a;
+        public final /* synthetic */ l15 a;
         public final /* synthetic */ NewGridImageLayout b;
 
-        public d(NewGridImageLayout newGridImageLayout, i15 i15Var) {
+        public d(NewGridImageLayout newGridImageLayout, l15 l15Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newGridImageLayout, i15Var};
+                Object[] objArr = {newGridImageLayout, l15Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -211,7 +211,7 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
                 }
             }
             this.b = newGridImageLayout;
-            this.a = i15Var;
+            this.a = l15Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -335,12 +335,12 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
                 return;
             }
         }
-        wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-        wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds31);
-        wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds7);
-        wi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+        xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+        xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds31);
+        xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds7);
+        xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -427,7 +427,7 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
                 return;
             }
         }
-        this.a = wi.l(TbadkCoreApplication.getInst()) - ((wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + wi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.a = xi.l(TbadkCoreApplication.getInst()) - ((xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.j = true;
         this.k = true;
         this.m = false;
@@ -520,10 +520,10 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
         }
     }
 
-    public void setSubClickListener(lo6<i15> lo6Var) {
+    public void setSubClickListener(qo6<l15> qo6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, lo6Var) == null) {
-            this.l = lo6Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, qo6Var) == null) {
+            this.l = qo6Var;
         }
     }
 
@@ -568,8 +568,8 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, threadData)) == null) {
-            i15 i15Var = this.h;
-            if (i15Var == null || i15Var.getThreadData() == null) {
+            l15 l15Var = this.h;
+            if (l15Var == null || l15Var.getThreadData() == null) {
                 return true;
             }
             if (this.h.getThreadData().getTid() != null && !this.h.getThreadData().getTid().equals(threadData.getTid())) {
@@ -586,13 +586,13 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
         return invokeL.booleanValue;
     }
 
-    public lo6<i15> getSubClickListener() {
+    public qo6<l15> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.l;
         }
-        return (lo6) invokeV.objValue;
+        return (qo6) invokeV.objValue;
     }
 
     public final void k(ThreadData threadData) {
@@ -614,7 +614,7 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
             } else {
                 z = false;
             }
-            if (o05.c().g() && ListUtils.getCount(medias) != 0) {
+            if (r05.c().g() && ListUtils.getCount(medias) != 0) {
                 this.o.clear();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -678,10 +678,10 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
             gridImageLayout.setSupportGifPlay(false);
             this.f.setCornerStyle(1);
             this.f.setAfterClickListener(new b(this));
-            this.p = new r16();
-            int i = wi.s(this.g)[0];
-            this.p.J = (i - (wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2)) - (wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005) * 2);
-            this.p.K = wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+            this.p = new w16();
+            int i = xi.s(this.g)[0];
+            this.p.J = (i - (xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2)) - (xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005) * 2);
+            this.p.K = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
             this.f.setLayoutStrategy(this.p);
             this.o = new LinkedList<>();
             this.f.setOnImageClickListener(new c(this));
@@ -724,19 +724,19 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.py
+    @Override // com.baidu.tieba.qy
     /* renamed from: q */
-    public void a(i15 i15Var) {
+    public void a(l15 l15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, i15Var) == null) && i15Var != null && i15Var.getThreadData() != null) {
-            ThreadData threadData = i15Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048585, this, l15Var) == null) && l15Var != null && l15Var.getThreadData() != null) {
+            ThreadData threadData = l15Var.getThreadData();
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null && this.m) {
                 s(this.f, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                p75 d2 = p75.d(this.c);
+                s75 d2 = s75.d(this.c);
                 d2.D(R.string.F_X01);
                 d2.C(R.dimen.T_X07);
-                p75.d(this.b).C(R.dimen.T_X07);
+                s75.d(this.b).C(R.dimen.T_X07);
                 this.b.setVisibility(8);
                 if (!originalThreadInfo.m && !threadData.shouldShowBlockedState()) {
                     SpannableString c2 = originalThreadInfo.c();
@@ -749,7 +749,7 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
                     SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
                 }
                 if (!originalThreadInfo.m && p(originalThreadInfo.G)) {
-                    d dVar = new d(this, i15Var);
+                    d dVar = new d(this, l15Var);
                     this.e.setOnClickListener(dVar);
                     this.e.setOnItemClickListener(dVar);
                     this.e.setIsTransmit(true);
@@ -761,9 +761,9 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
             } else {
                 s(this.f, UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                 this.e.setVisibility(8);
-                this.c.setTextSize(0, wi.g(this.g, R.dimen.T_X06));
-                this.c.setLineSpacing(wi.g(this.g, R.dimen.M_T_X002), 1.0f);
-                this.b.setTextSize(0, wi.g(this.g, R.dimen.T_X06));
+                this.c.setTextSize(0, xi.g(this.g, R.dimen.T_X06));
+                this.c.setLineSpacing(xi.g(this.g, R.dimen.M_T_X002), 1.0f);
+                this.b.setTextSize(0, xi.g(this.g, R.dimen.T_X06));
                 ThreadCardUtils.setTitle(this.b, threadData, this.r);
                 SpannableString abstractText = threadData.getAbstractText();
                 ThreadCardUtils.setAbstract(this.c, this.b, abstractText, threadData, this.a, this.m, this.r);
@@ -775,8 +775,8 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
                 k(threadData);
             }
             setVoiceData(threadData);
-            this.h = i15Var;
-            if (i15Var.getThreadData().originalThreadData == null) {
+            this.h = l15Var;
+            if (l15Var.getThreadData().originalThreadData == null) {
                 return;
             }
             if (threadData.isShareThread) {
@@ -815,11 +815,11 @@ public class NewGridImageLayout extends LinearLayout implements py<i15>, View.On
         }
     }
 
-    public void setObjectPool(lg<ImageView> lgVar, lg<GifView> lgVar2) {
+    public void setObjectPool(mg<ImageView> mgVar, mg<GifView> mgVar2) {
         GridImageLayout gridImageLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048595, this, lgVar, lgVar2) == null) && (gridImageLayout = this.f) != null) {
-            gridImageLayout.setObjectPool(lgVar, lgVar2);
+        if ((interceptable == null || interceptable.invokeLL(1048595, this, mgVar, mgVar2) == null) && (gridImageLayout = this.f) != null) {
+            gridImageLayout.setObjectPool(mgVar, mgVar2);
         }
     }
 }

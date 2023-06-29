@@ -12,14 +12,14 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nea;
+import com.baidu.tieba.dja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class CaptureRecordButton extends FrameLayout implements nea {
+public class CaptureRecordButton extends FrameLayout implements dja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -140,7 +140,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         }
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -148,7 +148,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         }
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -156,15 +156,15 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         }
     }
 
-    @Override // com.baidu.tieba.nea
-    public void setOnProgressListener(nea.a aVar) {
+    @Override // com.baidu.tieba.dja
+    public void setOnProgressListener(dja.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, aVar) == null) {
             this.d.setOnProgressListener(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
@@ -172,7 +172,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         }
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
@@ -180,7 +180,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         }
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -188,7 +188,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         }
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -245,7 +245,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -264,7 +264,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -284,7 +284,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -292,7 +292,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         }
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -300,7 +300,7 @@ public class CaptureRecordButton extends FrameLayout implements nea {
         }
     }
 
-    @Override // com.baidu.tieba.nea
+    @Override // com.baidu.tieba.dja
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
@@ -311,13 +311,13 @@ public class CaptureRecordButton extends FrameLayout implements nea {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04fb, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091de1);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091de4);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04fc, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091e3c);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091e3f);
             this.c = findViewById;
             findViewById.setAlpha(0.0f);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091de2);
-            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091de5);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091e3d);
+            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091e40);
             AnimatorSet animatorSet = new AnimatorSet();
             this.e = animatorSet;
             animatorSet.play(ObjectAnimator.ofFloat(this.a, Key.SCALE_X, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.a, Key.SCALE_Y, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.b, Key.SCALE_X, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, Key.SCALE_Y, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.66f));

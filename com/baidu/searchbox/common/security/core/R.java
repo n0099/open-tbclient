@@ -9,20 +9,20 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class id {
-        public static final int safe_dialog_content = 0x7f091efb;
-        public static final int safe_dialog_sub_content = 0x7f091efc;
+        public static final int safe_dialog_content = 0x7f091f5a;
+        public static final int safe_dialog_sub_content = 0x7f091f5b;
     }
 
     /* loaded from: classes3.dex */
     public static final class layout {
-        public static final int view_safe_dialog = 0x7f0d09bf;
+        public static final int view_safe_dialog = 0x7f0d09d4;
     }
 
     /* loaded from: classes3.dex */
     public static final class string {
-        public static final int op_js_location_name = 0x7f0f0eb2;
-        public static final int sec_tip_btn_allow = 0x7f0f12e0;
-        public static final int sec_tip_btn_refuse = 0x7f0f12e1;
-        public static final int sec_tip_title = 0x7f0f12e2;
+        public static final int op_js_location_name = 0x7f0f0ecf;
+        public static final int sec_tip_btn_allow = 0x7f0f12fd;
+        public static final int sec_tip_btn_refuse = 0x7f0f12fe;
+        public static final int sec_tip_title = 0x7f0f12ff;
     }
 }

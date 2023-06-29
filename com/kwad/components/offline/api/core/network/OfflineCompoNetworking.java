@@ -10,7 +10,7 @@ import com.kwad.components.offline.api.core.network.model.BaseOfflineCompoResult
 import com.kwad.sdk.core.network.c;
 import com.kwad.sdk.core.network.m;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class OfflineCompoNetworking<R extends IOfflineCompoRequest, T extends BaseOfflineCompoResultData> implements IOfflineCompoNetworking<R, T> {
     public m<RequestAdapter<R>, ResultDataAdapter<T>> mNetworking = new NetworkingAdapter(this);
 

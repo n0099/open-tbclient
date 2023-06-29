@@ -9,12 +9,12 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.dt5;
-import com.baidu.tieba.g05;
-import com.baidu.tieba.ml;
+import com.baidu.tieba.ew8;
+import com.baidu.tieba.it5;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.nl;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.tr8;
-import com.baidu.tieba.wk;
+import com.baidu.tieba.xk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public class FlutterPluginStatic {
                 return;
             }
         }
-        if (g05.c().contains("-Flutter")) {
+        if (j05.c().contains("-Flutter")) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921674) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -72,15 +72,15 @@ public class FlutterPluginStatic {
                     if ((interceptable2 != null && interceptable2.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
                         return;
                     }
-                    String e = ml.f().e();
+                    String e = nl.f().e();
                     String versionName = TbadkCoreApplication.getInst().getVersionName();
-                    tr8 a = wk.a();
+                    ew8 a = xk.a();
                     a.c(FlutterPluginManager.TAG, "开始安装Flutter插件 配置的Flutter版本：" + e + " 客户端当前版本" + versionName + " data" + customResponsedMessage.getData());
                     if (!TextUtils.isEmpty(versionName) && versionName.equals(e)) {
                         if (customResponsedMessage.getData() instanceof IntentConfig) {
                             FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                        } else if (customResponsedMessage.getData() instanceof dt5) {
-                            FlutterPluginManager.getInstance().init((dt5) customResponsedMessage.getData());
+                        } else if (customResponsedMessage.getData() instanceof it5) {
+                            FlutterPluginManager.getInstance().init((it5) customResponsedMessage.getData());
                         } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
                             FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                         } else {
@@ -113,7 +113,7 @@ public class FlutterPluginStatic {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
                         if (customMessage != null && customMessage.getData() != null) {
-                            wk.a().c(FlutterPluginManager.TAG, "Flutter插件-打开个人中心");
+                            xk.a().c(FlutterPluginManager.TAG, "Flutter插件-打开个人中心");
                             FlutterPluginManager.getInstance().initFromPersonInfo(customMessage.getData());
                         }
                         return null;

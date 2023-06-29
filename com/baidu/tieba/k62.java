@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class k62 extends f52 {
+public class k62 extends i52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p62 a;
+    public Paint.Join a;
 
     public k62() {
         Interceptable interceptable = $ic;
@@ -27,20 +29,27 @@ public class k62 extends f52 {
         }
     }
 
-    @Override // com.baidu.tieba.f52
-    public void a(g52 g52Var, Canvas canvas) {
-        p62 p62Var;
+    @Override // com.baidu.tieba.i52
+    public void a(j52 j52Var, Canvas canvas) {
+        Paint.Join join;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) && (p62Var = this.a) != null && p62Var.a()) {
-            g52Var.i = this.a;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) && (join = this.a) != null) {
+            j52Var.c.setStrokeJoin(join);
         }
     }
 
-    @Override // com.baidu.tieba.f52
+    @Override // com.baidu.tieba.i52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            this.a = new p62(jSONArray);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            String optString = jSONArray.optString(0);
+            if (TextUtils.equals(optString, "bevel")) {
+                this.a = Paint.Join.BEVEL;
+            } else if (TextUtils.equals(optString, "round")) {
+                this.a = Paint.Join.ROUND;
+            } else if (TextUtils.equals(optString, "miter")) {
+                this.a = Paint.Join.MITER;
+            }
         }
     }
 }

@@ -1,106 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.HashMap;
-import java.util.Map;
+@Autowired
 /* loaded from: classes7.dex */
-public abstract class nj4<T> implements qj4<T> {
+public class nj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qj4
-    public void a(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qj4
-    public void c(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qj4
-    public void e(T t, tk4 tk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, tk4Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qj4
-    public void f(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-        }
-    }
-
-    public int g() {
+    @Inject
+    public static no4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 100;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return mv2.a();
         }
-        return invokeV.intValue;
+        return (no4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qj4
-    public void i(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qj4
-    public void j(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-        }
-    }
-
-    public nj4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.qj4
-    public Map<String, Object> k() {
+    @Inject
+    public static lj4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("queue_priority", Integer.valueOf(g()));
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return rv2.a();
         }
-        return (Map) invokeV.objValue;
+        return (lj4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qj4
-    public tk4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeCommon;
+    @Inject
+    public static uk4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
-            return new tk4(2302, "业务层默认不处理下载流");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return tv2.a();
         }
-        return (tk4) invokeCommon.objValue;
+        return (uk4) invokeV.objValue;
     }
 }

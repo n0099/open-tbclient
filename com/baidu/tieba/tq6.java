@@ -1,26 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class tq6 implements r87 {
+/* loaded from: classes8.dex */
+public class tq6 implements r67<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.r87
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c12351" : (String) invokeV.objValue;
-    }
 
     public tq6() {
         Interceptable interceptable = $ic;
@@ -36,29 +25,18 @@ public final class tq6 implements r87 {
         }
     }
 
-    @Override // com.baidu.tieba.r87
-    public Map<String, String> a(d57 businessInfo) {
+    @Override // com.baidu.tieba.r67
+    public t87<?> b(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", yq6.a.a(businessInfo));
-            String str = a.get("user_id");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof ThreadData)) {
+                return null;
             }
-            hashMap.put("obj_id", str);
-            hashMap.put("obj_param1", "1");
-            String str3 = a.get("live_type");
-            if (str3 != null) {
-                str2 = str3;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str2);
-            return hashMap;
+            h67 h67Var = new h67();
+            h67Var.a = obj;
+            return new u87(new r37(h67Var), "fake_wall");
         }
-        return (Map) invokeL.objValue;
+        return (t87) invokeL.objValue;
     }
 }

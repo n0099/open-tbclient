@@ -7,7 +7,7 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import com.baidu.tieba.cd1;
+import com.baidu.tieba.fd1;
 /* loaded from: classes3.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
     public Path a;
@@ -62,7 +62,7 @@ public class RoundCornerFrameLayout extends FrameLayout {
     }
 
     public final void d(Context context, AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cd1.RoundCornerRelativeLayout);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, fd1.RoundCornerRelativeLayout);
         int dimension = (int) obtainStyledAttributes.getDimension(0, 0.0f);
         if (dimension > 0) {
             setCornerRadius(dimension);

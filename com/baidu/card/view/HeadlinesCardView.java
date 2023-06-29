@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg5;
-import com.baidu.tieba.g45;
-import com.baidu.tieba.i15;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.py;
-import com.baidu.tieba.rx4;
+import com.baidu.tieba.a00;
+import com.baidu.tieba.fg5;
+import com.baidu.tieba.j45;
+import com.baidu.tieba.l15;
+import com.baidu.tieba.qy;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.ux4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.zz;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,13 +36,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesCardView extends FrameLayout implements py<i15> {
+public class HeadlinesCardView extends FrameLayout implements qy<l15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
     public static final int p;
     public transient /* synthetic */ FieldHolder $fh;
-    public i15 a;
+    public l15 a;
     public TbImageView b;
     public TbImageView c;
     public ImageView d;
@@ -52,7 +52,7 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
     public TbImageAutoSwitch h;
     public TextView i;
     public HeadlinesItemInfoView j;
-    public zz k;
+    public a00 k;
     public List<String> l;
     public TbImageAutoSwitch.b m;
 
@@ -128,15 +128,15 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g45 a;
+        public final /* synthetic */ j45 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public b(HeadlinesCardView headlinesCardView, g45 g45Var) {
+        public b(HeadlinesCardView headlinesCardView, j45 j45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, g45Var};
+                Object[] objArr = {headlinesCardView, j45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -147,7 +147,7 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = g45Var;
+            this.a = j45Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -155,7 +155,7 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!TextUtils.isEmpty(this.a.a())) {
-                    rx4.v(view2.getContext(), null, this.a.a(), true);
+                    ux4.v(view2.getContext(), null, this.a.a(), true);
                 }
                 if (this.b.k != null) {
                     this.b.k.a();
@@ -168,15 +168,15 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g45 a;
+        public final /* synthetic */ j45 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public c(HeadlinesCardView headlinesCardView, g45 g45Var) {
+        public c(HeadlinesCardView headlinesCardView, j45 j45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, g45Var};
+                Object[] objArr = {headlinesCardView, j45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -187,7 +187,7 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = g45Var;
+            this.a = j45Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -195,7 +195,7 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!TextUtils.isEmpty(this.a.i())) {
-                    rx4.v(view2.getContext(), null, this.a.i(), true);
+                    ux4.v(view2.getContext(), null, this.a.i(), true);
                 }
                 if (this.b.k != null) {
                     this.b.k.b();
@@ -232,7 +232,7 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                bg5.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
+                fg5.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
             }
         }
     }
@@ -325,16 +325,16 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            p75.d(this.i).x(R.color.CAM_X0109);
+            s75.d(this.i).x(R.color.CAM_X0109);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_card_toutiao_yaoqing16, R.color.CAM_X0305, null);
-            p75.d(this.e).x(R.color.CAM_X0305);
+            s75.d(this.e).x(R.color.CAM_X0305);
         }
     }
 
-    public void setOnStatListener(zz zzVar) {
+    public void setOnStatListener(a00 a00Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zzVar) == null) {
-            this.k = zzVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, a00Var) == null) {
+            this.k = a00Var;
         }
     }
 
@@ -373,14 +373,14 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.py
+    @Override // com.baidu.tieba.qy
     /* renamed from: h */
-    public void a(i15 i15Var) {
+    public void a(l15 l15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i15Var) == null) {
-            this.a = i15Var;
-            if (i15Var != null && i15Var.getThreadData() != null && i15Var.getThreadData().getTaskInfoData() != null && i15Var.getThreadData().getTaskInfoData().f() != null) {
-                g45 f = i15Var.getThreadData().getTaskInfoData().f();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l15Var) == null) {
+            this.a = l15Var;
+            if (l15Var != null && l15Var.getThreadData() != null && l15Var.getThreadData().getTaskInfoData() != null && l15Var.getThreadData().getTaskInfoData().f() != null) {
+                j45 f = l15Var.getThreadData().getTaskInfoData().f();
                 this.g.c(f);
                 this.l.clear();
                 this.l.addAll(f.e());
@@ -392,9 +392,9 @@ public class HeadlinesCardView extends FrameLayout implements py<i15> {
                 this.j.setOnBannerClickListener(new b(this, f));
                 this.j.setOnButtonClickListener(new c(this, f));
                 this.f.setOnClickListener(new d(this));
-                zz zzVar = this.k;
-                if (zzVar != null) {
-                    zzVar.onShow();
+                a00 a00Var = this.k;
+                if (a00Var != null) {
+                    a00Var.onShow();
                 }
             }
         }

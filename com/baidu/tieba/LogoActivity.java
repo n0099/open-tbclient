@@ -24,10 +24,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qr6 a;
-    public j46 b;
+    public vr6 a;
+    public o46 b;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.xr5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.cs5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,9 +76,9 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
-            j46 j46Var = this.b;
-            if (j46Var != null) {
-                j46Var.f();
+            o46 o46Var = this.b;
+            if (o46Var != null) {
+                o46Var.f();
             }
         }
     }
@@ -91,9 +91,9 @@ public class LogoActivity extends BaseFragmentActivity {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
             }
             super.onResume();
-            j46 j46Var = this.b;
-            if (j46Var != null) {
-                j46Var.g();
+            o46 o46Var = this.b;
+            if (o46Var != null) {
+                o46Var.g();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3003);
             }
         }
@@ -104,9 +104,9 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            j46 j46Var = this.b;
-            if (j46Var != null) {
-                j46Var.c(configuration);
+            o46 o46Var = this.b;
+            if (o46Var != null) {
+                o46Var.c(configuration);
             }
         }
     }
@@ -131,19 +131,19 @@ public class LogoActivity extends BaseFragmentActivity {
             if (Build.VERSION.SDK_INT > 16) {
                 getWindow().getDecorView().setSystemUiVisibility(1028);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d05df);
+            setContentView(R.layout.obfuscated_res_0x7f0d05e0);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
-                j46 j46Var = new j46(this);
-                this.b = j46Var;
-                j46Var.d(bundle);
+                o46 o46Var = new o46(this);
+                this.b = o46Var;
+                o46Var.d(bundle);
                 return;
             }
             if (getIntent() != null) {
                 TbadkCoreApplication.setIntent((Intent) getIntent().getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
             }
-            qr6 qr6Var = new qr6(this);
-            this.a = qr6Var;
-            qr6Var.k();
+            vr6 vr6Var = new vr6(this);
+            this.a = vr6Var;
+            vr6Var.k();
         }
     }
 
@@ -155,11 +155,11 @@ public class LogoActivity extends BaseFragmentActivity {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3004);
             }
             super.onDestroy();
-            j46 j46Var = this.b;
-            if (j46Var != null) {
-                j46Var.e();
+            o46 o46Var = this.b;
+            if (o46Var != null) {
+                o46Var.e();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-                d85.l();
+                g85.l();
             }
         }
     }

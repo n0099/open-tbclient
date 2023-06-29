@@ -9,7 +9,7 @@ public final class i extends com.kwad.components.ad.e.kwai.a implements View.OnC
     public DetailVideoView mDetailVideoView;
 
     private void et() {
-        com.kwad.components.core.c.a.a.a(new a.C0631a(this.mDetailVideoView.getContext()).L(this.jL.mAdTemplate).b(this.jL.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.ad.e.a.i.2
+        com.kwad.components.core.c.a.a.a(new a.C0641a(this.mDetailVideoView.getContext()).L(this.jL.mAdTemplate).b(this.jL.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.ad.e.a.i.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 com.kwad.sdk.core.report.a.a(i.this.jL.mAdTemplate, 2, i.this.jL.jK.getTouchCoords());
@@ -46,7 +46,7 @@ public final class i extends com.kwad.components.ad.e.kwai.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913fd);
+        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09140d);
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter

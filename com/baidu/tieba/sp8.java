@@ -1,139 +1,61 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class sp8 {
+public final class sp8 extends qp8<yp8> implements t87<sp8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
 
-    public static boolean h(Object obj) {
-        InterceptResult invokeL;
+    public sp8 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? obj == null : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (sp8) invokeV.objValue;
     }
 
-    public static <T> void a(List<T> list, T t) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sp8(bq8<yp8> data, String templateName) {
+        super(data);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, list, t) != null) || h(list)) {
-            return;
-        }
-        try {
-            list.add(t);
-        } catch (Exception e) {
-            BdLog.e(e);
-            j(e);
-        }
-    }
-
-    public static <T> T d(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (e(list) || !g(list, i)) {
-                return null;
-            }
-            try {
-                return list.get(i);
-            } catch (Exception e) {
-                BdLog.e(e);
-                j(e);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, templateName};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((bq8) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (T) invokeLI.objValue;
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(templateName, "templateName");
+        this.d = templateName;
     }
 
-    public static boolean g(List list, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.t87
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
-            if (h(list) || i < 0 || i >= list.size()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return invokeLI.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static <T> void b(List<T> list, T t, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, list, t, i) == null) && !h(list) && i >= 0 && i <= list.size()) {
-            try {
-                list.add(i, t);
-            } catch (Exception e) {
-                BdLog.e(e);
-                j(e);
-            }
-        }
-    }
-
-    public static void c(List list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || e(list)) {
-            return;
-        }
-        try {
-            list.clear();
-        } catch (Exception e) {
-            BdLog.e(e);
-            j(e);
-        }
-    }
-
-    public static boolean e(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (!h(list) && !list.isEmpty()) {
-                return false;
-            }
-            BdLog.e("list is empty");
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
-            if (!h(map) && !map.isEmpty()) {
-                return false;
-            }
-            BdLog.e("map is empty");
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int i(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, list)) == null) {
-            if (!h(list) && !list.isEmpty()) {
-                try {
-                    return list.size();
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    j(e);
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void j(Exception exc) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, exc) == null) && BdBaseApplication.getInst().isDebugMode() && (exc instanceof RuntimeException)) {
-            throw ((RuntimeException) exc);
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.t87
+    public /* bridge */ /* synthetic */ sp8 b() {
+        i();
+        return this;
     }
 }

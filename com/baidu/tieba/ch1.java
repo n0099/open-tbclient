@@ -1,57 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.util.soloader.SoLoader;
-import com.baidu.perf.signal.register.NativeSignalCapture;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ch1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ch1 {
+    void a(Activity activity, String str, String str2);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947674653, "Lcom/baidu/tieba/ch1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947674653, "Lcom/baidu/tieba/ch1;");
-                return;
-            }
-        }
-        SoLoader.load(AppRuntime.getAppContext(), "signal-register");
-    }
+    void aLiAuth(Activity activity, String str, jh1<JSONObject> jh1Var);
 
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            NativeSignalCapture.clearANRListener();
-            synchronized (NativeSignalCapture.sANRMutex) {
-                NativeSignalCapture.unRegisterANR();
-            }
-        }
-    }
+    boolean b(Context context);
 
-    public static void a(ah1 ah1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, ah1Var) == null) {
-            NativeSignalCapture.addANRListener(ah1Var);
-        }
-    }
+    void c(Activity activity, String str, xg1 xg1Var);
 
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            synchronized (NativeSignalCapture.sANRMutex) {
-                NativeSignalCapture.registerANR(i);
-            }
-        }
-    }
+    void d(Context context, JSONObject jSONObject, xg1 xg1Var);
+
+    void e(Activity activity, String str, xg1 xg1Var);
+
+    void f(Context context, JSONObject jSONObject);
+
+    void g(Bundle bundle);
+
+    void h(String str);
+
+    void i(Activity activity, JSONObject jSONObject, xg1 xg1Var);
+
+    String j(Context context);
 }

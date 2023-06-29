@@ -87,12 +87,12 @@ public class AdRewardPreviewActivityProxy extends a {
 
     @SuppressLint({"SetTextI18n"})
     private void initView() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09140c);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09141c);
         this.mAdWebView = ksAdWebView;
         this.mAdWebView.setClientConfig(ksAdWebView.getClientConfig().b(getClientParams()).R(this.mAdTemplate).aA(false).b(getWebErrorListener()));
         this.mAdWebView.pp();
-        this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091410);
-        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912bf);
+        this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091420);
+        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912cf);
         this.mWebCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
@@ -100,7 +100,7 @@ public class AdRewardPreviewActivityProxy extends a {
                 AdRewardPreviewActivityProxy.this.finish();
             }
         });
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091390);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0913a0);
         this.mCountDownTips = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.2
             @Override // android.view.View.OnClickListener
@@ -133,7 +133,7 @@ public class AdRewardPreviewActivityProxy extends a {
         if (this.mUrl != null) {
             com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(this.mAdTemplate);
             if (com.kwad.sdk.core.response.a.a.am(bQ) && com.kwad.sdk.core.config.d.rT() && ae.isWifiConnected(getActivity())) {
-                cVar.m(new a.C0631a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
+                cVar.m(new a.C0641a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
             }
         }
         this.mAdWebView.loadUrl(!TextUtils.isEmpty(this.mUrl) ? this.mUrl : com.kwad.sdk.core.response.a.a.ar(d.bQ(this.mAdTemplate)));
@@ -239,7 +239,7 @@ public class AdRewardPreviewActivityProxy extends a {
 
     @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
-        setContentView(R.layout.obfuscated_res_0x7f0d046d);
+        setContentView(R.layout.obfuscated_res_0x7f0d046e);
         String stringExtra = getIntent().getStringExtra("key_template_json");
         this.mUrl = getIntent().getStringExtra(KEY_URL);
         try {

@@ -1,47 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class b75 implements dl1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface b75 {
+    @NonNull
+    Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2);
 
-    public b75() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.dl1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new ax6());
-            arrayList.add(new ap7());
-            arrayList.add(new ep7());
-            arrayList.add(new ip7());
-            arrayList.add(new mp7());
-            arrayList.add(new qp7());
-            arrayList.add(new up7());
-            arrayList.add(new yp7());
-            arrayList.add(new vv9());
-            return arrayList;
-        }
-        return invokeV.objValue;
-    }
+    boolean b(@NonNull Map<String, Object> map);
 }

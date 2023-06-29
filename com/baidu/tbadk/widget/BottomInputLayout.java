@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ey5;
-import com.baidu.tieba.mi;
+import com.baidu.tieba.jy5;
+import com.baidu.tieba.ni;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -105,7 +105,7 @@ public class BottomInputLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.d = (int) getResources().getDimension(R.dimen.tbds117);
-            this.e = mi.b(context);
+            this.e = ni.b(context);
         }
     }
 
@@ -115,7 +115,7 @@ public class BottomInputLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             if (this.f && (motionEvent.getAction() & 255) == 0) {
-                ey5.c();
+                jy5.c();
             }
             return super.dispatchTouchEvent(motionEvent);
         }

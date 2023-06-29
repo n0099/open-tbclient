@@ -9,7 +9,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 /* JADX INFO: Add missing generic type declarations: [T] */
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0004\u0010\u0000\u001a\f\u0012\u0006\u0012\u0004\u0018\u0001H\u0002\u0018\u00010\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003H\n¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST, "()[Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = MatroskaExtractor.ID_PIXEL_WIDTH)
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FlowKt__ZipKt$combine$5$1<T> extends Lambda implements Function0<T[]> {
     public final /* synthetic */ Flow<T>[] $flows;
 

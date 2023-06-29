@@ -1,107 +1,151 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.nadcore.net.request.Headers;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bo0 {
+public final class bo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final l31 a;
+    public final Map<String, String> b;
+    @NonNull
+    public final Map<String, Map<String, String>> c;
+    public volatile boolean d;
 
-    /* loaded from: classes5.dex */
-    public static class a extends mt0<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.kt0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+    public bo0() {
+        String[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lt0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+        this.b = new ConcurrentHashMap(128);
+        this.c = new ConcurrentHashMap(8);
+        this.a = o31.a().b("nad.cold.launch.config");
+        for (String str : io0.a().a()) {
+            String string = this.a.getString(str, null);
+            if (string != null) {
+                d31.e(this.b, str, string);
             }
         }
+    }
 
-        public String f(Headers headers, String str, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+    @NonNull
+    public Map<String, String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (Map) invokeV.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @NonNull
+    public Map<String, Map<String, String>> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final void c(@NonNull JSONObject jSONObject) {
+        String[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.b.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                d31.e(this.b, next, jSONObject.optString(next));
+            }
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            for (String str : io0.a().a()) {
+                String str2 = (String) d31.b(this.b, str);
+                if (str2 != null) {
+                    edit.putString(str, str2);
+                }
+            }
+            edit.apply();
+            SharedPreferences.Editor edit2 = o31.a().b("nad.launch.config.global").edit();
+            edit2.clear();
+            for (String str3 : this.b.keySet()) {
+                String str4 = (String) d31.b(this.b, str3);
+                if (str4 != null) {
+                    edit2.putString(str3, str4);
+                }
+            }
+            edit2.apply();
+        }
+    }
+
+    public final void d(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            this.c.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                HashMap hashMap = null;
+                if (!TextUtils.isEmpty(optString)) {
+                    hashMap = new HashMap(8);
+                    JSONObject c = c31.c(optString);
+                    Iterator<String> keys2 = c.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        d31.e(hashMap, next2, c.optString(next2));
+                    }
+                }
+                if (hashMap != null) {
+                    d31.e(this.c, next, hashMap);
+                    o31 a = o31.a();
+                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
+                    edit.clear();
+                    for (String str : hashMap.keySet()) {
+                        String str2 = (String) hashMap.get(str);
+                        if (str2 != null) {
+                            edit.putString(str, str2);
+                        }
+                    }
+                    edit.apply();
                 }
             }
         }
-
-        @Override // com.baidu.tieba.lt0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
     }
 
-    public static v31 a(ADConfigError aDConfigError, int i, boolean z) {
-        InterceptResult invokeCommon;
-        String str;
+    public void update(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            v31 v31Var = new v31();
-            u31 b = v31Var.g("1042").b("f1", b(aDConfigError.code)).b("f2", b(String.valueOf(i)));
-            if (z) {
-                str = "0";
-            } else {
-                str = "1";
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            String optString = jSONObject.optString("global");
+            if (!TextUtils.isEmpty(optString)) {
+                c(c31.c(optString));
             }
-            b.b("f3", b(str));
-            return v31Var;
-        }
-        return (v31) invokeCommon.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return URLEncoder.encode(str, "utf-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+            String optString2 = jSONObject.optString("place_conf");
+            if (!TextUtils.isEmpty(optString2)) {
+                d(c31.c(optString2));
             }
-            return "";
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static void c(ADConfigError aDConfigError, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || aDConfigError == null) {
-            return;
-        }
-        o31.c(a(aDConfigError, i, z), new a());
     }
 }

@@ -1,72 +1,98 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.retrieve.file.util.AESUtil;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.nio.charset.Charset;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.Arrays;
 import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes7.dex */
 public class sgb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static SecretKey a(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, int i) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return b(str, "1234567890abcdef");
-            } catch (Exception unused) {
-                Log.e("AesUtils", "AesUtils.aesEncrypt fail@encryptStr:{} error:" + str);
-                if (str.isEmpty()) {
-                    return "";
-                }
-                return str;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bArr, bArr2, bArr3, bArr4, Integer.valueOf(i)})) == null) {
+            if (bArr.length == 16 && bArr2.length == 16 && bArr3.length == 16) {
+                return new SecretKeySpec(SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1").generateSecret(new PBEKeySpec(igb.c(e(bArr, bArr2, bArr3)).toCharArray(), bArr4, i, 128)).getEncoded(), "AES");
             }
+            throw new IllegalArgumentException("invalid data for generating the key.");
         }
-        return (String) invokeL.objValue;
+        return (SecretKey) invokeCommon.objValue;
     }
 
-    public static String b(String str, String str2) throws Exception {
+    public static byte[] b(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return d(c(str, str2));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] c(String str, String str2) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(1, new SecretKeySpec(str2.getBytes(), "AES"));
-            return cipher.doFinal(str.getBytes(Charset.forName("UTF-8")));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, secretKey, bArr)) == null) {
+            if (secretKey == null || bArr == null) {
+                throw new NullPointerException("key or cipherText must not be null.");
+            }
+            byte[] copyOfRange = Arrays.copyOfRange(bArr, 1, 17);
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(2, secretKey, new IvParameterSpec(copyOfRange));
+            return cipher.doFinal(bArr, copyOfRange.length + 1, (bArr.length - copyOfRange.length) - 1);
         }
         return (byte[]) invokeLL.objValue;
     }
 
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
+    public static byte[] c(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-            int length = bArr.length;
-            char[] cArr2 = new char[length << 1];
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = i + 1;
-                cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];
-                i = i3 + 1;
-                cArr2[i3] = cArr[bArr[i2] & 15];
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
+            if (bArr != null) {
+                for (int i2 = 0; i2 < bArr.length; i2++) {
+                    if (i < 0) {
+                        bArr[i2] = (byte) (bArr[i2] << (-i));
+                    } else {
+                        bArr[i2] = (byte) (bArr[i2] >> i);
+                    }
+                }
+                return bArr;
             }
-            return new String(cArr2);
+            throw new NullPointerException("bytes must not be null.");
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            if (bArr == null || bArr2 == null) {
+                throw new NullPointerException("left or right must not be null.");
+            }
+            if (bArr.length == bArr2.length) {
+                byte[] bArr3 = new byte[bArr.length];
+                for (int i = 0; i < bArr.length; i++) {
+                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
+                }
+                return bArr3;
+            }
+            throw new IllegalArgumentException("left and right must be the same length.");
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] e(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2, bArr3)) == null) {
+            c(bArr, -4);
+            byte[] d = d(bArr, bArr2);
+            c(d, 6);
+            return d(d, bArr3);
+        }
+        return (byte[]) invokeLLL.objValue;
     }
 }

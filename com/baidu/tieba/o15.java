@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class o15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public String a;
+    public String b;
     public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public long j;
 
     public o15() {
         Interceptable interceptable = $ic;
@@ -29,17 +29,7 @@ public class o15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 1;
-        this.d = 1;
-        this.e = 0;
-        this.f = 0;
-        this.g = 1;
-        this.h = 0;
-        this.i = 0;
     }
 }

@@ -1,39 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.os.Handler;
+import com.baidu.minivideo.plugin.capture.download.core.DownloadStatusDeliveryImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import com.baidu.ugc.download.exception.DownloadException;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class hza {
+public class hza implements bza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Executor a;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public File a;
-        @NonNull
-        public String b;
+        public final /* synthetic */ Handler a;
 
-        public a(@NonNull File file, @NonNull String str) {
+        public a(hza hzaVar, Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {file, str};
+                Object[] objArr = {hzaVar, handler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,142 +35,111 @@ public class hza {
                     return;
                 }
             }
-            this.a = file;
-            if (TextUtils.isEmpty(str)) {
-                this.b = this.a.getName();
-            } else {
-                this.b = str;
-            }
+            this.a = handler;
         }
 
-        public a(@NonNull File file, @NonNull String str, boolean z) {
+        @Override // java.util.concurrent.Executor
+        public void execute(Runnable runnable) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, str, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = file;
-            if (TextUtils.isEmpty(str)) {
-                this.b = this.a.getName();
-            } else {
-                this.b = str;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                this.a.post(runnable);
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x007d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x009c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.util.zip.ZipOutputStream] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0098 -> B:72:0x009b). Please submit an issue!!! */
-    public static void a(File file, List<a> list) throws IOException {
-        ?? r2;
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final aza a;
+        public final yya b;
+
+        public b(aza azaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {azaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = azaVar;
+            this.b = azaVar.a();
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                switch (this.a.h()) {
+                    case 102:
+                        n1b.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
+                        this.b.c();
+                        return;
+                    case 103:
+                        n1b.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
+                        this.b.b(this.a.e(), this.a.i());
+                        return;
+                    case 104:
+                        n1b.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
+                        this.b.g(this.a.d(), this.a.e(), this.a.f());
+                        return;
+                    case 105:
+                        n1b.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
+                        if (!this.a.b()) {
+                            this.a.l(true);
+                            this.b.a(this.a.g());
+                            return;
+                        }
+                        return;
+                    case 106:
+                        n1b.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
+                        this.b.e();
+                        return;
+                    case 107:
+                        n1b.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
+                        this.b.d();
+                        return;
+                    case 108:
+                        n1b.c(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
+                        this.b.f((DownloadException) this.a.c());
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
+    }
+
+    public hza(Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            r2 = interceptable;
-            if (r2.invokeLL(65536, null, file, list) != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (file != null && file.exists() && list != null && list.size() != 0) {
-            FileInputStream fileInputStream = null;
-            try {
-                try {
-                    try {
-                        byte[] bArr = new byte[8192];
-                        r2 = new ZipOutputStream(new FileOutputStream(file));
-                        try {
-                            r2.setComment(file.getName());
-                            for (a aVar : list) {
-                                File file2 = aVar.a;
-                                if (file2.canRead()) {
-                                    FileInputStream fileInputStream2 = new FileInputStream(file2);
-                                    try {
-                                        r2.putNextEntry(new ZipEntry(aVar.b));
-                                        while (true) {
-                                            int read = fileInputStream2.read(bArr);
-                                            if (read == -1) {
-                                                break;
-                                            }
-                                            r2.write(bArr, 0, read);
-                                        }
-                                        fileInputStream2.close();
-                                        fileInputStream = fileInputStream2;
-                                    } catch (FileNotFoundException e) {
-                                        e = e;
-                                        fileInputStream = fileInputStream2;
-                                        e.printStackTrace();
-                                        if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (IOException e2) {
-                                                e2.printStackTrace();
-                                            }
-                                        }
-                                        if (r2 != 0) {
-                                            r2.close();
-                                        }
-                                        return;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        fileInputStream = fileInputStream2;
-                                        if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (IOException e3) {
-                                                e3.printStackTrace();
-                                            }
-                                        }
-                                        if (r2 != 0) {
-                                            try {
-                                                r2.close();
-                                            } catch (IOException e4) {
-                                                e4.printStackTrace();
-                                            }
-                                        }
-                                        throw th;
-                                    }
-                                }
-                            }
-                            r2.flush();
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (IOException e5) {
-                                    e5.printStackTrace();
-                                }
-                            }
-                            r2.close();
-                        } catch (FileNotFoundException e6) {
-                            e = e6;
-                        }
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
-                    }
-                } catch (FileNotFoundException e8) {
-                    e = e8;
-                    r2 = 0;
-                } catch (Throwable th2) {
-                    th = th2;
-                    r2 = 0;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-            }
+        this.a = new a(this, handler);
+    }
+
+    @Override // com.baidu.tieba.bza
+    public void a(aza azaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, azaVar) == null) {
+            this.a.execute(new b(azaVar));
         }
     }
 }

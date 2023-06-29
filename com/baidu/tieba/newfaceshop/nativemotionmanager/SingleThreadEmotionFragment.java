@@ -9,11 +9,11 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.a69;
 import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.j19;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel;
-import com.baidu.tieba.p19;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.u59;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements j19<List<EmotionPackageData>> {
+public class SingleThreadEmotionFragment extends BaseFragment implements u59<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p19 a;
+    public a69 a;
     public SingleThreadEmotionModel b;
     public CustomMessageListener c;
 
-    @Override // com.baidu.tieba.j19
+    @Override // com.baidu.tieba.u59
     public void W0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -166,10 +166,10 @@ public class SingleThreadEmotionFragment extends BaseFragment implements j19<Lis
     }
 
     public final void L1() {
-        p19 p19Var;
+        a69 a69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (p19Var = this.a) != null) {
-            p19Var.b();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (a69Var = this.a) != null) {
+            a69Var.b();
         }
     }
 
@@ -188,21 +188,21 @@ public class SingleThreadEmotionFragment extends BaseFragment implements j19<Lis
         }
     }
 
-    @Override // com.baidu.tieba.j19
+    @Override // com.baidu.tieba.u59
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            xg.a().post(new c(this));
+            yg.a().post(new c(this));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j19
+    @Override // com.baidu.tieba.u59
     /* renamed from: M1 */
     public void onSuccess(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            xg.a().post(new b(this, list));
+            yg.a().post(new b(this, list));
         }
     }
 
@@ -211,9 +211,9 @@ public class SingleThreadEmotionFragment extends BaseFragment implements j19<Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            p19 p19Var = this.a;
-            if (p19Var != null) {
-                p19Var.d(i);
+            a69 a69Var = this.a;
+            if (a69Var != null) {
+                a69Var.d(i);
             }
         }
     }
@@ -223,7 +223,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements j19<Lis
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new p19(getPageContext());
+            this.a = new a69(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
             this.b = singleThreadEmotionModel;
             singleThreadEmotionModel.c0(this);

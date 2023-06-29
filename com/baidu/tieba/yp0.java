@@ -1,135 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes8.dex */
 public class yp0 {
     public static /* synthetic */ Interceptable $ic;
+    public static vp0 a;
+    public static xp0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
 
-    /* loaded from: classes8.dex */
-    public class a implements NadRequester.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xc1 a;
-        public final /* synthetic */ yp0 b;
-
-        public a(yp0 yp0Var, xc1 xc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yp0Var, xc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yp0Var;
-            this.a = xc1Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948337712, "Lcom/baidu/tieba/yp0;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void a(@NonNull NadRequester.Error error) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-                try {
-                    this.a.dismiss();
-                } catch (Exception unused) {
-                }
-                this.b.f();
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void b(@NonNull List<AdBaseModel> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                try {
-                    this.a.dismiss();
-                } catch (Exception unused) {
-                }
-                this.b.d(list);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948337712, "Lcom/baidu/tieba/yp0;");
         }
     }
 
-    public yp0(@NonNull Map<String, String> map) {
+    public yp0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = map;
-    }
-
-    public final boolean c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adBaseModel)) == null) {
-            if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(@NonNull xc1 xc1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, xc1Var, str) == null) {
-            RequestParameters.b bVar = new RequestParameters.b();
-            bVar.q(str);
-            bVar.n(this.a);
-            NadRequester.a(bVar.o(), new a(this, xc1Var));
-        }
-    }
-
-    public final void d(@NonNull List<AdBaseModel> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (y21.g(list)) {
-                f();
-                return;
-            }
-            AdBaseModel adBaseModel = (AdBaseModel) y21.d(list, 0);
-            if (!c(adBaseModel)) {
-                f();
-            } else {
-                uj0.d(adBaseModel.f.c, lk0.b(), null);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final void f() {
+    public static vp0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            h51.a().showToast(lk0.b(), lk0.b().getString(R.string.nad_reward_video_lp_empty));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (yp0.class) {
+                    if (a == null) {
+                        a = (vp0) ServiceManager.getService(vp0.a);
+                    }
+                    if (a == null) {
+                        a = vp0.b;
+                    }
+                }
+            }
+            return a;
         }
+        return (vp0) invokeV.objValue;
+    }
+
+    public static xp0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (yp0.class) {
+                    if (b == null) {
+                        b = (xp0) ServiceManager.getService(xp0.a);
+                    }
+                    if (b == null) {
+                        b = xp0.b;
+                    }
+                }
+            }
+            return b;
+        }
+        return (xp0) invokeV.objValue;
     }
 }

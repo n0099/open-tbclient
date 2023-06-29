@@ -16,12 +16,12 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am0;
-import com.baidu.tieba.d61;
-import com.baidu.tieba.s51;
-import com.baidu.tieba.tm0;
+import com.baidu.tieba.dm0;
+import com.baidu.tieba.g61;
+import com.baidu.tieba.v51;
+import com.baidu.tieba.wm0;
 /* loaded from: classes3.dex */
-public class AdProgressButton extends View implements tm0<AdProgressButton> {
+public class AdProgressButton extends View implements wm0<AdProgressButton> {
     public int a;
     public int b;
     public Paint c;
@@ -35,7 +35,7 @@ public class AdProgressButton extends View implements tm0<AdProgressButton> {
     public Typeface k;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm0
+    @Override // com.baidu.tieba.wm0
     @NonNull
     public AdProgressButton getRealView() {
         return this;
@@ -52,7 +52,7 @@ public class AdProgressButton extends View implements tm0<AdProgressButton> {
         d(context, null);
     }
 
-    @Override // com.baidu.tieba.tm0
+    @Override // com.baidu.tieba.wm0
     public void b(@NonNull ViewGroup viewGroup) {
         if (!(viewGroup instanceof RelativeLayout)) {
             return;
@@ -123,10 +123,10 @@ public class AdProgressButton extends View implements tm0<AdProgressButton> {
         d(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.tm0
-    public void update(String str, @NonNull am0 am0Var) {
-        if (am0Var.c == AdDownloadStatus.DOWNLOADING) {
-            setProgress((int) (am0Var.i * 100.0f));
+    @Override // com.baidu.tieba.wm0
+    public void update(String str, @NonNull dm0 dm0Var) {
+        if (dm0Var.c == AdDownloadStatus.DOWNLOADING) {
+            setProgress((int) (dm0Var.i * 100.0f));
             return;
         }
         setProgressNoText(0);
@@ -159,11 +159,11 @@ public class AdProgressButton extends View implements tm0<AdProgressButton> {
     }
 
     public final void d(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, s51.nad_progress);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v51.nad_progress);
         int color = getResources().getColor(R.color.nad_progress_download_button_text_color);
         int color2 = getResources().getColor(R.color.nad_progress_download_button_fg);
-        int a = d61.c.a(getContext(), 11.0f);
-        int a2 = d61.c.a(getContext(), 12.0f);
+        int a = g61.c.a(getContext(), 11.0f);
+        int a2 = g61.c.a(getContext(), 12.0f);
         this.j = 1;
         this.f = obtainStyledAttributes.getInteger(0, color2);
         this.b = obtainStyledAttributes.getColor(8, color);

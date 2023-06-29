@@ -1,42 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.NadNativeBrowserView;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.e91;
-import com.baidu.tieba.ma1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class f91 implements e91.a {
+public class f91 extends b91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.e91.a
-    public boolean a(HashMap<String, String> hashMap, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.fa1, com.baidu.tieba.qb1
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, hashMap, i)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
-        return invokeLI.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.e91.a
-    public void b(Context context, int i) {
+    @Override // com.baidu.tieba.fa1
+    public boolean k1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.fa1
+    public boolean v0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public f91() {
@@ -49,36 +51,6 @@ public final class f91 implements e91.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.e91.a
-    public AbsNadBrowserView c(Context context, oa1 oa1Var, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, oa1Var, i)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            ra1.c(context, "创建native内核browserView");
-            return new NadNativeBrowserView(context);
-        }
-        return (AbsNadBrowserView) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.e91.a
-    public void d(Context context, boolean z, int i, ma1.b listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i), listener}) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            try {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    WebView.setDataDirectorySuffix(w51.a());
-                }
-                CookieSyncManager.createInstance(context);
-                listener.a();
-            } catch (Exception e) {
-                listener.b();
-                ra1.d(e);
             }
         }
     }

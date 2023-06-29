@@ -1,12 +1,12 @@
 package com.kwad.sdk.api.loader;
 
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0658a {
+    /* loaded from: classes10.dex */
+    public static class C0668a {
         public long Se;
         public transient File Sf;
         public int a;
@@ -19,9 +19,9 @@ public final class a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b {
-        public C0658a Sg;
+        public C0668a Sg;
         public long a;
         public String b;
 

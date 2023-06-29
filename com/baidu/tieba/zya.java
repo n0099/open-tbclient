@@ -1,40 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.voyager.impl.VoyagerImpl;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes8.dex */
-public class zya extends tl1<gza> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zya {
+    void a(DownloadException downloadException);
 
-    public zya() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(DownloadException downloadException);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tl1
-    /* renamed from: a */
-    public gza createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new VoyagerImpl();
-        }
-        return (gza) invokeV.objValue;
-    }
+    void onConnectCanceled();
+
+    void onConnected(long j, long j2, boolean z);
+
+    void onConnecting();
+
+    void onDownloadCanceled();
+
+    void onDownloadCompleted(String str);
+
+    void onDownloadPaused();
+
+    void onDownloadProgress(long j, long j2, int i);
+
+    void onStarted();
 }

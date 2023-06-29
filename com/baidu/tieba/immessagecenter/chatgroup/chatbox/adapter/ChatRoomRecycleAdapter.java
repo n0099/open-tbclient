@@ -7,10 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ld8;
-import com.baidu.tieba.nd8;
-import com.baidu.tieba.od8;
-import com.baidu.tieba.pd8;
+import com.baidu.tieba.fe8;
+import com.baidu.tieba.he8;
+import com.baidu.tieba.ie8;
+import com.baidu.tieba.je8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,12 +23,13 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
     @NonNull
-    public final od8 b;
+    public final ie8 b;
     @NonNull
-    public final nd8 c;
+    public final he8 c;
     @NonNull
     public final TbPageContext d;
     public RecyclerView e;
+    public String f;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -96,7 +97,7 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
     }
 
     /* loaded from: classes6.dex */
-    public class b implements pd8 {
+    public class b implements je8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatRoomRecycleAdapter a;
@@ -123,7 +124,7 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
             this(chatRoomRecycleAdapter);
         }
 
-        @Override // com.baidu.tieba.pd8
+        @Override // com.baidu.tieba.je8
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -131,16 +132,16 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
             }
         }
 
-        @Override // com.baidu.tieba.pd8
-        public void b(int i, @NonNull List<ld8> list) {
+        @Override // com.baidu.tieba.je8
+        public void b(int i, @NonNull List<fe8> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, list) == null) && !list.isEmpty()) {
                 this.a.notifyItemRangeChanged(i, list.size());
             }
         }
 
-        @Override // com.baidu.tieba.pd8
-        public void f(int i, @NonNull List<ld8> list) {
+        @Override // com.baidu.tieba.je8
+        public void f(int i, @NonNull List<fe8> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) && !list.isEmpty()) {
                 this.a.notifyItemRangeInserted(i, list.size());
@@ -148,12 +149,12 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
         }
     }
 
-    public ChatRoomRecycleAdapter(@NonNull od8 od8Var, @NonNull nd8 nd8Var, @NonNull TbPageContext tbPageContext) {
+    public ChatRoomRecycleAdapter(@NonNull ie8 ie8Var, @NonNull he8 he8Var, @NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {od8Var, nd8Var, tbPageContext};
+            Object[] objArr = {ie8Var, he8Var, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -165,10 +166,34 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
         }
         b bVar = new b(this, null);
         this.a = bVar;
-        this.b = od8Var;
+        this.b = ie8Var;
         this.d = tbPageContext;
-        this.c = nd8Var;
-        nd8Var.c(bVar);
+        this.c = he8Var;
+        he8Var.c(bVar);
+    }
+
+    public ChatRoomRecycleAdapter(@NonNull ie8 ie8Var, @NonNull he8 he8Var, @NonNull TbPageContext tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ie8Var, he8Var, tbPageContext, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        b bVar = new b(this, null);
+        this.a = bVar;
+        this.b = ie8Var;
+        this.d = tbPageContext;
+        this.c = he8Var;
+        this.f = str;
+        he8Var.c(bVar);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -260,7 +285,7 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            BaseItemViewHolder a2 = this.b.a(viewGroup, i);
+            BaseItemViewHolder a2 = this.b.a(viewGroup, i, this.f);
             if (a2 != null) {
                 return a2;
             }

@@ -1,153 +1,182 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public final class rc2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tc2 a;
-    public long b;
+    public final nc2 a;
+    public boolean b;
+    public boolean c;
+    public ed2 d;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final rc2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-465569078, "Lcom/baidu/tieba/rc2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-465569078, "Lcom/baidu/tieba/rc2$b;");
+                    return;
+                }
+            }
+            a = new rc2(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948116744, "Lcom/baidu/tieba/rc2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948116744, "Lcom/baidu/tieba/rc2;");
+                return;
+            }
+        }
+        e = ms1.a;
+    }
+
+    public static rc2 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (rc2) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+        }
+    }
 
     public rc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 0L;
-        this.a = new tc2();
+        oc2 oc2Var = new oc2();
+        this.a = oc2Var;
+        oc2Var.a(new qc2(this.a.getLooper()));
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.g().size() >= 2.0d) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (e) {
+                c92.i("WhitePageMonitor", Log.getStackTraceString(new Throwable(">>> check skeleton_dev, callback = " + this.d)));
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a.i() > 2 && System.currentTimeMillis() - this.b >= 3000) {
-                return false;
+            ed2 ed2Var = this.d;
+            if (ed2Var != null) {
+                ed2Var.a();
+                this.d = null;
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.b();
         }
     }
 
-    public void i() {
+    public /* synthetic */ rc2(a aVar) {
+        this();
+    }
+
+    public void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = System.currentTimeMillis();
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            i(j);
+            j(false);
         }
     }
 
-    public void a(pc2 pc2Var) {
+    public void g(ed2 ed2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pc2Var) == null) {
-            this.a.a(pc2Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, ed2Var) == null) {
+            this.d = ed2Var;
         }
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public void h(mc2 mc2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int size = this.a.d().size();
-            int i = this.a.i();
-            if (i <= 0 || (size * 1.0d) / i <= 0.5d) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mc2Var) == null) {
+            this.a.b(mc2Var);
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void i(long j) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (e) {
+                Log.d("WhitePageMonitor", ">> update first white screen timestamp, delay " + j + " ms");
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<pc2> d = this.a.d();
-            if (d.size() <= 0) {
-                return false;
-            }
-            for (pc2 pc2Var : d) {
-                if (jh2.k().i(pc2Var.f)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int size = this.a.f().size();
-            int i = this.a.i();
-            if (i <= 0 || (size * 1.0d) / i <= 0.5d) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public sc2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            sc2 sc2Var = new sc2();
-            sc2Var.i(this.b);
-            sc2Var.h(this.a.d());
-            sc2Var.k(this.a.g());
-            sc2Var.l(this.a.i());
-            if (c()) {
-                sc2Var.j(RequestStatus.STATUS_CORE_FAILED);
-            } else if (e()) {
-                sc2Var.j(RequestStatus.STATUS_UNKNOWN);
-            } else if (f()) {
-                sc2Var.j(RequestStatus.STATUS_SERVER_FAILED);
-            } else if (b()) {
-                sc2Var.j(RequestStatus.STATUS_FAILED);
-            } else if (d()) {
-                sc2Var.j(RequestStatus.STATUS_SLOW);
+            if (j < 3000 && j > 0) {
+                z = true;
             } else {
-                sc2Var.j(RequestStatus.STATUS_SUCCESS);
+                z = false;
             }
-            return sc2Var;
+            this.b = z;
         }
-        return (sc2) invokeV.objValue;
     }
 }

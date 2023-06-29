@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,134 +16,164 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class yz3 implements b04 {
+public class yz3 implements h04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] d;
-    public static final int e;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public zz3 a;
-    public final SQLiteDatabase b;
-    public final SQLiteDatabase c;
+    public final Handler a;
+    public final e04 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347415, "Lcom/baidu/tieba/yz3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948347415, "Lcom/baidu/tieba/yz3;");
-                return;
-            }
+    @Override // com.baidu.tieba.h04
+    public void a(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
         }
-        d = new String[]{"_id", "createAt", "uri", "packagename", "path", "size", "progress", "status"};
-        e = DownloadState.DOWNLOADED.value();
-        f = DownloadState.DOWNLOAD_PAUSED.value();
     }
 
-    public yz3(Context context, tz3 tz3Var) {
+    /* loaded from: classes8.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yz3 yz3Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yz3Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                DownloadInfo downloadInfo = (DownloadInfo) message.obj;
+                int status = downloadInfo.getStatus();
+                if (downloadInfo.getDownloadListener() == null) {
+                    return;
+                }
+                switch (b.a[DownloadState.convert(status).ordinal()]) {
+                    case 1:
+                        downloadInfo.getDownloadListener().e(downloadInfo.getProgress(), downloadInfo.getSize());
+                        return;
+                    case 2:
+                        downloadInfo.getDownloadListener().onStart();
+                        return;
+                    case 3:
+                        downloadInfo.getDownloadListener().d();
+                        return;
+                    case 4:
+                        downloadInfo.getDownloadListener().f(downloadInfo.getProgress(), downloadInfo.getSize());
+                        return;
+                    case 5:
+                        downloadInfo.getDownloadListener().a();
+                        return;
+                    case 6:
+                        downloadInfo.getDownloadListener().b(downloadInfo.getException());
+                        return;
+                    case 7:
+                        downloadInfo.getDownloadListener().c();
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-243894247, "Lcom/baidu/tieba/yz3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-243894247, "Lcom/baidu/tieba/yz3$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[DownloadState.values().length];
+            a = iArr;
+            try {
+                iArr[DownloadState.DOWNLOADING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[DownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[DownloadState.WAIT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[DownloadState.DOWNLOADED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[DownloadState.DELETED.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+        }
+    }
+
+    public yz3(e04 e04Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, tz3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {e04Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        zz3 zz3Var = new zz3(context);
-        this.a = zz3Var;
-        this.b = zz3Var.getWritableDatabase();
-        this.c = this.a.getReadableDatabase();
+        this.b = e04Var;
+        this.a = new a(this, Looper.getMainLooper());
     }
 
-    @Override // com.baidu.tieba.b04
-    public void a(DownloadInfo downloadInfo) {
+    @Override // com.baidu.tieba.h04
+    public void b(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-            this.b.execSQL("REPLACE INTO ad_download(_id,createAt,uri,packagename,path,size,progress,status)VALUES(?,?,?,?,?,?,?,?);", new Object[]{downloadInfo.getId(), Long.valueOf(downloadInfo.getCreateAt()), downloadInfo.getUri(), downloadInfo.getPackageName(), downloadInfo.getPath(), Long.valueOf(downloadInfo.getSize()), Long.valueOf(downloadInfo.getProgress()), Integer.valueOf(downloadInfo.getStatus())});
-        }
-    }
-
-    @Override // com.baidu.tieba.b04
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(f), Integer.valueOf(e)});
-        }
-    }
-
-    @Override // com.baidu.tieba.b04
-    public synchronized void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    return;
-                }
-                try {
-                    this.a.close();
-                    this.a = null;
-                } catch (Exception unused) {
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
+            if (downloadInfo.getStatus() != DownloadState.DELETED.value()) {
+                this.b.a(downloadInfo);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.b04
-    public DownloadInfo c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Cursor query = this.c.query("ad_download", d, "_id=?", new String[]{str}, null, null, "createAt desc");
-            if (query.moveToNext()) {
-                DownloadInfo downloadInfo = new DownloadInfo();
-                d(query, downloadInfo);
-                query.close();
-                return downloadInfo;
-            }
-            query.close();
-            return null;
-        }
-        return (DownloadInfo) invokeL.objValue;
-    }
-
-    public final void d(Cursor cursor, DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, cursor, downloadInfo) == null) {
-            int columnIndex = cursor.getColumnIndex("_id");
-            int columnIndex2 = cursor.getColumnIndex("createAt");
-            int columnIndex3 = cursor.getColumnIndex("uri");
-            int columnIndex4 = cursor.getColumnIndex("packagename");
-            int columnIndex5 = cursor.getColumnIndex("path");
-            int columnIndex6 = cursor.getColumnIndex("size");
-            int columnIndex7 = cursor.getColumnIndex("progress");
-            int columnIndex8 = cursor.getColumnIndex("status");
-            downloadInfo.setId(cursor.getString(columnIndex));
-            downloadInfo.setCreateAt(cursor.getLong(columnIndex2));
-            downloadInfo.setUri(cursor.getString(columnIndex3));
-            downloadInfo.setPackageName(cursor.getString(columnIndex4));
-            downloadInfo.setPath(cursor.getString(columnIndex5));
-            downloadInfo.setSize(cursor.getLong(columnIndex6));
-            downloadInfo.setProgress(cursor.getLong(columnIndex7));
-            downloadInfo.setStatus(cursor.getInt(columnIndex8));
-        }
-    }
-
-    @Override // com.baidu.tieba.b04
-    public void delete(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
-            this.b.delete("ad_download", "_id=?", new String[]{String.valueOf(downloadInfo.getId())});
+            Message obtainMessage = this.a.obtainMessage(downloadInfo.getId().hashCode());
+            obtainMessage.obj = downloadInfo;
+            obtainMessage.sendToTarget();
         }
     }
 }

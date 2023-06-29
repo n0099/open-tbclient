@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tieba.mbb;
-import com.baidu.tieba.obb;
+import com.baidu.tieba.cgb;
+import com.baidu.tieba.egb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,9 +111,9 @@ public class AGCUtils {
             }
             String str = null;
             try {
-                mbb b = mbb.b();
+                cgb b = cgb.b();
                 if (b.getContext() != context) {
-                    b = mbb.a(new obb().a(context));
+                    b = cgb.a(new egb().a(context));
                 }
                 str = b.c().a("client/cp_id");
             } catch (NullPointerException unused) {
@@ -144,10 +144,10 @@ public class AGCUtils {
             InputStream inputStream = null;
             try {
                 try {
-                    obb obbVar = new obb();
+                    egb egbVar = new egb();
                     inputStream = context.getResources().getAssets().open("agconnect-services.json");
-                    obbVar.b(inputStream);
-                    str2 = obbVar.a(context).a(str);
+                    egbVar.b(inputStream);
+                    str2 = egbVar.a(context).a(str);
                 } catch (IOException e) {
                     HMSLog.e("AGCUtils", "Get " + str + " failed: " + e);
                     str2 = "";
@@ -198,9 +198,9 @@ public class AGCUtils {
                 str = null;
             }
             try {
-                mbb b = mbb.b();
+                cgb b = cgb.b();
                 if (b.getContext() != context) {
-                    b = mbb.a(new obb().a(context));
+                    b = cgb.a(new egb().a(context));
                 }
                 str = b.c().a("client/app_id");
             } catch (NullPointerException unused) {

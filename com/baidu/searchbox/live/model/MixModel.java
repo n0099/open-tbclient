@@ -1,7 +1,7 @@
 package com.baidu.searchbox.live.model;
 
 import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.arch.ServiceLocator;
 import com.baidu.live.arch.utils.MiniUniqueId;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -250,7 +250,6 @@ public final class MixModel {
 
     public final void queryLiveList() {
         IntentData intentData;
-        String str;
         IntentData.SchemeModel model;
         String source;
         IntentData.SchemeModel model2;
@@ -266,18 +265,16 @@ public final class MixModel {
         if (iLiveListState2 != null) {
             listInfo = iLiveListState2.getListInfo();
         }
-        String str2 = "";
-        String str3 = (intentData == null || (str3 = intentData.getId()) == null) ? "" : "";
-        String str4 = (listInfo == null || (str4 = listInfo.getPageSession()) == null) ? "" : "";
-        if (intentData == null || (model2 = intentData.getModel()) == null || (ext = model2.getExt()) == null || (str = ext.toString()) == null) {
-            str = StringUtil.EMPTY_ARRAY;
-        }
-        Intrinsics.checkExpressionValueIsNotNull(str, "intentData?.model?.ext?.toString() ?: \"{}\"");
+        String str = "";
+        String str2 = (intentData == null || (str2 = intentData.getId()) == null) ? "" : "";
+        String str3 = (listInfo == null || (str3 = listInfo.getPageSession()) == null) ? "" : "";
+        String str4 = (intentData == null || (model2 = intentData.getModel()) == null || (ext = model2.getExt()) == null || (str4 = ext.toString()) == null) ? "{}" : "{}";
+        Intrinsics.checkExpressionValueIsNotNull(str4, "intentData?.model?.ext?.toString() ?: \"{}\"");
         if (intentData != null && (model = intentData.getModel()) != null && (source = model.getSource()) != null) {
-            str2 = source;
+            str = source;
         }
         ListLogKt.log("MixLiveCell_fake_list", "queryLiveList");
-        getListApi().fetchLiveSlideList(new LiveListParamsMix(str3, str4, str, str2), new OnMixDataLoaded<MixResult<? extends SlideListInfo>>() { // from class: com.baidu.searchbox.live.model.MixModel$queryLiveList$1
+        getListApi().fetchLiveSlideList(new LiveListParamsMix(str2, str3, str4, str), new OnMixDataLoaded<MixResult<? extends SlideListInfo>>() { // from class: com.baidu.searchbox.live.model.MixModel$queryLiveList$1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
             public void onMixDataLoaded(MixResult<? extends SlideListInfo> mixResult) {
@@ -430,7 +427,7 @@ public final class MixModel {
                                 str8 = null;
                             }
                             if (jSONObject4 != null) {
-                                str9 = jSONObject4.optString("room_type");
+                                str9 = jSONObject4.optString(Constants.EXTRA_ROOM_TYPE);
                             } else {
                                 str9 = null;
                             }

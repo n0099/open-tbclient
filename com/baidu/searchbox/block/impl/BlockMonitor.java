@@ -8,7 +8,7 @@ import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.b8b;
+import com.baidu.tieba.rcb;
 import com.github.anrwatchdog.ANRError;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
@@ -23,14 +23,14 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sBlockTimeStamp;
     public boolean mMonitorStarted = false;
-    public b8b mBlockWatchDog = null;
+    public rcb mBlockWatchDog = null;
 
     /* loaded from: classes3.dex */
-    public static class BlockListenerImpl implements b8b.f {
+    public static class BlockListenerImpl implements rcb.f {
         public BlockListenerImpl() {
         }
 
-        @Override // com.baidu.tieba.b8b.f
+        @Override // com.baidu.tieba.rcb.f
         public void onAppNotResponding(ANRError aNRError) {
             Log.d(BlockMonitor.TAG, "BlockWatchDog catch block", aNRError);
             BlockMonitor.collectData(aNRError.getSTStackMap());
@@ -44,9 +44,9 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        b8b b8bVar;
-        if (this.mMonitorStarted && (b8bVar = this.mBlockWatchDog) != null) {
-            b8bVar.interrupt();
+        rcb rcbVar;
+        if (this.mMonitorStarted && (rcbVar = this.mBlockWatchDog) != null) {
+            rcbVar.interrupt();
             this.mMonitorStarted = false;
         }
     }
@@ -100,9 +100,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        b8b b8bVar = new b8b(i);
-        this.mBlockWatchDog = b8bVar;
-        b8bVar.e();
+        rcb rcbVar = new rcb(i);
+        this.mBlockWatchDog = rcbVar;
+        rcbVar.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl());
         if (AppConfig.isDebug()) {

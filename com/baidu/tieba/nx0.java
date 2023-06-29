@@ -1,11 +1,21 @@
 package com.baidu.tieba;
+
+import android.app.Activity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface nx0 extends ox0 {
-    void a(boolean z);
+public class nx0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    <T extends iz0> void d(T t);
-
-    void onDestroy();
-
-    void onLayerRelease();
+    public static void a(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.getWindow().addFlags(128);
+            } else {
+                activity.getWindow().clearFlags(128);
+            }
+        }
+    }
 }

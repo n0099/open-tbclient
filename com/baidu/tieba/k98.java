@@ -1,159 +1,194 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.unified.SourceConstant;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BroadcastInfo;
-import tbclient.RecommendForumInfo;
-import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class k98 {
-    public static /* synthetic */ Interceptable $ic;
+public class k98 extends x88 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static x88 d = null;
+    public static String e = "tb_private_msg_";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public long d;
-    public int e;
-    public long f;
-    public int g;
-    public String h;
-    public int i;
-    public RecommendForumInfo j;
-    public ThreadInfo k;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947868031, "Lcom/baidu/tieba/k98;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947868031, "Lcom/baidu/tieba/k98;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k98() {
+        super("tb_private_msg_", PersonalChatMessage.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public int a() {
+    public static synchronized k98 w() {
         InterceptResult invokeV;
+        k98 k98Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (k98.class) {
+                if (d == null) {
+                    d = new k98();
+                }
+                k98Var = (k98) d;
+            }
+            return k98Var;
         }
-        return invokeV.intValue;
+        return (k98) invokeV.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public CommonMsgPojo x(String str, int i) {
+        InterceptResult invokeLI;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            Cursor cursor2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                try {
+                    cursor = f98.d().e("select * from " + (e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    try {
+                        CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
+                        if (cursor != null && cursor.moveToNext()) {
+                            commonMsgPojo.setGid(str);
+                            commonMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
+                            commonMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex(SourceConstant.SOURCE_USER_INFO)));
+                            commonMsgPojo.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
+                            commonMsgPojo.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
+                            commonMsgPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            commonMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
+                            commonMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
+                            commonMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
+                            commonMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS)));
+                            commonMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
+                            commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
+                            commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
+                            commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
+                            commonMsgPojo.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
+                            yi.a(cursor);
+                            return commonMsgPojo;
+                        }
+                    } catch (SQLiteException e2) {
+                        e = e2;
+                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
+                        e.printStackTrace();
+                        b(str);
+                        yi.a(cursor);
+                        return null;
+                    } catch (Exception e3) {
+                        e = e3;
+                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
+                        e.printStackTrace();
+                        yi.a(cursor);
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = i;
+                    yi.a(cursor2);
+                    throw th;
+                }
+            } catch (SQLiteException e4) {
+                e = e4;
+                cursor = null;
+            } catch (Exception e5) {
+                e = e5;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                yi.a(cursor2);
+                throw th;
+            }
+            yi.a(cursor);
+            return null;
         }
-        return invokeV.longValue;
+        return (CommonMsgPojo) invokeLI.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public boolean y(long j, long j2, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            Boolean bool = Boolean.FALSE;
+            if (j == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+                return false;
+            }
+            String valueOf = String.valueOf(j);
+            String str2 = e + valueOf;
+            if (this.c == null) {
+                this.c = i();
+            }
+            if (!this.c.contains(valueOf)) {
+                b(valueOf);
+                this.c.add(valueOf);
+            }
+            try {
+                try {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("content", str);
+                    if (f98.d().update(str2, contentValues, "mid=?", new String[]{String.valueOf(j2)}) == 1) {
+                        bool = Boolean.TRUE;
+                    }
+                } catch (Exception e2) {
+                    TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.updateGamePlayMsg", new Object[0]);
+                    e2.printStackTrace();
+                    bool = Boolean.FALSE;
+                }
+                yi.a(null);
+                yi.c(null);
+                return bool.booleanValue();
+            } catch (Throwable th) {
+                yi.a(null);
+                yi.c(null);
+                throw th;
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public RecommendForumInfo e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.j;
-        }
-        return (RecommendForumInfo) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public ThreadInfo j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
-        }
-        return (ThreadInfo) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void l(BroadcastInfo broadcastInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, broadcastInfo) != null) || broadcastInfo == null) {
-            return;
-        }
-        this.f = broadcastInfo.bcast_id.longValue();
-        this.a = broadcastInfo.title;
-        this.b = broadcastInfo.content;
-        this.c = broadcastInfo.pic_url;
-        this.d = broadcastInfo.publish_time.intValue();
-        this.e = broadcastInfo.pushuser_cnt.intValue();
-        this.j = broadcastInfo.forum_info;
-        this.k = broadcastInfo.thread_infos;
-        this.h = broadcastInfo.ctr;
-        this.g = broadcastInfo.pv.intValue();
-        this.i = broadcastInfo.audit_status.intValue();
+        return invokeCommon.booleanValue;
     }
 }

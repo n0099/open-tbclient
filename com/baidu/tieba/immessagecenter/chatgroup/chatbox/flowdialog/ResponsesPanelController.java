@@ -2,14 +2,14 @@ package com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleObserver;
+import com.baidu.tieba.df8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.sd8;
 /* loaded from: classes6.dex */
 public interface ResponsesPanelController extends LifecycleObserver {
     void a();
 
-    void c(@NonNull sd8 sd8Var);
+    void c(@NonNull df8 df8Var);
 
     void e(@NonNull BaseMsg baseMsg, @NonNull ChatRoomDetail chatRoomDetail);
 

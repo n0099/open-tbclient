@@ -1,204 +1,131 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.Html;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.xml.sax.Attributes;
-import org.xml.sax.ContentHandler;
-import org.xml.sax.Locator;
-import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
+import com.bumptech.glide.util.LruCache;
 /* loaded from: classes7.dex */
-public class pk6 implements Html.TagHandler, ContentHandler {
+public class pk6 extends LruCache<String, bl6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public XMLReader a;
-    public ContentHandler b;
-    public int c;
-    public final boolean d;
-    public final Map<String, nk6> e;
 
-    public pk6(boolean z) {
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pk6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pk6 pk6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pk6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pk6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
+                ew8 hybridLog = HybridLog.getInstance();
+                hybridLog.c("MemoryLruCache", "账号切换，清空预取数据缓存：" + this.a.getCount());
+                this.a.clearMemory();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final pk6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-515320048, "Lcom/baidu/tieba/pk6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-515320048, "Lcom/baidu/tieba/pk6$b;");
+                    return;
+                }
+            }
+            a = new pk6(41943040, null);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pk6(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new HashMap();
-        this.d = z;
+        MessageManager.getInstance().registerListener(2005016, new a(this, 0));
     }
 
-    public boolean a(String str) {
+    public /* synthetic */ pk6(int i, a aVar) {
+        this(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.util.LruCache
+    /* renamed from: c */
+    public int getSize(@Nullable bl6 bl6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!this.e.containsKey(str) || this.e.get(str) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bl6Var)) == null) {
+            if (bl6Var == null) {
+                return super.getSize(null);
             }
-            return true;
+            return bl6Var.d();
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    @Override // org.xml.sax.ContentHandler
-    public void endPrefixMapping(String str) throws SAXException {
+    public static pk6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b.endPrefixMapping(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void setDocumentLocator(Locator locator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, locator) == null) {
-            this.b.setDocumentLocator(locator);
-        }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void skippedEntity(String str) throws SAXException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.b.skippedEntity(str);
-        }
-    }
-
-    public final void b(String str, XMLReader xMLReader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, xMLReader) == null) {
-            if (a(str)) {
-                this.c--;
-            }
-            if (this.c == 0) {
-                this.a.setContentHandler(this.b);
-                this.a = null;
-                this.b = null;
-            }
-        }
-    }
-
-    public void c(String str, nk6 nk6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, nk6Var) == null) {
-            this.e.put(str.toLowerCase(), nk6Var);
-        }
-    }
-
-    public final void d(String str, XMLReader xMLReader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, xMLReader) == null) {
-            if (a(str)) {
-                this.c++;
-            }
-            if (this.b == null) {
-                this.b = xMLReader.getContentHandler();
-                this.a = xMLReader;
-                xMLReader.setContentHandler(this);
-            }
-        }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void processingInstruction(String str, String str2) throws SAXException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            this.b.processingInstruction(str, str2);
-        }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void startPrefixMapping(String str, String str2) throws SAXException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
-            this.b.startPrefixMapping(str, str2);
-        }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void characters(char[] cArr, int i, int i2) throws SAXException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
-            this.b.characters(cArr, i, i2);
-        }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void ignorableWhitespace(char[] cArr, int i, int i2) throws SAXException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, cArr, i, i2) == null) {
-            this.b.ignorableWhitespace(cArr, i, i2);
-        }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void endDocument() throws SAXException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.endDocument();
-        }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void startDocument() throws SAXException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.b.startDocument();
-        }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void endElement(String str, String str2, String str3) throws SAXException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
-            String lowerCase = str2.toLowerCase();
-            if (lowerCase.equalsIgnoreCase("head")) {
-                handleTag(false, lowerCase, null, this.a);
-            } else if (a(lowerCase)) {
-                this.e.get(lowerCase).a(this.d, lowerCase);
-            }
-        }
-    }
-
-    @Override // android.text.Html.TagHandler
-    public void handleTag(boolean z, String str, Editable editable, XMLReader xMLReader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), str, editable, xMLReader}) == null) {
-            if (z) {
-                d(str.toLowerCase(), xMLReader);
-            } else {
-                b(str.toLowerCase(), xMLReader);
-            }
-        }
-    }
-
-    @Override // org.xml.sax.ContentHandler
-    public void startElement(String str, String str2, String str3, Attributes attributes) throws SAXException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, str3, attributes) == null) {
-            String lowerCase = str2.toLowerCase();
-            if (lowerCase.equalsIgnoreCase("head")) {
-                handleTag(true, lowerCase, null, this.a);
-            } else if (a(lowerCase)) {
-                this.e.get(lowerCase).b(this.d, lowerCase, attributes);
-            }
-        }
+        return (pk6) invokeV.objValue;
     }
 }

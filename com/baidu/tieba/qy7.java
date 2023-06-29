@@ -1,29 +1,39 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.LoadingViewAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecomTopicList;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class qy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public long g;
+    public TbPageContext a;
+    public List<kn> b;
+    public Cdo c;
+    public oy7 d;
+    public ty7 e;
+    public jy7 f;
+    public ly7 g;
+    public ky7 h;
+    public my7 i;
+    public ny7 j;
+    public py7 k;
 
-    public qy7() {
+    public qy7(TbPageContext tbPageContext, Cdo cdo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, cdo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,50 +43,97 @@ public class qy7 {
                 return;
             }
         }
-        this.e = true;
+        this.a = tbPageContext;
+        this.c = cdo;
+        b();
     }
 
-    public int a() {
+    public List<xn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.c.getData();
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void c() {
+        Cdo cdo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cdo = this.c) != null) {
+            cdo.getListAdapter().notifyDataSetChanged();
         }
-        return invokeV.booleanValue;
     }
 
-    public qy7(@NonNull RecomTopicList recomTopicList, int i) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            this.b = arrayList;
+            arrayList.add(new sy7(this.a));
+            this.b.add(new ry7(this.a));
+            this.b.add(new LoadingViewAdapter(this.a));
+            oy7 oy7Var = new oy7(this.a);
+            this.d = oy7Var;
+            oy7Var.x(this.c);
+            this.b.add(this.d);
+            ty7 ty7Var = new ty7(this.a);
+            this.e = ty7Var;
+            ty7Var.x(this.c);
+            this.b.add(this.e);
+            jy7 jy7Var = new jy7(this.a);
+            this.f = jy7Var;
+            jy7Var.x(this.c);
+            this.b.add(this.f);
+            ly7 ly7Var = new ly7(this.a);
+            this.g = ly7Var;
+            ly7Var.x(this.c);
+            this.b.add(this.g);
+            ky7 ky7Var = new ky7(this.a);
+            this.h = ky7Var;
+            ky7Var.x(this.c);
+            this.b.add(this.h);
+            my7 my7Var = new my7(this.a);
+            this.i = my7Var;
+            my7Var.x(this.c);
+            this.b.add(this.i);
+            ny7 ny7Var = new ny7(this.a);
+            this.j = ny7Var;
+            ny7Var.x(this.c);
+            this.b.add(this.j);
+            TbPageContext tbPageContext = this.a;
+            py7 py7Var = new py7(tbPageContext, ThreadData.TYPE_RECOMMEND_INFO, tbPageContext.getUniqueId());
+            this.k = py7Var;
+            py7Var.x(this.c);
+            this.b.add(this.k);
+            this.c.addAdapters(this.b);
+        }
+    }
+
+    public void d(List<xn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void e(zz4 zz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, zz4Var) == null) {
+            for (kn knVar : this.b) {
+                if (knVar instanceof iy7) {
+                    ((iy7) knVar).u(zz4Var);
+                }
             }
         }
-        this.a = recomTopicList.topic_id.longValue();
-        this.b = recomTopicList.topic_name;
-        this.c = recomTopicList.tag.intValue();
-        this.d = i + 1;
-        this.f = recomTopicList.is_video_topic.intValue();
-        this.g = recomTopicList.discuss_num.longValue();
+    }
+
+    public void f(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            for (kn knVar : this.b) {
+                knVar.setPageId(bdUniqueId);
+            }
+        }
     }
 }

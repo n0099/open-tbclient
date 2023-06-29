@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.net.Uri;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.xml.sax.Attributes;
+import java.io.File;
+import java.io.InputStream;
+import okio.Okio;
 /* loaded from: classes7.dex */
-public class ok6 extends nk6 {
+public class ok6 implements nk6<String, Pair<InputStream, Long>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.nk6
-    public void a(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-        }
-    }
 
     public ok6() {
         Interceptable interceptable = $ic;
@@ -35,24 +31,51 @@ public class ok6 extends nk6 {
         }
     }
 
-    @Override // com.baidu.tieba.nk6
-    public void b(boolean z, String str, Attributes attributes) {
+    public final File c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
-            String value = attributes.getValue("", NativeConstants.HREF);
-            if (TextUtils.equals(attributes.getValue("", "rel"), "stylesheet") && !TextUtils.isEmpty(value)) {
-                String str2 = "http";
-                if (!value.startsWith("http")) {
-                    StringBuilder sb = new StringBuilder();
-                    if (z) {
-                        str2 = "https";
-                    }
-                    sb.append(str2);
-                    sb.append(":");
-                    sb.append(value);
-                    value = sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            File file = new File(Uri.parse(str).getPath());
+            if (file.exists() && file.isFile()) {
+                return file;
+            }
+            return null;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nk6
+    @Nullable
+    /* renamed from: d */
+    public Pair<InputStream, Long> a(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File c = c(str);
+            if (c != null) {
+                return Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length()));
+            }
+            return null;
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nk6
+    /* renamed from: e */
+    public void b(String str, mtb<Pair<InputStream, Long>, Exception> mtbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, mtbVar) == null) {
+            try {
+                File c = c(str);
+                if (c != null) {
+                    mtbVar.call(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
+                } else {
+                    mtbVar.call(null, new IllegalArgumentException(str + "file not exist !"));
                 }
-                rk6.g().b(value, value, new HashMap());
+            } catch (Exception e) {
+                mtbVar.call(null, e);
             }
         }
     }

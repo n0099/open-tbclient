@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk.abtest;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.IABTestInterface;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ABTestSDK implements INoProGuard {
     public static final String LOG_TAG = "ABTestSDK";
     public static final int PRE_INIT_WEBVIEW_VALUE_CLOSE = 0;

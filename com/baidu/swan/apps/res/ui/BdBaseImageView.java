@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.ep3;
+import com.baidu.tieba.hp3;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes4.dex */
 public class BdBaseImageView extends ImageView {
@@ -24,8 +24,8 @@ public class BdBaseImageView extends ImageView {
     @Override // android.view.View
     public void draw(Canvas canvas) {
         if (b()) {
-            ep3.b(getContext(), getDrawable());
-            this.b = ep3.d(getContext());
+            hp3.b(getContext(), getDrawable());
+            this.b = hp3.d(getContext());
             this.a = false;
         }
         super.draw(canvas);
@@ -34,7 +34,7 @@ public class BdBaseImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageAlpha(int i) {
         if (a()) {
-            ep3.c(getContext(), getDrawable(), i);
+            hp3.c(getContext(), getDrawable(), i);
         } else {
             super.setImageAlpha(i);
         }
@@ -59,14 +59,14 @@ public class BdBaseImageView extends ImageView {
     }
 
     public final boolean a() {
-        if (Color.alpha(ep3.d(getContext())) != 0) {
+        if (Color.alpha(hp3.d(getContext())) != 0) {
             return true;
         }
         return false;
     }
 
     public final boolean b() {
-        if (!this.a && this.b == ep3.d(getContext())) {
+        if (!this.a && this.b == hp3.d(getContext())) {
             return false;
         }
         return true;

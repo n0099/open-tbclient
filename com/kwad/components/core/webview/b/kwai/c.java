@@ -2,7 +2,7 @@ package com.kwad.components.core.webview.b.kwai;
 
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c implements com.kwad.sdk.core.webview.kwai.a {
     @Override // com.kwad.sdk.core.webview.kwai.a
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {

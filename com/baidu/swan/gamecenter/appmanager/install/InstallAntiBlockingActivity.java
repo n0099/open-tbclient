@@ -10,12 +10,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a44;
-import com.baidu.tieba.ip3;
-import com.baidu.tieba.o34;
-import com.baidu.tieba.tp3;
-import com.baidu.tieba.y34;
-import com.baidu.tieba.zo3;
+import com.baidu.tieba.b44;
+import com.baidu.tieba.cp3;
+import com.baidu.tieba.d44;
+import com.baidu.tieba.lp3;
+import com.baidu.tieba.r34;
+import com.baidu.tieba.wp3;
 import org.json.JSONObject;
 @SuppressLint({"BaseActivity"})
 /* loaded from: classes4.dex */
@@ -37,52 +37,52 @@ public class InstallAntiBlockingActivity extends Activity {
             } else {
                 str = "continueClick";
             }
-            a44.a(InstallAntiBlockingActivity.this.a, str, "success", null, new y34(InstallAntiBlockingActivity.this.b));
+            d44.a(InstallAntiBlockingActivity.this.a, str, "success", null, new b44(InstallAntiBlockingActivity.this.b));
             InstallAntiBlockingActivity.this.finish();
         }
     }
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        int c0 = tp3.c0(this);
+        int c0 = wp3.c0(this);
         super.onCreate(bundle);
-        tp3.g(this, c0);
-        o34.t();
+        wp3.g(this, c0);
+        r34.t();
         setContentView(R.layout.obfuscated_res_0x7f0d00b6);
         Intent intent = getIntent();
         if (intent != null) {
             this.c = intent.getStringExtra("type");
             this.a = intent.getStringExtra("packageName");
-            this.b = zo3.d(intent.getStringExtra("ubc_params"));
+            this.b = cp3.d(intent.getStringExtra("ubc_params"));
         }
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09110d);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f09110f);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091119);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f09111b);
         if (TextUtils.equals(this.c, "authorize")) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070154));
             layoutParams.gravity = 80;
             imageView.setLayoutParams(layoutParams);
-            findViewById(R.id.obfuscated_res_0x7f09110e).setVisibility(0);
+            findViewById(R.id.obfuscated_res_0x7f09111a).setVisibility(0);
             imageView.setImageResource(R.drawable.obfuscated_res_0x7f080198);
-            findViewById(R.id.obfuscated_res_0x7f09110b).setBackgroundResource(R.color.obfuscated_res_0x7f060434);
-            o34.o();
+            findViewById(R.id.obfuscated_res_0x7f091117).setBackgroundResource(R.color.obfuscated_res_0x7f060434);
+            r34.o();
         } else {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070153));
             layoutParams2.gravity = 80;
             imageView.setLayoutParams(layoutParams2);
-            findViewById(R.id.obfuscated_res_0x7f09110e).setVisibility(8);
-            if (ip3.m()) {
+            findViewById(R.id.obfuscated_res_0x7f09111a).setVisibility(8);
+            if (lp3.m()) {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f080196);
-            } else if (ip3.n()) {
+            } else if (lp3.n()) {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f080197);
-            } else if (ip3.r()) {
+            } else if (lp3.r()) {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f080199);
             } else {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f080195);
             }
-            findViewById(R.id.obfuscated_res_0x7f09110b).setBackgroundResource(R.color.obfuscated_res_0x7f060402);
-            o34.p();
+            findViewById(R.id.obfuscated_res_0x7f091117).setBackgroundResource(R.color.obfuscated_res_0x7f060402);
+            r34.p();
         }
         findViewById.setOnClickListener(new a());
-        a44.a(this.a, this.c, "success", null, new y34(this.b));
+        d44.a(this.a, this.c, "success", null, new b44(this.b));
     }
 }

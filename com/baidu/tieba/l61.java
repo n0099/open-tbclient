@@ -1,26 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
+import android.os.IBinder;
+import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class l61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static PendingIntent a(Context context, int i, Intent intent, int i2) {
-        InterceptResult invokeCommon;
+    public static synchronized void a(Context context, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
-            if (Build.VERSION.SDK_INT >= 31) {
-                return PendingIntent.getBroadcast(context, i, intent, i2 | 67108864);
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, iBinder) == null) {
+            synchronized (l61.class) {
+                InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
+                if (inputMethodManager != null) {
+                    try {
+                        inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
+                    } catch (Exception unused) {
+                    }
+                }
             }
-            return PendingIntent.getBroadcast(context, i, intent, i2);
         }
-        return (PendingIntent) invokeCommon.objValue;
     }
 }

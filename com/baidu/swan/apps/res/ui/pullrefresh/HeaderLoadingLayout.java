@@ -65,7 +65,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
             this.f.clearAnimation();
             this.f.startAnimation(this.l);
         }
-        this.h.setText(R.string.obfuscated_res_0x7f0f01dc);
+        this.h.setText(R.string.obfuscated_res_0x7f0f01de);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -82,29 +82,29 @@ public class HeaderLoadingLayout extends LoadingLayout {
         this.f.clearAnimation();
         this.f.setVisibility(4);
         this.g.setVisibility(0);
-        this.h.setText(R.string.obfuscated_res_0x7f0f01db);
+        this.h.setText(R.string.obfuscated_res_0x7f0f01dd);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void j() {
         this.f.clearAnimation();
         this.f.startAnimation(this.k);
-        this.h.setText(R.string.obfuscated_res_0x7f0f01dd);
+        this.h.setText(R.string.obfuscated_res_0x7f0f01df);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void k() {
         this.f.clearAnimation();
-        this.h.setText(R.string.obfuscated_res_0x7f0f01dc);
+        this.h.setText(R.string.obfuscated_res_0x7f0f01de);
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d1a);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d18);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d1b);
-        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d1c);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d1e);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091d20);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d75);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d73);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d76);
+        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091d77);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d79);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091d7b);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.k = rotateAnimation;
         rotateAnimation.setDuration(120L);

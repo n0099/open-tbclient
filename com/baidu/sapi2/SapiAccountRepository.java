@@ -88,7 +88,7 @@ import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.external.music.data.MusicData;
-import com.baidu.tieba.rp1;
+import com.baidu.tieba.up1;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.fun.ad.sdk.FunAdSdk;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
@@ -787,7 +787,7 @@ public final class SapiAccountRepository {
         OneKeyLoginStat.CheckAbility.statExtMap.put("connectTimeout", Integer.valueOf(i));
         OneKeyLoginStat.CheckAbility.statExtMap.put("scene", "api");
         OneKeyLoginStat.CheckAbility.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-        OneKeyLoginStat.CheckAbility.statExtMap.put("operator", rp1.d().c(this.configuration.context));
+        OneKeyLoginStat.CheckAbility.statExtMap.put("operator", up1.d().c(this.configuration.context));
         new HttpClientWrap().get(oneKeyLoginAbilityUrl, ReqPriority.IMMEDIATE, httpHashMapWrap, buildNaCookie, getUaInfo(), i, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.17
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str2) {
@@ -2004,7 +2004,7 @@ public final class SapiAccountRepository {
         String str3 = OneKeyLoginResult.secondJsCode;
         final long currentTimeMillis = System.currentTimeMillis();
         OneKeyLoginStat.LoadLogin.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-        OneKeyLoginStat.LoadLogin.statExtMap.put("operator", rp1.d().c(this.configuration.context));
+        OneKeyLoginStat.LoadLogin.statExtMap.put("operator", up1.d().c(this.configuration.context));
         SapiCoreUtil.executeJsCode(oneKeyLoginJsCode, str3, jSONObject.toString(), this.configuration.context, new ExecuteJsCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.19
             @Override // com.baidu.sapi2.callback.inner.ExecuteJsCallback
             public void jsExecuteCompleted(String str4) {
@@ -2047,8 +2047,8 @@ public final class SapiAccountRepository {
                             SapiStatUtil.statOneKeyLoginPassAction(0, "-114", "net error");
                         }
 
-                        /* JADX WARN: Removed duplicated region for block: B:43:0x0128 A[Catch: Exception -> 0x015c, TryCatch #0 {Exception -> 0x015c, blocks: (B:3:0x003f, B:6:0x006a, B:8:0x0077, B:10:0x009a, B:9:0x008e, B:12:0x009e, B:15:0x00a8, B:17:0x00b0, B:20:0x00b9, B:22:0x00c1, B:25:0x00ca, B:27:0x00d2, B:29:0x00d8, B:30:0x00de, B:32:0x00f2, B:34:0x0106, B:36:0x010c, B:41:0x0122, B:43:0x0128, B:45:0x0158, B:44:0x0141, B:38:0x0115, B:40:0x011b), top: B:50:0x003f }] */
-                        /* JADX WARN: Removed duplicated region for block: B:44:0x0141 A[Catch: Exception -> 0x015c, TryCatch #0 {Exception -> 0x015c, blocks: (B:3:0x003f, B:6:0x006a, B:8:0x0077, B:10:0x009a, B:9:0x008e, B:12:0x009e, B:15:0x00a8, B:17:0x00b0, B:20:0x00b9, B:22:0x00c1, B:25:0x00ca, B:27:0x00d2, B:29:0x00d8, B:30:0x00de, B:32:0x00f2, B:34:0x0106, B:36:0x010c, B:41:0x0122, B:43:0x0128, B:45:0x0158, B:44:0x0141, B:38:0x0115, B:40:0x011b), top: B:50:0x003f }] */
+                        /* JADX WARN: Removed duplicated region for block: B:43:0x0129 A[Catch: Exception -> 0x015d, TryCatch #0 {Exception -> 0x015d, blocks: (B:3:0x003f, B:6:0x006a, B:8:0x0077, B:10:0x009a, B:9:0x008e, B:12:0x009e, B:15:0x00a8, B:17:0x00b0, B:20:0x00b9, B:22:0x00c1, B:25:0x00ca, B:27:0x00d2, B:29:0x00d8, B:30:0x00de, B:32:0x00f2, B:34:0x0106, B:36:0x010c, B:41:0x0123, B:43:0x0129, B:45:0x0159, B:44:0x0142, B:38:0x0116, B:40:0x011c), top: B:50:0x003f }] */
+                        /* JADX WARN: Removed duplicated region for block: B:44:0x0142 A[Catch: Exception -> 0x015d, TryCatch #0 {Exception -> 0x015d, blocks: (B:3:0x003f, B:6:0x006a, B:8:0x0077, B:10:0x009a, B:9:0x008e, B:12:0x009e, B:15:0x00a8, B:17:0x00b0, B:20:0x00b9, B:22:0x00c1, B:25:0x00ca, B:27:0x00d2, B:29:0x00d8, B:30:0x00de, B:32:0x00f2, B:34:0x0106, B:36:0x010c, B:41:0x0123, B:43:0x0129, B:45:0x0159, B:44:0x0142, B:38:0x0116, B:40:0x011c), top: B:50:0x003f }] */
                         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
                         /*
                             Code decompiled incorrectly, please refer to instructions dump.

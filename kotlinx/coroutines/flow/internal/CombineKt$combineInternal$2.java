@@ -26,7 +26,7 @@ import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "R", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
 @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$combineInternal$2", f = "Combine.kt", i = {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2}, l = {57, 79, 82}, m = "invokeSuspend", n = {"latestValues", "resultChannel", "lastReceivedEpoch", "remainingAbsentValues", "currentEpoch", "latestValues", "resultChannel", "lastReceivedEpoch", "remainingAbsentValues", "currentEpoch", "latestValues", "resultChannel", "lastReceivedEpoch", "remainingAbsentValues", "currentEpoch"}, s = {"L$0", "L$1", "L$2", "I$0", "I$1", "L$0", "L$1", "L$2", "I$0", "I$1", "L$0", "L$1", "L$2", "I$0", "I$1"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CombineKt$combineInternal$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function0<T[]> $arrayFactory;
     public final /* synthetic */ Flow<T>[] $flows;
@@ -68,7 +68,7 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
     @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "R", ExifInterface.GPS_DIRECTION_TRUE, "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
     @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$combineInternal$2$1", f = "Combine.kt", i = {}, l = {34}, m = "invokeSuspend", n = {}, s = {})
     /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$combineInternal$2$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         public final /* synthetic */ Flow<T>[] $flows;
         public final /* synthetic */ int $i;
@@ -100,12 +100,12 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
 
         @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "R", ExifInterface.GPS_DIRECTION_TRUE, "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
         /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$combineInternal$2$1$1  reason: invalid class name and collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public static final class C07811<T> implements FlowCollector, SuspendFunction {
+        /* loaded from: classes2.dex */
+        public static final class C07911<T> implements FlowCollector, SuspendFunction {
             public final /* synthetic */ int $i;
             public final /* synthetic */ Channel<IndexedValue<Object>> $resultChannel;
 
-            public C07811(Channel<IndexedValue<Object>> channel, int i) {
+            public C07911(Channel<IndexedValue<Object>> channel, int i) {
                 this.$resultChannel = channel;
                 this.$i = i;
             }
@@ -182,9 +182,9 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
                 } else {
                     ResultKt.throwOnFailure(obj);
                     Flow flow = this.$flows[this.$i];
-                    C07811 c07811 = new C07811(this.$resultChannel, this.$i);
+                    C07911 c07911 = new C07911(this.$resultChannel, this.$i);
                     this.label = 1;
-                    if (flow.collect(c07811, this) == coroutine_suspended) {
+                    if (flow.collect(c07911, this) == coroutine_suspended) {
                         return coroutine_suspended;
                     }
                 }

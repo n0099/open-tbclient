@@ -1,8 +1,5 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
-public interface ux0 {
-    @NonNull
-    vx0 a();
+public interface ux0 extends qx0 {
+    void e(Object obj);
 }

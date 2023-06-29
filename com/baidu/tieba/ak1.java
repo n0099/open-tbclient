@@ -1,45 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ak1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "splash.host");
-    public static final ak1 b = new a();
+public class ak1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://afd.baidu.com/afd/entry";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a(String str, uk1 uk1Var);
-
-    /* loaded from: classes5.dex */
-    public static class a implements ak1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ak1
-        public boolean a(String str, uk1 uk1Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, uk1Var)) == null) {
-                return false;
-            }
-            return invokeLL.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947617954, "Lcom/baidu/tieba/ak1;")) == null) {
+            return;
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947617954, "Lcom/baidu/tieba/ak1;");
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (zh0.a && !TextUtils.isEmpty(ok0.d().j())) {
+                return ok0.d().j();
+            }
+            if (TextUtils.isEmpty(a)) {
+                return "https://afd.baidu.com/afd/entry";
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
     }
 }

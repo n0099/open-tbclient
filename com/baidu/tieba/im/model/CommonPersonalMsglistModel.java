@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.ac8;
+import com.baidu.tieba.gc8;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -80,7 +80,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                     UserData userData = this.this$0.mUser;
                     if (userData != null && userData.getUserId() != null) {
-                        if (this.this$0.mUser.getUserId().equals(String.valueOf(ac8.q(chatMessage)))) {
+                        if (this.this$0.mUser.getUserId().equals(String.valueOf(gc8.q(chatMessage)))) {
                             this.this$0.sendMsgFail(chatMessage);
                         }
                     }
@@ -185,7 +185,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                     UserData userData = this.this$0.mUser;
                     if (userData != null && userData.getUserId() != null) {
-                        if (this.this$0.mUser.getUserId().equals(String.valueOf(ac8.q(chatMessage)))) {
+                        if (this.this$0.mUser.getUserId().equals(String.valueOf(gc8.q(chatMessage)))) {
                             this.this$0.sendMsgFail(chatMessage);
                         }
                     }

@@ -1,61 +1,103 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.view.View;
-import androidx.annotation.ColorInt;
-import androidx.annotation.FloatRange;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xsb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import tv.athena.revenue.payui.activity.immersion.BarHide;
+import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes8.dex */
-public class xtb implements Cloneable {
+public final class xtb<T> implements xsb.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentObserver A;
-    @ColorInt
-    public int a;
-    @ColorInt
-    public int b;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float c;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float d;
-    public boolean e;
-    public boolean f;
-    public BarHide g;
-    public boolean h;
-    public boolean i;
-    @ColorInt
-    public int j;
-    @ColorInt
-    public int k;
-    public Map<View, Map<Integer, Integer>> l;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float m;
-    public boolean n;
-    public View o;
-    public View p;
-    public View q;
-    @ColorInt
-    public int r;
-    public boolean s;
-    public boolean t;
-    public int u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public aub y;
-    public cub z;
+    public final xsb<T> a;
+    public final ptb<? super T, Boolean> b;
 
-    public xtb() {
+    /* loaded from: classes8.dex */
+    public static final class a<T> extends dtb<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final dtb<? super T> e;
+        public final ptb<? super T, Boolean> f;
+        public boolean g;
+
+        public a(dtb<? super T> dtbVar, ptb<? super T, Boolean> ptbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dtbVar, ptbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = dtbVar;
+            this.f = ptbVar;
+            e(0L);
+        }
+
+        @Override // com.baidu.tieba.dtb
+        public void f(zsb zsbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, zsbVar) == null) {
+                super.f(zsbVar);
+                this.e.f(zsbVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.ysb
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                if (this.g) {
+                    kxb.j(th);
+                    return;
+                }
+                this.g = true;
+                this.e.onError(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.ysb
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
+                return;
+            }
+            this.e.onCompleted();
+        }
+
+        @Override // com.baidu.tieba.ysb
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                try {
+                    if (this.f.call(t).booleanValue()) {
+                        this.e.onNext(t);
+                    } else {
+                        e(1L);
+                    }
+                } catch (Throwable th) {
+                    jtb.e(th);
+                    unsubscribe();
+                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                }
+            }
+        }
+    }
+
+    public xtb(xsb<T> xsbVar, ptb<? super T, Boolean> ptbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xsbVar, ptbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,41 +107,21 @@ public class xtb implements Cloneable {
                 return;
             }
         }
-        this.a = 0;
-        this.b = -16777216;
-        this.c = 0.0f;
-        this.d = 0.0f;
-        this.e = false;
-        this.f = false;
-        this.g = BarHide.FLAG_SHOW_BAR;
-        this.h = false;
-        this.i = true;
-        this.j = -16777216;
-        this.k = -16777216;
-        this.l = new HashMap();
-        this.m = 0.0f;
-        this.n = false;
-        this.s = false;
-        this.t = false;
-        this.u = 18;
-        this.v = true;
-        this.w = true;
-        this.x = false;
+        this.a = xsbVar;
+        this.b = ptbVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public xtb clone() {
-        InterceptResult invokeV;
+    public void call(dtb<? super T> dtbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (xtb) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, dtbVar) == null) {
+            a aVar = new a(dtbVar, this.b);
+            dtbVar.b(aVar);
+            this.a.M(aVar);
         }
-        return (xtb) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xsb.a, com.baidu.tieba.ltb
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((dtb) ((dtb) obj));
     }
 }

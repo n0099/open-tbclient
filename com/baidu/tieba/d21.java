@@ -1,83 +1,42 @@
 package com.baidu.tieba;
 
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.TranslateAnimation;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.media.AudioManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class d21 {
+public final class d21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Animation a() {
-        InterceptResult invokeV;
+    public static final boolean a(Context context) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 2.0f, 1, 0.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            AudioManager a = l21.a(context);
+            if (a != null) {
+                z = a.isWiredHeadsetOn();
+            } else {
+                z = false;
+            }
+            BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
+            if (defaultAdapter != null && defaultAdapter.getProfileConnectionState(1) == 2) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            i21.b("BdHeadsetUtils", "当前耳机连接状态>>> 有线耳机=" + z + ", 蓝牙=" + z2);
+            if (!z && !z2) {
+                return false;
+            }
+            return true;
         }
-        return (Animation) invokeV.objValue;
-    }
-
-    public static Animation b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 2.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
-        }
-        return (Animation) invokeV.objValue;
-    }
-
-    public static Animation c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -0.15f, 1, 0.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
-        }
-        return (Animation) invokeV.objValue;
-    }
-
-    public static Animation d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -0.15f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
-        }
-        return (Animation) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -2,23 +2,55 @@ package com.baidu.tieba;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.db.pojo.ChatSysNotifyPojo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class z88 {
     public static /* synthetic */ Interceptable $ic;
-    public static z88 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int[] a;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final z88 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-276068527, "Lcom/baidu/tieba/z88$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-276068527, "Lcom/baidu/tieba/z88$b;");
+                    return;
+                }
+            }
+            a = new z88(null);
+        }
+    }
 
     public z88() {
         Interceptable interceptable = $ic;
@@ -30,198 +62,156 @@ public class z88 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new int[]{1, 2, 3, 4};
+        a();
+    }
+
+    public final void c() {
+        int[] iArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i : this.a) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("scene", Integer.valueOf(i));
+                f98.d().insert("tb_chat_sys_notify", null, contentValues);
             }
         }
     }
 
-    public static z88 d() {
+    public /* synthetic */ z88(a aVar) {
+        this();
+    }
+
+    public static z88 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (z88.class) {
-                    if (a == null) {
-                        a = new z88();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
         return (z88) invokeV.objValue;
     }
 
-    public SQLiteStatement a(String str) {
-        InterceptResult invokeL;
-        SQLiteDatabase c;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (c = y88.c()) == null) {
-                return null;
-            }
-            try {
-                return c.compileStatement(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (SQLiteStatement) invokeL.objValue;
-    }
-
-    public void b() {
-        SQLiteDatabase c;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (c = y88.c()) == null) {
-            return;
-        }
-        BdLog.i("begin commit transaction");
-        if (c.inTransaction()) {
-            try {
-                c.setTransactionSuccessful();
-                c.endTransaction();
-                return;
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
-                BdLog.e(e.getMessage());
-                d95.a("im", -1L, 0, "im_check: endTransaction error:" + e.getMessage(), -1, "", new Object[0]);
-                return;
-            }
-        }
-        BdLog.e("there is no current transaction");
-    }
-
-    public void f() {
-        SQLiteDatabase c;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = y88.c()) == null) {
-            return;
-        }
-        if (c.inTransaction()) {
-            BdLog.e("there is exist transaction");
-            return;
-        }
-        try {
-            c.beginTransaction();
-            BdLog.i("db.beginTransaction");
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
-            BdLog.e(e.getMessage());
-            d95.a("im", -1L, 0, "im_check: startTransaction error:" + e.getMessage(), -1, "", new Object[0]);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !d() && f98.d().c("CREATE TABLE IF NOT EXISTS tb_chat_sys_notify(scene INTEGER, content TEXT DEFAULT '没有最新消息', unread_num INTEGER DEFAULT 0);")) {
+            c();
         }
     }
 
-    public boolean c(String str) {
-        InterceptResult invokeL;
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            SQLiteDatabase c = y88.c();
-            if (c == null) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            new LinkedList();
+            Cursor cursor = null;
+            boolean z = false;
             try {
-                c.execSQL(str);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                d95.a("im", -1L, 0, "im_check: execSQL error:" + e.getMessage(), -1, "", new Object[0]);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public long insert(SQLiteStatement sQLiteStatement) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sQLiteStatement)) == null) {
-            if (sQLiteStatement == null) {
-                return -1L;
-            }
-            try {
-                return sQLiteStatement.executeInsert();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                d95.a("im", -1L, 0, "im_check: update error:" + e.getMessage(), -1, "", new Object[0]);
-                return -1L;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public boolean delete(String str, String str2, String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, strArr)) == null) {
-            SQLiteDatabase c = y88.c();
-            if (c == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                if (c.delete(str, str2, strArr) <= 0) {
+                try {
+                    cursor = f98.d().e("select * from sqlite_master where type='table'", null);
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.isExistsTable", new Object[0]);
+                    e.printStackTrace();
+                }
+                if (cursor == null) {
                     return false;
                 }
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                cursor.moveToFirst();
+                while (true) {
+                    if (!cursor.moveToNext()) {
+                        break;
+                    } else if ("tb_chat_sys_notify".equals(cursor.getString(cursor.getColumnIndex("name")))) {
+                        z = true;
+                        break;
+                    }
+                }
+                return z;
+            } finally {
+                yi.a(null);
             }
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public Cursor e(String str, String[] strArr) {
-        InterceptResult invokeLL;
+    public List<ChatSysNotifyPojo> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, strArr)) == null) {
-            SQLiteDatabase c = y88.c();
-            if (c == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
             try {
-                return c.rawQuery(str, strArr);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage() + str);
-                return null;
+                try {
+                    cursor = f98.d().e("select * from tb_chat_sys_notify", null);
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            ChatSysNotifyPojo chatSysNotifyPojo = new ChatSysNotifyPojo();
+                            chatSysNotifyPojo.setType(cursor.getInt(cursor.getColumnIndex("scene")));
+                            chatSysNotifyPojo.setUnread(cursor.getInt(cursor.getColumnIndex("unread_num")));
+                            chatSysNotifyPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                            arrayList.add(chatSysNotifyPojo);
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.queryAll", new Object[0]);
+                    e.printStackTrace();
+                }
+                return arrayList;
+            } finally {
+                yi.a(cursor);
             }
         }
-        return (Cursor) invokeLL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public long insert(String str, String str2, ContentValues contentValues) {
-        InterceptResult invokeLLL;
+    public ChatSysNotifyPojo f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, contentValues)) == null) {
-            SQLiteDatabase c = y88.c();
-            if (c == null || TextUtils.isEmpty(str)) {
-                return -1L;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ChatSysNotifyPojo chatSysNotifyPojo = new ChatSysNotifyPojo();
+            chatSysNotifyPojo.setType(i);
+            Cursor cursor = null;
             try {
-                return c.insert(str, str2, contentValues);
-            } catch (Exception e) {
-                d95.a("im", -1L, 0, "im_check: insertOrUpdate error:" + e.getMessage(), -1, "", new Object[0]);
-                BdLog.e(e.getMessage());
-                return -1L;
+                try {
+                    cursor = f98.d().e("select * from tb_chat_sys_notify where scene=?", new String[]{String.valueOf(i)});
+                    if (cursor != null) {
+                        cursor.moveToFirst();
+                        chatSysNotifyPojo.setUnread(cursor.getInt(cursor.getColumnIndex("unread_num")));
+                        chatSysNotifyPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.queryByScene", new Object[0]);
+                    e.printStackTrace();
+                }
+                return chatSysNotifyPojo;
+            } finally {
+                yi.a(cursor);
             }
         }
-        return invokeLLL.longValue;
+        return (ChatSysNotifyPojo) invokeI.objValue;
     }
 
-    public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
-        InterceptResult invokeLLLL;
+    public void g(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, contentValues, str2, strArr)) == null) {
-            SQLiteDatabase c = y88.c();
-            if (c == null || TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            try {
-                return c.update(str, contentValues, str2, strArr);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                d95.a("im", -1L, 0, "im_check: update error" + e.getMessage(), -1, "", new Object[0]);
-                return -1;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            h(i, "", i2);
+        }
+    }
+
+    public synchronized void h(int i, @Nullable String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            synchronized (this) {
+                ContentValues contentValues = new ContentValues();
+                if (!StringUtils.isNull(str)) {
+                    contentValues.put("content", str);
+                }
+                if (i2 >= 0) {
+                    contentValues.put("unread_num", Integer.valueOf(i2));
+                }
+                f98.d().update("tb_chat_sys_notify", contentValues, "scene=?", new String[]{String.valueOf(i)});
             }
         }
-        return invokeLLLL.intValue;
     }
 }

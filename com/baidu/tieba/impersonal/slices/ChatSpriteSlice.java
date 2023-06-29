@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalSpriteBinding;
-import com.baidu.tieba.js6;
-import com.baidu.tieba.mo5;
+import com.baidu.tieba.os6;
+import com.baidu.tieba.ro5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public final class ChatSpriteSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
             super.T(view2, bundle);
-            js6 a = mo5.a.a().a();
+            os6 a = ro5.a.a().a();
             if (a != null) {
                 SlicePersonalSpriteBinding slicePersonalSpriteBinding = this.j;
                 if (slicePersonalSpriteBinding == null) {

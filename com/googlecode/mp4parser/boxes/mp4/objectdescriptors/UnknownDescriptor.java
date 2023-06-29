@@ -9,12 +9,12 @@ public class UnknownDescriptor extends BaseDescriptor {
     public ByteBuffer data;
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
-    public String toString() {
-        return "UnknownDescriptor{tag=" + this.tag + ", sizeOfInstance=" + this.sizeOfInstance + ", data=" + this.data + '}';
+    public void parseDetail(ByteBuffer byteBuffer) throws IOException {
+        this.data = (ByteBuffer) byteBuffer.slice().limit(getSizeOfInstance());
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
-    public void parseDetail(ByteBuffer byteBuffer) throws IOException {
-        this.data = (ByteBuffer) byteBuffer.slice().limit(getSizeOfInstance());
+    public String toString() {
+        return "UnknownDescriptor{tag=" + this.tag + ", sizeOfInstance=" + this.sizeOfInstance + ", data=" + this.data + '}';
     }
 }

@@ -5,7 +5,7 @@ import com.kwad.sdk.core.b;
 import com.kwad.sdk.core.response.kwai.a;
 import java.io.Serializable;
 @KsJson
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ActivityInfo extends a implements b, Serializable {
     public static final long serialVersionUID = 4269865323325685543L;
     public int actTypeId;

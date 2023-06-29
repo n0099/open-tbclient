@@ -1,163 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.HashMap;
+import java.util.Locale;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class cc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public c b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public a j;
-    public b k;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public double c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.b;
-                if ((i == 2 || i == 3) && this.c > 0.0d && !TextUtils.isEmpty(this.a)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static a b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                a aVar = new a();
-                JSONObject c = z21.c(str);
-                aVar.a = c.optString("defer_charge_url");
-                aVar.b = c.optInt("defer_type", 3);
-                aVar.c = c.optDouble("defer_time", 0.0d);
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static b a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                b bVar = new b();
-                JSONObject c = z21.c(str);
-                bVar.e = c.optString("key");
-                c.optString("pkg_name");
-                bVar.a = c.optString("download_url");
-                c.optString(BreakpointSQLiteKey.CONTENT_LENGTH);
-                bVar.b = c.optString("close_virtual_progress");
-                bVar.c = c.optString("apk_label");
-                bVar.d = c.optString("apk_icon");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static c a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                c cVar = new c();
-                JSONObject c = z21.c(str);
-                cVar.a = c.optString("receive_title_script");
-                c.optString("start_load_script");
-                return cVar;
-            }
-            return (c) invokeL.objValue;
-        }
-    }
+    public final ec1 a;
+    public boolean b;
+    public int c;
+    public final JSONObject d;
 
     public cc1() {
         Interceptable interceptable = $ic;
@@ -169,77 +29,127 @@ public class cc1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = true;
+        this.c = -1;
+        this.d = new JSONObject();
+        ec1 ec1Var = new ec1();
+        this.a = ec1Var;
+        ec1Var.a = System.currentTimeMillis();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public String a(String str, long j, long j2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.equals(this.e, "0");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("adinfo", str);
+                jSONObject.put("isbrowser", String.valueOf(j));
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("aderrorcode", String.valueOf(j2));
+                jSONObject2.put("multipleaccess", String.valueOf(z));
+                jSONObject2.put(PrefetchEvent.MODULE, "0");
+                jSONObject.put("adext", jSONObject2.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
         }
-        return invokeV.booleanValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public static cc1 b(@NonNull Intent intent) {
-        InterceptResult invokeL;
+    public void b(String str, String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            Bundle extras = intent.getExtras();
-            cc1 cc1Var = null;
-            if (extras == null) {
-                return null;
-            }
-            Serializable serializable = extras.getSerializable("map");
-            if (!(serializable instanceof HashMap)) {
-                return null;
-            }
-            HashMap hashMap = (HashMap) serializable;
-            if (hashMap != null && !hashMap.isEmpty()) {
-                cc1Var = new cc1();
-                cc1Var.c = (String) a31.b(hashMap, LegoListActivityConfig.AD_ID);
-                cc1Var.a = (String) a31.b(hashMap, "url");
-                cc1Var.f = (String) a31.b(hashMap, MigrateStatisticUtils.EXT_INFO);
-                cc1Var.g = (String) a31.b(hashMap, "refer");
-                cc1Var.d = (String) a31.b(hashMap, "charge_url");
-                cc1Var.e = (String) a31.b(hashMap, "ad_invoke_flag");
-                cc1Var.h = (String) a31.b(hashMap, "lp_real_url");
-                String str = (String) a31.b(hashMap, "log_switch");
-                if (TextUtils.isEmpty(str)) {
-                    str = "1";
-                }
-                cc1Var.i = str;
-                String str2 = (String) a31.b(hashMap, "sdk_script");
-                if (!TextUtils.isEmpty(str2)) {
-                    cc1Var.b = c.a(str2);
-                }
-                String str3 = (String) a31.b(hashMap, "defer_charge");
-                if (!TextUtils.isEmpty(str3)) {
-                    cc1Var.j = a.b(str3);
-                }
-                String str4 = (String) a31.b(hashMap, "download");
-                if (!TextUtils.isEmpty(str4)) {
-                    cc1Var.k = b.a(str4);
-                }
-                cc1Var.c();
-            }
-            return cc1Var;
-        }
-        return (cc1) invokeL.objValue;
-    }
-
-    public final void c() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TextUtils.isEmpty(this.g)) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) != null) || this.a == null) {
             return;
         }
-        if (this.g.contains("__CHARGE_URL__") && !TextUtils.isEmpty(this.d)) {
-            this.g = this.g.replace("__CHARGE_URL__", this.d);
+        if (str3 == null) {
+            str3 = "";
         }
-        if (this.g.contains("__DEFER_CHARGE_URL__") && (aVar = this.j) != null && !TextUtils.isEmpty(aVar.a)) {
-            this.g = this.g.replace("__DEFER_CHARGE_URL__", this.j.a);
+        y31 g = new y31().g("1006");
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("ext", str2);
+            g.b("f1", jSONObject.toString());
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("timing", str);
+            g.b("f2", jSONObject2.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        ec1 ec1Var = this.a;
+        g.b("f3", str4);
+        g.b("f4", String.valueOf(j));
+        g.b("f6", String.valueOf(this.c));
+        g.b("f7", "ad");
+        g.b("f14", "");
+        g.b("f15", String.valueOf(this.a.a));
+        g.b("f16", String.format(Locale.CHINA, "%.3f", Float.valueOf((((float) ((currentTimeMillis - ec1Var.d) + ec1Var.e)) * 1.0f) / 1000.0f)));
+        g.b("f17", str3);
+        g.b("f18", String.valueOf(this.a.b));
+        g.b("f19", String.valueOf(this.a.c));
+        g.b("f20", String.valueOf(this.a.d));
+        g.b("f21", String.valueOf(this.a.f));
+        g.c("f23", this.d);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ec1 ec1Var = this.a;
+            ec1Var.a = 0L;
+            ec1Var.e = 0L;
+            ec1Var.f = 0L;
+            ec1Var.d = 0L;
+            ec1Var.c = 0L;
+            ec1Var.b = 0L;
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.d = System.currentTimeMillis();
+            ec1 ec1Var = this.a;
+            long j = ec1Var.d - ec1Var.c;
+            if (j < 0) {
+                j = 0;
+            }
+            this.a.e += j;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.c = System.currentTimeMillis();
+            if (this.b) {
+                ec1 ec1Var = this.a;
+                long j = ec1Var.c - ec1Var.a;
+                if (j < 0) {
+                    j = 0;
+                }
+                this.a.e = j;
+                this.b = false;
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.b = System.currentTimeMillis();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a.f = System.currentTimeMillis();
         }
     }
 }

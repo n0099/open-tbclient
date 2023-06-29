@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes8.dex */
 public interface zo5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "GroupChatService");
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
+    void a(@NonNull Context context, long j, int i, String str);
 
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
-    }
+    void b(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z);
 
-    void a(@Nullable a aVar);
+    void c(@NonNull Context context, int i, long j);
 
-    void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5);
+    void d(@NonNull Context context, long j, String str, int i);
 }

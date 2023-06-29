@@ -11,11 +11,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.c55;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.vi;
-import com.baidu.tieba.we;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.l9;
 import com.baidu.tieba.wi;
+import com.baidu.tieba.xe;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,8 +78,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                c55.d();
-                we<String> e = c55.e("tb_face_package");
+                f55.d();
+                xe<String> e = f55.e("tb_face_package");
                 if (e != null) {
                     e.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -126,11 +126,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                     if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                         return null;
                     }
-                    c55.d();
-                    we<String> e = c55.e("tb_face_package");
+                    f55.d();
+                    xe<String> e = f55.e("tb_face_package");
                     if (e != null) {
                         String str = e.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
-                        if (!vi.isEmpty(str)) {
+                        if (!wi.isEmpty(str)) {
                             publishProgress(str);
                         }
                     }
@@ -192,7 +192,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -204,8 +204,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         this.l = null;
         this.h = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.i = wi.l(inst);
-        this.j = wi.j(inst);
+        this.i = xi.l(inst);
+        this.j = xi.j(inst);
         this.k = inst.getResources().getDisplayMetrics().density;
     }
 

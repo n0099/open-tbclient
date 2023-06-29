@@ -1,68 +1,28 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.TextureData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.t6;
+import com.baidu.tieba.u3;
+import com.baidu.tieba.v1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class u1 extends g1<Texture, b> {
+/* loaded from: classes8.dex */
+public class u1 extends t1<u3, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
+    public u3.c b;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.f1
-    /* renamed from: f */
-    public s6<a1> a(String str, b3 b3Var, b bVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, b3Var, bVar)) == null) {
-            return null;
-        }
-        return (s6) invokeLLL.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a {
+    /* loaded from: classes8.dex */
+    public static class a extends d1<u3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public TextureData b;
-        public Texture c;
+        public boolean b;
 
         public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends c1<Texture> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Pixmap.Format b;
-        public boolean c;
-        public Texture d;
-        public TextureData e;
-        public Texture.TextureFilter f;
-        public Texture.TextureFilter g;
-        public Texture.TextureWrap h;
-        public Texture.TextureWrap i;
-
-        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,93 +35,75 @@ public class u1 extends g1<Texture, b> {
                     return;
                 }
             }
-            this.b = null;
-            this.c = false;
-            this.d = null;
-            this.e = null;
-            Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.f = textureFilter;
-            this.g = textureFilter;
-            Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-            this.h = textureWrap;
-            this.i = textureWrap;
+            this.b = false;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u1(j1 j1Var) {
-        super(j1Var);
+    public u1(k1 k1Var) {
+        super(k1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j1Var};
+            Object[] objArr = {k1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((j1) newInitContext.callArgs[0]);
+                super((k1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.g1
-    /* renamed from: g */
-    public void c(e1 e1Var, String str, b3 b3Var, b bVar) {
-        TextureData textureData;
+    /* renamed from: d */
+    public t6<b1> a(String str, c3 c3Var, a aVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, e1Var, str, b3Var, bVar) == null) {
-            a aVar = this.b;
-            aVar.a = str;
-            if (bVar != null && (textureData = bVar.e) != null) {
-                aVar.b = textureData;
-                aVar.c = bVar.d;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, c3Var, aVar)) == null) {
+            c3 i = c3Var.i();
+            if (aVar != null) {
+                this.b = new u3.c(c3Var, i, aVar.b);
             } else {
-                boolean z = false;
-                a aVar2 = this.b;
-                Pixmap.Format format = null;
-                aVar2.c = null;
-                if (bVar != null) {
-                    format = bVar.b;
-                    z = bVar.c;
-                    aVar2.c = bVar.d;
-                }
-                this.b.b = TextureData.a.a(b3Var, format, z);
+                this.b = new u3.c(c3Var, i, false);
             }
-            if (!this.b.b.isPrepared()) {
-                this.b.b.prepare();
+            t6<b1> t6Var = new t6<>();
+            t6.b<u3.c.p> it = this.b.a().iterator();
+            while (it.hasNext()) {
+                u3.c.p next = it.next();
+                v1.b bVar = new v1.b();
+                bVar.b = next.f;
+                bVar.c = next.e;
+                bVar.f = next.g;
+                bVar.g = next.h;
+                t6Var.a(new b1(next.a, Texture.class, bVar));
             }
+            return t6Var;
         }
+        return (t6) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g1
-    /* renamed from: h */
-    public Texture d(e1 e1Var, String str, b3 b3Var, b bVar) {
+    @Override // com.baidu.tieba.t1
+    /* renamed from: e */
+    public u3 c(f1 f1Var, String str, c3 c3Var, a aVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, e1Var, str, b3Var, bVar)) == null) {
-            a aVar = this.b;
-            if (aVar == null) {
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, f1Var, str, c3Var, aVar)) == null) {
+            t6.b<u3.c.p> it = this.b.a().iterator();
+            while (it.hasNext()) {
+                u3.c.p next = it.next();
+                next.b = (Texture) f1Var.j(next.a.j().replaceAll("\\\\", "/"), Texture.class);
             }
-            Texture texture = aVar.c;
-            if (texture != null) {
-                texture.A(aVar.b);
-            } else {
-                texture = new Texture(this.b.b);
-            }
-            if (bVar != null) {
-                texture.l(bVar.f, bVar.g);
-                texture.m(bVar.h, bVar.i);
-            }
-            return texture;
+            u3 u3Var = new u3(this.b);
+            this.b = null;
+            return u3Var;
         }
-        return (Texture) invokeLLLL.objValue;
+        return (u3) invokeLLLL.objValue;
     }
 }

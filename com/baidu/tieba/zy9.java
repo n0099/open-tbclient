@@ -1,45 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes8.dex */
-public class zy9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zy9 {
+    void a(boolean z);
 
-    public static boolean a(String str, Boolean bool) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
-            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
-                return false;
-            }
-            return bool.booleanValue();
-        }
-        return invokeLL.booleanValue;
-    }
+    void b(int i);
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
-            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0767);
-            int length = stringArray.length;
-            for (int i = 0; i < length; i++) {
-                if (!stringArray[i].equals(str)) {
-                    if (str.equals(stringArray[i] + string)) {
-                        return true;
-                    }
-                } else {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void c();
+
+    boolean d();
+
+    void e();
+
+    boolean f();
+
+    int g();
+
+    @NonNull
+    BaseFragmentActivity getActivity();
+
+    int getAdSource();
+
+    @NonNull
+    ViewGroup getRootView();
+
+    BdUniqueId getUniqueId();
+
+    boolean h();
+
+    long i();
 }

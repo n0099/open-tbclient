@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.baidu.swan.apps.SwanAppActivity;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface uw1 {
-    ks2 a(ZeusPluginFactory.Invoker invoker, String str);
+    void a();
 
-    ku2 b(ZeusPluginFactory.Invoker invoker, String str);
+    void b(String str, s02 s02Var);
 
-    ku2 c(ZeusPluginFactory.Invoker invoker, String str);
+    void c(SwanAppActivity swanAppActivity, String str, s02 s02Var);
 
-    js2 d(ZeusPluginFactory.Invoker invoker, String str);
-
-    hq2 e(ZeusPluginFactory.Invoker invoker, String str);
+    void d(String str, String str2, JSONObject jSONObject, s02 s02Var);
 }

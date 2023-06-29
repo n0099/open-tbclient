@@ -4,6 +4,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +62,7 @@ public class h0 implements View.OnTouchListener {
             hashMap.put(LoginConstants.DX_ONE_KEY_LOGIN, Integer.valueOf(this.f));
             hashMap.put("dy", Integer.valueOf(this.g));
             hashMap.put("dts", Long.valueOf(this.n));
-            hashMap.put("ux", Integer.valueOf(this.o));
+            hashMap.put(ux.c, Integer.valueOf(this.o));
             hashMap.put("uy", Integer.valueOf(this.p));
             hashMap.put("uts", Long.valueOf(this.q));
             M.a(hashMap, this.h, this.i, this.j, this.k, this.l, this.m);

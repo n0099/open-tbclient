@@ -1,9 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: ChatFloatEntranceService.java */
 /* loaded from: classes8.dex */
-public interface wo5 {
-    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+public final /* synthetic */ class wo5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+    public static xo5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (xo5) ServiceManager.getService(xo5.a);
+        }
+        return (xo5) invokeV.objValue;
+    }
 }

@@ -8,7 +8,7 @@ import com.kwad.sdk.api.KsSplashScreenAd;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstrackKsSplashScreenAd implements KsSplashScreenAd {
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     @NonNull

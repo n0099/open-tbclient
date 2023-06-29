@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class kxa {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static float b;
-    public static int c;
-    public static int d;
+    public static volatile kxa f;
     public transient /* synthetic */ FieldHolder $fh;
+    public nxa a;
+    public Context b;
+    public String c;
+    public lxa d;
+    public mxa e;
 
     static {
         InterceptResult invokeClinit;
@@ -33,76 +36,134 @@ public class kxa {
         }
     }
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            if (!a) {
-                f();
-            }
-            return (int) ((f * b) + 0.5f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
         }
-        return invokeF.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static int b() {
+    public kxa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static kxa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!a) {
-                f();
+            if (f == null) {
+                synchronized (kxa.class) {
+                    if (f == null) {
+                        f = new kxa();
+                    }
+                }
             }
-            return d;
+            return f;
         }
-        return invokeV.intValue;
+        return (kxa) invokeV.objValue;
     }
 
-    public static int c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!a) {
-                f();
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int d() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            lxa lxaVar = this.d;
+            if (lxaVar != null) {
+                return lxaVar.e();
+            }
+            return "";
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int e() {
+    public lxa d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return invokeV.intValue;
+        return (lxa) invokeV.objValue;
     }
 
-    public static void f() {
+    public mxa e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            WindowManager windowManager = (WindowManager) usa.c().getContext().getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            int orientation = windowManager.getDefaultDisplay().getOrientation();
-            if (orientation != 1 && orientation != 3) {
-                c = displayMetrics.widthPixels;
-                d = displayMetrics.heightPixels;
-            } else {
-                c = displayMetrics.heightPixels;
-                d = displayMetrics.widthPixels;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (mxa) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            lxa lxaVar = this.d;
+            if (lxaVar != null) {
+                return lxaVar.b();
             }
-            b = displayMetrics.density;
-            a = true;
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public nxa g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (nxa) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public void h(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, context) == null) && context != null) {
+            this.b = context.getApplicationContext();
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void k(lxa lxaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, lxaVar) == null) {
+            this.d = lxaVar;
         }
     }
 }

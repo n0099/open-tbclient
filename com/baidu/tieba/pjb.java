@@ -1,36 +1,44 @@
 package com.baidu.tieba;
 
-import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.FrameInfo;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediacodec.NativeIttiam;
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
+import com.squareup.wire2.Message;
+import com.squareup.wire2.Message.a;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.WireField;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class pjb extends jjb {
+public final class pjb<M extends Message<M, B>, B extends Message.a<M, B>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NativeIttiam A;
-    public ByteBuffer B;
-    public ByteBuffer C;
-    public int D;
-    public boolean E;
-    public FrameInfo F;
-    public WeakReference<sib> G;
+    public final WireField.Label a;
+    public final String b;
+    public final int c;
+    public final String d;
+    public final String e;
+    public final boolean f;
+    public final Field g;
+    public final Field h;
+    public final Method i;
+    public ProtoAdapter<?> j;
+    public ProtoAdapter<?> k;
+    public ProtoAdapter<Object> l;
 
-    public pjb() {
+    public pjb(WireField wireField, Field field, Class<B> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wireField, field, cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,177 +48,153 @@ public abstract class pjb extends jjb {
                 return;
             }
         }
-        this.A = new NativeIttiam();
-        this.B = null;
-        this.C = null;
-        this.D = 0;
-        this.E = false;
-        this.F = new FrameInfo();
-        this.G = new WeakReference<>(null);
+        this.a = wireField.label();
+        this.b = field.getName();
+        this.c = wireField.tag();
+        this.d = wireField.keyAdapter();
+        this.e = wireField.adapter();
+        this.f = wireField.redacted();
+        this.g = field;
+        this.h = c(cls, this.b);
+        this.i = d(cls, this.b, field.getType());
     }
 
-    @Override // com.baidu.tieba.jjb
-    public void B() {
+    public static Field c(Class<?> cls, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            while (!this.r.b() && K() == 1) {
-                TLog.g(this, "handleEndOfStream");
-                try {
-                    Thread.sleep(20L);
-                } catch (Exception unused) {
-                    TLog.g(this, "handleEndOfStream error");
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
+            try {
+                return cls.getField(str);
+            } catch (NoSuchFieldException unused) {
+                throw new AssertionError("No builder field " + cls.getName() + "." + str);
             }
         }
+        return (Field) invokeLL.objValue;
     }
 
-    public void L() {
+    public void j(B b, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TLog.g(this, "NativeIttiamFilter.stopCodec enter.");
-            this.A.l();
-            this.B = null;
-            this.C = null;
-            this.F.a = 0L;
-            this.D = 0;
-            this.v = 0L;
-            G();
-            TLog.g(this, "NativeIttiamFilter.stopCodec leave.");
-        }
-    }
-
-    @Override // com.baidu.tieba.jjb
-    public int D(MediaSample mediaSample) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample)) == null) {
-            this.E = false;
-            int J = J(mediaSample);
-            if (J == 1 && this.E) {
-                this.E = false;
-                K();
-            }
-            return J;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.jjb, com.baidu.tieba.sjb, com.baidu.tieba.aib.a
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
-            if (message.what != 1002) {
-                super.handleMessage(message);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, b, obj) == null) {
+            if (this.a.isRepeated()) {
+                ((List) e(b)).add(obj);
+            } else if (!this.d.isEmpty()) {
+                ((Map) e(b)).putAll((Map) obj);
             } else {
-                L();
+                h(b, obj);
             }
         }
     }
 
-    public final int J(MediaSample mediaSample) {
-        InterceptResult invokeL;
-        AVframe aVframe;
-        MediaInfo mediaInfo;
-        ByteBuffer byteBuffer;
-        boolean z;
-        byte[] bArr;
-        byte[] bArr2;
+    public static Method d(Class<?> cls, String str, Class<?> cls2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample)) == null) {
-            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || this.C == null || mediaInfo.k == null) {
-                return -1;
-            }
-            int i = aVframe.e;
-            int i2 = this.a;
-            if (i > i2) {
-                long j = this.v + 1;
-                this.v = j;
-                if (j >= 10 && j % 1000 != 0) {
-                    return 0;
-                }
-                TLog.c(this, String.format("Ittiam::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
-                return 0;
-            } else if (i < i2) {
-                long j2 = this.v + 1;
-                this.v = j2;
-                if (j2 < 10 || j2 % 1000 == 0) {
-                    TLog.c(this, String.format("Ittiam::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
-                }
-                return -1;
-            } else {
-                byteBuffer.clear();
-                this.C.clear();
-                FrameInfo frameInfo = this.F;
-                frameInfo.a = 0L;
-                frameInfo.b = 0L;
-                boolean z2 = mediaSample.g.c;
-                int capacity = mediaSample.i.k.capacity();
-                if (mediaSample.d && (bArr2 = mediaSample.g.q) != null) {
-                    capacity += bArr2.length + 4;
-                }
-                ByteBuffer byteBuffer2 = this.B;
-                if (byteBuffer2 == null || byteBuffer2.capacity() < capacity) {
-                    int i3 = (int) (capacity * 1.5d);
-                    if (i3 > 2000000 || i3 < capacity) {
-                        i3 = capacity;
-                    }
-                    this.B = ByteBuffer.allocateDirect(i3);
-                }
-                if (this.B.capacity() < capacity) {
-                    return -1;
-                }
-                if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
-                    this.B.putInt(bArr.length);
-                    this.B.put(mediaSample.g.q);
-                }
-                this.B.put(mediaSample.i.k).flip();
-                int k = this.A.k(this.B, this.C, mediaSample.d, mediaSample.l, this.F);
-                if (k != 0 && k != -2) {
-                    TLog.c(this, "ittiam decode error.maybe");
-                    return -1;
-                }
-                this.r.a(mediaSample);
-                if (k == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                this.E = z;
-                return 1;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, cls2)) == null) {
+            try {
+                return cls.getMethod(str, cls2);
+            } catch (NoSuchMethodException unused) {
+                throw new AssertionError("No builder method " + cls.getName() + "." + str + "(" + cls2.getName() + SmallTailInfo.EMOTION_SUFFIX);
             }
         }
-        return invokeL.intValue;
+        return (Method) invokeLLL.objValue;
     }
 
-    public final int K() {
+    public ProtoAdapter<Object> a() {
         InterceptResult invokeV;
-        MediaInfo mediaInfo;
-        AVframe aVframe;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ProtoAdapter<Object> protoAdapter = this.l;
+            if (protoAdapter != null) {
+                return protoAdapter;
+            }
+            if (f()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(g(), i());
+                this.l = newMapAdapter;
+                return newMapAdapter;
+            }
+            ProtoAdapter<?> withLabel = i().withLabel(this.a);
+            this.l = withLabel;
+            return withLabel;
+        }
+        return (ProtoAdapter) invokeV.objValue;
+    }
+
+    public Object b(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m)) == null) {
+            try {
+                return this.g.get(m);
+            } catch (IllegalAccessException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    public Object e(B b) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
+            try {
+                return this.h.get(b);
+            } catch (IllegalAccessException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return invokeL.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MediaSample c = this.r.c();
-            if (c != null && c.g != null && (mediaInfo = c.i) != null) {
-                mediaInfo.c(this.q);
-                c.i.k = this.C;
-                FrameInfo frameInfo = this.F;
-                c.l = frameInfo.a;
-                E(c, frameInfo.b);
-                this.u++;
-                wib.c(c, 6);
-                n(c);
-                sib sibVar = this.G.get();
-                if (sibVar != null && (aVframe = c.g) != null) {
-                    sibVar.t((int) aVframe.l);
-                }
-                synchronized (this.k) {
-                    if (this.d != null) {
-                        this.d.f(c);
-                    }
-                }
-                return 1;
-            }
-            return -1;
+            return !this.d.isEmpty();
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
+    }
+
+    public ProtoAdapter<?> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ProtoAdapter<?> protoAdapter = this.k;
+            if (protoAdapter != null) {
+                return protoAdapter;
+            }
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.d);
+            this.k = protoAdapter2;
+            return protoAdapter2;
+        }
+        return (ProtoAdapter) invokeV.objValue;
+    }
+
+    public ProtoAdapter<?> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ProtoAdapter<?> protoAdapter = this.j;
+            if (protoAdapter != null) {
+                return protoAdapter;
+            }
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.e);
+            this.j = protoAdapter2;
+            return protoAdapter2;
+        }
+        return (ProtoAdapter) invokeV.objValue;
+    }
+
+    public void h(B b, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, b, obj) == null) {
+            try {
+                if (this.a.isOneOf()) {
+                    this.i.invoke(b, obj);
+                } else {
+                    this.h.set(b, obj);
+                }
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new AssertionError(e);
+            }
+        }
     }
 }

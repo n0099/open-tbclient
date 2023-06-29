@@ -1,19 +1,19 @@
 package rx.internal.subscriptions;
 
-import com.baidu.tieba.nob;
-import com.baidu.tieba.qsb;
-import com.baidu.tieba.sob;
-import com.baidu.tieba.wob;
+import com.baidu.tieba.etb;
+import com.baidu.tieba.jtb;
+import com.baidu.tieba.kxb;
+import com.baidu.tieba.ntb;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class CancellableSubscription extends AtomicReference<wob> implements nob {
+public final class CancellableSubscription extends AtomicReference<ntb> implements etb {
     public static final long serialVersionUID = 5718521705281392066L;
 
-    public CancellableSubscription(wob wobVar) {
-        super(wobVar);
+    public CancellableSubscription(ntb ntbVar) {
+        super(ntbVar);
     }
 
-    @Override // com.baidu.tieba.nob
+    @Override // com.baidu.tieba.etb
     public boolean isUnsubscribed() {
         if (get() == null) {
             return true;
@@ -21,15 +21,15 @@ public final class CancellableSubscription extends AtomicReference<wob> implemen
         return false;
     }
 
-    @Override // com.baidu.tieba.nob
+    @Override // com.baidu.tieba.etb
     public void unsubscribe() {
-        wob andSet;
+        ntb andSet;
         if (get() != null && (andSet = getAndSet(null)) != null) {
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                sob.e(e);
-                qsb.j(e);
+                jtb.e(e);
+                kxb.j(e);
             }
         }
     }

@@ -1,271 +1,127 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import com.bytedance.pangle.plugin.Plugin;
+import java.io.File;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h73 extends c02 {
+public class h73 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.c02
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Plugin.TAG : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.c02
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "SwanInvokeFunPageApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements ld2<k73> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h73 a;
-
-        public a(h73 h73Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947776581, "Lcom/baidu/tieba/h73;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = h73Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ld2
-        /* renamed from: b */
-        public void a(k73 k73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k73Var) != null) {
-                return;
-            }
-            this.a.C(k73Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements ld2<k73> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h73 a;
-
-        public b(h73 h73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h73Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ld2
-        /* renamed from: b */
-        public void a(k73 k73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k73Var) != null) {
-                return;
-            }
-            this.a.C(k73Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements ld2<k73> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h73 a;
-
-        public c(h73 h73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h73Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ld2
-        /* renamed from: b */
-        public void a(k73 k73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k73Var) != null) {
-                return;
-            }
-            this.a.C(k73Var);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h73(@NonNull a02 a02Var) {
-        super(a02Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a02Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((a02) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947776581, "Lcom/baidu/tieba/h73;");
                 return;
             }
         }
+        a = ms1.a;
     }
 
-    public z32 A(String str) {
-        InterceptResult invokeL;
+    public static void a(SwanAppConfigData swanAppConfigData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#invokePluginPayment", false);
-            j73 B = B(str);
-            if (B.b()) {
-                r73.b(B.toString());
-                return B.i;
-            }
-            return new p73().l(B, new c(this));
+        if ((interceptable != null && interceptable.invokeL(65537, null, swanAppConfigData) != null) || swanAppConfigData == null) {
+            return;
         }
-        return (z32) invokeL.objValue;
-    }
-
-    public z32 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#invokePluginChooseAddress", false);
-            j73 B = B(str);
-            if (B.b()) {
-                r73.b(B.toString());
-                return B.i;
-            }
-            return new o73().l(B, new b(this));
-        }
-        return (z32) invokeL.objValue;
-    }
-
-    public z32 z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            j73 B = B(str);
-            if (B.b()) {
-                r73.b(B.toString());
-                return B.i;
-            }
-            return new q73().l(B, new a(this));
-        }
-        return (z32) invokeL.objValue;
-    }
-
-    public final j73 B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            j73 j73Var = new j73();
-            Pair<z32, JSONObject> s = s(str);
-            j73Var.i = (z32) s.first;
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return j73Var;
-            }
-            String optString = jSONObject.optString("pluginProvider");
-            if (TextUtils.isEmpty(optString)) {
-                j73Var.i = new z32(201, "pluginProvider is empty");
-                return j73Var;
-            }
-            al4 g = x73.g(optString);
-            if (g != null) {
-                String str2 = g.r;
-                if (!TextUtils.isEmpty(str2)) {
-                    String optString2 = jSONObject.optString("providerRootPath");
-                    if (TextUtils.isEmpty(optString2)) {
-                        j73Var.i = new z32(201, "providerRootPath is empty");
-                        return j73Var;
+        List<w73> e = swanAppConfigData.e();
+        if (e != null && !e.isEmpty()) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            b(e, jSONObject, jSONObject2);
+            if (rm2.k()) {
+                boolean z = false;
+                for (w73 w73Var : e) {
+                    String h = rm2.h(w73Var.a);
+                    if (!TextUtils.isEmpty(h) && new File(h).exists()) {
+                        w73Var.e = h;
+                        c(jSONObject, jSONObject2, w73Var);
+                        z = true;
+                        c92.i("Module-Plugin", "use debug dependencies，name=" + w73Var.a + " path=" + w73Var.e);
+                    } else {
+                        c92.o("Module-Plugin", "debug dependencies not exist，name=" + w73Var.a + " path=" + w73Var.e);
                     }
-                    String optString3 = jSONObject.optString("slaveId");
-                    if (TextUtils.isEmpty(optString3)) {
-                        j73Var.i = new z32(201, "slaveId is empty");
-                        return j73Var;
-                    }
-                    String optString4 = jSONObject.optString("componentId");
-                    if (TextUtils.isEmpty(optString4)) {
-                        j73Var.i = new z32(201, "componentId is empty");
-                        return j73Var;
-                    }
-                    String str3 = "release";
-                    String optString5 = jSONObject.optString("pluginVersion", "release");
-                    if (!TextUtils.isEmpty(optString5)) {
-                        str3 = optString5;
-                    }
-                    JSONObject optJSONObject = jSONObject.optJSONObject(WebChromeClient.KEY_ARG_ARRAY);
-                    String optString6 = jSONObject.optString("cb");
-                    j73Var.a = str2;
-                    j73Var.b = optString;
-                    j73Var.c = optString2;
-                    j73Var.d = str3;
-                    j73Var.e = optString3;
-                    j73Var.f = optString4;
-                    j73Var.g = optJSONObject;
-                    j73Var.h = optString6;
-                    return j73Var;
+                }
+                if (!z) {
+                    ub3.g(AppRuntime.getAppContext(), "no debug dependency").G();
+                    c92.c("Module-Plugin", "no debug dependency");
                 }
             }
-            j73Var.i = new z32(201, "pluginProvider exchange for truth app key，but empty");
-            return j73Var;
+            String jSONObject3 = jSONObject.toString();
+            String jSONObject4 = jSONObject2.toString();
+            a83.c("dependenciesPath", jSONObject3);
+            a83.c("dependenciesConfig", jSONObject4);
+            return;
         }
-        return (j73) invokeL.objValue;
+        a83.c("dependenciesPath", null);
+        a83.c("dependenciesConfig", null);
+        if (a) {
+            u73.b("this swan app not apply on someone dynamic lib");
+        }
     }
 
-    public final void C(k73 k73Var) {
+    public static void b(@NonNull List<w73> list, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k73Var) == null) && k73Var != null) {
-            k73Var.b();
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, list, jSONObject, jSONObject2) != null) || list.isEmpty()) {
+            return;
+        }
+        for (w73 w73Var : list) {
+            if (w73Var != null) {
+                if (w73Var.g) {
+                    c(jSONObject, jSONObject2, w73Var);
+                } else {
+                    dl4 q = zj4.i().q(w73Var.a, w73Var.h, w73Var.i);
+                    if (q == null) {
+                        u73.a(Log.getStackTraceString(new Throwable(w73Var.a + " query db fail")));
+                    } else {
+                        File t = yu2.t(w73Var.a, String.valueOf(q.i));
+                        if (t != null && t.exists()) {
+                            w73Var.e = t.getAbsolutePath();
+                            c(jSONObject, jSONObject2, w73Var);
+                        } else {
+                            u73.a(Log.getStackTraceString(new Throwable(w73Var.a + " local file not exist")));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void c(@NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull w73 w73Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, jSONObject, jSONObject2, w73Var) == null) {
+            String str = w73Var.e;
+            String str2 = w73Var.f;
+            if (a) {
+                u73.b("apply dep path, name = " + w73Var.a + "; inline = " + w73Var.g + "; path = " + str + "; config = " + str2);
+            }
+            if (TextUtils.isEmpty(str)) {
+                u73.b(Log.getStackTraceString(new Throwable(w73Var.a + " path is empty")));
+                return;
+            }
+            cp3.f(jSONObject, w73Var.a, str);
+            if (!TextUtils.isEmpty(w73Var.f)) {
+                File file = new File(str, str2);
+                if (file.exists() && file.isFile()) {
+                    cp3.f(jSONObject2, w73Var.a, cp3.d(gs4.E(file)));
+                }
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sb extends ub {
+public class sb extends vb {
     public static /* synthetic */ Interceptable $ic;
-    public static sb d;
+    public static sb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public vb c;
 
     static {
         InterceptResult invokeClinit;
@@ -40,37 +38,23 @@ public class sb extends ub {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = null;
-        this.a = new vb(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.c = new vb(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.b = 3;
     }
 
-    public static sb d() {
+    public static sb c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
+            if (c == null) {
                 synchronized (sb.class) {
-                    if (d == null) {
-                        d = new sb();
+                    if (c == null) {
+                        c = new sb();
                     }
                 }
             }
-            return d;
+            return c;
         }
         return (sb) invokeV.objValue;
-    }
-
-    public vb c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (vb) invokeV.objValue;
     }
 }

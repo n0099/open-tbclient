@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.content.Intent;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j34 {
+public class j34 extends i44 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile j34 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j34() {
+        super("openSpaceCleanActivity");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,45 +25,48 @@ public class j34 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
     }
 
-    public static j34 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i44
+    public c42 a(@NonNull JSONObject jSONObject, @NonNull gp2 gp2Var) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (j34.class) {
-                    if (b == null) {
-                        b = new j34();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, gp2Var)) == null) {
+            if (lp3.m()) {
+                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
+            } else if (lp3.n()) {
+                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
+            } else if (lp3.o()) {
+                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
+            } else if (lp3.r()) {
+                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
+            } else {
+                z = false;
             }
-            return b;
+            if (!z) {
+                Toast.makeText(jv2.c(), (int) R.string.obfuscated_res_0x7f0f01bc, 0).show();
+            }
+            gp2Var.onSuccess(null);
+            return null;
         }
-        return (j34) invokeV.objValue;
+        return (c42) invokeLL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getBoolean("gamecenter_wifi_resume_download_flag", false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(str, str2);
+            return lo3.i(jv2.c(), intent, true, false);
         }
-        return invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putBoolean("gamecenter_wifi_resume_download_flag", z);
-            edit.apply();
-        }
+        return invokeLL.booleanValue;
     }
 }

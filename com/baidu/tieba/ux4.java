@@ -1,248 +1,502 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.util.Pair;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.atomData.TbWebContainerActivityConfig;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.y05;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import com.baidu.util.Base64Encoder;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class ux4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final NavigationBar b;
-    public final View c;
-    public final Set<tx4> d;
-    public float e;
-    public boolean f;
-    public boolean g;
-    public int h;
 
-    public ux4(NavigationBar navigationBar, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {navigationBar, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948226360, "Lcom/baidu/tieba/ux4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948226360, "Lcom/baidu/tieba/ux4;");
                 return;
             }
         }
-        this.a = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds300);
-        this.d = new HashSet();
-        this.e = 1.0f;
-        this.f = false;
-        this.g = false;
-        this.h = Integer.MAX_VALUE;
-        this.b = navigationBar;
-        this.c = view2;
+        a = new String[]{"/mo/q/priforum/create/info", "/mo/q/forumtarget"};
     }
 
-    public final String i(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
+    public static void A(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                try {
-                    String query = new URL(str).getQuery();
-                    if (StringUtils.isNull(query) || (split = query.split("&")) == null) {
-                        return null;
-                    }
-                    for (String str3 : split) {
-                        String[] split2 = str3.split("=");
-                        if (split2 != null && split2.length == 2) {
-                            String str4 = split2[0];
-                            String str5 = split2[1];
-                            if (str2.equalsIgnoreCase(str4)) {
-                                return str5;
-                            }
-                        }
-                    }
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6)}) == null) {
+            B(context, str, str2, z, z2, z3, z4, z5, z6, false);
+        }
+    }
+
+    public static void B(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7)}) == null) {
+            pz4 j = pz4.j(context, str2);
+            j.p(str);
+            j.m(z);
+            j.k(z2);
+            j.c(z3);
+            j.i(z4);
+            j.g(z5);
+            j.l(z6);
+            j.d(z7);
+            j.o();
+        }
+    }
+
+    public static void C(Context context, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Boolean.valueOf(z), str}) == null) {
+            z(context, "", str, true, true, true, true, z);
+        }
+    }
+
+    public static void t(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65561, null, context, str, str2) == null) {
+            z(context, str, str2, true, true, true, true, true);
+        }
+    }
+
+    public static void D(Context context, boolean z, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) {
+            z(context, str2, str, true, true, true, true, z);
+        }
+    }
+
+    public static void E(boolean z, Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Boolean.valueOf(z), context, str, str2}) == null) {
+            B(context, str, str2, true, true, true, true, true, false, z);
+        }
+    }
+
+    public static TbWebViewActivityConfig g(Context context, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
+            return h(context, str, str2, true, z, true);
+        }
+        return (TbWebViewActivityConfig) invokeCommon.objValue;
+    }
+
+    public static void v(Context context, String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65563, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) {
+            z(context, str, str2, true, z, true, true, true);
+        }
+    }
+
+    public static void a(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, webSettings) == null) {
+            CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
+        }
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return am6.e(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
+            for (String str2 : a) {
+                if (str2.contains(str)) {
+                    return true;
                 }
             }
-            return null;
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
+            b = str;
+        }
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (!l(str) && !wi.isEmpty(str) && str.contains("_client_type=")) {
+                return str;
+            }
+            return str + "&_client_type=2";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (!wi.isEmpty(str) && str.indexOf("_client_version=") > -1) {
+                return str;
+            }
+            return str + "&_client_version=" + TbConfig.getVersion();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (!wi.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str);
+                if (str.indexOf("?") > 0) {
+                    sb.append("&");
+                } else {
+                    sb.append("?");
+                }
+                if (!UtilHelper.isNativeAdURL(str)) {
+                    sb.append("cuid=");
+                    sb.append(TbadkCoreApplication.getInst().getCuid());
+                    sb.append("&cuid_galaxy2=");
+                    sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    sb.append("&cuid_gid=");
+                    sb.append(TbadkCoreApplication.getInst().getCuidGid());
+                }
+                sb.append("&timestamp=");
+                sb.append(Long.toString(System.currentTimeMillis()));
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str, List<Pair<String, String>> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, list)) == null) {
+            if (!wi.isEmpty(str) && list != null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str);
+                if (str.indexOf("?") < 0) {
+                    sb.append("?");
+                }
+                for (Pair<String, String> pair : list) {
+                    if (pair != null && !TextUtils.isEmpty((CharSequence) pair.first)) {
+                        sb.append("&");
+                        sb.append((String) pair.first);
+                        sb.append("=");
+                        sb.append((String) pair.second);
+                    }
+                }
+                return sb.toString();
+            }
+            return str;
         }
         return (String) invokeLL.objValue;
     }
 
-    public void a(tx4... tx4VarArr) {
+    public static TbWebViewActivityConfig h(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, tx4VarArr) == null) && tx4VarArr != null && tx4VarArr.length > 0) {
-            this.d.addAll(Arrays.asList(tx4VarArr));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            return i(context, str, str2, z, z2, z3, false);
         }
+        return (TbWebViewActivityConfig) invokeCommon.objValue;
     }
 
-    public final void b(boolean z) {
+    public static TbWebViewActivityConfig i(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!z && this.g && this.e < 0.5f) {
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            if (context == null) {
+                context = TbadkCoreApplication.getInst();
             }
-            if (this.e < 0.5f) {
-                this.g = true;
-            } else {
-                this.g = false;
+            Context context2 = context;
+            if (!b(str2) && !z4) {
+                return new TbWebViewActivityConfig(context2, str, str2, z, z2, z3);
             }
-            for (tx4 tx4Var : this.d) {
-                if (tx4Var.b() != null) {
-                    if (tx4Var.b() instanceof TextView) {
-                        if (this.g && !gy9.e(this.h)) {
-                            ((TextView) tx4Var.b()).setTextColor(this.h);
-                        } else {
-                            SkinManager.setViewTextColor(tx4Var.b(), d());
-                        }
-                    } else if (tx4Var.b() instanceof ImageView) {
-                        if (this.g) {
-                            if (!gy9.e(this.h)) {
-                                ((ImageView) tx4Var.b()).setImageDrawable(SvgManager.getInstance().getPureDrawableWithColorInt(tx4Var.a(), this.h, SvgManager.SvgResourceStateType.NORMAL_PRESS));
-                            } else {
-                                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) tx4Var.b(), tx4Var.a(), R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                            }
-                        } else {
-                            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) tx4Var.b(), tx4Var.a(), R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                        }
-                    }
-                }
-            }
+            yl6.c(str2);
+            return new TbWebContainerActivityConfig(context2, str, str2, z, z2, z3);
         }
+        return (TbWebViewActivityConfig) invokeCommon.objValue;
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.f) {
-            return;
-        }
-        float abs = Math.abs(this.e - 0.5f) * 2.0f;
-        for (tx4 tx4Var : this.d) {
-            if (tx4Var.b() != null) {
-                tx4Var.b().setAlpha(abs);
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f = false;
-            this.e = 1.0f;
-            NavigationBar navigationBar = this.b;
-            if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
-                this.b.getBackground().mutate().setAlpha(1);
-            }
-            b(true);
-            c();
-            this.d.clear();
-        }
-    }
-
-    public final int d() {
+    public static String j() {
+        CookieManager cookieManager;
+        String[] split;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!this.f || !this.g) {
-                return R.color.CAM_X0106;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            try {
+                cookieManager = CookieManager.getInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+                cookieManager = null;
             }
-            return R.color.CAM_X0101;
+            if (cookieManager == null) {
+                return "";
+            }
+            String cookie = cookieManager.getCookie("*.baidu.com");
+            if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
+                cookie = b;
+            }
+            if (cookie == null) {
+                return "";
+            }
+            for (String str : cookie.split(ParamableElem.DIVIDE_PARAM)) {
+                if (str.contains("BAIDUID=")) {
+                    return str.trim().substring(8);
+                }
+            }
+            return "";
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void g() {
+    public static void k(Context context) {
+        CookieManager cookieManager;
+        y05.b bVar;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !this.f) {
-            return;
-        }
-        b(true);
-        c();
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (str.contains(BaseWebViewActivity.QUERY_OPACITY) && !this.f) {
-            this.f = true;
-            this.e = 0.0f;
-            this.h = gy9.f(i(str, "opacitybtnhex"));
-            NavigationBar navigationBar = this.b;
-            if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
-                this.b.getBackground().mutate().setAlpha(0);
+        if (interceptable == null || interceptable.invokeL(65552, null, context) == null) {
+            try {
+                CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
+                cookieManager = CookieManager.getInstance();
+            } catch (Throwable th) {
+                BdLog.e(th);
+                cookieManager = null;
             }
-            View view2 = this.c;
-            if (view2 != null) {
-                view2.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            if (cookieManager == null) {
+                return;
             }
-            b(true);
-        } else if (!str.contains(BaseWebViewActivity.QUERY_OPACITY) && this.f) {
-            this.f = false;
-            this.e = 1.0f;
-            NavigationBar navigationBar2 = this.b;
-            if (navigationBar2 != null && navigationBar2.getBackground() != null && this.b.getBackground().mutate() != null) {
-                this.b.getBackground().mutate().setAlpha(1);
-            }
-            View view3 = this.c;
-            if (view3 != null) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
-                layoutParams.addRule(3, R.id.view_navigation_bar);
-                this.c.setLayoutParams(layoutParams);
-            }
-            b(true);
-        }
-    }
-
-    public void f(int i) {
-        NavigationBar navigationBar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || !this.f || (navigationBar = this.b) == null) {
-            return;
-        }
-        if (navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
-            this.b.getBackground().mutate().setAlpha((int) (this.e * 255.0f));
-        }
-        b(true);
-        c();
-    }
-
-    public void h(int i, int i2, int i3, int i4) {
-        NavigationBar navigationBar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) && this.f && (navigationBar = this.b) != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
-            int i5 = this.a;
-            if (i2 < i5) {
-                this.e = (i2 * 1.0f) / i5;
+            cookieManager.setAcceptCookie(true);
+            if (y05.b() != null) {
+                bVar = y05.b().c(TbadkCoreApplication.getCurrentBduss());
             } else {
-                this.e = 1.0f;
+                bVar = null;
             }
-            this.b.getBackground().mutate().setAlpha((int) (this.e * 255.0f));
-            b(false);
-            c();
+            if (bVar != null) {
+                String a2 = v05.a(TbadkCoreApplication.getCurrentAccountInfo());
+                StringBuilder sb = new StringBuilder();
+                if (!StringUtils.isNull(a2)) {
+                    sb.append("STOKEN=");
+                    sb.append(a2);
+                    sb.append("; domain=.tieba.baidu.com;");
+                    cookieManager.setCookie("tieba.baidu.com", sb.toString());
+                }
+            } else {
+                try {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        cookieManager.removeAllCookies(null);
+                        CookieManager.getInstance().flush();
+                    } else {
+                        cookieManager.removeAllCookie();
+                        CookieSyncManager.createInstance(context);
+                        CookieSyncManager.getInstance().sync();
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            }
+            cookieManager.setCookie(".baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + ParamableElem.DIVIDE_PARAM);
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            if (!TextUtils.isEmpty(cuidGalaxy2)) {
+                str = new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes()));
+            } else {
+                str = "";
+            }
+            cookieManager.setCookie(".baidu.com", "BAIDUCUID=" + str + ParamableElem.DIVIDE_PARAM);
+            cookieManager.setCookie(".baidu.com", "need_cookie_decrypt=0" + ParamableElem.DIVIDE_PARAM);
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("TBBRAND");
+            sb2.append("=");
+            sb2.append(ParamableElem.DIVIDE_PARAM);
+            cookieManager.setCookie(".baidu.com", sb2.toString());
+            cookieManager.setCookie(".baidu.com", "DNARBBT=" + ParamableElem.DIVIDE_PARAM);
+            if (cq9.b()) {
+                cookieManager.setCookie(".baidu.com", "TBBRAND=" + zi.g() + ParamableElem.DIVIDE_PARAM);
+            } else {
+                cookieManager.setCookie(".baidu.com", "need_cookie_decrypt=" + cq9.c() + ParamableElem.DIVIDE_PARAM);
+                String d = cq9.d("TBBRAND");
+                if (!TextUtils.isEmpty(d)) {
+                    cookieManager.setCookie(".baidu.com", d + "=" + cq9.e() + ParamableElem.DIVIDE_PARAM);
+                }
+            }
+            cookieManager.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ParamableElem.DIVIDE_PARAM);
+            cookieManager.setCookie(".baidu.com", "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti() + ParamableElem.DIVIDE_PARAM);
+            cookieManager.setCookie(".baidu.com", "cuid_galaxy2=" + cuidGalaxy2 + ParamableElem.DIVIDE_PARAM);
+            cookieManager.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ParamableElem.DIVIDE_PARAM);
+            cookieManager.setCookie(".baidu.com", "BDUSS=" + TbadkCoreApplication.getCurrentBduss() + ParamableElem.DIVIDE_PARAM + "HttpOnly");
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    CookieManager.getInstance().flush();
+                } else {
+                    CookieSyncManager.getInstance().sync();
+                }
+                SapiAccountManager.getInstance().getAccountService().webLogin(context);
+            } catch (Throwable th2) {
+                BdLog.e(th2);
+            }
+        }
+    }
+
+    public static String m(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) {
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                str = "http://".concat(str);
+            }
+            if (str.contains("?")) {
+                str3 = "&st_type=" + str2;
+            } else {
+                str3 = "?st_type=" + str2;
+            }
+            return str.concat(str3);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void o(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65556, null, context, str) == null) {
+            p(context, str, true);
+        }
+    }
+
+    public static void q(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65558, null, context, str) == null) {
+            s(context, str);
+        }
+    }
+
+    public static void r(Context context, Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65559, null, context, uri) == null) {
+            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
+            tbWebViewActivityConfig.setUri(uri);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+        }
+    }
+
+    public static void s(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65560, null, context, str) == null) {
+            C(context, true, str);
+        }
+    }
+
+    public static void p(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65557, null, context, str, z) == null) {
+            if (z) {
+                str = f(d(str));
+            }
+            try {
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
+                intent.setData(Uri.parse(str));
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                context.startActivity(intent);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void u(Context context, String str, String str2, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65562, null, context, str, str2, bundle) == null) {
+            pz4 j = pz4.j(context, str2);
+            j.p(str);
+            j.a(bundle);
+            j.o();
+        }
+    }
+
+    public static void w(Context context, String str, String str2, boolean z, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{context, str, str2, Boolean.valueOf(z), bundle}) == null) {
+            pz4 j = pz4.j(context, str2);
+            j.p(str);
+            j.k(z);
+            j.a(bundle);
+            j.o();
+        }
+    }
+
+    public static void x(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            z(context, str, str2, z, z2, z3, true, true);
+        }
+    }
+
+    public static void y(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), bundle}) == null) {
+            pz4 j = pz4.j(context, str2);
+            j.p(str);
+            j.m(z);
+            j.k(z2);
+            j.c(z3);
+            j.a(bundle);
+            j.o();
+        }
+    }
+
+    public static void z(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65567, null, new Object[]{context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)}) == null) {
+            B(context, str, str2, z, z2, z3, z4, z5, false, false);
         }
     }
 }

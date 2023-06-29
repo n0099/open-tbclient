@@ -6,78 +6,120 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class kta {
+public class kta extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gta> a;
-    public int[] b;
+    public final jta a;
+    public boolean b;
+    public ByteBuffer c;
+    public IOException d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public kta(List<gta> list) {
-        this(list, null);
+    public kta(jta jtaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list};
+            Object[] objArr = {jtaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], (int[]) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = jtaVar;
     }
 
-    public kta(List<gta> list, int[] iArr) {
+    public void d(IOException iOException) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
+            this.d = iOException;
+            this.b = true;
+            this.c = null;
         }
-        this.a = list;
-        c(iArr);
     }
 
-    public List<gta> a() {
-        InterceptResult invokeV;
+    public final void a() throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public int[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (int[]) invokeV.objValue;
-    }
-
-    public void c(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
-            this.b = iArr;
-            if (wwa.e(this.a)) {
-                return;
-            }
-            for (gta gtaVar : this.a) {
-                if (gtaVar.b() != null) {
-                    gtaVar.b().mSoundTypes = iArr;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.b) {
+                IOException iOException = this.d;
+                if (iOException == null) {
+                    return;
                 }
+                throw iOException;
+            } else if (!c()) {
+                if (this.c == null) {
+                    this.c = ByteBuffer.allocateDirect(32768);
+                }
+                this.c.clear();
+                this.a.v(this.c);
+                IOException iOException2 = this.d;
+                if (iOException2 == null) {
+                    ByteBuffer byteBuffer = this.c;
+                    if (byteBuffer != null) {
+                        byteBuffer.flip();
+                        return;
+                    }
+                    return;
+                }
+                throw iOException2;
             }
         }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ByteBuffer byteBuffer = this.c;
+            if (byteBuffer != null && byteBuffer.hasRemaining()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a();
+            if (c()) {
+                return this.c.get() & 255;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
+                if (i2 == 0) {
+                    return 0;
+                }
+                a();
+                if (c()) {
+                    int min = Math.min(this.c.limit() - this.c.position(), i2);
+                    this.c.get(bArr, i, min);
+                    return min;
+                }
+                return -1;
+            }
+            throw new IndexOutOfBoundsException();
+        }
+        return invokeLII.intValue;
     }
 }

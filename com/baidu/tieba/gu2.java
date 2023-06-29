@@ -1,152 +1,256 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.zw2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class gu2 extends fu2 {
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class gu2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
+    public final HashMap<String, Long> a;
+    public final HashMap<String, String> b;
+    public boolean c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gu2(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zw2.a a;
+        public final /* synthetic */ gu2 b;
+
+        public a(gu2 gu2Var, zw2.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gu2Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = gu2Var;
+            this.a = aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.b.j(this.a);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806341, "Lcom/baidu/tieba/gu2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947806341, "Lcom/baidu/tieba/gu2;");
                 return;
             }
         }
+        e = ms1.a;
     }
 
-    @Override // com.baidu.tieba.ju2, com.baidu.tieba.iu2
-    public void a(String str, String str2) {
-        String str3;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && e(str)) {
-            boolean equals = TextUtils.equals(str2, "auto");
-            boolean equals2 = TextUtils.equals(str2, "api");
-            du2 du2Var = this.a;
-            String str4 = "1";
-            if (equals) {
-                str3 = "1";
-            } else {
-                str3 = "0";
-            }
-            du2Var.g("autoPlay", str3);
-            du2 du2Var2 = this.a;
-            if (!equals2) {
-                str4 = "0";
-            }
-            du2Var2.g("playMethod", str4);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+            this.b.clear();
         }
     }
 
-    @Override // com.baidu.tieba.fu2, com.baidu.tieba.ju2, com.baidu.tieba.iu2
-    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
-        String str;
-        long j;
-        long j2;
-        long j3;
-        long j4;
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
-            UbcFlowEvent g = hybridUbcFlow.g("fe_slave_dispatch_start");
-            UbcFlowEvent g2 = hybridUbcFlow.g("fe_master_page_oninit_start");
-            UbcFlowEvent g3 = hybridUbcFlow.g("master_page_onload_start");
-            UbcFlowEvent g4 = hybridUbcFlow.g("video_fe_init");
-            UbcFlowEvent g5 = hybridUbcFlow.g("video_fe_init_end");
-            long j5 = 0;
-            if (g != null) {
-                du2 du2Var = this.a;
-                if (z) {
-                    j4 = g.g();
-                } else {
-                    j4 = 0;
-                }
-                du2Var.i("fe_slave_dispatch_start", j4);
-            }
-            if (g2 != null) {
-                du2 du2Var2 = this.a;
-                if (z) {
-                    j3 = g2.g();
-                } else {
-                    j3 = 0;
-                }
-                du2Var2.i("fe_master_page_oninit_start", j3);
-            }
-            if (g3 != null) {
-                du2 du2Var3 = this.a;
-                if (z) {
-                    j2 = g3.g();
-                } else {
-                    j2 = 0;
-                }
-                du2Var3.i("master_page_onload_start", j2);
-            }
-            if (g4 != null) {
-                du2 du2Var4 = this.a;
-                if (z) {
-                    j = g4.g();
-                } else {
-                    j = 0;
-                }
-                du2Var4.i("video_fe_init", j);
-            }
-            if (g5 != null) {
-                du2 du2Var5 = this.a;
-                if (z) {
-                    j5 = g5.g();
-                }
-                du2Var5.i("video_fe_init_end", j5);
-            }
-            du2 du2Var6 = this.a;
-            if (z) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            du2Var6.g("fmpArrived", str);
-            if (this.a.f()) {
-                this.a.k();
-                eu2.e();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.d = true;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ju2, com.baidu.tieba.iu2
-    public void c() {
+    public synchronized boolean f() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.a.d("video_will_play")) {
-                this.a.h("video_play_cancel");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                z = this.d;
             }
-            d();
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            wo3.k(new a(this, bc3.K().q().W()), "VideoStaticRecorder");
         }
     }
 
-    public final boolean e(String str) {
+    public gu2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = false;
+        this.d = false;
+    }
+
+    public synchronized void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.b.put(str, str2);
+                }
+            }
+        }
+    }
+
+    public synchronized boolean d(@NonNull String str) {
         InterceptResult invokeL;
+        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(this.b, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.a.containsKey(str);
+            }
+            return containsKey;
         }
         return invokeL.booleanValue;
+    }
+
+    public synchronized boolean e(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.b.containsKey(str);
+            }
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void h(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            synchronized (this) {
+                if (e) {
+                    Log.i("VideoStaticRecorder", "inline video record: action " + str);
+                }
+                if (!this.d && !this.a.containsKey(str)) {
+                    this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                }
+            }
+        }
+    }
+
+    public synchronized void i(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            synchronized (this) {
+                if (e) {
+                    Log.i("VideoStaticRecorder", "inline video record: action " + str);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, Long.valueOf(j));
+                }
+            }
+        }
+    }
+
+    public final synchronized void j(zw2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                this.c = true;
+                boolean equals = TextUtils.equals("1", this.b.get("autoPlay"));
+                boolean equals2 = TextUtils.equals("1", this.b.get("playMethod"));
+                if (e) {
+                    Log.d("VideoStaticRecorder", "submit: autoPlay:" + equals + ",apiPlay:" + equals2);
+                }
+                if (!equals && !equals2) {
+                    b();
+                    return;
+                }
+                h53.r("video");
+                HybridUbcFlow p = h53.p("video");
+                for (Map.Entry<String, Long> entry : this.a.entrySet()) {
+                    c92.i("VideoStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
+                    ubcFlowEvent.h(entry.getValue().longValue());
+                    p.F(ubcFlowEvent);
+                }
+                for (Map.Entry<String, String> entry2 : this.b.entrySet()) {
+                    c92.i("VideoStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
+                    p.D(entry2.getKey(), entry2.getValue());
+                }
+                String h = p.h("fmpArrived");
+                if (TextUtils.isEmpty(h)) {
+                    h = "0";
+                }
+                p.D("fmpArrived", h);
+                long l = aVar.l("launch_time", 0L);
+                UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_start");
+                ubcFlowEvent2.h(l);
+                p.F(ubcFlowEvent2);
+                p.D("launchID", aVar.V());
+                p.D("scheme", aVar.W());
+                p.D("appid", aVar.H());
+                p.D("page", aVar.e0());
+                long j = aVar.s0().getLong("click_time", 0L);
+                if (j > 0) {
+                    UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("user_action");
+                    ubcFlowEvent3.h(j);
+                    p.F(ubcFlowEvent3);
+                }
+                p.A();
+                b();
+            }
+        }
     }
 }

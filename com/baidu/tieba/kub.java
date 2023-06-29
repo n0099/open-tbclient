@@ -1,60 +1,219 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.txb;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xsb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes6.dex */
-public interface kub {
-    void a(Activity activity, cwb cwbVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+public class kub<T> implements xsb.b<T, T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final ltb<? super T> a;
 
-    void b(boolean z);
+    /* loaded from: classes6.dex */
+    public class a implements zsb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicLong a;
 
-    boolean c(Activity activity, AbsViewEventHandler absViewEventHandler);
+        public a(kub kubVar, AtomicLong atomicLong) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kubVar, atomicLong};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = atomicLong;
+        }
 
-    void d(Activity activity, txb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+        @Override // com.baidu.tieba.zsb
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                ttb.b(this.a, j);
+            }
+        }
+    }
 
-    void e(int i, String str, PayCallBackBean payCallBackBean);
+    /* loaded from: classes6.dex */
+    public class b extends dtb<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean e;
+        public final /* synthetic */ dtb f;
+        public final /* synthetic */ AtomicLong g;
+        public final /* synthetic */ kub h;
 
-    void g(CancelType cancelType, AbsViewEventHandler absViewEventHandler);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(kub kubVar, dtb dtbVar, dtb dtbVar2, AtomicLong atomicLong) {
+            super(dtbVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kubVar, dtbVar, dtbVar2, atomicLong};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((dtb) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = kubVar;
+            this.f = dtbVar2;
+            this.g = atomicLong;
+        }
 
-    nub h();
+        @Override // com.baidu.tieba.dtb
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                e(Long.MAX_VALUE);
+            }
+        }
 
-    void j(Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayAmountView.ViewParams viewParams);
+        @Override // com.baidu.tieba.ysb
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.e) {
+                this.e = true;
+                this.f.onCompleted();
+            }
+        }
 
-    void k(Activity activity, gwb gwbVar, cwb cwbVar, Dialog dialog, mxb mxbVar, AppCustomExpand appCustomExpand, txb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+        @Override // com.baidu.tieba.ysb
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                if (!this.e) {
+                    this.e = true;
+                    this.f.onError(th);
+                    return;
+                }
+                kxb.j(th);
+            }
+        }
 
-    void l(PayFinishInfo payFinishInfo);
+        @Override // com.baidu.tieba.ysb
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.e) {
+                return;
+            }
+            if (this.g.get() > 0) {
+                this.f.onNext(t);
+                this.g.decrementAndGet();
+                return;
+            }
+            ltb<? super T> ltbVar = this.h.a;
+            if (ltbVar != null) {
+                try {
+                    ltbVar.call(t);
+                } catch (Throwable th) {
+                    jtb.g(th, this, t);
+                }
+            }
+        }
+    }
 
-    void m(AbsViewEventHandler absViewEventHandler, PayDialogType payDialogType);
+    /* loaded from: classes6.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final kub<Object> a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void n(Activity activity, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-647919758, "Lcom/baidu/tieba/kub$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-647919758, "Lcom/baidu/tieba/kub$c;");
+                    return;
+                }
+            }
+            a = new kub<>();
+        }
+    }
 
-    void p(Activity activity, cwb cwbVar, gwb gwbVar, Dialog dialog, mxb mxbVar, AppCustomExpand appCustomExpand, txb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public kub() {
+        this(null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((ltb) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    void q(Activity activity, String str);
+    public static <T> kub<T> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return (kub<T>) c.a;
+        }
+        return (kub) invokeV.objValue;
+    }
 
-    void r(nxb nxbVar, Dialog dialog);
+    public kub(ltb<? super T> ltbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ltbVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = ltbVar;
+    }
 
-    void refreshWindow(WindowParams windowParams);
+    public dtb<? super T> call(dtb<? super T> dtbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dtbVar)) == null) {
+            AtomicLong atomicLong = new AtomicLong();
+            dtbVar.f(new a(this, atomicLong));
+            return new b(this, dtbVar, dtbVar, atomicLong);
+        }
+        return (dtb) invokeL.objValue;
+    }
 
-    boolean s(Activity activity, txb txbVar, AbsViewEventHandler absViewEventHandler);
-
-    void t(Activity activity, cwb cwbVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void u(Activity activity);
-
-    PayDialogType v();
+    @Override // com.baidu.tieba.xsb.b, com.baidu.tieba.ptb
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((dtb) ((dtb) obj));
+    }
 }

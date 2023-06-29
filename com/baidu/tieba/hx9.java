@@ -1,51 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.stamp.model.FetchStampModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hx9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gx9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public FetchStampModel a;
-    public ex9 b;
 
-    public hx9(TbPageContext tbPageContext, ex9<ax9> ex9Var) {
+    public static synchronized gx9 a() {
+        InterceptResult invokeV;
+        gx9 gx9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ex9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (hx9.class) {
+                if (a == null) {
+                    a = new gx9();
+                }
+                gx9Var = a;
             }
+            return gx9Var;
         }
-        this.b = ex9Var;
-        this.a = new FetchStampModel(tbPageContext, ex9Var);
-    }
-
-    public void a() {
-        FetchStampModel fetchStampModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.cancelLoadData();
-        }
-    }
-
-    public void b() {
-        FetchStampModel fetchStampModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.loadData();
-        }
+        return (gx9) invokeV.objValue;
     }
 }

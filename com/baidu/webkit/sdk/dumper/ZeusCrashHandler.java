@@ -33,7 +33,7 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public static final long APPROXIMATE_START_TIME = System.currentTimeMillis();
     public static final boolean DEBUG = false;
@@ -51,7 +51,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public final Thread.UncaughtExceptionHandler mPreviousHandler;
 
     /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
 
@@ -109,12 +109,12 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum ExtraInfo {
         CUID("CUID"),
         EMULATOR("Emulator"),
@@ -142,7 +142,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ZeusCrashHandlerClient {
         public static final String TAG = "CrashHandlerClientImpl";
         public PackageInfo mAppPackageInfo;

@@ -1,16 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.webkit.URLUtil;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.browser.core.cache.prefetch.FetchDynamicResourceManager;
+import com.baidu.tieba.browser.data.PreRenderMode;
+import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class pj6 extends tl1<ym6> {
+public class pj6 extends wl1<gn6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,9 +26,42 @@ public class pj6 extends tl1<ym6> {
     }
 
     /* loaded from: classes7.dex */
-    public static final class b implements ym6 {
+    public static final class b implements gn6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes7.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ WebView a;
+
+            public a(b bVar, WebView webView) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, webView};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = webView;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    oj6.e().i(this.a);
+                }
+            }
+        }
 
         public b() {
             Interceptable interceptable = $ic;
@@ -39,18 +77,50 @@ public class pj6 extends tl1<ym6> {
             }
         }
 
+        @Override // com.baidu.tieba.gn6
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                oj6.e().a();
+            }
+        }
+
         public /* synthetic */ b(a aVar) {
             this();
         }
 
-        @Override // com.baidu.tieba.ym6
-        public List<Pair<String, Long>> a(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.gn6
+        @NonNull
+        public WebView b(Context context, String str) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return FetchDynamicResourceManager.c(str);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+                if (!URLUtil.isNetworkUrl(str) && !URLUtil.isAssetUrl(str) && !URLUtil.isFileUrl(str)) {
+                    return oj6.e().h(context);
+                }
+                return vj6.b().b(context, str);
             }
-            return (List) invokeL.objValue;
+            return (WebView) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.tieba.gn6
+        public void c(String str, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, webView) == null) {
+                MonitorWebView monitorWebView = (MonitorWebView) webView;
+                if (URLUtil.isValidUrl(str) && (monitorWebView.getPreRenderMode() == PreRenderMode.MULTI || monitorWebView.getPreRenderMode() == PreRenderMode.MULTI_AUTO_REMOVE)) {
+                    vj6.b().c(str, monitorWebView);
+                } else if (oj6.e().c() == 1) {
+                    webView.loadUrl("about:blank");
+                    Context context = monitorWebView.getContext();
+                    if (context instanceof MutableContextWrapper) {
+                        ((MutableContextWrapper) context).setBaseContext(tl6.getContext());
+                    }
+                    yg.a().postDelayed(new a(this, webView), 200L);
+                } else {
+                    oj6.e().i(webView);
+                }
+            }
         }
     }
 
@@ -69,14 +139,14 @@ public class pj6 extends tl1<ym6> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tl1
+    @Override // com.baidu.tieba.wl1
     /* renamed from: a */
-    public ym6 createService() throws ServiceNotFoundException {
+    public gn6 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new b(null);
         }
-        return (ym6) invokeV.objValue;
+        return (gn6) invokeV.objValue;
     }
 }

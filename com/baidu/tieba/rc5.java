@@ -9,6 +9,8 @@ import org.json.JSONObject;
 public class rc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
     public rc5() {
         Interceptable interceptable = $ic;
@@ -29,8 +31,11 @@ public class rc5 {
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        jSONObject.optString("app_id", "");
-        jSONObject.optString("app_name", "");
-        jSONObject.optString("package_name", "");
+        try {
+            this.a = jSONObject.optInt("logined");
+            this.b = jSONObject.optInt("unlogin");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StorageFile;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc;
-import com.baidu.tieba.k9;
+import com.baidu.tieba.ac5;
+import com.baidu.tieba.dc;
+import com.baidu.tieba.l9;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
-import com.baidu.tieba.xb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +97,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                xb5.a();
+                ac5.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -162,10 +162,10 @@ public class SystemHelpSettingModel extends BdBaseModel {
             long j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                cc ccVar = new cc();
-                String a = ccVar.a("image", true, false, true);
+                dc dcVar = new dc();
+                String a = dcVar.a("image", true, false, true);
                 String cacheDir = FileHelper.getCacheDir();
-                String a2 = ccVar.a("images", true, false, true);
+                String a2 = dcVar.a("images", true, false, true);
                 String str = cacheDir + "voice";
                 long directorySize = FileHelper.getDirectorySize(a, false);
                 long directorySize2 = FileHelper.getDirectorySize(a2, false);
@@ -186,7 +186,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long j3 = directorySize + directorySize3 + fileSize + directorySize2 + j + j2;
                 float f = ((float) j3) + 0.0f;
                 if (j3 >= 10485.76d && this.a.get() != null) {
-                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0c45);
+                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0c4a);
                 }
                 return "";
             }
@@ -219,7 +219,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

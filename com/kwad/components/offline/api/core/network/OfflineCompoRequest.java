@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class OfflineCompoRequest implements IOfflineCompoRequest {
     public final Map<String, String> mHeader = new HashMap();
     public final JSONObject mBodyParams = new JSONObject();

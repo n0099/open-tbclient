@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Message;
+import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rmb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,73 +13,63 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
-import java.nio.channels.ByteChannel;
-import java.nio.channels.NotYetConnectedException;
-import java.nio.channels.SelectionKey;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.IncompleteHandshakeException;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidHandshakeException;
-import org.java_websocket.exceptions.WebsocketNotConnectedException;
-import org.java_websocket.framing.Framedata;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import com.yy.transvod.player.log.TLog;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class anb implements WebSocket {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int t = 16384;
-    public static boolean u;
+public final class anb implements rmb, Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String[] m;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BlockingQueue<ByteBuffer> a;
-    public final bnb b;
-    public SelectionKey c;
-    public ByteChannel d;
-    public volatile boolean e;
-    public WebSocket.READYSTATE f;
-    public List<Draft> g;
-    public Draft h;
-    public WebSocket.Role i;
-    public ByteBuffer j;
-    public pnb k;
-    public String l;
-    public Integer m;
-    public Boolean n;
-    public String o;
-    public long p;
-    public final Object q;
-    public mnb r;
-    public Object s;
+    public final String a;
+    public String b;
+    public int c;
+    public rmb.a d;
+    public Object e;
+    public Object f;
+    public LinkedList<Message> g;
+    public TreeMap<Long, Message> h;
+    public LinkedList<Message> i;
+    public TreeMap<Long, Message> j;
+    public AtomicInteger k;
+    public Thread l;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947622356, "Lcom/baidu/tieba/anb;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622356, "Lcom/baidu/tieba/anb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947622356, "Lcom/baidu/tieba/anb;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947622356, "Lcom/baidu/tieba/anb;");
-        }
+        m = new String[]{"None", "Ready", "Running", "Paused", "Stopped"};
     }
 
-    public anb(bnb bnbVar, Draft draft) {
+    @Override // com.baidu.tieba.rmb
+    public int getStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.k.get();
+        }
+        return invokeV.intValue;
+    }
+
+    public anb(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bnbVar, draft};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,734 +79,341 @@ public class anb implements WebSocket {
                 return;
             }
         }
-        this.e = false;
-        this.f = WebSocket.READYSTATE.NOT_YET_CONNECTED;
-        this.h = null;
-        this.j = ByteBuffer.allocate(0);
-        this.k = null;
+        this.a = anb.class.getSimpleName();
+        this.b = SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+        this.c = -2;
+        this.d = null;
+        this.e = new Object();
+        this.f = new Object();
+        this.g = new LinkedList<>();
+        this.h = new TreeMap<>();
+        this.i = new LinkedList<>();
+        this.j = new TreeMap<>();
+        this.k = new AtomicInteger(1);
         this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.p = System.currentTimeMillis();
-        this.q = new Object();
-        if (bnbVar != null && (draft != null || this.i != WebSocket.Role.SERVER)) {
-            this.a = new LinkedBlockingQueue();
-            new LinkedBlockingQueue();
-            this.b = bnbVar;
-            this.i = WebSocket.Role.CLIENT;
-            if (draft != null) {
-                this.h = draft.f();
-                return;
-            }
-            return;
+        if (str != null) {
+            this.b = str;
         }
-        throw new IllegalArgumentException("parameters must not be null");
+        this.c = 0;
     }
 
-    public boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (t() == WebSocket.READYSTATE.OPEN) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void J() throws NotYetConnectedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.r == null) {
-                this.r = new mnb();
-            }
-            sendFrame(this.r);
-        }
-    }
-
-    public void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.p = System.currentTimeMillis();
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            b(1000);
-        }
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return super.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    public <T> T q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            return (T) this.s;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public long r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return this.p;
-        }
-        return invokeV.longValue;
-    }
-
-    public InetSocketAddress s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return this.b.getLocalSocketAddress(this);
-        }
-        return (InetSocketAddress) invokeV.objValue;
-    }
-
-    public WebSocket.READYSTATE t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            return this.f;
-        }
-        return (WebSocket.READYSTATE) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public InetSocketAddress u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            return this.b.getRemoteSocketAddress(this);
-        }
-        return (InetSocketAddress) invokeV.objValue;
-    }
-
-    public bnb v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            return this.b;
-        }
-        return (bnb) invokeV.objValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            return !this.a.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            if (t() == WebSocket.READYSTATE.CLOSED) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            if (t() == WebSocket.READYSTATE.CLOSING) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Deprecated
-    public boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            if (t() == WebSocket.READYSTATE.CONNECTING) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void C(unb unbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unbVar) == null) {
-            if (u) {
-                PrintStream printStream = System.out;
-                printStream.println("open using draft: " + this.h);
-            }
-            L(WebSocket.READYSTATE.OPEN);
-            try {
-                this.b.onWebsocketOpen(this, unbVar);
-            } catch (RuntimeException e) {
-                this.b.onWebsocketError(this, e);
-            }
-        }
-    }
-
-    public void D(String str) throws WebsocketNotConnectedException {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (str != null) {
-                Draft draft = this.h;
-                if (this.i == WebSocket.Role.CLIENT) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                F(draft.h(str, z));
-                return;
-            }
-            throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
-        }
-    }
-
-    public void E(ByteBuffer byteBuffer) throws IllegalArgumentException, WebsocketNotConnectedException {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
-            if (byteBuffer != null) {
-                Draft draft = this.h;
-                if (this.i == WebSocket.Role.CLIENT) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                F(draft.i(byteBuffer, z));
-                return;
-            }
-            throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
-        }
-    }
-
-    public void G(byte[] bArr) throws IllegalArgumentException, WebsocketNotConnectedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
-            E(ByteBuffer.wrap(bArr));
-        }
-    }
-
-    public void I(Collection<Framedata> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, collection) == null) {
-            F(collection);
-        }
-    }
-
-    public <T> void K(T t2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, t2) == null) {
-            this.s = t2;
-        }
-    }
-
-    public final void L(WebSocket.READYSTATE readystate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, readystate) == null) {
-            this.f = readystate;
-        }
-    }
-
-    public final void P(List<ByteBuffer> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
-            synchronized (this.q) {
-                for (ByteBuffer byteBuffer : list) {
-                    O(byteBuffer);
-                }
-            }
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            d(i, "", false);
-        }
-    }
-
-    public void e(InvalidDataException invalidDataException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, invalidDataException) == null) {
-            d(invalidDataException.getCloseCode(), invalidDataException.getMessage(), false);
-        }
-    }
-
-    public final void i(RuntimeException runtimeException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, runtimeException) == null) {
-            O(p(500));
-            o(-1, runtimeException.getMessage(), false);
-        }
-    }
-
-    public final void j(InvalidDataException invalidDataException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, invalidDataException) == null) {
-            O(p(404));
-            o(invalidDataException.getCloseCode(), invalidDataException.getMessage(), false);
-        }
-    }
-
-    @Override // org.java_websocket.WebSocket
-    public void sendFrame(Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, framedata) == null) {
-            F(Collections.singletonList(framedata));
-        }
-    }
-
-    public final void F(Collection<Framedata> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, collection) == null) {
-            if (B()) {
-                if (collection != null) {
-                    ArrayList arrayList = new ArrayList();
-                    for (Framedata framedata : collection) {
-                        if (u) {
-                            PrintStream printStream = System.out;
-                            printStream.println("send frame: " + framedata);
-                        }
-                        arrayList.add(this.h.g(framedata));
-                    }
-                    P(arrayList);
-                    return;
-                }
-                throw new IllegalArgumentException();
-            }
-            throw new WebsocketNotConnectedException();
-        }
-    }
-
-    public void M(qnb qnbVar) throws InvalidHandshakeException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, qnbVar) == null) {
-            this.h.m(qnbVar);
-            this.k = qnbVar;
-            this.o = qnbVar.f();
-            try {
-                this.b.onWebsocketHandshakeSentAsClient(this, this.k);
-                P(this.h.j(this.k, this.i));
-            } catch (RuntimeException e) {
-                this.b.onWebsocketError(this, e);
-                throw new InvalidHandshakeException("rejected because of" + e);
-            } catch (InvalidDataException unused) {
-                throw new InvalidHandshakeException("Handshake data rejected by client.");
-            }
-        }
-    }
-
-    public final void O(ByteBuffer byteBuffer) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, byteBuffer) == null) {
-            if (u) {
-                PrintStream printStream = System.out;
-                StringBuilder sb = new StringBuilder();
-                sb.append("write(");
-                sb.append(byteBuffer.remaining());
-                sb.append("): {");
-                if (byteBuffer.remaining() > 1000) {
-                    str = "too big to display";
-                } else {
-                    str = new String(byteBuffer.array());
-                }
-                sb.append(str);
-                sb.append('}');
-                printStream.println(sb.toString());
-            }
-            this.a.add(byteBuffer);
-            this.b.onWriteDemand(this);
-        }
-    }
-
-    public final void l(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, byteBuffer) == null) {
-            try {
-                for (Framedata framedata : this.h.u(byteBuffer)) {
-                    if (u) {
-                        PrintStream printStream = System.out;
-                        printStream.println("matched frame: " + framedata);
-                    }
-                    this.h.o(this, framedata);
-                }
-            } catch (InvalidDataException e) {
-                this.b.onWebsocketError(this, e);
-                e(e);
-            }
-        }
-    }
-
-    public final ByteBuffer p(int i) {
+    public static int h(int i) {
         InterceptResult invokeI;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
-            if (i != 404) {
-                str = "500 Internal Server Error";
-            } else {
-                str = "404 WebSocket Upgrade Failure";
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i > 19) {
+                i = 19;
+            } else if (i < -8) {
+                i = -8;
             }
-            return ByteBuffer.wrap(cob.a("HTTP/1.1 " + str + "\r\nContent-Type: text/html\nServer: TooTallNate Java-WebSocket\r\nContent-Length: " + (str.length() + 48) + "\r\n\r\n<html><head></head><body><h1>" + str + "</h1></body></html>"));
+            return ((i - 19) * 9) / (-27);
         }
-        return (ByteBuffer) invokeI.objValue;
+        return invokeI.intValue;
     }
 
-    public void H(Framedata.Opcode opcode, ByteBuffer byteBuffer, boolean z) {
+    @Override // com.baidu.tieba.rmb
+    public void b(rmb.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048583, this, opcode, byteBuffer, z) == null) {
-            F(this.h.e(opcode, byteBuffer, z));
-        }
-    }
-
-    public void c(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048594, this, i, str) == null) {
-            d(i, str, false);
-        }
-    }
-
-    public void f(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i, str) == null) {
-            g(i, str, false);
-        }
-    }
-
-    public void h(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            g(i, "", z);
-        }
-    }
-
-    public synchronized void d(int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (t() != WebSocket.READYSTATE.CLOSING && this.f != WebSocket.READYSTATE.CLOSED) {
-                    if (t() == WebSocket.READYSTATE.OPEN) {
-                        if (i == 1006) {
-                            L(WebSocket.READYSTATE.CLOSING);
-                            o(i, str, false);
-                            return;
-                        }
-                        if (this.h.l() != Draft.CloseHandshakeType.NONE) {
-                            try {
-                                if (!z) {
-                                    try {
-                                        this.b.onWebsocketCloseInitiated(this, i, str);
-                                    } catch (RuntimeException e) {
-                                        this.b.onWebsocketError(this, e);
-                                    }
-                                }
-                                if (B()) {
-                                    hnb hnbVar = new hnb();
-                                    hnbVar.r(str);
-                                    hnbVar.q(i);
-                                    hnbVar.h();
-                                    sendFrame(hnbVar);
-                                }
-                            } catch (InvalidDataException e2) {
-                                this.b.onWebsocketError(this, e2);
-                                o(1006, "generated frame is invalid", false);
-                            }
-                        }
-                        o(i, str, z);
-                    } else if (i == -3) {
-                        o(-3, str, true);
-                    } else if (i == 1002) {
-                        o(i, str, z);
-                    } else {
-                        o(-1, str, false);
-                    }
-                    L(WebSocket.READYSTATE.CLOSING);
-                    this.j = null;
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
+            if (aVar != null) {
+                return;
             }
+            throw new RuntimeException("mCallback is not set!");
         }
     }
 
-    public synchronized void g(int i, String str, boolean z) {
+    @Override // com.baidu.tieba.rmb
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (t() == WebSocket.READYSTATE.CLOSED) {
-                    return;
-                }
-                if (t() == WebSocket.READYSTATE.OPEN && i == 1006) {
-                    L(WebSocket.READYSTATE.CLOSING);
-                }
-                if (this.c != null) {
-                    this.c.cancel();
-                }
-                if (this.d != null) {
-                    try {
-                        this.d.close();
-                    } catch (IOException e) {
-                        if (e.getMessage().equals("Broken pipe")) {
-                            if (u) {
-                                System.out.println("Caught IOException: Broken pipe during closeConnection()");
-                            }
-                        } else {
-                            this.b.onWebsocketError(this, e);
-                        }
-                    }
-                }
-                try {
-                    this.b.onWebsocketClose(this, i, str, z);
-                } catch (RuntimeException e2) {
-                    this.b.onWebsocketError(this, e2);
-                }
-                if (this.h != null) {
-                    this.h.s();
-                }
-                this.k = null;
-                L(WebSocket.READYSTATE.CLOSED);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (getStatus() == 1) {
+                this.c = i;
+                return;
             }
+            throw new IllegalStateException("invalid state");
         }
     }
 
-    public void k(ByteBuffer byteBuffer) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, byteBuffer) == null) {
-            if (u) {
-                PrintStream printStream = System.out;
-                StringBuilder sb = new StringBuilder();
-                sb.append("process(");
-                sb.append(byteBuffer.remaining());
-                sb.append("): {");
-                if (byteBuffer.remaining() > 1000) {
-                    str = "too big to display";
-                } else {
-                    str = new String(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
-                }
-                sb.append(str);
-                sb.append('}');
-                printStream.println(sb.toString());
-            }
-            if (t() != WebSocket.READYSTATE.NOT_YET_CONNECTED) {
-                if (t() == WebSocket.READYSTATE.OPEN) {
-                    l(byteBuffer);
-                }
-            } else if (m(byteBuffer) && !y() && !x()) {
-                if (byteBuffer.hasRemaining()) {
-                    l(byteBuffer);
-                } else if (this.j.hasRemaining()) {
-                    l(this.j);
-                }
-            }
-        }
-    }
-
-    public final boolean m(ByteBuffer byteBuffer) {
+    @Override // com.baidu.tieba.rmb
+    public boolean e(Runnable runnable) {
         InterceptResult invokeL;
-        ByteBuffer byteBuffer2;
-        unb v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, byteBuffer)) == null) {
-            if (this.j.capacity() == 0) {
-                byteBuffer2 = byteBuffer;
-            } else {
-                if (this.j.remaining() < byteBuffer.remaining()) {
-                    ByteBuffer allocate = ByteBuffer.allocate(this.j.capacity() + byteBuffer.remaining());
-                    this.j.flip();
-                    allocate.put(this.j);
-                    this.j = allocate;
-                }
-                this.j.put(byteBuffer);
-                this.j.flip();
-                byteBuffer2 = this.j;
-            }
-            byteBuffer2.mark();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, runnable)) == null) {
+            Message obtain = Message.obtain((Handler) null, runnable);
+            boolean sendMessage = sendMessage(obtain);
             try {
-                try {
-                } catch (InvalidHandshakeException e) {
-                    e(e);
-                }
-            } catch (IncompleteHandshakeException e2) {
-                if (this.j.capacity() == 0) {
-                    byteBuffer2.reset();
-                    int preferedSize = e2.getPreferedSize();
-                    if (preferedSize == 0) {
-                        preferedSize = byteBuffer2.capacity() + 16;
-                    }
-                    ByteBuffer allocate2 = ByteBuffer.allocate(preferedSize);
-                    this.j = allocate2;
-                    allocate2.put(byteBuffer);
-                } else {
-                    ByteBuffer byteBuffer3 = this.j;
-                    byteBuffer3.position(byteBuffer3.limit());
-                    ByteBuffer byteBuffer4 = this.j;
-                    byteBuffer4.limit(byteBuffer4.capacity());
-                }
+                obtain.recycle();
+            } catch (IllegalStateException unused) {
+                TLog.d(this.a, "message recycle error");
             }
-            if (this.i == WebSocket.Role.SERVER) {
-                if (this.h == null) {
-                    for (Draft draft : this.g) {
-                        Draft f = draft.f();
-                        try {
-                            f.t(this.i);
-                            byteBuffer2.reset();
-                            v = f.v(byteBuffer2);
-                        } catch (InvalidHandshakeException unused) {
-                        }
-                        if (!(v instanceof pnb)) {
-                            j(new InvalidDataException(1002, "wrong http function"));
-                            return false;
-                        }
-                        pnb pnbVar = (pnb) v;
-                        if (f.b(pnbVar) == Draft.HandshakeState.MATCHED) {
-                            this.o = pnbVar.f();
-                            try {
-                                xnb onWebsocketHandshakeReceivedAsServer = this.b.onWebsocketHandshakeReceivedAsServer(this, f, pnbVar);
-                                f.n(pnbVar, onWebsocketHandshakeReceivedAsServer);
-                                P(f.j(onWebsocketHandshakeReceivedAsServer, this.i));
-                                this.h = f;
-                                C(pnbVar);
-                                return true;
-                            } catch (RuntimeException e3) {
-                                this.b.onWebsocketError(this, e3);
-                                i(e3);
-                                return false;
-                            } catch (InvalidDataException e4) {
-                                j(e4);
-                                return false;
-                            }
-                        }
-                    }
-                    if (this.h == null) {
-                        j(new InvalidDataException(1002, "no draft matches"));
-                    }
-                    return false;
-                }
-                unb v2 = this.h.v(byteBuffer2);
-                if (!(v2 instanceof pnb)) {
-                    o(1002, "wrong http function", false);
-                    return false;
-                }
-                pnb pnbVar2 = (pnb) v2;
-                if (this.h.b(pnbVar2) == Draft.HandshakeState.MATCHED) {
-                    C(pnbVar2);
-                    return true;
-                }
-                c(1002, "the handshake did finaly not match");
-                return false;
-            }
-            if (this.i == WebSocket.Role.CLIENT) {
-                this.h.t(this.i);
-                unb v3 = this.h.v(byteBuffer2);
-                if (!(v3 instanceof wnb)) {
-                    o(1002, "wrong http function", false);
-                    return false;
-                }
-                wnb wnbVar = (wnb) v3;
-                if (this.h.a(this.k, wnbVar) == Draft.HandshakeState.MATCHED) {
-                    try {
-                        this.b.onWebsocketHandshakeReceivedAsClient(this, this.k, wnbVar);
-                        C(wnbVar);
-                        return true;
-                    } catch (RuntimeException e5) {
-                        this.b.onWebsocketError(this, e5);
-                        o(-1, e5.getMessage(), false);
-                        return false;
-                    } catch (InvalidDataException e6) {
-                        o(e6.getCloseCode(), e6.getMessage(), false);
-                        return false;
-                    }
-                }
-                c(1002, "draft " + this.h + " refuses handshake");
-            }
-            return false;
+            return sendMessage;
         }
         return invokeL.booleanValue;
     }
 
-    public void n() {
+    @Override // com.baidu.tieba.rmb
+    public boolean f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            if (t() == WebSocket.READYSTATE.NOT_YET_CONNECTED) {
-                h(-1, true);
-            } else if (this.e) {
-                g(this.m.intValue(), this.l, this.n.booleanValue());
-            } else if (this.h.l() == Draft.CloseHandshakeType.NONE) {
-                h(1000, true);
-            } else if (this.h.l() == Draft.CloseHandshakeType.ONEWAY) {
-                if (this.i == WebSocket.Role.SERVER) {
-                    h(1006, true);
-                } else {
-                    h(1000, true);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return a(i, 0L);
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rmb
+    public boolean sendMessage(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, message)) == null) {
+            return i(message, 0L);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rmb
+    public void setName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.rmb
+    public boolean a(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = i;
+            return i(obtain, j);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(10:4|5|(2:10|11)|15|50|19|20|21|22|11) */
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0081, code lost:
+        r4 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0082, code lost:
+        r4.printStackTrace();
+        r4 = r7.a;
+        com.yy.transvod.player.log.TLog.m(r4, r7.b + "stop thread, join exception");
+     */
+    @Override // com.baidu.tieba.rmb
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                int i = this.k.get();
+                if (i != 2 && i != 3) {
+                    TLog.m(this.a, String.format("[%s] already stopped? mThreadStatus = %s", this.b, m[i]));
                 }
-            } else {
-                h(1006, true);
+                String str = this.a;
+                TLog.h(str, this.b + "stop thread, status to 4");
+                this.k.set(4);
+                synchronized (this.f) {
+                    this.f.notify();
+                }
+                int myTid = Process.myTid();
+                String str2 = this.a;
+                TLog.h(str2, this.b + "stop thread, join in");
+                this.l.join();
+                this.l = null;
+                this.k.set(1);
+                TLog.h(this.a, String.format("[%s] stop thread tid %d", this.b, Integer.valueOf(myTid)));
             }
         }
     }
 
-    public synchronized void o(int i, String str, boolean z) {
+    @Override // com.baidu.tieba.rmb
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (this.e) {
-                    return;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            if (this.l != null) {
+                TLog.m(this.a, "is alive already");
+            } else if (this.d != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                synchronized (this) {
+                    try {
+                        this.k.set(2);
+                        Thread thread = new Thread(this, this.b);
+                        this.l = thread;
+                        thread.setPriority(h(this.c));
+                        this.l.start();
+                        String str = this.a;
+                        TLog.h(str, this.b + "  isAlive:" + this.l.isAlive());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        String str2 = this.a;
+                        TLog.d(str2, this.b + " start thread, exception:" + e.getMessage());
+                    }
                 }
-                this.m = Integer.valueOf(i);
-                this.l = str;
-                this.n = Boolean.valueOf(z);
-                this.e = true;
-                this.b.onWriteDemand(this);
-                try {
-                    this.b.onWebsocketClosing(this, i, str, z);
-                } catch (RuntimeException e) {
-                    this.b.onWebsocketError(this, e);
+                StringBuilder sb = new StringBuilder();
+                String str3 = this.b;
+                if (str3 != null) {
+                    sb.append(str3);
                 }
-                if (this.h != null) {
-                    this.h.s();
-                }
-                this.k = null;
+                sb.append(" YYThread2 start cost:");
+                sb.append(System.currentTimeMillis() - currentTimeMillis);
+                TLog.m(this.a, sb.toString());
+            } else {
+                throw new RuntimeException("mCallback is null");
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.rmb
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.k.get() == 2) {
+            synchronized (this.f) {
+                Iterator<Message> it = this.g.iterator();
+                while (it.hasNext()) {
+                    Message next = it.next();
+                    if (next.what == i) {
+                        try {
+                            next.recycle();
+                        } catch (IllegalStateException unused) {
+                            TLog.d(this.a, "message recycle error");
+                        }
+                        it.remove();
+                    }
+                }
+                for (Map.Entry<Long, Message> entry : this.h.entrySet()) {
+                    if (entry.getValue().what == i) {
+                        this.h.remove(entry.getKey());
+                        try {
+                            entry.getValue().recycle();
+                        } catch (IllegalStateException unused2) {
+                            TLog.d(this.a, "message recycle error");
+                        }
+                    }
+                }
+                synchronized (this.e) {
+                    for (Map.Entry<Long, Message> entry2 : this.j.entrySet()) {
+                        if (entry2.getValue().what == i) {
+                            this.j.remove(entry2.getKey());
+                            try {
+                                entry2.getValue().recycle();
+                            } catch (IllegalStateException unused3) {
+                                TLog.d(this.a, "message recycle error");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean i(Message message, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, message, j)) == null) {
+            int i = this.k.get();
+            if (i == 2) {
+                synchronized (this.f) {
+                    Message obtain = Message.obtain();
+                    obtain.copyFrom(message);
+                    if (j == 0) {
+                        this.g.add(obtain);
+                    } else {
+                        synchronized (this.e) {
+                            this.h.put(Long.valueOf(System.currentTimeMillis() + j), obtain);
+                        }
+                    }
+                    this.f.notify();
+                }
+                return true;
+            }
+            TLog.d(this.a, String.format("[%s] sendMessageDelayed() failed. mThreadStatus = %s", this.b, m[i]));
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            TLog.h(this.a, this.b + " onstart, priority=" + this.c);
+            this.d.onStart();
+            long j = 0L;
+            do {
+                synchronized (this.f) {
+                    try {
+                        if (this.g.isEmpty()) {
+                            this.f.wait(j);
+                        }
+                        LinkedList<Message> linkedList = this.g;
+                        this.g = this.i;
+                        this.i = linkedList;
+                        synchronized (this.e) {
+                            this.j.putAll(this.h);
+                            this.h.clear();
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                LinkedList<Message> linkedList2 = new LinkedList();
+                synchronized (this.e) {
+                    Iterator it = ((TreeMap) this.j.clone()).entrySet().iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            Map.Entry entry = (Map.Entry) it.next();
+                            if (((Long) entry.getKey()).longValue() <= currentTimeMillis) {
+                                Message message = new Message();
+                                message.copyFrom((Message) entry.getValue());
+                                this.j.remove(entry.getKey());
+                                try {
+                                    ((Message) entry.getValue()).recycle();
+                                } catch (IllegalStateException unused) {
+                                    TLog.d(this.a, "message recycle error");
+                                }
+                                linkedList2.add(message);
+                            } else {
+                                j = ((Long) entry.getKey()).longValue() - currentTimeMillis;
+                                break;
+                            }
+                        } else {
+                            j = 0;
+                            break;
+                        }
+                    }
+                }
+                for (Message message2 : linkedList2) {
+                    this.d.handleMessage(message2);
+                }
+                while (true) {
+                    Message poll = this.i.poll();
+                    if (poll == null) {
+                        break;
+                    }
+                    int i = poll.what;
+                    if (i == -10003) {
+                        this.k.set(3);
+                        this.d.onPause();
+                    } else if (i == -10004) {
+                        this.d.onResume();
+                    } else {
+                        this.d.handleMessage(poll);
+                    }
+                    try {
+                        poll.recycle();
+                    } catch (IllegalStateException unused2) {
+                        TLog.d(this.a, "message recycle error");
+                    }
+                }
+            } while (this.k.get() != 4);
+            TLog.d(this.a, this.b + " stopped");
+            TLog.h(this.a, this.b + " onstop");
+            this.d.onStop();
         }
     }
 }

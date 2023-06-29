@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.ng;
+import com.baidu.tieba.in;
+import com.baidu.tieba.og;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,38 +37,38 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.rg
-    public hn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.sg
+    public in getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            hn D = TbImageMemoryCache.u().D(str);
+            in D = TbImageMemoryCache.u().D(str);
             if (z) {
                 if (D != null) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
-                ng.i(z2, System.currentTimeMillis() - currentTimeMillis);
+                og.i(z2, System.currentTimeMillis() - currentTimeMillis);
             }
             return D;
         }
-        return (hn) invokeCommon.objValue;
+        return (in) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.rg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.sg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof hn)) {
-            hn hnVar = (hn) obj;
-            if (hnVar.u()) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof in)) {
+            in inVar = (in) obj;
+            if (inVar.u()) {
                 long currentTimeMillis = System.currentTimeMillis();
-                hnVar.A(i);
-                hnVar.z(i2);
-                TbImageMemoryCache.u().m(str, hnVar);
-                ng.l(true, System.currentTimeMillis() - currentTimeMillis);
+                inVar.A(i);
+                inVar.z(i2);
+                TbImageMemoryCache.u().m(str, inVar);
+                og.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }

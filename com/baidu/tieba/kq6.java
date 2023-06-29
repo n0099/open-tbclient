@@ -1,27 +1,91 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.view.MultiLinkCardView;
+import com.baidu.tieba.s37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class kq6 {
+public class kq6 implements s37.g {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jq6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized jq6 a() {
-        InterceptResult invokeV;
-        jq6 jq6Var;
+    public kq6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (kq6.class) {
-                if (a == null) {
-                    a = new jq6();
-                }
-                jq6Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return jq6Var;
         }
-        return (jq6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s37.l
+    public void a(@NonNull ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof MultiLinkCardView)) {
+            ((MultiLinkCardView) viewGroup).b();
+        }
+    }
+
+    @Override // com.baidu.tieba.s37.g
+    @NonNull
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new MultiLinkCardView(context);
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s37.g
+    public void update(@NonNull ViewGroup viewGroup, @NonNull s47 s47Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, s47Var) == null) && (viewGroup instanceof MultiLinkCardView)) {
+            List<b67> d = s47Var.d();
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            for (b67 b67Var : d) {
+                if (b67Var.i() == 6) {
+                    PbGoodsData pbGoodsData = new PbGoodsData();
+                    pbGoodsData.title = b67Var.h();
+                    pbGoodsData.picUrl = b67Var.f();
+                    pbGoodsData.price = b67Var.c();
+                    pbGoodsData.linkUrl = b67Var.e();
+                    pbGoodsData.sort = b67Var.g();
+                    pbGoodsData.linkFrom = b67Var.d();
+                    pbGoodsData.goodsUrlH5 = b67Var.a();
+                    arrayList2.add(pbGoodsData);
+                } else {
+                    PbLinkData pbLinkData = new PbLinkData();
+                    pbLinkData.title = b67Var.h();
+                    pbLinkData.linkUrl = b67Var.e();
+                    pbLinkData.picUrl = b67Var.f();
+                    pbLinkData.linkFrom = b67Var.d();
+                    pbLinkData.extTxt = b67Var.c();
+                    pbLinkData.sort = b67Var.g();
+                    pbLinkData.urlType = b67Var.i();
+                    pbLinkData.content1 = b67Var.a();
+                    pbLinkData.content2 = b67Var.b();
+                    arrayList.add(pbLinkData);
+                }
+            }
+            ((MultiLinkCardView) viewGroup).a(arrayList, arrayList2);
+        }
     }
 }

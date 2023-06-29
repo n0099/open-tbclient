@@ -7,7 +7,7 @@ import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt", f = "Deprecated.kt", i = {0, 0, 1, 1, 1}, l = {97, 100}, m = FloatingStatPlugin.VALUE_LAST, n = {"$this$consume$iv", "iterator", "$this$consume$iv", "iterator", FloatingStatPlugin.VALUE_LAST}, s = {"L$0", "L$1", "L$0", "L$1", "L$2"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ChannelsKt__DeprecatedKt$last$1<E> extends ContinuationImpl {
     public Object L$0;
     public Object L$1;

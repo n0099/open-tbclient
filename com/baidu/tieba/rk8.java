@@ -1,89 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.KeyEvent;
-import androidx.annotation.CallSuper;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public interface rk8 {
+public class rk8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "2";
+    public static final String b = "1";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @CallSuper
-        public static void a(rk8 rk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65536, null, rk8Var) == null) {
+    public static void a(String str, String str2, String str3, int i, boolean z) {
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14740");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.addParam("obj_id", str);
+            statisticItem.addParam("obj_name", str2);
+            if (z) {
+                str4 = a;
+            } else {
+                str4 = b;
             }
+            statisticItem.addParam("obj_type", str4);
+            statisticItem.addParam("obj_locate", i);
+            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
+            TiebaStatic.log(statisticItem);
         }
+    }
 
-        @CallSuper
-        public static void b(rk8 rk8Var, int i, int i2, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{rk8Var, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
+    public static void e(String str, String str2, String str3, int i, boolean z) {
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14739");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.addParam("obj_id", str);
+            statisticItem.addParam("obj_name", str2);
+            if (z) {
+                str4 = a;
+            } else {
+                str4 = b;
             }
+            statisticItem.addParam("obj_type", str4);
+            statisticItem.addParam("obj_locate", i);
+            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
+            TiebaStatic.log(statisticItem);
         }
+    }
 
-        @CallSuper
-        public static void c(rk8 rk8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65538, null, rk8Var, z) == null) {
+    public static StatisticItem g(String str, String str2, String str3, int i, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.addParam("obj_id", str2);
+            statisticItem.addParam("obj_name", str3);
+            if (z) {
+                str4 = a;
+            } else {
+                str4 = b;
             }
+            statisticItem.addParam("obj_type", str4);
+            statisticItem.addParam("obj_locate", i);
+            return statisticItem;
         }
+        return (StatisticItem) invokeCommon.objValue;
+    }
 
-        @CallSuper
-        public static void d(rk8 rk8Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65539, null, rk8Var, i) == null) {
+    public static void h(String str, String str2, String str3, int i, boolean z) {
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14738");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.addParam("obj_id", str);
+            statisticItem.addParam("obj_name", str2);
+            if (z) {
+                str4 = a;
+            } else {
+                str4 = b;
             }
+            statisticItem.addParam("obj_type", str4);
+            statisticItem.addParam("obj_locate", i);
+            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
+            TiebaStatic.log(statisticItem);
         }
+    }
 
-        @CallSuper
-        public static boolean e(rk8 rk8Var, int i, KeyEvent event) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, rk8Var, i, event)) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                return false;
-            }
-            return invokeLIL.booleanValue;
+    public static void b(String str, String str2, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            TiebaStatic.log(g("c14742", str, str2, i, z));
         }
+    }
 
-        @CallSuper
-        public static void f(rk8 rk8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65541, null, rk8Var, z) == null) {
-            }
+    public static void d(String str, String str2, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            TiebaStatic.log(g("c14744", str, str2, i, z));
         }
+    }
 
-        @CallSuper
-        public static void g(rk8 rk8Var, int i, String[] permissions, int[] grantResults) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(65542, null, rk8Var, i, permissions, grantResults) == null) {
-                Intrinsics.checkNotNullParameter(permissions, "permissions");
-                Intrinsics.checkNotNullParameter(grantResults, "grantResults");
-            }
+    public static void c(String str, String str2, int i, boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            StatisticItem g = g("c14743", str, str2, i, z);
+            g.addParam("obj_source", i2);
+            TiebaStatic.log(g);
         }
+    }
 
-        public static void h(rk8 rk8Var, Bundle outState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65543, null, rk8Var, outState) == null) {
-                Intrinsics.checkNotNullParameter(outState, "outState");
-            }
-        }
-
-        @CallSuper
-        public static void i(rk8 rk8Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65544, null, rk8Var, z) == null) {
-            }
+    public static void f(String str, String str2, int i, boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            StatisticItem g = g("c14741", str, str2, i, z);
+            g.addParam("obj_source", i2);
+            TiebaStatic.log(g);
         }
     }
 }

@@ -21,16 +21,16 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.go3;
-import com.baidu.tieba.gv2;
-import com.baidu.tieba.io3;
-import com.baidu.tieba.js1;
-import com.baidu.tieba.tp3;
+import com.baidu.tieba.jo3;
+import com.baidu.tieba.jv2;
+import com.baidu.tieba.lo3;
+import com.baidu.tieba.ms1;
+import com.baidu.tieba.wp3;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
-    public static final boolean q = js1.a;
+    public static final boolean q = ms1.a;
     public TextView a;
     public TextView b;
     public LinearLayout c;
@@ -101,7 +101,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 }
                 e.t(valueOf, e.this);
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                io3.g(appContext, intent);
+                lo3.g(appContext, intent);
             }
         }
 
@@ -168,7 +168,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public void E(boolean z) {
-            tp3.a0(new a(z));
+            wp3.a0(new a(z));
         }
 
         public void onEvent(c cVar) {
@@ -322,7 +322,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources b2 = gv2.M().b();
+        Resources b2 = jv2.M().b();
         if (b2 != null) {
             return b2;
         }
@@ -371,7 +371,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
         linearLayout.setVisibility(i);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-        layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908a4);
+        layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908aa);
         this.o.setLayoutParams(layoutParams);
     }
 
@@ -395,7 +395,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 this.j.addView(view2);
                 this.c.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090898);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09089e);
                 this.o.setLayoutParams(layoutParams);
             }
         }
@@ -445,25 +445,25 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     public void c() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0908ae);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a3);
-        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908a4);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c5d);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09187b);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091890);
-        this.h = findViewById(R.id.obfuscated_res_0x7f0908e2);
-        this.i = findViewById(R.id.obfuscated_res_0x7f0908e3);
-        this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090899);
-        this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f09089d);
-        this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092074);
-        this.g = findViewById(R.id.obfuscated_res_0x7f0908e1);
-        this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f09171d);
-        this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904cc);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b4);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a9);
+        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908aa);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091cb8);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c5);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0918da);
+        this.h = findViewById(R.id.obfuscated_res_0x7f0908e8);
+        this.i = findViewById(R.id.obfuscated_res_0x7f0908e9);
+        this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09089f);
+        this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908a3);
+        this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0920d3);
+        this.g = findViewById(R.id.obfuscated_res_0x7f0908e7);
+        this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f09172d);
+        this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904ce);
         this.p = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
         if (this.m.p > 0) {
             this.n.getLayoutParams().height = this.m.p;
         }
-        if (go3.k() || go3.l()) {
+        if (jo3.k() || jo3.l()) {
             int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070131);
             this.b.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
         }

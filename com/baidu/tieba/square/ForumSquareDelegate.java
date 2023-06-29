@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bw9;
-import com.baidu.tieba.cw9;
-import com.baidu.tieba.dw9;
-import com.baidu.tieba.iw9;
+import com.baidu.tieba.n0a;
+import com.baidu.tieba.o0a;
+import com.baidu.tieba.p0a;
 import com.baidu.tieba.square.model.ForumSquareModel;
-import com.baidu.tieba.wn;
+import com.baidu.tieba.u0a;
+import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,14 +27,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class ForumSquareDelegate implements dw9 {
+public class ForumSquareDelegate implements p0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public String mCurrentClassName;
     public ForumSquareModel mForumSquareModel;
-    public bw9 mForumSquareView;
-    public cw9 mSquareViewController;
+    public n0a mForumSquareView;
+    public o0a mSquareViewController;
     public final TbPageContext mTbPageContext;
     public CustomMessageListener refreshForumSquareListener;
 
@@ -101,17 +101,17 @@ public class ForumSquareDelegate implements dw9 {
         this.mTbPageContext = tbPageContext;
         this.mContext = context;
         this.mForumSquareModel = new ForumSquareModel(context, this);
-        this.mForumSquareView = new bw9(context, this.mTbPageContext);
+        this.mForumSquareView = new n0a(context, this.mTbPageContext);
         this.mTbPageContext.registerListener(this.refreshForumSquareListener);
     }
 
-    @Override // com.baidu.tieba.dw9
+    @Override // com.baidu.tieba.p0a
     public void onError(String str, ErrorData errorData) {
-        bw9 bw9Var;
+        n0a n0aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) && (bw9Var = this.mForumSquareView) != null && this.mForumSquareModel != null) {
-            bw9Var.J();
-            iw9 g0 = this.mForumSquareModel.g0(str);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) && (n0aVar = this.mForumSquareView) != null && this.mForumSquareModel != null) {
+            n0aVar.J();
+            u0a g0 = this.mForumSquareModel.g0(str);
             if (g0 != null && (!g0.d || !ListUtils.isEmpty(g0.a()))) {
                 this.mForumSquareView.s(g0.a());
                 checkLoadMoreStateUI(str, g0.a());
@@ -122,12 +122,12 @@ public class ForumSquareDelegate implements dw9 {
         }
     }
 
-    @Override // com.baidu.tieba.dw9
+    @Override // com.baidu.tieba.p0a
     public void onNoData(ErrorData errorData) {
-        bw9 bw9Var;
+        n0a n0aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, errorData) == null) && (bw9Var = this.mForumSquareView) != null) {
-            bw9Var.I();
+        if ((interceptable == null || interceptable.invokeL(1048581, this, errorData) == null) && (n0aVar = this.mForumSquareView) != null) {
+            n0aVar.I();
         }
     }
 
@@ -139,7 +139,7 @@ public class ForumSquareDelegate implements dw9 {
         }
     }
 
-    private void checkLoadMoreStateUI(String str, List<wn> list) {
+    private void checkLoadMoreStateUI(String str, List<xn> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, this, str, list) == null) && this.mForumSquareView != null && this.mForumSquareModel != null) {
             if (ListUtils.isEmpty(list)) {
@@ -179,9 +179,9 @@ public class ForumSquareDelegate implements dw9 {
     public void onLoadRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            bw9 bw9Var = this.mForumSquareView;
-            if (bw9Var != null) {
-                bw9Var.F();
+            n0a n0aVar = this.mForumSquareView;
+            if (n0aVar != null) {
+                n0aVar.F();
             }
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null) {
@@ -193,9 +193,9 @@ public class ForumSquareDelegate implements dw9 {
     public void startLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            cw9 cw9Var = new cw9(this.mContext, this, this.mForumSquareView);
-            this.mSquareViewController = cw9Var;
-            cw9Var.e();
+            o0a o0aVar = new o0a(this.mContext, this, this.mForumSquareView);
+            this.mSquareViewController = o0aVar;
+            o0aVar.e();
             startLoadNetData();
         }
     }
@@ -222,7 +222,7 @@ public class ForumSquareDelegate implements dw9 {
             this.mCurrentClassName = str;
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null && this.mForumSquareView != null) {
-                iw9 g0 = forumSquareModel.g0(str);
+                u0a g0 = forumSquareModel.g0(str);
                 if (g0 != null && (!g0.d || !ListUtils.isEmpty(g0.a()))) {
                     this.mForumSquareView.J();
                     checkLoadMoreStateUI(str, g0.a());
@@ -241,11 +241,11 @@ public class ForumSquareDelegate implements dw9 {
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
         if (r5.equals(r1) == false) goto L11;
      */
-    @Override // com.baidu.tieba.dw9
+    @Override // com.baidu.tieba.p0a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSucc(String str, List<String> list, List<wn> list2) {
+    public void onSucc(String str, List<String> list, List<xn> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, list, list2) == null) && this.mForumSquareModel != null && this.mForumSquareView != null) {
             boolean z = false;
@@ -279,16 +279,16 @@ public class ForumSquareDelegate implements dw9 {
             }
             boolean z = false;
             int intExtra = intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0);
-            bw9 bw9Var = this.mForumSquareView;
+            n0a n0aVar = this.mForumSquareView;
             if (intExtra == 0) {
                 z = true;
             }
-            bw9Var.C(z);
+            n0aVar.C(z);
         }
     }
 
     public void saveScrollPosition(String str) {
-        iw9 g0;
+        u0a g0;
         Pair<Integer, Integer> c;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (g0 = this.mForumSquareModel.g0(str)) == null || (c = this.mForumSquareView.c()) == null) {

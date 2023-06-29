@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.yq9;
+import com.baidu.tieba.kv9;
+import com.baidu.tieba.s75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,7 +57,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, yq9.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, kv9.TbSettingView);
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             obtainStyledAttributes.recycle();
@@ -77,7 +77,7 @@ public class SettingTextNormalImageView extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            p75.d(this).i(R.color.CAM_X0205);
+            s75.d(this).i(R.color.CAM_X0205);
             this.d.invalidate();
         }
     }
@@ -110,11 +110,11 @@ public class SettingTextNormalImageView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d086c, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09079b);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a9);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fc3);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c5);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d087f, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907a1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092409);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fcd);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c6);
         }
     }
 

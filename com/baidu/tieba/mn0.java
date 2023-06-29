@@ -1,50 +1,78 @@
 package com.baidu.tieba;
 
+import android.os.CountDownTimer;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vn0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.on0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class mn0 implements tn0, Runnable {
+public class mn0<VIEW extends on0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<vn0.b<?>> a;
-    public final AtomicBoolean b;
+    public CountDownTimer a;
+    public long b;
+    public long c;
+    public WeakReference<VIEW> d;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
-        public static final mn0 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<mn0> a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-598615715, "Lcom/baidu/tieba/mn0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-598615715, "Lcom/baidu/tieba/mn0$a;");
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(@NonNull mn0 mn0Var, long j, long j2) {
+            super(j, j2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mn0Var, Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new mn0();
+            this.a = new WeakReference<>(mn0Var);
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            mn0 mn0Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mn0Var = this.a.get()) != null) {
+                mn0Var.f(mn0Var.j());
+            }
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            mn0 mn0Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (mn0Var = this.a.get()) != null) {
+                mn0Var.c = mn0Var.b - j;
+                mn0Var.g(mn0Var.e(), mn0Var.j());
+            }
         }
     }
 
-    public mn0() {
+    public mn0(@NonNull VIEW view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,44 +82,79 @@ public class mn0 implements tn0, Runnable {
                 return;
             }
         }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = new AtomicBoolean(false);
+        this.d = new WeakReference<>(view2);
     }
 
-    public static tn0 b() {
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            i();
+            this.b = j;
+            this.c = 0L;
+            a aVar = new a(this, this.b, 1000L);
+            this.a = aVar;
+            aVar.start();
+            VIEW k = k();
+            if (k != null) {
+                long j2 = this.b;
+                k.b(j2, j2);
+            }
+        }
+    }
+
+    public final void g(long j, long j2) {
+        VIEW k;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (k = k()) != null) {
+            k.onProgress(j, j2);
+        }
+    }
+
+    public final void f(long j) {
+        VIEW k;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (k = k()) != null) {
+            k.a(j);
+        }
+    }
+
+    public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (tn0) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public void i() {
+        CountDownTimer countDownTimer;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (countDownTimer = this.a) == null) {
             return;
         }
-        while (true) {
-            vn0.b<?> poll = this.a.poll();
-            if (poll != null) {
-                poll.a.onEvent(poll.b);
-            } else {
-                this.b.set(false);
-                return;
-            }
+        countDownTimer.cancel();
+        VIEW k = k();
+        if (k != null) {
+            k.c(this.c, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.tn0
-    public <T extends rn0> void a(wn0 wn0Var, un0<T> un0Var, T t) {
+    public long j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, wn0Var, un0Var, t) == null) {
-            this.a.offer(new vn0.b<>(wn0Var, un0Var, t));
-            if (this.b.compareAndSet(false, true)) {
-                p41.c(this, "AsyncDeliver", 3);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
         }
+        return invokeV.longValue;
+    }
+
+    public final VIEW k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d.get();
+        }
+        return (VIEW) invokeV.objValue;
     }
 }

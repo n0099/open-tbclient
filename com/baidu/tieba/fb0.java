@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.live.business.model.data.LiveBannerWrapData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fb0 extends bb0 {
+public class fb0 extends eb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public String c;
+    public LiveBannerWrapData b;
 
     public fb0() {
         Interceptable interceptable = $ic;

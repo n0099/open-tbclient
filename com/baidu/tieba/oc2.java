@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,43 +14,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class oc2 {
+public final class oc2 extends HandlerThread implements nc2<mc2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kc2 a;
-    public boolean b;
-    public boolean c;
-    public bd2 d;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final oc2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-551456531, "Lcom/baidu/tieba/oc2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-551456531, "Lcom/baidu/tieba/oc2$b;");
-                    return;
-                }
-            }
-            a = new oc2(null);
-        }
-    }
+    public Handler a;
 
     static {
         InterceptResult invokeClinit;
@@ -62,44 +32,12 @@ public final class oc2 {
                 return;
             }
         }
-        e = js1.a;
+        boolean z = ms1.a;
     }
 
-    public static oc2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (oc2) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public oc2() {
+        super("EventDispatcherImpl");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,76 +45,46 @@ public final class oc2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        lc2 lc2Var = new lc2();
-        this.a = lc2Var;
-        lc2Var.a(new nc2(this.a.getLooper()));
+        c();
     }
 
-    public void a() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (e) {
-                z82.i("WhitePageMonitor", Log.getStackTraceString(new Throwable(">>> check skeleton_dev, callback = " + this.d)));
-            }
-            bd2 bd2Var = this.d;
-            if (bd2Var != null) {
-                bd2Var.a();
-                this.d = null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            start();
         }
     }
 
-    public /* synthetic */ oc2(a aVar) {
-        this();
+    @Override // android.os.HandlerThread, com.baidu.tieba.nc2
+    public Looper getLooper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.getLooper();
+        }
+        return (Looper) invokeV.objValue;
     }
 
-    public void e(long j) {
+    @Override // com.baidu.tieba.nc2
+    public void a(@NonNull Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            i(j);
-            j(false);
+        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
+            this.a = handler;
         }
     }
 
-    public void g(bd2 bd2Var) {
+    @Override // com.baidu.tieba.nc2
+    public void b(mc2 mc2Var) {
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bd2Var) == null) {
-            this.d = bd2Var;
-        }
-    }
-
-    public void h(jc2 jc2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jc2Var) == null) {
-            this.a.b(jc2Var);
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void i(long j) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            if (e) {
-                Log.d("WhitePageMonitor", ">> update first white screen timestamp, delay " + j + " ms");
-            }
-            if (j < 3000 && j > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.b = z;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mc2Var) == null) && mc2Var != null && (handler = this.a) != null) {
+            this.a.sendMessageDelayed(Message.obtain(handler, mc2Var.a, mc2Var), mc2Var.c);
         }
     }
 }

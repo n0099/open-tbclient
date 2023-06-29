@@ -1,7 +1,9 @@
 package com.baidu.tieba;
+
+import java.nio.channels.ReadableByteChannel;
 /* loaded from: classes8.dex */
 public interface xl4 {
-    <T> void a(bm4<T> bm4Var);
+    ReadableByteChannel a();
 
-    <T> void b(bm4<T> bm4Var);
+    long b();
 }

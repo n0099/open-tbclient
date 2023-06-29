@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.us7;
-import com.baidu.tieba.vq5;
-import com.baidu.tieba.vs7;
+import com.baidu.tieba.ar5;
+import com.baidu.tieba.at7;
+import com.baidu.tieba.zs7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class VoiceRoomListNetModel extends NetAutoModel<us7, vs7, BaseFragment> {
+public class VoiceRoomListNetModel extends NetAutoModel<zs7, at7, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +55,7 @@ public class VoiceRoomListNetModel extends NetAutoModel<us7, vs7, BaseFragment> 
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((TbPageContext) objArr[0], (vq5) objArr[1]);
+                super((TbPageContext) objArr[0], (ar5) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,11 +64,11 @@ public class VoiceRoomListNetModel extends NetAutoModel<us7, vs7, BaseFragment> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<vs7> getResponseDataClass() {
+    public Class<at7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return vs7.class;
+            return at7.class;
         }
         return (Class) invokeV.objValue;
     }
@@ -93,10 +93,10 @@ public class VoiceRoomListNetModel extends NetAutoModel<us7, vs7, BaseFragment> 
         return (Class) invokeV.objValue;
     }
 
-    public void x0(us7 us7Var) {
+    public void x0(zs7 zs7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, us7Var) == null) {
-            this.c = us7Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, zs7Var) == null) {
+            this.c = zs7Var;
         }
     }
 }

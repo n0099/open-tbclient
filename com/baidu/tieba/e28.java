@@ -1,64 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e28 extends by {
+public class e28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mk9 B;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e28(Context context) {
-        super(context);
+    public static boolean a(TbPageContext<?> tbPageContext, xn xnVar) {
+        InterceptResult invokeLL;
+        yo6 yo6Var;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, xnVar)) == null) {
+            if ((xnVar instanceof yo6) && (threadData = (yo6Var = (yo6) xnVar).a) != null && threadData.getVoiceRoomData() != null && !StringUtils.isNull(yo6Var.a.getVoiceRoomData().room_name) && yo6Var.a.getVoiceRoomData().room_id.longValue() > 0) {
+                ((oo5) ServiceManager.getService(oo5.a.a())).b(tbPageContext, yo6Var.a.getVoiceRoomData().room_id.longValue());
+                return true;
             }
+            return false;
         }
-    }
-
-    @Override // com.baidu.tieba.by, com.baidu.tieba.sz
-    public mk9 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.m) && this.m.equals("index")) {
-                this.B = new g28(this.b, this.i);
-            } else {
-                this.B = new f28(this.b, this.i);
-            }
-            this.B.setStageType("2001");
-            return this.B;
-        }
-        return (mk9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sz
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.z();
-            mk9 mk9Var = this.l;
-            if (mk9Var instanceof g28) {
-                ((g28) mk9Var).c();
-            }
-        }
+        return invokeLL.booleanValue;
     }
 }

@@ -19,7 +19,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IFragment {
     @KsAdSdkDynamicApi
     @Keep

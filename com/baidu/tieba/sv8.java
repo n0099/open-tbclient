@@ -1,58 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipBannerItem;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sv8 implements t75 {
+public class sv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
 
-    public sv8(VipBannerItem vipBannerItem) {
+    public sv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipBannerItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (vipBannerItem == null) {
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = vipBannerItem.img_url;
-        this.b = vipBannerItem.link;
-    }
-
-    @Override // com.baidu.tieba.t75
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        JSONObject optJSONObject = jSONObject.optJSONObject("error");
+        if (optJSONObject != null) {
+            optJSONObject.optInt("errno");
+            String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            this.a = optString;
+            if (!StringUtils.isNull(optString)) {
+                this.a = optJSONObject.optString("errmsg");
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.t75
-    public String getPicUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+        if (optJSONObject2 != null) {
+            optJSONObject2.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
         }
-        return (String) invokeV.objValue;
     }
 }

@@ -107,7 +107,7 @@ public class CloudControlBlCPManager {
     }
 
     public void registerConnectStateListener(Context context) {
-        this.isSmallFlow = t90.d(context);
+        this.isSmallFlow = t90.e(context);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
         LocalBroadcastManager.getInstance(context).registerReceiver(this.iConnectListener, intentFilter);
@@ -153,10 +153,10 @@ public class CloudControlBlCPManager {
         if (bLCPRequest.c.length <= 0) {
             return;
         }
-        t90.c(bLCPRequest, this.blcpResponse);
+        t90.d(bLCPRequest, this.blcpResponse);
         y90 y90Var = new y90();
         y90Var.a = 4L;
         y90Var.b = 2L;
-        t90.c(y90Var, this.blcpResponse);
+        t90.d(y90Var, this.blcpResponse);
     }
 }

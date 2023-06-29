@@ -25,8 +25,8 @@ import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gza;
-import com.baidu.tieba.oza;
+import com.baidu.tieba.e4b;
+import com.baidu.tieba.w3b;
 import com.baidu.yalog.Logger;
 import com.baidu.yalog.LoggerManager;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
@@ -682,9 +682,9 @@ public class DebugYaLogActivity extends Activity {
             if (jSONObject2.length() > 0) {
                 jSONObject.put("set", jSONObject2);
             }
-            oza ozaVar = (oza) ServiceManager.getService(oza.a);
-            if (ozaVar != null) {
-                ozaVar.a(jSONObject);
+            e4b e4bVar = (e4b) ServiceManager.getService(e4b.a);
+            if (e4bVar != null) {
+                e4bVar.a(jSONObject);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }
@@ -840,9 +840,9 @@ public class DebugYaLogActivity extends Activity {
             jSONObject4.put("only_wifi", str2);
             jSONObject2.put(str20, jSONObject4);
             jSONObject.put("set", jSONObject2);
-            gza gzaVar = (gza) ServiceManager.getService(gza.a);
-            if (gzaVar != null) {
-                gzaVar.d(jSONObject);
+            w3b w3bVar = (w3b) ServiceManager.getService(w3b.a);
+            if (w3bVar != null) {
+                w3bVar.d(jSONObject);
                 Toast.makeText(this, "voyager配置成功！\n" + jSONObject.toString(), 1).show();
             } else {
                 Toast.makeText(this, "无法获取service！请正确配置easybox服务框架！", 0).show();
@@ -909,9 +909,9 @@ public class DebugYaLogActivity extends Activity {
                 Toast.makeText(this, "无id配置", 0).show();
                 return;
             }
-            oza ozaVar = (oza) ServiceManager.getService(oza.a);
-            if (ozaVar != null) {
-                ozaVar.b(jSONObject, true);
+            e4b e4bVar = (e4b) ServiceManager.getService(e4b.a);
+            if (e4bVar != null) {
+                e4bVar.b(jSONObject, true);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }

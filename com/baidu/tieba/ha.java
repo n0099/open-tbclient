@@ -1,13 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.framework.message.SocketMessage;
 /* loaded from: classes6.dex */
 public interface ha {
-    void a();
-
-    boolean b(boolean z, String str);
-
-    int c();
-
-    void d(String str);
-
-    void e();
+    boolean onFindMessage(SocketMessage socketMessage);
 }

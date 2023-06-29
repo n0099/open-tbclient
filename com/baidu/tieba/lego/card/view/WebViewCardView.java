@@ -24,7 +24,7 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -240,7 +240,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.bq8
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.mu8
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, bdUniqueId) != null) || bdUniqueId == null) {
@@ -322,14 +322,14 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         if (webViewCard.getHeight() > 0) {
             setWebviewHeight(webViewCard.getHeight());
         } else if (webViewCard.getContainer() > 0) {
-            int j = wi.j(getContext());
+            int j = xi.j(getContext());
             int container = webViewCard.getContainer();
             if (container != 1) {
                 if (container == 2) {
-                    setWebviewHeight(j - wi.g(getContext(), R.dimen.obfuscated_res_0x7f0703b6));
+                    setWebviewHeight(j - xi.g(getContext(), R.dimen.obfuscated_res_0x7f0703b6));
                 }
             } else {
-                setWebviewHeight(j - wi.g(getContext(), R.dimen.obfuscated_res_0x7f07039a));
+                setWebviewHeight(j - xi.g(getContext(), R.dimen.obfuscated_res_0x7f07039a));
             }
         }
         if (!TextUtils.isEmpty(webViewCard.getPageUrl())) {

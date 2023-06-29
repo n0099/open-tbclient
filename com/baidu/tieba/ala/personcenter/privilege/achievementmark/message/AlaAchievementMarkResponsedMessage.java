@@ -6,7 +6,7 @@ import com.baidu.ala.data.AlaUserInfoData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.wg6;
+import com.baidu.tieba.bh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<wg6> list;
+    public List<bh6> list;
     public AlaUserInfoData user_info;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,9 +60,9 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject3 != null) {
-                        wg6 wg6Var = new wg6();
-                        wg6Var.c(optJSONObject3);
-                        this.list.add(wg6Var);
+                        bh6 bh6Var = new bh6();
+                        bh6Var.c(optJSONObject3);
+                        this.list.add(bh6Var);
                     }
                 }
             }
@@ -78,7 +78,7 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
         return (AlaUserInfoData) invokeV.objValue;
     }
 
-    public List<wg6> getList() {
+    public List<bh6> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

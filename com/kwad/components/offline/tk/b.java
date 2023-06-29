@@ -12,7 +12,7 @@ import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.components.c;
 import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.utils.as;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b implements ITkOfflineCompoInitConfig {
     @Override // com.kwad.components.offline.api.tk.ITkOfflineCompoInitConfig
     public final String getSpKeyTkSoLoadTimes() {

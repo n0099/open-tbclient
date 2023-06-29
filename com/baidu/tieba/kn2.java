@@ -1,142 +1,44 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kn2 {
+public class kn2 extends mn2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static kn2 d;
-    public static kn2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947918778, "Lcom/baidu/tieba/kn2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947918778, "Lcom/baidu/tieba/kn2;");
-                return;
-            }
-        }
-        c = js1.a;
+    @Override // com.baidu.tieba.ln2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "key_cur_remote_apps_extension_core_ver" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ln2
+    @NonNull
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "key_cur_remote_apps_extension_core_ver_name" : (String) invokeV.objValue;
     }
 
     public kn2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @NonNull
-    public static kn2 a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (d == null) {
-                d = d(e(str));
-            }
-            return d;
-        }
-        return (kn2) invokeL.objValue;
-    }
-
-    @NonNull
-    public static kn2 b(@NonNull in2 in2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, in2Var)) == null) {
-            if (in2Var.c() == 1) {
-                return c(in2Var.d());
-            }
-            return a(in2Var.d());
-        }
-        return (kn2) invokeL.objValue;
-    }
-
-    @NonNull
-    public static kn2 c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (e == null) {
-                e = d(e(str));
-            }
-            return e;
-        }
-        return (kn2) invokeL.objValue;
-    }
-
-    @NonNull
-    public static kn2 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
-            kn2 kn2Var = new kn2();
-            if (jSONObject != null) {
-                kn2Var.a = jSONObject.optString("extension-core-version-name");
-                kn2Var.b = jSONObject.optLong("extension-core-version-code");
-            }
-            return kn2Var;
-        }
-        return (kn2) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static JSONObject e(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (c) {
-                Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
-            }
-            String D = ds4.D(AppRuntime.getAppContext(), str);
-            if (TextUtils.isEmpty(D)) {
-                if (c) {
-                    Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
-                }
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(D);
-                if (c) {
-                    Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
-                }
-                return jSONObject;
-            } catch (JSONException e2) {
-                if (!c) {
-                    return null;
-                }
-                throw new RuntimeException(e2);
-            }
-        }
-        return (JSONObject) invokeL.objValue;
     }
 }

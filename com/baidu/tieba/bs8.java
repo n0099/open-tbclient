@@ -1,75 +1,104 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryReadMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryReadMessage;
-import com.baidu.tieba.we;
+import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class bs8 implements CustomMessageTask.CustomRunnable<Object> {
+public final class bs8 extends vr8<AudioMsg, VoiceMsgContent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947655650, "Lcom/baidu/tieba/bs8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947655650, "Lcom/baidu/tieba/bs8;");
+        }
+    }
+
+    @Override // com.baidu.tieba.vr8
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
 
     public bs8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static final List<String> a(List<we.b<String>> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vr8
+    /* renamed from: h */
+    public AudioMsg e(VoiceMsgContent voiceMsgContent) {
         InterceptResult invokeL;
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (list != null) {
-                for (we.b<String> bVar : list) {
-                    String str = bVar.a;
-                    if (!TextUtils.isEmpty(str)) {
-                        linkedList.add(str);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsgContent)) == null) {
+            String str2 = (voiceMsgContent == null || (str2 = voiceMsgContent.b()) == null) ? "" : "";
+            if (voiceMsgContent != null) {
+                i = voiceMsgContent.a();
+            } else {
+                i = 0;
             }
-            return linkedList;
+            AudioMsg audioMsg = new AudioMsg(str2, i, 2);
+            if (voiceMsgContent != null) {
+                str = voiceMsgContent.f();
+            } else {
+                str = null;
+            }
+            audioMsg.setRemoteUrl(str);
+            return audioMsg;
         }
-        return (List) invokeL.objValue;
+        return (AudioMsg) invokeL.objValue;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vr8
+    /* renamed from: i */
+    public VoiceMsgContent g(AudioMsg sdkMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                c55.d();
-                List<String> a = a(cj.b(c55.f("tb.searchperson_history", currentAccount)));
-                ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-                responseSearchPersonHistoryReadMessage.datas.addAll(a);
-                return responseSearchPersonHistoryReadMessage;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            VoiceMsgContent voiceMsgContent = new VoiceMsgContent();
+            String localUrl = sdkMsg.getLocalUrl();
+            Intrinsics.checkNotNullExpressionValue(localUrl, "sdkMsg.localUrl");
+            voiceMsgContent.i(localUrl);
+            String remoteUrl = sdkMsg.getRemoteUrl();
+            Intrinsics.checkNotNullExpressionValue(remoteUrl, "sdkMsg.remoteUrl");
+            voiceMsgContent.k(remoteUrl);
+            voiceMsgContent.h(sdkMsg.getDuration());
+            return voiceMsgContent;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (VoiceMsgContent) invokeL.objValue;
     }
 }

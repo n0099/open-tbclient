@@ -1,98 +1,254 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
+import android.app.Activity;
+import android.app.Application;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.view.headViewPendant.LightInteractiveLayout;
+import com.baidu.tbadk.data.MetaData;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public final class ta5 {
+public class ta5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public final int b;
-    public final String c;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof ta5) {
-                ta5 ta5Var = (ta5) obj;
-                return Intrinsics.areEqual(this.a, ta5Var.a) && this.b == ta5Var.b && Intrinsics.areEqual(this.c, ta5Var.c);
-            }
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948174497, "Lcom/baidu/tieba/ta5;")) == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ItemCardViewButtonData(item=" + this.a + ", position=" + this.b + ", tid=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ta5(ItemData item, int i, String tid) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item, Integer.valueOf(i), tid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948174497, "Lcom/baidu/tieba/ta5;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WeakReference a;
+        public final /* synthetic */ WeakReference b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, WeakReference weakReference, WeakReference weakReference2, int i2, int i3) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), weakReference, weakReference2, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = weakReference;
+            this.b = weakReference2;
+            this.c = i2;
+            this.d = i3;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && this.a.get() != null) {
+                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                    ((Window) this.a.get()).getDecorView().setSystemUiVisibility(1280);
+                } else {
+                    ((Window) this.a.get()).getDecorView().setSystemUiVisibility(9472);
+                }
+                if (this.b.get() != null) {
+                    ((LightInteractiveLayout) this.b.get()).setListBackground(this.c, this.d);
+                }
             }
         }
-        Intrinsics.checkNotNullParameter(item, "item");
-        Intrinsics.checkNotNullParameter(tid, "tid");
-        this.a = item;
-        this.b = i;
-        this.c = tid;
     }
 
-    public final ItemData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+    /* loaded from: classes7.dex */
+    public static class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CustomMessageListener a;
+        public final /* synthetic */ WeakReference b;
+
+        public b(CustomMessageListener customMessageListener, WeakReference weakReference) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {customMessageListener, weakReference};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = customMessageListener;
+            this.b = weakReference;
         }
-        return (ItemData) invokeV.objValue;
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_QINGHUDONG_EMOTION);
+                MessageManager.getInstance().unRegisterListener(this.a);
+                if (this.b.get() != null) {
+                    ((LightInteractiveLayout) this.b.get()).E();
+                }
+                boolean unused = ta5.a = false;
+            }
+        }
     }
 
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+    /* loaded from: classes7.dex */
+    public static class c implements va5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Dialog a;
+
+        public c(Dialog dialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dialog;
         }
-        return invokeV.intValue;
+
+        @Override // com.baidu.tieba.va5
+        public void onClose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.dismiss();
+            }
+        }
     }
 
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+    /* loaded from: classes7.dex */
+    public static class d implements DialogInterface.OnShowListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (String) invokeV.objValue;
+
+        @Override // android.content.DialogInterface.OnShowListener
+        public void onShow(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                boolean unused = ta5.a = true;
+            }
+        }
+    }
+
+    public static void b(Context context, int i, int i2, MetaData metaData, int i3, int i4, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), metaData, Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) != null) || a) {
+            return;
+        }
+        if ((context instanceof Application) && (context = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
+            return;
+        }
+        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_QINGHUDONG_EMOTION, TbConfig.SERVER_ADDRESS + "c/c/agree/agreeVirtualImage"));
+        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f1003cb);
+        dialog.setCancelable(true);
+        WeakReference weakReference = new WeakReference(dialog.getWindow());
+        if (weakReference.get() != null) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                ((Window) weakReference.get()).getDecorView().setSystemUiVisibility(1280);
+            } else {
+                ((Window) weakReference.get()).getDecorView().setSystemUiVisibility(9472);
+            }
+            ((Window) weakReference.get()).addFlags(Integer.MIN_VALUE);
+            ((Window) weakReference.get()).addFlags(512);
+            ((Window) weakReference.get()).setType(1000);
+            ((Window) weakReference.get()).setStatusBarColor(0);
+            ((Window) weakReference.get()).setDimAmount(0.0f);
+            WindowManager.LayoutParams attributes = ((Window) weakReference.get()).getAttributes();
+            attributes.width = -1;
+            attributes.height = -1;
+            ((Window) weakReference.get()).setNavigationBarColor(0);
+            ((Window) weakReference.get()).setAttributes(attributes);
+        }
+        WeakReference weakReference2 = new WeakReference(new LightInteractiveLayout(context));
+        if (weakReference2.get() != null) {
+            ((LightInteractiveLayout) weakReference2.get()).setUserInfo(metaData);
+            ((LightInteractiveLayout) weakReference2.get()).setType(i3);
+            ((LightInteractiveLayout) weakReference2.get()).setFrom(i4);
+            ((LightInteractiveLayout) weakReference2.get()).setNeedHomeIcon(z);
+            ((LightInteractiveLayout) weakReference2.get()).setLocation(i, i2);
+            dialog.setContentView((View) weakReference2.get());
+        }
+        GreyUtil.grey(dialog);
+        a aVar = new a(2001304, weakReference, weakReference2, i, i2);
+        dialog.setOnDismissListener(new b(aVar, weakReference2));
+        if (weakReference2.get() != null) {
+            ((LightInteractiveLayout) weakReference2.get()).setOnDismissListener(new c(dialog));
+        }
+        dialog.setOnShowListener(new d());
+        if ((context instanceof Activity) && ah.e((Activity) context)) {
+            dialog.show();
+        }
+        if (metaData != null) {
+            ua5.b(i4, metaData.getUserId());
+        }
+        MessageManager.getInstance().registerListener(aVar);
     }
 }

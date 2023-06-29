@@ -1,168 +1,80 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-@Autowired
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes7.dex */
-public final class pb4 {
+public class pb4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final pb4 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static final class a implements ob4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ob4
-        public void a(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void b(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void c(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void d(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void e(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void g(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void h(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void i(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.ob4
-        public void k(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948056263, "Lcom/baidu/tieba/pb4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948056263, "Lcom/baidu/tieba/pb4;");
-                return;
-            }
-        }
-        a = new pb4();
-    }
+    @V8JavascriptField
+    public String key;
+    @V8JavascriptField
+    public String value;
 
     public pb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Inject(force = false)
-    public final ob4 a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+            try {
+                if (this.key != null) {
+                    if (this.key.getBytes("UTF-8").length <= 128) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return true;
+            }
         }
-        return (ob4) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.key + ":" + this.value;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                if (this.key != null && this.value != null) {
+                    if (this.key.getBytes("UTF-8").length + this.value.getBytes("UTF-8").length <= 1024) {
+                        return true;
+                    }
+                }
+                return false;
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

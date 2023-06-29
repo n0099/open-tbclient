@@ -1,255 +1,367 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ifb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
+import com.hihonor.push.framework.aidl.DataBuffer;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.IPushInvoke;
+import com.hihonor.push.framework.aidl.MessageCodec;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import com.hihonor.push.sdk.ipc.HonorApiAvailability;
+import com.huawei.hms.api.IPCTransport;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public final class efb<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
+public class efb implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
+    public static final efb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<M> a;
-    public final Class<B> b;
-    public final Map<Integer, zeb<M, B>> c;
+    public final Handler a;
+    public final Map<zeb, a> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public efb(Class<M> cls, Class<B> cls2, Map<Integer, zeb<M, B>> map) {
-        super(FieldEncoding.LENGTH_DELIMITED, cls);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class a implements ifb.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Queue<pfb<?>> a;
+        public final Queue<pfb<?>> b;
+        public final ifb c;
+        public HonorPushErrorEnum d;
+        public final zeb e;
+        public final /* synthetic */ efb f;
+
+        public a(efb efbVar, zeb zebVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {efbVar, zebVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = efbVar;
+            this.a = new LinkedList();
+            this.b = new LinkedList();
+            this.c = new lfb(this);
+            this.d = null;
+            this.e = zebVar;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                meb.g(this.f.a);
+                lfb lfbVar = (lfb) this.c;
+                int i = lfbVar.a.get();
+                Log.i("PushConnectionClient", "enter disconnect, connection Status: " + i);
+                if (i != 3) {
+                    if (i == 5) {
+                        lfbVar.a.set(4);
+                        return;
+                    }
+                    return;
+                }
+                ofb ofbVar = lfbVar.d;
+                if (ofbVar != null) {
+                    ofbVar.c();
+                }
+                lfbVar.a.set(1);
+            }
+        }
+
+        public final synchronized void b(HonorPushErrorEnum honorPushErrorEnum) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, honorPushErrorEnum) == null) {
+                synchronized (this) {
+                    Log.i("HonorApiManager", "onConnectionFailed");
+                    meb.g(this.f.a);
+                    for (pfb<?> pfbVar : this.a) {
+                        pfbVar.b(honorPushErrorEnum.toApiException(), null);
+                    }
+                    this.a.clear();
+                    this.d = honorPushErrorEnum;
+                    a();
+                    this.f.b.remove(this.e);
+                }
+            }
+        }
+
+        public final synchronized void c(pfb<?> pfbVar) {
+            Class cls;
+            Type type;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pfbVar) == null) {
+                synchronized (this) {
+                    this.b.add(pfbVar);
+                    ifb ifbVar = this.c;
+                    b bVar = new b(pfbVar);
+                    pfbVar.getClass();
+                    Object obj = null;
+                    try {
+                        Type genericSuperclass = pfbVar.getClass().getGenericSuperclass();
+                        if (genericSuperclass != null && (type = ((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]) != null) {
+                            cls = (Class) type;
+                        } else {
+                            cls = null;
+                        }
+                        if (cls != null && !cls.isPrimitive()) {
+                            obj = cls.newInstance();
+                        }
+                    } catch (Exception e) {
+                        oeb.a("In newResponseInstance, instancing exception." + e.getMessage());
+                    }
+                    com.hihonor.push.sdk.r rVar = new com.hihonor.push.sdk.r(obj, bVar);
+                    Log.i(IPCTransport.TAG, "start transport parse. " + pfbVar.a);
+                    IPushInvoke iPushInvoke = ((lfb) ifbVar).b;
+                    String str = pfbVar.a;
+                    RequestHeader requestHeader = pfbVar.d;
+                    IMessageEntity iMessageEntity = pfbVar.b;
+                    Bundle bundle = new Bundle();
+                    Bundle bundle2 = new Bundle();
+                    MessageCodec.formMessageEntity(requestHeader, bundle);
+                    MessageCodec.formMessageEntity(iMessageEntity, bundle2);
+                    DataBuffer dataBuffer = new DataBuffer(str, bundle, bundle2);
+                    if (iPushInvoke != null) {
+                        try {
+                            iPushInvoke.call(dataBuffer, rVar);
+                        } catch (Exception e2) {
+                            String str2 = "transport remote error. " + e2;
+                        }
+                    }
+                    Log.i(IPCTransport.TAG, "end transport parse.");
+                }
+            }
+        }
+
+        public final synchronized void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                synchronized (this) {
+                    Log.i("HonorApiManager", "onConnected");
+                    meb.g(this.f.a);
+                    this.d = null;
+                    for (pfb<?> pfbVar : this.a) {
+                        c(pfbVar);
+                    }
+                    this.a.clear();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements sfb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public pfb<?> a;
+
+        public b(pfb<?> pfbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pfbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pfbVar;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947733832, "Lcom/baidu/tieba/efb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947733832, "Lcom/baidu/tieba/efb;");
                 return;
             }
         }
-        this.a = cls;
-        this.b = cls2;
-        this.c = map;
+        c = new efb();
     }
 
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> efb<M, B> a(Class<M> cls) {
-        InterceptResult invokeL;
-        Field[] declaredFields;
+    public efb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            Class e = e(cls);
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (Field field : cls.getDeclaredFields()) {
-                WireField wireField = (WireField) field.getAnnotation(WireField.class);
-                if (wireField != null) {
-                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new zeb(wireField, field, e));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new ConcurrentHashMap(5, 0.75f, 1);
+        HandlerThread handlerThread = new HandlerThread("HonorApiManager");
+        handlerThread.start();
+        this.a = new Handler(handlerThread.getLooper(), this);
+    }
+
+    public <TResult> ffb<TResult> a(pfb<TResult> pfbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pfbVar)) == null) {
+            xfb<TResult> xfbVar = new xfb<>();
+            pfbVar.e = xfbVar;
+            Log.i("HonorApiManager", "sendRequest start");
+            Handler handler = this.a;
+            handler.sendMessage(handler.obtainMessage(1, pfbVar));
+            return xfbVar.a;
+        }
+        return (ffb) invokeL.objValue;
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        InterceptResult invokeL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message)) == null) {
+            int i = message.what;
+            boolean z = false;
+            if (i == 1) {
+                pfb<?> pfbVar = (pfb) message.obj;
+                zeb zebVar = pfbVar.c;
+                a aVar2 = this.b.get(zebVar);
+                if (aVar2 == null) {
+                    Log.i("HonorApiManager", "connect and send request, create new connection manager.");
+                    aVar2 = new a(this, zebVar);
+                    this.b.put(zebVar, aVar2);
                 }
-            }
-            return new efb<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
-        }
-        return (efb) invokeL.objValue;
-    }
-
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            try {
-                return (Class<B>) Class.forName(cls.getName() + "$Builder");
-            } catch (ClassNotFoundException unused) {
-                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
-            }
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: d */
-    public int encodedSize(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
-            int i = m.cachedSerializedSize;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = 0;
-            for (zeb<M, B> zebVar : this.c.values()) {
-                Object b = zebVar.b(m);
-                if (b != null) {
-                    i2 += zebVar.a().encodedSizeWithTag(zebVar.c, b);
-                }
-            }
-            int size = i2 + m.unknownFields().size();
-            m.cachedSerializedSize = size;
-            return size;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public M decode(bfb bfbVar) throws IOException {
-        InterceptResult invokeL;
-        ProtoAdapter<?> i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bfbVar)) == null) {
-            B f = f();
-            long c = bfbVar.c();
-            while (true) {
-                int f2 = bfbVar.f();
-                if (f2 != -1) {
-                    zeb<M, B> zebVar = this.c.get(Integer.valueOf(f2));
-                    if (zebVar != null) {
-                        try {
-                            if (zebVar.f()) {
-                                i = zebVar.a();
-                            } else {
-                                i = zebVar.i();
-                            }
-                            zebVar.j(f, i.decode(bfbVar));
-                        } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                            f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
-                        }
+                synchronized (aVar2) {
+                    meb.g(aVar2.f.a);
+                    String str = "sendRequest " + pfbVar.a;
+                    if (((lfb) aVar2.c).b()) {
+                        aVar2.c(pfbVar);
                     } else {
-                        FieldEncoding g = bfbVar.g();
-                        f.addUnknownField(f2, g, g.rawProtoAdapter().decode(bfbVar));
+                        aVar2.a.add(pfbVar);
+                        HonorPushErrorEnum honorPushErrorEnum = aVar2.d;
+                        if (honorPushErrorEnum != null && honorPushErrorEnum.getErrorCode() != 0) {
+                            aVar2.b(aVar2.d);
+                        } else {
+                            synchronized (aVar2) {
+                                meb.g(aVar2.f.a);
+                                if (((lfb) aVar2.c).b()) {
+                                    Log.i("HonorApiManager", "client is connected");
+                                } else {
+                                    if (((lfb) aVar2.c).a.get() == 5) {
+                                        z = true;
+                                    }
+                                    if (z) {
+                                        Log.i("HonorApiManager", "client is isConnecting");
+                                    } else {
+                                        lfb lfbVar = (lfb) aVar2.c;
+                                        lfbVar.getClass();
+                                        Log.i("PushConnectionClient", "  ====  PUSHSDK VERSION 70001103 ====");
+                                        int i2 = lfbVar.a.get();
+                                        Log.i("PushConnectionClient", "enter connect, connection Status: " + i2);
+                                        if (i2 != 3 && i2 != 5 && i2 != 4) {
+                                            teb tebVar = teb.e;
+                                            int b2 = HonorApiAvailability.b(tebVar.a());
+                                            if (b2 == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
+                                                lfbVar.a.set(5);
+                                                peb a2 = HonorApiAvailability.a(tebVar.a());
+                                                Log.i("PushConnectionClient", "enter bindCoreService.");
+                                                ofb ofbVar = new ofb(a2);
+                                                lfbVar.d = ofbVar;
+                                                ofbVar.b = new kfb(lfbVar);
+                                                if (!a2.a()) {
+                                                    String str2 = "bind core is null : " + ofbVar.a;
+                                                    ofbVar.b(8002004);
+                                                } else {
+                                                    Intent intent = new Intent();
+                                                    String c2 = ofbVar.a.c();
+                                                    String b3 = ofbVar.a.b();
+                                                    String d = ofbVar.a.d();
+                                                    if (!TextUtils.isEmpty(d)) {
+                                                        intent.setComponent(new ComponentName(c2, d));
+                                                    } else {
+                                                        intent.setAction(b3);
+                                                        intent.setPackage(c2);
+                                                    }
+                                                    synchronized (ofb.e) {
+                                                        if (tebVar.a().bindService(intent, ofbVar, 1)) {
+                                                            Handler handler = ofbVar.c;
+                                                            if (handler != null) {
+                                                                handler.removeMessages(1001);
+                                                            } else {
+                                                                ofbVar.c = new Handler(Looper.getMainLooper(), new nfb(ofbVar));
+                                                            }
+                                                            ofbVar.c.sendEmptyMessageDelayed(1001, 10000L);
+                                                        } else {
+                                                            ofbVar.d = true;
+                                                            ofbVar.b(8002001);
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                lfbVar.a(b2);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
-                } else {
-                    bfbVar.d(c);
-                    return (M) f.build();
                 }
-            }
-        } else {
-            return (M) invokeL.objValue;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: h */
-    public String toString(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (zeb<M, B> zebVar : this.c.values()) {
-                Object b = zebVar.b(m);
-                if (b != null) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(zebVar.b);
-                    sb.append('=');
-                    if (zebVar.f) {
-                        b = "██";
+                return true;
+            } else if (i != 2) {
+                return false;
+            } else {
+                pfb pfbVar2 = (pfb) message.obj;
+                zeb zebVar2 = pfbVar2.c;
+                if (zebVar2 != null && this.b.containsKey(zebVar2) && (aVar = this.b.get(zebVar2)) != null) {
+                    synchronized (aVar) {
+                        String str3 = "resolveResult apiCall " + pfbVar2.a;
+                        aVar.b.remove(pfbVar2);
+                        if (aVar.a.peek() == null || aVar.b.peek() == null) {
+                            aVar.a();
+                            aVar.f.b.remove(aVar.e);
+                        }
                     }
-                    sb.append(b);
                 }
-            }
-            sb.replace(0, 2, this.a.getSimpleName() + '{');
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public void encode(cfb cfbVar, M m) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cfbVar, m) == null) {
-            for (zeb<M, B> zebVar : this.c.values()) {
-                Object b = zebVar.b(m);
-                if (b != null) {
-                    zebVar.a().encodeWithTag(cfbVar, zebVar.c, b);
-                }
-            }
-            cfbVar.k(m.unknownFields());
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if ((obj instanceof efb) && ((efb) obj).a == this.a) {
                 return true;
             }
-            return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public B f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return this.b.newInstance();
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return (B) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: g */
-    public M redact(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
-            Message.a<M, B> newBuilder = m.newBuilder();
-            for (zeb<M, B> zebVar : this.c.values()) {
-                if (zebVar.f && zebVar.a == WireField.Label.REQUIRED) {
-                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", zebVar.b, this.javaType.getName()));
-                }
-                boolean isAssignableFrom = Message.class.isAssignableFrom(zebVar.i().javaType);
-                if (!zebVar.f && (!isAssignableFrom || zebVar.a.isRepeated())) {
-                    if (isAssignableFrom && zebVar.a.isRepeated()) {
-                        gfb.k((List) zebVar.e(newBuilder), zebVar.i());
-                    }
-                } else {
-                    Object e = zebVar.e(newBuilder);
-                    if (e != null) {
-                        zebVar.h(newBuilder, zebVar.a().redact(e));
-                    }
-                }
-            }
-            newBuilder.clearUnknownFields();
-            return newBuilder.build();
-        }
-        return (M) invokeL.objValue;
     }
 }

@@ -677,13 +677,6 @@ public class ReadApkFileUtil {
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0046 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x000a */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v3, types: [java.util.zip.ZipFile] */
-    /* JADX WARN: Type inference failed for: r3v6, types: [java.lang.StringBuilder] */
     @TargetApi(19)
     public static boolean isCertFound(String str) {
         InterceptResult invokeL;
@@ -691,16 +684,15 @@ public class ReadApkFileUtil {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
-            ZipFile zipFile2 = 0;
-            ZipFile zipFile3 = null;
+            ZipFile zipFile2 = null;
             try {
                 try {
                     zipFile = new ZipFile(str);
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Exception e2) {
+                    e = e2;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Throwable th) {
+                th = th;
             }
             try {
                 if (zipFile.getEntry("META-INF/HUAWEI.CER") != null) {
@@ -720,27 +712,24 @@ public class ReadApkFileUtil {
                 return z;
             } catch (Exception e4) {
                 e = e4;
-                zipFile3 = zipFile;
+                zipFile2 = zipFile;
                 String str3 = a;
                 HMSLog.e(str3, "isCertFound Exception!" + e.getMessage());
-                if (zipFile3 == null) {
+                if (zipFile2 == null) {
                     return false;
                 }
                 try {
-                    zipFile3.close();
+                    zipFile2.close();
                     return false;
                 } catch (IOException e5) {
                     String str4 = a;
-                    zipFile2 = new StringBuilder();
-                    zipFile2.append("zipFile.close Exception!");
-                    zipFile2.append(e5.getMessage());
-                    HMSLog.e(str4, zipFile2.toString());
+                    HMSLog.e(str4, "zipFile.close Exception!" + e5.getMessage());
                     return false;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 zipFile2 = zipFile;
-                if (zipFile2 != 0) {
+                if (zipFile2 != null) {
                     try {
                         zipFile2.close();
                     } catch (IOException e6) {

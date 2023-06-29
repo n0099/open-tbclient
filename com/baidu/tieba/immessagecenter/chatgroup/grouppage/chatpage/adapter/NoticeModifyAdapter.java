@@ -12,11 +12,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
-import com.baidu.tieba.p75;
+import com.baidu.tieba.oj8;
+import com.baidu.tieba.s75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,12 +59,12 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091915);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09100a);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09100f);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e94);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091918);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091917);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091961);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091015);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09101a);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e9e);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091964);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091963);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
@@ -133,22 +133,22 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, noticeModifySysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            p75 d = p75.d(holder.a);
+            s75 d = s75.d(holder.a);
             d.o(R.string.J_X04);
             d.f(R.color.CAM_X0625);
-            p75 d2 = p75.d(holder.b);
+            s75 d2 = s75.d(holder.b);
             d2.x(R.color.CAM_X0101);
             d2.C(R.dimen.T_X09);
             d2.D(R.string.F_X01);
-            p75 d3 = p75.d(holder.c);
+            s75 d3 = s75.d(holder.c);
             d3.x(R.color.CAM_X0101);
             d3.C(R.dimen.T_X09);
             d3.D(R.string.F_X01);
-            p75 d4 = p75.d(holder.d);
+            s75 d4 = s75.d(holder.d);
             d4.x(R.color.CAM_X0101);
             d4.C(R.dimen.T_X09);
             d4.D(R.string.F_X01);
-            p75 d5 = p75.d(holder.e);
+            s75 d5 = s75.d(holder.e);
             d5.C(R.dimen.T_X09);
             d5.x(R.color.CAM_X0304);
             d5.D(R.string.F_X01);
@@ -156,13 +156,13 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                 holder.c.setText(noticeModifySysMsg.getUserFrom().getUsername());
                 int role = noticeModifySysMsg.getUserFrom().getRole();
                 if (role == 1) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0943);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0946);
                 } else if (role == 2 || role == 3) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0945);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0948);
                 }
-                holder.d.setText(R.string.obfuscated_res_0x7f0f093b);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f17e8);
-                di8.b("c15095", 2, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
+                holder.d.setText(R.string.obfuscated_res_0x7f0f093e);
+                holder.e.setText(R.string.obfuscated_res_0x7f0f1805);
+                oj8.d("c15095", 2, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

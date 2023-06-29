@@ -7,11 +7,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.js1;
+import com.baidu.tieba.ms1;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
-    public static final boolean DEBUG = js1.a;
+    public static final boolean DEBUG = ms1.a;
     public String mCallback;
     public WeakReference<CallbackHandler> mCallbackHandlerWeakRef;
 

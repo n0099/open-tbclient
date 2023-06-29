@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iq8;
-import com.baidu.tieba.kq8;
-import com.baidu.tieba.lq8;
-import com.baidu.tieba.nq8;
-import com.baidu.tieba.po8;
-import com.baidu.tieba.q9;
-import com.baidu.tieba.qo8;
+import com.baidu.tieba.at8;
+import com.baidu.tieba.bt8;
+import com.baidu.tieba.r9;
+import com.baidu.tieba.tu8;
+import com.baidu.tieba.vu8;
+import com.baidu.tieba.wu8;
+import com.baidu.tieba.yu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,15 +36,15 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public CustomViewPager b;
-    public lq8 c;
+    public wu8 c;
     public NoNetworkView d;
     public ScrollFragmentAdapter e;
-    public List<kq8> f;
+    public List<vu8> f;
     public FrameLayout g;
-    public nq8 h;
+    public yu8 h;
     public BdUniqueId i;
     public View.OnClickListener j;
-    public nq8.c k;
+    public yu8.c k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -84,7 +84,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements nq8.c {
+    public class b implements yu8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ScrollFragmentTabHost a;
@@ -107,7 +107,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
             this.a = scrollFragmentTabHost;
         }
 
-        @Override // com.baidu.tieba.nq8.c
+        @Override // com.baidu.tieba.yu8.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -149,21 +149,21 @@ public class ScrollFragmentTabHost extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0591, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0592, (ViewGroup) this, true);
             this.d = (NoNetworkView) findViewById(R.id.view_no_network);
-            lq8 lq8Var = new lq8(context, findViewById(R.id.obfuscated_res_0x7f092293));
-            this.c = lq8Var;
-            lq8Var.h(this.j);
-            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0922ad);
+            wu8 wu8Var = new wu8(context, findViewById(R.id.obfuscated_res_0x7f0922f3));
+            this.c = wu8Var;
+            wu8Var.h(this.j);
+            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09230d);
         }
     }
 
     public void k(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            lq8 lq8Var = this.c;
-            if (lq8Var != null) {
-                lq8Var.g(i);
+            wu8 wu8Var = this.c;
+            if (wu8Var != null) {
+                wu8Var.g(i);
             }
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i);
             ScrollFragmentAdapter scrollFragmentAdapter = this.e;
@@ -171,11 +171,11 @@ public class ScrollFragmentTabHost extends LinearLayout {
                 scrollFragmentAdapter.e(i);
             }
             if (this.d != null) {
-                this.d.d(q9.a(getContext()), i);
+                this.d.d(r9.a(getContext()), i);
             }
-            nq8 nq8Var = this.h;
-            if (nq8Var != null) {
-                nq8Var.k(i);
+            yu8 yu8Var = this.h;
+            if (yu8Var != null) {
+                yu8Var.k(i);
             }
         }
     }
@@ -204,22 +204,22 @@ public class ScrollFragmentTabHost extends LinearLayout {
         g(context);
     }
 
-    public void d(List<kq8> list, int i) {
+    public void d(List<vu8> list, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) && list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
-            for (kq8 kq8Var : list) {
-                if (kq8Var != null) {
-                    arrayList.add(new iq8(kq8Var));
+            for (vu8 vu8Var : list) {
+                if (vu8Var != null) {
+                    arrayList.add(new tu8(vu8Var));
                 }
             }
             this.f = list;
             ScrollFragmentAdapter scrollFragmentAdapter = this.e;
             if (scrollFragmentAdapter != null) {
                 scrollFragmentAdapter.l(arrayList);
-                lq8 lq8Var = this.c;
-                if (lq8Var != null) {
-                    lq8Var.i(this.b, i);
+                wu8 wu8Var = this.c;
+                if (wu8Var != null) {
+                    wu8Var.i(this.b, i);
                 }
             }
         }
@@ -246,11 +246,11 @@ public class ScrollFragmentTabHost extends LinearLayout {
         }
     }
 
-    public void h(qo8 qo8Var, po8 po8Var) {
+    public void h(bt8 bt8Var, at8 at8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, qo8Var, po8Var) == null) {
-            this.b = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f0922b1);
-            ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.a, qo8Var, po8Var, this.i);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, bt8Var, at8Var) == null) {
+            this.b = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092311);
+            ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.a, bt8Var, at8Var, this.i);
             this.e = scrollFragmentAdapter;
             this.b.setAdapter(scrollFragmentAdapter);
         }
@@ -265,10 +265,10 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     public void e() {
-        nq8 nq8Var;
+        yu8 yu8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (nq8Var = this.h) != null) {
-            nq8Var.f(this.a);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (yu8Var = this.h) != null) {
+            yu8Var.f(this.a);
         }
     }
 
@@ -289,8 +289,8 @@ public class ScrollFragmentTabHost extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            nq8 nq8Var = this.h;
-            if (nq8Var != null && nq8Var.j()) {
+            yu8 yu8Var = this.h;
+            if (yu8Var != null && yu8Var.j()) {
                 return true;
             }
             return false;
@@ -314,17 +314,17 @@ public class ScrollFragmentTabHost extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.h == null) {
-                nq8 nq8Var = new nq8(this.g);
-                this.h = nq8Var;
-                nq8Var.l(this.k);
+                yu8 yu8Var = new yu8(this.g);
+                this.h = yu8Var;
+                yu8Var.l(this.k);
             }
             if (this.h.j()) {
                 return;
             }
             this.h.m(this.a, this.f, this.b.getCurrentItem());
-            lq8 lq8Var = this.c;
-            if (lq8Var != null) {
-                lq8Var.j();
+            wu8 wu8Var = this.c;
+            if (wu8Var != null) {
+                wu8Var.j();
             }
         }
     }

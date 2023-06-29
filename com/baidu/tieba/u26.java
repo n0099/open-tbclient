@@ -1,463 +1,188 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
-import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class u26<T> {
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+/* loaded from: classes8.dex */
+public class u26 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long[] a;
+    public static final String[] b;
+    public static final String[] c;
+    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public WheelView b;
-    public WheelView c;
-    public WheelView d;
-    public List<T> e;
-    public List<List<T>> f;
-    public List<List<List<T>>> g;
-    public boolean h;
-    public boolean i;
-    public z26 j;
-    public z26 k;
-    public m26 l;
-    public int m;
-    public int n;
-    public int o;
-    public WheelView.DividerType p;
-    public float q;
 
-    /* loaded from: classes7.dex */
-    public class a implements z26 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u26 a;
-
-        public a(u26 u26Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948159152, "Lcom/baidu/tieba/u26;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u26Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = u26Var;
-        }
-
-        @Override // com.baidu.tieba.z26
-        public void onItemSelected(int i) {
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (this.a.f == null) {
-                    if (this.a.l != null) {
-                        this.a.l.a(this.a.b.getCurrentItem(), 0, 0);
-                        return;
-                    }
-                    return;
-                }
-                if (!this.a.i) {
-                    i2 = this.a.c.getCurrentItem();
-                    if (i2 >= ((List) this.a.f.get(i)).size() - 1) {
-                        i2 = ((List) this.a.f.get(i)).size() - 1;
-                    }
-                } else {
-                    i2 = 0;
-                }
-                this.a.c.setAdapter(new f26((List) this.a.f.get(i)));
-                this.a.c.setCurrentItem(i2);
-                if (this.a.g != null) {
-                    this.a.k.onItemSelected(i2);
-                } else if (this.a.l != null) {
-                    this.a.l.a(i, i2, 0);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements z26 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u26 a;
-
-        public b(u26 u26Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u26Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u26Var;
-        }
-
-        @Override // com.baidu.tieba.z26
-        public void onItemSelected(int i) {
-            int currentItem;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                int i2 = 0;
-                if (this.a.g != null) {
-                    int currentItem2 = this.a.b.getCurrentItem();
-                    if (currentItem2 >= this.a.g.size() - 1) {
-                        currentItem2 = this.a.g.size() - 1;
-                    }
-                    if (i >= ((List) this.a.f.get(currentItem2)).size() - 1) {
-                        i = ((List) this.a.f.get(currentItem2)).size() - 1;
-                    }
-                    if (!this.a.i) {
-                        if (this.a.d.getCurrentItem() >= ((List) ((List) this.a.g.get(currentItem2)).get(i)).size() - 1) {
-                            currentItem = ((List) ((List) this.a.g.get(currentItem2)).get(i)).size() - 1;
-                        } else {
-                            currentItem = this.a.d.getCurrentItem();
-                        }
-                        i2 = currentItem;
-                    }
-                    this.a.d.setAdapter(new f26((List) ((List) this.a.g.get(this.a.b.getCurrentItem())).get(i)));
-                    this.a.d.setCurrentItem(i2);
-                    if (this.a.l != null) {
-                        this.a.l.a(this.a.b.getCurrentItem(), i, i2);
-                    }
-                } else if (this.a.l != null) {
-                    this.a.l.a(this.a.b.getCurrentItem(), i, 0);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements z26 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u26 a;
-
-        public c(u26 u26Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u26Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u26Var;
-        }
-
-        @Override // com.baidu.tieba.z26
-        public void onItemSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.l.a(this.a.b.getCurrentItem(), this.a.c.getCurrentItem(), i);
-            }
-        }
-    }
-
-    public u26(View view2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948159152, "Lcom/baidu/tieba/u26;");
                 return;
             }
         }
-        this.h = true;
-        this.i = z;
-        this.a = view2;
-        this.b = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09195f);
-        this.c = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091960);
-        this.d = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091961);
+        a = new long[]{19416, 19168, 42352, 21717, 53856, 55632, 91476, 22176, 39632, 21970, 19168, 42422, 42192, 53840, 119381, 46400, 54944, 44450, 38320, 84343, 18800, 42160, 46261, 27216, 27968, 109396, 11104, 38256, 21234, 18800, 25958, 54432, 59984, 28309, 23248, 11104, 100067, 37600, 116951, 51536, 54432, 120998, 46416, 22176, 107956, 9680, 37584, 53938, 43344, 46423, 27808, 46416, 86869, 19872, 42416, 83315, 21168, 43432, 59728, 27296, 44710, 43856, 19296, 43748, 42352, 21088, 62051, 55632, 23383, 22176, 38608, 19925, 19152, 42192, 54484, 53840, 54616, 46400, 46752, 103846, 38320, 18864, 43380, 42160, 45690, 27216, 27968, 44870, 43872, 38256, 19189, 18800, 25776, 29859, 59984, 27480, 21952, 43872, 38613, 37600, 51552, 55636, 54432, 55888, 30034, 22176, 43959, 9680, 37584, 51893, 43344, 46240, 47780, 44368, 21977, 19360, 42416, 86390, 21168, 43312, 31060, 27296, 44368, 23378, 19296, 42726, 42208, 53856, 60005, 54576, 23200, 30371, 38608, 19195, 19152, 42192, 118966, 53840, 54560, 56645, 46496, 22224, 21938, 18864, 42359, 42160, 43600, 111189, 27936, 44448, 84835, 37744, 18936, 18800, 25776, 92326, 59984, 27424, 108228, 43744, 41696, 53987, 51552, 54615, 54432, 55888, 23893, 22176, 42704, 21972, 21200, 43448, 43344, 46240, 46758, 44368, 21920, 43940, 42416, 21168, 45683, 26928, 29495, 27296, 44368, 84821, 19296, 42352, 21732, 53600, 59752, 54560, 55968, 92838, 22224, 19168, 43476, 41680, 53584, 62034, 54560};
+        b = new String[]{"", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊"};
+        c = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
+        d = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
+        new SimpleDateFormat("yyyy年M月d日 EEEEE");
     }
 
-    public void B(int i) {
+    public static final String a(int i) {
+        InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.m = i;
-            A();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i == 10) {
+                return "初十";
+            }
+            if (i == 20) {
+                return "二十";
+            }
+            if (i == 30) {
+                return "三十";
+            }
+            int i2 = i / 10;
+            if (i2 == 0) {
+                str = "初";
+            } else {
+                str = "";
+            }
+            if (i2 == 1) {
+                str = "十";
+            }
+            if (i2 == 2) {
+                str = "廿";
+            }
+            if (i2 == 3) {
+                str = "三";
+            }
+            switch (i % 10) {
+                case 1:
+                    return str + "一";
+                case 2:
+                    return str + "二";
+                case 3:
+                    return str + "三";
+                case 4:
+                    return str + "四";
+                case 5:
+                    return str + "五";
+                case 6:
+                    return str + "六";
+                case 7:
+                    return str + "七";
+                case 8:
+                    return str + "八";
+                case 9:
+                    return str + "九";
+                default:
+                    return str;
+            }
         }
+        return (String) invokeI.objValue;
     }
 
-    public void C(int i) {
+    public static ArrayList<String> b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            float f = i;
-            this.b.setTextSize(f);
-            this.c.setTextSize(f);
-            this.d.setTextSize(f);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i2 = 1; i2 <= i; i2++) {
+                arrayList.add(a(i2));
+            }
+            return arrayList;
         }
+        return (ArrayList) invokeI.objValue;
     }
 
-    public void k(boolean z) {
+    public static final int f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.b.h(z);
-            this.c.h(z);
-            this.d.h(z);
-        }
-    }
-
-    public void m(Typeface typeface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, typeface) == null) {
-            this.b.setCenterTypeface(typeface);
-            this.c.setCenterTypeface(typeface);
-            this.d.setCenterTypeface(typeface);
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.b.setCyclic(z);
-            this.c.setCyclic(z);
-            this.d.setCyclic(z);
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.o = i;
-            p();
-        }
-    }
-
-    public void s(WheelView.DividerType dividerType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, dividerType) == null) {
-            this.p = dividerType;
-            r();
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.b.setItemsVisible(i);
-            this.c.setItemsVisible(i);
-            this.d.setItemsVisible(i);
-        }
-    }
-
-    public void v(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.q = f;
-            u();
-        }
-    }
-
-    public void w(m26 m26Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, m26Var) == null) {
-            this.l = m26Var;
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.n = i;
-            y();
-        }
-    }
-
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setTextColorOut(this.m);
-            this.c.setTextColorOut(this.m);
-            this.d.setTextColorOut(this.m);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.invalidate();
-            this.c.invalidate();
-            this.d.invalidate();
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.b.setDividerColor(this.o);
-            this.c.setDividerColor(this.o);
-            this.d.setDividerColor(this.o);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.b.setDividerType(this.p);
-            this.c.setDividerType(this.p);
-            this.d.setDividerType(this.p);
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.b.setLineSpacingMultiplier(this.q);
-            this.c.setLineSpacingMultiplier(this.q);
-            this.d.setLineSpacingMultiplier(this.q);
-        }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.b.setTextColorCenter(this.n);
-            this.c.setTextColorCenter(this.n);
-            this.d.setTextColorCenter(this.n);
-        }
-    }
-
-    public int[] i() {
-        InterceptResult invokeV;
-        int currentItem;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int[] iArr = new int[3];
-            int i = 0;
-            iArr[0] = this.b.getCurrentItem();
-            List<List<T>> list = this.f;
-            if (list != null && list.size() > 0) {
-                if (this.c.getCurrentItem() > this.f.get(iArr[0]).size() - 1) {
-                    currentItem = 0;
-                } else {
-                    currentItem = this.c.getCurrentItem();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (g(i) != 0) {
+                if ((a[i - 1900] & 65536) != 0) {
+                    return 30;
                 }
-                iArr[1] = currentItem;
-            } else {
-                iArr[1] = this.c.getCurrentItem();
+                return 29;
             }
-            List<List<List<T>>> list2 = this.g;
-            if (list2 != null && list2.size() > 0) {
-                if (this.d.getCurrentItem() <= this.g.get(iArr[0]).get(iArr[1]).size() - 1) {
-                    i = this.d.getCurrentItem();
-                }
-                iArr[2] = i;
-            } else {
-                iArr[2] = this.d.getCurrentItem();
-            }
-            return iArr;
+            return 0;
         }
-        return (int[]) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public final void l(int i, int i2, int i3) {
+    public static final int g(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
-            if (this.e != null) {
-                this.b.setCurrentItem(i);
-            }
-            List<List<T>> list = this.f;
-            if (list != null) {
-                this.c.setAdapter(new f26(list.get(i)));
-                this.c.setCurrentItem(i2);
-            }
-            List<List<List<T>>> list2 = this.g;
-            if (list2 != null) {
-                this.d.setAdapter(new f26(list2.get(i).get(i2)));
-                this.d.setCurrentItem(i3);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return (int) (a[i - 1900] & 15);
         }
+        return invokeI.intValue;
     }
 
-    public void n(int i, int i2, int i3) {
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
-            if (this.h) {
-                l(i, i2, i3);
-                return;
-            }
-            this.b.setCurrentItem(i);
-            this.c.setCurrentItem(i2);
-            this.d.setCurrentItem(i3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int i2 = i - 4;
+            sb.append(c[i2 % 10]);
+            sb.append(d[i2 % 12]);
+            sb.append("年");
+            return sb.toString();
         }
+        return (String) invokeI.objValue;
     }
 
-    public void x(List<T> list, List<List<T>> list2, List<List<List<T>>> list3) {
+    public static ArrayList<String> d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048594, this, list, list2, list3) == null) {
-            this.e = list;
-            this.f = list2;
-            this.g = list3;
-            this.b.setAdapter(new f26(list));
-            this.b.setCurrentItem(0);
-            List<List<T>> list4 = this.f;
-            if (list4 != null) {
-                this.c.setAdapter(new f26(list4.get(0)));
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i2 = 1; i2 < b.length; i2++) {
+                arrayList.add(b[i2] + "月");
             }
-            WheelView wheelView = this.c;
-            wheelView.setCurrentItem(wheelView.getCurrentItem());
-            List<List<List<T>>> list5 = this.g;
-            if (list5 != null) {
-                this.d.setAdapter(new f26(list5.get(0).get(0)));
+            if (g(i) != 0) {
+                int g = g(i);
+                arrayList.add(g, "闰" + b[g(i)] + "月");
             }
-            WheelView wheelView2 = this.d;
-            wheelView2.setCurrentItem(wheelView2.getCurrentItem());
-            this.b.setIsOptions(true);
-            this.c.setIsOptions(true);
-            this.d.setIsOptions(true);
-            if (this.f == null) {
-                this.c.setVisibility(8);
-            } else {
-                this.c.setVisibility(0);
-            }
-            if (this.g == null) {
-                this.d.setVisibility(8);
-            } else {
-                this.d.setVisibility(0);
-            }
-            this.j = new a(this);
-            this.k = new b(this);
-            if (list != null && this.h) {
-                this.b.setOnItemSelectedListener(this.j);
-            }
-            if (list2 != null && this.h) {
-                this.c.setOnItemSelectedListener(this.k);
-            }
-            if (list3 != null && this.h && this.l != null) {
-                this.d.setOnItemSelectedListener(new c(this));
-            }
+            return arrayList;
         }
+        return (ArrayList) invokeI.objValue;
+    }
+
+    public static ArrayList<String> e(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            while (i < i2) {
+                arrayList.add(String.format("%s(%d)", c(i), Integer.valueOf(i)));
+                i++;
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeII.objValue;
+    }
+
+    public static final int h(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) {
+            if (((65536 >> i2) & a[i - 1900]) == 0) {
+                return 29;
+            }
+            return 30;
+        }
+        return invokeII.intValue;
     }
 }

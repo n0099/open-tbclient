@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,49 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nn2 extends mn2 {
+public class nn2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean c;
+    public static nn2 d;
+    public static nn2 e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ln2
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ln2
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.ln2
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "0" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ln2
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ln2
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-        }
-    }
+    public String a;
+    public long b;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +38,7 @@ public class nn2 extends mn2 {
                 return;
             }
         }
-        d = js1.a;
+        c = ms1.a;
     }
 
     public nn2() {
@@ -85,47 +55,88 @@ public class nn2 extends mn2 {
         }
     }
 
-    @Override // com.baidu.tieba.ln2
     @NonNull
-    public ExtensionCore h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ExtensionCore extensionCore = new ExtensionCore();
-            extensionCore.extensionCoreVersionCode = 0L;
-            extensionCore.extensionCoreVersionName = "0";
-            extensionCore.extensionCorePath = "";
-            extensionCore.extensionCoreType = 0;
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mn2, com.baidu.tieba.ln2
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (d) {
-                Log.d("SwanNoPresetExtensionCoreControl", "isNeedUpdate false");
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ln2
-    public <T extends fn2> Exception g(@NonNull T t) {
+    public static nn2 a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            if (d) {
-                Log.d("SwanNoPresetExtensionCoreControl", "doUpdate: preset");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (d == null) {
+                d = d(e(str));
+            }
+            return d;
+        }
+        return (nn2) invokeL.objValue;
+    }
+
+    @NonNull
+    public static nn2 b(@NonNull ln2 ln2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ln2Var)) == null) {
+            if (ln2Var.c() == 1) {
+                return c(ln2Var.d());
+            }
+            return a(ln2Var.d());
+        }
+        return (nn2) invokeL.objValue;
+    }
+
+    @NonNull
+    public static nn2 c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (e == null) {
+                e = d(e(str));
+            }
+            return e;
+        }
+        return (nn2) invokeL.objValue;
+    }
+
+    @NonNull
+    public static nn2 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
+            nn2 nn2Var = new nn2();
+            if (jSONObject != null) {
+                nn2Var.a = jSONObject.optString("extension-core-version-name");
+                nn2Var.b = jSONObject.optLong("extension-core-version-code");
+            }
+            return nn2Var;
+        }
+        return (nn2) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static JSONObject e(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (c) {
+                Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
+            }
+            String D = gs4.D(AppRuntime.getAppContext(), str);
+            if (TextUtils.isEmpty(D)) {
+                if (c) {
+                    Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
+                }
                 return null;
             }
-            return null;
+            try {
+                JSONObject jSONObject = new JSONObject(D);
+                if (c) {
+                    Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
+                }
+                return jSONObject;
+            } catch (JSONException e2) {
+                if (!c) {
+                    return null;
+                }
+                throw new RuntimeException(e2);
+            }
         }
-        return (Exception) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

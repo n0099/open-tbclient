@@ -1,28 +1,28 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.bpb;
-import com.baidu.tieba.gsb;
-import com.baidu.tieba.hob;
-import com.baidu.tieba.iob;
-import com.baidu.tieba.mob;
-import com.baidu.tieba.sob;
-import com.baidu.tieba.zqb;
-import com.baidu.tieba.zrb;
+import com.baidu.tieba.axb;
+import com.baidu.tieba.dtb;
+import com.baidu.tieba.jtb;
+import com.baidu.tieba.ttb;
+import com.baidu.tieba.tvb;
+import com.baidu.tieba.twb;
+import com.baidu.tieba.ysb;
+import com.baidu.tieba.zsb;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes2.dex */
-public final class QueuedProducer<T> extends AtomicLong implements iob, hob<T> {
+public final class QueuedProducer<T> extends AtomicLong implements zsb, ysb<T> {
     public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;
-    public final mob<? super T> child;
+    public final dtb<? super T> child;
     public volatile boolean done;
     public Throwable error;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
-    @Override // com.baidu.tieba.hob
+    @Override // com.baidu.tieba.ysb
     public void onCompleted() {
         this.done = true;
         drain();
@@ -32,13 +32,13 @@ public final class QueuedProducer<T> extends AtomicLong implements iob, hob<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedProducer(mob<? super T> mobVar) {
-        this(mobVar, r0);
-        Queue zqbVar;
-        if (gsb.b()) {
-            zqbVar = new zrb();
+    public QueuedProducer(dtb<? super T> dtbVar) {
+        this(dtbVar, r0);
+        Queue tvbVar;
+        if (axb.b()) {
+            tvbVar = new twb();
         } else {
-            zqbVar = new zqb();
+            tvbVar = new tvb();
         }
     }
 
@@ -54,26 +54,26 @@ public final class QueuedProducer<T> extends AtomicLong implements iob, hob<T> {
         return true;
     }
 
-    @Override // com.baidu.tieba.hob
+    @Override // com.baidu.tieba.ysb
     public void onError(Throwable th) {
         this.error = th;
         this.done = true;
         drain();
     }
 
-    @Override // com.baidu.tieba.hob
+    @Override // com.baidu.tieba.ysb
     public void onNext(T t) {
         if (!offer(t)) {
             onError(new MissingBackpressureException());
         }
     }
 
-    @Override // com.baidu.tieba.iob
+    @Override // com.baidu.tieba.zsb
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                bpb.b(this, j);
+                ttb.b(this, j);
                 drain();
                 return;
             }
@@ -82,8 +82,8 @@ public final class QueuedProducer<T> extends AtomicLong implements iob, hob<T> {
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    public QueuedProducer(mob<? super T> mobVar, Queue<Object> queue) {
-        this.child = mobVar;
+    public QueuedProducer(dtb<? super T> dtbVar, Queue<Object> queue) {
+        this.child = dtbVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -111,7 +111,7 @@ public final class QueuedProducer<T> extends AtomicLong implements iob, hob<T> {
     private void drain() {
         boolean z;
         if (this.wip.getAndIncrement() == 0) {
-            mob<? super T> mobVar = this.child;
+            dtb<? super T> dtbVar = this.child;
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {
                 this.wip.lazySet(1);
@@ -133,9 +133,9 @@ public final class QueuedProducer<T> extends AtomicLong implements iob, hob<T> {
                     }
                     try {
                         if (poll == NULL_SENTINEL) {
-                            mobVar.onNext(null);
+                            dtbVar.onNext(null);
                         } else {
-                            mobVar.onNext(poll);
+                            dtbVar.onNext(poll);
                         }
                         j--;
                         j2++;
@@ -143,7 +143,7 @@ public final class QueuedProducer<T> extends AtomicLong implements iob, hob<T> {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        sob.g(th, mobVar, poll);
+                        jtb.g(th, dtbVar, poll);
                         return;
                     }
                 }

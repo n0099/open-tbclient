@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.de0;
-import com.baidu.tieba.sb0;
-import com.baidu.tieba.zd0;
+import com.baidu.tieba.ce0;
+import com.baidu.tieba.ge0;
+import com.baidu.tieba.vb0;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
 import kotlin.Metadata;
@@ -47,9 +47,9 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             super(view2);
             this.d = view2;
             this.e = str;
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f091529);
-            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091528);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09152a);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f091539);
+            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091538);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09153a);
             a();
         }
 
@@ -59,17 +59,17 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             Resources resources;
             TextView textView = this.c;
             if (textView != null) {
-                zd0.k(textView, 1, 12.0f, 0, 0, 12, null);
+                ce0.k(textView, 1, 12.0f, 0, 0, 12, null);
             }
             View view2 = this.a;
             if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null) {
-                drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080efe);
+                drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080f12);
             } else {
                 drawable = null;
             }
             ImageView imageView = this.b;
             if (imageView != null) {
-                imageView.setImageDrawable(zd0.b(drawable, 0, 0, 6, null));
+                imageView.setImageDrawable(ce0.b(drawable, 0, 0, 6, null));
             }
         }
 
@@ -107,28 +107,28 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             if (i2 == i) {
                 View view2 = this.a;
                 if (view2 != null) {
-                    sb0 sb0Var = sb0.a;
+                    vb0 vb0Var = vb0.a;
                     Context context = this.d.getContext();
                     Intrinsics.checkExpressionValueIsNotNull(context, "view.context");
-                    view2.setBackgroundDrawable(sb0Var.e(context, this.e));
+                    view2.setBackgroundDrawable(vb0Var.e(context, this.e));
                 }
                 TextView textView4 = this.c;
                 if (textView4 != null) {
-                    textView4.setTextColor(de0.f().a(this.d.getContext(), this.e, "color_FF33551"));
+                    textView4.setTextColor(ge0.f().a(this.d.getContext(), this.e, "color_FF33551"));
                     return;
                 }
                 return;
             }
             View view3 = this.a;
             if (view3 != null) {
-                sb0 sb0Var2 = sb0.a;
+                vb0 vb0Var2 = vb0.a;
                 Context context2 = this.d.getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context2, "view.context");
-                view3.setBackgroundDrawable(sb0Var2.b(context2, this.e));
+                view3.setBackgroundDrawable(vb0Var2.b(context2, this.e));
             }
             TextView textView5 = this.c;
             if (textView5 != null) {
-                textView5.setTextColor(de0.f().a(this.d.getContext(), this.e, "color_525252"));
+                textView5.setTextColor(ge0.f().a(this.d.getContext(), this.e, "color_525252"));
             }
         }
     }
@@ -208,7 +208,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: o */
     public ExpandTabViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ae, viewGroup, false);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05af, viewGroup, false);
         Intrinsics.checkExpressionValueIsNotNull(inflate, "LayoutInflater.from(pare…rent, false\n            )");
         return new ExpandTabViewHolder(inflate, this.d);
     }

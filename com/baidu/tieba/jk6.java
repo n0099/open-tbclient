@@ -1,21 +1,73 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.InputStream;
-import okio.Okio;
+@Service
 /* loaded from: classes6.dex */
-public class jk6 implements ik6<String, Pair<InputStream, Long>> {
+public class jk6 extends ef {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.ef
+    public void changeSettingByType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ef
+    /* renamed from: getCrashKeys */
+    public String[] mo129getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ef
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ef
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ef
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "hybrid_net_proxy_no_encoding" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ef
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     public jk6() {
         Interceptable interceptable = $ic;
@@ -31,52 +83,15 @@ public class jk6 implements ik6<String, Pair<InputStream, Long>> {
         }
     }
 
-    public final File c(String str) {
-        InterceptResult invokeL;
+    public static boolean isOn() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            File file = new File(Uri.parse(str).getPath());
-            if (file.exists() && file.isFile()) {
-                return file;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (SwitchManager.getInstance().findType("hybrid_net_proxy_no_encoding") == 1) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (File) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ik6
-    @Nullable
-    /* renamed from: d */
-    public Pair<InputStream, Long> a(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            File c = c(str);
-            if (c != null) {
-                return Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length()));
-            }
-            return null;
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ik6
-    /* renamed from: e */
-    public void b(String str, vob<Pair<InputStream, Long>, Exception> vobVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, vobVar) == null) {
-            try {
-                File c = c(str);
-                if (c != null) {
-                    vobVar.call(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
-                } else {
-                    vobVar.call(null, new IllegalArgumentException(str + "file not exist !"));
-                }
-            } catch (Exception e) {
-                vobVar.call(null, e);
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

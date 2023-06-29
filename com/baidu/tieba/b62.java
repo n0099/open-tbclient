@@ -8,11 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class b62 extends f52 {
+public class b62 extends i52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
+
+    @Override // com.baidu.tieba.i52
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public b62() {
         Interceptable interceptable = $ic;
@@ -28,23 +33,16 @@ public class b62 extends f52 {
         }
     }
 
-    @Override // com.baidu.tieba.f52
-    public void a(g52 g52Var, Canvas canvas) {
+    @Override // com.baidu.tieba.i52
+    public void a(j52 j52Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) {
-            if (g52Var.a() == 0) {
-                g52Var.b(canvas.save());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) {
+            j52Var.e();
+            try {
+                canvas.restore();
+            } catch (IllegalStateException e) {
+                c92.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
             }
-            canvas.scale(this.a, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.f52
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = (float) jSONArray.optDouble(0);
-            this.b = (float) jSONArray.optDouble(1);
         }
     }
 }

@@ -2,28 +2,28 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.df;
+import com.baidu.tieba.ef;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class RichTextGifViewSwitch extends df {
+public class RichTextGifViewSwitch extends ef {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_TYPE_OPEN = 1;
     public static final String KEY = "android_gif_autoplay";
     public static final int TYPE_CLOSE = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     /* renamed from: getCrashKeys */
     public String[] mo129getCrashKeys() {
         InterceptResult invokeV;
@@ -34,7 +34,7 @@ public class RichTextGifViewSwitch extends df {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class RichTextGifViewSwitch extends df {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,14 +54,14 @@ public class RichTextGifViewSwitch extends df {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

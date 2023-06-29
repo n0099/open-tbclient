@@ -1,21 +1,45 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"StaticFieldLeak"})
+@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
 /* loaded from: classes8.dex */
-public final class xr4 extends js4 {
+public class xr4 extends ms4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xr4 d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xr4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-279881806, "Lcom/baidu/tieba/xr4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-279881806, "Lcom/baidu/tieba/xr4$a;");
+                    return;
+                }
+            }
+            a = new xr4();
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xr4() {
-        super("aiapp_open_stat");
+        super("com.baidu.searchbox_aiapp_openstat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,14 +59,7 @@ public final class xr4 extends js4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (xr4.class) {
-                    if (d == null) {
-                        d = new xr4();
-                    }
-                }
-            }
-            return d;
+            return a.a;
         }
         return (xr4) invokeV.objValue;
     }

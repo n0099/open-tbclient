@@ -1,177 +1,213 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import rx.schedulers.Schedulers;
+import rx.subjects.PublishSubject;
 /* loaded from: classes7.dex */
 public final class q14 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d a;
+    public static final ltb b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
-                } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
-                }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
-            }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
+    /* loaded from: classes7.dex */
+    public interface c extends Executor {
+        void execute(@NonNull Runnable runnable, @NonNull String str);
     }
 
-    public static String b(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String e = e(map);
-                if (!TextUtils.isEmpty(e)) {
-                    return str + "&" + e;
-                }
-                return str;
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class a implements ltb<Pair<Runnable, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static String c(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, set)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("http") && set != null && set.size() != 0) {
-                String str2 = null;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ltb
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                String name = Thread.currentThread().getName();
+                Thread currentThread = Thread.currentThread();
+                currentThread.setName(name + "-" + ((String) pair.second));
                 try {
-                    str2 = new URL(str).getQuery();
-                } catch (MalformedURLException unused) {
+                    ((Runnable) pair.first).run();
+                } catch (Throwable unused) {
                 }
-                if (TextUtils.isEmpty(str2)) {
-                    return str;
-                }
-                CharSequence d = d(str2, set);
-                if (TextUtils.isEmpty(d)) {
-                    return str;
-                }
-                return str.replace(str2, d);
+                Thread.currentThread().setName(name);
             }
-            return str;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String d(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        String[] split;
+    /* loaded from: classes7.dex */
+    public static class b implements ptb<Pair<Runnable, String>, xsb<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ptb
+        public xsb<?> call(Pair<Runnable, String> pair) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
+                return btb.g(pair).h(Schedulers.io()).f(q14.b).l();
+            }
+            return (xsb) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d extends uxb<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(vxb vxbVar) {
+            super(vxbVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vxbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((vxb) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.Executor
+        public void execute(@NonNull Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                execute(runnable, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.q14.c
+        public void execute(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
+                onNext(Pair.create(runnable, q14.c(str)));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038965, "Lcom/baidu/tieba/q14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948038965, "Lcom/baidu/tieba/q14;");
+                return;
+            }
+        }
+        b = new a();
+    }
+
+    public q14() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, set)) == null) {
-            if (TextUtils.isEmpty(str) || set == null || (split = str.split("&")) == null || split.length == 0) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2.length > 0 && !set.contains(split2[0])) {
-                    sb.append(str2);
-                    sb.append("&");
-                }
-            }
-            int length = sb.length();
-            if (length > 0) {
-                int i = length - 1;
-                if (sb.charAt(i) == '&') {
-                    sb.deleteCharAt(i);
-                }
-            }
-            return sb.toString();
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String e(Map<String, String> map) {
+    public static c b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (q14.class) {
+                    if (a == null) {
+                        a = new d(PublishSubject.O());
+                        a.v().l(new b()).B().C();
+                    }
+                }
+            }
+            return a;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    public static String c(String str) {
         InterceptResult invokeL;
-        String str;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
-            if (map == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str != null) {
+                if (!str.startsWith("SwanAppExecutorUtils_")) {
+                    str = "SwanAppExecutorUtils_" + str;
                 }
-                try {
-                    if (entry.getKey() == null) {
-                        str = "";
-                    } else {
-                        str = URLEncoder.encode(entry.getKey(), "UTF-8");
-                    }
-                    sb.append(str);
-                    sb.append("=");
-                    if (entry.getValue() == null) {
-                        str2 = "";
-                    } else {
-                        str2 = URLEncoder.encode(entry.getValue(), "UTF-8");
-                    }
-                    sb.append(str2);
-                } catch (UnsupportedEncodingException unused) {
-                }
+            } else {
+                str = null;
             }
-            return sb.toString();
+            if (str == null) {
+                str = "SwanAppExecutorUtils";
+            }
+            if (str.length() > 256) {
+                return str.substring(0, 255);
+            }
+            return str;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static void d(@NonNull Runnable runnable, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, runnable, str) == null) {
+            b().execute(runnable, str);
+        }
     }
 }

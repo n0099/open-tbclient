@@ -1,7 +1,7 @@
 package com.baidu.searchbox.util;
 
 import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.o95;
+import com.baidu.tieba.r95;
 import java.util.Date;
 /* loaded from: classes4.dex */
 public class TBCrashHelper {
@@ -14,21 +14,21 @@ public class TBCrashHelper {
         long r;
         long currentTimeMillis;
         try {
-            q = o95.p().q(SP_KEY_CRASH_UPLOAD_COUNT, 0);
-            r = o95.p().r(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, 0L);
+            q = r95.p().q(SP_KEY_CRASH_UPLOAD_COUNT, 0);
+            r = r95.p().r(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, 0L);
             currentTimeMillis = System.currentTimeMillis();
-            o95.p().Z(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, currentTimeMillis);
+            r95.p().Z(SP_KEY_LAST_CRASH_UPLOAD_TIMESTAMP, currentTimeMillis);
         } catch (Exception unused) {
         }
         if (TimeHelper.isSameDay(new Date(r), new Date(currentTimeMillis))) {
             int i = q + 1;
-            o95.p().X(SP_KEY_CRASH_UPLOAD_COUNT, i);
+            r95.p().X(SP_KEY_CRASH_UPLOAD_COUNT, i);
             if (i <= 100) {
                 return false;
             }
             return true;
         }
-        o95.p().X(SP_KEY_CRASH_UPLOAD_COUNT, 1);
+        r95.p().X(SP_KEY_CRASH_UPLOAD_COUNT, 1);
         return false;
     }
 }

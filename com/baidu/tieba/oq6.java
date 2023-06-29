@@ -1,13 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class oq6 implements m67<Object> {
+public class oq6 implements y77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,18 +30,17 @@ public class oq6 implements m67<Object> {
         }
     }
 
-    @Override // com.baidu.tieba.m67
-    public o87<?> b(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.y77
+    public void a(Context context, String str) {
+        TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof ThreadData)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            if (r9.a(context) instanceof TbPageContext) {
+                tbPageContext = (TbPageContext) r9.a(context);
+            } else {
+                tbPageContext = null;
             }
-            c67 c67Var = new c67();
-            c67Var.a = obj;
-            return new p87(new m37(c67Var), "fake_wall");
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        return (o87) invokeL.objValue;
     }
 }

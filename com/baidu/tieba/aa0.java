@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.DnsHelper;
@@ -18,32 +19,32 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class aa0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 3;
-    public static Context b;
-    public static List<String> c;
-    public static int d;
+    public static int a = 2;
+    public static List<String> b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(String str, boolean z);
 
         void b(String str, d dVar);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface d {
         void a(int i, String str, String str2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements b {
         public static /* synthetic */ Interceptable $ic;
-        public static a a;
+        public static a b;
         public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
 
         @Override // com.baidu.tieba.aa0.b
         public void a(String str, boolean z) {
@@ -53,65 +54,21 @@ public class aa0 {
         }
 
         /* renamed from: com.baidu.tieba.aa0$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0235a implements Runnable {
+        /* loaded from: classes5.dex */
+        public class C0240a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ Timer b;
+            public final /* synthetic */ AtomicBoolean a;
+            public final /* synthetic */ String b;
             public final /* synthetic */ d c;
+            public final /* synthetic */ a d;
 
-            /* renamed from: com.baidu.tieba.aa0$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes4.dex */
-            public class C0236a extends TimerTask {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AtomicBoolean a;
-                public final /* synthetic */ RunnableC0235a b;
-
-                public C0236a(RunnableC0235a runnableC0235a, AtomicBoolean atomicBoolean) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0235a, atomicBoolean};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = runnableC0235a;
-                    this.a = atomicBoolean;
-                }
-
-                @Override // java.util.TimerTask, java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        ua0.a("DNSUrlProvider", "bddns > bdDnsIps is null");
-                        d dVar = this.b.c;
-                        if (dVar != null) {
-                            dVar.a(8007, "bddns timeout :", "bddns timeout, bdDnsIps is null");
-                            aa0.f(true);
-                            b c = aa0.c(aa0.b);
-                            RunnableC0235a runnableC0235a = this.b;
-                            c.b(runnableC0235a.a, runnableC0235a.c);
-                        }
-                        this.a.set(true);
-                    }
-                }
-            }
-
-            public RunnableC0235a(a aVar, String str, Timer timer, d dVar) {
+            public C0240a(a aVar, AtomicBoolean atomicBoolean, String str, d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, str, timer, dVar};
+                    Object[] objArr = {aVar, atomicBoolean, str, dVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -121,35 +78,25 @@ public class aa0 {
                         return;
                     }
                 }
-                this.a = str;
-                this.b = timer;
+                this.d = aVar;
+                this.a = atomicBoolean;
+                this.b = str;
                 this.c = dVar;
             }
 
-            @Override // java.lang.Runnable
+            @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ua0.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + this.a);
-                    AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                    this.b.schedule(new C0236a(this, atomicBoolean), 10000L);
-                    DnsHelper dnsHelper = new DnsHelper(aa0.b);
-                    dnsHelper.setHttpDnsState(false, null, false, true);
-                    aa0.j(dnsHelper.getIpList(this.a));
-                    List<String> list = aa0.c;
-                    if (list != null && list.size() > 0) {
-                        ua0.a("DNSUrlProvider", "bddns > bdDnsIps = " + aa0.c);
-                        String str = aa0.c.get(0);
-                        if (this.c != null && !atomicBoolean.get()) {
-                            this.c.a(0, DnsModel.MSG_OK, str);
-                            if (aa0.c.size() > 1) {
-                                aa0.d++;
-                                aa0.f(false);
-                            }
-                        }
-                        ua0.a("DNSUrlProvider", "bddns > return ip = " + str);
-                        this.b.cancel();
+                    if (wa0.a) {
+                        xa0.a("DNSUrlProvider", "bddns > get IPs too long, bdDnsIps is null");
                     }
+                    this.a.set(true);
+                    o90 g = n90.h(this.d.a).g(601110);
+                    g.d("P9", "BDDNS resovle spend more than 10s");
+                    g.d("con_err_code", "P9");
+                    aa0.g(3, this.d.a);
+                    aa0.a(this.d.a).b(this.b, this.c);
                 }
             }
         }
@@ -169,20 +116,21 @@ public class aa0 {
                     return;
                 }
             }
-            Context unused = aa0.b = context.getApplicationContext();
-            aa0.i();
+            Context applicationContext = context.getApplicationContext();
+            this.a = applicationContext;
+            aa0.f(applicationContext);
         }
 
-        public static synchronized a c(Context context) {
+        public static synchronized a d(Context context) {
             InterceptResult invokeL;
             a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
                 synchronized (a.class) {
-                    if (a == null) {
-                        a = new a(context);
+                    if (b == null) {
+                        b = new a(context);
                     }
-                    aVar = a;
+                    aVar = b;
                 }
                 return aVar;
             }
@@ -194,35 +142,70 @@ public class aa0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
                 try {
-                    ua0.d("DNSUrlProvider", "BDHttpDNSUrlProvider try to getUrlAsync");
-                    if (aa0.c != null && aa0.c.size() > 0) {
-                        if (aa0.d < aa0.c.size()) {
+                    if (wa0.a) {
+                        xa0.d("DNSUrlProvider", "BDHttpDNSUrlProvider try to getUrlAsync");
+                    }
+                    if (aa0.b != null && aa0.b.size() > 0) {
+                        if (aa0.c < aa0.b.size()) {
                             if (dVar != null) {
-                                dVar.a(0, DnsModel.MSG_OK, aa0.c.get(aa0.d));
-                                ua0.a("DNSUrlProvider", "retry bddns > return ip = " + aa0.c.get(aa0.d));
+                                dVar.a(0, DnsModel.MSG_OK, aa0.b.get(aa0.c));
+                                if (wa0.a) {
+                                    xa0.a("DNSUrlProvider", "retry bddns > return ip = " + aa0.b.get(aa0.c));
+                                }
                             }
-                            aa0.d++;
+                            aa0.c++;
                             return;
                         }
-                        aa0.f(true);
-                        aa0.c(aa0.b).b(str, dVar);
+                        aa0.g(3, this.a);
+                        aa0.a(this.a).b(str, dVar);
                         return;
                     }
-                    ra0.a(aa0.b).b(new RunnableC0235a(this, str, new Timer(), dVar));
+                    Timer timer = new Timer();
+                    if (wa0.a) {
+                        xa0.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + str);
+                    }
+                    AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                    timer.schedule(new C0240a(this, atomicBoolean, str, dVar), 3000L);
+                    DnsHelper dnsHelper = new DnsHelper(this.a);
+                    dnsHelper.setHttpDnsState(false, null, false, true);
+                    aa0.h(dnsHelper.getIpList(str), this.a);
+                    if (aa0.b != null && aa0.b.size() > 0) {
+                        if (wa0.a) {
+                            xa0.a("DNSUrlProvider", "bddns > resolve ips end, bdDnsIps = " + aa0.b);
+                        }
+                        String str2 = aa0.b.get(0);
+                        if (dVar != null && !atomicBoolean.get()) {
+                            timer.cancel();
+                            if (aa0.b.size() > 1) {
+                                aa0.c++;
+                                aa0.g(1, this.a);
+                            }
+                            if (wa0.a) {
+                                xa0.a("DNSUrlProvider", "bddns > resolve ips end, return ip = " + str2);
+                            }
+                            dVar.a(0, DnsModel.MSG_OK, str2);
+                        } else if (wa0.a) {
+                            xa0.a("DNSUrlProvider", "bddns > resolve ips end, but out of time, do nothing");
+                        }
+                        timer.cancel();
+                    }
                 } catch (Throwable unused) {
-                    ua0.a("DNSUrlProvider", "bddns > bdDnsIps get exception ");
-                    aa0.f(true);
-                    aa0.c(aa0.b).b(str, dVar);
+                    if (wa0.a) {
+                        xa0.a("DNSUrlProvider", "bddns > bdDnsIps get exception ");
+                    }
+                    aa0.g(3, this.a);
+                    aa0.a(this.a).b(str, dVar);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements b {
         public static /* synthetic */ Interceptable $ic;
-        public static c a;
+        public static c b;
         public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
 
         @Override // com.baidu.tieba.aa0.b
         public void a(String str, boolean z) {
@@ -231,54 +214,62 @@ public class aa0 {
             }
         }
 
-        public c() {
+        public c(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = context.getApplicationContext();
         }
 
-        public static synchronized b c() {
-            InterceptResult invokeV;
+        public static synchronized b c(Context context) {
+            InterceptResult invokeL;
             c cVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
                 synchronized (c.class) {
-                    if (a == null) {
-                        a = new c();
+                    if (b == null) {
+                        b = new c(context);
                     }
-                    cVar = a;
+                    cVar = b;
                 }
                 return cVar;
             }
-            return (b) invokeV.objValue;
+            return (b) invokeL.objValue;
         }
 
         @Override // com.baidu.tieba.aa0.b
         public void b(String str, d dVar) {
+            Context context;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
-                ua0.d("DNSUrlProvider", "DefaultUrlProvider try to getUrlAsync");
-                if (dVar != null) {
-                    aa0.i();
+                if (wa0.a) {
+                    xa0.d("DNSUrlProvider", "DefaultUrlProvider try to getUrlAsync");
+                }
+                if (dVar != null && (context = this.a) != null) {
+                    aa0.f(context);
                     dVar.a(0, DnsModel.MSG_OK, str);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e implements b {
         public static /* synthetic */ Interceptable $ic;
-        public static e a;
+        public static e b;
         public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
 
         @Override // com.baidu.tieba.aa0.b
         public void a(String str, boolean z) {
@@ -302,7 +293,7 @@ public class aa0 {
                     return;
                 }
             }
-            Context unused = aa0.b = context.getApplicationContext();
+            this.a = context.getApplicationContext();
         }
 
         public static synchronized e c(Context context) {
@@ -311,10 +302,10 @@ public class aa0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
                 synchronized (e.class) {
-                    if (a == null) {
-                        a = new e(context);
+                    if (b == null) {
+                        b = new e(context);
                     }
-                    eVar = a;
+                    eVar = b;
                 }
                 return eVar;
             }
@@ -325,15 +316,86 @@ public class aa0 {
         public void b(String str, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
-                ua0.a("DNSUrlProvider", "will getLCPHttpDnsAddress......");
-                try {
-                    qa0 qa0Var = new qa0(aa0.b);
-                    qa0Var.a(dVar);
-                    pa0.d().e(qa0Var, qa0Var);
-                } catch (Exception unused) {
-                    aa0.f(true);
-                    aa0.c(aa0.b).b(str, dVar);
+                if (wa0.a) {
+                    xa0.a("DNSUrlProvider", "will getLCPHttpDnsAddress......");
                 }
+                try {
+                    ta0 ta0Var = new ta0(this.a);
+                    ta0Var.a(dVar);
+                    sa0.d().e(ta0Var, ta0Var);
+                } catch (Exception unused) {
+                    aa0.g(3, this.a);
+                    aa0.a(this.a).b(str, dVar);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public static f b;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+
+        @Override // com.baidu.tieba.aa0.b
+        public void a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            }
+        }
+
+        public f(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context.getApplicationContext();
+        }
+
+        public static synchronized b c(Context context) {
+            InterceptResult invokeL;
+            f fVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                synchronized (f.class) {
+                    if (b == null) {
+                        b = new f(context);
+                    }
+                    fVar = b;
+                }
+                return fVar;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.aa0.b
+        public void b(String str, d dVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) && dVar != null) {
+                String h = ya0.h(this.a);
+                if (!TextUtils.isEmpty(h)) {
+                    if (wa0.a) {
+                        xa0.a("DNSUrlProvider", "LocalCacheProvider " + h);
+                    }
+                    dVar.a(0, DnsModel.MSG_OK, h);
+                    return;
+                }
+                if (wa0.a) {
+                    xa0.a("DNSUrlProvider", "else POLICY_BDHTTPDNS " + h);
+                }
+                aa0.g(1, this.a);
+                aa0.a(this.a).b(str, dVar);
             }
         }
     }
@@ -351,16 +413,16 @@ public class aa0 {
                 return;
             }
         }
-        c = Collections.synchronizedList(new ArrayList());
-        d = 0;
+        b = Collections.synchronizedList(new ArrayList());
+        c = 0;
     }
 
-    public static boolean d() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            List<String> list = c;
-            if (list != null && d <= list.size()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            List<String> list = b;
+            if (list != null && c <= list.size()) {
                 return true;
             }
             return false;
@@ -368,23 +430,49 @@ public class aa0 {
         return invokeV.booleanValue;
     }
 
-    public static void i() {
+    public static b a(Context context) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            try {
-                d = 0;
-                c.clear();
-                a = 2;
-            } catch (Exception e2) {
-                ua0.c("DNSUrlProvider", "resetBdDns exception", e2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            int a2 = wa0.a(applicationContext);
+            if (a2 != 1 && a2 != 2) {
+                if (wa0.a) {
+                    xa0.a("DNSUrlProvider", "DNSUrlProviderInternal " + a);
+                }
+                if (!TextUtils.isEmpty(ya0.h(applicationContext)) && a == 0) {
+                    if (wa0.a) {
+                        xa0.a("DNSUrlProvider", "LocalCacheProvider ");
+                    }
+                    return f.c(applicationContext);
+                } else if (ya0.c(applicationContext) && ((i = a) == 1 || i == 0)) {
+                    if (wa0.a) {
+                        xa0.a("DNSUrlProvider", "BDHttpDNSUrlProvider ");
+                    }
+                    return a.d(applicationContext);
+                } else if (a == 2) {
+                    if (wa0.a) {
+                        xa0.a("DNSUrlProvider", "LCPHttpDNSUrlProvider ");
+                    }
+                    return e.c(applicationContext);
+                } else {
+                    if (wa0.a) {
+                        xa0.a("DNSUrlProvider", "DefaultUrlProvider ");
+                    }
+                    return c.c(applicationContext);
+                }
             }
+            a = 3;
+            return c.c(applicationContext);
         }
+        return (b) invokeL.objValue;
     }
 
-    public static boolean e(String str) {
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (str != null && !str.isEmpty()) {
                 return str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$");
             }
@@ -393,81 +481,94 @@ public class aa0 {
         return invokeL.booleanValue;
     }
 
-    public static b c(Context context) {
-        InterceptResult invokeL;
+    public static void d(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            b = context.getApplicationContext();
-            int a2 = ta0.a(context);
-            if (a2 != 1 && a2 != 2) {
-                ua0.b("DNSUrlProvider", "bdDNS :" + va0.c(context) + ", cur :" + a);
-                if (va0.c(context) && a == 2) {
-                    return a.c(context);
-                }
-                if (a == 3) {
-                    return e.c(context);
-                }
-                return c.c();
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
+            if (wa0.a) {
+                xa0.a("DNSUrlProvider", "onConnectSuccess currentPolicy：" + a);
             }
-            a = 0;
-            return c.c();
+            e(context, str, true);
+            int i = a;
+            if (i == 0 || i == 1 || i == 2) {
+                if (wa0.a) {
+                    xa0.a("DNSUrlProvider", "localcache cached: " + str);
+                }
+                ya0.E(context, str);
+            }
         }
-        return (b) invokeL.objValue;
     }
 
-    public static int f(boolean z) {
-        InterceptResult invokeZ;
+    public static int g(int i, Context context) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, null, z)) == null) {
-            if (z) {
-                int a2 = ta0.a(b);
-                if (a2 != 1 && a2 != 2) {
-                    int i = a;
-                    if (i != 0) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65543, null, i, context)) == null) {
+            int a2 = wa0.a(context);
+            if (a2 != 1 && a2 != 2) {
+                a = i;
+                if (i != 0) {
+                    if (i != 1) {
                         if (i != 2) {
-                            if (i == 3) {
-                                a = 0;
+                            if (i != 3) {
+                                a = 3;
+                            } else {
+                                a = 3;
                             }
                         } else {
-                            a = 3;
+                            a = 2;
                         }
                     } else {
-                        a = 2;
+                        a = 1;
                     }
                 } else {
                     a = 0;
                 }
+            } else {
+                a = 3;
             }
-            ua0.a("DNSUrlProvider", "try to connect ip, now policy =" + a);
+            if (wa0.a) {
+                xa0.a("DNSUrlProvider", "try to connect ip, now policy =" + a);
+            }
             return a;
         }
-        return invokeZ.intValue;
+        return invokeIL.intValue;
     }
 
-    public static void g(Context context, String str) {
+    public static void e(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
-            h(context, str, true);
+        if (interceptable == null || interceptable.invokeLLZ(65541, null, context, str, z) == null) {
+            f(context);
+            c.c(context).a(str, true);
         }
     }
 
-    public static void h(Context context, String str, boolean z) {
+    public static void f(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65544, null, context, str, z) == null) {
-            i();
-            c.c().a(str, true);
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            if (wa0.a) {
+                xa0.a("DNSUrlProvider", "resetBdDns");
+            }
+            try {
+                c = 0;
+                b.clear();
+                ya0.E(context, "");
+                a = 0;
+            } catch (Exception e2) {
+                if (wa0.a) {
+                    xa0.c("DNSUrlProvider", "resetBdDns exception", e2);
+                }
+            }
         }
     }
 
-    public static void j(List<String> list) {
+    public static void h(List<String> list, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, list) == null) {
-            c.clear();
+        if (interceptable == null || interceptable.invokeLL(65544, null, list, context) == null) {
+            b.clear();
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             if (list != null && !list.isEmpty()) {
                 for (int i = 0; i < list.size(); i++) {
-                    if (e(list.get(i))) {
+                    if (c(list.get(i))) {
                         arrayList.add(list.get(i));
                     } else {
                         arrayList2.add(list.get(i));
@@ -475,23 +576,25 @@ public class aa0 {
                 }
             }
             if (arrayList.size() + arrayList2.size() > 0) {
-                int f = va0.f(b);
-                ua0.b("DNSUrlProvider", "getIpPriority :" + f + ", ipv4 :" + arrayList.toString() + ", ipv6 :" + arrayList2.toString());
-                if (f != 1) {
-                    if (f != 2) {
-                        if (f != 4) {
-                            c.addAll(arrayList);
-                            c.addAll(arrayList2);
+                int f2 = ya0.f(context);
+                if (wa0.a) {
+                    xa0.b("DNSUrlProvider", "getIpPriority :" + f2 + ", ipv4 :" + arrayList.toString() + ", ipv6 :" + arrayList2.toString());
+                }
+                if (f2 != 1) {
+                    if (f2 != 2) {
+                        if (f2 != 4) {
+                            b.addAll(arrayList);
+                            b.addAll(arrayList2);
                             return;
                         }
-                        c.addAll(arrayList);
+                        b.addAll(arrayList);
                         return;
                     }
-                    c.addAll(arrayList2);
-                    c.addAll(arrayList);
+                    b.addAll(arrayList2);
+                    b.addAll(arrayList);
                     return;
                 }
-                c.addAll(arrayList2);
+                b.addAll(arrayList2);
             }
         }
     }

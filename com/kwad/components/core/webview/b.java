@@ -10,7 +10,7 @@ import androidx.annotation.RequiresApi;
 import com.kwad.components.core.m.p;
 import com.kwad.sdk.api.core.ApiWebView;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends ApiWebView {
     public boolean KH;
     public com.kwad.components.core.webview.kwai.a KI;

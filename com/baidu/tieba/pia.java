@@ -1,278 +1,263 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
-import com.baidu.tbadk.coreExtra.data.HeadItem;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
-import com.baidu.tieba.write.view.WriteEvaluationHeaderView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pia extends dja<qja> {
+public class pia extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public WriteEvaluationHeaderView g;
-    public final CustomMessageListener h;
+    public l9 a;
+    public List<CloudMusicData.MusicTagList.MusicList> b;
+    public c c;
+    public String d;
 
-    public final int D(double d) {
-        InterceptResult invokeCommon;
+    /* loaded from: classes7.dex */
+    public interface c {
+        void x1(View view2, String str, int i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)})) == null) ? (int) ((d + 1.0d) / 2.0d) : invokeCommon.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pia a;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ pia c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pia piaVar, int i) {
-            super(i);
+        public a(pia piaVar, CloudMusicData.MusicTagList.MusicList musicList, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {piaVar, Integer.valueOf(i)};
+                Object[] objArr = {piaVar, musicList, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = piaVar;
+            this.c = piaVar;
+            this.a = musicList;
+            this.b = i;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof EvaluateRelevanceItemSelectedMessage)) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.c.c != null) {
+                this.c.c.x1(view2, this.a.resource, this.b);
             }
-            this.a.E((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements WriteEvaluationHeaderView.c {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pia a;
+        public TbImageView a;
+        public TbImageView b;
+        public View c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+        public TextView g;
+        public View h;
 
-        public b(pia piaVar) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {piaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = piaVar;
         }
 
-        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.c
-        public void onClose() {
+        public void b(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.i();
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0302);
+                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f08031d);
+                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+                SkinManager.setImageResource(this.b, R.drawable.btn_icon_play_video_n);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pia(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, qja.class);
+    public pia(l9 l9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {l9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this, 2921516);
+        this.d = "";
+        this.a = l9Var;
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.ija
-    public void e(@NonNull WriteData writeData) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
+    public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, writeData) != null) || (writeEvaluationHeaderView = this.g) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
             return;
         }
-        writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
-        writeData.setEvaluationStar(this.g.getStarCount());
+        for (CloudMusicData.MusicTagList.MusicList musicList : list) {
+            if (!this.b.contains(musicList)) {
+                this.b.add(musicList);
+            }
+        }
+        notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.dja, com.baidu.tieba.ija
-    public void j(@NonNull kja kjaVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public CloudMusicData.MusicTagList.MusicList getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, kjaVar) == null) {
-            super.j(kjaVar);
-            this.a.registerListener(this.h);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.b.get(i);
+        }
+        return (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.d = str;
         }
     }
 
-    @Override // com.baidu.tieba.ija
-    public void onChangeSkinType(int i) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
+    public void e(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (writeEvaluationHeaderView = this.g) != null) {
-            writeEvaluationHeaderView.f();
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public final String C() {
+    public void f(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            getItem(i).isLoading = z;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
-            if (writeEvaluationHeaderView != null) {
-                i = writeEvaluationHeaderView.getStarCount();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0204, viewGroup, false);
+                bVar = new b();
+                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917fa);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917f7);
+                bVar.a = tbImageView;
+                tbImageView.setDrawerType(1);
+                bVar.a.setIsRound(true);
+                bVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f08036c);
+                bVar.a.setDefaultBgResource(R.color.transparent);
+                bVar.a.setBorderWidth(xi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
+                bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                bVar.a.setConrers(15);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0917f8);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917fb);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917f4);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917f6);
+                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917f5);
+                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f0914ee);
+                view2.setTag(bVar);
             } else {
-                i = 0;
+                bVar = (b) view2.getTag();
             }
-            arrayList.add(new HeadItem("", String.valueOf(i), 2));
-            return new Gson().toJson(arrayList);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void E(EvaluateRelevanceItemSelectedMessage evaluateRelevanceItemSelectedMessage) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, evaluateRelevanceItemSelectedMessage) != null) || (writeEvaluationHeaderView = this.g) == null) {
-            return;
-        }
-        writeEvaluationHeaderView.setVisibility(0);
-        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
-        tbRichTextEvaluateItemInfo.setItemID(evaluateRelevanceItemSelectedMessage.item_id);
-        tbRichTextEvaluateItemInfo.setTags(evaluateRelevanceItemSelectedMessage.tags);
-        tbRichTextEvaluateItemInfo.setScore(evaluateRelevanceItemSelectedMessage.score);
-        tbRichTextEvaluateItemInfo.setStar(evaluateRelevanceItemSelectedMessage.star);
-        tbRichTextEvaluateItemInfo.setIconUrl(evaluateRelevanceItemSelectedMessage.icon_url);
-        tbRichTextEvaluateItemInfo.setIconSize(evaluateRelevanceItemSelectedMessage.icon_size);
-        tbRichTextEvaluateItemInfo.setTitle(evaluateRelevanceItemSelectedMessage.item_name);
-        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
-    }
-
-    @Override // com.baidu.tieba.ija
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) && this.g != null && writeData.getItemInfo() != null) {
-            WriteData writeData2 = this.e;
-            if (writeData2 != null) {
-                writeData2.setItemInfo(writeData.getItemInfo());
-                this.e.setEvaluationStar(writeData.getEvaluationStar());
-            }
-            this.g.setItemInfo(writeData.getItemInfo());
-            this.g.setStarCount(writeData.getEvaluationStar());
-        }
-    }
-
-    @Override // com.baidu.tieba.ija
-    public void c(WriteData writeData) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) && (writeEvaluationHeaderView = this.g) != null) {
-            writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
-            if (this.g.getEvaluateItemInfo() != null) {
-                writeData.setItem_id(this.g.getEvaluateItemInfo().getItemID());
-                writeData.setComment_head(C());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ija
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0505, viewGroup, false);
-            this.c = inflate;
-            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) inflate.findViewById(R.id.obfuscated_res_0x7f092995);
-            this.g = writeEvaluationHeaderView;
-            if (writeEvaluationHeaderView != null) {
-                writeEvaluationHeaderView.setItemCloseListener(new b(this));
-                WriteData writeData = this.e;
-                if (writeData != null) {
-                    if (writeData.isFromItemDetail()) {
-                        this.g.setShowItemInfo(false);
-                    }
-                    if (this.e.getIntentItemInfo() != null) {
-                        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
-                        tbRichTextEvaluateItemInfo.setItemID(String.valueOf(this.e.getIntentItemInfo().id));
-                        tbRichTextEvaluateItemInfo.setTags(this.e.getIntentItemInfo().tags);
-                        tbRichTextEvaluateItemInfo.setScore(this.e.getIntentItemInfo().averageScore);
-                        tbRichTextEvaluateItemInfo.setStar(D(this.e.getIntentItemInfo().averageScore));
-                        tbRichTextEvaluateItemInfo.setIconUrl(this.e.getIntentItemInfo().icon_url);
-                        tbRichTextEvaluateItemInfo.setIconSize(this.e.getIntentItemInfo().icon_size);
-                        tbRichTextEvaluateItemInfo.setTitle(this.e.getIntentItemInfo().name);
-                        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
-                        this.g.setStarCount(this.e.getIntentStarCount());
-                        this.e.setItemInfo(tbRichTextEvaluateItemInfo);
-                        WriteData writeData2 = this.e;
-                        writeData2.setEvaluationStar(writeData2.getIntentStarCount());
-                    } else if (this.e.getItemInfo() != null) {
-                        this.g.setItemInfo(this.e.getItemInfo());
-                        this.g.setStarCount(this.e.getEvaluationStar());
-                    }
+            bVar.b(TbadkCoreApplication.getInst().getSkinType());
+            CloudMusicData.MusicTagList.MusicList musicList = this.b.get(i);
+            if (musicList != null) {
+                bVar.d.setText(musicList.name);
+                bVar.a.N(musicList.image, 10, false);
+                bVar.e.setText(musicList.author);
+                bVar.f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
+                if (musicList.isLoading) {
+                    bVar.c.setVisibility(0);
+                } else {
+                    bVar.c.setVisibility(4);
+                }
+                if (musicList.equals(qia.b().a())) {
+                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08040c);
+                    bVar.a.setDrawBorder(true);
+                    bVar.g.setVisibility(0);
+                    bVar.c.setVisibility(4);
+                    musicList.isLoading = false;
+                    bVar.g.setOnClickListener(new a(this, musicList, i));
+                } else if (qia.b().a() == null && getItem(i) != null && !TextUtils.isEmpty(this.d) && this.d.equals(String.valueOf(getItem(i).music_id))) {
+                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
+                    bVar.a.setDrawBorder(true);
+                    bVar.g.setVisibility(8);
+                    bVar.c.setVisibility(4);
+                    musicList.isLoading = false;
+                } else {
+                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
+                    bVar.a.setDrawBorder(false);
+                    bVar.g.setVisibility(8);
                 }
             }
-            return this.c;
+            return view2;
         }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.dja, com.baidu.tieba.ija
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
-            if (writeEvaluationHeaderView != null && writeEvaluationHeaderView.e()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (View) invokeILL.objValue;
     }
 }

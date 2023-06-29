@@ -17,9 +17,9 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.li;
-import com.baidu.tieba.ug;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.mi;
+import com.baidu.tieba.vg;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -342,6 +342,7 @@ public class TbConfig {
     public static final String RELEVANCE_ITEM_SEARCH_URL = "c/f/forum/itemSearchList";
     public static final String REMOVE_MULTI_FANS = "c/c/user/multiRemoveFans";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
+    public static final String REQUEST_FOLLOWED_FRS_LIST = "c/f/chat/commonChannel";
     public static final String REQUEST_SPRITE_CREATE_MEME = "c/c/chatroom/createMeme";
     public static final String REQUEST_SPRITE_LOOP = "c/f/sprite/getSpriteSpeech";
     public static final String REQUEST_SPRITE_QUERY_MEME = "c/f/chat/queryMeme";
@@ -1057,7 +1058,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(wi.l(context) * wi.j(context));
+        int sqrt = (int) Math.sqrt(xi.l(context) * xi.j(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1302,7 +1303,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
-            return wi.g(TbadkCoreApplication.getInst().getContext(), i);
+            return xi.g(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1311,7 +1312,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            int d = wi.d(context, 427.0f);
+            int d = xi.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1399,11 +1400,11 @@ public class TbConfig {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float d = ug.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
+            float d = vg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
             if (d >= f3 && d <= f4) {
                 f2 = d;
             }
-            if (!li.a()) {
+            if (!mi.a()) {
                 return f2 * 0.5f;
             }
             return f2;

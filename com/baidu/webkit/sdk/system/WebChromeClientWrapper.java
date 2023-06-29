@@ -20,13 +20,13 @@ import com.baidu.webkit.sdk.system.GeolocationPermissionsImpl;
 import com.baidu.webkit.sdk.system.WebStorageImpl;
 import com.baidu.webkit.sdk.system.WebViewImpl;
 import java.util.Objects;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class WebChromeClientWrapper extends WebChromeClient {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final com.baidu.webkit.sdk.WebChromeClient mClient;
     public final WebViewImpl mWebView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CustomViewCallbackImpl implements WebChromeClient.CustomViewCallback {
         public WebChromeClient.CustomViewCallback mCallback;
 
@@ -41,7 +41,7 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @TargetApi(21)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
         public final WebChromeClient.FileChooserParams mImpl;
 

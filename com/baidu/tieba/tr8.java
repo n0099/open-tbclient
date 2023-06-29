@@ -1,83 +1,115 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.log.TbLogManager;
+import com.baidu.tieba.impersonal.components.LoadingMsgView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class tr8 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class tr8 extends sr8<yp8, LoadingMsgView, sp8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public tr8(String str) {
-        this(str, "000");
+    /* loaded from: classes8.dex */
+    public static final class a implements LoadingMsgView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sp8 a;
+
+        public a(sp8 sp8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sp8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sp8Var;
+        }
+
+        @Override // com.baidu.tieba.impersonal.components.LoadingMsgView.a
+        public void onShow() {
+            yp8 f;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (f = this.a.c().f()) != null) {
+                f.d(true);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tr8(String name) {
+        super(name);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(name, "name");
     }
 
-    public tr8(String str, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sr8
+    /* renamed from: l */
+    public LoadingMsgView g(ViewGroup parent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Context context = parent.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+            LoadingMsgView loadingMsgView = new LoadingMsgView(context, null, 2, null);
+            loadingMsgView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+            return loadingMsgView;
+        }
+        return (LoadingMsgView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sr8
+    /* renamed from: k */
+    public void d(LoadingMsgView loadingMsgView, sp8 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, loadingMsgView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (loadingMsgView != null) {
+                loadingMsgView.setShowEmotionTextStatusListener(new a(data));
             }
-        }
-        this.a = str;
-        this.b = str2;
-    }
-
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            TbLogManager.log(this.a, TbLogManager.Level.DEBUG, this.b, str, str2);
-        }
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            TbLogManager.log(this.a, TbLogManager.Level.ERROR, this.b, str, str2);
-        }
-    }
-
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            TbLogManager.log(this.a, TbLogManager.Level.INFO, this.b, str, str2);
-        }
-    }
-
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            TbLogManager.log(this.a, TbLogManager.Level.WARN, this.b, str, str2);
+            yp8 f = data.c().f();
+            if (f != null) {
+                if (loadingMsgView != null) {
+                    loadingMsgView.setHasShowEmotionText(f.c());
+                }
+                if (loadingMsgView != null) {
+                    loadingMsgView.setAnimationId(f.a());
+                }
+                if (loadingMsgView != null) {
+                    loadingMsgView.setEmotionText(f.b());
+                }
+            }
         }
     }
 }

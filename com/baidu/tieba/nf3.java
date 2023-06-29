@@ -1,61 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
+import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.rtc.RTCConst;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.da2;
+import com.baidu.tieba.gb3;
+import com.baidu.tieba.lb2;
+import com.baidu.tieba.yu2;
+import com.baidu.tieba.zw2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nf3 extends wd3 {
+public class nf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a extends ResponseCallback {
+    public static class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ zb3 c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ nf3 e;
+        public final /* synthetic */ da2 a;
+        public final /* synthetic */ yd2 b;
+        public final /* synthetic */ iy1 c;
+        public final /* synthetic */ zw2 d;
+        public final /* synthetic */ yu2.g e;
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public a(nf3 nf3Var, String str, CallbackHandler callbackHandler, zb3 zb3Var, String str2) {
+        public a(da2 da2Var, yd2 yd2Var, iy1 iy1Var, zw2 zw2Var, yu2.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nf3Var, str, callbackHandler, zb3Var, str2};
+                Object[] objArr = {da2Var, yd2Var, iy1Var, zw2Var, gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,207 +54,301 @@ public class nf3 extends wd3 {
                     return;
                 }
             }
-            this.e = nf3Var;
-            this.a = str;
-            this.b = callbackHandler;
-            this.c = zb3Var;
-            this.d = str2;
+            this.a = da2Var;
+            this.b = yd2Var;
+            this.c = iy1Var;
+            this.d = zw2Var;
+            this.e = gVar;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-                ej3.b(SwanInterfaceType.NAVIGATE, 2101, this.d, null, exc.getMessage());
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.i();
+                da2.g(0);
+                nf3.a(this.b, this.c, this.d, this.e);
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.e.n(response, this.a, this.b, this.c);
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nf3(wc3 wc3Var) {
-        super(wc3Var, "/swanAPI/navigateToProgram");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class b implements da2.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yd2 a;
+        public final /* synthetic */ iy1 b;
+        public final /* synthetic */ zw2 c;
+        public final /* synthetic */ yu2.g d;
+        public final /* synthetic */ gb3 e;
+
+        public b(yd2 yd2Var, iy1 iy1Var, zw2 zw2Var, yu2.g gVar, gb3 gb3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yd2Var, iy1Var, zw2Var, gVar, gb3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yd2Var;
+            this.b = iy1Var;
+            this.c = zw2Var;
+            this.d = gVar;
+            this.e = gb3Var;
+        }
+
+        @Override // com.baidu.tieba.da2.b
+        public void onConnected() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nf3.a(this.a, this.b, this.c, this.d);
+                this.e.dismiss();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000494, "Lcom/baidu/tieba/nf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948000494, "Lcom/baidu/tieba/nf3;");
                 return;
             }
         }
+        a = ms1.a;
     }
 
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
-        InterceptResult invokeLLLL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (zb3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (zb3Var.n0()) {
-                if (wd3.b) {
-                    Log.d("NavigateToSmartProgram", "NavigateToSmartProgram does not supported when app is invisible.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            b(vr3.b(e()));
+        }
+    }
+
+    public static void a(yd2 yd2Var, iy1 iy1Var, zw2 zw2Var, yu2.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, yd2Var, iy1Var, zw2Var, gVar) == null) {
+            HybridUbcFlow o = h53.o();
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fist_page_action_dostart");
+            ubcFlowEvent.a(true);
+            o.F(ubcFlowEvent);
+            px2 T2 = px2.T();
+            SwanAppConfigData swanAppConfigData = gVar.b;
+            if (swanAppConfigData == null) {
+                if (a) {
+                    Log.e("FirstPageAction", Log.getStackTraceString(new Exception("loadInfo.mConfigData is null.")));
+                    return;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
-            } else {
-                String a2 = b42.a(zb3Var.O());
-                if (!TextUtils.isEmpty(a2) && !TextUtils.isEmpty(a2.trim())) {
-                    String optString = optParamsAsJo.optString("cb");
-                    if (TextUtils.isEmpty(optString)) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                        return false;
-                    } else if (TextUtils.equals(optParamsAsJo.optString("appKey"), a2)) {
-                        if (callbackHandler != null) {
-                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(202, "The target program is running now.").toString());
-                        }
-                        return true;
-                    } else if (!TextUtils.isEmpty(a2) && !TextUtils.isEmpty(a2.trim())) {
-                        Request l = l(a2, optParamsAsJo);
-                        if (l == null) {
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                            return false;
-                        }
-                        m(l.body(), unitedSchemeEntity, optString, callbackHandler, zb3Var);
-                        return true;
-                    } else {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                        return false;
-                    }
+                return;
+            }
+            String d = d(T2, zw2Var, swanAppConfigData);
+            String h = gVar.b.h(d);
+            SwanAppActivity activity = T2.getActivity();
+            if (activity != null && !activity.isFinishing()) {
+                kh2.c().b(yd2Var, iy1Var, zw2Var, gVar.b, gVar, false);
+                yd2Var.attachActivity(activity);
+                iy1Var.attachActivity(activity);
+                lb2 U = T2.U();
+                if (U == null) {
+                    return;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+                c23 d2 = c23.d(d, T2.z());
+                hi2.o(wp3.a(d2.c, d2.a, d2.b), iy1Var);
+                g(U, d);
+                vi3.E();
+                p23.e(iy1Var.a());
+                if (!TextUtils.isEmpty(h)) {
+                    h53.l(h);
+                }
+                vi3.F(true, zw2Var.T());
+                er3 U2 = activity.U();
+                if (a) {
+                    Log.i("FirstPageAction", "startFirstPage:: loadingView=" + U2);
+                }
+                if (U2 != null) {
+                    U2.F(1);
+                }
+                bc3 K = bc3.K();
+                if (K.E() && TextUtils.equals(K.getAppId(), zw2Var.H())) {
+                    K.q().J(true);
+                }
+                ec2.f(true);
+            } else if (a) {
+                Log.w("FirstPageAction", Log.getStackTraceString(new Exception("activity is invalid.")));
             }
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final Uri k(String str) {
-        InterceptResult invokeL;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            px2 T2 = px2.T();
+            SwanAppActivity activity = T2.getActivity();
+            if (activity != null && !activity.isFinishing()) {
+                lb2 U = T2.U();
+                if (U == null) {
+                    c92.i("FirstPageAction", "doWebModeStart: fragment manager is null.");
+                    return;
+                } else if (TextUtils.isEmpty(str)) {
+                    c92.i("FirstPageAction", "doWebModeStart: web url is null.");
+                    return;
+                } else {
+                    h(U, str);
+                    xr3.a().k();
+                    er3 U2 = activity.U();
+                    if (U2 != null) {
+                        U2.F(1);
+                    }
+                    bc3 K = bc3.K();
+                    if (K.E()) {
+                        K.q().J(true);
+                    }
+                    ec2.f(true);
+                    return;
+                }
+            }
+            c92.i("FirstPageAction", "activity is invalid.");
+        }
+    }
+
+    public static String d(px2 px2Var, zw2 zw2Var, SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, px2Var, zw2Var, swanAppConfigData)) == null) {
+            String b2 = px2Var.b();
+            if (TextUtils.isEmpty(b2)) {
+                if (zw2Var.o0()) {
+                    b2 = swanAppConfigData.g(zw2Var.h0());
+                } else {
+                    b2 = px2Var.g();
+                }
+            }
+            b = b2;
+            return b2;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        zw2.a W;
+        PMSAppInfo f0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            cc3 q = bc3.K().q();
+            if (q == null || (W = q.W()) == null || (f0 = W.f0()) == null) {
+                return null;
+            }
+            String str = f0.webUrl;
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-            String schemeHead = SchemeConfig.getSchemeHead();
-            if (TextUtils.isEmpty(schemeHead)) {
-                schemeHead = BaiduIdentityManager.VALUE_OSNAME;
-            }
-            buildUpon.scheme(schemeHead);
-            if (wd3.b) {
-                Log.i("NavigateToSmartProgram", buildUpon.build().toString());
-            }
-            return buildUpon.build();
+            return str;
         }
-        return (Uri) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final Request l(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public static boolean f(lb2 lb2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                String b = z13.b(tp3.n());
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-                    jSONObject2.put("srcAppPage", b);
-                    jSONObject2.put("params", jSONObject);
-                    Request build = new Request.Builder().url(gv2.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                    if (wd3.b) {
-                        Log.i("NavigateToSmartProgram", "appKey :" + str + "\nrequest params" + jSONObject2.toString());
-                    }
-                    return build;
-                } catch (Exception e) {
-                    if (wd3.b) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, lb2Var)) == null) {
+            if (lb2Var.k() >= 1 && (lb2Var.m() instanceof pb2)) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (Request) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, zb3 zb3Var) {
+    public static void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, zb3Var) == null) {
-            String I = gv2.o().I();
-            cj4 cj4Var = new cj4(I, requestBody, new a(this, str, callbackHandler, zb3Var, I));
-            cj4Var.f = true;
-            cj4Var.g = false;
-            cj4Var.h = true;
-            dj4.g().e(cj4Var);
-            ej3.a(SwanInterfaceType.NAVIGATE);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            b(str);
         }
     }
 
-    public final void n(Response response, String str, CallbackHandler callbackHandler, zb3 zb3Var) {
-        int i;
+    public static void g(lb2 lb2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, str, callbackHandler, zb3Var) == null) {
-            try {
-                if (!response.isSuccessful()) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                    ej3.c(SwanInterfaceType.NAVIGATE, RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4, null, response);
+        if ((interceptable != null && interceptable.invokeLL(65543, null, lb2Var, str) != null) || lb2Var == null) {
+            return;
+        }
+        kb2.U3(null);
+        px2 T2 = px2.T();
+        lb2.b i = lb2Var.i("init");
+        int i2 = lb2.i;
+        i.n(i2, i2);
+        i.f();
+        i.l("normal", c23.d(str, T2.z()), true).a();
+    }
+
+    public static void h(lb2 lb2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, lb2Var, str) == null) {
+            if (lb2Var == null) {
+                c92.i("FirstPageAction", "pushWebModeFragment: fragment manager is null.");
+            } else if (f(lb2Var)) {
+                c92.i("FirstPageAction", "pushWebModeFragment: has already push the web fragment.");
+            } else {
+                kb2.U3(null);
+                lb2.b i = lb2Var.i("init");
+                int i2 = lb2.i;
+                i.n(i2, i2);
+                i.f();
+                i.l("web_mode", c23.d(str, str), true).a();
+                ur3.c().o(lb2Var.m());
+            }
+        }
+    }
+
+    public static void i(yd2 yd2Var, iy1 iy1Var, zw2 zw2Var, yu2.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65545, null, yd2Var, iy1Var, zw2Var, gVar) == null) {
+            if (!b83.H() && da2.e() != 2) {
+                if (b83.D()) {
+                    n92.k().q(yd2Var, iy1Var, zw2Var, gVar);
                     return;
-                }
-                String string = response.body().string();
-                JSONObject jSONObject = new JSONObject(string);
-                if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                    ej3.c(SwanInterfaceType.NAVIGATE, jSONObject.optInt("errno", 2103), string, response);
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject == null) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                    return;
-                }
-                Uri k = k(optJSONObject.optString("scheme"));
-                if (k == null) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                    return;
-                }
-                if (SchemeRouter.invokeScheme(zb3Var.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                    i = 0;
                 } else {
-                    i = 1001;
+                    a(yd2Var, iy1Var, zw2Var, gVar);
+                    return;
                 }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i).toString());
-            } catch (Exception e) {
-                if (wd3.b) {
-                    Log.d("NavigateToSmartProgram", e.getMessage());
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
-                ej3.c(SwanInterfaceType.NAVIGATE, 2103, e.getMessage(), null);
             }
+            c92.i("FirstPageAction", "in adb/wireless debug mode");
+            WebView.setWebContentsDebuggingEnabled(true);
+            da2 da2Var = new da2(jv2.c());
+            gb3.a aVar = new gb3.a(bc3.K().w());
+            aVar.U(R.string.obfuscated_res_0x7f0f017c);
+            aVar.v(R.string.obfuscated_res_0x7f0f016b);
+            aVar.n(new kr3());
+            aVar.m(false);
+            aVar.O(R.string.obfuscated_res_0x7f0f016a, new a(da2Var, yd2Var, iy1Var, zw2Var, gVar));
+            gb3 X = aVar.X();
+            HybridUbcFlow o = h53.o();
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fist_page_action_reg_callback");
+            ubcFlowEvent.a(true);
+            o.F(ubcFlowEvent);
+            da2Var.f(new b(yd2Var, iy1Var, zw2Var, gVar, X));
+            da2Var.h();
         }
     }
 }

@@ -1,178 +1,158 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tb4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes6.dex */
 public class md4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile md4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb4 a;
+    public final String a;
+    public final Object b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947968812, "Lcom/baidu/tieba/md4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947968812, "Lcom/baidu/tieba/md4;");
-                return;
+    public static String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "boolean";
+                case 2:
+                case 3:
+                case 5:
+                    return "number";
+                case 4:
+                default:
+                    return "unknown";
+                case 6:
+                    return "array";
+                case 7:
+                    return EMABTest.TYPE_STRING;
+                case 8:
+                    return "function";
+                case 9:
+                    return "object";
+                case 10:
+                    return "arraybuffer";
+                case 11:
+                    return StringUtil.NULL_STRING;
+                case 12:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
             }
         }
-        b = js1.a;
+        return (String) invokeI.objValue;
     }
 
-    public md4() {
+    public md4(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, obj};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = obj;
     }
 
-    public static md4 b() {
+    public static Object a(mj2 mj2Var, String str, String str2, md4 md4Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, mj2Var, str, str2, md4Var)) == null) {
+            if (md4Var.g()) {
+                return md4Var.d();
+            }
+            String a = jd4.a(str, str2, md4Var.e());
+            mj2Var.throwJSException(JSExceptionType.Error, a);
+            return a;
+        }
+        return invokeLLLL.objValue;
+    }
+
+    public static md4 b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new md4(str, null);
+        }
+        return (md4) invokeL.objValue;
+    }
+
+    public static md4 i(@Nullable Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
+            return new md4(null, obj);
+        }
+        return (md4) invokeL.objValue;
+    }
+
+    public static Object h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (md4.class) {
-                    if (c == null) {
-                        c = new md4();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new JsObject();
         }
-        return (md4) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
-        tb4 tb4Var;
-        tb4.c cVar;
-        HashMap<String, String> hashMap;
+    public Object d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2) || (tb4Var = this.a) == null || (cVar = tb4Var.d) == null || (hashMap = cVar.a) == null) {
-                return null;
-            }
-            return hashMap.get(c2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(String str, int i) {
-        InterceptResult invokeLI;
-        tb4 tb4Var;
-        tb4.b bVar;
-        List<tb4.a> list;
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str) && (tb4Var = this.a) != null && (bVar = tb4Var.c) != null && (list = bVar.a) != null) {
-                for (tb4.a aVar : list) {
-                    if (TextUtils.equals(aVar.a, str) || TextUtils.equals(aVar.b, str)) {
-                        if (i != 0) {
-                            if (i != 1) {
-                                if (i != 2) {
-                                    if (i != 3) {
-                                        return aVar.b;
-                                    }
-                                    return aVar.d;
-                                }
-                                return aVar.c;
-                            }
-                            return aVar.b;
-                        }
-                        return aVar.a;
-                    }
-                    while (r0.hasNext()) {
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (String) invokeLI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void f(String str, boolean z) {
-        tb4 tb4Var;
-        tb4.b bVar;
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (tb4Var = this.a) != null && (bVar = tb4Var.c) != null && bVar.b != null) {
-            if (b) {
-                Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a == null) {
+                return true;
             }
-            this.a.c.b.put(str, Boolean.valueOf(z));
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        tb4.b bVar;
-        HashMap<String, Boolean> hashMap;
+    public String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2)) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (g()) {
+                return jd4.b(str);
             }
-            tb4 tb4Var = this.a;
-            if (tb4Var != null && (bVar = tb4Var.c) != null && (hashMap = bVar.b) != null && hashMap.containsKey(c2)) {
-                if (b) {
-                    Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
-                }
-                return this.a.c.b.get(c2).booleanValue();
-            }
-            if (b) {
-                Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
-            }
-            String g0 = zb3.g0();
-            if (zb3.M() == null) {
-                return false;
-            }
-            String k0 = zb3.M().k0();
-            if (TextUtils.isEmpty(g0) || TextUtils.isEmpty(k0)) {
-                return false;
-            }
-            boolean n = wj4.i().n(g0, k0, c2);
-            if (n) {
-                f(c2, true);
-            }
-            return n;
+            return jd4.a(str, str2, e());
         }
-        return invokeL.booleanValue;
-    }
-
-    public void e(tb4 tb4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tb4Var) == null) {
-            this.a = tb4Var;
-        }
+        return (String) invokeLL.objValue;
     }
 }

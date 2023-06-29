@@ -2,26 +2,26 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.df;
+import com.baidu.tieba.ef;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class WebViewOptSwitch extends df {
+public class WebViewOptSwitch extends ef {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SWITCH_KEY = "12_38_webview_opt_switch";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     /* renamed from: getCrashKeys */
     public String[] mo129getCrashKeys() {
         InterceptResult invokeV;
@@ -32,7 +32,7 @@ public class WebViewOptSwitch extends df {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class WebViewOptSwitch extends df {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SWITCH_KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class WebViewOptSwitch extends df {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

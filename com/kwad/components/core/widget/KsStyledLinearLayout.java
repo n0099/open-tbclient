@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.kwad.components.core.m.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KsStyledLinearLayout extends LinearLayout implements e {
     public KsStyledLinearLayout(Context context) {
         super(context);

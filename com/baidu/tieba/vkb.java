@@ -1,11 +1,31 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes8.dex */
-public interface vkb {
-    void a(String str, String str2);
+public final class vkb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, String str2);
-
-    void c(String str, String str2);
-
-    void d(String str, String str2);
+    public static final String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringsKt__StringsJVMKt.isBlank(str)) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            Thread currentThread = Thread.currentThread();
+            Intrinsics.checkExpressionValueIsNotNull(currentThread, "Thread.currentThread()");
+            sb.append(currentThread.getName());
+            sb.append("] ");
+            sb.append(str);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
 }

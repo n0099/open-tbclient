@@ -1,374 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import android.text.TextPaint;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class hg5 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "表情包";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public c c;
-    public boolean d;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<Object, Integer, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public b a;
-        public volatile NetWork b;
-        public final /* synthetic */ hg5 c;
-
-        /* loaded from: classes6.dex */
-        public class a implements Comparator<Map.Entry<String, Integer>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            /* renamed from: a */
-            public int compare(Map.Entry<String, Integer> entry, Map.Entry<String, Integer> entry2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
-                    return (int) (ug.e(String.valueOf(entry.getValue()), 0) - ug.e(String.valueOf(entry2.getValue()), 0));
-                }
-                return invokeLL.intValue;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947822771, "Lcom/baidu/tieba/hg5;")) == null) {
+            return;
         }
-
-        public c(hg5 hg5Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hg5Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = hg5Var;
-            this.a = null;
-            this.b = null;
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                try {
-                    this.b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
-                    String postNetData = this.b.postNetData();
-                    if (this.b.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        JSONObject jSONObject = new JSONObject(postNetData);
-                        if (jSONObject.optInt("error_code") == 0) {
-                            String optString = jSONObject.optString("urls");
-                            this.c.b = this.c.j(optString);
-                            if (this.c.b != null && this.c.b.size() > 0) {
-                                HashMap hashMap = new HashMap();
-                                int i = 0;
-                                for (int i2 = 0; i2 < this.c.b.size(); i2++) {
-                                    String str = (String) this.c.b.get(i2);
-                                    mg5 mg5Var = new mg5();
-                                    mg5Var.a(str);
-                                    if (mg5Var.d()) {
-                                        hashMap.put(str, Integer.valueOf(mg5Var.b()));
-                                    }
-                                }
-                                if (hashMap.size() > 0) {
-                                    this.c.b = new ArrayList();
-                                    ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-                                    Collections.sort(arrayList, new a(this));
-                                    StringBuilder sb = new StringBuilder(50);
-                                    for (Map.Entry entry : arrayList) {
-                                        this.c.b.add(entry.getKey());
-                                        if (i != 0) {
-                                            sb.append(",");
-                                        }
-                                        i++;
-                                        sb.append((String) entry.getKey());
-                                    }
-                                    optString = sb.toString();
-                                }
-                                o95.p().H("KeyOfSharedPrefListGetTime", System.currentTimeMillis());
-                                o95.p().J("KeyOfSharedPrefIpList", optString);
-                                return null;
-                            }
-                            return null;
-                        }
-                        return null;
-                    }
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return (Void) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onCancelled(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onPostExecute(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.b != null) {
-                    this.b.cancelNetConnect();
-                    this.b = null;
-                }
-                this.c.c = null;
-                super.cancel(true);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static hg5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-748077069, "Lcom/baidu/tieba/hg5$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-748077069, "Lcom/baidu/tieba/hg5$d;");
-                    return;
-                }
-            }
-            a = new hg5(null);
-        }
-    }
-
-    public hg5() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947822771, "Lcom/baidu/tieba/hg5;");
+        }
+    }
+
+    public static String a(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (textPaint == null) {
+                textPaint = new TextPaint();
             }
+            return b(textPaint, str, f - textPaint.measureText(str2), str2);
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = false;
-        this.d = false;
-        this.b = null;
+        return (String) invokeCommon.objValue;
     }
 
-    public static hg5 f() {
-        InterceptResult invokeV;
+    public static String b(TextPaint textPaint, String str, float f, String str2) {
+        InterceptResult invokeCommon;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d.a;
-        }
-        return (hg5) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return o95.p().q("KeyOfSharedPrefImCount", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = false;
-        }
-    }
-
-    public /* synthetic */ hg5(a aVar) {
-        this();
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TiebaIMConfig.defaultUrl.equals(str)) {
-            this.a = str;
-            o95.p().J("KeyOfSharedPrefValidIp", str);
-        }
-    }
-
-    public void m(b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && this.c == null) {
-            this.d = true;
-            c cVar = new c(this, bVar);
-            this.c = cVar;
-            cVar.setSelfExecute(true);
-            this.c.execute(new Object[0]);
-        }
-    }
-
-    public List<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                if (System.currentTimeMillis() - o95.p().r("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
-                    o95.p().J("KeyOfSharedPrefIpList", "");
-                    return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
+            float measureText = textPaint.measureText(str);
+            if (measureText > f) {
+                if (str.endsWith(a)) {
+                    str = str.substring(0, str.length() - 3);
                 }
-                this.b = j(o95.p().w("KeyOfSharedPrefIpList", null));
-            }
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int e = e();
-            if (e >= 10) {
-                o95.p().F("KeyOfSharedPrefImCount", 0);
-                o95.p().J("KeyOfSharedPrefValidIp", "");
-                this.a = null;
-                return null;
-            }
-            if (this.a == null) {
-                this.a = o95.p().w("KeyOfSharedPrefValidIp", null);
-            }
-            if (!vi.isEmpty(this.a)) {
-                o95.p().F("KeyOfSharedPrefImCount", e + 1);
+                str3 = "..." + a;
+            } else if (!str.endsWith(a)) {
+                str3 = a;
             } else {
-                this.a = null;
+                str3 = "";
             }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final List<String> j(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {
-                ArrayList arrayList = new ArrayList(3);
-                for (String str2 : split) {
-                    arrayList.add(str2);
-                }
-                return arrayList;
+            while (str.length() > 0 && measureText > f) {
+                str = zx5.m(str, zx5.e(str) - 1);
+                measureText = textPaint.measureText(str);
             }
-            return null;
+            return str + str3;
         }
-        return (List) invokeL.objValue;
+        return (String) invokeCommon.objValue;
     }
 }

@@ -1,64 +1,24 @@
 package com.baidu.tieba;
 
-import android.media.MediaPlayer;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w1;
+import com.baidu.tieba.x2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-/* loaded from: classes6.dex */
-public class n2 implements w1, MediaPlayer.OnCompletionListener {
+/* loaded from: classes7.dex */
+public class n2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b2 a;
-    public MediaPlayer b;
-    public boolean c;
-    public boolean d;
-    public w1.a e;
+    public int a;
+    public int b;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n2 a;
-
-        public a(n2 n2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                n2 n2Var = this.a;
-                n2Var.e.a(n2Var);
-            }
-        }
-    }
-
-    public n2(b2 b2Var, MediaPlayer mediaPlayer) {
+    public n2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b2Var, mediaPlayer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,100 +28,51 @@ public class n2 implements w1, MediaPlayer.OnCompletionListener {
                 return;
             }
         }
-        this.c = true;
-        this.d = false;
-        this.a = b2Var;
-        this.b = mediaPlayer;
-        this.e = null;
-        mediaPlayer.setOnCompletionListener(this);
+        this.a = 0;
+        this.b = 0;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public boolean a(MotionEvent motionEvent, x2 x2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, motionEvent, x2Var)) == null) {
+            if ((motionEvent.getSource() & 2) == 0) {
                 return false;
             }
-            try {
-                return mediaPlayer.isPlaying();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void pause() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (mediaPlayer = this.b) == null) {
-            return;
-        }
-        try {
-            if (mediaPlayer.isPlaying()) {
-                this.b.pause();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.d = false;
-    }
-
-    /* JADX WARN: Type inference failed for: r1v0, types: [android.media.MediaPlayer, com.baidu.tieba.w1$a] */
-    @Override // com.baidu.tieba.z6
-    public void dispose() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (mediaPlayer = this.b) == null) {
-            return;
-        }
-        try {
-            try {
-                mediaPlayer.release();
-            } finally {
-                this.b = null;
-                this.e = null;
-                this.a.d(this);
-            }
-        } catch (Throwable unused) {
-            w0.a.log("AndroidMusic", "error while disposing AndroidMusic instance, non-fatal");
-        }
-    }
-
-    public void f() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (mediaPlayer = this.b) == null) {
-            return;
-        }
-        try {
-            if (mediaPlayer.isPlaying()) {
-                return;
-            }
-            try {
-                if (!this.c) {
-                    this.b.prepare();
-                    this.c = true;
+            int action = motionEvent.getAction() & 255;
+            long nanoTime = System.nanoTime();
+            synchronized (x2Var) {
+                if (action != 7) {
+                    if (action == 8) {
+                        b(x2Var, 3, 0, 0, (int) (-Math.signum(motionEvent.getAxisValue(10))), (int) (-Math.signum(motionEvent.getAxisValue(9))), nanoTime);
+                    }
+                } else {
+                    int x = (int) motionEvent.getX();
+                    int y = (int) motionEvent.getY();
+                    if (x != this.a || y != this.b) {
+                        b(x2Var, 4, x, y, 0, 0, nanoTime);
+                        this.a = x;
+                        this.b = y;
+                    }
                 }
-                this.b.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (IllegalStateException e2) {
-                e2.printStackTrace();
             }
-        } catch (Exception e3) {
-            e3.printStackTrace();
+            x0.a.getGraphics().c();
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // android.media.MediaPlayer.OnCompletionListener
-    public void onCompletion(MediaPlayer mediaPlayer) {
+    public final void b(x2 x2Var, int i, int i2, int i3, int i4, int i5, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) && this.e != null) {
-            w0.a.postRunnable(new a(this));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{x2Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+            x2.f e = x2Var.g.e();
+            e.a = j;
+            e.c = i2;
+            e.d = i3;
+            e.b = i;
+            e.e = i4;
+            e.f = i5;
+            x2Var.j.add(e);
         }
     }
 }

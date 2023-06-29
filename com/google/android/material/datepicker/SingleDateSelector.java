@@ -53,7 +53,7 @@ public class SingleDateSelector implements DateSelector<Long> {
 
     @Override // com.google.android.material.datepicker.DateSelector
     public int getDefaultTitleResId() {
-        return R.string.obfuscated_res_0x7f0f0caa;
+        return R.string.obfuscated_res_0x7f0f0cc6;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -105,9 +105,9 @@ public class SingleDateSelector implements DateSelector<Long> {
         Resources resources = context.getResources();
         Long l = this.selectedItem;
         if (l == null) {
-            return resources.getString(R.string.obfuscated_res_0x7f0f0cab);
+            return resources.getString(R.string.obfuscated_res_0x7f0f0cc7);
         }
-        return resources.getString(R.string.obfuscated_res_0x7f0f0ca9, DateStrings.getYearMonthDay(l.longValue()));
+        return resources.getString(R.string.obfuscated_res_0x7f0f0cc5, DateStrings.getYearMonthDay(l.longValue()));
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
@@ -134,8 +134,8 @@ public class SingleDateSelector implements DateSelector<Long> {
 
     @Override // com.google.android.material.datepicker.DateSelector
     public View onCreateTextInputView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle, CalendarConstraints calendarConstraints, @NonNull final OnSelectionChangedListener<Long> onSelectionChangedListener) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d063c, viewGroup, false);
-        TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091799);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d064d, viewGroup, false);
+        TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0917e0);
         EditText editText = textInputLayout.getEditText();
         if (ManufacturerUtils.isDateInputKeyboardMissingSeparatorCharacters()) {
             editText.setInputType(17);

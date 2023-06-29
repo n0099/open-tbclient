@@ -1,120 +1,142 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.PointF;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import kotlin.collections.CollectionsKt__MutableCollectionsJVMKt;
+import kotlin.collections.CollectionsKt__MutableCollectionsKt;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class st6 extends kt6 {
+public abstract class st6 extends qt6 implements i0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final s6<rt6> b;
-    public final PointF c;
-    public float d;
-    public final PointF e;
-    public float f;
+    public final k0 e;
+    public final Comparator<h0> f;
+    public final List<h0> g;
+    public boolean h;
 
-    public final void h(boolean z) {
+    @Override // com.baidu.tieba.qt6
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public st6() {
+    public abstract void l(h0 h0Var, float f);
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public st6(nt6 context, k0 family, Comparator<h0> comparator) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, family, comparator};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((nt6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new s6<>(0);
-        this.c = new PointF();
-        this.e = new PointF(1.0f, 1.0f);
-        this.f = 1.0f;
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(family, "family");
+        Intrinsics.checkNotNullParameter(comparator, "comparator");
+        this.e = family;
+        this.f = comparator;
+        this.g = new ArrayList();
     }
 
-    public final void c(long j) {
+    public /* synthetic */ st6(nt6 nt6Var, k0 k0Var, Comparator comparator, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(nt6Var, k0Var, (i & 4) != 0 ? new rt6() : comparator);
+    }
+
+    public void a(h0 entity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            g();
-            s6.b<rt6> it = this.b.iterator();
-            Intrinsics.checkNotNullExpressionValue(it, "actions.iterator()");
-            while (it.hasNext()) {
-                it.next().a(j);
+        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            this.g.remove(entity);
+            this.h = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.i0
+    public void b(h0 entity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            this.g.add(entity);
+            this.h = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.qt6, com.baidu.tieba.j0
+    public void g(g0 engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            super.g(engine);
+            engine.o(this);
+            this.g.clear();
+            this.h = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.j0
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            m();
+            for (h0 h0Var : this.g) {
+                l(h0Var, f);
             }
         }
     }
 
-    public final void d(rt6 action) {
+    @Override // com.baidu.tieba.j0
+    public void c(g0 engine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            action.c(this);
-            action.b();
-            this.b.a(action);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            this.g.clear();
+            r0<h0> newEntities = engine.j(this.e);
+            if (newEntities.size() > 0) {
+                List<h0> list = this.g;
+                Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
+                CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
+            }
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
+            this.h = false;
+            engine.f(this.e, this);
         }
     }
 
-    public final void i(Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
-            Intrinsics.checkNotNullParameter(matrix, "matrix");
-            PointF pointF = this.e;
-            matrix.setScale(pointF.x, pointF.y);
-            matrix.postRotate(this.d);
-            PointF pointF2 = this.c;
-            matrix.postTranslate(pointF2.x, pointF2.y);
-        }
-    }
-
-    public final float e() {
+    public final List<h0> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            m();
+            return this.g;
         }
-        return invokeV.floatValue;
+        return (List) invokeV.objValue;
     }
 
-    public final PointF f() {
-        InterceptResult invokeV;
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a().f().u();
-            this.c.set(0.0f, 0.0f);
-            this.d = 0.0f;
-            this.e.set(1.0f, 1.0f);
-            this.f = 1.0f;
-        }
-    }
-
-    @Override // com.baidu.tieba.kt6, com.baidu.tieba.r7.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.reset();
-            g();
-            this.b.clear();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.h) {
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
+            this.h = false;
         }
     }
 }

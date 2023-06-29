@@ -1,155 +1,134 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.je5;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class ke5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static WeakReference<je5> b;
+    public static int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ je5 a;
-
-        public a(je5 je5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = je5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.A();
-                boolean unused = ke5.a = true;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ je5 a;
-
-        public b(je5 je5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = je5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.t();
-            }
-        }
-    }
-
-    public static je5 b() {
-        InterceptResult invokeV;
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            WeakReference<je5> weakReference = b;
-            if (weakReference != null) {
-                return weakReference.get();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (i == 1) {
+                str2 = "index";
+            } else if (i == 2) {
+                str2 = "pb_live";
+            } else if (i == 3) {
+                int i2 = a;
+                if (i2 == 1) {
+                    str2 = "video_bar_live";
+                } else {
+                    if (i2 == 2) {
+                        str2 = "video_immer_live";
+                    }
+                    str2 = "";
+                }
+            } else {
+                if (i == 4) {
+                    str2 = YYLiveUtil.SOURCE_PB_DATU_EOF;
+                }
+                str2 = "";
+            }
+            return str + "?source=" + str2;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static String b(LiveRemindRecommendData liveRemindRecommendData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRemindRecommendData)) == null) {
+            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconScheme())) {
+                b = liveRemindRecommendData.getShowPage();
+                String liveIconScheme = liveRemindRecommendData.getLiveIconScheme();
+                if (liveRemindRecommendData.getShowPage() == 3) {
+                    String c = c();
+                    if (liveIconScheme.contains("closeLink")) {
+                        return SchemeActionHelper.replaceUrlParameter(liveIconScheme.replace("VIDEOICONBACK", c + "_back"), "source", c);
+                    }
+                    return SchemeActionHelper.replaceUrlParameter(liveIconScheme, "source", c);
+                }
+                return liveIconScheme;
             }
             return null;
         }
-        return (je5) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean c() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+            int i = a;
+            if (i == 1) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL;
+            }
+            if (i == 2) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE;
+            }
+            int i2 = b;
+            if (i2 == 1) {
+                return "index_gz";
+            }
+            if (i2 == 2) {
+                return AddFriendActivityConfig.TYPE_PB_HEAD;
+            }
+            return YYLiveUtil.SOURCE_NOT_DEFINE;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            o95.p().H("key_live_remind_float_view", System.currentTimeMillis());
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
         }
     }
 
-    public static je5 d(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2, je5.h hVar) {
-        InterceptResult invokeCommon;
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2), hVar})) == null) {
-            je5 je5Var = new je5(tbPageContext, map);
-            if (hVar != null) {
-                je5Var.x(hVar);
-            }
-            if (view2 != null) {
-                je5Var.y(view2);
-            }
-            if (j <= 0) {
-                je5Var.A();
-                a = true;
-            } else {
-                xg.a().postDelayed(new a(je5Var), j);
-            }
-            if (j2 > 0) {
-                xg.a().postDelayed(new b(je5Var), j2);
-            }
-            b = new WeakReference<>(je5Var);
-            return je5Var;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
         }
-        return (je5) invokeCommon.objValue;
     }
 
-    public static je5 f(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2) {
-        InterceptResult invokeCommon;
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (tbPageContext != null && !MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !vf5.j()) {
-                return d(view2, tbPageContext, map, j, j2, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return "";
             }
-            return null;
+            String queryParameter = parse.getQueryParameter("source");
+            if (StringUtils.isNull(queryParameter)) {
+                return "";
+            }
+            return queryParameter;
         }
-        return (je5) invokeCommon.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            a = i;
+        }
     }
 }

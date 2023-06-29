@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Interpolator;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,133 +12,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class vb0 {
+public final class vb0 {
     public static /* synthetic */ Interceptable $ic;
     public static final vb0 a;
-    public static final vb0 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract float a(float f);
-
-    public abstract float b(float f);
-
-    public float c(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
-            return 1.0f;
-        }
-        return invokeF.floatValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a extends vb0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.vb0
-        public float a(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? f : invokeF.floatValue;
-        }
-
-        @Override // com.baidu.tieba.vb0
-        public float b(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? f : invokeF.floatValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b extends vb0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Interpolator c;
-        public final Interpolator d;
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public b() {
-            this(0.8f);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    this(((Float) newInitContext.callArgs[0]).floatValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public b(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.c = new AccelerateInterpolator(f);
-            this.d = new DecelerateInterpolator(f);
-        }
-
-        @Override // com.baidu.tieba.vb0
-        public float a(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-                return this.c.getInterpolation(f);
-            }
-            return invokeF.floatValue;
-        }
-
-        @Override // com.baidu.tieba.vb0
-        public float b(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
-                return this.d.getInterpolation(f);
-            }
-            return invokeF.floatValue;
-        }
-
-        @Override // com.baidu.tieba.vb0
-        public float c(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
-                return 1.0f / ((1.0f - a(f)) + b(f));
-            }
-            return invokeF.floatValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -153,8 +30,7 @@ public abstract class vb0 {
                 return;
             }
         }
-        a = new b();
-        b = new a();
+        a = new vb0();
     }
 
     public vb0() {
@@ -171,18 +47,74 @@ public abstract class vb0 {
         }
     }
 
-    public static vb0 d(int i) {
-        InterceptResult invokeI;
+    public final Drawable a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return a;
-                }
-                return b;
-            }
-            return a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColors(new int[]{ge0.f().a(context, str, "color_gradient_1"), ge0.f().a(context, str, "color_gradient_2")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            return gradientDrawable;
         }
-        return (vb0) invokeI.objValue;
+        return (Drawable) invokeLLL.objValue;
+    }
+
+    public final Drawable d(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, str2)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColors(new int[]{ge0.f().a(context, str, "color_gradient_2"), ge0.f().a(context, str, "color_gradient_1")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLLL.objValue;
+    }
+
+    public final Drawable b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = pb0.b(context, 7.0f);
+            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
+            gradientDrawable.setColors(new int[]{ge0.f().a(context, str, "color_F5F5F53"), ge0.f().a(context, str, "color_F5F5F53")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public final Drawable c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = pb0.b(context, 18.0f);
+            gradientDrawable.setCornerRadii(new float[]{0.0f, 0.0f, 0.0f, 0.0f, b, b, b, b});
+            gradientDrawable.setColors(new int[]{ge0.f().a(context, str, "color_main_bg"), ge0.f().a(context, str, "color_main_bg")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public final Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            float b = pb0.b(context, 7.0f);
+            gradientDrawable.setCornerRadii(new float[]{b, b, b, b, b, b, b, b});
+            gradientDrawable.setColors(new int[]{ge0.f().a(context, str, "color_FF33552"), ge0.f().a(context, str, "color_FF33552")});
+            gradientDrawable.setGradientType(0);
+            gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
+            return gradientDrawable;
+        }
+        return (Drawable) invokeLL.objValue;
     }
 }

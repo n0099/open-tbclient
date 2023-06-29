@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.widget.EditText;
 /* loaded from: classes8.dex */
-public /* synthetic */ class zna {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zna {
+    void b(boolean z);
+
+    int f();
+
+    void l();
+
+    void n();
+
+    EditText p();
 }

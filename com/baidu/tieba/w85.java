@@ -1,315 +1,266 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipFile;
-import java.util.zip.ZipOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.constant.WBConstants;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class w85 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicLong i;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final Map<String, Object> c;
+    public final Map<String, Object> d;
+    public final int e;
+    public final String f;
+    public final long g;
+    public final long h;
 
-    public static boolean a(File file, String str) {
-        InterceptResult invokeLL;
-        ZipFile zipFile;
-        FileOutputStream fileOutputStream;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
-            File file2 = new File(str);
-            if (!file2.exists() && !file2.mkdirs()) {
-                return false;
-            }
-            boolean z = true;
-            ZipFile zipFile2 = null;
-            InputStream inputStream2 = null;
-            zipFile2 = null;
-            try {
-                try {
-                    zipFile = new ZipFile(file);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                Enumeration<? extends ZipEntry> entries = zipFile.entries();
-                while (entries.hasMoreElements()) {
-                    try {
-                        ZipEntry nextElement = entries.nextElement();
-                        String name = nextElement.getName();
-                        if (name == null || !name.contains("__MACOSX/")) {
-                            File file3 = new File(str, name);
-                            if (nextElement.isDirectory()) {
-                                file3.mkdirs();
-                            } else {
-                                inputStream = zipFile.getInputStream(nextElement);
-                                try {
-                                    fileOutputStream = new FileOutputStream(file3);
-                                    try {
-                                        try {
-                                            byte[] bArr = new byte[1024];
-                                            while (true) {
-                                                int read = inputStream.read(bArr);
-                                                if (read <= 0) {
-                                                    break;
-                                                }
-                                                fileOutputStream.write(bArr, 0, read);
-                                            }
-                                            fileOutputStream.flush();
-                                            if (inputStream != null) {
-                                                try {
-                                                    inputStream.close();
-                                                } catch (IOException e2) {
-                                                    e2.printStackTrace();
-                                                }
-                                            }
-                                            try {
-                                                fileOutputStream.close();
-                                            } catch (IOException e3) {
-                                                e3.printStackTrace();
-                                            }
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            inputStream2 = inputStream;
-                                            if (inputStream2 != null) {
-                                                try {
-                                                    inputStream2.close();
-                                                } catch (IOException e4) {
-                                                    e4.printStackTrace();
-                                                }
-                                            }
-                                            if (fileOutputStream != null) {
-                                                try {
-                                                    fileOutputStream.close();
-                                                } catch (IOException e5) {
-                                                    e5.printStackTrace();
-                                                }
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Exception e6) {
-                                        e = e6;
-                                        e.printStackTrace();
-                                        if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (IOException e7) {
-                                                e7.printStackTrace();
-                                            }
-                                        }
-                                        if (fileOutputStream != null) {
-                                            try {
-                                                fileOutputStream.close();
-                                            } catch (IOException e8) {
-                                                e8.printStackTrace();
-                                            }
-                                        }
-                                        z = false;
-                                    }
-                                } catch (Exception e9) {
-                                    e = e9;
-                                    fileOutputStream = null;
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    fileOutputStream = null;
-                                }
-                            }
-                        }
-                    } catch (Exception e10) {
-                        e = e10;
-                        inputStream = null;
-                        fileOutputStream = null;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        fileOutputStream = null;
-                    }
-                }
-                try {
-                    zipFile.close();
-                } catch (IOException e11) {
-                    e11.printStackTrace();
-                }
-                return z;
-            } catch (Exception e12) {
-                e = e12;
-                zipFile2 = zipFile;
-                e.printStackTrace();
-                if (zipFile2 == null) {
-                    return false;
-                }
-                try {
-                    zipFile2.close();
-                    return false;
-                } catch (IOException e13) {
-                    e13.printStackTrace();
-                    return false;
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                zipFile2 = zipFile;
-                if (zipFile2 != null) {
-                    try {
-                        zipFile2.close();
-                    } catch (IOException e14) {
-                        e14.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        }
-        return invokeLL.booleanValue;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public void g(int i2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return a(new File(str), str2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void c(File file, String str) throws ZipException, IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, file, str) == null) {
-            File file2 = new File(str);
-            if (!file2.exists()) {
-                file2.mkdirs();
-            }
-            ZipFile zipFile = new ZipFile(file);
-            Enumeration<? extends ZipEntry> entries = zipFile.entries();
-            while (entries.hasMoreElements()) {
-                ZipEntry nextElement = entries.nextElement();
-                String name = nextElement.getName();
-                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
-                    InputStream inputStream = zipFile.getInputStream(nextElement);
-                    File file3 = new File(str + File.separator + name);
-                    if (!file3.exists()) {
-                        File parentFile = file3.getParentFile();
-                        if (!parentFile.exists()) {
-                            parentFile.mkdirs();
-                        }
-                        file3.createNewFile();
-                    }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
-                    byte[] bArr = new byte[10240];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    inputStream.close();
-                    fileOutputStream.close();
-                }
-            }
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, th) == null) {
         }
     }
 
-    public static void d(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
+    public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, zipOutputStream) != null) || zipOutputStream == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
         }
-        File file = new File(str, str2);
-        if (!file.exists()) {
-            return;
-        }
-        if (file.isFile()) {
-            ZipEntry zipEntry = new ZipEntry(str2);
-            FileInputStream fileInputStream = new FileInputStream(file);
-            zipOutputStream.putNextEntry(zipEntry);
-            byte[] bArr = new byte[4096];
-            while (true) {
-                int read = fileInputStream.read(bArr);
-                if (read != -1) {
-                    zipOutputStream.write(bArr, 0, read);
-                } else {
-                    zipOutputStream.closeEntry();
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b extends w85 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final u85 j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, u85 u85Var, long j) {
+            super(i, str, str2, map, map2, str3, j, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2, map, map2, str3, u85Var, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2], (Map) objArr2[3], (Map) objArr2[4], (String) objArr2[5], ((Long) objArr2[6]).longValue(), (a) objArr2[7]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-        } else if (file.isDirectory()) {
-            String[] list = file.list();
-            if (list.length <= 0) {
-                zipOutputStream.putNextEntry(new ZipEntry(str2 + File.separator));
-                zipOutputStream.closeEntry();
+            this.j = u85Var;
+        }
+
+        public /* synthetic */ b(int i, String str, String str2, Map map, Map map2, String str3, u85 u85Var, long j, a aVar) {
+            this(i, str, str2, map, map2, str3, u85Var, j);
+        }
+
+        @Override // com.baidu.tieba.w85
+        public void g(int i, Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, th) == null) {
+                this.j.b(i, th);
             }
-            for (int i = 0; i < list.length; i++) {
-                d(str, str2 + File.separator + list[i], zipOutputStream);
+        }
+
+        @Override // com.baidu.tieba.w85
+        public void h(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                this.j.a(this, jSONObject);
             }
         }
     }
 
-    public static boolean e(String str, String str2) {
-        InterceptResult invokeLL;
-        ZipOutputStream zipOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            ZipOutputStream zipOutputStream2 = null;
-            try {
-                try {
-                    zipOutputStream = new ZipOutputStream(new FileOutputStream(str2));
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Exception e3) {
-                e = e3;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948224469, "Lcom/baidu/tieba/w85;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                File file = new File(str);
-                if (!file.exists()) {
-                    xi.f(zipOutputStream);
-                    return false;
-                }
-                d(file.getParent(), file.getName(), zipOutputStream);
-                zipOutputStream.finish();
-                zipOutputStream.close();
-                xi.f(zipOutputStream);
-                return true;
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                zipOutputStream2 = zipOutputStream;
-                e.printStackTrace();
-                xi.f(zipOutputStream2);
-                return false;
-            } catch (IOException e5) {
-                e = e5;
-                zipOutputStream2 = zipOutputStream;
-                e.printStackTrace();
-                xi.f(zipOutputStream2);
-                return false;
-            } catch (Exception e6) {
-                e = e6;
-                zipOutputStream2 = zipOutputStream;
-                e.printStackTrace();
-                xi.f(zipOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                zipOutputStream2 = zipOutputStream;
-                xi.f(zipOutputStream2);
-                throw th;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948224469, "Lcom/baidu/tieba/w85;");
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        i = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            long andIncrement = i.getAndIncrement();
+            return "TBCWebViewJsBridge_callback_ID_" + andIncrement;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int i2 = this.e;
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 3) {
+                        return "response";
+                    }
+                    throw new IllegalArgumentException("Unsupported request type");
+                }
+                return "request";
+            }
+            return "ping";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public w85(int i2, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), str, str2, map, map2, str3, Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = str2;
+        this.c = map;
+        this.d = map2;
+        this.e = i2;
+        this.f = str3;
+        this.g = j;
+        this.h = System.currentTimeMillis();
+    }
+
+    public /* synthetic */ w85(int i2, String str, String str2, Map map, Map map2, String str3, long j, a aVar) {
+        this(i2, str, str2, map, map2, str3, j);
+    }
+
+    public static w85 a(int i2, String str, String str2, Map<String, Object> map, long j, boolean z) {
+        InterceptResult invokeCommon;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), str, str2, map, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                str3 = d();
+            } else {
+                str3 = null;
+            }
+            return new w85(i2, str, str2, map, null, str3, j);
+        }
+        return (w85) invokeCommon.objValue;
+    }
+
+    public static w85 i(Map<String, Object> map, long j, u85 u85Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{map, Long.valueOf(j), u85Var})) == null) {
+            return new b(1, null, null, map, null, d(), u85Var, j, null);
+        }
+        return (w85) invokeCommon.objValue;
+    }
+
+    public static w85 j(String str, String str2, Map<String, Object> map, long j, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, map, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            return a(2, str, str2, map, j, z);
+        }
+        return (w85) invokeCommon.objValue;
+    }
+
+    public static w85 k(String str, Map<String, Object> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
+            return new w85(3, null, null, null, map, str, -1L);
+        }
+        return (w85) invokeLL.objValue;
+    }
+
+    public final void e(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, jSONObject) == null) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                jSONObject.put(entry.getKey(), entry.getValue());
+            }
+        }
+    }
+
+    public String b() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!TextUtils.isEmpty(this.a)) {
+                jSONObject.put("cmd", this.a);
+            }
+            if (!TextUtils.isEmpty(this.b)) {
+                jSONObject.put("method", this.b);
+            }
+            Map<String, Object> map = this.c;
+            if (map != null && !map.isEmpty()) {
+                JSONObject jSONObject2 = new JSONObject();
+                e(this.c, jSONObject2);
+                jSONObject.put("inputData", jSONObject2);
+            }
+            Map<String, Object> map2 = this.d;
+            if (map2 != null && !map2.isEmpty()) {
+                JSONObject jSONObject3 = new JSONObject();
+                e(this.d, jSONObject3);
+                jSONObject.put("outputData", jSONObject3);
+            }
+            jSONObject.put("messageType", f());
+            if (!TextUtils.isEmpty(this.f)) {
+                jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.f);
+            }
+            return c(jSONObject.toString());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            String replace = str.replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("\"", "\\\"").replace("'", "\\'").replace("\n", "\\n").replace("\r", "\\r").replace("\f", "\\f").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029");
+            return "javascript:__tb_js_bridge.send('" + replace + "');";
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gy9;
+import com.baidu.tieba.s2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -187,7 +187,7 @@ public class OvalImageView extends ImageView {
     public void setStringColor(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.k = gy9.f(str);
+            this.k = s2a.f(str);
         }
     }
 
@@ -216,11 +216,11 @@ public class OvalImageView extends ImageView {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             this.o = skinType;
             if (skinType == 0) {
-                this.i = gy9.f("#2bb8ff");
-                this.j = gy9.f("#2b80ff");
+                this.i = s2a.f("#2bb8ff");
+                this.j = s2a.f("#2b80ff");
             } else if (skinType == 4) {
-                this.i = gy9.f("#249BD6");
-                this.j = gy9.f("#246CD6");
+                this.i = s2a.f("#249BD6");
+                this.j = s2a.f("#246CD6");
             }
         }
     }
@@ -319,7 +319,7 @@ public class OvalImageView extends ImageView {
                     } else {
                         i = this.j;
                     }
-                    paint.setShadowLayer(width3, cos, sin, gy9.a(i, 0.83f));
+                    paint.setShadowLayer(width3, cos, sin, s2a.a(i, 0.83f));
                 }
                 LinearGradient linearGradient = this.h;
                 if (linearGradient != null) {
@@ -401,8 +401,8 @@ public class OvalImageView extends ImageView {
     public void setStartAndEndColor(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.i = gy9.f(str);
-            this.j = gy9.f(str2);
+            this.i = s2a.f(str);
+            this.j = s2a.f(str2);
             this.a = true;
             invalidate();
         }

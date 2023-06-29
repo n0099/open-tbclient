@@ -1,69 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.gif.NSGif;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 /* loaded from: classes8.dex */
-public class yb {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yb {
+    boolean a(Bitmap bitmap, Canvas canvas);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322500, "Lcom/baidu/tieba/yb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448322500, "Lcom/baidu/tieba/yb;");
-                return;
-            }
-        }
-        a = new String[]{"ZTE-T U880", "U880"};
-    }
+    int b(int i);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT > 7) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    boolean c(int i);
 
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b(yi.g()) && a() && NSGif.f) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void close();
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            for (String str2 : a) {
-                if (str2.equals(str)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    int getFrameCount();
+
+    int getHeight();
+
+    int getWidth();
 }

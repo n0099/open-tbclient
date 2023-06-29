@@ -1,101 +1,298 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.TextureData;
+import com.badlogic.gdx.utils.BufferUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.Closeable;
-import java.io.DataInputStream;
-import java.nio.ByteBuffer;
-import java.util.zip.InflaterInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.FloatBuffer;
 /* loaded from: classes6.dex */
-public class h3 {
+public abstract class h3 implements a7 {
     public static /* synthetic */ Interceptable $ic;
+    public static float h;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
+    public Texture.TextureFilter c;
+    public Texture.TextureFilter d;
+    public Texture.TextureWrap e;
+    public Texture.TextureWrap f;
+    public float g;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final byte[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(251399525, "Lcom/baidu/tieba/h3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(251399525, "Lcom/baidu/tieba/h3$a;");
-                    return;
-                }
-            }
-            a = new byte[32000];
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448304706, "Lcom/baidu/tieba/h3;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448304706, "Lcom/baidu/tieba/h3;");
+        }
+    }
 
-        /* JADX WARN: Not initialized variable reg: 1, insn: 0x0084: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:27:0x0084 */
-        public static Pixmap a(b3 b3Var) {
-            InterceptResult invokeL;
-            Exception e;
-            Closeable closeable;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, b3Var)) == null) {
-                Closeable closeable2 = null;
-                try {
-                    try {
-                        DataInputStream dataInputStream = new DataInputStream(new InflaterInputStream(new BufferedInputStream(b3Var.m())));
-                        try {
-                            Pixmap pixmap = new Pixmap(dataInputStream.readInt(), dataInputStream.readInt(), Pixmap.Format.fromGdx2DPixmapFormat(dataInputStream.readInt()));
-                            ByteBuffer m = pixmap.m();
-                            m.position(0);
-                            m.limit(m.capacity());
-                            synchronized (a) {
-                                while (true) {
-                                    int read = dataInputStream.read(a);
-                                    if (read > 0) {
-                                        m.put(a, 0, read);
-                                    }
-                                }
-                            }
-                            m.position(0);
-                            m.limit(m.capacity());
-                            a8.a(dataInputStream);
-                            return pixmap;
-                        } catch (Exception e2) {
-                            e = e2;
-                            throw new GdxRuntimeException("Couldn't read Pixmap from file '" + b3Var + "'", e);
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        closeable2 = closeable;
-                        a8.a(closeable2);
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                } catch (Throwable th2) {
-                    th = th2;
-                    a8.a(closeable2);
-                    throw th;
-                }
-            } else {
-                return (Pixmap) invokeL.objValue;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public h3(int i) {
+        this(i, x0.e.a());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static Pixmap a(b3 b3Var) {
-        InterceptResult invokeL;
+    public h3(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, b3Var)) == null) {
-            return a.a(b3Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return (Pixmap) invokeL.objValue;
+        Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
+        this.c = textureFilter;
+        this.d = textureFilter;
+        Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
+        this.e = textureWrap;
+        this.f = textureWrap;
+        this.g = 1.0f;
+        this.a = i;
+        this.b = i2;
+    }
+
+    public float n(float f, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)})) == null) {
+            float g = g();
+            if (g == 1.0f) {
+                return 1.0f;
+            }
+            float min = Math.min(f, g);
+            if (!z && com.badlogic.gdx.math.d.f(min, this.g, 0.1f)) {
+                return this.g;
+            }
+            x0.f.u(3553, 34046, min);
+            this.g = min;
+            return min;
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public static float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            float f = h;
+            if (f > 0.0f) {
+                return f;
+            }
+            if (x0.b.a("GL_EXT_texture_filter_anisotropic")) {
+                FloatBuffer c = BufferUtils.c(16);
+                c.position(0);
+                c.limit(c.capacity());
+                x0.f.i(34047, c);
+                float f2 = c.get(0);
+                h = f2;
+                return f2;
+            }
+            h = 1.0f;
+            return 1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public static void q(int i, TextureData textureData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, textureData) == null) {
+            r(i, textureData, 0);
+        }
+    }
+
+    public void l(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textureFilter, textureFilter2) == null) {
+            this.c = textureFilter;
+            this.d = textureFilter2;
+            a();
+            x0.e.j(this.a, 10241, textureFilter.getGLEnum());
+            x0.e.j(this.a, 10240, textureFilter2.getGLEnum());
+        }
+    }
+
+    public void m(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, textureWrap, textureWrap2) == null) {
+            this.e = textureWrap;
+            this.f = textureWrap2;
+            a();
+            x0.e.j(this.a, 10242, textureWrap.getGLEnum());
+            x0.e.j(this.a, 10243, textureWrap2.getGLEnum());
+        }
+    }
+
+    public static void r(int i, TextureData textureData, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), textureData, Integer.valueOf(i2)}) != null) || textureData == null) {
+            return;
+        }
+        if (!textureData.isPrepared()) {
+            textureData.prepare();
+        }
+        if (textureData.getType() == TextureData.TextureDataType.Custom) {
+            textureData.b(i);
+            return;
+        }
+        Pixmap c = textureData.c();
+        boolean g = textureData.g();
+        if (textureData.d() != c.h()) {
+            Pixmap pixmap = new Pixmap(c.n(), c.l(), textureData.d());
+            pixmap.o(Pixmap.Blending.None);
+            pixmap.a(c, 0, 0, 0, 0, c.n(), c.l());
+            if (textureData.g()) {
+                c.dispose();
+            }
+            c = pixmap;
+            g = true;
+        }
+        x0.e.g(3317, 1);
+        if (textureData.f()) {
+            p5.a(i, c, c.n(), c.l());
+        } else {
+            x0.e.q(i, i2, c.j(), c.n(), c.l(), 0, c.i(), c.k(), c.m());
+        }
+        if (g) {
+            c.dispose();
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            x0.e.N(this.a, this.b);
+        }
+    }
+
+    public void delete() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (i = this.b) != 0) {
+            x0.e.S(i);
+            this.b = 0;
+        }
+    }
+
+    @Override // com.baidu.tieba.a7
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            delete();
+        }
+    }
+
+    public Texture.TextureFilter f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (Texture.TextureFilter) invokeV.objValue;
+    }
+
+    public Texture.TextureFilter h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (Texture.TextureFilter) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public Texture.TextureWrap j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (Texture.TextureWrap) invokeV.objValue;
+    }
+
+    public Texture.TextureWrap k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return (Texture.TextureWrap) invokeV.objValue;
+    }
+
+    public void o(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048587, this, textureFilter, textureFilter2, z) == null) {
+            if (textureFilter != null && (z || this.c != textureFilter)) {
+                x0.e.j(this.a, 10241, textureFilter.getGLEnum());
+                this.c = textureFilter;
+            }
+            if (textureFilter2 != null) {
+                if (z || this.d != textureFilter2) {
+                    x0.e.j(this.a, 10240, textureFilter2.getGLEnum());
+                    this.d = textureFilter2;
+                }
+            }
+        }
+    }
+
+    public void p(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048588, this, textureWrap, textureWrap2, z) == null) {
+            if (textureWrap != null && (z || this.e != textureWrap)) {
+                x0.e.j(this.a, 10242, textureWrap.getGLEnum());
+                this.e = textureWrap;
+            }
+            if (textureWrap2 != null) {
+                if (z || this.f != textureWrap2) {
+                    x0.e.j(this.a, 10243, textureWrap2.getGLEnum());
+                    this.f = textureWrap2;
+                }
+            }
+        }
     }
 }

@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardSingleLinkView;
+import com.baidu.tieba.feed.component.CardLiveView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class g97 extends y77<CardSingleLinkView, q47> {
+public class g97 extends d87<CardLiveView, q47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,27 @@ public class g97 extends y77<CardSingleLinkView, q47> {
         }
     }
 
-    @Override // com.baidu.tieba.y77, com.baidu.tieba.n87
+    @Override // com.baidu.tieba.d87, com.baidu.tieba.s87
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int g = xi.g(viewGroup.getContext(), R.dimen.M_W_X005);
             View a = super.a(viewGroup);
-            v97.j(a);
+            aa7.m(a, Integer.valueOf(g), null, Integer.valueOf(g));
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n87
+    @Override // com.baidu.tieba.s87
     /* renamed from: e */
-    public void b(@NonNull CardSingleLinkView cardSingleLinkView, @NonNull q47 q47Var) {
+    public void b(@NonNull CardLiveView cardLiveView, @NonNull q47 q47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardSingleLinkView, q47Var) == null) {
-            cardSingleLinkView.a(q47Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardLiveView, q47Var) == null) {
+            cardLiveView.f(q47Var);
         }
     }
 }

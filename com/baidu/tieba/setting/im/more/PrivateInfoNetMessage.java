@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.bx5;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.gx5;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,9 +43,9 @@ public class PrivateInfoNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             ReqData.Builder builder = new ReqData.Builder();
-            builder.user_id = Long.valueOf(ug.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+            builder.user_id = Long.valueOf(vg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                bx5.a(builder, true);
+                gx5.a(builder, true);
             }
             GetPrivateInfoReqIdl.Builder builder2 = new GetPrivateInfoReqIdl.Builder();
             builder2.data = builder.build(false);

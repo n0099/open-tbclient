@@ -1,42 +1,87 @@
 package com.baidu.tieba;
 
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
-import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class n9 {
     public static /* synthetic */ Interceptable $ic;
+    public static n9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Resources a;
 
-    public static void a(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, view2) != null) || view2 == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448310658, "Lcom/baidu/tieba/n9;")) == null) {
             return;
         }
-        try {
-            view2.setLayerType(2, null);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448310658, "Lcom/baidu/tieba/n9;");
         }
     }
 
-    public static void b(View view2) {
+    public n9() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, view2) != null) || view2 == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        try {
-            Paint paint = new Paint();
-            ColorMatrix colorMatrix = new ColorMatrix();
-            colorMatrix.setSaturation(0.0f);
-            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-            view2.setLayerType(2, paint);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
+        this.a = null;
+    }
+
+    public static n9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (n9.class) {
+                    if (b == null) {
+                        b = new n9();
+                    }
+                }
+            }
+            return b;
+        }
+        return (n9) invokeV.objValue;
+    }
+
+    public synchronized Resources getResources() {
+        InterceptResult invokeV;
+        Resources resources;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                resources = this.a;
+            }
+            return resources;
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    public synchronized void b(Resources resources) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, resources) == null) {
+            synchronized (this) {
+                this.a = resources;
+            }
         }
     }
 }

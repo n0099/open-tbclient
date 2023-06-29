@@ -1,33 +1,23 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Pixmap;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class o1 extends g1<Pixmap, a> {
+public class o1 extends t1<q3, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Pixmap b;
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.f1
-    /* renamed from: f */
-    public s6<a1> a(String str, b3 b3Var, a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, b3Var, aVar)) == null) {
-            return null;
-        }
-        return (s6) invokeLLL.objValue;
-    }
 
     /* loaded from: classes7.dex */
-    public static class a extends c1<Pixmap> {
+    public static class a extends d1<q3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+        public String c;
+        public c3 d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,18 +35,18 @@ public class o1 extends g1<Pixmap, a> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o1(j1 j1Var) {
-        super(j1Var);
+    public o1(k1 k1Var) {
+        super(k1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j1Var};
+            Object[] objArr = {k1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((j1) newInitContext.callArgs[0]);
+                super((k1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,26 +56,40 @@ public class o1 extends g1<Pixmap, a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.g1
-    /* renamed from: g */
-    public void c(e1 e1Var, String str, b3 b3Var, a aVar) {
+    /* renamed from: d */
+    public t6<b1> a(String str, c3 c3Var, a aVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, e1Var, str, b3Var, aVar) == null) {
-            this.b = null;
-            this.b = new Pixmap(b3Var);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, c3Var, aVar)) == null) {
+            if (aVar != null && aVar.b != null) {
+                t6<b1> t6Var = new t6<>();
+                t6Var.a(new b1(aVar.b, u3.class));
+                return t6Var;
+            }
+            return null;
         }
+        return (t6) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g1
-    /* renamed from: h */
-    public Pixmap d(e1 e1Var, String str, b3 b3Var, a aVar) {
+    @Override // com.baidu.tieba.t1
+    /* renamed from: e */
+    public q3 c(f1 f1Var, String str, c3 c3Var, a aVar) {
         InterceptResult invokeLLLL;
+        c3 c3Var2;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, e1Var, str, b3Var, aVar)) == null) {
-            Pixmap pixmap = this.b;
-            this.b = null;
-            return pixmap;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, f1Var, str, c3Var, aVar)) == null) {
+            q3 q3Var = new q3();
+            if (aVar != null && (str2 = aVar.b) != null) {
+                q3Var.f(c3Var, (u3) f1Var.j(str2, u3.class), aVar.c);
+            } else if (aVar != null && (c3Var2 = aVar.d) != null) {
+                q3Var.a(c3Var, c3Var2);
+            } else {
+                q3Var.a(c3Var, c3Var.i());
+            }
+            return q3Var;
         }
-        return (Pixmap) invokeLLLL.objValue;
+        return (q3) invokeLLLL.objValue;
     }
 }

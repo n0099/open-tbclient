@@ -1,172 +1,176 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterHttpResMessage;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterRequestMessage;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.GetMemberTaskList.ImgInfo;
 /* loaded from: classes8.dex */
 public class x09 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ImgInfo> a;
+    public long b;
+    public List<t09> c;
+    public b d;
+    public kb e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246696, "Lcom/baidu/tieba/x09;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(int i, String str);
+
+        void b(List<ImgInfo> list, List<t09> list2, long j);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends kb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x09 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(x09 x09Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x09Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948246696, "Lcom/baidu/tieba/x09;");
+            this.a = x09Var;
+        }
+
+        @Override // com.baidu.tieba.kb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof MemberTaskCenterHttpResMessage;
+            if (!z && !(responsedMessage instanceof MemberTaskCenterSocketResMessage)) {
+                return;
+            }
+            if (z) {
+                MemberTaskCenterHttpResMessage memberTaskCenterHttpResMessage = (MemberTaskCenterHttpResMessage) responsedMessage;
+                if (memberTaskCenterHttpResMessage.hasError()) {
+                    if (this.a.d != null) {
+                        this.a.d.a(memberTaskCenterHttpResMessage.getError(), memberTaskCenterHttpResMessage.getErrorString());
+                        return;
+                    }
+                    return;
+                }
+                this.a.a = memberTaskCenterHttpResMessage.getImageList();
+                this.a.c = memberTaskCenterHttpResMessage.getTaskList();
+                if (memberTaskCenterHttpResMessage.getUserPointInfo() != null) {
+                    this.a.b = memberTaskCenterHttpResMessage.getUserPointInfo().points_total.longValue();
+                }
+                if (this.a.d != null) {
+                    this.a.d.b(this.a.a, this.a.c, this.a.b);
+                }
+            }
+            if (responsedMessage instanceof MemberTaskCenterSocketResMessage) {
+                MemberTaskCenterSocketResMessage memberTaskCenterSocketResMessage = (MemberTaskCenterSocketResMessage) responsedMessage;
+                if (memberTaskCenterSocketResMessage.hasError()) {
+                    if (this.a.d != null) {
+                        this.a.d.a(memberTaskCenterSocketResMessage.getError(), memberTaskCenterSocketResMessage.getErrorString());
+                        return;
+                    }
+                    return;
+                }
+                this.a.a = memberTaskCenterSocketResMessage.getImageList();
+                this.a.c = memberTaskCenterSocketResMessage.getTaskList();
+                if (memberTaskCenterSocketResMessage.getUserPointInfo() != null) {
+                    this.a.b = memberTaskCenterSocketResMessage.getUserPointInfo().points_total.longValue();
+                }
+                if (this.a.d != null) {
+                    this.a.d.b(this.a.a, this.a.c, this.a.b);
+                }
+            }
+        }
+    }
+
+    public x09() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = p09.c + "draft/";
-        b = a + "upload_draft";
+        this.e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
+        v3a.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
+        v3a.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public static void a() {
+    public void l(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(b);
-            if (file.exists()) {
-                file.delete();
-            }
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.b = j;
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
-    public static FaceGroupDraft b() {
+    public void m(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public long h() {
         InterceptResult invokeV;
-        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b);
-            ?? r2 = 0;
-            r2 = null;
-            r2 = null;
-            r2 = null;
-            r2 = null;
-            FaceGroupDraft faceGroupDraft2 = null;
-            r2 = null;
-            r2 = null;
-            ObjectInputStream objectInputStream = null;
-            try {
-                if (!file.exists()) {
-                    return null;
-                }
-                try {
-                    ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
-                    try {
-                        Object readObject = objectInputStream2.readObject();
-                        if (readObject != null && (readObject instanceof FaceGroupDraft)) {
-                            faceGroupDraft2 = (FaceGroupDraft) readObject;
-                        }
-                        objectInputStream2.close();
-                        tg.c(objectInputStream2);
-                        return faceGroupDraft2;
-                    } catch (IOException e) {
-                        e = e;
-                        FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft3;
-                        e.printStackTrace();
-                        tg.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    } catch (ClassNotFoundException e2) {
-                        e = e2;
-                        FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft4;
-                        e.printStackTrace();
-                        tg.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    } catch (Throwable th) {
-                        th = th;
-                        FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft5;
-                        th.printStackTrace();
-                        tg.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    }
-                } catch (IOException e3) {
-                    e = e3;
-                    faceGroupDraft = null;
-                } catch (ClassNotFoundException e4) {
-                    e = e4;
-                    faceGroupDraft = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    faceGroupDraft = null;
-                }
-            } catch (Throwable th3) {
-                tg.c(r2);
-                throw th3;
-            }
-        } else {
-            return (FaceGroupDraft) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public List<t09> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().sendMessage(new MemberTaskCenterRequestMessage());
         }
     }
 
-    public static void c(FaceGroupDraft faceGroupDraft) {
-        ObjectOutputStream objectOutputStream;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
-            ObjectOutputStream objectOutputStream2 = null;
-            try {
-                try {
-                    File file = new File(a);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    a();
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
-                } finally {
-                    tg.d(objectOutputStream2);
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                objectOutputStream.writeObject(faceGroupDraft);
-                tg.d(objectOutputStream);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (IOException e4) {
-                e = e4;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (Throwable th2) {
-                th = th2;
-                objectOutputStream2 = objectOutputStream;
-                th.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
 }

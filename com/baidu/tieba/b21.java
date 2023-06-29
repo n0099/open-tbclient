@@ -1,101 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
-import android.view.View;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Locale;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-@JvmName(name = "BdPlayerUtils")
+import java.util.Iterator;
 /* loaded from: classes5.dex */
 public final class b21 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmOverloads
-    public static final int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
-    }
-
-    public static final int a(View view2, float f) {
-        InterceptResult invokeLF;
-        float f2;
-        Context context;
-        Resources resources;
-        DisplayMetrics displayMetrics;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
-            if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
-                f2 = displayMetrics.density;
-            } else {
-                f2 = 1.0f;
-            }
-            return (int) ((f * f2) + 0.5f);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947592968, "Lcom/baidu/tieba/b21;")) == null) {
+            return;
         }
-        return invokeLF.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947592968, "Lcom/baidu/tieba/b21;");
+        }
     }
 
-    @JvmOverloads
-    public static final int d(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
+    public static void a(ClarityUrlList clarityUrlList) {
+        ClarityUrlList.c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
+            Iterator it = clarityUrlList.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    cVar = (ClarityUrlList.c) it.next();
+                    if ("auto".equals(cVar.c())) {
+                        break;
+                    }
+                } else {
+                    cVar = null;
+                    break;
+                }
             }
-            if (z) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (NumberFormatException e) {
-                f21.f("parseInt catch exception:", e);
-                return i;
+            if (cVar != null) {
+                clarityUrlList.remove(cVar);
             }
         }
-        return invokeLI.intValue;
     }
 
-    public static final String b(int i, boolean z) {
+    public static o01 b(ClarityUrlList clarityUrlList, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i < 0) {
-                return "";
-            }
-            int i2 = i / 3600;
-            int i3 = (i % 3600) / 60;
-            int i4 = i % 60;
-            if (i2 == 0 && !z) {
-                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
-                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
-                return format;
-            }
-            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
-            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
-            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
-            return format2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
+            a(clarityUrlList);
+            int f = p21.f(a);
+            a = f;
+            return p21.g(clarityUrlList, f, d, false);
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            i = 0;
-        }
-        return d(str, i);
+        return (o01) invokeCommon.objValue;
     }
 }

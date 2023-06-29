@@ -1,51 +1,101 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.SparseArray;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.download.unified.SourceConstant;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.data.BdToastData;
-import com.baidu.tbadk.core.util.BdToastHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mutiprocess.event.TipEvent;
-import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.util.InsertGalleryAsyncTask;
+import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wy4 implements zl6 {
+public class wy4 implements em6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ShareItem a;
+    public PermissionJudgePolicy b;
 
-    @Override // com.baidu.tieba.zl6
+    @Override // com.baidu.tieba.em6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        yl6.a(this, webView, str, jSONObject);
+        dm6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.zl6
+    @Override // com.baidu.tieba.em6
     public /* synthetic */ void onDestroy() {
-        yl6.b(this);
+        dm6.b(this);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends InsertGalleryAsyncTask.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ wy4 c;
+
+        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            }
+        }
+
+        public a(wy4 wy4Var, int i, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wy4Var, Integer.valueOf(i), context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = wy4Var;
+            this.a = i;
+            this.b = context;
+        }
+
+        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && new File(str).exists()) {
+                if (this.c.a != null) {
+                    this.c.a.k0 = 1;
+                    this.c.a.B = str;
+                }
+                int i = this.a;
+                if (i != 0) {
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.b, i, this.c.a, true));
+                }
+            }
+        }
     }
 
     public wy4() {
@@ -62,231 +112,288 @@ public class wy4 implements zl6 {
         }
     }
 
-    @Override // com.baidu.tieba.zl6
+    public final void e(ShareItem shareItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, shareItem) == null) {
+            this.a = shareItem;
+        }
+    }
+
+    @Override // com.baidu.tieba.em6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.TOAST_POPUPVIEW.equals(str2)) {
+            if ("share".equals(str2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(f(webView, jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject.optInt("ahead_type"), jSONObject.optString("message"), jSONObject.optString("btn_text"), jSONObject.optInt("toast_duration"), jSONObject.optString("schema"), jSONObject.optString("token"), jSONObject.optDouble(NativeConstants.OPACITY), jSONObject.optString(BigdayActivityConfig.IMG_URL), jSONObject.optString("url"), jSONObject.optInt("mission_id"), jSONObject.optString("btn_color"), jSONObject.optString("message_color"), jSONObject.optString("btn_text_color"), jSONObject.optInt("status"), jSONObject.optInt(CommonTbJsBridge.FINISH_THIS_PAGE)).a());
+                    jsPromptResult.confirm(f(webView, jSONObject.optInt("channel"), jSONObject.optInt("shareimg"), jSONObject.optString("img"), jSONObject.optString("isShowMoreForum"), jSONObject.optString("url"), jSONObject.optString("title"), jSONObject.optString("desc"), jSONObject.optString("topic"), jSONObject.optString("wbtitle"), jSONObject.optString("wbcontent"), jSONObject.optInt("weixin_disable"), jSONObject.optString("extdata"), jSONObject.optInt("source"), jSONObject.optString("topicid"), jSONObject.optString("disableSafari"), jSONObject.optLong("roomId"), jSONObject.optInt("filterRooms"), jSONObject.optInt("roomMemberCount"), jSONObject.optLong("fid"), jSONObject.optString("forumName"), jSONObject.optString("onlyThirdShare"), jSONObject.optString("addObserverNotify"), jSONObject.optString("panelTitle"), jSONObject.optJSONObject("shareIMCard")).a());
+                    return true;
                 } catch (JSONException e) {
+                    e.printStackTrace();
                     BdLog.e(e);
+                    return false;
                 }
-            } else if (CommonTbJsBridge.SHOW_TIP_TOAST.equals(str2)) {
+            } else if (CommonTbJsBridge.SET_SHARE_INFO.equals(str2)) {
                 try {
                     JSONObject jSONObject2 = new JSONObject(str3);
-                    jsPromptResult.confirm(g(webView, jSONObject2.optString("content"), jSONObject2.optString(GameAssistConstKt.KEY_LINKURL), jSONObject2.optString("key"), jSONObject2.optInt("maxTimes"), jSONObject2.optInt(CommonTbJsBridge.FINISH_THIS_PAGE)).a());
+                    jsPromptResult.confirm(d(webView, jSONObject2.optString("title"), jSONObject2.optString("desc"), jSONObject2.optString("img"), jSONObject2.optString("url"), jSONObject2.optString("topic"), jSONObject2.optString("wbtitle"), jSONObject2.optString("wbcontent"), jSONObject2.optString("isShowMoreForum"), jSONObject2.optInt("shareimg"), jSONObject2.optString("extdata")).a());
+                    return true;
                 } catch (JSONException e2) {
                     BdLog.e(e2);
+                    return false;
                 }
-            } else if (CommonTbJsBridge.GET_MODAL_DATA.equals(str2)) {
-                try {
-                    try {
-                        jsPromptResult.confirm(e(webView, new JSONObject(str3).optString("url")).a());
-                        return false;
-                    } catch (JSONException e3) {
-                        e = e3;
-                        BdLog.e(e);
-                        return false;
-                    }
-                } catch (JSONException e4) {
-                    e = e4;
-                }
+            } else {
+                return false;
             }
-            return false;
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final void c(String str) {
-        TbPageContext<?> d;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !vi.isEmpty(str) && (d = d(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            UrlManager.getInstance().dealOneLink(d, new String[]{str});
-        }
-    }
-
-    public final TbPageContext d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-            if (activity instanceof BaseActivity) {
-                return ((BaseActivity) activity).getPageContext();
-            }
-            if (activity instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) activity).getPageContext();
-            }
-            return null;
-        }
-        return (TbPageContext) invokeL.objValue;
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(8:3|4|5|(5:7|(1:11)|13|14|15)(5:20|(2:22|23)|13|14|15)|12|13|14|15) */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0058, code lost:
-        r8 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0059, code lost:
-        com.baidu.adp.lib.util.BdLog.e(r8);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public t0a e(WebView webView, String str) {
-        InterceptResult invokeLL;
-        String f;
-        JSONObject newGodDataJson;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            t0a t0aVar = new t0a();
-            JSONObject jSONObject = null;
-            int i = 0;
-            try {
-                f = qe5.c().f();
-                newGodDataJson = TbSingleton.getInstance().getNewGodDataJson();
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            if (!vi.isEmpty(str)) {
-                int indexOf = str.indexOf(WebViewActivityConfig.TAG_NEW_GOD_INVITE);
-                if (newGodDataJson != null && indexOf != -1) {
-                    jSONObject = newGodDataJson;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("resultCode", i);
-                jSONObject2.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-                t0aVar.o(jSONObject2.toString());
-                return t0aVar;
-            }
-            if (!TextUtils.isEmpty(f)) {
-                jSONObject = new JSONObject(f);
-            }
-            JSONObject jSONObject22 = new JSONObject();
-            jSONObject22.put("resultCode", i);
-            jSONObject22.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-            t0aVar.o(jSONObject22.toString());
-            return t0aVar;
-            i = 1;
-            JSONObject jSONObject222 = new JSONObject();
-            jSONObject222.put("resultCode", i);
-            jSONObject222.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-            t0aVar.o(jSONObject222.toString());
-            return t0aVar;
-        }
-        return (t0a) invokeLL.objValue;
-    }
-
-    public t0a f(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+    public f5a d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         InterceptResult invokeCommon;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            t0a t0aVar = new t0a();
-            iv4 iv4Var = new iv4();
-            iv4Var.c = i;
-            iv4Var.d = i2;
-            iv4Var.e = str;
-            iv4Var.f = str2;
-            iv4Var.i = i3;
-            iv4Var.l = str3;
-            iv4Var.n = d;
-            iv4Var.j = str5;
-            iv4Var.k = str6;
-            iv4Var.b = i4;
-            iv4Var.o = str7;
-            iv4Var.p = str8;
-            iv4Var.q = str9;
-            if (i == iv4.y) {
-                l55.h(TbadkCoreApplication.getInst().getCurrentActivity(), iv4Var).j();
-            } else if (i == iv4.z) {
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                e15 e15Var = new e15(currentActivity);
-                if (currentActivity != null) {
-                    e15Var.d(currentActivity, iv4Var);
-                    e15Var.i();
-                }
-            } else if (i == iv4.A) {
-                if (i2 == iv4.E) {
-                    if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), iv4Var.l) && !vi.isEmpty(iv4Var.k)) {
-                        c(iv4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-                    }
-                } else if (i2 == iv4.F && !vi.isEmpty(str6)) {
-                    c(iv4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-                }
-            } else if (i == iv4.C) {
-                Activity a = ol6.a(webView.getContext());
-                if (i6 == 1 && a != null) {
-                    a.finish();
-                }
-                np5.i(new TopToastEvent(i5, str, 1500));
-            } else if (i == iv4.D) {
-                Activity a2 = ol6.a(webView.getContext());
-                if (i6 == 1 && a2 != null) {
-                    a2.finish();
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    BdToastData bdToastData = new BdToastData();
-                    bdToastData.parserJson(str);
-                    BdToastHelper.toast(bdToastData);
-                }
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
+            f5a f5aVar = new f5a();
+            JSONObject jSONObject = new JSONObject();
             try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                t0aVar.o(jSONObject.toString());
-                return t0aVar;
+                jSONObject.put("title", str);
+                jSONObject.put("desc", str2);
+                jSONObject.put("img", str3);
+                jSONObject.put("url", str4);
+                jSONObject.put("topic", str5);
+                jSONObject.put("wbtitle", str6);
+                jSONObject.put("wbcontent", str7);
+                jSONObject.put("isShowMoreForum", str8);
+                jSONObject.put("shareimg", i);
+                jSONObject.put("extdata", str9);
             } catch (JSONException e) {
                 BdLog.e(e);
-                return t0aVar;
+            }
+            String jSONObject2 = jSONObject.toString();
+            if (!wi.isEmpty(jSONObject2)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016566, jSONObject2));
+                i2 = 1;
+            } else {
+                i2 = 0;
+            }
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("resultCode", i2);
+                f5aVar.o(jSONObject3.toString());
+                return f5aVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return f5aVar;
             }
         }
-        return (t0a) invokeCommon.objValue;
+        return (f5a) invokeCommon.objValue;
     }
 
-    public t0a g(WebView webView, String str, String str2, String str3, int i, int i2) {
+    /* JADX DEBUG: Multi-variable search result rejected for r3v10, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: boolean */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public f5a f(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject) {
         InterceptResult invokeCommon;
+        int i7;
+        CustomResponsedMessage runTask;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            t0a t0aVar = new t0a();
-            Activity a = ol6.a(webView.getContext());
-            int i3 = 0;
-            boolean z = false;
-            boolean z2 = false;
-            i3 = 0;
-            if (!TextUtils.isEmpty(str) && a != null) {
-                if (!TextUtils.isEmpty(str3)) {
-                    String str4 = "showToast_" + str3;
-                    int q = o95.p().q(str4, 0);
-                    if (q < i) {
-                        o95.p().F(str4, q);
-                        Intent intent = a.getIntent();
-                        if (i2 == 1) {
-                            z = true;
-                        }
-                        np5.i(new TipEvent(intent, str, str2, z));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, str11, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str12, str13, str14, str15, jSONObject})) == null) {
+            f5a f5aVar = new f5a();
+            Activity a2 = tl6.a(webView.getContext());
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("channel", i);
+                jSONObject2.put("shareimg", i2);
+                jSONObject2.put("img", str);
+                jSONObject2.put("isShowMoreForum", str2);
+                jSONObject2.put("url", str3);
+                jSONObject2.put("title", str4);
+                jSONObject2.put("desc", str5);
+                jSONObject2.put("topic", str6);
+                jSONObject2.put("wbtitle", str7);
+                jSONObject2.put("wbcontent", str8);
+                jSONObject2.put("weixin_disable", i3);
+                jSONObject2.put("extdata", str9);
+                jSONObject2.put("topicId", str10);
+                jSONObject2.put("roomId", j);
+                jSONObject2.put("filterRooms", i5);
+                jSONObject2.put("roomMemberCount", i6);
+                jSONObject2.put("fid", j2);
+                jSONObject2.put("forumName", str12);
+                jSONObject2.put("panelTitle", str15);
+                jSONObject2.put("shareIMCard", jSONObject);
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            String jSONObject3 = jSONObject2.toString();
+            if (!wi.isEmpty(jSONObject3) && (runTask = MessageManager.getInstance().runTask(2016568, ShareItem.class, jSONObject3)) != null) {
+                ShareItem shareItem = (ShareItem) runTask.getData();
+                if (shareItem != null) {
+                    shareItem.I = 17;
+                    shareItem.g = true;
+                    if (i4 == 1) {
+                        shareItem.B0 = str10;
                     }
+                    if (!TextUtils.isEmpty(str15)) {
+                        shareItem.p(str15);
+                    }
+                }
+                if (shareItem != null && shareItem.j()) {
+                    i(a2, shareItem, i5);
+                    f5aVar.o("");
+                    return f5aVar;
+                } else if (shareItem != null && shareItem.i()) {
+                    i(a2, shareItem, i5);
+                    f5aVar.o("");
+                    return f5aVar;
+                } else if (shareItem != null && shareItem.k()) {
+                    i(a2, shareItem, i5);
+                    f5aVar.o("");
+                    return f5aVar;
+                } else if ("1".equals(str2) && shareItem != null) {
+                    shareItem.A = str;
+                    shareItem.x = str3;
+                    shareItem.v = str4 + " " + str5;
+                    shareItem.q = true;
+                    if (i4 == 1) {
+                        shareItem.B0 = str10;
+                    }
+                    ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) a2, shareItem, true, (SparseArray<String>) null);
+                    shareDialogConfig.mShowMoreForumShare = true;
+                    zr6.c().l(shareDialogConfig);
+                    f5aVar.o("");
+                    return f5aVar;
+                } else if (i == 0) {
+                    if (shareItem != null && !wi.isEmpty(str) && i2 == 1) {
+                        e(shareItem);
+                        g(a2, str, i);
+                    }
+                    j(a2, shareItem, "1".equals(str13));
+                    i7 = 1;
                 } else {
-                    Intent intent2 = a.getIntent();
-                    if (i2 == 1) {
-                        z2 = true;
+                    if (shareItem != null && !wi.isEmpty(str)) {
+                        z = 1;
+                        i7 = 1;
+                        if (i2 == 1) {
+                            e(shareItem);
+                            g(a2, str, i);
+                        }
+                    } else {
+                        z = 1;
                     }
-                    np5.i(new TipEvent(intent2, str, str2, z2));
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(a2, i, shareItem, z));
+                    i7 = z;
                 }
-                if (i2 == 1) {
-                    a.finish();
-                }
-                i3 = 1;
+            } else {
+                i7 = 0;
             }
             try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i3);
-                t0aVar.o(jSONObject.toString());
-                return t0aVar;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return t0aVar;
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("resultCode", i7);
+                f5aVar.o(jSONObject4.toString());
+                return f5aVar;
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+                return f5aVar;
             }
         }
-        return (t0a) invokeCommon.objValue;
+        return (f5a) invokeCommon.objValue;
+    }
+
+    public final void g(Context context, String str, int i) {
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048581, this, context, str, i) != null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
+            return;
+        }
+        if (this.b == null) {
+            this.b = new PermissionJudgePolicy();
+        }
+        this.b.clearRequestPermissionList();
+        this.b.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (this.b.startRequestPermission(currentActivity)) {
+            return;
+        }
+        InsertGalleryAsyncTask insertGalleryAsyncTask = new InsertGalleryAsyncTask(currentActivity, str, new a(this, i, context));
+        insertGalleryAsyncTask.setFrom(1);
+        insertGalleryAsyncTask.execute(new String[0]);
+    }
+
+    public void j(Context context, ShareItem shareItem, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, shareItem, z) != null) || shareItem == null) {
+            return;
+        }
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, shareItem, true);
+        shareDialogConfig.setIsSupportNightMode(true);
+        if (!z) {
+            if (shareItem.k0 != 0) {
+                shareDialogConfig.hideMode |= 32;
+            }
+            shareDialogConfig.setIsCopyLink(true);
+        }
+        StatisticItem statisticItem = new StatisticItem("c10898");
+        statisticItem.param(TiebaStatic.Params.OBJ_URL, shareItem.x);
+        statisticItem.param("obj_type", 1);
+        TiebaStatic.log(statisticItem);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+    }
+
+    public f5a h(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, hashMap)) == null) {
+            f5a f5aVar = new f5a();
+            int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
+            int intValue2 = ((Integer) hashMap.get("shareStatus")).intValue();
+            if (intValue2 != 3 && intValue2 != 2) {
+                ShareItem shareItem = (ShareItem) hashMap.get("shareItem");
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("title", shareItem.v);
+                    jSONObject2.put("desc", shareItem.w);
+                    jSONObject2.put("img", shareItem.z);
+                    jSONObject2.put("url", shareItem.x);
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("type", intValue);
+                    jSONObject3.put("shareData", jSONObject2);
+                    jSONObject.put("resultCode", 1);
+                    jSONObject.put("data", jSONObject3);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                a(webView, CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION, jSONObject);
+                f5aVar.o(jSONObject.toString());
+            } else {
+                f5aVar.p();
+            }
+            return f5aVar;
+        }
+        return (f5a) invokeLL.objValue;
+    }
+
+    public void i(Context context, ShareItem shareItem, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048583, this, context, shareItem, i) != null) || shareItem == null) {
+            return;
+        }
+        if (i == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        shareItem.M0 = z;
+        shareItem.o0 = true;
+        zr6.c().l(new ShareDialogConfig(context, shareItem, true, (SparseArray<String>) null));
+        if (shareItem.j()) {
+            shareItem.R = 11;
+            yb8.b(shareItem.L0);
+        }
     }
 }

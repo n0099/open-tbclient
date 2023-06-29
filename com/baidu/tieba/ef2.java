@@ -1,243 +1,153 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.ErrorConstant;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.tieba.df2;
-import com.baidu.tieba.ve2;
-import com.baidu.tieba.vu2;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Set;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class ef2<T extends df2> extends nj4<al4> {
+public class ef2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final T a;
 
-    public abstract void r(@NonNull al4 al4Var);
-
-    public abstract void u(al4 al4Var, sn3 sn3Var);
-
-    /* loaded from: classes5.dex */
-    public class a implements ve2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ al4 a;
-        public final /* synthetic */ ef2 b;
-
-        public a(ef2 ef2Var, al4 al4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947732344, "Lcom/baidu/tieba/ef2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef2Var, al4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = ef2Var;
-            this.a = al4Var;
-        }
-
-        @Override // com.baidu.tieba.ve2.c
-        public void a(PMSDownloadType pMSDownloadType) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                this.b.r(this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.ve2.c
-        public void b(PMSDownloadType pMSDownloadType, sn3 sn3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, sn3Var) == null) {
-                this.b.u(this.a, sn3Var);
-            }
-        }
-    }
-
-    public ef2(@NonNull T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947732344, "Lcom/baidu/tieba/ef2;");
                 return;
             }
         }
-        this.a = t;
+        a = ms1.a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qj4
-    /* renamed from: l */
-    public String d(al4 al4Var) {
-        InterceptResult invokeL;
+    public static void a(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, al4Var)) == null) {
-            return vu2.e.h().getAbsolutePath();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void q(@NonNull al4 al4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, al4Var) == null) {
-            r(al4Var);
-            ve2.c().b(al4Var, o());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nj4, com.baidu.tieba.qj4
-    /* renamed from: v */
-    public void c(al4 al4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, al4Var) == null) {
-            super.c(al4Var);
-            if (al4Var != null) {
-                r73.b("plugin download start: bundleId = " + al4Var.g);
+        if ((interceptable == null || interceptable.invokeL(65537, null, message) == null) && message != null) {
+            Object obj = message.obj;
+            if (obj instanceof Bundle) {
+                Bundle bundle = (Bundle) obj;
+                String string = bundle.getString("eventType");
+                HashMap hashMap = new HashMap();
+                hashMap.put("eventType", string);
+                JSONObject jSONObject = new JSONObject();
+                if (TextUtils.equals(string, "checkForUpdate")) {
+                    try {
+                        jSONObject.put("hasUpdate", bundle.getBoolean("hasUpdate"));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                hashMap.put("data", jSONObject.toString());
+                dm2 dm2Var = new dm2("updateStatusChange", hashMap);
+                SwanAppActivity activity = px2.T().getActivity();
+                if (activity != null && activity.S() == 1) {
+                    kv2.i().v(string, bundle.getBoolean("hasUpdate"));
+                } else {
+                    px2.T().u(dm2Var);
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nj4, com.baidu.tieba.qj4
-    /* renamed from: w */
-    public void f(al4 al4Var) {
+    public static void b(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, al4Var) == null) {
-            super.f(al4Var);
-            if (al4Var != null) {
-                r73.b("plugin on downloading: bundleId = " + al4Var.g);
+        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
+            c92.k("SwanAppPkgUpdateManager", "send checkForUpdate msg, hasUpdate=" + z);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("hasUpdate", z);
+            d("checkForUpdate", str, bundle);
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            c92.k("SwanAppPkgUpdateManager", "send update failed msg");
+            d("updateFailed", str, null);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            if (a) {
+                Log.d("SwanAppPkgUpdateManager", "send update ready msg");
             }
-            x(al4Var);
+            d("updateReady", str, null);
         }
     }
 
-    public final void x(al4 al4Var) {
+    public static void d(String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, al4Var) == null) {
-            ve2.c().d(al4Var, new a(this, al4Var));
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bundle) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                if (bundle == null) {
+                    bundle = new Bundle();
+                }
+                bundle.putString("eventType", str);
+                s83 e = s83.e();
+                u83 u83Var = new u83(107, bundle);
+                u83Var.c(str2);
+                e.h(u83Var);
+                return;
+            }
+            c92.k("SwanAppPkgUpdateManager", "appId is empty or eventType is empty");
         }
     }
 
-    @Override // com.baidu.tieba.sj4
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
+    public static void f(String str, String str2, boolean z) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) {
-            return this.a.m(bundle, set);
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public final void p(al4 al4Var, sn3 sn3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, al4Var, sn3Var) == null) {
-            u(al4Var, sn3Var);
-            ve2.c().a(al4Var, o(), sn3Var);
-        }
-    }
-
-    public PMSDownloadType o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return PMSDownloadType.PLUGIN;
-        }
-        return (PMSDownloadType) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nj4, com.baidu.tieba.qj4
-    /* renamed from: s */
-    public void e(al4 al4Var, tk4 tk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, al4Var, tk4Var) == null) {
-            super.e(al4Var, tk4Var);
-            r73.b("plugin download error: " + tk4Var);
-            sn3 sn3Var = new sn3();
-            sn3Var.k(17L);
-            sn3Var.i((long) tk4Var.a);
-            sn3Var.d(tk4Var.b);
-            sn3Var.f(tk4Var.toString());
-            p(al4Var, sn3Var);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nj4, com.baidu.tieba.qj4
-    /* renamed from: t */
-    public void i(al4 al4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, al4Var) == null) {
-            super.i(al4Var);
-            if (al4Var == null) {
-                r73.b("download finish, plugin is null");
-                sn3 sn3Var = new sn3();
-                sn3Var.k(17L);
-                sn3Var.i(2201L);
-                sn3Var.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
-                p(null, sn3Var);
-            } else if (!mp3.a(new File(al4Var.a), al4Var.m)) {
-                ds4.M(al4Var.a);
-                r73.b("download finish, check zip sign failure");
-                sn3 sn3Var2 = new sn3();
-                sn3Var2.k(17L);
-                sn3Var2.i(2202L);
-                sn3Var2.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5);
-                p(al4Var, sn3Var2);
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -1330233754) {
+                if (hashCode != -1317168438) {
+                    if (hashCode == -585906598 && str.equals("updateReady")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("checkForUpdate")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
             } else {
-                File t = vu2.t(al4Var.g, String.valueOf(al4Var.i));
-                ds4.l(t);
-                if (t != null && t.exists()) {
-                    boolean U = ds4.U(al4Var.a, t.getAbsolutePath());
-                    ds4.M(al4Var.a);
-                    r73.b("download finish, unZipSuccess = " + U);
-                    if (!U) {
-                        sn3 sn3Var3 = new sn3();
-                        sn3Var3.k(17L);
-                        sn3Var3.i(2320L);
-                        sn3Var3.d("plugin unzip fail.");
-                        p(al4Var, sn3Var3);
+                if (str.equals("updateFailed")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        b(str2, z);
                         return;
                     }
-                    al4Var.c = al4Var.b();
-                    al4Var.d = al4Var.b();
-                    wj4.i().m(al4Var);
-                    q(al4Var);
                     return;
                 }
-                ds4.M(al4Var.a);
-                r73.b("download finish, create file failure, name = " + al4Var.g + " ; version = " + al4Var.i);
-                sn3 sn3Var4 = new sn3();
-                sn3Var4.k(17L);
-                sn3Var4.i(2203L);
-                sn3Var4.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH);
-                p(al4Var, sn3Var4);
+                c(str2);
+                return;
             }
+            e(str2);
         }
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.a07;
-import com.baidu.tieba.pq5;
-import com.baidu.tieba.wn;
+import com.baidu.tieba.f07;
+import com.baidu.tieba.uq5;
+import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes5.dex */
-public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements pq5 {
+public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements uq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a07 enterForumTabFeedData;
+    public f07 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -48,7 +48,7 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
         return invokeV.objValue;
     }
 
-    public ArrayList<wn> getThreadList() {
+    public ArrayList<xn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -76,9 +76,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
             if (getError() != 0 || tabfeedlistResIdl.data == null) {
                 return;
             }
-            a07 a07Var = new a07();
-            this.enterForumTabFeedData = a07Var;
-            a07Var.g(tabfeedlistResIdl.data);
+            f07 f07Var = new f07();
+            this.enterForumTabFeedData = f07Var;
+            f07Var.g(tabfeedlistResIdl.data);
         }
     }
 }

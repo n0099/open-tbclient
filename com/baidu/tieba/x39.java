@@ -1,23 +1,52 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-import tbclient.ExcPbPage.UserInfo;
-import tbclient.Post;
-import tbclient.User;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface x39 {
-    int getErroCode();
+public class x39 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<hh5> a;
+    public boolean b;
 
-    String getErrorText();
+    public x39() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    List<Post> getPostList();
-
-    ExcellentPbThreadInfo getThreadInfo();
-
-    UserInfo getUserInfo();
-
-    List<User> getUserList();
-
-    boolean isEmpty();
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("user_info_list");
+        boolean z = false;
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            this.a = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                hh5 hh5Var = new hh5();
+                hh5Var.a(optJSONArray.optJSONObject(i));
+                this.a.add(hh5Var);
+            }
+        }
+        if (jSONObject.optInt("has_more", 0) == 1) {
+            z = true;
+        }
+        this.b = z;
+    }
 }

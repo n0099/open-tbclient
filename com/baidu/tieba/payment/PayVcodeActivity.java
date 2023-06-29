@@ -26,13 +26,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c39;
-import com.baidu.tieba.d39;
-import com.baidu.tieba.o0a;
-import com.baidu.tieba.p0a;
+import com.baidu.tieba.a5a;
+import com.baidu.tieba.b5a;
+import com.baidu.tieba.c5a;
+import com.baidu.tieba.n79;
+import com.baidu.tieba.o79;
 import com.baidu.tieba.payment.data.PayVcodeInfoData;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
-import com.baidu.tieba.q0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PayVcodeModel a;
-    public c39 b;
+    public n79 b;
     public String c;
     public String d;
     public String e;
@@ -57,8 +57,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public String j;
     public String k;
     public boolean l;
-    public o0a m;
-    public q0a n;
+    public a5a m;
+    public c5a n;
     public HttpMessageListener o;
 
     public PayVcodeActivity() {
@@ -106,7 +106,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) {
-                    this.a.b.D(false);
+                    this.a.b.E(false);
                     if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponsePayNewVcodeInfoMessage)) {
                         ResponsePayNewVcodeInfoMessage responsePayNewVcodeInfoMessage = (ResponsePayNewVcodeInfoMessage) httpResponsedMessage;
                         if (!responsePayNewVcodeInfoMessage.hasError()) {
@@ -120,12 +120,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                             }
                             String errorString = responsePayNewVcodeInfoMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f74);
+                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f91);
                             }
                             this.a.showToast(errorString);
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0df3);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0e0f);
                     }
                 }
             }
@@ -135,7 +135,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public final void V1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.D(true);
+            this.b.E(true);
             this.a.V();
         }
     }
@@ -150,8 +150,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public final void c2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.D(true);
-            this.b.A().loadUrl(this.c);
+            this.b.E(true);
+            this.b.B().loadUrl(this.c);
         }
     }
 
@@ -171,9 +171,9 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             this.g.removeMessages(1);
             this.g.removeMessages(2);
             this.g.removeMessages(3);
-            o0a o0aVar = this.m;
-            if (o0aVar != null) {
-                o0aVar.h();
+            a5a a5aVar = this.m;
+            if (a5aVar != null) {
+                a5aVar.h();
             }
         }
     }
@@ -215,27 +215,27 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public final void W1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !StringUtils.isNull(this.j)) {
-            BaseWebView A = this.b.A();
-            A.loadUrl("javascript:" + this.j + "()");
+            BaseWebView B = this.b.B();
+            B.loadUrl("javascript:" + this.j + "()");
         }
     }
 
     public final void Y1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !StringUtils.isNull(this.k) && this.l) {
-            BaseWebView A = this.b.A();
-            A.loadUrl("javascript:" + this.k + "()");
+            BaseWebView B = this.b.B();
+            B.loadUrl("javascript:" + this.k + "()");
         }
     }
 
     public void Z1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b.u().setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+            this.b.x().setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
             alphaAnimation.setDuration(300L);
             alphaAnimation.setFillAfter(true);
-            this.b.u().startAnimation(alphaAnimation);
+            this.b.x().startAnimation(alphaAnimation);
             Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
             loadAnimation.setDuration(300L);
             loadAnimation.setFillAfter(true);
@@ -292,7 +292,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     }
                 }
             });
-            this.b.z().startAnimation(loadAnimation);
+            this.b.A().startAnimation(loadAnimation);
         }
     }
 
@@ -340,7 +340,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                                 this.a.X1();
                                 return;
                             }
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0f73);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0f90);
                             return;
                         }
                         this.a.V1();
@@ -353,9 +353,9 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public final void b2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c39 c39Var = new c39(this);
-            this.b = c39Var;
-            c39Var.y().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
+            n79 n79Var = new n79(this);
+            this.b = n79Var;
+            n79Var.z().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity a;
@@ -387,7 +387,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     this.a.Y1();
                 }
             });
-            this.b.x().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
+            this.b.y().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity a;
@@ -414,16 +414,16 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && !this.a.l) {
-                        this.a.b.D(true);
-                        this.a.b.A().stopLoading();
-                        this.a.b.A().loadUrl(this.a.c);
+                        this.a.b.E(true);
+                        this.a.b.B().stopLoading();
+                        this.a.b.B().loadUrl(this.a.c);
                     }
                 }
             });
-            d39 d39Var = new d39(this);
-            d39Var.a(this.n);
-            this.b.A().setWebChromeClient(d39Var);
-            this.b.A().setWebViewClient(new WebViewClient(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.7
+            o79 o79Var = new o79(this);
+            o79Var.a(this.n);
+            this.b.B().setWebChromeClient(o79Var);
+            this.b.B().setWebViewClient(new WebViewClient(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity a;
@@ -451,12 +451,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
                         super.onPageFinished(webView, str);
-                        this.a.b.D(false);
-                        this.a.b.C(!this.a.l);
+                        this.a.b.E(false);
+                        this.a.b.D(!this.a.l);
                     }
                 }
             });
-            this.b.u().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.8
+            this.b.x().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity a;
@@ -493,10 +493,10 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public void e2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.u().setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+            this.b.x().setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
             alphaAnimation.setDuration(300L);
-            this.b.u().startAnimation(alphaAnimation);
+            this.b.x().startAnimation(alphaAnimation);
             Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
             loadAnimation.setDuration(300L);
             loadAnimation.setFillAfter(true);
@@ -546,7 +546,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     this.a.c2();
                 }
             });
-            this.b.z().startAnimation(loadAnimation);
+            this.b.A().startAnimation(loadAnimation);
             this.i = true;
         }
     }
@@ -559,9 +559,9 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            o0a o0aVar = new o0a();
-            this.m = o0aVar;
-            o0aVar.a(new p0a(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.2
+            a5a a5aVar = new a5a();
+            this.m = a5aVar;
+            a5aVar.a(new b5a(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity this$0;
@@ -584,7 +584,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.p0a
+                @Override // com.baidu.tieba.b5a
                 public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                     InterceptResult invokeLLLL;
                     Interceptable interceptable2 = $ic;
@@ -650,7 +650,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     return invokeLLLL.booleanValue;
                 }
             });
-            this.n = new q0a(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.3
+            this.n = new c5a(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity a;
@@ -673,13 +673,13 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     this.a = this;
                 }
 
-                @Override // com.baidu.tieba.q0a
+                @Override // com.baidu.tieba.c5a
                 public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                         if (this.a.m != null) {
-                            return this.a.m.c(this.a.b.A(), str, jsPromptResult);
+                            return this.a.m.c(this.a.b.B(), str, jsPromptResult);
                         }
                         return false;
                     }

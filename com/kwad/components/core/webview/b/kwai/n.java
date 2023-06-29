@@ -3,11 +3,11 @@ package com.kwad.components.core.webview.b.kwai;
 import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class n implements com.kwad.sdk.core.webview.kwai.a {
     public a NI;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(com.kwad.components.core.webview.b.a.i iVar);
     }

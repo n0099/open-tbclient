@@ -1,37 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class nd4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class nd4 extends ej3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int k;
+    public String l;
+    public int m;
+    public int n;
+    public long o;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(int i, long j, long j2);
-
-        void b(int i);
-
-        void success();
+    public nd4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static void a(String str, a aVar) {
-        zb3 M;
+    @Override // com.baidu.tieba.ej3
+    public JSONObject f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, aVar) != null) || aVar == null || TextUtils.isEmpty(str) || (M = zb3.M()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("stage", this.k);
+                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
+                this.h.put("netStatus", this.m);
+                this.h.put(DownloadStatisticConstants.UBC_PAGE_VALUE_TOUCH, this.n);
+                this.h.put("stuck_interval", this.o);
+            } catch (JSONException e) {
+                if (ej3.j) {
+                    e.printStackTrace();
+                }
+            }
+            return super.f();
         }
-        if (md4.b().d(str)) {
-            aVar.success();
-            return;
-        }
-        String a2 = md4.b().a(str);
-        if (TextUtils.isEmpty(a2)) {
-            aVar.b(2112);
-        } else {
-            jj4.h(new en4(M.b, M.k0(), a2, 1), new qd4(M.b, M.k0(), md4.b().c(str, 2), aVar));
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

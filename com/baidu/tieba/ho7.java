@@ -1,31 +1,60 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: HeaderViewLogic.java */
 /* loaded from: classes6.dex */
-public interface ho7 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
-
-    void b(@NonNull ThemeElement themeElement);
-
-    void c(float f);
-
-    void d(int i, boolean z);
+public final /* synthetic */ class ho7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    NavigationBar e();
+    public static io7 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new jo7();
+        }
+        return (io7) invokeV.objValue;
+    }
 
-    void f(boolean z);
+    public static View b(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return view2.findViewById(R.id.obfuscated_res_0x7f090cb9);
+        }
+        return (View) invokeL.objValue;
+    }
 
-    int g();
+    @NonNull
+    public static TextView c(@NonNull View view2, boolean z) {
+        InterceptResult invokeLZ;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, view2, z)) == null) {
+            if (z) {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eca);
+            } else {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ecb);
+            }
+            textView.bringToFront();
+            s75.d(textView).x(R.color.CAM_X0619);
+            return textView;
+        }
+        return (TextView) invokeLZ.objValue;
+    }
 
-    void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
-
-    void onChangeSkinType(int i);
+    public static void d(@NonNull View view2, @NonNull View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
+            s75 d = s75.d(view2);
+            d.o(R.string.J_X11);
+            d.u(R.array.Mask_X005);
+        }
+    }
 }

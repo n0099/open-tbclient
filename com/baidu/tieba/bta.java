@@ -1,288 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.Vector;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class bta {
+public final class bta {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public dta a;
-    public Timer b;
-    public TimerTask c;
-    public int d;
-    public Vector<Integer> e;
-    public long f;
-    public boolean g;
-    public boolean h;
-    public cta i;
-    public int j;
-    public float k;
-    public long l;
-    public Vector<Integer> m;
 
-    /* loaded from: classes5.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bta a;
-
-        public a(bta btaVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657882, "Lcom/baidu/tieba/bta;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {btaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = btaVar;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.h) {
-                    this.a.j();
-                } else {
-                    this.a.q();
-                }
-                bta btaVar = this.a;
-                btaVar.h = btaVar.l(btaVar.j);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bta a;
-
-        public b(bta btaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {btaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = btaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.g = false;
-            if (this.a.c != null) {
-                this.a.c.cancel();
-            }
-            if (this.a.b != null) {
-                this.a.b.purge();
-            }
-        }
-    }
-
-    public bta() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947657882, "Lcom/baidu/tieba/bta;");
                 return;
             }
         }
-        this.d = 0;
-        this.e = new Vector<>();
-        this.g = false;
-        this.h = false;
-        this.i = new cta();
-        this.j = 0;
-        this.k = 0.0f;
-        this.l = 0L;
-        this.m = new Vector<>();
-        this.b = new Timer();
+        a = new Object();
     }
 
-    public final boolean l(int i) {
-        InterceptResult invokeI;
+    public static void a(StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int nextInt = new Random().nextInt(100);
-            if (i <= 0 || i > 100 || nextInt > i) {
-                return false;
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d++;
-            this.i.a = k(this.m);
-            this.i.b = k(this.e);
-            this.i.c = this.m.size() + "";
-            this.i.f = Float.toString(dxa.a());
-            this.i.d = this.k;
-            rwa.b("report ar frame data");
-            zsa.a(String.valueOf(this.d), this.a, this.i);
-            q();
+        if (interceptable == null || interceptable.invokeL(65537, null, sb) == null) {
+            sb.append(" TurboNet/");
+            sb.append(jsa.a());
         }
     }
 
-    public final String k(List<Integer> list) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (wwa.e(list)) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(context.getPackageName());
+            sb.append(WebvttCueParser.CHAR_SLASH);
+            sb.append(c(context));
+            sb.append(" (Linux; U; Android ");
+            sb.append(Build.VERSION.RELEASE);
+            sb.append("; ");
+            sb.append(Locale.getDefault().toString());
+            String str = Build.MODEL;
+            if (str.length() > 0) {
+                sb.append("; ");
+                sb.append(str);
             }
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            float f2 = 0.0f;
-            for (int i = 0; i < list.size(); i++) {
-                Integer num = list.get(i);
-                if (num != null) {
-                    f2 += num.intValue();
-                    jSONArray.put(num);
-                }
+            String str2 = Build.ID;
+            if (str2.length() > 0) {
+                sb.append("; Build/");
+                sb.append(str2);
             }
-            float size = f2 / list.size();
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                Integer num2 = list.get(i2);
-                if (num2 != null) {
-                    f = (float) (f + Math.pow(num2.intValue() - size, 2.0d));
-                }
-            }
-            float size2 = f / list.size();
-            try {
-                jSONObject.put("avg", size);
-                jSONObject.put("vari", size2);
-                jSONObject.put("val", jSONArray.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            a(sb);
+            sb.append(')');
+            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public void m() {
+    public static int c(Context context) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = false;
-            Timer timer = this.b;
-            if (timer != null) {
-                timer.cancel();
-                this.b = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            synchronized (a) {
+                if (b == 0) {
+                    try {
+                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    } catch (PackageManager.NameNotFoundException e) {
+                        throw new IllegalStateException("Cannot determine package version", e);
+                    }
+                }
+                i = b;
             }
-            TimerTask timerTask = this.c;
-            if (timerTask != null) {
-                timerTask.cancel();
-                this.c = null;
-            }
+            return i;
         }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.l = System.currentTimeMillis();
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f = 0L;
-            this.l = 0L;
-            this.e.clear();
-            this.m.clear();
-            this.i.a();
-            this.k = 0.0f;
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            rwa.b("stopTimer");
-            jxa.a().postDelayed(new b(this), 1000L);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !this.h || !this.g) {
-            return;
-        }
-        if (this.f <= 0) {
-            this.f = System.currentTimeMillis();
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        int i = (int) (currentTimeMillis - this.f);
-        if (i < 0) {
-            return;
-        }
-        this.e.add(Integer.valueOf(i));
-        this.f = currentTimeMillis;
-    }
-
-    public void o() {
-        int currentTimeMillis;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !this.h || !this.g || this.l <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.l)) < 0) {
-            return;
-        }
-        this.m.add(Integer.valueOf(currentTimeMillis));
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || this.g || this.b == null) {
-            return;
-        }
-        rwa.b("startTimer");
-        this.g = true;
-        this.c = new a(this);
-        this.b.purge();
-        this.b.schedule(this.c, 0L, 1000L);
+        return invokeL.intValue;
     }
 }

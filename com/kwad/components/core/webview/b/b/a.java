@@ -6,7 +6,7 @@ import com.kwad.components.core.webview.b.kwai.i;
 import com.kwad.components.core.webview.b.kwai.j;
 import com.kwad.sdk.components.h;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends Presenter implements e {
     public b Ob;
     public com.kwad.components.core.webview.b.d hN;

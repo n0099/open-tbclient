@@ -1,48 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class td2 implements pj2 {
+public class td2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public td2() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948177287, "Lcom/baidu/tieba/td2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948177287, "Lcom/baidu/tieba/td2;");
+                return;
+            }
+        }
+        a = ms1.a;
+    }
+
+    public td2(ab2 ab2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ab2Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pj2
-    public String getUserAgent() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public String setData(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return yn3.a();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (a) {
+                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
+            }
+            int i = 0;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                px2.T().y(new fm2(str, str2), false);
+            } else {
+                i = 202;
+            }
+            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pj2
-    public hj2 a(String str, ek2 ek2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, ek2Var, v8ThreadDelegatePolicy)) == null) {
-            return new sd2(str, ek2Var, v8ThreadDelegatePolicy);
-        }
-        return (hj2) invokeLLL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

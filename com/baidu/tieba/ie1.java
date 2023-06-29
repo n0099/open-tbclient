@@ -1,157 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.method.Touch;
+import android.text.style.ClickableSpan;
+import android.view.MotionEvent;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
-import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class ie1 {
+public class ie1 extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final View b;
-    public String c;
-    public ae1 d;
-    public zd1 e;
+    public a a;
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onLinkTouch(TextView textView, MotionEvent motionEvent);
+
+        void onNoLinkTouch(TextView textView, MotionEvent motionEvent);
     }
 
-    public ie1(int i, View view2) {
+    public ie1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = null;
-        this.a = i;
-        this.b = view2;
     }
 
-    public static boolean c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        jr0 jr0Var;
+    public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) {
-            if (d(adBaseModel) && adBaseModel.h.a == AdOperator.TYPE.DOWNLOAD && (jr0Var = adBaseModel.l) != null && jr0Var.e) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, spannable, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 1 && action != 0) {
+                return Touch.onTouchEvent(textView, spannable, motionEvent);
+            }
+            int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+            int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+            int scrollX = x + textView.getScrollX();
+            int scrollY = y + textView.getScrollY();
+            Layout layout = textView.getLayout();
+            int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+            Object[] objArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
+            if (objArr.length != 0) {
+                if (action == 1) {
+                    objArr[0].onClick(textView);
+                } else if (action == 0) {
+                    Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
+                }
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onLinkTouch(textView, motionEvent);
+                }
                 return true;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adBaseModel)) == null) {
-            if (adBaseModel != null && adBaseModel.h != null) {
-                return true;
+            a aVar2 = this.a;
+            if (aVar2 != null) {
+                aVar2.onNoLinkTouch(textView, motionEvent);
             }
+            Selection.removeSelection(spannable);
+            super.onTouchEvent(textView, spannable, motionEvent);
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final <T> T a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (T) this.b.findViewById(i);
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public void f(ae1 ae1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ae1Var) == null) {
-            this.d = ae1Var;
-        }
-    }
-
-    public final <T> void g(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-            this.b.setTag(t);
-        }
-    }
-
-    public void h(zd1 zd1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, zd1Var) == null) {
-            this.e = zd1Var;
-        }
-    }
-
-    public final void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b.setVisibility(i);
-        }
-    }
-
-    public final <T> T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (T) this.b.getTag();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b.getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final Resources getResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b.getResources();
-        }
-        return (Resources) invokeV.objValue;
-    }
-
-    public void j() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (view2 = this.b) != null && view2.getLayoutParams() != null) {
-            this.b.getLayoutParams().height = -2;
-            View view3 = this.b;
-            view3.setLayoutParams(view3.getLayoutParams());
-        }
-    }
-
-    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, adBaseModel, nadExpressNaBaseView) == null) {
-            g(adBaseModel);
-        }
+        return invokeLLL.booleanValue;
     }
 }

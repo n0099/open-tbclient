@@ -1,5 +1,5 @@
 package com.kwad.components.offline.api;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BuildConfig {
     @Deprecated
     public static final String APPLICATION_ID = "com.kwad.components.offline.api";

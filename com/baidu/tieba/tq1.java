@@ -1,89 +1,238 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Build;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
-public final class tq1 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.net.URLEncoder;
+import java.util.Iterator;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class tq1 extends rq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public uq1 c;
 
-    public static byte[] a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tq1(Context context, Handler handler) {
+        super(context, handler);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Handler) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = context;
+        this.c = uq1.a(context);
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            char[] cArr = new char[32];
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                char[] charArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-                for (int i = 0; i < 32; i++) {
-                    int nextInt = new SecureRandom().nextInt(62);
-                    if (nextInt >= 0 && nextInt < charArray.length) {
-                        cArr[i] = charArray[nextInt];
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("0", this.b.getPackageName());
+                jSONObject.put("6", lr1.i(this.b));
+                jSONObject.put("7", tr1.a(this.b));
+                jSONObject.put("8", String.valueOf(Build.VERSION.SDK_INT));
+                jSONObject.put("9", xq1.d(this.b));
+                zp1.a("requestPolicy, param:" + jSONObject.toString());
+                return c("q/1/qc", lr1.c(this.b, jSONObject, ""));
+            } catch (Throwable th) {
+                lr1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) {
+            try {
+                vq1 c = wq1.c(wq1.a(), or1.b(jSONObject.toString().getBytes("utf-8")));
+                String b = this.c.b(str, URLEncoder.encode(Base64.encodeToString(nr1.b(c.a(), qr1.b(mr1.a(this.b)).getBytes()), 0), "utf-8"));
+                if (TextUtils.isEmpty(b)) {
+                    return "";
+                }
+                String a = a(b, c.b());
+                if (TextUtils.isEmpty(a)) {
+                    return "";
+                }
+                JSONObject jSONObject2 = new JSONObject(a);
+                jSONObject2.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+                String str2 = new String(wq1.b(nr1.a(Base64.decode(jSONObject2.optString("skey").getBytes(), 0), qr1.b(mr1.a(this.b)).getBytes()), Base64.decode(jSONObject2.optString("data").getBytes(), 0)));
+                zp1.a("requestPolicy, response:" + str2);
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String d(JSONObject jSONObject, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, j)) == null) {
+            try {
+                JSONObject f = f(true, false);
+                f.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK, xq1.c(this.b, true, false, "login"));
+                f.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK, xq1.b(this.b, "login"));
+                f.put("24", "");
+                f.put("73", lq1.j().a());
+                if (lq1.j().h()) {
+                    f.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, ur1.a(this.b));
+                    f.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, xq1.g(this.b, "login"));
+                    Pair<Integer, String[]> d = ur1.d(this.b);
+                    if (d != null) {
+                        f.put(PayUVEventType.PAY_WALLET_BANNER_SHOW, d.first);
+                        String[] strArr = (String[]) d.second;
+                        if (strArr.length == 4) {
+                            f.put("14", strArr[0]);
+                            f.put("18", strArr[1]);
+                            f.put("15", strArr[2]);
+                            f.put("19", strArr[3]);
+                        }
                     }
+                }
+                return c("q/1/qmini", lr1.c(this.b, e(f, jSONObject), "1077102"));
+            } catch (Throwable th) {
+                lr1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final JSONObject e(JSONObject jSONObject, JSONObject jSONObject2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, jSONObject2)) == null) {
+            if (jSONObject == null && jSONObject2 == null) {
+                return null;
+            }
+            if (jSONObject == null) {
+                return jSONObject2;
+            }
+            if (jSONObject2 == null) {
+                return jSONObject;
+            }
+            try {
+                Iterator<String> keys = jSONObject2.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    jSONObject.put(next, jSONObject2.opt(next));
                 }
             } catch (Throwable th) {
-                ir1.d(th);
+                lr1.d(th);
             }
-            return new String(cArr).getBytes();
+            return jSONObject;
         }
-        return (byte[]) invokeV.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public static byte[] b(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public final JSONObject f(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            if (bArr != null) {
-                try {
-                    if (bArr.length == 32 && bArr2 != null && bArr2.length != 0) {
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                        byte[] bArr3 = new byte[16];
-                        System.arraycopy(bArr, 8, bArr3, 0, 16);
-                        cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                        byte[] bArr4 = new byte[bArr2.length - 16];
-                        System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
-                        return cipher.doFinal(bArr4);
-                    }
-                } catch (Throwable th) {
-                    ir1.d(th);
-                    return null;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                g(jSONObject, "21", "");
+                g(jSONObject, "22", "");
+                g(jSONObject, "23", "");
+            } catch (Throwable th) {
+                lr1.d(th);
             }
-            return bArr2;
+            return jSONObject;
         }
-        return (byte[]) invokeLL.objValue;
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    public static sq1 c(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public final void g(JSONObject jSONObject, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length != 0) {
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                        byte[] bArr3 = new byte[16];
-                        System.arraycopy(bArr, 8, bArr3, 0, 16);
-                        cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
-                        byte[] doFinal = cipher.doFinal(bArr2);
-                        byte[] e = nr1.e(bArr2);
-                        byte[] bArr4 = new byte[doFinal.length + e.length];
-                        System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                        System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
-                        return new sq1(bArr, bArr4);
-                    }
-                } catch (Throwable th) {
-                    ir1.d(th);
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, jSONObject, str, str2) == null) && jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                if (TextUtils.isEmpty(str2)) {
+                    jSONObject.put(str, "");
+                } else {
+                    jSONObject.put(str, str2);
                 }
+            } catch (Throwable th) {
+                lr1.d(th);
             }
-            return null;
         }
-        return (sq1) invokeLL.objValue;
+    }
+
+    public boolean h(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            try {
+                JSONObject f = f(false, true);
+                f.put("24", "");
+                f.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK, xq1.c(this.b, false, true, "prelogin"));
+                f.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK, xq1.b(this.b, "prelogin"));
+                f.put(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, xq1.e(this.b, "prelogin"));
+                f.put("28", xq1.f(this.b, "prelogin"));
+                f.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, xq1.g(this.b, "prelogin"));
+                f.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK, String.valueOf(Build.VERSION.SDK_INT));
+                f.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, ur1.a(this.b));
+                Pair<Integer, String[]> d = ur1.d(this.b);
+                if (d != null) {
+                    f.put(PayUVEventType.PAY_WALLET_BANNER_SHOW, d.first);
+                    String[] strArr = (String[]) d.second;
+                    if (strArr.length == 4) {
+                        f.put("14", strArr[0]);
+                        f.put("18", strArr[1]);
+                        f.put("15", strArr[2]);
+                        f.put("19", strArr[3]);
+                    }
+                }
+                JSONObject jSONObject2 = new JSONObject(c("q/1/qpre", lr1.c(this.b, e(f, jSONObject), "1077104")));
+                if (jSONObject2.optInt("0", 0) == 0) {
+                    lq1.j().e(this.b, jSONObject2);
+                    return true;
+                }
+            } catch (Throwable th) {
+                lr1.d(th);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String i(JSONObject jSONObject, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, jSONObject, j)) == null) {
+            try {
+                return c("q/1/qv", lr1.c(this.b, e(f(true, false), jSONObject), ""));
+            } catch (Throwable th) {
+                lr1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeLJ.objValue;
     }
 }

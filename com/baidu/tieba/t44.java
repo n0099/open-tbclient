@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Intent;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t44 extends f44 {
+public class t44 extends i44 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,12 +30,12 @@ public class t44 extends f44 {
                 return;
             }
         }
-        c = js1.a;
+        c = ms1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t44() {
-        super("ReservationGame");
+        super("StartAppUsagePage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,88 +51,30 @@ public class t44 extends f44 {
         }
     }
 
-    @Override // com.baidu.tieba.f44
-    public z32 a(@NonNull JSONObject jSONObject, @NonNull dp2 dp2Var) {
+    @Override // com.baidu.tieba.i44
+    public c42 a(@NonNull JSONObject jSONObject, @NonNull gp2 gp2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, dp2Var)) == null) {
-            if (jSONObject == null) {
-                dp2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (c) {
-                Log.e("ReservationGameAction", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("apkId");
-            int optInt = jSONObject.optInt("isReservation");
-            if (TextUtils.isEmpty(optString)) {
-                dp2Var.onFail(31023, "reservation apk id is empty");
-                return null;
-            } else if (optInt == 0) {
-                dp2Var.onFail(31024, "reservation status error");
-                return null;
-            } else {
-                String string = nk3.a().getString("reservation_apk_ids", "");
-                if (optInt != 1) {
-                    if (optInt == 2) {
-                        if (b(string, optString)) {
-                            dp2Var.onSuccess(null);
-                        } else {
-                            dp2Var.onFail(31025, "reservation cancel fail");
-                        }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, gp2Var)) == null) {
+            cc3 b0 = cc3.b0();
+            if (b0 != null && b0.w() != null) {
+                try {
+                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
+                } catch (Exception e) {
+                    if (c) {
+                        e.printStackTrace();
                     }
-                } else {
-                    d(string, optString);
-                    dp2Var.onSuccess(null);
+                    gp3.f(b0.w());
                 }
-                return null;
-            }
-        }
-        return (z32) invokeLL.objValue;
-    }
-
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(str.split(",")));
-            boolean remove = arrayList.remove(str2);
-            if (remove) {
-                c(arrayList);
-            }
-            return remove;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void c(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < arrayList.size(); i++) {
-                stringBuffer.append(arrayList.get(i));
-                if (i < arrayList.size() - 1) {
-                    stringBuffer.append(",");
-                }
-            }
-            nk3.a().putString("reservation_apk_ids", stringBuffer.toString());
-        }
-    }
-
-    public final void d(String str, String str2) {
-        HashSet hashSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str)) {
-                hashSet = new HashSet();
+                gp2Var.onSuccess(null);
             } else {
-                hashSet = new HashSet(Arrays.asList(str.split(",")));
+                gp2Var.onFail(100, "swan or activity is null");
+                if (c) {
+                    Log.d("StartAppUsagePage", "swan or activity is null");
+                }
             }
-            hashSet.add(str2);
-            c(new ArrayList<>(hashSet));
+            return null;
         }
+        return (c42) invokeLL.objValue;
     }
 }

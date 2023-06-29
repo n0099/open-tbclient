@@ -1,7 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface oa3<T> {
-    T getItem(int i);
 
-    int getItemsCount();
+import android.content.Context;
+import android.view.View;
+/* loaded from: classes7.dex */
+public interface oa3<T extends View> {
+    T createRefreshableView(Context context);
 }

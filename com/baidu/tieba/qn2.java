@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,92 +11,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class qn2 {
+public class qn2 extends pn2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String c(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.on2
+    public void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1 ? "key_is_need_update_game_ext_preset" : "key_is_need_update_preset" : (String) invokeI.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                return TextUtils.isDigitsOnly(str);
-            }
-            return invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.on2
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0L;
         }
+        return invokeV.longValue;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                long lastModified = file.lastModified();
-                long lastModified2 = file2.lastModified();
-                if (lastModified == lastModified2) {
-                    return 0;
-                }
-                if (lastModified - lastModified2 > 0) {
-                    return -1;
-                }
-                return 1;
-            }
-            return invokeLL.intValue;
+    @Override // com.baidu.tieba.on2
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "0" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.on2
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.on2
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
         }
     }
 
@@ -117,152 +68,64 @@ public class qn2 {
                 return;
             }
         }
-        a = js1.a;
+        d = ms1.a;
     }
 
-    public static void a(Bundle bundle) {
+    public qn2() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, bundle) != null) || bundle == null) {
-            return;
-        }
-        if (!ProcessUtils.isMainProcess()) {
-            p83 e = p83.e();
-            r83 r83Var = new r83(18, bundle);
-            r83Var.f(true);
-            e.h(r83Var);
-            return;
-        }
-        String string = bundle.getString("arg_dst_folder");
-        if (!TextUtils.isEmpty(string)) {
-            b(new File(string), bundle.getLongArray("arg_ignore_vers"));
-        }
-    }
-
-    public static void b(File file, long... jArr) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, file, jArr) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                Bundle bundle = new Bundle();
-                bundle.putString("arg_dst_folder", file.getPath());
-                if (jArr != null && jArr.length > 0) {
-                    bundle.putLongArray("arg_ignore_vers", jArr);
-                }
-                a(bundle);
-            } else if (file != null && file.exists() && file.isDirectory()) {
-                ArrayList arrayList = new ArrayList();
-                if (jArr != null) {
-                    for (long j : jArr) {
-                        if (j > 0) {
-                            arrayList.add(Long.valueOf(j));
-                        }
-                    }
-                }
-                arrayList.addAll(e());
-                arrayList.addAll(d(file, 3));
-                if (a) {
-                    Log.d("ExtCore-Utils", "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray()));
-                }
-                for (File file2 : file.listFiles()) {
-                    if (!g(file2, arrayList)) {
-                        if (a) {
-                            Log.d("ExtCore-Utils", "deleteOldExtensionCores deleteFolder: " + file2);
-                        }
-                        ds4.L(file2);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static List<Long> d(File file, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, file, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i > 0 && file != null && file.exists() && file.isDirectory()) {
-                File[] listFiles = file.listFiles(new a());
-                if (listFiles == null) {
-                    return arrayList;
-                }
-                Arrays.sort(listFiles, new b());
-                int min = Math.min(listFiles.length, i);
-                for (int i2 = 0; i2 < min; i2++) {
-                    try {
-                        arrayList.add(Long.valueOf(Long.parseLong(listFiles[i2].getName())));
-                    } catch (NumberFormatException e) {
-                        z82.l("ExtCore-Utils", "get extension version fail", e);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeLI.objValue;
-    }
-
-    public static ArrayList<Long> e() {
+    @Override // com.baidu.tieba.on2
+    @NonNull
+    public ExtensionCore h() {
         InterceptResult invokeV;
-        ExtensionCore extensionCore;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ArrayList<Long> arrayList = new ArrayList<>();
-            for (y83 y83Var : a93.k().q()) {
-                SwanAppCores m = y83Var.m();
-                if (m != null && y83Var.T() && (extensionCore = m.getExtensionCore()) != null && !arrayList.contains(Long.valueOf(extensionCore.extensionCoreVersionCode))) {
-                    arrayList.add(Long.valueOf(extensionCore.extensionCoreVersionCode));
-                }
-            }
-            if (a) {
-                Log.d("ExtCore-Utils", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ExtensionCore extensionCore = new ExtensionCore();
+            extensionCore.extensionCoreVersionCode = 0L;
+            extensionCore.extensionCoreVersionName = "0";
+            extensionCore.extensionCorePath = "";
+            extensionCore.extensionCoreType = 0;
+            return extensionCore;
         }
-        return (ArrayList) invokeV.objValue;
+        return (ExtensionCore) invokeV.objValue;
     }
 
-    public static boolean f(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.pn2, com.baidu.tieba.on2
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i == 1) {
-                return y73.z();
-            }
-            return y73.y();
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            return nk3.a().getBoolean(c(i), false);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean g(File file, List<Long> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, list)) == null) {
-            if (list == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (d) {
+                Log.d("SwanNoPresetExtensionCoreControl", "isNeedUpdate false");
                 return false;
-            }
-            String name = file.getName();
-            for (Long l : list) {
-                if (TextUtils.equals(name, String.valueOf(l.longValue()))) {
-                    return true;
-                }
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void i(int i, boolean z) {
+    @Override // com.baidu.tieba.on2
+    public <T extends in2> Exception g(@NonNull T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            nk3.a().putBoolean(c(i), z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            if (d) {
+                Log.d("SwanNoPresetExtensionCoreControl", "doUpdate: preset");
+                return null;
+            }
+            return null;
         }
+        return (Exception) invokeL.objValue;
     }
 }

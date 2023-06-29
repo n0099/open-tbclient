@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class j50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q50 a;
+    public n50 a;
 
     public j50() {
         Interceptable interceptable = $ic;
@@ -22,21 +22,39 @@ public class j50 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new q50(32);
     }
 
-    public byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static j50 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.a.j(bArr) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            j50 j50Var = new j50();
+            n50 n50Var = new n50();
+            j50Var.a = n50Var;
+            n50Var.a(2);
+            return j50Var;
+        }
+        return (j50) invokeV.objValue;
     }
 
-    public byte[] b(byte[] bArr) {
+    public final byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.a.m(bArr) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null) {
+                return this.a.e(bArr, 0, bArr.length);
+            }
+            throw new IllegalArgumentException("Null input buffer");
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(int i, u50 u50Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, u50Var) == null) {
+            this.a.b(i, u50Var);
+        }
     }
 }

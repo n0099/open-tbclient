@@ -1,127 +1,298 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.tieba.ye2;
+import com.baidu.tieba.yu2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class tf2 {
+public class tf2 extends gf2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public xe2 c;
+    public String d;
+    public String e;
+    public tj4<cl4> f;
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void a(Bitmap bitmap);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a extends BaseBitmapDataSubscriber {
+    public class a extends qj4<cl4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ tf2 a;
 
-        public a(b bVar, int i) {
+        public a(tf2 tf2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, Integer.valueOf(i)};
+                Object[] objArr = {tf2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = bVar;
-            this.b = i;
+            this.a = tf2Var;
         }
 
-        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
-        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.tj4
+        /* renamed from: l */
+        public String d(cl4 cl4Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                super.onCancellation(dataSource);
-                tf2.b(this.b, this.a, "download icon fail: onCancellation");
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cl4Var)) == null) {
+                return vf2.a(this.a.e);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qj4, com.baidu.tieba.tj4
+        /* renamed from: q */
+        public void f(cl4 cl4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cl4Var) == null) {
+                super.f(cl4Var);
+                if (tf2.g) {
+                    Log.i("SwanAppSubPkgDownload", "onDownloading");
+                }
+                this.a.V(cl4Var);
             }
         }
 
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        @Override // com.baidu.tieba.vj4
+        @NonNull
+        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                tf2.b(this.b, this.a, "download icon fail: onFailureImpl");
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
+                return this.a.m(bundle, set);
+            }
+            return (Bundle) invokeLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qj4, com.baidu.tieba.tj4
+        /* renamed from: o */
+        public void e(cl4 cl4Var, wk4 wk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, cl4Var, wk4Var) == null) {
+                super.e(cl4Var, wk4Var);
+                if (tf2.g) {
+                    Log.e("SwanAppSubPkgDownload", "onDownloadError:" + wk4Var.toString());
+                }
+                vn3 vn3Var = new vn3();
+                vn3Var.k(12L);
+                vn3Var.i(wk4Var.a);
+                vn3Var.d("分包下载失败");
+                vn3Var.f(wk4Var.toString());
+                this.a.S(3, vn3Var);
+                ye2.c().a(cl4Var, PMSDownloadType.ALONE_SUB, vn3Var);
             }
         }
 
-        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(Bitmap bitmap) {
-            Bitmap copy;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qj4, com.baidu.tieba.tj4
+        /* renamed from: p */
+        public void i(cl4 cl4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                if (bitmap == null || bitmap.isRecycled()) {
-                    tf2.b(this.b, this.a, "download icon fail: bitmap is null or is recycled");
+            if (interceptable == null || interceptable.invokeL(1048583, this, cl4Var) == null) {
+                super.i(cl4Var);
+                if (tf2.g) {
+                    Log.i("SwanAppSubPkgDownload", "onDownloadFinish:" + cl4Var.toString());
+                }
+                this.a.U(cl4Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements ye2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tf2 a;
+
+        public b(tf2 tf2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tf2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                try {
-                    if (bitmap.getConfig() == null) {
-                        copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-                    } else {
-                        copy = bitmap.copy(bitmap.getConfig(), true);
-                    }
-                    if (this.a != null) {
-                        this.a.a(copy);
-                    }
-                } catch (Exception e) {
-                    int i = this.b;
-                    b bVar = this.a;
-                    tf2.b(i, bVar, "download icon fail: " + e.getMessage());
-                }
             }
+            this.a = tf2Var;
         }
-    }
 
-    public static void b(int i, b bVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i, bVar, str) == null) {
-            sn3 sn3Var = new sn3();
-            sn3Var.k(4L);
-            sn3Var.i(10L);
-            sn3Var.f(str);
-            wn3.a().f(sn3Var);
-            aj3 aj3Var = new aj3();
-            aj3Var.p(sn3Var);
-            aj3Var.q(si3.n(i));
-            si3.R(aj3Var);
-            if (bVar != null) {
-                bVar.a(null);
-            }
-        }
-    }
-
-    public static void c(String str, int i, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, str, i, bVar) == null) {
-            Uri C = tp3.C(str);
-            if (C == null) {
-                b(i, bVar, "download icon fail: icon url is null");
+        @Override // com.baidu.tieba.ye2.c
+        public void a(PMSDownloadType pMSDownloadType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, pMSDownloadType) != null) {
                 return;
             }
-            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, i), UiThreadImmediateExecutorService.getInstance());
+            this.a.T();
+        }
+
+        @Override // com.baidu.tieba.ye2.c
+        public void b(PMSDownloadType pMSDownloadType, vn3 vn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, vn3Var) != null) {
+                return;
+            }
+            this.a.S(0, vn3Var);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948179209, "Lcom/baidu/tieba/tf2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948179209, "Lcom/baidu/tieba/tf2;");
+                return;
+            }
+        }
+        g = ms1.a;
+    }
+
+    @Override // com.baidu.tieba.xj4
+    public tj4<cl4> A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (tj4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xj4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.F();
+            vn3 vn3Var = new vn3();
+            vn3Var.k(12L);
+            vn3Var.i(2901L);
+            vn3Var.d("Server无包");
+            S(2, vn3Var);
+        }
+    }
+
+    public final void T() {
+        xe2 xe2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (xe2Var = this.c) != null) {
+            xe2Var.a();
+        }
+    }
+
+    public tf2(String str, String str2, xe2 xe2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, xe2Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f = new a(this);
+        this.d = str;
+        this.c = xe2Var;
+        this.e = yu2.e.i(str, str2).getPath();
+    }
+
+    @Override // com.baidu.tieba.xj4
+    public void C(wk4 wk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wk4Var) == null) {
+            super.C(wk4Var);
+            vn3 vn3Var = new vn3();
+            vn3Var.k(12L);
+            vn3Var.c(wk4Var);
+            S(1, vn3Var);
+        }
+    }
+
+    public final void V(cl4 cl4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cl4Var) == null) {
+            ye2.c().d(cl4Var, new b(this));
+        }
+    }
+
+    public final void S(int i, vn3 vn3Var) {
+        xe2 xe2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, vn3Var) == null) && (xe2Var = this.c) != null) {
+            xe2Var.b(i, vn3Var);
+        }
+    }
+
+    public final void U(cl4 cl4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cl4Var) == null) {
+            if (!pp3.a(new File(cl4Var.a), cl4Var.m)) {
+                if (g) {
+                    Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 签名校验失败");
+                }
+                vn3 vn3Var = new vn3();
+                vn3Var.k(12L);
+                vn3Var.i(2300L);
+                vn3Var.d("分包签名校验");
+                S(4, vn3Var);
+                ye2.c().a(cl4Var, PMSDownloadType.ALONE_SUB, vn3Var);
+            } else if (vf2.h(new File(cl4Var.a), new File(this.e, cl4Var.p))) {
+                if (g) {
+                    Log.i("SwanAppSubPkgDownload", "onDownloadFinish: 解压成功");
+                }
+                cl4Var.o = this.d;
+                zj4.i().m(cl4Var);
+                T();
+                ye2.c().b(cl4Var, PMSDownloadType.ALONE_SUB);
+            } else {
+                if (g) {
+                    Log.e("SwanAppSubPkgDownload", "onDownloadFinish: 解压失败");
+                }
+                vn3 vn3Var2 = new vn3();
+                vn3Var2.k(12L);
+                vn3Var2.i(2320L);
+                vn3Var2.d("分包解压失败");
+                S(5, vn3Var2);
+                ye2.c().a(cl4Var, PMSDownloadType.ALONE_SUB, vn3Var2);
+            }
         }
     }
 }

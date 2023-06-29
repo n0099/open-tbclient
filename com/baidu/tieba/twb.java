@@ -1,52 +1,78 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.activity.PayCommonWebActivity;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes7.dex */
-public class twb {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
+/* loaded from: classes8.dex */
+public final class twb<E> extends vvb<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(PayFlowType payFlowType, int i, int i2, PayUIKitConfig payUIKitConfig, Activity activity, String str, String str2) {
-        String str3;
+    public twb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{payFlowType, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, activity, str, str2}) == null) {
-            boolean z = false;
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                if (TextUtils.isEmpty(str)) {
-                    RLog.error("PayWebActivityUtils", "startPayWebActivity error url null", new Object[0]);
-                    return;
-                }
-                if (str2 != null && !str2.isEmpty()) {
-                    str3 = str2;
-                } else {
-                    str3 = "";
-                }
-                Intent intent = new Intent(activity, PayCommonWebActivity.class);
-                intent.putExtra(H5PayConstant.EXTRA_TITLE, str3);
-                intent.putExtra(H5PayConstant.EXTRA_URL, str);
-                intent.putExtra(H5PayConstant.EXTRA_APP_ID, i);
-                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, i2);
-                if (str.equals(ewb.f(payUIKitConfig))) {
-                    intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
-                    z = true;
-                }
-                RLog.info("PayWebActivityUtils", "startPayWebActivity payFlowType:" + payFlowType + " isWalletActivity:" + z);
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = jxb.a(str);
-                }
-                PayCommonWebActivity.B(activity, payFlowType, intent, i, i2, str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            RLog.error("PayWebActivityUtils", "startPayWebActivity error mPayUIKitConfig null", new Object[0]);
         }
+        b(new LinkedQueueNode<>());
+        d(this.producerNode);
+        this.consumerNode.soNext(null);
+    }
+
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
+                this.producerNode.soNext(linkedQueueNode);
+                this.producerNode = linkedQueueNode;
+                return true;
+            }
+            throw new NullPointerException("null elements not allowed");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                return lvNext.lpValue();
+            }
+            return null;
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                E andNullValue = lvNext.getAndNullValue();
+                this.consumerNode = lvNext;
+                return andNullValue;
+            }
+            return null;
+        }
+        return (E) invokeV.objValue;
     }
 }

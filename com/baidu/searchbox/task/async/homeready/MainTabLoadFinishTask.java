@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.sy5;
-import com.baidu.tieba.tr8;
-import com.baidu.tieba.v50;
-import com.baidu.tieba.wk;
-import com.baidu.tieba.yi;
-import com.baidu.tieba.z55;
+import com.baidu.tieba.c65;
+import com.baidu.tieba.d65;
+import com.baidu.tieba.ew8;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.w50;
+import com.baidu.tieba.xk;
+import com.baidu.tieba.xy5;
+import com.baidu.tieba.zi;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
@@ -51,7 +51,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
             return "";
         }
         String str2 = split[1];
-        if (StringUtils.isNull(str2) || (b = new v50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+        if (StringUtils.isNull(str2) || (b = new w50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
             return "";
         }
         try {
@@ -71,21 +71,21 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 try {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     if (currentActivity != null) {
-                        a65.o(currentActivity, z55.q);
+                        d65.o(currentActivity, c65.q);
                     }
                     if (Build.VERSION.SDK_INT >= 17) {
-                        o95.p().J("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                        r95.p().J("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
                     }
                     String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst().getContext());
-                    String w = o95.p().w("key_last_cached_oid", "");
+                    String w = r95.p().w("key_last_cached_oid", "");
                     if (StringUtils.isNull(w) || !w.equals(lastCachedOid)) {
-                        o95.p().J("key_last_cached_oid", lastCachedOid);
-                        o95.p().J("key_last_cached_real_oid", MainTabLoadFinishTask.this.getRealOaid(lastCachedOid));
+                        r95.p().J("key_last_cached_oid", lastCachedOid);
+                        r95.p().J("key_last_cached_real_oid", MainTabLoadFinishTask.this.getRealOaid(lastCachedOid));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                boolean l = o95.p().l("key_splash_shake_ad_open", true);
+                boolean l = r95.p().l("key_splash_shake_ad_open", true);
                 StatisticItem statisticItem = new StatisticItem("c15178");
                 if (l) {
                     str = "0";
@@ -93,21 +93,21 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     str = "1";
                 }
                 TiebaStatic.log(statisticItem.param("obj_param1", str));
-                tr8 a = wk.a();
-                a.c(Config.DEVICE_PART, "Device Info: cuid: " + TbadkCoreApplication.getInst().getCuid() + " from: " + TbadkCoreApplication.getFrom() + " client_version: " + TbConfig.getVersion() + " os_version: " + yi.k());
+                ew8 a = xk.a();
+                a.c(Config.DEVICE_PART, "Device Info: cuid: " + TbadkCoreApplication.getInst().getCuid() + " from: " + TbadkCoreApplication.getFrom() + " client_version: " + TbConfig.getVersion() + " os_version: " + zi.k());
                 return false;
             }
         });
         try {
-            String w = o95.p().w("key_cache_url_list", null);
+            String w = r95.p().w("key_cache_url_list", null);
             if (!TextUtils.isEmpty(w)) {
                 JSONArray jSONArray = new JSONArray(w);
-                tr8 defaultLog = DefaultLog.getInstance();
+                ew8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c("WebPreheat", "冷启动预热H5:" + jSONArray);
-                sy5.e(jSONArray);
+                xy5.e(jSONArray);
             }
         } catch (Throwable th) {
-            tr8 defaultLog2 = DefaultLog.getInstance();
+            ew8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.b("WebPreheat", "exception:" + th);
         }
     }

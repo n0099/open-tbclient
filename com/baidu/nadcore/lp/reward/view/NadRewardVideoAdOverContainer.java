@@ -16,10 +16,10 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.slidingtag.NadRewardSlidingTagView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ks0;
 import com.baidu.tieba.ns0;
-import com.baidu.tieba.re1;
-import com.baidu.tieba.vr0;
+import com.baidu.tieba.qs0;
+import com.baidu.tieba.ue1;
+import com.baidu.tieba.yr0;
 /* loaded from: classes3.dex */
 public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     public LinearLayout A;
@@ -92,18 +92,18 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     public final void H(@NonNull AdBaseModel adBaseModel) {
-        ks0 ks0Var;
-        if (adBaseModel instanceof vr0) {
-            ks0Var = ((vr0) adBaseModel).i();
+        ns0 ns0Var;
+        if (adBaseModel instanceof yr0) {
+            ns0Var = ((yr0) adBaseModel).i();
         } else {
-            ks0Var = null;
+            ns0Var = null;
         }
-        if (ks0Var == null) {
+        if (ns0Var == null) {
             this.y.setVisibility(8);
             return;
         }
         this.y.setVisibility(0);
-        this.y.F(ks0Var);
+        this.y.F(ns0Var);
         this.y.setOnClickListener(s(adBaseModel, ClogBuilder.Area.REWARD_SLIDING_TAG.type));
     }
 
@@ -146,25 +146,25 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     public final void G(@NonNull AdBaseModel adBaseModel) {
-        ns0 ns0Var;
-        if (adBaseModel instanceof vr0) {
-            ns0Var = ((vr0) adBaseModel).g().m();
+        qs0 qs0Var;
+        if (adBaseModel instanceof yr0) {
+            qs0Var = ((yr0) adBaseModel).g().m();
         } else {
-            ns0Var = null;
+            qs0Var = null;
         }
-        if (ns0Var == null) {
+        if (qs0Var == null) {
             this.A.setVisibility(8);
             return;
         }
-        I(getContext(), this.C, ns0Var.b);
-        I(getContext(), this.B, ns0Var.a);
+        I(getContext(), this.C, qs0Var.b);
+        I(getContext(), this.B, qs0Var.a);
         this.A.setVisibility(0);
         z(ClogBuilder.LogType.FREE_SHOW, "packet", adBaseModel);
         this.A.setOnClickListener(new a(adBaseModel));
     }
 
     @NonNull
-    public re1<View> getTransitionButtonView() {
+    public ue1<View> getTransitionButtonView() {
         return this.j;
     }
 

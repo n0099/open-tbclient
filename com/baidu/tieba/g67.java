@@ -1,27 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class g67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public long d;
-    public int e;
-    public boolean f;
-    public long g;
-    public long h;
-    public long i;
-    public k67 j;
-    @Nullable
-    public Object k;
-    public d57 l;
+    public List<t87<?>> a;
+    public m67 b;
 
     public g67() {
         Interceptable interceptable = $ic;
@@ -36,6 +26,6 @@ public class g67 {
                 return;
             }
         }
-        this.j = new k67();
+        this.a = new ArrayList();
     }
 }

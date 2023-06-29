@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class u2a implements Comparable<u2a> {
+public class u2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void d();
+    public boolean a;
+    public boolean b;
+    public int c;
+    public String d;
+    public long e;
 
     public u2a() {
         Interceptable interceptable = $ic;
@@ -27,19 +27,34 @@ public abstract class u2a implements Comparable<u2a> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = false;
+        this.c = 0;
+        this.d = "";
+        this.e = 0L;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(u2a u2aVar) {
+    public static u2a a(ResponsedMessage responsedMessage) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u2aVar)) == null) {
-            return this.a - u2aVar.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responsedMessage)) == null) {
+            u2a u2aVar = new u2a();
+            if (BdNetTypeUtil.isNetWorkAvailable() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            u2aVar.a = z;
+            u2aVar.b = !responsedMessage.hasError();
+            u2aVar.c = responsedMessage.getError();
+            u2aVar.d = responsedMessage.getErrorString();
+            u2aVar.e = responsedMessage.getDownSize();
+            return u2aVar;
         }
-        return invokeL.intValue;
+        return (u2a) invokeL.objValue;
     }
 }

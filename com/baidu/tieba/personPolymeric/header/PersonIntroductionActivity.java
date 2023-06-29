@@ -11,7 +11,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -77,7 +77,7 @@ public class PersonIntroductionActivity extends BaseActivity {
 
     public static void x1(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) && !vi.isEmpty(str) && context != null) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) && !wi.isEmpty(str) && context != null) {
             Intent intent = new Intent();
             intent.setClass(context, PersonIntroductionActivity.class);
             intent.putExtra("person_introduction", str);
@@ -101,16 +101,16 @@ public class PersonIntroductionActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07ae);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091b91);
+            setContentView(R.layout.obfuscated_res_0x7f0d07c1);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091be8);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1047));
-            ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d09c8, (View.OnClickListener) null);
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1064));
+            ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d09dd, (View.OnClickListener) null);
             this.b = imageView;
             imageView.setOnClickListener(this.e);
             SkinManager.setImageResource(this.b, R.drawable.selector_topbar_return_black);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b90);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091be7);
             this.c = textView;
             textView.setText(getIntent().getStringExtra("person_introduction"));
         }

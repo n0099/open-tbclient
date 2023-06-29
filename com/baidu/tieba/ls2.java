@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ls2 extends wp2 {
-    RtcStatus a();
+public class ls2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onRelease();
-
-    boolean q();
+    public static boolean a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) ? j > 0 : invokeJ.booleanValue;
+    }
 }

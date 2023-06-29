@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public interface df7 {
-    void a(ThreadData threadData);
+    void a(int i, int i2, of7 of7Var, ArrayList<xn> arrayList);
 }

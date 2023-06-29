@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class p6 extends m6 implements n6 {
+public class p6 extends n6 implements o6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s3 h;
+    public p3 h;
 
     public p6() {
         Interceptable interceptable = $ic;
@@ -27,12 +26,21 @@ public class p6 extends m6 implements n6 {
         }
     }
 
-    public p6(s3 s3Var) {
+    public p3 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
+        }
+        return (p3) invokeV.objValue;
+    }
+
+    public p6(p3 p3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s3Var};
+            Object[] objArr = {p3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,38 +50,53 @@ public class p6 extends m6 implements n6 {
                 return;
             }
         }
-        o(s3Var);
+        p(p3Var);
     }
 
-    public void o(s3 s3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, s3Var) == null) {
-            this.h = s3Var;
-            j(s3Var.n());
-            h(s3Var.k());
-        }
-    }
-
-    public p6 p(c3 c3Var) {
+    public p6 q(d3 d3Var) {
         InterceptResult invokeL;
-        s3 s3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c3Var)) == null) {
-            s3 s3Var2 = this.h;
-            if (s3Var2 instanceof t3.b) {
-                s3Var = new t3.b((t3.b) s3Var2);
-            } else {
-                s3Var = new s3(s3Var2);
-            }
-            s3Var.u(c3Var);
-            s3Var.z(a(), k());
-            p6 p6Var = new p6(s3Var);
-            p6Var.b(l());
-            p6Var.c(g());
-            p6Var.f(i());
-            p6Var.d(e());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d3Var)) == null) {
+            p6 p6Var = new p6(this);
+            p6Var.h = new p3(p6Var.o(), d3Var);
             return p6Var;
         }
         return (p6) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p6(p6 p6Var) {
+        super(p6Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p6Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((o6) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.h = p6Var.h;
+    }
+
+    public void p(p3 p3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p3Var) == null) {
+            this.h = p3Var;
+            if (p3Var != null) {
+                j(p3Var.k());
+                h(p3Var.j());
+                f(p3Var.g());
+                c(p3Var.f());
+                d(p3Var.d());
+                b(p3Var.e());
+            }
+        }
     }
 }

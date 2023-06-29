@@ -1,122 +1,162 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class oi1 {
+public final class oi1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile oi1 f;
+    public static long a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public int c;
-    public int d;
-    public Runnable e;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oi1 a;
-
-        public a(oi1 oi1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948033106, "Lcom/baidu/tieba/oi1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oi1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = oi1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                yi1.g("开始重试");
-                if (pi1.n()) {
-                    yi1.g("重试成功");
-                    this.a.c = 0;
-                    this.a.a.quitSafely();
-                    this.a.b.removeCallbacks(this);
-                    return;
-                }
-                oi1.c(this.a);
-                if (this.a.c < 3) {
-                    yi1.g("重试失败继续重试");
-                    this.a.b.postDelayed(this, this.a.d);
-                    return;
-                }
-                this.a.c = 0;
-                yi1.g("重试三次结束重试");
-                this.a.a.quitSafely();
-                this.a.b.removeCallbacks(this);
-            }
-        }
-    }
-
-    public oi1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948033106, "Lcom/baidu/tieba/oi1;");
                 return;
             }
         }
-        this.d = 10000;
-        this.e = new a(this);
+        b = new JSONObject();
     }
 
-    public static oi1 g() {
-        InterceptResult invokeV;
+    public static final void a(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f == null) {
-                synchronized (oi1.class) {
-                    if (f == null) {
-                        f = new oi1();
-                    }
+        if (interceptable == null || interceptable.invokeLJ(65537, null, str, j) == null) {
+            try {
+                if (b == null) {
+                    b = new JSONObject();
                 }
+                JSONObject jSONObject = b;
+                if (jSONObject != null) {
+                    jSONObject.put(str, j);
+                }
+            } catch (Exception unused) {
+                bj1.g("add panelShow json error");
             }
-            return f;
         }
-        return (oi1) invokeV.objValue;
     }
 
-    public static /* synthetic */ int c(oi1 oi1Var) {
-        int i = oi1Var.c;
-        oi1Var.c = i + 1;
-        return i;
-    }
-
-    public void h() {
+    public static final void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yi1.g("触发重试");
-            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
-            this.a = handlerThread;
-            handlerThread.start();
-            Handler handler = new Handler(this.a.getLooper());
-            this.b = handler;
-            handler.postDelayed(this.e, this.d);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("exceptionCode", 3);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("errno", str2);
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject.put("errmsg", str3);
+                }
+            } catch (Exception unused) {
+            }
+            pi1 pi1Var = new pi1(str);
+            pi1Var.c(jSONObject);
+            si1.e(pi1Var);
+        }
+    }
+
+    public static final void c(String str, HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, hashMap) == null) {
+            if (hashMap != null) {
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+                pi1 pi1Var = new pi1(str);
+                pi1Var.c(jSONObject);
+                si1.e(pi1Var);
+                return;
+            }
+            si1.e(new pi1(str));
+        }
+    }
+
+    public static final void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && a > 0) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("3", a);
+                jSONObject.put("4", System.currentTimeMillis());
+            } catch (Exception unused) {
+            }
+            pi1 pi1Var = new pi1(Constants.DEFAULT_UIN);
+            pi1Var.c(jSONObject);
+            si1.e(pi1Var);
+            a = 0L;
+        }
+    }
+
+    public static final void e() {
+        JSONObject jSONObject;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (jSONObject = b) != null) {
+            if (jSONObject != null) {
+                i = jSONObject.length();
+            } else {
+                i = 0;
+            }
+            if (i > 0) {
+                a("2", System.currentTimeMillis());
+                pi1 pi1Var = new pi1(Constants.DEFAULT_UIN);
+                pi1Var.c(b);
+                si1.e(pi1Var);
+                b = null;
+            }
+        }
+    }
+
+    public static final void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            a = j;
+        }
+    }
+
+    public static final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("exceptionCode", 0);
+            } catch (Exception unused) {
+            }
+            pi1 pi1Var = new pi1(str);
+            pi1Var.c(jSONObject);
+            si1.e(pi1Var);
+        }
+    }
+
+    public static final void g(int i, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exceptionType", i);
+            jSONObject.put("payChannel", str2);
+            jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str3);
+            jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str4);
+            pi1 pi1Var = new pi1(str);
+            pi1Var.c(jSONObject);
+            si1.e(pi1Var);
         }
     }
 }

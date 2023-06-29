@@ -1,125 +1,189 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.wordscommand.WordCommandManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.switchs.DuTokenNewSwitch;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.AuthTokenData;
+import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import java.lang.ref.WeakReference;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x3a extends CustomMessageListener {
+public class x3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final d3a b;
+    public String a;
+    public a b;
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public interface a {
+        void a(String str, long j);
+
+        void b(String str, long j);
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b extends BdAsyncTask<Integer, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public String b;
+        public long c;
+        public String d;
+        public WeakReference<a> e;
+        public int f;
+        public String g;
 
-        public a(x3a x3aVar) {
+        public b(String str, long j, String str2, a aVar, x3a x3aVar, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x3aVar};
+                Object[] objArr = {str, Long.valueOf(j), str2, aVar, x3aVar, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = null;
+            this.b = null;
+            this.c = 0L;
+            this.e = null;
+            new WeakReference(x3aVar);
+            this.b = str;
+            this.c = j;
+            this.e = new WeakReference<>(aVar);
+            this.d = str2;
+            this.g = str3;
+            setPriority(3);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Integer doInBackground(Integer... numArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && DuTokenNewSwitch.isOn() && PermissionUtil.isAgreePrivacyPolicy()) {
-                WordCommandManager.setOnInitialUIReadyState(true);
-                WordCommandManager.getInstance().handleClipboardData();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
+                try {
+                    if (this.c != 0 && this.b != null) {
+                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
+                        this.a = netWork;
+                        netWork.addPostData("fid", String.valueOf(this.c));
+                        this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.b);
+                        this.a.addPostData("favo_type", "1");
+                        this.a.addPostData("st_type", this.d);
+                        this.a.addPostData("authsid", this.g);
+                        this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                        String postNetData = this.a.postNetData();
+                        if (!wi.isEmpty(postNetData)) {
+                            JSONObject jSONObject = new JSONObject(postNetData);
+                            this.f = jSONObject.optInt("error_code");
+                            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+                            AuthTokenData.parse(jSONObject);
+                        }
+                        if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                            return 1;
+                        }
+                    }
+                    return 0;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return 0;
+                }
+            }
+            return (Integer) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            String netException;
+            NetWork netWork;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+                super.onPostExecute((b) num);
+                if (this.e != null) {
+                    n6a n6aVar = new n6a();
+                    n6aVar.a = this.c;
+                    a aVar = this.e.get();
+                    if (aVar == null) {
+                        return;
+                    }
+                    if (num.intValue() == 1 && (netWork = this.a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
+                        TbadkCoreApplication.getInst().delLikeForum(this.b);
+                        aVar.b(this.b, this.c);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.c)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.b));
+                        n6aVar.b = true;
+                    } else {
+                        n6aVar.b = false;
+                        NetWork netWork2 = this.a;
+                        if (netWork2 != null) {
+                            if (netWork2.isNetSuccess()) {
+                                netException = this.a.getErrorString();
+                            } else {
+                                netException = this.a.getNetException();
+                            }
+                            n6aVar.c = netException;
+                            aVar.a(netException, this.f);
+                        }
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, n6aVar));
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x3a(MainTabActivity mainTabActivity) {
-        super(2001011);
+    public x3a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean z = false;
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                ml.f();
-                ml.i();
-                this.a.V = UtilHelper.getCurrentDay();
-                o95.p().H("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
-                MainTabActivity mainTabActivity = this.a;
-                if (!mainTabActivity.C) {
-                    d3a d3aVar = this.b;
-                    if (d3aVar != null && d3aVar.j() != null) {
-                        this.b.j().b();
-                        return;
-                    }
-                    return;
-                }
-                mainTabActivity.C = false;
-                return;
-            }
-            ac.b().a("WORDCOMMAND", new a(this));
-            String currentDay = UtilHelper.getCurrentDay();
-            if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.V)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-            }
-            MainTabActivity mainTabActivity2 = this.a;
-            if (mainTabActivity2.x == null) {
-                mainTabActivity2.x = new g7a();
-            }
-            g7a g7aVar = this.a.x;
-            g7aVar.c(g7aVar.c);
-            this.a.x.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
-            if (i36.a()) {
-                int i = Calendar.getInstance().get(11);
-                i36.a = (i >= 23 || i < 7) ? true : true;
-                d3a d3aVar2 = this.b;
-                if (d3aVar2 != null && d3aVar2.j() != null) {
-                    this.b.j().b();
-                    this.b.j().a();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public void c(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+            new b(str, j, this.a, this.b, this, null).execute(new Integer[0]);
         }
     }
 }

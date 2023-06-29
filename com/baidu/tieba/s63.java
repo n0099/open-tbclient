@@ -1,137 +1,73 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s63 {
+public class s63 implements u63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static List<Pair<String, Pair<String, String>>> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<Long> a;
+    public long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948103321, "Lcom/baidu/tieba/s63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948103321, "Lcom/baidu/tieba/s63;");
+    @Override // com.baidu.tieba.u63
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageUpdateRender" : (String) invokeV.objValue;
+    }
+
+    public s63() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = js1.a;
-        a = z;
-        if (z) {
-            ArrayList arrayList = new ArrayList();
-            b = arrayList;
-            arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+        this.a = new ArrayList();
+        this.b = -1L;
+    }
+
+    @Override // com.baidu.tieba.u63
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<Long> list = this.a;
+            if (list != null && list.size() > 0 && this.b >= 0) {
+                return this.b - ((Long) Collections.min(this.a)).longValue();
+            }
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.u63
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.b = j;
         }
     }
 
-    public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
+    @Override // com.baidu.tieba.u63
+    public void c(long j) {
+        List<Long> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, list, str3) == null) && !TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            fi3 c = si3.c("770");
-            for (UbcFlowEvent ubcFlowEvent : list) {
-                if (ubcFlowEvent != null) {
-                    gi3.e(c, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
-                }
-            }
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.put("from", "swan");
-                jSONObject.put("type", str2);
-                jSONObject2.put("appid", str);
-                jSONObject2.put("mobile", po3.c());
-                jSONObject2.put("net", SwanAppNetworkUtils.f().type);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = "0";
-                }
-                jSONObject2.put("scene", str3);
-                ri3.a(jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            gi3.f(c, jSONObject.toString());
-            gi3.c(c);
-            b(str, list, b);
-        }
-    }
-
-    @SuppressLint({"SwanDebugLog", "LogConditional"})
-    public static void b(String str, List<UbcFlowEvent> list, List<Pair<String, Pair<String, String>>> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, list, list2) == null) && a && list != null && list2 != null) {
-            HashMap hashMap = new HashMap();
-            StringBuilder sb = new StringBuilder();
-            sb.append("小程序PMS下载耗时Log：");
-            sb.append("\n");
-            sb.append("小程序ID：");
-            sb.append(str);
-            sb.append("\n");
-            sb.append("小程序ID：");
-            sb.append(str);
-            for (UbcFlowEvent ubcFlowEvent : list) {
-                if (ubcFlowEvent != null) {
-                    sb.append("\n");
-                    sb.append(ubcFlowEvent.g());
-                    sb.append(ZeusCrashHandler.NAME_SEPERATOR);
-                    sb.append(ubcFlowEvent.a);
-                    hashMap.put(ubcFlowEvent.a, Long.valueOf(ubcFlowEvent.g()));
-                }
-            }
-            sb.append("\n");
-            sb.append("耗时计算开始：>>>>>>>>>>>>");
-            for (Pair<String, Pair<String, String>> pair : list2) {
-                if (pair != null) {
-                    String str2 = (String) pair.first;
-                    Object obj = pair.second;
-                    String str3 = (String) ((Pair) obj).first;
-                    String str4 = (String) ((Pair) obj).second;
-                    if (hashMap.get(str3) != null && hashMap.get(str4) != null) {
-                        long longValue = ((Long) hashMap.get(str3)).longValue();
-                        String format = String.format(Locale.CHINA, "%-13d", Long.valueOf(((Long) hashMap.get(str4)).longValue() - longValue));
-                        sb.append("\n");
-                        sb.append("耗时：");
-                        sb.append(format);
-                        sb.append(" >>> ");
-                        sb.append(str2);
-                        sb.append("，计算方式：");
-                        sb.append(str4);
-                        sb.append(" - ");
-                        sb.append(str3);
-                    }
-                }
-            }
-            Log.i("SwanAppPMS", sb.toString());
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && (list = this.a) != null) {
+            list.add(Long.valueOf(j));
         }
     }
 }

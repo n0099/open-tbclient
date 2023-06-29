@@ -1,159 +1,82 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
-/* loaded from: classes5.dex */
-public class gz1 extends RequestBody {
+import okhttp3.Response;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class gz1 extends ez1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947811115, "Lcom/baidu/tieba/gz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947811115, "Lcom/baidu/tieba/gz1;");
-                return;
-            }
-        }
-        b = js1.a;
-    }
-
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.length();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return MediaType.parse(a(this.a.getPath()));
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    public gz1(File file) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gz1(zc3 zc3Var) {
+        super(zc3Var, "/swanAPI/cloudGetUrl");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {zc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((zc3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = file;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ez1, com.baidu.tieba.zd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            String str2 = "image/jpeg";
-            if (str != null) {
-                try {
-                    try {
-                        try {
-                            try {
-                                mediaMetadataRetriever.setDataSource(str);
-                                String extractMetadata = mediaMetadataRetriever.extractMetadata(12);
-                                if (extractMetadata != null) {
-                                    str2 = extractMetadata;
-                                }
-                                try {
-                                    mediaMetadataRetriever.release();
-                                } catch (Exception e) {
-                                    if (b) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Exception e2) {
-                                if (b) {
-                                    e2.printStackTrace();
-                                }
-                                return "image/jpeg";
-                            }
-                        } catch (Exception e3) {
-                            if (b) {
-                                e3.printStackTrace();
-                            }
-                            return "image/jpeg";
-                        }
-                    } catch (Exception e4) {
-                        if (b) {
-                            e4.printStackTrace();
-                        }
-                    }
-                } catch (IllegalArgumentException unused) {
-                    mediaMetadataRetriever.release();
-                    return "image/jpeg";
-                } catch (IllegalStateException unused2) {
-                    mediaMetadataRetriever.release();
-                } catch (RuntimeException unused3) {
-                    mediaMetadataRetriever.release();
-                    return "image/jpeg";
-                } catch (Throwable th) {
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (Exception e5) {
-                        if (b) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return str2;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
+            return super.d(context, unitedSchemeEntity, callbackHandler, cc3Var);
         }
-        return (String) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
+    @Override // com.baidu.tieba.ez1
+    public void j(Response response, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-            Source source = null;
-            try {
-                source = Okio.source(this.a);
-                while (source.read(bufferedSink.buffer(), 2048L) != -1) {
-                    bufferedSink.flush();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
+            String header = response.header("Content-Type", "");
+            if (header != null && header.contains("application/json")) {
+                try {
+                    JSONObject m = cz1.m(response);
+                    if (m == null) {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "response body is null").toString());
+                        return;
+                    } else if (!TextUtils.isEmpty(m.optString("DownloadUrl"))) {
+                        m(callbackHandler, str, m);
+                        return;
+                    } else {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "downloadUrl is empty").toString());
+                        return;
+                    }
+                } catch (Exception e) {
+                    k(callbackHandler, str, 1001, e.getMessage());
+                    if (ez1.c) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    return;
                 }
-            } finally {
-                ds4.d(source);
             }
+            k(callbackHandler, str, 1001, "content type error.");
         }
     }
 }

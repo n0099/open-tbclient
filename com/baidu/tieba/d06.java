@@ -1,47 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.view.animation.LinearInterpolator;
+import android.widget.Scroller;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.fresco.animation.backend.AnimationBackend;
-import com.facebook.fresco.animation.backend.AnimationBackendDelegate;
 /* loaded from: classes5.dex */
-public class d06 extends AnimationBackendDelegate {
+public class d06 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public final Scroller a;
+    public final a06 b;
+    public int c;
+    public int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d06(@Nullable AnimationBackend animationBackend, int i) {
-        super(animationBackend);
+    public d06(a06 a06Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {animationBackend, Integer.valueOf(i)};
+            Object[] objArr = {a06Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((AnimationBackend) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.b = a06Var;
+        this.a = new Scroller(a06Var.getContext(), new LinearInterpolator());
     }
 
-    @Override // com.facebook.fresco.animation.backend.AnimationBackendDelegate, com.facebook.fresco.animation.backend.AnimationInformation
-    public int getLoopCount() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return !this.a.isFinished();
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.abortAnimation();
+        }
+    }
+
+    public void b(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
+            c(0, 0, i, i2, i3);
+        }
+    }
+
+    public void c(int i, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            this.a.startScroll(i, i2, i3, i4, i5);
+            this.b.removeCallbacks(this);
+            this.b.post(this);
+            this.c = i;
+            this.d = i2;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.a.computeScrollOffset()) {
+                int currX = this.a.getCurrX();
+                int currY = this.a.getCurrY();
+                this.b.b(this.c, this.d, currX, currY);
+                this.b.post(this);
+                this.c = currX;
+                this.d = currY;
+                return;
+            }
+            this.b.removeCallbacks(this);
+            this.b.a();
+        }
     }
 }

@@ -2,7 +2,6 @@ package com.kuaishou.weapon.p0;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,7 +52,7 @@ public class q0 {
                 try {
                     String string = jSONObject.getString(str);
                     if (!TextUtils.isEmpty(string)) {
-                        if (string.contains(StringUtil.EMPTY_ARRAY)) {
+                        if (string.contains("{}")) {
                             return null;
                         }
                         return string;

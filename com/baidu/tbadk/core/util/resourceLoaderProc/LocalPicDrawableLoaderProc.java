@@ -4,8 +4,8 @@ import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.in;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,25 +67,25 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.rg
-    public hn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.sg
+    public in getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + "";
-            hn z2 = TbImageMemoryCache.u().z(str3);
-            if (z2 == null) {
-                Bitmap bitmap = SkinManager.getBitmap(ug.e(str2, 0));
+            in w = TbImageMemoryCache.u().w(str3);
+            if (w == null) {
+                Bitmap bitmap = SkinManager.getBitmap(vg.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                hn hnVar = new hn(bitmap, false, str2);
-                TbImageMemoryCache.u().l(str3, hnVar);
-                return hnVar;
+                in inVar = new in(bitmap, false, str2);
+                TbImageMemoryCache.u().l(str3, inVar);
+                return inVar;
             }
-            return z2;
+            return w;
         }
-        return (hn) invokeCommon.objValue;
+        return (in) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

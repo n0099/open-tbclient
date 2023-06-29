@@ -33,7 +33,7 @@ import com.baidu.searchbox.download.util.DownloadHelper;
 import com.baidu.searchbox.download.util.DownloadStatisticUtil;
 import com.baidu.searchbox.download.util.FileClassifyHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 import com.facebook.common.executors.CallerThreadExecutor;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
@@ -370,7 +370,7 @@ public class DownloadNotification {
                     }
                 }
                 if (downloadInfo.mStatus != 192 && notificationItem2.mPausedText == null) {
-                    notificationItem2.mPausedText = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05ca);
+                    notificationItem2.mPausedText = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05cd);
                 }
                 if (DEBUG) {
                     Log.d("DownloadNotification", notificationItem2.toString());
@@ -449,7 +449,7 @@ public class DownloadNotification {
             intent.setData(ContentUris.withAppendedId(Downloads.Impl.ALL_DOWNLOADS_CONTENT_URI, notificationItem3.mId));
             intent.putExtra("multiple", false);
             intent.putExtra(Constants.EXTRA_TYPE, category);
-            versionedNotification.setContentIntent(v.a(this.mContext, 0, intent, 0));
+            versionedNotification.setContentIntent(w.a(this.mContext, 0, intent, 0));
             versionedNotification.setWhen(0L);
             if (notificationItem3.mStatus != 192) {
                 this.mISystemFacade.cancelNotification(notificationItem3.mId);
@@ -498,7 +498,7 @@ public class DownloadNotification {
                 int category = FileClassifyHelper.getCategory(FileClassifyHelper.getFileSuffix(str), downloadInfo.mMimeType);
                 Uri withAppendedId = ContentUris.withAppendedId(Downloads.Impl.ALL_DOWNLOADS_CONTENT_URI, j);
                 if (Downloads.Impl.isStatusError(downloadInfo.mStatus)) {
-                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0e69);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0e86);
                     intent = new Intent(Constants.ACTION_LIST);
                     smallIcon.setSmallIcon(17301642);
                 } else {
@@ -513,7 +513,7 @@ public class DownloadNotification {
                 intent.setClassName(this.mContext.getPackageName(), DownloadReceiver.class.getName());
                 intent.setData(withAppendedId);
                 intent.putExtra(Constants.EXTRA_TYPE, category);
-                smallIcon.setContentTitle(DownloadHelper.getTitleCutOff(str2)).setContentText(string).setWhen(downloadInfo.mLastMod).setContentIntent(v.a(this.mContext, 0, intent, 0));
+                smallIcon.setContentTitle(DownloadHelper.getTitleCutOff(str2)).setContentText(string).setWhen(downloadInfo.mLastMod).setContentIntent(w.a(this.mContext, 0, intent, 0));
                 if (!DownloadNotificationFitter.checkIsMiuiRom() && !TextUtils.isEmpty(downloadInfo.mExtraInfo)) {
                     try {
                         if (DEBUG_LOG) {
@@ -548,7 +548,7 @@ public class DownloadNotification {
                 Intent intent2 = new Intent(Constants.ACTION_HIDE);
                 intent2.setClassName(this.mContext.getPackageName(), DownloadReceiver.class.getName());
                 intent2.setData(withAppendedId);
-                smallIcon.setDeleteIntent(v.a(this.mContext, 0, intent2, 0));
+                smallIcon.setDeleteIntent(w.a(this.mContext, 0, intent2, 0));
                 this.waitToNotifyComplete.remove(Long.valueOf(downloadInfo.mId));
                 if (!checkTopActivityIsFileManagerOrDownloadList) {
                     if (category == 0 || 3 == category || 4 == category || 8 == category) {

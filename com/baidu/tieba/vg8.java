@@ -1,75 +1,67 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vg8 extends ki8 {
+public class vg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AbilityItem a;
+    public ug8<? extends BaseChatAdapter, ? extends BaseMsg> a;
 
-    @Override // com.baidu.tieba.ki8
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public vg8(AbilityItem abilityItem) {
+    public vg8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abilityItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = abilityItem;
     }
 
-    public AbilityItem b() {
+    @NonNull
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> ug8<T, Msg> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (ug8<T, Msg>) this.a;
         }
-        return (AbilityItem) invokeV.objValue;
+        return (ug8) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Nullable
+    public static vg8 b(@NonNull View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AbilityItem abilityItem = this.a;
-            if (abilityItem == null || abilityItem.getStyleConf() == null) {
-                return "";
-            }
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                if (this.a.getStyleConf().getDark() == null || this.a.getStyleConf().getDark().getIcon() == null) {
-                    return "";
-                }
-                return this.a.getStyleConf().getDark().getIcon();
-            } else if (this.a.getStyleConf().getDay() == null || this.a.getStyleConf().getDay().getIcon() == null) {
-                return "";
-            } else {
-                return this.a.getStyleConf().getDay().getIcon();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (vg8) view2.getTag(R.id.obfuscated_res_0x7f092359);
         }
-        return (String) invokeV.objValue;
+        return (vg8) invokeL.objValue;
+    }
+
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> void c(@NonNull ug8<T, Msg> ug8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ug8Var) == null) {
+            this.a = ug8Var;
+        }
+    }
+
+    public static void d(@NonNull View view2, @NonNull vg8 vg8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, vg8Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f092359, vg8Var);
+        }
     }
 }

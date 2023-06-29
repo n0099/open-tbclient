@@ -1,321 +1,120 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.job;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.schedulers.ScheduledAction;
-import rx.internal.util.RxThreadFactory;
 /* loaded from: classes6.dex */
-public class jqb extends job.a implements nob {
+public final class jqb {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final int d;
-    public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> e;
-    public static final AtomicReference<ScheduledExecutorService> f;
-    public static volatile Object g;
-    public static final Object h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ScheduledExecutorService a;
-    public volatile boolean b;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static int b(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            int i3 = 1 << (i2 - 1);
+            while ((i & i3) != 0) {
+                i3 >>= 1;
             }
+            return (i & (i3 - 1)) + i3;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jqb.f();
-            }
-        }
+        return invokeII.intValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        boolean z;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947893358, "Lcom/baidu/tieba/jqb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void a(int[] iArr, int i, int i2, int[] iArr2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2, Integer.valueOf(i3)}) == null) {
+            int[] iArr3 = new int[i3];
+            int[] iArr4 = new int[16];
+            int[] iArr5 = new int[16];
+            int i4 = 0;
+            for (int i5 = 0; i5 < i3; i5++) {
+                int i6 = iArr2[i5];
+                iArr4[i6] = iArr4[i6] + 1;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947893358, "Lcom/baidu/tieba/jqb;");
+            iArr5[1] = 0;
+            int i7 = 1;
+            while (i7 < 15) {
+                int i8 = i7 + 1;
+                iArr5[i8] = iArr5[i7] + iArr4[i7];
+                i7 = i8;
+            }
+            for (int i9 = 0; i9 < i3; i9++) {
+                if (iArr2[i9] != 0) {
+                    int i10 = iArr2[i9];
+                    int i11 = iArr5[i10];
+                    iArr5[i10] = i11 + 1;
+                    iArr3[i11] = i9;
+                }
+            }
+            int i12 = 1 << i2;
+            if (iArr5[15] == 1) {
+                for (int i13 = 0; i13 < i12; i13++) {
+                    iArr[i + i13] = iArr3[0];
+                }
                 return;
             }
-        }
-        h = new Object();
-        e = new ConcurrentHashMap<>();
-        f = new AtomicReference<>();
-        d = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
-        boolean z2 = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
-        int a2 = rqb.a();
-        if (!z2 && (a2 == 0 || a2 >= 21)) {
-            z = true;
-        } else {
-            z = false;
-        }
-        c = z;
-    }
-
-    public jqb(ThreadFactory threadFactory) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            int i14 = 2;
+            int i15 = 0;
+            int i16 = 1;
+            int i17 = 2;
+            while (i16 <= i2) {
+                while (iArr4[i16] > 0) {
+                    d(iArr, i + i4, i17, i12, iArr3[i15] | (i16 << 16));
+                    i4 = b(i4, i16);
+                    iArr4[i16] = iArr4[i16] - 1;
+                    i15++;
+                }
+                i16++;
+                i17 <<= 1;
             }
-        }
-        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        if (!k(newScheduledThreadPool) && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
-            g((ScheduledThreadPoolExecutor) newScheduledThreadPool);
-        }
-        this.a = newScheduledThreadPool;
-    }
-
-    public static Method e(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method[] methods;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scheduledExecutorService)) == null) {
-            for (Method method : scheduledExecutorService.getClass().getMethods()) {
-                if (method.getName().equals("setRemoveOnCancelPolicy")) {
-                    Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (parameterTypes.length == 1 && parameterTypes[0] == Boolean.TYPE) {
-                        return method;
+            int i18 = i12 - 1;
+            int i19 = -1;
+            int i20 = i2 + 1;
+            int i21 = i;
+            while (i20 <= 15) {
+                while (iArr4[i20] > 0) {
+                    int i22 = i4 & i18;
+                    if (i22 != i19) {
+                        i21 += i12;
+                        int c = c(iArr4, i20, i2);
+                        iArr[i + i22] = ((c + i2) << 16) | ((i21 - i) - i22);
+                        i12 = 1 << c;
+                        i19 = i22;
                     }
+                    d(iArr, (i4 >> i2) + i21, i14, i12, ((i20 - i2) << 16) | iArr3[i15]);
+                    i4 = b(i4, i20);
+                    iArr4[i20] = iArr4[i20] - 1;
+                    i15++;
                 }
-            }
-            return null;
-        }
-        return (Method) invokeL.objValue;
-    }
-
-    public static void d(ScheduledExecutorService scheduledExecutorService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, scheduledExecutorService) == null) {
-            e.remove(scheduledExecutorService);
-        }
-    }
-
-    @Override // com.baidu.tieba.job.a
-    public nob b(tob tobVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tobVar)) == null) {
-            return c(tobVar, 0L, null);
-        }
-        return (nob) invokeL.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                Iterator<ScheduledThreadPoolExecutor> it = e.keySet().iterator();
-                while (it.hasNext()) {
-                    ScheduledThreadPoolExecutor next = it.next();
-                    if (!next.isShutdown()) {
-                        next.purge();
-                    } else {
-                        it.remove();
-                    }
-                }
-            } catch (Throwable th) {
-                sob.e(th);
-                qsb.j(th);
+                i20++;
+                i14 <<= 1;
             }
         }
     }
 
-    public static void g(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
+    public static int c(int[] iArr, int i, int i2) {
+        InterceptResult invokeLII;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, scheduledThreadPoolExecutor) == null) {
-            while (true) {
-                if (f.get() != null) {
-                    break;
-                }
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-                if (f.compareAndSet(null, newScheduledThreadPool)) {
-                    a aVar = new a();
-                    int i = d;
-                    newScheduledThreadPool.scheduleAtFixedRate(aVar, i, i, TimeUnit.MILLISECONDS);
-                    break;
-                }
-                newScheduledThreadPool.shutdownNow();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i, i2)) == null) {
+            int i4 = 1 << (i - i2);
+            while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
+                i++;
+                i4 = i3 << 1;
             }
-            e.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
+            return i - i2;
         }
+        return invokeLII.intValue;
     }
 
-    public static boolean k(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method e2;
-        Object obj;
+    public static void d(int[] iArr, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, scheduledExecutorService)) == null) {
-            if (c) {
-                if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
-                    Object obj2 = g;
-                    if (obj2 == h) {
-                        return false;
-                    }
-                    if (obj2 == null) {
-                        e2 = e(scheduledExecutorService);
-                        if (e2 != null) {
-                            obj = e2;
-                        } else {
-                            obj = h;
-                        }
-                        g = obj;
-                    } else {
-                        e2 = (Method) obj2;
-                    }
-                } else {
-                    e2 = e(scheduledExecutorService);
-                }
-                if (e2 != null) {
-                    try {
-                        e2.invoke(scheduledExecutorService, Boolean.TRUE);
-                        return true;
-                    } catch (IllegalAccessException e3) {
-                        qsb.j(e3);
-                    } catch (IllegalArgumentException e4) {
-                        qsb.j(e4);
-                    } catch (InvocationTargetException e5) {
-                        qsb.j(e5);
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.job.a
-    public nob c(tob tobVar, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tobVar, Long.valueOf(j), timeUnit})) == null) {
-            if (this.b) {
-                return gtb.c();
-            }
-            return h(tobVar, j, timeUnit);
-        }
-        return (nob) invokeCommon.objValue;
-    }
-
-    public ScheduledAction h(tob tobVar, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tobVar, Long.valueOf(j), timeUnit})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(qsb.q(tobVar));
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    public ScheduledAction i(tob tobVar, long j, TimeUnit timeUnit, uqb uqbVar) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{tobVar, Long.valueOf(j), timeUnit, uqbVar})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(qsb.q(tobVar), uqbVar);
-            uqbVar.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    public ScheduledAction j(tob tobVar, long j, TimeUnit timeUnit, dtb dtbVar) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{tobVar, Long.valueOf(j), timeUnit, dtbVar})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(qsb.q(tobVar), dtbVar);
-            dtbVar.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.nob
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.nob
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-            this.a.shutdownNow();
-            d(this.a);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            do {
+                i3 -= i2;
+                iArr[i + i3] = i4;
+            } while (i3 > 0);
         }
     }
 }

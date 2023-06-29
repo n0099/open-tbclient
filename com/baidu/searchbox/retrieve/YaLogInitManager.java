@@ -8,11 +8,11 @@ import com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
-import com.baidu.tieba.c20;
-import com.baidu.tieba.gza;
-import com.baidu.tieba.il1;
-import com.baidu.tieba.ml1;
+import com.baidu.tieba.d20;
+import com.baidu.tieba.ll1;
+import com.baidu.tieba.pl1;
 import com.baidu.tieba.t90;
+import com.baidu.tieba.w3b;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
 /* loaded from: classes4.dex */
@@ -37,23 +37,23 @@ public class YaLogInitManager {
         if (z && this.mApp != null && !TextUtils.isEmpty(str)) {
             CloudControlBlCPManager.getInstance().registerConnectStateListener(this.mApp);
             FetchConnManager.getInstance().init();
-            t90.a(this.mApp, str, c20.a().getDeviceId(), 1);
+            t90.a(this.mApp, str, d20.a().getDeviceId(), 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        gza gzaVar;
-        if (z && (gzaVar = (gza) ServiceManager.getService(gza.a)) != null) {
-            gzaVar.retry();
+        w3b w3bVar;
+        if (z && (w3bVar = (w3b) ServiceManager.getService(w3b.a)) != null) {
+            w3bVar.retry();
         }
     }
 
     public void initYaLogBaseContext(Application application) {
         if (application != null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            ml1.b(application);
-            if (il1.g()) {
+            pl1.b(application);
+            if (ll1.g()) {
                 VoyagerIPCManager.b();
             }
             this.mApp = application;
@@ -61,7 +61,7 @@ public class YaLogInitManager {
     }
 
     public void initYaLog(boolean z, final boolean z2, final boolean z3, final String str) {
-        if (!il1.g()) {
+        if (!ll1.g()) {
             return;
         }
         if (z) {

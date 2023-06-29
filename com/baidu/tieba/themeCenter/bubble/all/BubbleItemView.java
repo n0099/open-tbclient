@@ -13,9 +13,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i6a;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.uaa;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class BubbleItemView extends LinearLayout {
     public ImageView h;
     public TbImageView i;
     public DressItemData j;
-    public i6a k;
+    public uaa k;
     public boolean l;
     public View.OnClickListener m;
 
@@ -142,10 +142,10 @@ public class BubbleItemView extends LinearLayout {
         f();
     }
 
-    public void setController(i6a i6aVar) {
+    public void setController(uaa uaaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, i6aVar) == null) {
-            this.k = i6aVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, uaaVar) == null) {
+            this.k = uaaVar;
         }
     }
 
@@ -166,11 +166,11 @@ public class BubbleItemView extends LinearLayout {
         boolean z = true;
         boolean z2 = !TextUtils.isEmpty(dressItemData.getDynamicUrl());
         if (dressItemData.isDefault()) {
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f08085e);
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080860);
             this.d.N("", 10, false);
-            this.e.setText(R.string.obfuscated_res_0x7f0f0526);
+            this.e.setText(R.string.obfuscated_res_0x7f0f0529);
             this.e.setGravity(17);
-            this.e.setTextSize(0, wi.g(this.a, R.dimen.obfuscated_res_0x7f0701f9));
+            this.e.setTextSize(0, xi.g(this.a, R.dimen.obfuscated_res_0x7f0701f9));
             this.e.setTextColor(getResources().getColor(R.color.CAM_X0108));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
@@ -223,20 +223,20 @@ public class BubbleItemView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0186, this);
             this.b = inflate;
-            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091659);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0903d5);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ae3);
+            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091669);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0903d7);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b3a);
             this.f = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.f.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0921ff);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09225f);
             this.g = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
             this.g.setDefaultBgResource(R.drawable.transparent_bg);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0906e1);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0906e7);
             this.e = new TextView(this.a);
             this.d.setOnClickListener(this.m);
-            this.i = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090fd0);
+            this.i = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090fdb);
         }
     }
 }

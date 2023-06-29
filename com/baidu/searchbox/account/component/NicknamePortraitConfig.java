@@ -69,7 +69,7 @@ public class NicknamePortraitConfig {
 
     public static Builder getDefaultBuilder() {
         try {
-            return new Builder().setTitle(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0098)).setSubTitle(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0095)).setButtonText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0093)).setTipsText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0096)).setNicknamePortraitType(-1).setSource(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS);
+            return new Builder().setTitle(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f009a)).setSubTitle(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0097)).setButtonText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0095)).setTipsText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0098)).setNicknamePortraitType(-1).setSource(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS);
         } catch (Throwable unused) {
             return new Builder();
         }

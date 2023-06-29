@@ -1,136 +1,233 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class km3 extends wd3 {
+public class km3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static volatile km3 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public SensorManager a;
+    public SensorEventListener b;
+    public Sensor c;
+    public Sensor d;
+    public b e;
+    public float[] f;
+    public float[] g;
+    public boolean h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917848, "Lcom/baidu/tieba/km3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917848, "Lcom/baidu/tieba/km3;");
-                return;
-            }
-        }
-        c = js1.a;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(float[] fArr);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public km3(wc3 wc3Var) {
-        super(wc3Var, "/swanAPI/getSystemRiskInfo");
+    /* loaded from: classes6.dex */
+    public class a implements SensorEventListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ km3 a;
+
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
+            }
+        }
+
+        public a(km3 km3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {km3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = km3Var;
+        }
+
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            Sensor sensor;
+            float[] g;
+            Sensor sensor2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
+                if (sensorEvent != null && (sensor2 = sensorEvent.sensor) != null && sensor2.getType() == 1) {
+                    float[] fArr = sensorEvent.values;
+                    if (fArr == null || fArr.length != 3) {
+                        return;
+                    }
+                    this.a.f = (float[]) fArr.clone();
+                } else if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
+                    float[] fArr2 = sensorEvent.values;
+                    if (fArr2 != null && fArr2.length == 3) {
+                        this.a.g = (float[]) fArr2.clone();
+                    }
+                    if (this.a.e != null && this.a.f != null && this.a.g != null && (g = this.a.g()) != null) {
+                        this.a.e.a(g);
+                    }
+                }
+            }
+        }
+    }
+
+    public km3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.h = false;
     }
 
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
-        InterceptResult invokeLLLL;
-        String h;
-        String a;
-        String O;
+    public static km3 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            wv1 h0 = gv2.h0();
-            JSONObject jSONObject = new JSONObject();
-            if (context == null) {
-                try {
-                    context = gv2.c();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (i == null) {
+                synchronized (km3.class) {
+                    if (i == null) {
+                        i = new km3();
+                    }
                 }
             }
-            String str = "";
-            if (h0 == null) {
-                h = "";
-            } else {
-                h = h0.h(context);
-            }
-            jSONObject.put(DpStatConstants.KEY_USER_ID, h);
-            if (h0 == null) {
-                a = "";
-            } else {
-                a = gv2.G0().a(context);
-            }
-            jSONObject.put("zid", a);
-            jSONObject.put("idfa", "");
-            jSONObject.put("imei", tp3.r());
-            if (zb3Var == null) {
-                O = "";
-            } else {
-                O = zb3Var.O();
-            }
-            jSONObject.put("appkey", O);
-            jSONObject.put("os", "android");
-            jSONObject.put("osVersion", Build.VERSION.RELEASE);
-            jSONObject.put("hostName", context.getPackageName());
-            jSONObject.put("hostVersion", tp3.D());
-            jSONObject.put("model", Build.MODEL);
-            jSONObject.put("uuid", ls4.b(context).a());
-            jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-            if (h0 != null) {
-                str = h0.i(context);
-            }
-            jSONObject.put("cuid", str);
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", jSONObject.toString());
-            }
-            String b = us4.b(UUID.randomUUID().toString().getBytes(), false);
-            String a2 = ro3.a(b, jSONObject.toString(), "AES/CTR/NoPadding", "4c6579b50ff05adb");
-            String d = ro3.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b, "RSA/ECB/PKCS1Padding");
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", "aesKey=" + b + ", aesValue=" + a2 + ", rsaKey=" + d);
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("key", d);
-                jSONObject3.put("value", a2);
-                jSONObject2.put("content", jSONObject3);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
-            return true;
+            return i;
         }
-        return invokeLLLL.booleanValue;
+        return (km3) invokeV.objValue;
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || i == null) {
+            return;
+        }
+        i.j();
+    }
+
+    public final SensorEventListener i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            c92.i("SwanAppOrientationManager", "get System Sensor listener");
+            SensorEventListener sensorEventListener = this.b;
+            if (sensorEventListener != null) {
+                return sensorEventListener;
+            }
+            a aVar = new a(this);
+            this.b = aVar;
+            return aVar;
+        }
+        return (SensorEventListener) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c92.i("SwanAppOrientationManager", "release");
+            if (this.h) {
+                m();
+            }
+            this.a = null;
+            this.c = null;
+            this.d = null;
+            this.b = null;
+            this.f = null;
+            this.g = null;
+            i = null;
+        }
+    }
+
+    @Nullable
+    public final float[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            float[] fArr = new float[9];
+            float[] fArr2 = new float[9];
+            float[] fArr3 = new float[3];
+            if (!SensorManager.getRotationMatrix(fArr, null, this.f, this.g) || !SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
+                return null;
+            }
+            SensorManager.getOrientation(fArr2, fArr3);
+            return fArr3;
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    public void m() {
+        SensorManager sensorManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!this.h) {
+                c92.o("SwanAppOrientationManager", "has already stop");
+                return;
+            }
+            this.h = false;
+            SensorEventListener sensorEventListener = this.b;
+            if (sensorEventListener != null && (sensorManager = this.a) != null) {
+                sensorManager.unregisterListener(sensorEventListener);
+                this.b = null;
+            }
+            this.e = null;
+            this.a = null;
+            this.c = null;
+            this.d = null;
+        }
+    }
+
+    public boolean l(int i2, @NonNull b bVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, bVar)) == null) {
+            if (this.h) {
+                c92.o("SwanAppOrientationManager", "has already start, change new listener");
+                this.e = bVar;
+                return true;
+            }
+            SensorManager sensorManager = (SensorManager) jv2.c().getSystemService("sensor");
+            this.a = sensorManager;
+            if (sensorManager != null) {
+                this.e = bVar;
+                this.c = sensorManager.getDefaultSensor(1);
+                Sensor defaultSensor = this.a.getDefaultSensor(2);
+                this.d = defaultSensor;
+                if (this.c != null && defaultSensor != null) {
+                    this.a.registerListener(i(), this.c, i2);
+                    this.a.registerListener(i(), this.d, i2);
+                    this.h = true;
+                    c92.i("SwanAppOrientationManager", "start listen");
+                    return true;
+                }
+                c92.c("SwanAppOrientationManager", "Accelerometer || Magnetic is null");
+                return false;
+            }
+            c92.c("SwanAppOrientationManager", "none sensorManager");
+            return false;
+        }
+        return invokeIL.booleanValue;
     }
 }

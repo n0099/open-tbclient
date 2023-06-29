@@ -73,7 +73,7 @@ public class CommonWhiteMenuView extends LinearLayout implements BdMenu.OnMenuSe
         this.mItemTextColor = getResources().getColorStateList(com.baidu.tieba.R.color.home_skin_menu_text_color);
         this.mDividerRes = com.baidu.tieba.R.color.home_skin_menu_item_divider_color;
         this.mItemBgRes = com.baidu.tieba.R.drawable.home_skin_setting_item_bg_selector;
-        setBackground(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f081367));
+        setBackground(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f081399));
     }
 
     public int getItemBgRes() {
@@ -93,10 +93,10 @@ public class CommonWhiteMenuView extends LinearLayout implements BdMenu.OnMenuSe
         int color;
         if (bdMenuItem instanceof BdMenuItemCheck) {
             View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.skin_menu_checkbox_item, (ViewGroup) this, false);
-            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09115c).setBackground(getResources().getDrawable(getItemBgRes()));
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0911a7);
+            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091168).setBackground(getResources().getDrawable(getItemBgRes()));
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0911b3);
             textView.setText(bdMenuItem.getTitle());
-            CheckBox checkBox = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906d5);
+            CheckBox checkBox = (CheckBox) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906db);
             checkBox.setButtonDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.skin_checkbox_private));
             checkBox.setChecked(bdMenuItem.isChecked());
             textView.setTextColor(getTextColor());
@@ -105,8 +105,8 @@ public class CommonWhiteMenuView extends LinearLayout implements BdMenu.OnMenuSe
             return inflate;
         }
         View inflate2 = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.skin_menu_item, (ViewGroup) this, false);
-        inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09115c).setBackground(getResources().getDrawable(this.mItemBgRes));
-        TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e87);
+        inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091168).setBackground(getResources().getDrawable(this.mItemBgRes));
+        TextView textView2 = (TextView) inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ee3);
         textView2.setText(bdMenuItem.getTitle());
         inflate2.setEnabled(bdMenuItem.isEnabled());
         textView2.setEnabled(bdMenuItem.isEnabled());
@@ -160,10 +160,10 @@ public class CommonWhiteMenuView extends LinearLayout implements BdMenu.OnMenuSe
         if (bdMenuItem != null && (bdMenuItem instanceof BdMenuItemCheck)) {
             View view2 = this.mChildView.get(bdMenuItem.getItemId());
             if (view2 != null) {
-                view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09115c).setBackground(getResources().getDrawable(getItemBgRes()));
-                TextView textView = (TextView) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0911a7);
+                view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091168).setBackground(getResources().getDrawable(getItemBgRes()));
+                TextView textView = (TextView) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0911b3);
                 textView.setText(bdMenuItem.getTitle());
-                CheckBox checkBox = (CheckBox) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906d5);
+                CheckBox checkBox = (CheckBox) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0906db);
                 checkBox.setButtonDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.skin_checkbox_private));
                 checkBox.setChecked(bdMenuItem.isChecked());
                 textView.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.home_skin_menu_text_color));
@@ -174,8 +174,8 @@ public class CommonWhiteMenuView extends LinearLayout implements BdMenu.OnMenuSe
             return;
         }
         View view3 = this.mChildView.get(bdMenuItem.getItemId());
-        view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09115c).setBackground(getResources().getDrawable(getItemBgRes()));
-        TextView textView2 = (TextView) view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e87);
+        view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091168).setBackground(getResources().getDrawable(getItemBgRes()));
+        TextView textView2 = (TextView) view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ee3);
         textView2.setText(bdMenuItem.getTitle());
         view3.setEnabled(bdMenuItem.isEnabled());
         textView2.setEnabled(bdMenuItem.isEnabled());

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class gc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<cc2> a;
-    public boolean b;
+    public final List<fc2> a;
 
     public gc2() {
         Interceptable interceptable = $ic;
@@ -29,56 +29,63 @@ public final class gc2 {
             }
         }
         this.a = new ArrayList();
-        this.b = false;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.a.clear();
+            }
+        }
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = false;
+                Iterator<fc2> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    } else if (it.next().c()) {
+                        z = true;
+                        break;
+                    }
+                }
+            }
+            return z;
         }
         return invokeV.booleanValue;
     }
 
-    public String a() {
+    public synchronized List<fc2> d() {
         InterceptResult invokeV;
+        List<fc2> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String g = no3.g(System.currentTimeMillis(), "【HH:mm:ss】");
-            List<cc2> list = this.a;
-            if (list != null && !list.isEmpty()) {
-                int i = 0;
-                int i2 = 0;
-                int i3 = 0;
-                for (cc2 cc2Var : this.a) {
-                    if (cc2Var.c()) {
-                        i++;
-                        if (cc2Var.b()) {
-                            i2++;
-                        } else {
-                            i3++;
-                        }
-                    }
-                }
-                return String.format("\n%s jserror：共%d个，影响渲染%d个（框架%d个，开发者%d个）；", g, Integer.valueOf(this.a.size()), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                list = this.a;
             }
-            return String.format("\n%s jserror：共0个；", g);
+            return list;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void c(List<cc2> list) {
+    public synchronized boolean a(fc2 fc2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
-            this.a = list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fc2Var)) == null) {
+            synchronized (this) {
+                if (fc2Var != null) {
+                    return this.a.add(fc2Var);
+                }
+                return false;
+            }
         }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
+        return invokeL.booleanValue;
     }
 }

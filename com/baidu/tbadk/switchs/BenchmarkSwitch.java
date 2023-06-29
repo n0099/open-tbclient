@@ -2,21 +2,21 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.df;
+import com.baidu.tieba.ef;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class BenchmarkSwitch extends df {
+public class BenchmarkSwitch extends ef {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANDROID_BENCHMARK_SWITCH = "android_benchmark_switch";
     public static final int DEFAULT_TYPE = 1;
     public static final int OFF_TYPE = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     /* renamed from: getCrashKeys */
     public String[] mo129getCrashKeys() {
         InterceptResult invokeV;
@@ -27,7 +27,7 @@ public class BenchmarkSwitch extends df {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class BenchmarkSwitch extends df {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public class BenchmarkSwitch extends df {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ANDROID_BENCHMARK_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class BenchmarkSwitch extends df {
         }
     }
 
-    @Override // com.baidu.tieba.df
+    @Override // com.baidu.tieba.ef
     public void changeSettingByType(int i) {
         boolean z;
         Interceptable interceptable = $ic;

@@ -1,15 +1,16 @@
 package com.baidu.tieba;
+
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface cc8 {
-    boolean a();
+public class cc8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b();
-
-    boolean isForeground();
-
-    void setRecoding(boolean z);
-
-    void startRecord();
-
-    void stopRecord();
+    public static void a(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+        }
+    }
 }

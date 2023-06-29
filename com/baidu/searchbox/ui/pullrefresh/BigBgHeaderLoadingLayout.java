@@ -67,13 +67,13 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     }
 
     private void init(Context context) {
-        this.mHeaderContainer = (RelativeLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d1a);
-        this.mArrowImageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d18);
-        this.mHintTextView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d1b);
-        this.mProgressBar = (ProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d1c);
-        this.mHeaderTimeView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d1e);
-        this.mHeaderTimeViewTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d20);
-        this.mBigBackground = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d19);
+        this.mHeaderContainer = (RelativeLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d75);
+        this.mArrowImageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d73);
+        this.mHintTextView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d76);
+        this.mProgressBar = (ProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d77);
+        this.mHeaderTimeView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d79);
+        this.mHeaderTimeViewTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d7b);
+        this.mBigBackground = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d74);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.mRotateUpAnim = rotateAnimation;
         rotateAnimation.setDuration(120L);
@@ -86,7 +86,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d07f6, viewGroup, false);
+        return LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0809, viewGroup, false);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout, com.baidu.searchbox.ui.pullrefresh.ILoadingLayout
@@ -104,7 +104,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
             this.mArrowImageView.clearAnimation();
             this.mArrowImageView.startAnimation(this.mRotateDownAnim);
         }
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1147);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1164);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
@@ -112,20 +112,20 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         this.mArrowImageView.clearAnimation();
         this.mArrowImageView.setVisibility(4);
         this.mProgressBar.setVisibility(0);
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f114b);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1168);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReleaseToRefresh() {
         this.mArrowImageView.clearAnimation();
         this.mArrowImageView.startAnimation(this.mRotateUpAnim);
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1148);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1165);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public void onReset() {
         this.mArrowImageView.clearAnimation();
-        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1147);
+        this.mHintTextView.setText(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1164);
     }
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout, com.baidu.searchbox.ui.pullrefresh.ILoadingLayout

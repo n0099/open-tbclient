@@ -6,10 +6,10 @@ import android.media.ThumbnailUtils;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.fxa;
-import com.baidu.tieba.lxa;
-import com.baidu.tieba.rwa;
-import com.baidu.tieba.wwa;
+import com.baidu.tieba.b2b;
+import com.baidu.tieba.h1b;
+import com.baidu.tieba.m1b;
+import com.baidu.tieba.v1b;
 import com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
 import java.io.Closeable;
@@ -20,7 +20,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     public int mAngle;
     public VideoKeyFrameModel mVideoKeyFrameModel;
     public String mPath = null;
-    public boolean isUseMediacodec = fxa.a();
+    public boolean isUseMediacodec = v1b.a();
 
     /* loaded from: classes8.dex */
     public interface OnGetFrameAtExactTimeListener {
@@ -37,7 +37,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     }
 
     private boolean isUseMediacodec() {
-        return this.isUseMediacodec && !lxa.a(this.mPath);
+        return this.isUseMediacodec && !b2b.a(this.mPath);
     }
 
     @Override // android.media.MediaMetadataRetriever, java.lang.AutoCloseable, java.io.Closeable
@@ -113,7 +113,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     }
 
     public void getFrameAtTimeList(List<Long> list, int i, int i2, VideoKeyFrameModel.OnDecodeFrameAvailableListener onDecodeFrameAvailableListener) {
-        if (wwa.e(list) || onDecodeFrameAvailableListener == null) {
+        if (m1b.e(list) || onDecodeFrameAvailableListener == null) {
             return;
         }
         if (isUseMediacodec()) {
@@ -152,7 +152,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
                 this.mPath = str;
             }
         } catch (Exception e) {
-            rwa.g(e);
+            h1b.g(e);
         }
     }
 

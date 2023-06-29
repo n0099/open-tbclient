@@ -1,122 +1,138 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.ww2;
+import androidx.media2.session.SessionCommand;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 /* loaded from: classes8.dex */
 public class wc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public static void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && yb3.K().k() == 1 && !d()) {
-            e53.p("startup").F(new UbcFlowEvent(str));
+        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        dd4 dd4Var = new dd4();
+        dd4Var.a = str;
+        tc4.c().a(new sc4(50000, dd4Var));
+    }
+
+    public static void b(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        dd4 dd4Var = new dd4();
+        dd4Var.a = str;
+        tc4.c().a(new sc4(90000, dd4Var));
+    }
+
+    public static void e(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        dd4 dd4Var = new dd4();
+        dd4Var.a = str;
+        tc4.c().a(new sc4(60000, dd4Var));
+    }
+
+    public static void g(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
+            return;
+        }
+        dd4 dd4Var = new dd4();
+        dd4Var.a = str;
+        tc4.c().a(new sc4(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, dd4Var));
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
+            bd4 bd4Var = new bd4();
+            bd4Var.b = str;
+            bd4Var.a = str2;
+            tc4.c().a(new sc4(30000, bd4Var));
         }
     }
 
-    public static void b(JSONArray jSONArray) {
+    public static void c(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, jSONArray) == null) && jSONArray != null && jSONArray.length() != 0) {
-            HybridUbcFlow p = e53.p("startup");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("id");
-                    long optLong = optJSONObject.optLong("timestamp");
-                    if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
-                        UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
-                        ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
-                        ubcFlowEvent.h(optLong);
-                        p.F(ubcFlowEvent);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            ad4 ad4Var = new ad4();
+            ad4Var.b = str;
+            ad4Var.c = i;
+            ad4Var.d = z ? 1 : 0;
+            ad4Var.a = str2;
+            tc4.c().a(new sc4(DefaultOggSeeker.MATCH_BYTE_RANGE, ad4Var));
         }
     }
 
-    public static long c() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
+    public static void h(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            zb3 M = zb3.M();
-            if (M == null || (w = M.w()) == null) {
-                return 0L;
-            }
-            yo2 R = w.R();
-            if (!(R instanceof a84)) {
-                return 0L;
-            }
-            return ((a84) R).f1();
-        }
-        return invokeV.longValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            zb3 M = zb3.M();
-            if (M == null || (w = M.w()) == null) {
-                return false;
-            }
-            yo2 R = w.R();
-            if (!(R instanceof a84)) {
-                return false;
-            }
-            return ((a84) R).j1();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void e(String str, ww2.a aVar) {
-        Bundle P;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) && aVar != null && !d() && (P = aVar.P()) != null && P.getLong("page_display_flag_for_statistic") > 0) {
-            long l = aVar.l("launch_time", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            cj3 cj3Var = new cj3();
-            cj3Var.a = si3.n(aVar.G());
-            cj3Var.f = aVar.H();
-            cj3Var.c = aVar.T();
-            cj3Var.b = "launch";
-            cj3Var.e = "realcancel";
-            cj3Var.q = String.valueOf(currentTimeMillis - l);
-            cj3Var.a("reason", str);
-            cj3Var.a("errorList", qc4.c().d());
-            cj3Var.d(P.getString("ubc"));
-            si3.onEvent(cj3Var);
-            P.remove("page_display_flag_for_statistic");
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            ad4 ad4Var = new ad4();
+            ad4Var.b = str;
+            ad4Var.c = i;
+            ad4Var.d = z ? 1 : 0;
+            ad4Var.a = str2;
+            tc4.c().a(new sc4(70000, ad4Var));
         }
     }
 
-    public static void f(ww2.a aVar) {
-        Bundle P;
+    public static void k(String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, aVar) == null) && aVar != null && d() && (P = aVar.P()) != null && P.getLong("page_display_flag_for_statistic") > 0) {
-            long l = aVar.l("launch_time", 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            cj3 cj3Var = new cj3();
-            cj3Var.a = si3.n(aVar.G());
-            cj3Var.f = aVar.H();
-            cj3Var.c = aVar.T();
-            cj3Var.b = "launch";
-            cj3Var.e = "realsuccess";
-            cj3Var.r = String.valueOf(currentTimeMillis - l);
-            cj3Var.d(P.getString("ubc"));
-            si3.onEvent(cj3Var);
-            P.remove("page_display_flag_for_statistic");
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
+            ad4 ad4Var = new ad4();
+            ad4Var.b = str;
+            ad4Var.c = i;
+            ad4Var.d = z ? 1 : 0;
+            ad4Var.a = str2;
+            tc4.c().a(new sc4(110000, ad4Var));
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            dd4 dd4Var = new dd4();
+            dd4Var.a = str;
+            tc4.c().a(new sc4(20000, dd4Var));
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            dd4 dd4Var = new dd4();
+            dd4Var.a = str;
+            tc4.c().a(new sc4(10000, dd4Var));
+        }
+    }
+
+    public static void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            dd4 dd4Var = new dd4();
+            dd4Var.a = str;
+            tc4.c().a(new sc4(120000, dd4Var));
+        }
+    }
+
+    public static void j(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
+            cd4 cd4Var = new cd4();
+            cd4Var.b = str;
+            cd4Var.c = i;
+            cd4Var.a = str2;
+            tc4.c().a(new sc4(80000, cd4Var));
         }
     }
 }

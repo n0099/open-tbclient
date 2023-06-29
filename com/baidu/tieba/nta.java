@@ -1,276 +1,289 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Base64InputStream;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nta extends lta {
+public abstract class nta implements hua {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public xta h;
-    public int i;
-    public int j;
+    public uua a;
+    public String b;
 
-    /* loaded from: classes7.dex */
-    public class a extends mva {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ AudioPlayData c;
-        public final /* synthetic */ gta d;
-        public final /* synthetic */ nta e;
+    public abstract rua j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
 
-        public a(nta ntaVar, String str, int i, AudioPlayData audioPlayData, gta gtaVar) {
-            Interceptable interceptable = $ic;
+    public abstract rua k(String str, byte[] bArr, Map<String, String> map) throws IOException;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015374, "Lcom/baidu/tieba/nta;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ntaVar, str, Integer.valueOf(i), audioPlayData, gtaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.e = ntaVar;
-            this.a = str;
-            this.b = i;
-            this.c = audioPlayData;
-            this.d = gtaVar;
-        }
-
-        @Override // com.baidu.tieba.mva, com.baidu.tieba.lva
-        public void onExceptionThrown(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.e.h.cancel();
-                AudioPlayData audioPlayData = this.c;
-                if (audioPlayData.mSpeed != 1.0f || qta.o(audioPlayData.mSoundTypes)) {
-                    this.e.g(str);
-                    this.e.h.cancel();
-                } else {
-                    this.e.h.cancel();
-                    this.e.q(this.d, this.b);
-                }
-                synchronized (this.e) {
-                    this.e.notifyAll();
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948015374, "Lcom/baidu/tieba/nta;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.mva
-        public void onFinishedWriting(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                if (z) {
-                    this.e.q(new gta(new AudioPlayData(this.a, 0, -1, 1.0f)), this.b);
-                }
-                synchronized (this.e) {
-                    this.e.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mva, com.baidu.tieba.lva
-        public void onProgressChanged(int i, double d, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
-                nta ntaVar = this.e;
-                ntaVar.i((int) (((((ntaVar.j - 1) + d) * 1.0d) / this.e.i) * 100.0d));
-            }
-        }
+        c = oua.m();
     }
 
     public nta() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lta
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f = true;
-            xta xtaVar = this.h;
-            if (xtaVar != null) {
-                xtaVar.cancel();
-            }
-            synchronized (this) {
-                notifyAll();
-            }
-            o();
-        }
-    }
-
-    @Override // com.baidu.tieba.lta
-    public void d(ita itaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, itaVar) == null) {
-            if (itaVar == null || wwa.e(itaVar.c())) {
-                g("input data error: null or length=0");
-            } else if (!j(itaVar)) {
-                l(itaVar);
-            } else {
-                String a2 = itaVar.a();
-                this.g = a2;
-                if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.g)) {
-                    new File(this.g).mkdir();
-                }
-                this.e = false;
-                this.f = false;
-                y(itaVar);
-                x(itaVar);
-                List<kta> c = itaVar.c();
-                int size = c.size();
-                for (int i = 0; i < size; i++) {
-                    r(c.get(i), i);
-                }
-                if (this.e || this.f) {
-                    return;
-                }
-                l(this.d);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lta
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xta xtaVar = this.h;
-            if (xtaVar != null) {
-                xtaVar.J();
-            }
-            synchronized (this) {
-                notifyAll();
-            }
-        }
-    }
-
-    public final void q(gta gtaVar, int i) {
-        ita itaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, gtaVar, i) == null) || (itaVar = this.d) == null || itaVar.c() == null || this.d.c().get(i) == null) {
-            return;
-        }
-        this.d.c().get(i).a().add(gtaVar);
-    }
-
-    public final void r(kta ktaVar, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, ktaVar, i) == null) || ktaVar == null || wwa.e(ktaVar.a()) || this.f || this.e) {
-            return;
-        }
-        for (gta gtaVar : ktaVar.a()) {
-            if (this.e || this.f) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            this.j++;
-            if (t(gtaVar)) {
-                v(gtaVar, i);
-            } else {
-                q(gtaVar, i);
-                i((int) (((this.j * 1.0f) / this.i) * 100.0f));
-            }
         }
+        this.a = new uua();
+        this.b = "";
     }
 
-    public final boolean t(gta gtaVar) {
+    public final HashMap<String, String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>(2);
+            hashMap.put("Content-type", "application/x-www-form-urlencoded");
+            hashMap.put(BaseContentUploader.NB, "1");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hua
+    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return i(this.b, jSONObject, z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hua
+    public boolean b(File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return h(this.b, file, j, z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = oua.k(z);
+            }
+            return this.b;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public final String e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            boolean isUBCDebug = this.a.isUBCDebug();
+            if (TextUtils.isEmpty(str)) {
+                str = d(isUBCDebug);
+            }
+            if (z2) {
+                c2 = oua.h(str);
+            } else {
+                c2 = oua.c(str);
+            }
+            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
+                c2 = uva.a(c2, "debug", "1");
+            }
+            if (z) {
+                c2 = uva.a(c2, "reallog", "1");
+            }
+            if (tta.o().E()) {
+                return uva.a(c2, "beta", "1");
+            }
+            return c2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final boolean f(rua ruaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gtaVar)) == null) {
-            if (gtaVar == null || gtaVar.b() == null || !gtaVar.c()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ruaVar)) == null) {
+            if (ruaVar == null) {
                 return false;
             }
-            if (!qta.o(gtaVar.b().mSoundTypes) && gtaVar.b().mSpeed == 1.0f && gtaVar.b().start == 0 && gtaVar.b().end == -1 && gtaVar.b().volume == 1.0f) {
-                return (gtaVar.a() == null || "audio/mp4a-latm".equals(gtaVar.a().f())) ? false : true;
+            if (!ruaVar.e()) {
+                if (c) {
+                    Log.d("UploadManager", "postByteRequest, fail: " + ruaVar.d());
+                } else {
+                    qua.a().i(ruaVar.d(), null);
+                }
+                if (tta.o().M()) {
+                    g(ruaVar.c());
+                }
+                ruaVar.a();
+                return false;
             }
+            try {
+                int i = new JSONObject(ruaVar.b()).getInt("error");
+                if (i != 0) {
+                    if (c) {
+                        Log.d("UploadManager", "server error");
+                    }
+                    if (!c) {
+                        qua.a().k(i);
+                    }
+                }
+            } catch (Exception e) {
+                if (c) {
+                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
+                } else {
+                    qua.a().j(Log.getStackTraceString(e));
+                }
+            }
+            ruaVar.a();
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final void v(gta gtaVar, int i) {
+    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void g(int i) {
+        long j;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, gtaVar, i) == null) || this.f || this.e) {
-            return;
-        }
-        AudioPlayData b = gtaVar.b();
-        if (b == null || !FileUtils.isExists(b.audioPath)) {
-            g("dealAudioPlayData,trackIndx:inputerror");
-            return;
-        }
-        String str = b.audioPath;
-        String a2 = a(str, System.currentTimeMillis() + "_mediacodec.aac");
-        try {
-            xta xtaVar = new xta(b.audioPath, a2, b.mSoundTypes);
-            this.h = xtaVar;
-            xtaVar.S(new a(this, a2, i, b, gtaVar));
-            this.h.D(b.mSoundTypes);
-            this.h.G(b.mSpeed);
-            this.h.H(b.volume);
-            this.h.B(b.start);
-            this.h.R(b.end);
-            this.h.I();
-            synchronized (this) {
-                wait();
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            boolean z = true;
+            if (i != 403 && i != 408 && i != 499) {
+                if (i >= 500 && i < 600) {
+                    j = 300000;
+                } else {
+                    z = false;
+                    if (!z) {
+                        tta.o().Z(currentTimeMillis);
+                        return;
+                    }
+                    return;
+                }
+            } else {
+                j = 60000;
             }
-        } catch (Exception e) {
-            g("dealAudioPlayData exception:" + bxa.g(e));
-            e.printStackTrace();
+            currentTimeMillis += j;
+            if (!z) {
+            }
         }
     }
 
-    public final void x(ita itaVar) {
+    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, itaVar) == null) || itaVar == null || wwa.e(itaVar.c())) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (file == null || !file.exists()) {
+                return false;
+            }
+            String e = e(str, z, z2);
+            HashMap<String, String> c2 = c();
+            if (vua.m().p() && j > 0) {
+                c2.put("Content-Length", String.valueOf(j));
+            }
+            InputStream inputStream2 = null;
+            try {
+                inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
+                try {
+                    try {
+                        boolean f = f(j(e, inputStream, c2));
+                        pva.b(inputStream);
+                        return f;
+                    } catch (Exception e2) {
+                        e = e2;
+                        if (c) {
+                            Log.d("UploadManager", "postByteRequest, Exception: ", e);
+                        } else {
+                            qua.a().i(null, Log.getStackTraceString(e));
+                        }
+                        pva.b(inputStream);
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream2 = inputStream;
+                    pva.b(inputStream2);
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                inputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeCommon.booleanValue;
         }
-        ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < itaVar.c().size(); i++) {
-            arrayList.add(new kta(new ArrayList()));
-        }
-        ita itaVar2 = new ita(arrayList);
-        this.d = itaVar2;
-        itaVar2.e(itaVar.b());
-        this.d.d(itaVar.a());
     }
 
-    public final void y(ita itaVar) {
+    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        byte[] a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, itaVar) == null) {
-            this.i = 0;
-            this.j = 0;
-            List<kta> c = itaVar.c();
-            int size = c.size();
-            for (int i = 0; i < size; i++) {
-                if (c.get(i) != null && c.get(i).a() != null) {
-                    this.i += c.get(i).a().size();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (jSONObject != null && (a = rva.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
+                a[0] = 117;
+                a[1] = 123;
+                String e = e(str, z, z2);
+                HashMap<String, String> c2 = c();
+                if (vua.m().p()) {
+                    c2.put("Content-Length", String.valueOf(a.length));
+                }
+                try {
+                    return f(k(e, a, c2));
+                } catch (IOException e2) {
+                    if (c) {
+                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
+                    } else {
+                        qua.a().i(null, Log.getStackTraceString(e2));
+                    }
                 }
             }
+            return false;
         }
+        return invokeCommon.booleanValue;
     }
 }

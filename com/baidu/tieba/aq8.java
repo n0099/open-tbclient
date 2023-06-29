@@ -1,48 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.activity.LegoListFragment;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class aq8 {
+public final class aq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static zp8 a(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public aq8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof oo8)) {
-                return ((oo8) tbPageContext.getPageActivity()).k0();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (zp8) invokeL.objValue;
+        this.a = "";
     }
 
-    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
-            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof oo8)) {
-                return ((oo8) tbPageContext.getPageActivity()).r0();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (LegoListFragment) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static eq8 c(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
-            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof oo8)) {
-                return ((oo8) tbPageContext.getPageActivity()).h1();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
         }
-        return (eq8) invokeL.objValue;
     }
 }

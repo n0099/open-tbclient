@@ -1,166 +1,214 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.utils.Constant;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.settings.base.UpdatePackageDownloadInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.tencent.open.SocialOperation;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes8.dex */
-public class uf1 {
+public class uf1 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uf1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, wf1> a;
 
-    public uf1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uf1(Context context) {
+        super(context, "nps.db", (SQLiteDatabase.CursorFactory) null, 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
     }
 
-    public static uf1 d() {
-        InterceptResult invokeV;
+    public final void d(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (uf1.class) {
-                    if (b == null) {
-                        b = new uf1();
-                    }
-                }
-            }
-            return b;
-        }
-        return (uf1) invokeV.objValue;
-    }
-
-    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
-            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
-            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
-            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
-            return tArr;
-        }
-        return (T[]) ((Object[]) invokeLLL.objValue);
-    }
-
-    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
-            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL);
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append(UpdatePackageDownloadInfo.JSON_KEY_PATCH_MD5);
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
         }
     }
 
-    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
-        InterceptResult invokeLL;
+    public final void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
-            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
-            for (Object obj : objArr2) {
-                if (!arrayList.contains(obj)) {
-                    arrayList.add(obj);
-                }
-            }
-            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
-            for (int i = 0; i < objArr3.length; i++) {
-                objArr3[i] = arrayList.get(i);
-            }
-            return objArr3;
-        }
-        return (Object[]) invokeLL.objValue;
-    }
-
-    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
-            List list = (List) field.get(obj);
-            list.addAll((List) field.get(obj2));
-            field.set(obj, list);
-            Field b2 = jg1.b(obj.getClass(), "nativeLibraryPathElements");
-            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
-        }
-    }
-
-    public static ClassLoader g(wf1 wf1Var, wf1 wf1Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, wf1Var, wf1Var2)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                h(wf1Var, wf1Var2);
-                return wf1Var;
-            }
-            return null;
-        }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public static ClassLoader h(wf1 wf1Var, wf1 wf1Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, wf1Var, wf1Var2)) == null) {
-            Field b2 = jg1.b(wf1.class, "pathList");
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
             try {
-                Object obj = b2.get(wf1Var);
-                Field b3 = jg1.b(obj.getClass(), "dexElements");
-                Field b4 = jg1.b(obj.getClass(), "nativeLibraryDirectories");
-                Object[] objArr = (Object[]) b3.get(obj);
-                Object obj2 = b2.get(wf1Var2);
-                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
-                if (Build.VERSION.SDK_INT >= 23) {
-                    f(b4, obj, obj2);
-                } else {
-                    e(b4, obj, obj2);
-                }
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD network_strategy Text ");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return wf1Var;
         }
-        return (ClassLoader) invokeLL.objValue;
     }
 
-    public wf1 b(BundleInfo bundleInfo, Context context) {
-        InterceptResult invokeLL;
+    public final void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
-            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
-            wf1 wf1Var = new wf1(eg1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), eg1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), eg1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
-            if (z && Build.VERSION.SDK_INT >= 21) {
-                wf1 wf1Var2 = this.a.get(bundleInfo.getGroupName());
-                if (wf1Var2 == null) {
-                    this.a.put(bundleInfo.getGroupName(), wf1Var);
-                    return wf1Var;
-                }
-                g(wf1Var2, wf1Var);
-                return wf1Var2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD silence INTEGER DEFAULT 1");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return wf1Var;
         }
-        return (wf1) invokeLL.objValue;
+    }
+
+    public final void c(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("sub_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("dependency");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("main_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+        }
+    }
+
+    public final void e(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("silence_update");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            try {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("wifionly");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            try {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final void f(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(g());
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
+            f(sQLiteDatabase);
+        }
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CREATE TABLE bundleinfo (_id INTEGER PRIMARY KEY,pkg_name TEXT NOT NULL,version_code INTEGER,path TEXT,min_version INTEGER,update_v LONG,type INTEGER DEFAULT 0,broken INTEGER DEFAULT 0,force_update INTEGER DEFAULT 0,forbidden INTEGER DEFAULT 0," + PackageTable.MD5 + " TEXT," + SocialOperation.GAME_SIGNATURE + " TEXT,name TEXT,description TEXT,download_url TEXT,icon_url TEXT,dependence TEXT," + MapBundleKey.MapObjKey.OBJ_SL_VISI + " INTEGER DEFAULT 0,removalbe INTEGER DEFAULT 0,size TEXT,need_remove INTEGER DEFAULT 0,abi INTEGER DEFAULT -1,ext TEXT,silence INTEGER DEFAULT 1,silence_update INTEGER DEFAULT 1,wifionly INTEGER DEFAULT 1," + UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL + " TEXT," + UpdatePackageDownloadInfo.JSON_KEY_PATCH_MD5 + " TEXT, network_strategy TEXT, sub_bundle TEXT, dependency TEXT, main_bundle TEXT  );";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i, i2) == null) {
+            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS bundleinfo");
+            onCreate(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i == 5) {
+                                c(sQLiteDatabase);
+                                return;
+                            }
+                            return;
+                        }
+                        a(sQLiteDatabase);
+                        c(sQLiteDatabase);
+                        return;
+                    }
+                    d(sQLiteDatabase);
+                    a(sQLiteDatabase);
+                    c(sQLiteDatabase);
+                    return;
+                }
+                e(sQLiteDatabase);
+                d(sQLiteDatabase);
+                a(sQLiteDatabase);
+                c(sQLiteDatabase);
+                return;
+            }
+            b(sQLiteDatabase);
+            e(sQLiteDatabase);
+            d(sQLiteDatabase);
+            a(sQLiteDatabase);
+            c(sQLiteDatabase);
+        }
     }
 }

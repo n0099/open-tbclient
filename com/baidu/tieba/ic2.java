@@ -1,58 +1,65 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class ic2<T> extends Handler {
+public final class ic2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final gc2 a;
 
-    public abstract void a(@NonNull T t);
-
-    public abstract void b(@NonNull T t);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ic2(Looper looper) {
-        super(looper);
+    public ic2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new gc2();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.ic2<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.os.Handler
-    public void handleMessage(@NonNull Message message) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-            int i = message.what;
-            if (i != 1) {
-                if (i == 2) {
-                    b(message.obj);
-                    return;
-                }
-                return;
-            }
-            a(message.obj);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public jc2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            jc2 jc2Var = new jc2();
+            jc2Var.c(this.a.d());
+            jc2Var.d(this.a.c());
+            return jc2Var;
+        }
+        return (jc2) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.b();
+        }
+    }
+
+    public void b(fc2 fc2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fc2Var) == null) {
+            this.a.a(fc2Var);
         }
     }
 }

@@ -1,11 +1,11 @@
 package com.yy.transvod.player.mediacodec;
 
 import android.media.MediaFormat;
-import com.baidu.tieba.rjb;
+import com.baidu.tieba.iob;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
-public final class NativeIttiam extends rjb {
+public final class NativeIttiam extends iob {
     public long c = 0;
 
     /* loaded from: classes10.dex */

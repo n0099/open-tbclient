@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.LongSparseArray;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.BdCore;
+import com.baidu.browser.core.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,19 +15,58 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-@SuppressLint({"NewApi"})
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
 public final class ww {
     public static /* synthetic */ Interceptable $ic;
-    public static ww b;
-    public static HashMap<String, jx<String, Integer>> c;
+    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> a;
+    public static b b;
+    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public /* synthetic */ b(Looper looper, a aVar) {
+            this(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
+                ww.d();
+                ww.b.sendEmptyMessageDelayed(0, 15000L);
+            }
         }
     }
 
@@ -41,84 +83,112 @@ public final class ww {
                 return;
             }
         }
-        c = new HashMap<>();
+        a = new ConcurrentHashMap<>();
+        c = false;
+        b bVar = new b(ax.a("PreferenceQueue").getLooper(), null);
+        b = bVar;
+        bVar.sendEmptyMessageDelayed(0, 15000L);
     }
 
-    public ww() {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(65542, null) == null) && !b.hasMessages(0)) {
+            b.sendEmptyMessageDelayed(0, 15000L);
         }
-        new LongSparseArray();
     }
 
-    public static synchronized ww b() {
-        InterceptResult invokeV;
-        ww wwVar;
+    public static void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (ww.class) {
-                if (b == null) {
-                    b = new ww();
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            Log.d("BdPreferenceQueueWorker", "wait to finish");
+            b.removeMessages(0);
+            d();
+            f();
+        }
+    }
+
+    public static void c(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, obj) != null) || str == null) {
+            return;
+        }
+        if (a.containsKey(str)) {
+            ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
+            if (concurrentHashMap != null) {
+                if (obj != null) {
+                    concurrentHashMap.put(str2, obj);
+                } else {
+                    concurrentHashMap.remove(str2);
                 }
-                wwVar = b;
+            } else if (obj != null && str2 != null) {
+                ConcurrentHashMap<String, Object> concurrentHashMap2 = new ConcurrentHashMap<>();
+                concurrentHashMap2.put(str2, obj);
+                a.put(str, concurrentHashMap2);
             }
-            return wwVar;
+        } else if (obj != null && str2 != null) {
+            ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
+            concurrentHashMap3.put(str2, obj);
+            a.put(str, concurrentHashMap3);
         }
-        return (ww) invokeV.objValue;
     }
 
-    private Context getContext() {
-        InterceptResult invokeV;
+    public static void d() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (this.a == null) {
-                this.a = BdCore.a().getContext();
-            }
-            Context context = this.a;
-            if (context != null) {
-                return context;
-            }
-            throw new RuntimeException("context is null!");
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || c) {
+            return;
         }
-        return (Context) invokeV.objValue;
-    }
-
-    @Deprecated
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            a(str2, str);
-            jx<String, Integer> jxVar = c.get(str);
-            if (jxVar == null) {
-                jxVar = new jx<>(100);
-                c.put(str, jxVar);
-            }
-            Integer c2 = jxVar.c(str2);
-            if (c2 == null) {
-                try {
-                    int identifier = b().getContext().getResources().getIdentifier(str2, str, b().getContext().getPackageName());
-                    jxVar.d(str2, Integer.valueOf(identifier));
-                    return identifier;
-                } catch (Error e) {
-                    e.printStackTrace();
-                    return 0;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return 0;
+        c = true;
+        try {
+            try {
+                Context baseContext = sw.a().getBaseContext();
+                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + a.size());
+                for (String str : a.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
+                    if (concurrentHashMap != null && concurrentHashMap.size() > 0) {
+                        SharedPreferences.Editor edit = baseContext.getSharedPreferences(str, 0).edit();
+                        i = 0;
+                        for (String str2 : concurrentHashMap.keySet()) {
+                            Object obj = concurrentHashMap.get(str2);
+                            if (obj != null) {
+                                if (obj instanceof Integer) {
+                                    edit.putInt(str2, ((Integer) obj).intValue());
+                                } else if (obj instanceof Long) {
+                                    edit.putLong(str2, ((Long) obj).longValue());
+                                } else if (obj instanceof Float) {
+                                    edit.putFloat(str2, ((Float) obj).floatValue());
+                                } else if (obj instanceof Boolean) {
+                                    edit.putBoolean(str2, ((Boolean) obj).booleanValue());
+                                } else if (obj instanceof String) {
+                                    edit.putString(str2, (String) obj);
+                                } else if (obj instanceof Set) {
+                                    edit.putStringSet(str2, (Set) obj);
+                                }
+                                i++;
+                            }
+                        }
+                        edit.commit();
+                    } else {
+                        i = 0;
+                    }
+                    concurrentHashMap.clear();
+                    if (i > 0) {
+                        BdLog.a("BdPreferenceQueueWorker", str + ".xml " + i + " items have been wroten");
+                    }
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return c2.intValue();
+        } finally {
+            c = false;
         }
-        return invokeLL.intValue;
+    }
+
+    public static void e(String str) {
+        ConcurrentHashMap<String, Object> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && str != null && (concurrentHashMap = a.get(str)) != null) {
+            concurrentHashMap.clear();
+        }
     }
 }

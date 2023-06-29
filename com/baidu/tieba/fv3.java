@@ -1,63 +1,31 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tieba.ll4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.io.IOException;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class fv3 {
+public class fv3 extends jl4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public pv3 b;
+    public final ll4.a a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof fv3) {
-                    fv3 fv3Var = (fv3) obj;
-                    return Intrinsics.areEqual(this.a, fv3Var.a) && Intrinsics.areEqual(this.b, fv3Var.b);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            pv3 pv3Var = this.b;
-            return hashCode + (pv3Var != null ? pv3Var.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public fv3(String str, pv3 pv3Var) {
+    public fv3(ll4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, pv3Var};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -67,25 +35,131 @@ public final class fv3 {
                 return;
             }
         }
-        this.a = str;
-        this.b = pv3Var;
+        this.a = aVar;
     }
 
-    public final pv3 a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            if (this.a != null) {
+                return true;
+            }
+            return false;
         }
-        return (pv3) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ll4.a
+    public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a()) {
+            this.a.onStart();
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ll4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
+            this.a.b(str, str2, jSONObject);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: c */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
+            if (response != null && response.body() != null) {
+                ev3 l = ev3.l();
+                if (TextUtils.equals(response.headers().get("Bdtls"), com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
+                    l.m().s(0);
+                    return com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY;
+                }
+                if (l.k()) {
+                    string = l.d.g(response.body().bytes());
+                    if (yu3.a) {
+                        Log.d("BDTLS", "BdtlsPmsRequest parseResponse=" + string);
+                    }
+                } else {
+                    string = response.body().string();
+                }
+                b(String.valueOf(response.request().url()), string, networkStatRecord.toUBCJson());
+                return string;
+            }
+            return "";
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.baidu.tieba.ll4.a
+    public void onFail(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
+            if (yu3.a) {
+                Log.d("BDTLS", "BdtlsPmsRequest onFail = " + exc.getMessage());
+            }
+            if (a()) {
+                this.a.onFail(exc);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    public void onSuccess(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
+            if (yu3.a) {
+                Log.d("BDTLS", "BdtlsPmsRequest onSuccess=" + str);
+            }
+            if (this.a == null) {
+                return;
+            }
+            ev3 l = ev3.l();
+            if (TextUtils.equals(str, com.baidu.searchbox.download.model.Constants.RECOVERY_DIRECTORY)) {
+                if (l.m().b()) {
+                    l.m().a();
+                    l.d.i(true);
+                    sv3 sv3Var = l.d;
+                    if (sv3Var instanceof qv3) {
+                        ((qv3) sv3Var).j();
+                        return;
+                    }
+                    return;
+                }
+                this.a.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                return;
+            }
+            l.m().k();
+            sv3 sv3Var2 = l.d;
+            if (sv3Var2 instanceof qv3) {
+                qv3 qv3Var = (qv3) sv3Var2;
+                if (l.k()) {
+                    if (l.d.b == 1) {
+                        dv3.a(MimeTypes.BASE_TYPE_APPLICATION);
+                        this.a.onSuccess(str, i);
+                        qv3Var.h = 0;
+                        return;
+                    }
+                    int i2 = qv3Var.h;
+                    qv3Var.h = i2 + 1;
+                    if (i2 < 3) {
+                        qv3Var.j();
+                        return;
+                    }
+                    ll4.a aVar = this.a;
+                    aVar.onFail(new IOException("request fail : " + str));
+                    qv3Var.h = 0;
+                    return;
+                }
+                this.a.onSuccess(str, i);
+                qv3Var.h = 0;
+            }
+        }
     }
 }

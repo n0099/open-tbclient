@@ -1,9 +1,9 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.eh;
-import com.baidu.tieba.gf;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.fh;
+import com.baidu.tieba.hf;
+import com.baidu.tieba.ji;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -87,7 +87,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(TencentMMSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageStayDurationSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(ii.class);
+            SwitchManager.getInstance().registerSwitch(ji.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
@@ -108,7 +108,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(KsPrivacySwitch.class);
-            SwitchManager.getInstance().registerSwitch(eh.class);
+            SwitchManager.getInstance().registerSwitch(fh.class);
             SwitchManager.getInstance().registerSwitch(CsjPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdServerRecordSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
@@ -159,7 +159,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(PicReqSwitch.class);
             SwitchManager.getInstance().registerSwitch(DuTokenNewSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageCountSwitch.class);
-            gf.a().b();
+            hf.a().b();
         }
     }
 }

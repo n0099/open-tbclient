@@ -1,172 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class yy2 {
+public class yy2 implements b23 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<xy2> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<vy2> a;
+    public int b;
+    public float c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948346423, "Lcom/baidu/tieba/yy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948346423, "Lcom/baidu/tieba/yy2;");
+    public yy2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList<>();
+        this.b = 0;
+        this.c = 0.0f;
+        this.d = false;
     }
 
-    public static void b() {
+    @Override // com.baidu.tieba.b23
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.clear();
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                xy2 xy2Var = a.get(size);
-                if (xy2Var != null) {
-                    xy2Var.onDestroy();
-                }
-            }
-        }
-    }
-
-    public static void a(xy2 xy2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, xy2Var) == null) && xy2Var != null && !a.contains(xy2Var)) {
-            a.add(xy2Var);
-        }
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                xy2 xy2Var = a.get(size);
-                if (xy2Var != null) {
-                    xy2Var.j(z);
-                }
-            }
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                xy2 xy2Var = a.get(size);
-                if (xy2Var != null) {
-                    xy2Var.k(z);
-                }
-            }
-        }
-    }
-
-    public static void k(xy2 xy2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65547, null, xy2Var) != null) || xy2Var == null) {
-            return;
-        }
-        a.remove(xy2Var);
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            xy2 xy2Var = a.get(size);
-            if (xy2Var != null && TextUtils.equals(str, xy2Var.b())) {
-                xy2Var.onDestroy();
-            }
-        }
-    }
-
-    public static xy2 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                xy2 xy2Var = a.get(size);
-                if (xy2Var != null && TextUtils.equals(str, xy2Var.c())) {
-                    return xy2Var;
-                }
-            }
-            return null;
-        }
-        return (xy2) invokeL.objValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                xy2 xy2Var = a.get(size);
-                if (xy2Var != null && TextUtils.equals(str, xy2Var.b()) && xy2Var.onBackPressed()) {
-                    return true;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<vy2> arrayList = this.a;
+            if (arrayList != null && arrayList.size() > 0) {
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static xy2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.b23
+    public void a(JSONObject jSONObject) throws JSONException {
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                xy2 xy2Var = a.get(size);
-                if (xy2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, xy2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, xy2Var.f())) || TextUtils.equals(str3, xy2Var.c())))) {
-                    return xy2Var;
-                }
-            }
-            return null;
-        }
-        return (xy2) invokeLLL.objValue;
-    }
-
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
             return;
         }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            xy2 xy2Var = a.get(size);
-            if (xy2Var != null && TextUtils.equals(str, xy2Var.b())) {
-                xy2Var.k(z);
+        JSONArray optJSONArray = jSONObject.optJSONArray("points");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        if (length > 0) {
+            this.a = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    vy2 vy2Var = new vy2();
+                    vy2Var.a(optJSONObject);
+                    if (vy2Var.isValid()) {
+                        this.a.add(vy2Var);
+                    }
+                }
             }
+        }
+        ArrayList<vy2> arrayList = this.a;
+        if (arrayList != null && arrayList.size() > 0) {
+            this.b = py2.a(jSONObject.optString("color"), 0);
+            this.c = Math.abs(py2.b(jSONObject.optDouble("width", 0.0d)));
+            this.d = jSONObject.optBoolean("dottedLine", false);
+            jSONObject.optBoolean("arrowLine", false);
+            jSONObject.optString("arrowIconPath");
+            py2.a(jSONObject.optString("borderColor"), 0);
+            Math.abs(py2.b(jSONObject.optDouble("borderWidth", 0.0d)));
         }
     }
 }

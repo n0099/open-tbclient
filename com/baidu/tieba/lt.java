@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
+import com.baidu.tieba.mt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lt<D extends BuoyViewData> implements rt<D> {
+public abstract class lt<D extends BuoyViewData, VM extends mt<D>> implements nt, rt<D, VM> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tt<D> a;
 
     public lt() {
         Interceptable interceptable = $ic;
@@ -23,25 +21,7 @@ public class lt<D extends BuoyViewData> implements rt<D> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new tt<>();
-    }
-
-    public st<D> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (st) invokeV.objValue;
-    }
-
-    public void b(D d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d) == null) {
-            this.a.o(d);
         }
     }
 }

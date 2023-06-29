@@ -1,27 +1,36 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.s84;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ed4 {
+public class ed4 extends jk2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile dd4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized dd4 a() {
-        InterceptResult invokeV;
-        dd4 dd4Var;
+    public ed4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ed4.class) {
-                if (a == null) {
-                    a = new dd4();
-                }
-                dd4Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return dd4Var;
         }
-        return (dd4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lk2
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            s84.d.d(str);
+            mo2.k(str);
+            gd4.k(str);
+        }
     }
 }

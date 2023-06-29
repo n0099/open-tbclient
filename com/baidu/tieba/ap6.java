@@ -1,64 +1,130 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ap6 extends bp6 {
+public class ap6 extends BaseCardInfo implements mp6, c35 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId R0;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdvertAppInfo a;
+    public String b;
+    public int c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622914, "Lcom/baidu/tieba/ap6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947622914, "Lcom/baidu/tieba/ap6;");
+    @Override // com.baidu.tieba.mp6
+    public void N(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.mp6
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.mp6
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ap6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        R0 = BdUniqueId.gen();
+        this.b = "";
+        this.c = 0;
+        this.d = false;
+        this.a = null;
+        this.position = -1;
     }
 
-    @Override // com.baidu.tieba.bp6, com.baidu.tieba.to6, com.baidu.tieba.i15
-    public ThreadData getThreadData() {
+    @Override // com.baidu.tieba.c35
+    public AdvertAppInfo G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ThreadData) invokeV.objValue;
+        return (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bp6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
-    public BdUniqueId getType() {
+    public AdvertAppInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return R0;
+            return this.a;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (AdvertAppInfo) invokeV.objValue;
     }
 
-    public ap6(ThreadData threadData) {
+    @Override // com.baidu.tieba.mp6
+    public int getPosition() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.a;
+            if (advertAppInfo != null) {
+                str = advertAppInfo.f;
+            } else {
+                str = "-1";
+            }
+            return vg.e(str, -1);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.c35
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.c35
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.position;
+        }
+        return invokeV.intValue;
+    }
+
+    public ap6(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
+            Object[] objArr = {advertAppInfo};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,34 +134,55 @@ public class ap6 extends bp6 {
                 return;
             }
         }
-        this.a = threadData;
+        this.b = "";
+        this.c = 0;
+        this.d = false;
+        this.a = advertAppInfo;
+        this.position = advertAppInfo.position;
     }
 
-    public static boolean X(ThreadData threadData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.a;
+            if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.w) {
+                return AdvertAppInfo.y;
             }
-            if (threadData.getThreadType() != 49 && threadData.getThreadType() != 69) {
-                return false;
+            AdvertAppInfo advertAppInfo2 = this.a;
+            if (advertAppInfo2 != null && (iLegoAdvert = advertAppInfo2.h) != null) {
+                BdUniqueId bdUniqueId = AdvertAppInfo.z;
+                int goodsStyle = iLegoAdvert.getGoodsStyle();
+                if (goodsStyle != 2) {
+                    if (goodsStyle != 14) {
+                        if (goodsStyle != 6) {
+                            if (goodsStyle != 7) {
+                                if (goodsStyle != 8) {
+                                    return bdUniqueId;
+                                }
+                            }
+                        } else {
+                            return AdvertAppInfo.B;
+                        }
+                    }
+                    return AdvertAppInfo.C;
+                }
+                return AdvertAppInfo.A;
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public StatisticItem b0(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.c35
+    public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            StatisticItem d = d(str);
-            d.delete("obj_type");
-            d.delete("obj_type");
-            d.param("obj_type", 3);
-            return d;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.position = i;
+            this.a.position = i;
+            this.d = true;
         }
-        return (StatisticItem) invokeL.objValue;
     }
 }

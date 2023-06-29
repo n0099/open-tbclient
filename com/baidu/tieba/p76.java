@@ -1,46 +1,58 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
+import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class p76 {
+public class p76 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile SQLiteDatabase a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a() {
+    public p76() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (p76.class) {
-                xi.b(a);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static synchronized SQLiteDatabase b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (p76.class) {
-                try {
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "RelationshipDbManager.getRelationshipDataBase", new Object[0]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof GetContactListRequestMessage)) {
+                List<nf5> e = s76.f().e();
+                if (e != null) {
+                    Iterator<nf5> it = e.iterator();
+                    while (it.hasNext()) {
+                        nf5 next = it.next();
+                        if ((wi.isEmpty(next.e()) && wi.isEmpty(next.f())) || next.h() == 1) {
+                            it.remove();
+                        }
+                    }
                 }
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                if (a != null && a.isOpen()) {
-                    return a;
-                }
-                a = new o76(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-                return a;
+                GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
+                getContactListResponsedMessage.setContacts(e);
+                return getContactListResponsedMessage;
             }
+            return null;
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

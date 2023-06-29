@@ -1,27 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<fn5> a;
-    public Context b;
+    public int a;
+    public int b;
+    public int c;
 
-    public b05(Context context) {
+    public b05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,39 +26,34 @@ public class b05 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = context;
+        this.a = 1500;
+        this.b = 3000;
+        this.c = 6000;
     }
 
-    public void a(fn5 fn5Var) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, fn5Var) == null) && fn5Var != null && fn5Var.b() != null) {
-            Iterator<fn5> it = this.a.iterator();
-            while (it.hasNext()) {
-                fn5 next = it.next();
-                if (next != null && next.b() != null && next.b().e == fn5Var.b().e) {
-                    return;
-                }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            jSONObject.optInt("wifiSlow", -1);
+            jSONObject.optInt("threeGSlow", -1);
+            jSONObject.optInt("twoGSlow", -1);
+            int optInt = jSONObject.optInt("wifiLog", -1);
+            if (optInt > 0) {
+                this.a = optInt;
             }
-            this.a.add(fn5Var);
+            int optInt2 = jSONObject.optInt("threeGLog", -1);
+            if (optInt2 > 0) {
+                this.b = optInt2;
+            }
+            int optInt3 = jSONObject.optInt("twoGLog", -1);
+            if (optInt3 > 0) {
+                this.c = optInt3;
+            }
+            jSONObject.optInt("mobile_cdn_switch", 1);
+        } catch (Exception unused) {
         }
-    }
-
-    public ArrayList<fn5> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
     }
 }

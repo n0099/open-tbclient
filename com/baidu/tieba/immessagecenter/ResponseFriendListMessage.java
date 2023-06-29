@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.jf5;
+import com.baidu.tieba.nf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<jf5> friendList;
+    public LinkedList<nf5> friendList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseFriendListMessage(int i) {
@@ -57,12 +57,12 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         MetaData metaData = new MetaData();
                         metaData.parserJson(optJSONArray.getJSONObject(i2));
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
-                            jf5 jf5Var = new jf5();
-                            jf5Var.n(metaData.getUserName());
-                            jf5Var.o(metaData.getName_show());
-                            jf5Var.p(metaData.getPortrait());
-                            jf5Var.m(metaData.getUserIdLong());
-                            this.friendList.add(jf5Var);
+                            nf5 nf5Var = new nf5();
+                            nf5Var.n(metaData.getUserName());
+                            nf5Var.o(metaData.getName_show());
+                            nf5Var.p(metaData.getPortrait());
+                            nf5Var.m(metaData.getUserIdLong());
+                            this.friendList.add(nf5Var);
                         }
                     }
                 }
@@ -72,7 +72,7 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public LinkedList<jf5> getFriendList() {
+    public LinkedList<nf5> getFriendList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

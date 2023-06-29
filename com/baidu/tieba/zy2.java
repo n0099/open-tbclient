@@ -1,11 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,168 +9,64 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class zy2 {
+public class zy2 implements b23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean v;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public boolean i;
-    public String j;
-    public int k;
-    public int l;
-    public String m;
-    public int n;
-    public int o;
-    public String p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public String u;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948376214, "Lcom/baidu/tieba/zy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948376214, "Lcom/baidu/tieba/zy2;");
-                return;
-            }
-        }
-        v = js1.a;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.r;
-        }
-        return invokeV.booleanValue;
-    }
+    public int a;
+    public int b;
+    public int c;
+    public int d;
 
     public zy2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        this.i = false;
-        this.j = "";
-        this.k = 0;
-        this.l = 0;
-        this.m = "";
-        this.q = false;
+        this.a = Integer.MIN_VALUE;
+        this.b = Integer.MIN_VALUE;
+        this.c = -1;
+        this.d = -1;
     }
 
-    public static zy2 b(JSONObject jSONObject, zy2 zy2Var) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, zy2Var)) == null) {
-            zy2 zy2Var2 = new zy2();
-            if (jSONObject != null) {
-                zy2Var2.a = jSONObject.optString("audioId", zy2Var.a);
-                zy2Var2.b = jSONObject.optString("slaveId", zy2Var.b);
-                zy2Var2.c = jSONObject.optString("src", zy2Var.c);
-                if (zb3.M() != null && hj3.E(zy2Var2.c)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                zy2Var2.q = z;
-                zy2Var2.d = jSONObject.optString("title", zy2Var.d);
-                zy2Var2.e = jSONObject.optString("epname", zy2Var.e);
-                zy2Var2.f = jSONObject.optString("singer", zy2Var.f);
-                zy2Var2.g = jSONObject.optString("coverImgUrl", zy2Var.g);
-                zy2Var2.h = jSONObject.optString("lrcURL", zy2Var.h);
-                zy2Var2.i = jSONObject.optBoolean("showFloatView", zy2Var.i);
-                zy2Var2.j = jSONObject.optString("floatPosition", zy2Var.j);
-                zy2Var2.k = jSONObject.optInt("startTime", zy2Var.k);
-                zy2Var2.l = jSONObject.optInt(CriusAttrConstants.POSITION, zy2Var.l);
-                zy2Var2.p = jSONObject.optString("cb", zy2Var.p);
-                zy2Var2.m = jSONObject.optString("param", zy2Var.m);
-                zy2Var2.r = TextUtils.isEmpty(jSONObject.optString("src"));
-                String g0 = ti2.U().g0();
-                if (!TextUtils.isEmpty(g0)) {
-                    zy2Var2.s = g0;
-                }
-                String b = gp3.b();
-                if (!TextUtils.isEmpty(b) && gp3.c(zy2Var2.c)) {
-                    zy2Var2.t = b;
-                }
-                String j = vk3.l().j(zy2Var2.c);
-                if (!TextUtils.isEmpty(j)) {
-                    zy2Var2.u = j;
-                    if (v) {
-                        Log.d("AudioPlayerParams", "addCookiesToHeader cookie: " + j);
-                    }
-                }
-            }
-            return zy2Var2;
-        }
-        return (zy2) invokeLL.objValue;
-    }
-
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("src", str);
-                jSONObject.putOpt("title", this.d);
-                jSONObject.putOpt("epname", this.e);
-                jSONObject.putOpt("singer", this.f);
-                jSONObject.putOpt("coverImgUrl", this.g);
-                jSONObject.putOpt("lrcURL", this.h);
-                jSONObject.putOpt("isLocal", Boolean.valueOf(this.q));
-                jSONObject.putOpt("appid", zb3.g0());
-                jSONObject.putOpt("user-agent", this.s);
-                jSONObject.putOpt("refer", this.t);
-                jSONObject.putOpt("Cookie", this.u);
-            } catch (JSONException e) {
-                if (v) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String toString() {
+    @Override // com.baidu.tieba.b23
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "AudioBGPlayerParams{ playerId=" + this.a + " slaveId=" + this.b + " url=" + this.c + " startTime=" + this.k + " pos=" + this.l + " canPlay=" + this.r + " }";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a != Integer.MIN_VALUE && this.b != Integer.MIN_VALUE) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.b23
+    public void a(JSONObject jSONObject) throws JSONException {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has("top")) {
+            this.a = tp3.g(jSONObject.optInt("left"));
+            this.b = tp3.g(jSONObject.optInt("top"));
+            int i2 = -1;
+            if (jSONObject.has("width")) {
+                i = Math.abs(tp3.g(jSONObject.optInt("width")));
+            } else {
+                i = -1;
+            }
+            this.c = i;
+            if (jSONObject.has("height")) {
+                i2 = Math.abs(tp3.g(jSONObject.optInt("height")));
+            }
+            this.d = i2;
+        }
     }
 }

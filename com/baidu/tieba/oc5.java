@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
@@ -9,8 +12,8 @@ import org.json.JSONObject;
 public class oc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public pc5 a;
+    public pc5 b;
 
     public oc5() {
         Interceptable interceptable = $ic;
@@ -26,16 +29,42 @@ public class oc5 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public pc5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (pc5) invokeV.objValue;
+    }
+
+    public pc5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (pc5) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            this.a = jSONObject.optInt("logined");
-            this.b = jSONObject.optInt("unlogin");
-        } catch (Exception e) {
-            e.printStackTrace();
+        JSONObject optJSONObject = jSONObject.optJSONObject(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+        if (optJSONObject != null) {
+            pc5 pc5Var = new pc5();
+            this.a = pc5Var;
+            pc5Var.q = 1;
+            pc5Var.e(optJSONObject);
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
+        if (optJSONObject2 != null) {
+            pc5 pc5Var2 = new pc5();
+            this.b = pc5Var2;
+            pc5Var2.q = 2;
+            pc5Var2.e(optJSONObject2);
         }
     }
 }

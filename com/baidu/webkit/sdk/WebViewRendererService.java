@@ -6,13 +6,13 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.Process;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WebViewRendererService extends Service {
     public static final String RENDER_SERVICE_PROCESS_NAME_SUFFIX = "sandboxed_process";
     public static final String TAG = "WebViewRendererService";
     public ServiceProvider mServiceImpl;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ServiceProvider {
         IBinder bind(Intent intent);
 

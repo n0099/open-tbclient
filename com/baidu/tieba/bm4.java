@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.os.StatFs;
-import android.text.TextUtils;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.pms.constants.ErrorConstant;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,21 +13,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class bm4<T> implements Runnable {
+public class bm4<T> implements tj4<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final bp4 g;
+    public static final ep4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public am4 a;
-    public T b;
-    public File c;
-    public AtomicBoolean d;
-    public yl4<T> e;
-    public boolean f;
+    public tj4<T> a;
+    public int b;
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,129 +47,25 @@ public class bm4<T> implements Runnable {
                 return;
             }
         }
-        g = bp4.e();
+        c = ep4.e();
     }
 
-    public qj4<T> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (qj4) invokeV.objValue;
-    }
-
-    public T f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return new nl4().a(this.e.k()).intValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            yl4<T> yl4Var = this.e;
-            if (yl4Var != null) {
-                return yl4Var.g();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int hashCode() {
+    @Override // com.baidu.tieba.tj4
+    public Map<String, Object> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return Objects.hash(this.a.b);
+            return this.a.k();
         }
-        return invokeV.intValue;
+        return (Map) invokeV.objValue;
     }
 
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.b.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.e.a(this.b);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            b(3);
-            this.e.e(this.b, this.a.a);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            b(10);
-            this.e.i(this.b);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f = true;
-            s(true);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            b(1);
-            this.e.c(this.b);
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            b(2);
-            this.e.j(this.b);
-        }
-    }
-
-    public bm4(am4 am4Var, T t, yl4<T> yl4Var) {
+    public bm4(tj4<T> tj4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {am4Var, t, yl4Var};
+            Object[] objArr = {tj4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -177,216 +75,139 @@ public class bm4<T> implements Runnable {
                 return;
             }
         }
-        this.d = new AtomicBoolean(false);
-        this.a = am4Var;
-        this.b = t;
-        this.e = yl4Var;
+        this.b = 0;
+        this.a = tj4Var;
     }
 
-    public final void a(int i, xk4 xk4Var) {
+    @Override // com.baidu.tieba.tj4
+    public String d(T t) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, xk4Var) != null) || xk4Var == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        if (i == 2200) {
-            i = 0;
-        } else {
-            try {
-                jSONObject.put("response", xk4Var.toString());
-            } catch (JSONException e) {
-                g.g("PMSDownloadTask", "#addStatistic json put data出错", e);
-            }
-        }
-        if (xk4Var instanceof yk4) {
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, xk4Var.g);
-        }
-        zo4.a(xk4Var.h, "pkg_download", null, i, jSONObject);
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            xk4 xk4Var = this.a.b;
-            if (xk4Var.e == i) {
-                return false;
-            }
-            xk4Var.e = i;
-            if (i != 2 && i != 3 && i != 10) {
-                s(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            tj4<T> tj4Var = this.a;
+            if (tj4Var != null) {
+                str = tj4Var.d(t);
             } else {
-                s(true);
+                str = null;
             }
-            return true;
+            if (str == null) {
+                try {
+                    return ip4.d(AppRuntime.getAppContext()).getAbsolutePath();
+                } catch (Exception e) {
+                    c.g("PMSDownStreamCallbackGuard", "#getDownloadPath getPmsDir出错", e);
+                    return str;
+                }
+            }
+            return str;
         }
-        return invokeI.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean d(bm4<T> bm4Var) {
-        InterceptResult invokeL;
-        am4 am4Var;
-        xk4 xk4Var;
-        am4 am4Var2;
-        xk4 xk4Var2;
+    @Override // com.baidu.tieba.tj4
+    public void a(T t) {
+        tj4<T> tj4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bm4Var)) == null) {
-            if (bm4Var == null || (am4Var = bm4Var.a) == null || (xk4Var = am4Var.b) == null || (am4Var2 = this.a) == null || (xk4Var2 = am4Var2.b) == null || !xk4Var2.equals(xk4Var)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (super.equals(obj)) {
-                return true;
-            }
-            if (obj == null || !(obj instanceof bm4)) {
-                return false;
-            }
-            return d((bm4) obj);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            if (z) {
-                this.a.b.b = 0L;
-            }
-            b(0);
-            s(false);
-            this.f = false;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048597, this, z) == null) && this.d.get() != z) {
-            this.d.set(z);
-        }
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.a.b.a)) {
-                g.i("PMSDownloadTask", "#checkAndCreateFile mParam.pmsPackage.filePath 为空");
-                return true;
-            }
-            File c = fp4.c(this.e.d(this.b), this.a.b.l);
-            this.c = c;
-            if (c == null) {
-                String absolutePath = ri4.b().getAppContext().getCacheDir().getAbsolutePath();
-                bp4 bp4Var = g;
-                bp4Var.i("PMSDownloadTask", "#checkAndCreateFile mLocalFile=null cacheDir=" + absolutePath);
-                this.c = fp4.c(absolutePath, this.a.b.l);
-            }
-            File file = this.c;
-            if (file == null) {
-                g.i("PMSDownloadTask", "#checkAndCreateFile generateFilePath=null");
-                this.e.e(this.b, new tk4(2203, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH));
-                return false;
-            }
-            this.a.b.a = file.getAbsolutePath();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public boolean j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            String d = this.e.d(this.b);
-            if (d == null) {
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && (tj4Var = this.a) != null) {
             try {
-                StatFs statFs = new StatFs(d);
-                if (Build.VERSION.SDK_INT >= 18) {
-                    if (statFs.getBlockSizeLong() * statFs.getAvailableBlocksLong() <= j) {
-                        return false;
-                    }
-                    return true;
-                } else if (statFs.getBlockSize() * statFs.getAvailableBlocks() <= j) {
-                    return false;
-                } else {
-                    return true;
-                }
-            } catch (Throwable th) {
-                g.g("PMSDownloadTask", "#hasSpaceToWrite 异常或者磁盘空间不足", th);
-                return false;
-            }
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            String xk4Var = this.a.b.toString();
-            g.i("PMSDownloadTask", "#run 开始下包 pkg=" + xk4Var);
-            fm4 fm4Var = new fm4(this, h());
-            while (true) {
-                tk4 tk4Var = this.a.a;
-                if (tk4Var != null && tk4Var.a == 2200) {
-                    return;
-                }
-                if (this.d.get()) {
-                    g.i("PMSDownloadTask", "#run 已经取消下包 pkg=" + xk4Var);
-                    q();
-                    return;
-                }
-                fm4Var.b();
-                tk4 tk4Var2 = this.a.a;
-                if (tk4Var2 != null) {
-                    if (tk4Var2.a != 2200) {
-                        if (this.d.get()) {
-                            g.i("PMSDownloadTask", "#run 运行中取消下包 pkg=" + xk4Var);
-                            q();
-                            return;
-                        }
-                        this.e.b++;
-                        g.i("PMSDownloadTask", "#run 下载出错 pkg=" + xk4Var + " retryCount=" + this.e.b);
-                        if (this.e.b < 3) {
-                            try {
-                                if (!this.d.get()) {
-                                    Thread.sleep(this.e.b * 1000);
-                                }
-                            } catch (InterruptedException unused) {
-                            }
-                        } else {
-                            m();
-                            am4 am4Var = this.a;
-                            a(am4Var.a.a, am4Var.b);
-                            return;
-                        }
-                    } else {
-                        g.i("PMSDownloadTask", "#run 下包成功 pkg=" + xk4Var);
-                        n();
-                        return;
-                    }
-                }
+                tj4Var.a(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadProgress 错误", e);
             }
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tj4
+    public void c(T t) {
+        tj4<T> tj4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "downloadUrl:" + this.a.b.n + ",versionName:" + this.a.b.j + ",versionCode:" + this.a.b.i + "md5:" + this.a.b.l + "bundleId:" + this.a.b.g;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && (tj4Var = this.a) != null) {
+            try {
+                tj4Var.c(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadStart 错误", e);
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tj4
+    public void f(T t) {
+        tj4<T> tj4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && (tj4Var = this.a) != null) {
+            try {
+                tj4Var.f(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloading 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tj4
+    public void i(T t) {
+        tj4<T> tj4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, t) == null) && (tj4Var = this.a) != null) {
+            try {
+                tj4Var.i(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadFinish 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tj4
+    public void j(T t) {
+        tj4<T> tj4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) && (tj4Var = this.a) != null) {
+            try {
+                tj4Var.j(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadStop 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tj4
+    public void e(T t, wk4 wk4Var) {
+        tj4<T> tj4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, t, wk4Var) == null) && (tj4Var = this.a) != null) {
+            try {
+                tj4Var.e(t, wk4Var);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadError 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vj4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
+            tj4<T> tj4Var = this.a;
+            if (tj4Var == null) {
+                return new Bundle();
+            }
+            return tj4Var.m(bundle, set);
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.tj4
+    public wk4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
+            tj4<T> tj4Var = this.a;
+            if (tj4Var != null) {
+                return tj4Var.h(t, file, j, readableByteChannel);
+            }
+            return new wk4(2302, "业务层默认不处理下载流");
+        }
+        return (wk4) invokeCommon.objValue;
     }
 }

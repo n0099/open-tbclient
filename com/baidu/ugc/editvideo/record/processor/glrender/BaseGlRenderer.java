@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
-import com.baidu.tieba.rwa;
-import com.baidu.tieba.wwa;
+import com.baidu.tieba.h1b;
+import com.baidu.tieba.m1b;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import java.util.LinkedList;
 /* loaded from: classes8.dex */
@@ -39,8 +39,8 @@ public class BaseGlRenderer implements IGlRenderer {
 
     public void runPendingOnProcessTasks() {
         try {
-            if (wwa.b(this.runOnProcess) > 0) {
-                rwa.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
+            if (m1b.b(this.runOnProcess) > 0) {
+                h1b.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
             }
             while (!this.runOnProcess.isEmpty()) {
                 this.runOnProcess.removeFirst().run();

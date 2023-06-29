@@ -1,10 +1,5 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,84 +9,46 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes6.dex */
-public class jl5 extends ml5<kl5, ll5> {
+public class jl5 extends hl5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947887158, "Lcom/baidu/tieba/jl5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947887158, "Lcom/baidu/tieba/jl5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947887158, "Lcom/baidu/tieba/jl5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947887158, "Lcom/baidu/tieba/jl5;");
-        }
+        c = hl5.a("fdAT");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jl5(kl5 kl5Var) {
-        super(kl5Var);
+    public jl5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kl5Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((sl5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ml5
-    /* renamed from: b */
-    public Bitmap a(Canvas canvas, Paint paint, int i, Bitmap bitmap, ll5 ll5Var) {
-        InterceptResult invokeCommon;
-        Bitmap decodeStream;
+    @Override // com.baidu.tieba.hl5
+    public void b(ol5 ol5Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, paint, Integer.valueOf(i), bitmap, ll5Var})) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = false;
-            options.inSampleSize = i;
-            options.inMutable = true;
-            options.inBitmap = bitmap;
-            Bitmap bitmap2 = null;
-            try {
-                ((kl5) this.a).reset();
-                try {
-                    decodeStream = BitmapFactory.decodeStream(((kl5) this.a).a(), null, options);
-                } catch (IllegalArgumentException unused) {
-                    BitmapFactory.Options options2 = new BitmapFactory.Options();
-                    options2.inJustDecodeBounds = false;
-                    options2.inSampleSize = i;
-                    options2.inMutable = true;
-                    decodeStream = BitmapFactory.decodeStream(((kl5) this.a).a(), null, options2);
-                }
-            } catch (IOException e) {
-                e = e;
-            }
-            try {
-                paint.setXfermode(null);
-                canvas.drawBitmap(decodeStream, 0.0f, 0.0f, paint);
-                return decodeStream;
-            } catch (IOException e2) {
-                e = e2;
-                bitmap2 = decodeStream;
-                e.printStackTrace();
-                return bitmap2;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, ol5Var) == null) {
+            ol5Var.e();
         }
-        return (Bitmap) invokeCommon.objValue;
     }
 }

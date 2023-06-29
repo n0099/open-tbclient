@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,15 +12,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class fr6 implements r87 {
+public final class fr6 implements w87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.r87
+    @Override // com.baidu.tieba.w87
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.HOT_TOPIC_CLICK : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
     }
 
     public fr6() {
@@ -36,14 +37,24 @@ public final class fr6 implements r87 {
         }
     }
 
-    @Override // com.baidu.tieba.r87
-    public Map<String, String> a(d57 businessInfo) {
+    @Override // com.baidu.tieba.w87
+    public Map<String, String> a(i57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
-            hashMap.put("obj_locate", "index");
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_type", dr6.a.a(businessInfo));
+            hashMap.put("obj_locate", "3");
+            hashMap.put(TiebaStatic.Params.OBJ_TO, "2");
+            hashMap.put("obj_source", "1");
+            hashMap.put("obj_param1", "1");
+            String str = a.get("live_type");
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
             return hashMap;
         }
         return (Map) invokeL.objValue;

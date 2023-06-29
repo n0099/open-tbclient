@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.as5;
-import com.baidu.tieba.bs5;
-import com.baidu.tieba.i05;
-import com.baidu.tieba.sy6;
-import com.baidu.tieba.w88;
-import com.baidu.tieba.yr5;
-import com.baidu.tieba.z55;
+import com.baidu.tieba.c65;
+import com.baidu.tieba.c98;
+import com.baidu.tieba.d65;
+import com.baidu.tieba.ds5;
+import com.baidu.tieba.fs5;
+import com.baidu.tieba.gs5;
+import com.baidu.tieba.l05;
+import com.baidu.tieba.xy6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,10 +29,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes5.dex */
-public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
+public class EnterForumTabFragment extends LazyBaseFragment implements l05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sy6 g;
+    public xy6 g;
     public NewPagerSlidingTabBaseStrip.c h;
     public CustomMessageListener i;
     public CustomMessageListener j;
@@ -79,12 +79,12 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         public void a(View view2, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && view2 != null && this.a.isPrimary() && this.a.g != null) {
-                if (this.a.g.M() == i) {
-                    this.a.g.Y(i);
+                if (this.a.g.N() == i) {
+                    this.a.g.Z(i);
                 } else if (i == 0) {
                     TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 1));
                 } else if (i > 0) {
-                    TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param("resource_id", this.a.g.O(i)));
+                    TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param("resource_id", this.a.g.P(i)));
                 }
             }
         }
@@ -123,14 +123,14 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 1 && this.a.g != null) {
                 if (this.a.isPrimary()) {
-                    this.a.g.Y(this.a.g.M());
+                    this.a.g.Z(this.a.g.N());
                     return;
                 }
-                int M = this.a.g.M();
-                if (M == 0) {
+                int N = this.a.g.N();
+                if (N == 0) {
                     TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 1));
-                } else if (M > 0) {
-                    TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param("resource_id", this.a.g.O(M)));
+                } else if (N > 0) {
+                    TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param("resource_id", this.a.g.P(N)));
                 }
             }
         }
@@ -176,32 +176,32 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
                 } else {
                     str = "";
                 }
-                int J = this.a.g.J(str);
-                if (J == -1) {
-                    J = 1;
+                int K = this.a.g.K(str);
+                if (K == -1) {
+                    K = 1;
                 }
-                this.a.g.i0(J, (String) map.get(str));
+                this.a.g.j0(K, (String) map.get(str));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d extends yr5 {
+    public class d extends ds5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EnterForumTabFragment b;
 
-        @Override // com.baidu.tieba.yr5
-        public boolean a(as5 as5Var) {
+        @Override // com.baidu.tieba.ds5
+        public boolean a(fs5 fs5Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, as5Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fs5Var)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.yr5
+        @Override // com.baidu.tieba.ds5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -229,12 +229,12 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
             this.b = enterForumTabFragment;
         }
 
-        @Override // com.baidu.tieba.yr5
+        @Override // com.baidu.tieba.ds5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return bs5.b().c();
+                return gs5.b().c();
             }
             return invokeV.intValue;
         }
@@ -263,9 +263,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.changeSkinType(i);
-            sy6 sy6Var = this.g;
-            if (sy6Var != null) {
-                sy6Var.onChangeSkinType(i);
+            xy6 xy6Var = this.g;
+            if (xy6Var != null) {
+                xy6Var.onChangeSkinType(i);
             }
         }
     }
@@ -275,7 +275,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.g.V();
+            this.g.W();
         }
     }
 
@@ -284,9 +284,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            sy6 sy6Var = this.g;
-            if (sy6Var != null) {
-                sy6Var.onChangeSkinType(this.mSkinType);
+            xy6 xy6Var = this.g;
+            if (xy6Var != null) {
+                xy6Var.onChangeSkinType(this.mSkinType);
             }
         }
     }
@@ -296,7 +296,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            this.g = new sy6(this);
+            this.g = new xy6(this);
             registerListener(this.i);
             registerListener(this.j);
         }
@@ -307,22 +307,22 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             super.setPrimary(z);
-            sy6 sy6Var = this.g;
-            if (sy6Var != null) {
-                sy6Var.g0(z);
+            xy6 xy6Var = this.g;
+            if (xy6Var != null) {
+                xy6Var.h0(z);
             }
         }
     }
 
-    @Override // com.baidu.tieba.i05
+    @Override // com.baidu.tieba.l05
     public void t1(Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, intent) == null) && intent != null && this.g != null) {
-            int J = this.g.J(intent.getStringExtra("sub_locate_type"));
-            if (J == -1) {
-                J = 0;
+            int K = this.g.K(intent.getStringExtra("sub_locate_type"));
+            if (K == -1) {
+                K = 0;
             }
-            this.g.d0(J);
+            this.g.e0(K);
         }
     }
 
@@ -330,9 +330,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
     public void K1(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            this.g.S(view2, bundle);
+            this.g.T(view2, bundle);
             M1(getActivity().getIntent(), bundle);
-            this.g.G(this.h);
+            this.g.H(this.h);
         }
     }
 
@@ -341,11 +341,11 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, intent, bundle) == null) && this.g != null && intent != null && intent.getExtras() != null) {
             int i = 0;
             if (intent.getBooleanExtra("is_from_scheme", false)) {
-                int J = this.g.J(intent.getStringExtra("sub_locate_type"));
-                if (J != -1) {
-                    i = J;
+                int K = this.g.K(intent.getStringExtra("sub_locate_type"));
+                if (K != -1) {
+                    i = K;
                 }
-                if (this.g.d0(i)) {
+                if (this.g.e0(i)) {
                     intent.removeExtra("sub_locate_type");
                     intent.removeExtra("is_from_scheme");
                 }
@@ -353,28 +353,28 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.xr5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.cs5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            sy6 sy6Var = this.g;
-            if (sy6Var != null) {
-                return sy6Var.K();
+            xy6 xy6Var = this.g;
+            if (xy6Var != null) {
+                return xy6Var.M();
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.xr5
-    public yr5 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.cs5
+    public ds5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return new d(this);
         }
-        return (yr5) invokeV.objValue;
+        return (ds5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -382,11 +382,11 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            w88.l().c();
+            c98.l().c();
             MessageManager.getInstance().unRegisterListener(this.i);
-            sy6 sy6Var = this.g;
-            if (sy6Var != null) {
-                sy6Var.X();
+            xy6 xy6Var = this.g;
+            if (xy6Var != null) {
+                xy6Var.Y();
             }
         }
     }
@@ -396,7 +396,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            a65.n(z55.k);
+            d65.n(c65.k);
         }
     }
 
@@ -429,9 +429,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            sy6 sy6Var = this.g;
-            if (sy6Var != null) {
-                sy6Var.W(i, i2, intent);
+            xy6 xy6Var = this.g;
+            if (xy6Var != null) {
+                xy6Var.X(i, i2, intent);
             }
         }
     }
@@ -444,14 +444,14 @@ public class EnterForumTabFragment extends LazyBaseFragment implements i05 {
             if (isPrimary() && getActivity() != null) {
                 M1(getActivity().getIntent(), null);
                 if (getContext() != null) {
-                    a65.o(getContext(), z55.k);
+                    d65.o(getContext(), c65.k);
                 }
             } else {
-                a65.n(z55.k);
+                d65.n(c65.k);
             }
-            sy6 sy6Var = this.g;
-            if (sy6Var != null) {
-                sy6Var.g0(isPrimary());
+            xy6 xy6Var = this.g;
+            if (xy6Var != null) {
+                xy6Var.h0(isPrimary());
             }
         }
     }

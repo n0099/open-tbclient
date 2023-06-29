@@ -1,27 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class gv8 implements ThirdPartAliRechargeService {
+import com.baidubce.auth.NTLMEngineImpl;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class gv8 extends gw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public void aliSign(@NonNull Activity activity, @NonNull String str, @Nullable ThirdPartAliRechargeService.ThirdPartAliSignCallback thirdPartAliSignCallback) {
+    @Override // com.baidu.tieba.gw4
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, thirdPartAliSignCallback) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/checkInterviewNoticeStatus" : (String) invokeV.objValue;
     }
 
     public gv8() {
@@ -38,21 +42,40 @@ public class gv8 implements ThirdPartAliRechargeService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public String aliRecharge(Activity activity, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.gw4, com.baidu.tieba.jw4
+    public lw4 b(Object obj, HashMap<String, String> hashMap, String str) {
+        InterceptResult invokeLLL;
+        Map.Entry<String, String> next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
-            nw4 nw4Var = new nw4();
-            nw4Var.a = activity;
-            nw4Var.b = str;
-            nw4Var.c = z;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, nw4Var);
-            if (runTask == null) {
-                return "";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
+            Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
+            lw4 lw4Var = new lw4();
+            if (obj instanceof au8) {
+                au8 au8Var = (au8) obj;
+                Intent intent = new Intent(baseContext, AlarmReceiver.class);
+                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
+                boolean z = false;
+                int i = 0;
+                while (it.hasNext() && (next = it.next()) != null) {
+                    intent.putExtra(next.getKey(), next.getValue());
+                    if ("task_id".equals(next.getKey())) {
+                        i = Integer.parseInt(next.getValue());
+                    }
+                }
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                intent.setData(Uri.parse(currentAccount));
+                if (PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null) {
+                    z = true;
+                }
+                lw4Var.a = z;
+                au8Var.l(true);
+                au8Var.k(lw4Var.a);
             }
-            return (String) runTask.getData();
+            return lw4Var;
         }
-        return (String) invokeLLZ.objValue;
+        return (lw4) invokeLLL.objValue;
     }
 }

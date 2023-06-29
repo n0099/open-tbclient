@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class ueb {
+public class ueb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
-    public final float b;
+    public final /* synthetic */ ffb a;
+    public final /* synthetic */ web b;
 
-    public ueb(float f, float f2, float f3) {
+    public ueb(web webVar, ffb ffbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {webVar, ffbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,25 +26,21 @@ public final class ueb {
                 return;
             }
         }
-        this.a = f;
-        this.b = f2;
+        this.b = webVar;
+        this.a = ffbVar;
     }
 
-    public final float a() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.b.c) {
+                vfb vfbVar = this.b.a;
+                if (vfbVar != null) {
+                    this.a.c();
+                    ((jfb) vfbVar).a.countDown();
+                }
+            }
         }
-        return invokeV.floatValue;
-    }
-
-    public final float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
     }
 }

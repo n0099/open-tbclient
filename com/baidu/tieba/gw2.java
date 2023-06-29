@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface gw2 {
-    String a(Context context);
+    void a(Context context, f42 f42Var);
 }

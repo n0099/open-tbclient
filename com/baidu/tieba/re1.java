@@ -1,21 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface re1<View> {
-    void a();
+public class re1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View getRealView();
+    public abstract void a(boolean z, long j);
 
-    void setBtnIconNightModeEnable(boolean z);
+    public abstract void b(@NonNull as0 as0Var);
 
-    void setBtnPlaceholder(View view2);
+    public abstract void c();
 
-    void setData(@NonNull nr0 nr0Var);
-
-    void setEnhanceBtnListener(@NonNull pe1 pe1Var);
-
-    void setVisible(int i);
-
-    void update(int i);
+    public re1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

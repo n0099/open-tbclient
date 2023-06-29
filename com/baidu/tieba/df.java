@@ -1,121 +1,143 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.hf;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class df {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEF_CRASHTIME_LIMIT = 10;
-    public static final int OFF_TYPE = 0;
-    public static final int ON_TYPE = 1;
+public class df extends oe<String> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int mDefaultType;
-    public String[] mKey;
-    public int mMaxCrashTimes;
-    public String mName;
-    public int mOffType;
-    public hf.a mSwitchListener;
 
-    public abstract void changeSettingByType(int i);
-
-    /* renamed from: getCrashKeys */
-    public abstract String[] mo129getCrashKeys();
-
-    public abstract int getDefaultType();
-
-    public abstract int getMaxCrashTimes();
-
-    public abstract String getName();
-
-    public abstract int getOffType();
-
-    public String[] getSwitchLibs() {
+    @Override // com.baidu.tieba.oe
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
         }
-        return (String[]) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements hf.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ df a;
-
-        public a(df dfVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dfVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dfVar;
-        }
-
-        @Override // com.baidu.tieba.hf.a
-        public void a(String str, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                this.a.changeSettingByType(i);
-            }
+    @Override // com.baidu.tieba.oe
+    public void k(String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
         }
     }
 
-    public df() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public df(t9 t9Var) {
+        super(t9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((t9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mDefaultType = 0;
-        this.mOffType = 1;
-        this.mMaxCrashTimes = 10;
-        this.mSwitchListener = new a(this);
-        initData();
-        addToManager();
     }
 
-    public void addToManager() {
+    @Override // com.baidu.tieba.oe
+    public boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hf hfVar = new hf(this.mName, this.mDefaultType, this.mSwitchListener);
-            hfVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
-            hfVar.j(getSwitchLibs());
-            SwitchManager.getInstance().addSwitchData(hfVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            t9 t9Var = this.a;
+            t9Var.d("DROP TABLE IF EXISTS " + this.b);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v12, types: [T, java.lang.String] */
+    @Override // com.baidu.tieba.oe
+    public se<String> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) == null) {
+            Cursor cursor = null;
+            try {
+                Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
+                try {
+                    if (rawQuery.moveToNext()) {
+                        se<String> seVar = new se<>();
+                        seVar.a = rawQuery.getString(0);
+                        seVar.d = rawQuery.getLong(1);
+                        seVar.e = rawQuery.getLong(2);
+                        seVar.f = rawQuery.getLong(3);
+                        seVar.b = rawQuery.getString(4);
+                        ug.a(rawQuery);
+                        return seVar;
+                    }
+                    ug.a(rawQuery);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor = rawQuery;
+                    ug.a(cursor);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (se) invokeLL.objValue;
         }
     }
 
-    public void initData() {
+    @Override // com.baidu.tieba.oe
+    public String l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mName = getName();
-            this.mKey = mo129getCrashKeys();
-            this.mDefaultType = getDefaultType();
-            this.mOffType = getOffType();
-            this.mMaxCrashTimes = getMaxCrashTimes();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode < 0) {
+                hashCode *= -1;
+            }
+            String str2 = "cache_kv_t" + hashCode;
+            this.a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+            return str2;
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.oe
+    public ContentValues p(se<String> seVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, seVar)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("m_key", seVar.a);
+            contentValues.put("m_value", seVar.b);
+            contentValues.put("saveTime", Long.valueOf(seVar.d));
+            contentValues.put("lastHitTime", Long.valueOf(seVar.e));
+            contentValues.put("timeToExpire", Long.valueOf(seVar.f));
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.oe
+    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
+            return sQLiteDatabase.rawQuery("select * from " + this.b, new String[0]);
+        }
+        return (Cursor) invokeLL.objValue;
     }
 }

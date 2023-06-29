@@ -1,123 +1,97 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wra;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import com.baidu.turbonet.net.impl.CronetLibraryLoader;
+import org.chromium.base.NativeLibraryLoadedStatus;
+import org.chromium.base.annotations.CheckDiscard;
+import org.chromium.base.natives.GEN_JNI;
+@CheckDiscard("crbug.com/993421")
 /* loaded from: classes5.dex */
-public final class dsa implements Application.ActivityLifecycleCallbacks {
+public final class dsa implements CronetLibraryLoader.b {
     public static /* synthetic */ Interceptable $ic;
+    public static CronetLibraryLoader.b a;
     public transient /* synthetic */ FieldHolder $fh;
-    public wra a;
 
-    public dsa(wra wraVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947716503, "Lcom/baidu/tieba/dsa;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947716503, "Lcom/baidu/tieba/dsa;");
+        }
+    }
+
+    public dsa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wraVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = wraVar;
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityStarted(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            synchronized (this.a.b()) {
-                Iterator<wra.a> it = this.a.b().iterator();
-                while (it.hasNext()) {
-                    it.next();
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityStopped(Activity activity) {
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-            synchronized (this.a.b()) {
-                Iterator<wra.a> it = this.a.b().iterator();
-                while (it.hasNext()) {
-                    it.next();
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_cronetInitOnInitThread();
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityCreated(Activity activity, Bundle bundle) {
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            synchronized (this.a.b()) {
-                for (wra.a aVar : this.a.b()) {
-                    aVar.a(activity);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetVersion();
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityDestroyed(Activity activity) {
+    @Override // com.baidu.turbonet.net.impl.CronetLibraryLoader.b
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            synchronized (this.a.b()) {
-                for (wra.a aVar : this.a.b()) {
-                    aVar.onActivityDestroyed(activity);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetLibraryLoader_getTurboNetHandler();
         }
+        return invokeV.longValue;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityPaused(Activity activity) {
+    public static CronetLibraryLoader.b d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            synchronized (this.a.b()) {
-                for (wra.a aVar : this.a.b()) {
-                    aVar.U();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (GEN_JNI.TESTING_ENABLED) {
+                CronetLibraryLoader.b bVar = a;
+                if (bVar != null) {
+                    return bVar;
+                }
+                if (GEN_JNI.REQUIRE_MOCK) {
+                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetLibraryLoader.Natives. The current configuration requires all native implementations to have a mock instance.");
                 }
             }
+            NativeLibraryLoadedStatus.checkLoaded(false);
+            return new dsa();
         }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            synchronized (this.a.b()) {
-                for (wra.a aVar : this.a.b()) {
-                    aVar.b();
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-            synchronized (this.a.b()) {
-                Iterator<wra.a> it = this.a.b().iterator();
-                while (it.hasNext()) {
-                    it.next();
-                }
-            }
-        }
+        return (CronetLibraryLoader.b) invokeV.objValue;
     }
 }

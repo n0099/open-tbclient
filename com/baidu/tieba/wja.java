@@ -1,13 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class wja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public int b;
+    public int c;
+    public int d;
+    public List<MediaSegment> e;
+    public List<MultiMediaData> f;
 
     public wja() {
         Interceptable interceptable = $ic;

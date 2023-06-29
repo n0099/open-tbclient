@@ -1,68 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.exception.RequestError;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Request;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes8.dex */
-public class xt0 extends iu0 {
+public class xt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public hz0 P;
 
-    @Override // com.baidu.tieba.iu0, com.baidu.tieba.cu0, com.baidu.tieba.bu0
-    public int B() {
-        InterceptResult invokeV;
+    public static Request.Builder a(@NonNull wt0 wt0Var) throws RequestError {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 23;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xt0(@NonNull ux0 ux0Var, @Nullable Context context) {
-        super(ux0Var, context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ux0Var, context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ux0) objArr2[0], (Context) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wt0Var)) == null) {
+            Request.Builder builder = new Request.Builder();
+            try {
+                builder.url(wt0Var.a);
+                Object obj = wt0Var.e;
+                if (obj != null) {
+                    builder.tag(obj);
+                }
+                if (wt0Var.h) {
+                    builder.header("Content-Type", "application/x-www-form-urlencoded");
+                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
+                    builder.header(HTTP.CONN_DIRECTIVE, "close");
+                    builder.header("accept", "*/*");
+                }
+                Headers.a aVar = wt0Var.c;
+                if (aVar != null) {
+                    Headers c = aVar.c();
+                    for (int i = 0; i < c.g(); i++) {
+                        builder.header(c.f(i), c.h(i));
+                    }
+                }
+                String str = wt0Var.b;
+                builder.method(str, tt0.g(str, wt0Var.d));
+                return builder;
+            } catch (Throwable th) {
+                throw new RequestError("Invalid request url: " + wt0Var.a, th);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.iu0, com.baidu.tieba.ou0, com.baidu.tieba.bu0
-    public void G0(@Nullable Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            super.G0(context);
-            b(new zz0());
-            I1("ad_video_tail_frame_layer");
-        }
-    }
-
-    public void I1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            mz0 mz0Var = new mz0(str);
-            this.P = mz0Var;
-            b(mz0Var);
-        }
+        return (Request.Builder) invokeL.objValue;
     }
 }

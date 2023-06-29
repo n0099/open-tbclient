@@ -1,8 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import java.util.List;
 /* loaded from: classes6.dex */
 public interface ko5 {
-    List<LaunchTask> asyncList();
+    void a(long j);
+
+    void b(long j, int i, String str);
 }

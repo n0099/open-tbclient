@@ -24,11 +24,16 @@ public class GroupChatEntranceStatisticUtils {
     public static final int FEED_GROUP_CHAT_ENTRANCE_EXPOSE_EXPAND = 1;
     public static final int FEED_GROUP_CHAT_LINK_CLICK = 13;
     public static final String FORUM_ID = "forumId";
+    public static final int FRS_CAROUSEL_ITEM_CLICK = 1;
     public static final int FRS_DIALOG_GROUP_CHAT_CLICK = 2;
+    public static final int FRS_SINGER_ROOM_CLICK = 14;
+    public static final int MAG_TAB_PAGE_SHOW = 3;
+    public static final int MSG_TAB_GROUP_CHAT_CLICK = 15;
     public static final String PARAM_URL = "url";
     public static final int PB_GROUP_CHAT_CARD_CLICK = 5;
     public static final int PB_GROUP_CHAT_LINK_CLICK = 4;
     public static final String ROOM_ID = "roomId";
+    public static final int SHARE_IM_CARD = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     public GroupChatEntranceStatisticUtils() {

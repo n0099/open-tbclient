@@ -36,7 +36,7 @@ import kotlinx.coroutines.internal.ThreadContextKt;
     */
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\u00020\u0005H\u008a@"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
 @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1", f = "Combine.kt", i = {0}, l = {129}, m = "invokeSuspend", n = {TypeAdapters.AnonymousClass27.SECOND}, s = {"L$0"})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Flow<T1> $flow;
     public final /* synthetic */ Flow<T2> $flow2;
@@ -80,7 +80,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
     @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\u0006\u0010\u0005\u001a\u00020\u0001H\u008a@"}, d2 = {"<anonymous>", "", "T1", "T2", "R", AdvanceSetting.NETWORK_TYPE}, k = 3, mv = {1, 6, 0}, xi = 48)
     @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$2", f = "Combine.kt", i = {}, l = {130}, m = "invokeSuspend", n = {}, s = {})
     /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$2  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class AnonymousClass2 extends SuspendLambda implements Function2<Unit, Continuation<? super Unit>, Object> {
         public final /* synthetic */ Object $cnt;
         public final /* synthetic */ Flow<T1> $flow;
@@ -123,7 +123,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
 
         @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\u0006\u0010\u0005\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
         /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$2$1  reason: invalid class name */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class AnonymousClass1<T> implements FlowCollector, SuspendFunction {
             public final /* synthetic */ Object $cnt;
             public final /* synthetic */ CoroutineContext $scopeContext;
@@ -145,8 +145,8 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
             @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\u0006\u0010\u0005\u001a\u00020\u0001H\u008a@"}, d2 = {"<anonymous>", "", "T1", "T2", "R", AdvanceSetting.NETWORK_TYPE}, k = 3, mv = {1, 6, 0}, xi = 48)
             @DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$2$1$1", f = "Combine.kt", i = {}, l = {132, 135, 135}, m = "invokeSuspend", n = {}, s = {})
             /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$2$1$1  reason: invalid class name and collision with other inner class name */
-            /* loaded from: classes10.dex */
-            public static final class C07821 extends SuspendLambda implements Function2<Unit, Continuation<? super Unit>, Object> {
+            /* loaded from: classes2.dex */
+            public static final class C07921 extends SuspendLambda implements Function2<Unit, Continuation<? super Unit>, Object> {
                 public final /* synthetic */ ReceiveChannel<Object> $second;
                 public final /* synthetic */ FlowCollector<R> $this_unsafeFlow;
                 public final /* synthetic */ Function3<T1, T2, Continuation<? super R>, Object> $transform;
@@ -158,7 +158,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
                 /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.functions.Function3<? super T1, ? super T2, ? super kotlin.coroutines.Continuation<? super R>, ? extends java.lang.Object> */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
-                public C07821(ReceiveChannel<? extends Object> receiveChannel, FlowCollector<? super R> flowCollector, Function3<? super T1, ? super T2, ? super Continuation<? super R>, ? extends Object> function3, T1 t1, Continuation<? super C07821> continuation) {
+                public C07921(ReceiveChannel<? extends Object> receiveChannel, FlowCollector<? super R> flowCollector, Function3<? super T1, ? super T2, ? super Continuation<? super R>, ? extends Object> function3, T1 t1, Continuation<? super C07921> continuation) {
                     super(2, continuation);
                     this.$second = receiveChannel;
                     this.$this_unsafeFlow = flowCollector;
@@ -168,7 +168,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    return new C07821(this.$second, this.$this_unsafeFlow, this.$transform, this.$value, continuation);
+                    return new C07921(this.$second, this.$this_unsafeFlow, this.$transform, this.$value, continuation);
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
@@ -179,7 +179,7 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
 
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final Object invoke2(Unit unit, Continuation<? super Unit> continuation) {
-                    return ((C07821) create(unit, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C07921) create(unit, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 /* JADX WARN: Removed duplicated region for block: B:29:0x006e A[RETURN] */
@@ -277,9 +277,9 @@ public final class CombineKt$zipImpl$1$1 extends SuspendLambda implements Functi
                             CoroutineContext coroutineContext = this.$scopeContext;
                             Unit unit = Unit.INSTANCE;
                             Object obj2 = this.$cnt;
-                            C07821 c07821 = new C07821(this.$second, this.$this_unsafeFlow, this.$transform, t1, null);
+                            C07921 c07921 = new C07921(this.$second, this.$this_unsafeFlow, this.$transform, t1, null);
                             combineKt$zipImpl$1$1$2$1$emit$1.label = 1;
-                            if (ChannelFlowKt.withContextUndispatched(coroutineContext, unit, obj2, c07821, combineKt$zipImpl$1$1$2$1$emit$1) == coroutine_suspended) {
+                            if (ChannelFlowKt.withContextUndispatched(coroutineContext, unit, obj2, c07921, combineKt$zipImpl$1$1$2$1$emit$1) == coroutine_suspended) {
                                 return coroutine_suspended;
                             }
                         }

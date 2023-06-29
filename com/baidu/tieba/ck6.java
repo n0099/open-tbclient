@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
+import android.annotation.SuppressLint;
+import android.webkit.WebView;
+import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.browser.exception.JsInterfaceException;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class ck6 {
+public class ck6 extends dk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StatisticItem a;
+    public final WebView a;
+    public final Map<String, AbsJsInterface> b;
 
-    public ck6(String str) {
+    public ck6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,64 +36,92 @@ public class ck6 {
                 return;
             }
         }
-        this.a = StatisticItem.make(str);
+        this.a = webView;
+        this.b = new ArrayMap();
     }
 
-    public static ck6 a(HybridStatisticKey hybridStatisticKey) {
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            rm6.c("newHybrid", "remove k:" + str);
+            AbsJsInterface absJsInterface = this.b.get(str);
+            if (absJsInterface != null) {
+                absJsInterface.deAttachWebView();
+            }
+            this.a.removeJavascriptInterface(str);
+        }
+    }
+
+    public static ck6 g(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridStatisticKey)) == null) {
-            return new ck6(hybridStatisticKey.getValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webView)) == null) {
+            return new ck6(webView);
         }
         return (ck6) invokeL.objValue;
     }
 
-    public static String b(StatisticItem statisticItem) {
-        InterceptResult invokeL;
-        int size;
+    @Override // com.baidu.tieba.bk6
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, statisticItem)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (statisticItem == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (String str : this.b.keySet()) {
+                h(str);
             }
-            sb.append("RD_STAT_LOG: ");
-            sb.append("key=");
-            sb.append(statisticItem.getKey());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            List<Object> params = statisticItem.getParams();
-            if (params != null && (size = params.size()) > 0) {
-                for (int i = 0; i < size; i++) {
-                    sb.append(params.get(i));
-                    if (i % 2 == 0) {
-                        sb.append("=");
-                    } else if (i != size - 1) {
-                        sb.append(",");
-                    }
-                }
-            }
-            return sb.toString();
+            this.b.clear();
         }
-        return (String) invokeL.objValue;
     }
 
-    public ck6 c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            this.a.param(str, str2);
-            return this;
-        }
-        return (ck6) invokeLL.objValue;
-    }
-
-    public void d() {
+    @Override // com.baidu.tieba.bk6
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (pl6.a()) {
-                mm6.a("newHybrid", b(this.a));
+            Map<String, Class<? extends AbsJsInterface>> b = hm6.a().b();
+            if (!b.isEmpty()) {
+                try {
+                    e(b);
+                } catch (JsInterfaceException e) {
+                    if (!ul6.a()) {
+                        ((sm6) ServiceManager.getService(sm6.a)).a(e);
+                        return;
+                    }
+                    throw e;
+                }
             }
-            this.a.eventStat();
+        }
+    }
+
+    public final void e(Map<String, Class<? extends AbsJsInterface>> map) throws JsInterfaceException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            if (d()) {
+                for (Map.Entry<String, Class<? extends AbsJsInterface>> entry : map.entrySet()) {
+                    Class<? extends AbsJsInterface> value = entry.getValue();
+                    if (c(value)) {
+                        try {
+                            f(entry.getKey(), value);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        throw new JsInterfaceException("This object has not offer method javascript to call ,please check addJavascriptInterface annotation was be added");
+                    }
+                }
+                return;
+            }
+            throw new JsInterfaceException("The injected object is not safe, give up injection");
+        }
+    }
+
+    @SuppressLint({"JavascriptInterface"})
+    public final void f(String str, Class<? extends AbsJsInterface> cls) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cls) == null) {
+            rm6.c("newHybrid", "inject k:" + str + "  v:" + cls);
+            AbsJsInterface newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+            newInstance.attachWebView(this.a);
+            this.b.put(str, newInstance);
+            this.a.addJavascriptInterface(newInstance, str);
         }
     }
 }

@@ -1,45 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.AbstractComponent;
-import tbclient.FeedContentResource;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class o67 {
+public class o67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
+    public String c;
 
-    public static final h47 a(SpannableStringBuilder titleBuilder, List<FeedContentResource> contentList, q57 feedExtraData) {
-        InterceptResult invokeLLL;
+    public o67() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, titleBuilder, contentList, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-            Intrinsics.checkNotNullParameter(contentList, "contentList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            h47 h47Var = new h47(new b57(titleBuilder, spannableStringBuilder));
-            y67.a(contentList, spannableStringBuilder, feedExtraData, h47Var);
-            return h47Var;
-        }
-        return (h47) invokeLLL.objValue;
-    }
-
-    public static final void b(AbstractComponent abstractComponent, List<o87<?>> dataList, SpannableStringBuilder titleBuilder, q57 feedExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, abstractComponent, dataList, titleBuilder, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(abstractComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            List<FeedContentResource> data = abstractComponent.data;
-            Intrinsics.checkNotNullExpressionValue(data, "data");
-            h47 a = a(titleBuilder, data, feedExtraData);
-            if (a.g()) {
-                dataList.add(new p87(a, "abstract"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

@@ -2,49 +2,53 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c02;
-import com.baidu.tieba.yl3;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.tieba.f02;
+import com.baidu.tieba.ol3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j22 extends f22 {
+public class j22 extends i22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.c02
+    @Override // com.baidu.tieba.f02
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CompassApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "AccelerometerApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements c02.a {
+    public class a implements f02.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j22 a;
 
         /* renamed from: com.baidu.tieba.j22$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0349a implements yl3.c {
+        public class C0367a implements ol3.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ r22 a;
-            public final /* synthetic */ a b;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ u22 b;
+            public final /* synthetic */ a c;
 
-            public C0349a(a aVar, r22 r22Var) {
+            public C0367a(a aVar, String str, u22 u22Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, r22Var};
+                    Object[] objArr = {aVar, str, u22Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -54,23 +58,31 @@ public class j22 extends f22 {
                         return;
                     }
                 }
-                this.b = aVar;
-                this.a = r22Var;
+                this.c = aVar;
+                this.a = str;
+                this.b = u22Var;
             }
 
-            @Override // com.baidu.tieba.yl3.c
-            public void a(float f, int i) {
+            @Override // com.baidu.tieba.ol3.a
+            public void a(double[] dArr) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, f);
-                        jSONObject.put("accuracy", yl3.h(i));
-                        this.a.d(this.b.a, jSONObject);
-                    } catch (JSONException e) {
-                        z82.c("CompassApi", "handle compass,json error，" + e.toString());
-                        this.a.f(this.b.a, "Json error");
+                if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
+                    if (dArr != null && dArr.length == 3) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("x", dArr[0]);
+                            jSONObject.put("y", dArr[1]);
+                            jSONObject.put("z", dArr[2]);
+                            this.b.d(this.c.a, jSONObject);
+                            return;
+                        } catch (JSONException e) {
+                            this.c.a.p("json put data fail", e, true);
+                            this.b.f(this.c.a, "json put data fail");
+                            return;
+                        }
                     }
+                    this.c.a.p("illegal accelerometers", null, true);
+                    this.c.a.d(this.a, new c42(1001));
                 }
             }
         }
@@ -93,37 +105,76 @@ public class j22 extends f22 {
             this.a = j22Var;
         }
 
-        @Override // com.baidu.tieba.c02.a
-        public z32 a(zb3 zb3Var, JSONObject jSONObject, @Nullable String str) {
+        @Override // com.baidu.tieba.f02.a
+        public c42 a(cc3 cc3Var, JSONObject jSONObject, @Nullable String str) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, zb3Var, jSONObject, str)) == null) {
-                r22 r22Var = new r22("compassChange", jSONObject, str);
-                yl3 i = yl3.i();
-                i.l(this.a.getContext());
-                i.o(new C0349a(this, r22Var));
-                z82.i("CompassApi", "start listen compass");
-                i.p();
-                r22Var.b(this.a);
-                return z32.f();
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cc3Var, jSONObject, str)) == null) {
+                u22 u22Var = new u22("accelerometerChange", jSONObject, str);
+                ol3 a = ol3.a();
+                a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
+                a.e(new C0367a(this, str, u22Var));
+                a.f();
+                u22Var.b(this.a);
+                return c42.f();
             }
-            return (z32) invokeLLL.objValue;
+            return (c42) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static ArrayMap<String, Integer> a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-739854815, "Lcom/baidu/tieba/j22$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-739854815, "Lcom/baidu/tieba/j22$b;");
+                    return;
+                }
+            }
+            ArrayMap<String, Integer> arrayMap = new ArrayMap<>(3);
+            a = arrayMap;
+            arrayMap.put(TaskUIData.key, 60);
+            a.put("game", 20);
+            a.put("normal", 200);
+        }
+
+        public static int a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                Integer num = a.get(str);
+                if (num != null) {
+                    return num.intValue();
+                }
+                return 200;
+            }
+            return invokeL.intValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j22(@NonNull a02 a02Var) {
-        super(a02Var);
+    public j22(@NonNull d02 d02Var) {
+        super(d02Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a02Var};
+            Object[] objArr = {d02Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a02) newInitContext.callArgs[0]);
+                super((d02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -131,24 +182,24 @@ public class j22 extends f22 {
         }
     }
 
-    public z32 y(String str) {
+    public c42 A(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#startCompass", true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#startAccelerometer", false);
             return l(str, true, new a(this));
         }
-        return (z32) invokeL.objValue;
+        return (c42) invokeL.objValue;
     }
 
-    public z32 z() {
+    public c42 B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q("#stopCompass", true);
-            yl3.i().q();
-            return z32.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#stopAccelerometer", true);
+            ol3.a().g();
+            return c42.f();
         }
-        return (z32) invokeV.objValue;
+        return (c42) invokeV.objValue;
     }
 }

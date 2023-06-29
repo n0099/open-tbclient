@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,8 +11,7 @@ import org.json.JSONObject;
 public class lc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mc5 a;
-    public mc5 b;
+    public int a;
 
     public lc5() {
         Interceptable interceptable = $ic;
@@ -29,42 +27,23 @@ public class lc5 {
         }
     }
 
-    public mc5 a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            if (this.a == 1) {
+                return true;
+            }
+            return false;
         }
-        return (mc5) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public mc5 b() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (mc5) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
-        if (optJSONObject != null) {
-            mc5 mc5Var = new mc5();
-            this.a = mc5Var;
-            mc5Var.q = 1;
-            mc5Var.e(optJSONObject);
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
-        if (optJSONObject2 != null) {
-            mc5 mc5Var2 = new mc5();
-            this.b = mc5Var2;
-            mc5Var2.q = 2;
-            mc5Var2.e(optJSONObject2);
-        }
+        this.a = jSONObject.optInt("agree_icon", 0);
     }
 }

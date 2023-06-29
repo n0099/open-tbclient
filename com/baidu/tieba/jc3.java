@@ -1,126 +1,47 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public final class jc3 {
+public final class jc3 extends ac3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, oc3> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947878447, "Lcom/baidu/tieba/jc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947878447, "Lcom/baidu/tieba/jc3;");
-                return;
-            }
-        }
-        b = js1.a;
-    }
 
     public jc3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = null;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ac3, com.baidu.tieba.bc3
+    public ll4 I() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            File d = g73.d(str2);
-            if (d == null || !d.exists()) {
-                if (str.endsWith(File.separator)) {
-                    d = new File(str + str2 + ".json");
-                } else {
-                    d = new File(str + File.separator + str2 + ".json");
-                }
-            }
-            if (b) {
-                Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d.exists());
-            }
-            if (!d.exists()) {
-                return null;
-            }
-            return vu2.m(d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new pf2(this);
         }
-        return (String) invokeLL.objValue;
+        return (ll4) invokeV.objValue;
     }
 
-    public oc3 a(String str, @NonNull String str2, @NonNull oc3 oc3Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.ac3, com.baidu.tieba.bc3
+    public me3 J() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, oc3Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                oc3 d = d(str, str2, oc3Var);
-                this.a.put(str2, d);
-                return d;
-            }
-            return oc3Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new oe3(this);
         }
-        return (oc3) invokeLLL.objValue;
-    }
-
-    public final oc3 d(String str, String str2, @NonNull oc3 oc3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, oc3Var)) == null) {
-            String c = c(str, str2);
-            if (TextUtils.isEmpty(c)) {
-                return oc3Var;
-            }
-            return oc3.b(c, oc3Var);
-        }
-        return (oc3) invokeLLL.objValue;
-    }
-
-    public oc3 b(String str, String str2, @NonNull oc3 oc3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, oc3Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (this.a == null) {
-                    this.a = new TreeMap();
-                }
-                oc3 oc3Var2 = this.a.get(str2);
-                if (oc3Var2 != null) {
-                    return oc3Var2;
-                }
-                oc3 d = d(str, str2, oc3Var);
-                this.a.put(str2, d);
-                return d;
-            }
-            return oc3Var;
-        }
-        return (oc3) invokeLLL.objValue;
+        return (me3) invokeV.objValue;
     }
 }

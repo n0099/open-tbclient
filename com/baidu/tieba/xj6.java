@@ -1,127 +1,103 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.webkit.WebView;
-import androidx.collection.ArrayMap;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.browser.exception.JsInterfaceException;
-import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.browser.core.webview.offline.message.OfflineResourceReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xj6 extends yj6 {
+public class xj6 extends wl1<fn6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
-    public final Map<String, AbsJsInterface> b;
 
-    public xj6(WebView webView) {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b implements fn6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.fn6
+        public JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return fl6.n().z();
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fn6
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                kr9.n().g();
+                fl6.n().k();
+                MessageManager.getInstance().sendMessage(new OfflineResourceReqMsg("0.0.0.0"));
+            }
+        }
+
+        @Override // com.baidu.tieba.fn6
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                kr9.n().g();
+                fl6.n().k();
+                gl6.e().j(null);
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    public xj6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = webView;
-        this.b = new ArrayMap();
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            mm6.c("newHybrid", "remove k:" + str);
-            AbsJsInterface absJsInterface = this.b.get(str);
-            if (absJsInterface != null) {
-                absJsInterface.deAttachWebView();
-            }
-            this.a.removeJavascriptInterface(str);
-        }
-    }
-
-    public static xj6 g(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webView)) == null) {
-            return new xj6(webView);
-        }
-        return (xj6) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj6
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (String str : this.b.keySet()) {
-                h(str);
-            }
-            this.b.clear();
-        }
-    }
-
-    @Override // com.baidu.tieba.wj6
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Map<String, Class<? extends AbsJsInterface>> b = cm6.a().b();
-            if (!b.isEmpty()) {
-                try {
-                    e(b);
-                } catch (JsInterfaceException e) {
-                    if (!pl6.a()) {
-                        ((nm6) ServiceManager.getService(nm6.a)).a(e);
-                        return;
-                    }
-                    throw e;
-                }
             }
         }
     }
 
-    public final void e(Map<String, Class<? extends AbsJsInterface>> map) throws JsInterfaceException {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wl1
+    /* renamed from: a */
+    public fn6 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            if (d()) {
-                for (Map.Entry<String, Class<? extends AbsJsInterface>> entry : map.entrySet()) {
-                    Class<? extends AbsJsInterface> value = entry.getValue();
-                    if (c(value)) {
-                        try {
-                            f(entry.getKey(), value);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        throw new JsInterfaceException("This object has not offer method javascript to call ,please check addJavascriptInterface annotation was be added");
-                    }
-                }
-                return;
-            }
-            throw new JsInterfaceException("The injected object is not safe, give up injection");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
         }
-    }
-
-    @SuppressLint({"JavascriptInterface"})
-    public final void f(String str, Class<? extends AbsJsInterface> cls) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cls) == null) {
-            mm6.c("newHybrid", "inject k:" + str + "  v:" + cls);
-            AbsJsInterface newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            newInstance.attachWebView(this.a);
-            this.b.put(str, newInstance);
-            this.a.addJavascriptInterface(newInstance, str);
-        }
+        return (fn6) invokeV.objValue;
     }
 }

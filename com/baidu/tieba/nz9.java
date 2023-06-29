@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActHot;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class nz9 {
+public final class nz9 implements if5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
     public nz9() {
         Interceptable interceptable = $ic;
@@ -27,31 +28,20 @@ public class nz9 {
         }
     }
 
-    public void a(ActHot actHot) {
+    @Override // com.baidu.tieba.if5
+    public void parseJson(JSONObject json) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actHot) != null) || actHot == null) {
-            return;
-        }
-        String str = actHot.bsize;
-        if (str != null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
             try {
-                String[] split = str.split(",");
-                this.a = ug.e(split[0], 1);
-                this.b = ug.e(split[1], 1);
+                r95.p().F("key_sprite_is_new_user", json.optInt("is_sprite_new_user"));
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                    return;
+                }
+                throw e;
             }
         }
-        if (this.a <= 0) {
-            this.a = 1;
-        }
-        if (this.b <= 0) {
-            this.b = 1;
-        }
-        String str2 = actHot.img_src;
-        String str3 = actHot.link;
-        String str4 = actHot.author_name;
-        String str5 = actHot.img_des;
-        actHot.img_type.intValue();
     }
 }

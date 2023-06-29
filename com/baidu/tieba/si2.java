@@ -1,129 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class si2 {
+public class si2 extends dm2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static LruCache<String, Object> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<cm2> d;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final si2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-431398801, "Lcom/baidu/tieba/si2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-431398801, "Lcom/baidu/tieba/si2$b;");
-                    return;
-                }
-            }
-            a = new si2(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948152301, "Lcom/baidu/tieba/si2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948152301, "Lcom/baidu/tieba/si2;");
-                return;
-            }
-        }
-        a = js1.a;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public si2() {
+        super("combine");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new LruCache<>(10);
+        this.d = new ArrayList();
     }
 
-    public static si2 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cm2
+    public String c(ab2 ab2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (si2) invokeV.objValue;
-    }
-
-    public /* synthetic */ si2(a aVar) {
-        this();
-    }
-
-    public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, config)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return config;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ab2Var)) == null) {
+            if (ab2Var != null && this.d.size() > 0) {
+                int i = 0;
+                StringBuilder sb = new StringBuilder();
+                for (cm2 cm2Var : this.d) {
+                    sb.append(cm2Var.d("event" + i, ab2Var));
+                    i++;
                 }
-                CONFIG config2 = (CONFIG) b.get(str);
-                if (config2 == null) {
-                    return config;
+                if (cm2.b) {
+                    Log.d("JSEventDispatcher", "combine msg - " + sb.toString());
                 }
-                if (a) {
-                    Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
-                }
-                return config2;
+                return sb.toString();
             }
+            return null;
         }
-        return (CONFIG) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public synchronized <CONFIG> void c(String str, CONFIG config) {
+    @Override // com.baidu.tieba.cm2
+    public void h(ab2 ab2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str) && config != null) {
-                    if (a) {
-                        Log.d("SwanAppConfigCache", "putConfig key: " + str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ab2Var) == null) && ab2Var != null && !ab2Var.isWebView() && this.d.size() > 0) {
+            if (cm2.b) {
+                Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
+            }
+            for (cm2 cm2Var : this.d) {
+                JSEvent e = cm2Var.e(ab2Var);
+                if (e != null) {
+                    j(ab2Var, e);
+                    if (cm2.b) {
+                        Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
                     }
-                    b.put(str, config);
                 }
             }
         }
+    }
+
+    public si2 t(cm2 cm2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cm2Var)) == null) {
+            if (cm2Var != null && !this.d.contains(cm2Var)) {
+                this.d.add(cm2Var);
+            }
+            return this;
+        }
+        return (si2) invokeL.objValue;
     }
 }

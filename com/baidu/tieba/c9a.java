@@ -1,10 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import java.util.List;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface c9a {
-    void o1(String str, int i, String str2);
+public class c9a extends CustomMessageListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public a45 b;
 
-    void setMusicData(List<MusicData> list);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c9a(MainTabActivity mainTabActivity, e7a e7aVar) {
+        super(2921333);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, e7aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = mainTabActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            return;
+        }
+        if (this.b == null && !(customResponsedMessage.getData() instanceof a45)) {
+            return;
+        }
+        if (customResponsedMessage.getData() != null) {
+            this.b = (a45) customResponsedMessage.getData();
+        }
+        if (this.b != null && TbadkCoreApplication.isLogin()) {
+            c7a c7aVar = this.a.v;
+            a45 a45Var = this.b;
+            c7aVar.j(a45Var.a, a45Var.b, a45Var.c);
+        }
+    }
 }

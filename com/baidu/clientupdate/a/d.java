@@ -11,6 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.d.j;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,7 +115,7 @@ public final class d {
                 aVar.f = new JSONArray(cursor.getString(cursor.getColumnIndex("sc")));
                 aVar.g = new JSONArray(cursor.getString(cursor.getColumnIndex("etm")));
                 aVar.h = new JSONArray(cursor.getString(cursor.getColumnIndex("mg")));
-                aVar.i = new JSONArray(cursor.getString(cursor.getColumnIndex("ex")));
+                aVar.i = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.EXCEPTION_PART)));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -156,7 +157,7 @@ public final class d {
                     jSONObject3.put("sc", aVar.d());
                     jSONObject3.put("tm", aVar.e());
                     jSONObject3.put("mg", aVar.f());
-                    jSONObject3.put("ex", aVar.g());
+                    jSONObject3.put(Config.EXCEPTION_PART, aVar.g());
                     jSONObject2.put("in", jSONObject3);
                     jSONArray.put(jSONObject2);
                 }

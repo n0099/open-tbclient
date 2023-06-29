@@ -1,219 +1,183 @@
 package com.baidu.tieba;
 
 import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.regex.Pattern;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cl1 {
+public class cl1 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Uri b;
+    public int c;
+    public String[] d;
+    public HashMap<String, String> e;
+    public boolean f;
+    public cl1 g;
+    public boolean h;
+    public JSONObject i;
+    public String j;
 
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 101) {
-                    if (i != 201) {
-                        if (i != 202) {
-                            if (i != 301) {
-                                if (i != 302) {
-                                    switch (i) {
-                                        case 401:
-                                            return vk1.a().getString(R.string.prologue_united_scheme_err_message_action_sec_check_fail);
-                                        case 402:
-                                            return vk1.a().getString(R.string.prologue_united_scheme_err_message_action_acl_check_fail);
-                                        case 403:
-                                            return vk1.a().getString(R.string.prologue_united_scheme_err_message_action_allow_close);
-                                        default:
-                                            return vk1.a().getString(R.string.prologue_united_scheme_err_message_parse_fail);
-                                    }
-                                }
-                                return vk1.a().getString(R.string.prologue_united_scheme_err_message_action_notfound);
-                            }
-                            return vk1.a().getString(R.string.prologue_united_scheme_err_message_module_notfound);
-                        }
-                        return vk1.a().getString(R.string.prologue_united_scheme_err_message_params_parse_fail);
-                    }
-                    return vk1.a().getString(R.string.prologue_united_scheme_err_message_parse_fail);
-                }
-                return vk1.a().getString(R.string.prologue_united_scheme_err_message_not_support);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947678497, "Lcom/baidu/tieba/cl1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return vk1.a().getString(R.string.prologue_united_scheme_err_message_ok);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947678497, "Lcom/baidu/tieba/cl1;");
+                return;
+            }
         }
-        return (String) invokeI.objValue;
+        String str = yk1.b() + "://";
     }
 
-    public static HashMap<String, String> b(String str) {
-        InterceptResult invokeL;
-        String substring;
+    public cl1(Uri uri, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (TextUtils.isEmpty(str)) {
-                return hashMap;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            int indexOf = str.indexOf("?");
-            int indexOf2 = str.indexOf("#");
-            if (indexOf < 0) {
-                return hashMap;
-            }
-            if (indexOf2 < 0) {
-                substring = str.substring(indexOf + 1);
-            } else {
-                substring = str.substring(indexOf + 1, indexOf2);
-            }
-            String[] split = substring.split("&");
-            if (split == null) {
-                return hashMap;
-            }
-            for (String str2 : split) {
-                int indexOf3 = str2.indexOf("=");
-                if (indexOf3 > 0) {
-                    try {
-                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
-                    } catch (IllegalArgumentException unused) {
-                    }
-                }
-            }
-            return hashMap;
         }
-        return (HashMap) invokeL.objValue;
+        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.c = -1;
+        this.f = false;
+        this.h = false;
+        this.a = str;
+        this.b = uri;
+        this.d = fl1.c(uri);
+        this.e = fl1.b(uri.toString());
     }
 
-    public static String[] c(Uri uri) {
-        InterceptResult invokeL;
+    public cl1(Uri uri, String str, String[] strArr, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
-            if (uri == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri, str, strArr, hashMap};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.c = -1;
+        this.f = false;
+        this.h = false;
+        this.b = uri;
+        this.a = str;
+        this.d = strArr;
+        this.e = hashMap;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public cl1 clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Uri uri = this.b;
+            cl1 cl1Var = new cl1(uri, this.a, fl1.c(uri), (HashMap) this.e.clone());
+            cl1Var.g = this;
+            cl1Var.h = this.h;
+            cl1Var.j = this.j;
+            return cl1Var;
+        }
+        return (cl1) invokeV.objValue;
+    }
+
+    public HashMap<String, String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Uri uri = this.b;
+            if (uri != null) {
+                if (fl1.d(uri) && (path = this.b.getPath()) != null && path.length() > 1) {
+                    return this.b.getPath().substring(1);
+                }
+                return this.b.getHost() + this.b.getPath();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (this.d != null) {
+                if (z) {
+                    this.c++;
+                }
+                int i = this.c;
+                String[] strArr = this.d;
+                if (i < strArr.length) {
+                    return strArr[i];
+                }
                 return null;
             }
-            ArrayList arrayList = new ArrayList(uri.getPathSegments());
-            if (!d(uri)) {
-                arrayList.add(0, uri.getHost());
-            }
-            if (arrayList.size() <= 0) {
-                return null;
-            }
-            return (String[]) arrayList.toArray(new String[0]);
+            return null;
         }
-        return (String[]) invokeL.objValue;
+        return (String) invokeZ.objValue;
     }
 
-    public static boolean d(Uri uri) {
-        InterceptResult invokeL;
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            String host = uri.getHost();
-            if (TextUtils.isEmpty(host) || !host.startsWith("v") || !e(host)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f = z;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
+    public void f(String str, String str2) {
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (Pattern.compile("[0-9]").matcher(str).find()) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && (uri = this.b) != null && str != null && str2 != null) {
+            Uri parse = Uri.parse(uri.toString().replace(str, str2));
+            this.b = parse;
+            this.d = fl1.c(parse);
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            String scheme = uri.getScheme();
-            String host = uri.getHost();
-            if (!TextUtils.equals(yk1.a, scheme) || TextUtils.isEmpty(host)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return f(Uri.parse(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static JSONObject h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            return j(null, i);
-        }
-        return (JSONObject) invokeI.objValue;
-    }
-
-    public static JSONObject i(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("status", String.valueOf(i));
-                jSONObject.put("message", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeIL.objValue;
-    }
-
-    public static JSONObject j(JSONObject jSONObject, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) {
-            return k(jSONObject, i, a(i));
-        }
-        return (JSONObject) invokeLI.objValue;
-    }
-
-    public static JSONObject k(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
-            JSONObject i2 = i(i, str);
-            if (jSONObject != null) {
-                try {
-                    i2.put("data", jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return i2;
-        }
-        return (JSONObject) invokeLIL.objValue;
     }
 }

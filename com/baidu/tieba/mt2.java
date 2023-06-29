@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class mt2 extends tp2<ku2> {
+public class mt2 extends wp2<nu2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.tp2
+    @Override // com.baidu.tieba.wp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoWidth" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoHeight" : (String) invokeV.objValue;
     }
 
     public mt2() {
@@ -36,14 +36,14 @@ public class mt2 extends tp2<ku2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tp2
+    @Override // com.baidu.tieba.wp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ku2 ku2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull nu2 nu2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ku2Var) == null) {
-            command.ret = ku2Var.getVideoWidth();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, nu2Var) == null) {
+            command.ret = nu2Var.getVideoHeight();
             String str = command.what;
-            d(ku2Var, str, "Width: " + command.ret, false);
+            d(nu2Var, str, "Height: " + command.ret, false);
         }
     }
 }

@@ -1,32 +1,22 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.encoder.MediaMuxerWrapper;
-import java.io.IOException;
-import java.nio.ByteBuffer;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class fwa {
+public final class fwa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MediaMuxer a;
-    public int b;
-    public int c;
-    public boolean d;
+    public ewa a;
 
-    public fwa(String str) throws IOException {
+    public fwa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,91 +26,22 @@ public class fwa {
                 return;
             }
         }
-        this.b = 2;
-        this.c = 0;
-        this.d = false;
-        this.a = new MediaMuxer(str, 0);
+        this.a = new ewa();
     }
 
-    public synchronized int a(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        int addTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                if (this.d) {
-                    throw new IllegalStateException("muxer already started");
-                }
-                addTrack = this.a.addTrack(mediaFormat);
-                rwa.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
-            }
-            return addTrack;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized void b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo) == null) {
-            synchronized (this) {
-                if (this.c > 0) {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                }
-            }
-        }
-    }
-
-    public synchronized boolean c() {
+    public final List<com.baidu.ubs.analytics.a.i> a() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                rwa.k(MediaMuxerWrapper.TAG, "start:");
-                int i = this.c + 1;
-                this.c = i;
-                if (this.b > 0 && i == this.b) {
-                    this.a.start();
-                    this.d = true;
-                    notifyAll();
-                    rwa.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
-                }
-                z = this.d;
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.a();
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public synchronized void d() {
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                rwa.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.c);
-                int i = this.c + (-1);
-                this.c = i;
-                if (this.b > 0 && i <= 0) {
-                    if (this.d) {
-                        this.a.stop();
-                    }
-                    this.a.release();
-                    this.d = false;
-                    rwa.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.b(i);
         }
-    }
-
-    public synchronized boolean e() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                z = this.d;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
     }
 }

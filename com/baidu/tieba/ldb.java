@@ -1,210 +1,114 @@
 package com.baidu.tieba;
 
+import android.app.PendingIntent;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.X509TrustManager;
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes6.dex */
-public class ldb extends SSLSocketFactory {
+public class ldb implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public SSLContext a;
-    public SSLSocket b;
-    public Context c;
-    public String[] d;
-    public String[] e;
-    public String[] f;
-    public String[] g;
+    public final /* synthetic */ mdb a;
 
-    public void b(X509TrustManager x509TrustManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509TrustManager) == null) {
-        }
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947940447, "Lcom/baidu/tieba/ldb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947940447, "Lcom/baidu/tieba/ldb;");
-                return;
-            }
-        }
-        h = ldb.class.getSimpleName();
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String[] strArr = this.d;
-            if (strArr != null) {
-                return strArr;
-            }
-            return new String[0];
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public ldb(X509TrustManager x509TrustManager) throws NoSuchAlgorithmException, KeyManagementException, IllegalArgumentException {
+    public ldb(mdb mdbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x509TrustManager};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {mdbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = jdb.f();
-        b(x509TrustManager);
-        this.a.init(null, new X509TrustManager[]{x509TrustManager}, null);
+        this.a = mdbVar;
     }
 
-    public final void a(Socket socket) {
-        boolean z;
+    public static Uri b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, socket) == null) {
-            boolean z2 = true;
-            if (!sdb.a(this.g)) {
-                wdb.e(h, "set protocols");
-                jdb.e((SSLSocket) socket, this.g);
-                z = true;
-            } else {
-                z = false;
-            }
-            if (sdb.a(this.f) && sdb.a(this.e)) {
-                z2 = false;
-            } else {
-                wdb.e(h, "set white cipher or black cipher");
-                SSLSocket sSLSocket = (SSLSocket) socket;
-                jdb.d(sSLSocket);
-                if (!sdb.a(this.f)) {
-                    jdb.h(sSLSocket, this.f);
-                } else {
-                    jdb.b(sSLSocket, this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static ArCoreApk.Availability c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                if (d(context) != null) {
+                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
                 }
+                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
+            } catch (UnavailableDeviceNotCompatibleException unused) {
+                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
+                return ArCoreApk.Availability.UNKNOWN_ERROR;
             }
-            if (!z) {
-                wdb.e(h, "set default protocols");
-                jdb.d((SSLSocket) socket);
-            }
-            if (!z2) {
-                wdb.e(h, "set default cipher suites");
-                jdb.c((SSLSocket) socket);
+        }
+        return (ArCoreApk.Availability) invokeL.objValue;
+    }
+
+    @Override // com.google.ar.core.ArCoreApk.a
+    public void a(ArCoreApk.Availability availability) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
+            synchronized (this.a) {
+                mdb.c(this.a, availability);
+                mdb.f(this.a, false);
             }
         }
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i) throws IOException {
-        InterceptResult invokeLI;
+    public static PendingIntent d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            wdb.e(h, "createSocket: host , port");
-            Socket createSocket = this.a.getSocketFactory().createSocket(str, i);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
+                if (call == null) {
+                    return null;
+                }
+                PendingIntent pendingIntent = (PendingIntent) call.getParcelable("intent");
+                if (pendingIntent != null) {
+                    return pendingIntent;
+                }
+                String string = call.getString("exceptionType", "");
+                if (string.isEmpty()) {
+                    return null;
+                }
+                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
+                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
+                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
+                        String string2 = call.getString("exceptionText", null);
+                        if (string2 != null) {
+                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
+                        }
+                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
+                    }
+                    throw new UnavailableUserDeclinedInstallationException();
+                }
+                throw new UnavailableDeviceNotCompatibleException();
+            } catch (ReflectiveOperationException | RuntimeException e) {
+                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
+                return null;
             }
-            return createSocket;
         }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
-            return createSocket(str, i);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i)) == null) {
-            return createSocket(inetAddress.getHostAddress(), i);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
-            return createSocket(inetAddress.getHostAddress(), i);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            wdb.e(h, "createSocket s host port autoClose");
-            Socket createSocket = this.a.getSocketFactory().createSocket(socket, str, i, z);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
-            }
-            return createSocket;
-        }
-        return (Socket) invokeCommon.objValue;
+        return (PendingIntent) invokeL.objValue;
     }
 }

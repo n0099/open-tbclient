@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t06;
 import com.baidu.tieba.tbadkcore.databinding.LayoutTbLevelViewBinding;
+import com.baidu.tieba.y06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,7 +117,7 @@ public final class TbLevelView extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
             this.a.b.setVisibility(0);
             this.a.c.setVisibility(8);
-            SkinManager.setBackgroundResource(this.a.b, t06.a.b(i, Boolean.FALSE));
+            SkinManager.setBackgroundResource(this.a.b, y06.a.b(i, Boolean.FALSE));
         }
     }
 
@@ -171,8 +171,8 @@ public final class TbLevelView extends FrameLayout {
             this.a.b.setVisibility(8);
             this.a.c.setVisibility(0);
             this.a.c.setText(str);
-            SkinManager.setViewTextColor(this.a.c, t06.a.c(i));
-            SkinManager.setBackgroundResource(this.a.c, t06.a.b(i, Boolean.TRUE));
+            SkinManager.setViewTextColor(this.a.c, y06.a.c(i));
+            SkinManager.setBackgroundResource(this.a.c, y06.a.b(i, Boolean.TRUE));
         }
     }
 

@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.net.Uri;
+import com.baidu.swan.game.ad.jsbridge.CommandType;
 /* loaded from: classes6.dex */
 public interface m04 {
-    void e(View view2);
+    void b(CommandType commandType, Uri uri);
 }

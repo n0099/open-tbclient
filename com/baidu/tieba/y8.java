@@ -1,64 +1,77 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class y8 {
+public class y8 implements x8 {
     public static /* synthetic */ Interceptable $ic;
-    public static File a;
-    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SharedPreferences a;
+    public Context b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321198, "Lcom/baidu/tieba/y8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448321198, "Lcom/baidu/tieba/y8;");
+    public y8(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new File(AppRuntime.getAppContext().getExternalFilesDir(null), "abjson");
-        b = KVStorageFactory.getDefaultSharedPreferences().getBoolean("abtest_mock", false);
+        this.b = context;
+        this.a = KVStorageFactory.getSharedPreferences("abtesting", 0);
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.x8
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a.exists() && a.isDirectory() && a.list() != null && a.list().length > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putString("conf_version", str);
+            edit.apply();
         }
-        return invokeV.booleanValue;
     }
 
-    public static File a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.x8
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putString("switch_config", str);
+            edit.apply();
         }
-        return (File) invokeV.objValue;
     }
 
-    public static boolean b() {
+    @Override // com.baidu.tieba.x8
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getString("conf_version", "0");
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.x8
+    public String getConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getString("switch_config", "");
+        }
+        return (String) invokeV.objValue;
     }
 }

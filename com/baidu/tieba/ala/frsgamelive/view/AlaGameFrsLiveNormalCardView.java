@@ -7,23 +7,23 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ge6;
-import com.baidu.tieba.me6;
-import com.baidu.tieba.nn6;
-import com.baidu.tieba.pa6;
+import com.baidu.tieba.le6;
+import com.baidu.tieba.re6;
+import com.baidu.tieba.sn6;
+import com.baidu.tieba.ua6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaGameFrsLiveNormalCardView extends nn6<ge6> {
+public class AlaGameFrsLiveNormalCardView extends sn6<le6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public me6 j;
+    public re6 j;
 
-    @Override // com.baidu.tieba.nn6
+    @Override // com.baidu.tieba.sn6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,38 +88,38 @@ public class AlaGameFrsLiveNormalCardView extends nn6<ge6> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nn6
+    @Override // com.baidu.tieba.sn6
     /* renamed from: s */
-    public void i(ge6 ge6Var) {
+    public void i(le6 le6Var) {
         ThreadData threadData;
-        me6 me6Var;
+        re6 re6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, ge6Var) == null) && ge6Var != null && (threadData = ge6Var.a) != null && (me6Var = this.j) != null) {
-            me6Var.d(threadData);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, le6Var) == null) && le6Var != null && (threadData = le6Var.a) != null && (re6Var = this.j) != null) {
+            re6Var.d(threadData);
         }
     }
 
-    public void t(pa6 pa6Var) {
-        me6 me6Var;
+    public void t(ua6 ua6Var) {
+        re6 re6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, pa6Var) == null) && (me6Var = this.j) != null) {
-            me6Var.g(pa6Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, ua6Var) == null) && (re6Var = this.j) != null) {
+            re6Var.g(ua6Var);
         }
     }
 
-    @Override // com.baidu.tieba.nn6
+    @Override // com.baidu.tieba.sn6
     public void j(TbPageContext<?> tbPageContext, int i) {
-        me6 me6Var;
+        re6 re6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (me6Var = this.j) != null) {
-            me6Var.e(tbPageContext, i);
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (re6Var = this.j) != null) {
+            re6Var.e(tbPageContext, i);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.j = new me6(this.i);
+            this.j = new re6(this.i);
             ((ViewGroup) h()).addView(this.j.c());
         }
     }

@@ -1,181 +1,45 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class dja<D> implements ija<D> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext<?> a;
-    @Nullable
-    public kja b;
-    public View c;
-    @NonNull
-    public D d;
-    @Nullable
-    public WriteData e;
-    public final List<fja> f;
+public interface dja {
 
-    @Override // com.baidu.tieba.ija
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(float f);
+
+        float getSpeed();
+
+        void onFinish();
+
+        void onProgress(float f);
     }
 
-    @Override // com.baidu.tieba.ija
-    public void h(@Nullable String str, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, writeData) == null) {
-        }
-    }
+    void a();
 
-    @Override // com.baidu.tieba.ija
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    boolean b();
 
-    @Override // com.baidu.tieba.ija
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
-        }
-    }
+    int getMaxDuration();
 
-    @Override // com.baidu.tieba.ija
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
+    float getProgress();
 
-    @Override // com.baidu.tieba.ija
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
+    int getSlideNum();
 
-    @Override // com.baidu.tieba.ija
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-        }
-    }
+    void invalidate();
 
-    @Override // com.baidu.tieba.ija
-    public void q(@NonNull List<ija<?>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-        }
-    }
+    void reset();
 
-    @Override // com.baidu.tieba.ija
-    public void r(yh5 yh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, yh5Var) == null) {
-        }
-    }
+    void setMaxDuration(int i);
 
-    @Override // com.baidu.tieba.ija
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void setMinDuration(int i);
 
-    public dja(@NonNull TbPageContext<?> tbPageContext, Class<D> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cls};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = new ArrayList();
-        this.a = tbPageContext;
-        this.d = (D) lc.f(cls);
-    }
+    void setOnProgressListener(a aVar);
 
-    @Override // com.baidu.tieba.ija
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-        }
-    }
+    void setProgress(long j);
 
-    public D x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.d;
-        }
-        return (D) invokeV.objValue;
-    }
+    void setShowDeleteLastTip(boolean z);
 
-    @Override // com.baidu.tieba.ija
-    public void j(@NonNull kja kjaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kjaVar) == null) {
-            this.b = kjaVar;
-        }
-    }
+    void setVisibility(int i);
 
-    public void w(fja fjaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, fjaVar) == null) && fjaVar != null && !this.f.contains(fjaVar)) {
-            this.f.add(fjaVar);
-        }
-    }
+    void start();
 
-    public void y(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, obj) == null) {
-            for (fja fjaVar : this.f) {
-                fjaVar.onUpdate(obj);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ija
-    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, bundle, intent, writeData) == null) {
-            this.e = writeData;
-        }
-    }
+    void stop();
 }

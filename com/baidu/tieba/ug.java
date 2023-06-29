@@ -1,127 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.net.HttpURLConnection;
 /* loaded from: classes8.dex */
-public abstract class ug {
+public class ug {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable Object obj, boolean z) {
-        InterceptResult invokeLZ;
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
+        if ((interceptable == null || interceptable.invokeL(65536, null, cursor) == null) && cursor != null) {
             try {
-                if (obj instanceof Boolean) {
-                    return ((Boolean) obj).booleanValue();
-                }
-                if (obj instanceof String) {
-                    return Boolean.parseBoolean((String) obj);
-                }
-                return z;
-            } catch (Exception unused) {
-                return z;
+                cursor.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
-            if (str == null) {
-                return z;
-            }
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
             try {
-                return Boolean.parseBoolean(str);
-            } catch (Exception unused) {
-                return z;
+                closeable.close();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
             }
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static double c(String str, double d) {
-        InterceptResult invokeCommon;
+    public static void c(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Double.valueOf(d)})) == null) {
-            if (str == null) {
-                return d;
-            }
+        if ((interceptable == null || interceptable.invokeL(65538, null, inputStream) == null) && inputStream != null) {
             try {
-                return Double.parseDouble(str);
-            } catch (Exception unused) {
-                return d;
+                inputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
             }
         }
-        return invokeCommon.doubleValue;
     }
 
-    public static float d(String str, float f) {
-        InterceptResult invokeLF;
+    public static void d(OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f)) == null) {
-            if (str == null) {
-                return f;
-            }
+        if ((interceptable == null || interceptable.invokeL(65539, null, outputStream) == null) && outputStream != null) {
             try {
-                return Float.parseFloat(str);
-            } catch (Exception unused) {
-                return f;
+                outputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
             }
         }
-        return invokeLF.floatValue;
     }
 
-    public static int e(String str, int i) {
-        InterceptResult invokeLI;
+    public static void e(Reader reader) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
-            if (str == null) {
-                return i;
-            }
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader) == null) && reader != null) {
             try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return i;
+                reader.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
             }
         }
-        return invokeLI.intValue;
     }
 
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
+    public static void f(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            if (str == null) {
-                return j;
-            }
+        if ((interceptable == null || interceptable.invokeL(65541, null, httpURLConnection) == null) && httpURLConnection != null) {
             try {
-                return Long.parseLong(str);
-            } catch (Exception unused) {
-                return j;
+                httpURLConnection.disconnect();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
-        return invokeLJ.longValue;
-    }
-
-    public static int f(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str, i2);
-            } catch (Exception unused) {
-                return i;
-            }
-        }
-        return invokeLII.intValue;
     }
 }

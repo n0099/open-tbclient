@@ -1,47 +1,85 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.hardware.Camera;
+import android.content.Context;
+import android.content.res.Resources;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.baidu.webkit.sdk.PermissionRequest;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.interfaces.DraweeHierarchy;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ImageDecodeOptions;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
-import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class nz2 {
+public class nz2 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public ArrayList<MediaModel> b;
+    public zz2 c;
+    public int d;
+    public int e;
+    public FrameLayout.LayoutParams f;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? i2 : invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes7.dex */
-    public static class a implements ActivityResultConsumer {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tz2 a;
-        public final /* synthetic */ File b;
+        public final /* synthetic */ nz2 a;
 
-        public a(tz2 tz2Var, File file) {
+        public a(nz2 nz2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tz2Var, file};
+                Object[] objArr = {nz2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,39 +89,31 @@ public class nz2 {
                     return;
                 }
             }
-            this.a = tz2Var;
-            this.b = file;
+            this.a = nz2Var;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
-            InterceptResult invokeLIL;
-            tz2 tz2Var;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
-                if (i == -1 && (tz2Var = this.a) != null) {
-                    tz2Var.a(this.b);
-                    return true;
-                }
-                return true;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
-            return invokeLIL.booleanValue;
+            this.a.m();
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements ActivityResultConsumer {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tz2 a;
-        public final /* synthetic */ File b;
+        public final /* synthetic */ nz2 a;
 
-        public b(tz2 tz2Var, File file) {
+        public b(nz2 nz2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tz2Var, file};
+                Object[] objArr = {nz2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,201 +123,765 @@ public class nz2 {
                     return;
                 }
             }
-            this.a = tz2Var;
-            this.b = file;
+            this.a = nz2Var;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
-            InterceptResult invokeLIL;
-            tz2 tz2Var;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
-                if (i == -1 && (tz2Var = this.a) != null) {
-                    tz2Var.a(this.b);
-                    return true;
-                }
-                return true;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
             }
-            return invokeLIL.booleanValue;
+            this.a.k();
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948019683, "Lcom/baidu/tieba/nz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public class c implements f73 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nz2 a;
+
+        @Override // com.baidu.tieba.f73
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948019683, "Lcom/baidu/tieba/nz2;");
+        }
+
+        public c(nz2 nz2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nz2Var;
+        }
+
+        @Override // com.baidu.tieba.f73
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                return;
+            }
+            this.a.u();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements wz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nz2 a;
+
+        @Override // com.baidu.tieba.wz2
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            }
+        }
+
+        public d(nz2 nz2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nz2Var;
+        }
+
+        @Override // com.baidu.tieba.wz2
+        public void a(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+                ImageModel imageModel = new ImageModel(file.getAbsolutePath());
+                imageModel.setSize(file.length());
+                tz2.i(imageModel);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("compressed", sz2.e);
+                bundle.putString("swanAppId", sz2.f);
+                bundle.putParcelableArrayList("mediaModels", tz2.e());
+                bundle.putString("swanTmpPath", sz2.j);
+                sz2.g(this.a.a, bundle);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements f73 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nz2 a;
+
+        @Override // com.baidu.tieba.f73
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            }
+        }
+
+        public e(nz2 nz2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nz2Var;
+        }
+
+        @Override // com.baidu.tieba.f73
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                return;
+            }
+            this.a.t();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements wz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nz2 a;
+
+        @Override // com.baidu.tieba.wz2
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            }
+        }
+
+        public f(nz2 nz2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nz2Var;
+        }
+
+        @Override // com.baidu.tieba.wz2
+        public void a(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+                tz2.i(qz2.c(file));
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("compressed", sz2.e);
+                bundle.putString("swanAppId", sz2.f);
+                bundle.putParcelableArrayList("mediaModels", tz2.e());
+                bundle.putString("swanTmpPath", sz2.j);
+                sz2.g(this.a.a, bundle);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class g implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MediaModel a;
+        public final /* synthetic */ j b;
+        public final /* synthetic */ nz2 c;
+
+        public g(nz2 nz2Var, MediaModel mediaModel, j jVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz2Var, mediaModel, jVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = nz2Var;
+            this.a = mediaModel;
+            this.b = jVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.c.l(this.a, this.b);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class h implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MediaModel a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ nz2 c;
+
+        public h(nz2 nz2Var, MediaModel mediaModel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz2Var, mediaModel, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = nz2Var;
+            this.a = mediaModel;
+            this.b = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.c.j(this.a, this.b);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class i implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ VideoModel a;
+        public final /* synthetic */ MediaModel b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ nz2 d;
+
+        public i(nz2 nz2Var, VideoModel videoModel, MediaModel mediaModel, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz2Var, videoModel, mediaModel, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = nz2Var;
+            this.a = videoModel;
+            this.b = mediaModel;
+            this.c = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !this.d.s(this.a.getPath()) || this.d.n(this.a.getDuration())) {
+                return;
+            }
+            this.d.j(this.b, this.c);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class j {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SimpleDraweeView a;
+        public ImageView b;
+        public TextView c;
+        public ImageView d;
+        public View e;
+        public View f;
+        public TextView g;
+        public View h;
+
+        public j(nz2 nz2Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nz2Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09024d);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09024f);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090251);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090252);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090250);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090254);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090253);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09024e);
+        }
+    }
+
+    public nz2(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = js1.a;
+        this.a = activity;
+        this.b = new ArrayList<>();
+        int o = tp3.o(this.a);
+        int n = tp3.n(this.a);
+        this.d = o / 4;
+        this.e = n / 4;
+        this.f = new FrameLayout.LayoutParams((o - tp3.f(this.a, 10.0f)) / 4, (o - tp3.f(this.a, 10.0f)) / 4);
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public final String o(long j2) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            for (int i = 0; i < numberOfCameras; i++) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                if (1 == cameraInfo.facing) {
-                    return true;
-                }
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j2)) == null) {
+            long j3 = j2 / 1000;
+            long j4 = j3 / 3600;
+            long j5 = j3 % 3600;
+            String format = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 / 60));
+            String format2 = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 % 60));
+            if (j4 == 0) {
+                return this.a.getString(R.string.obfuscated_res_0x7f0f1565, new Object[]{format, format2});
             }
-            return false;
+            return this.a.getString(R.string.obfuscated_res_0x7f0f1566, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
         }
-        return invokeV.booleanValue;
+        return (String) invokeJ.objValue;
     }
 
-    public static File a(@NonNull String str) {
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0024 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean s(String str) {
         InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String x = hj3.x(str);
-            File file = new File(x + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg");
-            ds4.h(file);
-            return file;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static File b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String x = hj3.x(str);
-            File file = new File(x + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
-            ds4.h(file);
-            return file;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static VideoModel c(File file) {
-        InterceptResult invokeL;
+        String str2;
         MediaMetadataRetriever mediaMetadataRetriever;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            String absolutePath = file.getAbsolutePath();
-            VideoModel videoModel = new VideoModel(absolutePath);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             MediaMetadataRetriever mediaMetadataRetriever2 = null;
             try {
-                try {
-                    mediaMetadataRetriever = new MediaMetadataRetriever();
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                mediaMetadataRetriever.setDataSource(absolutePath);
-                String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
-                String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
-                String extractMetadata3 = mediaMetadataRetriever.extractMetadata(9);
-                videoModel.setWidth(Integer.parseInt(extractMetadata));
-                videoModel.setHeight(Integer.parseInt(extractMetadata2));
-                videoModel.setDuration(Long.parseLong(extractMetadata3));
-                videoModel.setSize(file.length());
-                mediaMetadataRetriever.release();
+                mediaMetadataRetriever = new MediaMetadataRetriever();
             } catch (Exception e2) {
                 e = e2;
+            }
+            try {
+                mediaMetadataRetriever.setDataSource(str);
+                str2 = mediaMetadataRetriever.extractMetadata(12);
+            } catch (Exception e3) {
+                e = e3;
                 mediaMetadataRetriever2 = mediaMetadataRetriever;
-                if (oz2.a) {
+                if (rz2.a) {
                     e.printStackTrace();
                 }
-                if (mediaMetadataRetriever2 != null) {
-                    mediaMetadataRetriever2.release();
+                str2 = "";
+                mediaMetadataRetriever = mediaMetadataRetriever2;
+                if (mediaMetadataRetriever != null) {
                 }
-                return videoModel;
-            } catch (Throwable th2) {
-                th = th2;
-                mediaMetadataRetriever2 = mediaMetadataRetriever;
-                if (mediaMetadataRetriever2 != null) {
-                    mediaMetadataRetriever2.release();
+                if (TextUtils.isEmpty(str2)) {
                 }
-                throw th;
+                ub3.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f14e6)).G();
+                return false;
             }
-            return videoModel;
-        }
-        return (VideoModel) invokeL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r6v1 */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3, types: [boolean, int] */
-    public static void e(Activity activity, String str, int i, boolean z, tz2 tz2Var) {
-        ActivityResultDispatcher resultDispatcher;
-        Uri fromFile;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{activity, str, Integer.valueOf(i), Boolean.valueOf(z), tz2Var}) != null) || (resultDispatcher = ((ActivityResultDispatcherHolder) activity).getResultDispatcher()) == null) {
-            return;
-        }
-        Intent intent = new Intent("android.media.action.VIDEO_CAPTURE");
-        File b2 = b(str);
-        if (go3.i()) {
-            fromFile = wp3.a(activity, b2);
-            intent.setFlags(3);
-        } else {
-            fromFile = Uri.fromFile(b2);
-        }
-        intent.putExtra("output", fromFile);
-        intent.putExtra("android.intent.extra.durationLimit", i);
-        ?? r6 = 1;
-        intent.putExtra("android.intent.extra.videoQuality", 1);
-        r6 = (z && d()) ? 0 : 0;
-        if (go3.g()) {
-            intent.putExtra("android.intent.extras.CAMERA_FACING", (int) r6);
-            intent.putExtra("android.intent.extras.LENS_FACING_FRONT", (int) r6);
-            intent.putExtra("android.intent.extra.USE_FRONT_CAMERA", (boolean) r6);
-        } else {
-            intent.putExtra("android.intent.extras.CAMERA_FACING", (int) r6);
-        }
-        resultDispatcher.addConsumer(new b(tz2Var, b2));
-        try {
-            resultDispatcher.startActivityForResult(intent);
-        } catch (ActivityNotFoundException e) {
-            if (a) {
-                Log.e("SwanAppAlbumCameraHelper", "startRecordActivity: ", e);
-            }
-        }
-    }
-
-    public static void f(Activity activity, String str, tz2 tz2Var) {
-        ActivityResultDispatcher resultDispatcher;
-        Uri fromFile;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65542, null, activity, str, tz2Var) != null) || (resultDispatcher = ((ActivityResultDispatcherHolder) activity).getResultDispatcher()) == null) {
-            return;
-        }
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        if (intent.resolveActivity(activity.getPackageManager()) != null) {
-            File a2 = a(str);
-            if (a2 != null && a2.exists()) {
-                if (go3.i()) {
-                    fromFile = wp3.a(activity, a2);
-                    intent.setFlags(3);
-                } else {
-                    fromFile = Uri.fromFile(a2);
-                }
-                intent.putExtra("output", fromFile);
-                resultDispatcher.addConsumer(new a(tz2Var, a2));
+            if (mediaMetadataRetriever != null) {
                 try {
-                    resultDispatcher.startActivityForResult(intent);
-                } catch (ActivityNotFoundException e) {
-                    if (a) {
-                        Log.e("SwanAppAlbumCameraHelper", "startTakePhotoActivity: ", e);
+                    mediaMetadataRetriever.release();
+                } catch (Exception e4) {
+                    if (rz2.a) {
+                        e4.printStackTrace();
                     }
                 }
-            } else if (tz2Var != null) {
-                tz2Var.b("error create file");
+            }
+            if (TextUtils.isEmpty(str2) && str2.startsWith(FileUtils.VIDEO_FILE_START)) {
+                if (!TextUtils.equals("video/mp4", str2) && !TextUtils.equals("video/3gp", str2) && !TextUtils.equals(MimeTypes.VIDEO_WEBM, str2) && !TextUtils.equals("video/mkv", str2)) {
+                    return false;
+                }
+                return true;
+            }
+            ub3.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f14e6)).G();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            if (sz2.h) {
+                if (i2 == 0) {
+                    return null;
+                }
+                return this.b.get(i2 - 1);
+            }
+            return this.b.get(i2);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            if (!sz2.h || i2 != 0) {
+                return 1;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final void p(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
+            e73.e(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new e(this));
+        }
+    }
+
+    public final void q(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
+            e73.e(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new c(this));
+        }
+    }
+
+    public void x(ArrayList<MediaModel> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, arrayList) == null) {
+            if (this.b.size() > 0) {
+                this.b.clear();
+            }
+            this.b.addAll(arrayList);
+            sz2.i(this.b);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void z(zz2 zz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, zz2Var) == null) {
+            this.c = zz2Var;
+        }
+    }
+
+    public final void A(j jVar, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jVar, view2) == null) {
+            Resources resources = this.a.getResources();
+            view2.setBackgroundColor(-1);
+            jVar.a.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060ae6));
+            jVar.c.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060af1));
+            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08141a));
+            jVar.g.setTextColor(-1);
+            jVar.b.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060af4));
+            jVar.a.setLayoutParams(this.f);
+            jVar.b.setLayoutParams(this.f);
+            jVar.b.setVisibility(8);
+            jVar.c.setVisibility(8);
+            jVar.f.setVisibility(8);
+            jVar.h.setVisibility(8);
+            jVar.f.setVisibility(0);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081428);
+            jVar.h.setVisibility(0);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) jVar.h.getLayoutParams();
+            layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07082b);
+            layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070826);
+            jVar.h.setLayoutParams(layoutParams);
+        }
+    }
+
+    public final void l(MediaModel mediaModel, j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, mediaModel, jVar) == null) {
+            int d2 = tz2.d();
+            if (!tz2.f(mediaModel)) {
+                if (d2 >= sz2.c) {
+                    sz2.j(sz2.d);
+                    return;
+                } else if (d2 > 0 && TextUtils.equals(sz2.d, "single") && !TextUtils.equals(tz2.b(), mediaModel.getType())) {
+                    ub3.f(this.a, R.string.obfuscated_res_0x7f0f14df).G();
+                    return;
+                } else if (mediaModel.getSize() > 52428800 && TextUtils.equals(mediaModel.getType(), "image")) {
+                    ub3.f(this.a, R.string.obfuscated_res_0x7f0f14de).G();
+                    return;
+                } else {
+                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081426);
+                    jVar.c.setVisibility(0);
+                    jVar.c.setText(String.valueOf(tz2.c(mediaModel) + 1));
+                    tz2.i(mediaModel);
+                    jVar.e.startAnimation(AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01016a));
+                    zz2 zz2Var = this.c;
+                    if (zz2Var != null) {
+                        zz2Var.a(d2);
+                    }
+                    notifyDataSetChanged();
+                    return;
+                }
+            }
+            tz2.h(mediaModel);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081428);
+            jVar.c.setVisibility(8);
+            zz2 zz2Var2 = this.c;
+            if (zz2Var2 != null) {
+                zz2Var2.a(d2);
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (sz2.h) {
+                return this.b.size() + 1;
+            }
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (tz2.d() >= sz2.c) {
+                sz2.j(sz2.d);
+            } else {
+                q(this.a);
+            }
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            qz2.e(this.a, sz2.f, sz2.g, sz2.i, new f(this));
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            qz2.f(this.a, sz2.f, new d(this));
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i2, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        j jVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view2, viewGroup)) == null) {
+            if (getItemViewType(i2) == 0) {
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08fb, (ViewGroup) null, false);
+                r(inflate);
+                return inflate;
+            }
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0901, (ViewGroup) null);
+                jVar = new j(this, view2);
+                view2.setTag(jVar);
+            } else {
+                jVar = (j) view2.getTag();
+            }
+            A(jVar, view2);
+            MediaModel mediaModel = (MediaModel) getItem(i2);
+            if (mediaModel == null) {
+                return view2;
+            }
+            y(mediaModel.getPath(), jVar);
+            v(mediaModel, jVar, i2);
+            w(mediaModel, jVar, i2);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public final void w(MediaModel mediaModel, j jVar, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(1048596, this, mediaModel, jVar, i2) == null) && (mediaModel instanceof VideoModel)) {
+            VideoModel videoModel = (VideoModel) mediaModel;
+            jVar.h.setVisibility(0);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) jVar.h.getLayoutParams();
+            if ((videoModel.getDuration() / 3600) / 1000 > 0) {
+                layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070825);
+            } else {
+                layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070829);
+            }
+            layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070826);
+            jVar.h.setLayoutParams(layoutParams);
+            jVar.g.setText(o(videoModel.getDuration()));
+            jVar.a.setOnClickListener(new i(this, videoModel, mediaModel, i2));
+        }
+    }
+
+    public final void j(MediaModel mediaModel, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048583, this, mediaModel, i2) != null) || sz2.f(sz2.d, mediaModel)) {
+            return;
+        }
+        if (sz2.h) {
+            i2--;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("compressed", sz2.e);
+        bundle.putString("swanAppId", sz2.f);
+        bundle.putString("mode", sz2.d);
+        bundle.putString("previewFrom", "clickItem");
+        bundle.putInt("previewPosition", i2);
+        sz2.k(this.a, bundle);
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (tz2.d() >= sz2.c) {
+                sz2.j(sz2.d);
+            } else if (qp3.c() < 52428800) {
+                ub3.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14d7)).G();
+            } else {
+                p(this.a);
+            }
+        }
+    }
+
+    public final boolean n(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
+            if (j2 < 3000) {
+                ub3.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f14e5)).G();
+                return true;
+            } else if (j2 > 300000) {
+                ub3.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f14e4)).G();
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
+            view2.findViewById(R.id.obfuscated_res_0x7f090246).setLayoutParams(this.f);
+            view2.setTag(null);
+            view2.setClickable(true);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090247);
+            if (TextUtils.equals(sz2.b, "Image")) {
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081410);
+                view2.setOnClickListener(new a(this));
+                return;
+            }
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081414);
+            view2.setOnClickListener(new b(this));
+        }
+    }
+
+    public final void v(MediaModel mediaModel, j jVar, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048595, this, mediaModel, jVar, i2) == null) {
+            if (tz2.f(mediaModel)) {
+                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081426);
+                jVar.c.setVisibility(0);
+                jVar.c.setText(String.valueOf(tz2.c(mediaModel) + 1));
+            }
+            if (sz2.f(sz2.d, mediaModel)) {
+                jVar.b.setVisibility(0);
+            } else {
+                jVar.b.setVisibility(8);
+            }
+            if (rz2.d) {
+                if (sz2.d(mediaModel.getPath())) {
+                    jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14db));
+                } else if (sz2.e(mediaModel.getPath())) {
+                    jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14dc));
+                } else {
+                    jVar.h.setVisibility(8);
+                }
+            } else {
+                jVar.h.setVisibility(8);
+            }
+            jVar.f.setOnClickListener(new g(this, mediaModel, jVar));
+            jVar.a.setOnClickListener(new h(this, mediaModel, i2));
+        }
+    }
+
+    public final void y(String str, j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, str, jVar) == null) {
+            ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(str)));
+            newBuilderWithSource.setResizeOptions(new ResizeOptions((int) (this.d / 2.0f), (int) (this.e / 2.0f)));
+            newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
+            newBuilderWithSource.setImageDecodeOptions(ImageDecodeOptions.newBuilder().setForceStaticImage(true).build());
+            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setImageRequest(newBuilderWithSource.build()).setAutoPlayAnimations(false).setOldController(jVar.a.getController()).build();
+            jVar.a.setController(build);
+            DraweeHierarchy hierarchy = build.getHierarchy();
+            if (hierarchy instanceof GenericDraweeHierarchy) {
+                jv2.C().c((GenericDraweeHierarchy) hierarchy, false);
             }
         }
     }

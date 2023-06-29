@@ -6,7 +6,7 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.kwad.sdk.core.config.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends WebViewClient {
     public boolean KP = true;
     public String mUniqueId = "";

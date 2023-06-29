@@ -1,467 +1,81 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AcceleratorActivityConfig;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.accelerator.AcceleratorData;
-import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.frs.accelerator.model.AcceleratorNetModel;
-import com.baidu.tieba.o55;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nf7 {
+public class nf7 implements xe7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public AcceleratorNetModel b;
-    public ufa c;
-    public tfa d;
-    public AcceleratorNetModel.b e;
-    public of7 f;
-    public o55.f g;
-    public AcceleratorData h;
-    public int i;
-    public int j;
-    public boolean k;
 
-    /* loaded from: classes7.dex */
-    public class a implements tfa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf7 a;
-
-        /* renamed from: com.baidu.tieba.nf7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0386a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public View$OnClickListenerC0386a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    this.a.a.c.b(this.a.a.d);
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a.f != null) {
-                    this.a.a.f.b();
-                }
-            }
-        }
-
-        public a(nf7 nf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nf7Var;
-        }
-
-        @Override // com.baidu.tieba.tfa
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (1 == this.a.j || 3 == this.a.j) {
-                    this.a.A();
-                } else if (2 == this.a.j) {
-                    this.a.z();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tfa
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                or7.h(this.a.a.getActivity(), new View$OnClickListenerC0386a(this), new b(this));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements AcceleratorNetModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf7 a;
-
-        public b(nf7 nf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nf7Var;
-        }
-
-        @Override // com.baidu.tieba.frs.accelerator.model.AcceleratorNetModel.b
-        public void a(AcceleratorData acceleratorData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, acceleratorData) == null) {
-                this.a.s();
-                this.a.h = acceleratorData;
-                if (this.a.a != null && this.a.h != null && this.a.h.getTokenInfo() != null && StringUtils.isNull(this.a.h.getTokenInfo().getToken())) {
-                    BdToast.b(this.a.a.getContext(), this.a.h.getTokenInfo().getFailContent()).q();
-                } else if (2 == this.a.j && this.a.a != null && this.a.h != null && !ListUtils.isEmpty(this.a.h.getAvailableTornadoNodeInfoList())) {
-                    this.a.x();
-                    nf7 nf7Var = this.a;
-                    nf7Var.f = of7.c(nf7Var.a.getPageContext());
-                    String[] b = qf7.b(this.a.h.getAvailableTornadoNodeInfoList(), this.a.h.getAvailableNodesNum());
-                    String str = b[0];
-                    if (this.a.h.getItemData() != null) {
-                        String acceleratorServer = TbSingleton.getInstance().getAcceleratorServer(String.valueOf(this.a.h.getItemData().itemId));
-                        if (!StringUtils.isNull(acceleratorServer)) {
-                            str = acceleratorServer;
-                        }
-                    }
-                    this.a.f.d(str);
-                    of7 of7Var = this.a.f;
-                    of7Var.e(this.a.g);
-                    of7Var.f(b);
-                    of7Var.g(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0064));
-                    of7Var.h();
-                } else if (3 == this.a.j || 1 == this.a.j) {
-                    this.a.z();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.frs.accelerator.model.AcceleratorNetModel.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.s();
-                if (this.a.a != null) {
-                    BdToast.b(this.a.a.getContext(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0063)).q();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements o55.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf7 a;
-
-        public c(nf7 nf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nf7Var;
-        }
-
-        @Override // com.baidu.tieba.o55.f
-        public void M0(o55 o55Var, int i, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLIL(1048576, this, o55Var, i, view2) != null) {
-                return;
-            }
-            this.a.i = i;
-            this.a.B();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf7 a;
-
-        public d(nf7 nf7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nf7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.a.k = true;
-            this.a.u();
-        }
-    }
-
-    public nf7(FrsFragment frsFragment) {
+    public nf7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.i = 0;
-        this.a = frsFragment;
-        this.b = new AcceleratorNetModel();
-        this.c = ufa.c(this.a);
-        w();
-        y();
-    }
-
-    public final void A() {
-        FrsFragment frsFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (frsFragment = this.a) != null && frsFragment.c1() != null && this.a.c1().itemInfo != null) {
-            C();
-            this.b.W(this.a.c1().itemInfo.id.intValue());
-        }
-    }
-
-    public final void C() {
-        FrsFragment frsFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (frsFragment = this.a) != null && (frsFragment.getActivity() instanceof FrsActivity)) {
-            ((FrsActivity) this.a.getActivity()).showLoadingDialog(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0062));
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.b(this.d);
-        }
-    }
-
-    public final int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.j;
-            if (i == 2 || i == 1) {
-                return 1;
-            }
-            if (i == 3) {
-                return 2;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void s() {
-        FrsFragment frsFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (frsFragment = this.a) != null && (frsFragment.getActivity() instanceof FrsActivity)) {
-            ((FrsActivity) this.a.getActivity()).closeLoadingDialog();
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            AcceleratorNetModel acceleratorNetModel = this.b;
-            if (acceleratorNetModel != null) {
-                acceleratorNetModel.destroy();
-            }
-            of7 of7Var = this.f;
-            if (of7Var != null) {
-                of7Var.b();
-            }
-            if (this.a != null) {
-                this.a = null;
             }
         }
     }
 
-    public final void u() {
+    @Override // com.baidu.tieba.xe7
+    public kn<? extends r45, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int i = this.j;
-            if (1 != i && 3 != i) {
-                if (2 == i) {
-                    A();
-                    return;
-                }
-                return;
-            }
-            B();
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
+            return new gi7(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z);
         }
+        return (kn) invokeLLZ.objValue;
     }
 
-    public ufa v() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xe7
+    public sd7<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            return new qm7(tbPageContext, bdUniqueId, bdUniqueId2);
         }
-        return (ufa) invokeV.objValue;
+        return (sd7) invokeLLL.objValue;
     }
 
-    public final void w() {
+    @Override // com.baidu.tieba.xe7
+    public kn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            b bVar = new b(this);
-            this.e = bVar;
-            this.b.X(bVar);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
+                return new jh7(tbPageContext, bdUniqueId, bdUniqueId2);
+            }
+            throw new IllegalArgumentException("Unsupported adapter type.");
         }
+        return (kn) invokeLLL.objValue;
     }
 
-    public final void x() {
+    @Override // com.baidu.tieba.xe7
+    public kn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.g = new c(this);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
+            if (bdUniqueId == p3a.d) {
+                return new gh7(tbPageContext, bdUniqueId, z);
+            }
+            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
+                return new hi7(tbPageContext, bdUniqueId, bdUniqueId2, z);
+            }
+            throw new IllegalArgumentException("Unsupported adapter type.");
         }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.d = new a(this);
-        }
-    }
-
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.j = i;
-            FrsFragment frsFragment = this.a;
-            if (frsFragment != null && frsFragment.c1() != null && this.a.c1().itemInfo != null) {
-                if (!TbadkCoreApplication.isLogin()) {
-                    BdToast.b(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0065)).q();
-                } else if (TbSingleton.getInstance().acceleratorItemId != this.a.c1().itemInfo.id.intValue() && TbSingleton.getInstance().acceleratorItemId != -1) {
-                    or7.e(this.a.getActivity(), new d(this));
-                } else if (TbSingleton.getInstance().acceleratorItemId == this.a.c1().itemInfo.id.intValue()) {
-                    this.k = false;
-                    u();
-                } else if (TbSingleton.getInstance().acceleratorItemId == -1) {
-                    this.k = true;
-                    u();
-                }
-            }
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            of7 of7Var = this.f;
-            if (of7Var != null) {
-                of7Var.b();
-            }
-            PkgNameAndNodeInfoData pkgNameAndNodeInfoData = qf7.a(this.h.getAvailableTornadoNodeInfoList()).get(Integer.valueOf(this.i));
-            if (this.j == 2 && pkgNameAndNodeInfoData != null && !pkgNameAndNodeInfoData.compare(TbSingleton.getInstance().acceleratorData)) {
-                this.k = true;
-            }
-            if (!this.k) {
-                pkgNameAndNodeInfoData = TbSingleton.getInstance().acceleratorData;
-            }
-            if (pkgNameAndNodeInfoData == null) {
-                return;
-            }
-            AcceleratorActivityConfig acceleratorActivityConfig = new AcceleratorActivityConfig(this.a.getContext());
-            acceleratorActivityConfig.setAcceleratorData(this.h).setCurrentNodeInfo(pkgNameAndNodeInfoData).setFid(this.a.l).setSource(r()).setIsNewItem(this.k);
-            acceleratorActivityConfig.start();
-        }
+        return (kn) invokeCommon.objValue;
     }
 }

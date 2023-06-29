@@ -1,36 +1,21 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Process;
 import android.util.Log;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
 public class ba2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    @SuppressLint({"BDOfflineUrl"})
-    public String b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public boolean g;
 
     static {
         InterceptResult invokeClinit;
@@ -45,65 +30,144 @@ public class ba2 {
                 return;
             }
         }
-        h = js1.a;
-        i = "V8Master";
-        j = "page";
-        k = "runtime/index.js";
-        l = "ws://localhost:4000";
+        a = ms1.a;
     }
 
-    public ba2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = String.valueOf(System.currentTimeMillis());
-        this.b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
-        this.c = false;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = true;
-    }
-
-    public String toString() {
+    public static synchronized String a() {
         InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
+        IOException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.putOpt("title", i);
-                jSONObject.putOpt("type", j);
-                jSONObject.putOpt("url", k);
-                jSONObject.putOpt("webSocketDebuggerUrl", l);
-                jSONObject.putOpt("id", this.a);
-                jSONObject.putOpt("devtoolsFrontendUrl", this.b);
-                jSONObject.putOpt("swanJsVersion", el3.h(0));
-                jSONObject.putOpt("appVersion", tp3.D());
-                jSONObject2.putOpt("attached", Boolean.valueOf(this.c));
-                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.d));
-                jSONObject2.putOpt("screenX", Integer.valueOf(this.e));
-                jSONObject2.putOpt("screenY", Integer.valueOf(this.f));
-                jSONObject2.putOpt(MapBundleKey.MapObjKey.OBJ_SL_VISI, Boolean.valueOf(this.g));
-                jSONObject.putOpt("description", jSONObject2.toString());
-                jSONArray.put(jSONObject);
-            } catch (JSONException e) {
-                if (h) {
-                    Log.e("V8Module", "Build V8 module fail", e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ba2.class) {
+                if (a) {
+                    Log.d("SwanCpuProperty", "start cpu monitor thread");
+                }
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
+                    try {
+                        try {
+                            String c = c(bufferedReader);
+                            if (a) {
+                                Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
+                            }
+                            gs4.d(bufferedReader);
+                            return c;
+                        } catch (IOException e2) {
+                            e = e2;
+                            if (a) {
+                                Log.e("SwanCpuProperty", "error in cpu monitor", e);
+                            }
+                            gs4.d(bufferedReader);
+                            return "";
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        gs4.d(bufferedReader);
+                        throw th;
+                    }
+                } catch (IOException e3) {
+                    bufferedReader = null;
+                    e = e3;
+                } catch (Throwable th3) {
+                    bufferedReader = null;
+                    th = th3;
+                    gs4.d(bufferedReader);
+                    throw th;
                 }
             }
-            return jSONArray.toString();
+        } else {
+            return (String) invokeV.objValue;
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String a2 = a();
+            try {
+                if (a2.contains("%")) {
+                    return Float.parseFloat(a2.replace("%", "").trim());
+                }
+                return Float.parseFloat(a2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
+                    return 0.0f;
+                }
+                return 0.0f;
+            }
+        }
+        return invokeV.floatValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
+        r11 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
+        if (com.baidu.tieba.ba2.a != false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
+        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String c(BufferedReader bufferedReader) throws IOException {
+        InterceptResult invokeL;
+        char read;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
+            char[] cArr = new char[4];
+            int i = 0;
+            if (Build.VERSION.SDK_INT >= 26) {
+                boolean z2 = true;
+                int i2 = 0;
+                int i3 = 0;
+                while (true) {
+                    char read2 = (char) bufferedReader.read();
+                    if (z2 && read2 != ' ') {
+                        i2++;
+                    }
+                    if (i2 == 9) {
+                        if (read2 != '.' && read2 != ' ') {
+                            cArr[i3] = read2;
+                            i3++;
+                        }
+                        i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
+                        return i + "%";
+                    }
+                    if (read2 == ' ') {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (i2 <= 9 && read2 != 65535 && i3 < 4) {
+                        z2 = z;
+                    }
+                    i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
+                    return i + "%";
+                }
+            }
+            int i4 = 0;
+            do {
+                read = (char) bufferedReader.read();
+                if (read != ' ' && i4 != 4) {
+                    cArr[i4] = read;
+                    i4++;
+                } else {
+                    i4 = 0;
+                }
+                if (read == '%') {
+                    break;
+                }
+            } while (read != 65535);
+            return String.valueOf(cArr, 0, i4);
+        }
+        return (String) invokeL.objValue;
     }
 }

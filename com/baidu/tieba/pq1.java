@@ -1,299 +1,461 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.Proxy;
-import android.os.Build;
-import android.os.Handler;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.social.YYInnerSSOLoginActivity;
+import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.URL;
-import java.util.Locale;
-import java.util.Map;
-import javax.net.ssl.HttpsURLConnection;
-import org.apache.http.conn.ssl.SSLSocketFactory;
-@SuppressLint({"TrulyRandom"})
+import com.sdk.base.api.CallBack;
+import com.sdk.base.module.manager.SDKManager;
+import com.sdk.mobile.manager.login.cucc.UiOauthManager;
+import com.sdk.mobile.manager.oauth.cucc.OauthManager;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pq1 {
+public class pq1 extends hq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public byte[] b;
-    public HttpURLConnection c;
-    public String d;
-    public String e;
-    public int f;
-    public int g;
-    public boolean h;
-    public boolean i;
+    public boolean s;
 
-    public pq1(Context context, Handler handler) {
+    /* loaded from: classes7.dex */
+    public class a extends qq1<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ pq1 e;
+
+        public a(pq1 pq1Var, long j, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pq1Var, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = pq1Var;
+            this.b = i;
+            this.c = i2;
+            this.d = i3;
+        }
+
+        @Override // com.sdk.base.api.CallBack
+        public void onFailed(int i, int i2, String str, String str2) {
+            int i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
+                long currentTimeMillis = System.currentTimeMillis() - a();
+                if (!this.e.M(i2, this.b) || (i3 = this.c) != 0) {
+                    this.e.I(i2, str, this.b);
+                } else {
+                    this.e.x(this.b, this.d, i3 + 1);
+                }
+                br1.c(this.e.a, this.e.c, i2, currentTimeMillis, this.d, str2);
+            }
+        }
+
+        @Override // com.sdk.base.api.CallBack
+        public void onSuccess(int i, String str, int i2, Object obj, String str2) {
+            int i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
+                long currentTimeMillis = System.currentTimeMillis() - a();
+                if (i != 0) {
+                    if (!this.e.M(i2, this.b) || (i3 = this.c) != 0) {
+                        this.e.I(i2, str, this.b);
+                    } else {
+                        this.e.x(this.b, this.d, i3 + 1);
+                    }
+                } else {
+                    this.e.D(obj, this.b);
+                }
+                br1.c(this.e.a, this.e.c, i2, currentTimeMillis, this.d, str2);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements CallBack<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ pq1 b;
+
+        public b(pq1 pq1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pq1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pq1Var;
+            this.a = i;
+        }
+
+        @Override // com.sdk.base.api.CallBack
+        public void onFailed(int i, int i2, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
+                this.b.y(i2, str, this.a);
+            }
+        }
+
+        @Override // com.sdk.base.api.CallBack
+        public void onSuccess(int i, String str, int i2, Object obj, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
+                if (i != 0) {
+                    this.b.y(i2, str, this.a);
+                } else {
+                    this.b.L(obj, this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends gr1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Object b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ pq1 d;
+
+        public c(pq1 pq1Var, Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pq1Var, obj, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = pq1Var;
+            this.b = obj;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tieba.gr1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject((String) this.b);
+                    this.d.g = jSONObject.optString(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
+                    this.d.e = jSONObject.optString(YYInnerSSOLoginActivity.o);
+                    this.d.f = jSONObject.optLong("exp");
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.d.a(this.d.g));
+                    this.d.e(this.c, 0, 0, this.d.c, jSONObject2.toString(), 1);
+                } catch (Throwable unused) {
+                    pq1 pq1Var = this.d;
+                    pq1Var.e(this.c, 3, 2009, pq1Var.c, "cu on handle login unknown error.", 1);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d extends gr1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ pq1 e;
+
+        public d(pq1 pq1Var, int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pq1Var, Integer.valueOf(i), Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = pq1Var;
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+        }
+
+        @Override // com.baidu.tieba.gr1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.e.c != this.e.d && this.b == 1101) {
+                        this.e.e(this.c, 3, 2002, this.e.c, "pre login error, wrong sim operator", 1);
+                    } else {
+                        pq1 pq1Var = this.e;
+                        int i = this.c;
+                        int i2 = this.b;
+                        int i3 = this.e.c;
+                        pq1Var.e(i, 2, i2, i3, "cu pre login error." + this.d + ", status " + this.b, 1);
+                    }
+                } catch (Throwable unused) {
+                    pq1 pq1Var2 = this.e;
+                    pq1Var2.e(this.c, 3, 2009, pq1Var2.c, "cu on handle login unknown error.", 1);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e extends gr1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Object b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ pq1 d;
+
+        public e(pq1 pq1Var, Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pq1Var, obj, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = pq1Var;
+            this.b = obj;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tieba.gr1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject((String) this.b);
+                    this.d.h = jSONObject.optString(YYInnerSSOLoginActivity.o);
+                    this.d.i = jSONObject.optLong("exp");
+                    this.d.e(this.c, 0, 0, this.d.c, "preVerify success", 3);
+                } catch (Throwable unused) {
+                    pq1 pq1Var = this.d;
+                    pq1Var.e(this.c, 3, 2009, pq1Var.c, "cu on handle preVerify unknown error.", 3);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f extends gr1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ pq1 e;
+
+        public f(pq1 pq1Var, int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pq1Var, Integer.valueOf(i), Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = pq1Var;
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+        }
+
+        @Override // com.baidu.tieba.gr1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.e.c != this.e.d && this.b == 1101) {
+                        this.e.e(this.c, 3, 2002, this.e.c, "pre verify error, wrong sim operator", 3);
+                    } else {
+                        pq1 pq1Var = this.e;
+                        int i = this.c;
+                        int i2 = this.b;
+                        int i3 = this.e.c;
+                        pq1Var.e(i, 2, i2, i3, "cu pre verify error." + this.d + ", status " + this.b, 3);
+                    }
+                } catch (Throwable unused) {
+                    pq1 pq1Var2 = this.e;
+                    pq1Var2.e(this.c, 3, 2009, pq1Var2.c, "cu on handle verify unknown error.", 3);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pq1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new byte[1024];
-        this.f = 10000;
-        this.g = 10000;
-        this.h = false;
-        this.i = false;
-        this.a = context;
+        this.s = false;
+        this.c = 2;
     }
 
-    public final InputStream a(byte[] bArr, Map<String, String> map, String str) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.hq1, com.baidu.tieba.gq1
+    public void p(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, bArr, map, str)) == null) {
-            BufferedOutputStream bufferedOutputStream = null;
-            try {
-                try {
-                    if (ir1.h(this.a) == 0) {
-                        return null;
-                    }
-                    HttpURLConnection c = c(map);
-                    this.c = c;
-                    if (c == null) {
-                        return null;
-                    }
-                    if (bArr == null) {
-                        if ("gzip".equalsIgnoreCase(c.getContentEncoding())) {
-                            this.h = true;
-                        } else {
-                            this.h = false;
-                        }
-                        this.c.getResponseCode();
-                        return this.c.getInputStream();
-                    }
-                    BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(this.c.getOutputStream());
-                    try {
-                        bufferedOutputStream2.write(bArr);
-                        bufferedOutputStream2.flush();
-                        if ("gzip".equalsIgnoreCase(this.c.getContentEncoding())) {
-                            this.h = true;
-                        } else {
-                            this.h = false;
-                        }
-                        this.c.getResponseCode();
-                        InputStream inputStream = this.c.getInputStream();
-                        try {
-                            bufferedOutputStream2.close();
-                        } catch (Throwable th) {
-                            ir1.d(th);
-                        }
-                        return inputStream;
-                    } catch (Exception e) {
-                        throw e;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        bufferedOutputStream = bufferedOutputStream2;
-                        if (bufferedOutputStream != null) {
-                            try {
-                                bufferedOutputStream.close();
-                            } catch (Throwable th3) {
-                                ir1.d(th3);
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
-                }
-            } catch (Exception e2) {
-                throw e2;
-            }
-        } else {
-            return (InputStream) invokeLLL.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.p(context, i, j);
         }
     }
 
-    public String b(String str, byte[] bArr, Map<String, String> map) {
-        InterceptResult invokeLLL;
-        InputStream inputStream;
+    public final void x(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
-            d("POST", str);
-            try {
-                inputStream = a(bArr, map, str);
-                if (inputStream == null) {
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    HttpURLConnection httpURLConnection = this.c;
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                        this.c = null;
-                    }
-                    return null;
-                }
-                try {
-                    String f = f(inputStream);
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    HttpURLConnection httpURLConnection2 = this.c;
-                    if (httpURLConnection2 != null) {
-                        httpURLConnection2.disconnect();
-                        this.c = null;
-                    }
-                    return f;
-                } catch (Throwable th) {
-                    th = th;
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    HttpURLConnection httpURLConnection3 = this.c;
-                    if (httpURLConnection3 != null) {
-                        httpURLConnection3.disconnect();
-                        this.c = null;
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = null;
-            }
-        } else {
-            return (String) invokeLLL.objValue;
+        if (interceptable == null || interceptable.invokeIII(1048583, this, i, i2, i3) == null) {
+            UiOauthManager.getInstance(this.a).login(8, new a(this, System.currentTimeMillis(), i, i3, i2));
         }
     }
 
-    public final HttpURLConnection c(Map<String, String> map) {
-        InterceptResult invokeL;
-        HttpURLConnection httpURLConnection;
+    public final void D(Object obj, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
-            String str = null;
-            if (this.i || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.e)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, obj, i) == null) {
+            ir1.c().b(new c(this, obj, i));
+        }
+    }
+
+    public final void L(Object obj, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, obj, i) == null) {
+            ir1.c().b(new e(this, obj, i));
+        }
+    }
+
+    public final void I(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            ir1.c().b(new d(this, i, i2, str));
+        }
+    }
+
+    public void y(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            ir1.c().b(new f(this, i, i2, str));
+        }
+    }
+
+    public final boolean M(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            boolean c2 = vp1.g(this.a).c();
+            boolean n = vp1.g(this.a).n("k_retry_code_cu", i);
+            boolean h = aq1.j().h(i2);
+            if (c2 && n && h) {
+                return true;
             }
-            if (!this.d.equals("POST") && !this.d.equals("GET")) {
-                this.d = "POST";
-            }
-            URL url = new URL(this.e);
-            int i = 80;
-            if (2 != ir1.h(this.a)) {
-                if (Build.VERSION.SDK_INT >= 13) {
-                    str = System.getProperties().getProperty("http.proxyHost");
-                    String property = System.getProperties().getProperty("http.proxyPort");
-                    if (!TextUtils.isEmpty(property)) {
-                        try {
-                            i = Integer.parseInt(property);
-                        } catch (Throwable unused) {
-                            i = -1;
-                        }
-                    }
-                    i = -1;
-                } else {
-                    str = Proxy.getHost(this.a);
-                    i = Proxy.getPort(this.a);
+            return false;
+        }
+        return invokeII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gq1
+    public void h(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, context, i) == null) {
+            super.h(context, i);
+            if (!vp1.g(this.a).d()) {
+                e(i, 3, 997, this.c, "pre verify error. sdk stop run", 3);
+            } else if (!r()) {
+                e(i, 3, 2006, this.c, "pre verify error. cu has not valid config.", 3);
+            } else if (vp1.g(this.a).a()) {
+                if (!this.s) {
+                    SDKManager.init(this.a, gq1.o, gq1.p);
+                    SDKManager.setUseCache(false);
+                    SDKManager.securityType(0);
+                    SDKManager.setDebug(zp1.c());
+                    this.s = true;
                 }
-            }
-            if (str != null && i > 0) {
-                httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
+                OauthManager.getInstance(this.a).getAuthoriseCode(8, new b(this, i));
             } else {
-                httpURLConnection = (HttpURLConnection) url.openConnection();
+                e(i, 3, 995, this.c, "pre verify error. cu sdk stop run.", 3);
             }
-            if (this.e.startsWith("https")) {
-                ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-            }
-            httpURLConnection.setRequestMethod(this.d);
-            httpURLConnection.setDoInput(true);
-            if ("POST".equals(this.d)) {
-                httpURLConnection.setDoOutput(true);
-            }
-            httpURLConnection.setInstanceFollowRedirects(true);
-            httpURLConnection.setConnectTimeout(this.f);
-            httpURLConnection.setReadTimeout(this.g);
-            httpURLConnection.setRequestProperty("x-device-id", nr1.b(jr1.a(this.a)));
-            httpURLConnection.setRequestProperty("Pragma", "no-cache");
-            String str2 = rp1.b;
-            String e = ir1.e(this.a);
-            httpURLConnection.setRequestProperty("User-Agent", "sso/" + str2 + "/" + e + "/1.2.1");
-            httpURLConnection.setRequestProperty("Accept", "*/*");
-            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage());
-            StringBuilder sb = new StringBuilder();
-            sb.append("sso/");
-            sb.append("1.2.1");
-            httpURLConnection.setRequestProperty("x-sdk-ver", sb.toString());
-            httpURLConnection.setRequestProperty("x-plu-ver", "sso/1.2.1");
-            httpURLConnection.setRequestProperty("x-app-ver", this.a.getPackageName() + "/" + ir1.e(this.a));
-            httpURLConnection.setRequestProperty("x-auth-ver", "5");
-            if (map != null) {
-                for (String str3 : map.keySet()) {
-                    httpURLConnection.setRequestProperty(str3, map.get(str3));
+        }
+    }
+
+    @Override // com.baidu.tieba.gq1
+    public void i(Context context, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, context, i, i2) == null) {
+            super.i(context, i, i2);
+            if (!vp1.g(this.a).d()) {
+                e(i2, 3, 997, this.c, "pre login error. sdk stop run", 1);
+            } else if (!r()) {
+                e(i2, 3, 2006, this.c, "pre login error. cu has not valid config.", 1);
+            } else if (vp1.g(this.a).a()) {
+                if (!this.s) {
+                    System.currentTimeMillis();
+                    SDKManager.init(this.a, gq1.o, gq1.p);
+                    SDKManager.setUseCache(false);
+                    SDKManager.securityType(0);
+                    SDKManager.setDebug(zp1.c());
+                    this.s = true;
                 }
+                x(i2, i, 0);
+            } else {
+                e(i2, 3, 995, this.c, "pre login error. cu sdk stop run.", 1);
             }
-            return httpURLConnection;
         }
-        return (HttpURLConnection) invokeL.objValue;
-    }
-
-    public final void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.d = str;
-            this.e = str2;
-        }
-    }
-
-    public final byte[] e(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, inputStream)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            while (true) {
-                int read = inputStream.read(this.b);
-                if (read != -1) {
-                    byteArrayOutputStream.write(this.b, 0, read);
-                } else {
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    byteArrayOutputStream.close();
-                    return byteArray;
-                }
-            }
-        } else {
-            return (byte[]) invokeL.objValue;
-        }
-    }
-
-    public final String f(InputStream inputStream) {
-        InterceptResult invokeL;
-        byte[] e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, inputStream)) == null) {
-            if (inputStream == null || (e = e(inputStream)) == null) {
-                return null;
-            }
-            if (this.h) {
-                e = lr1.d(e);
-            }
-            if (e == null) {
-                return "";
-            }
-            return new String(e);
-        }
-        return (String) invokeL.objValue;
     }
 }

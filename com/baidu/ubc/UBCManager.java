@@ -1,9 +1,9 @@
 package com.baidu.ubc;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tieba.jpa;
-import com.baidu.tieba.ppa;
-import com.baidu.tieba.tpa;
+import com.baidu.tieba.fua;
+import com.baidu.tieba.jua;
+import com.baidu.tieba.zta;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -77,11 +77,11 @@ public interface UBCManager {
 
     void onEvent(String str, JSONObject jSONObject, int i);
 
-    void registerConfig(tpa tpaVar);
+    void registerConfig(jua juaVar);
 
-    void registerConfig(tpa tpaVar, boolean z, ppa ppaVar);
+    void registerConfig(jua juaVar, boolean z, fua fuaVar);
 
-    void setDefaultConfig(jpa jpaVar);
+    void setDefaultConfig(zta ztaVar);
 
     void setUBCDebug(boolean z);
 

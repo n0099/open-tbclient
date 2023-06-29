@@ -1,63 +1,43 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.android.ActivityUtils;
+import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.feed.ad.util.InterceptCallback;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.schemedispatch.forbid.InvokeStatistic;
-import com.baidu.searchbox.schemedispatch.forbid.InvokeStatisticKt;
-import com.baidu.searchbox.schemedispatch.forbid.SchemeForbidStatisticUtils;
-import com.baidu.searchbox.schemedispatch.monitor.OpenAppManager;
-import com.baidu.searchbox.schemedispatch.monitor.bean.SchemeCheckInfo;
-import com.baidu.searchbox.schemedispatch.monitor.bean.SchemeCheckInfoKt;
-import com.baidu.searchbox.schemedispatch.monitor.control.OpenAppAllowAlertControl;
-import com.baidu.searchbox.schemedispatch.monitor.control.OpenAppBlockAlertControl;
-import com.baidu.tieba.kx;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.ui.SelectorTextView;
+import com.baidu.searchbox.ui.util.PorterDuffModeHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class lx {
+public class lx extends AutoOrientationBtnActDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<AutoOrientationBtnActDialog> a;
+    public View a;
+    public TextView b;
+    public SelectorTextView c;
+    public c d;
 
     /* loaded from: classes6.dex */
-    public class a implements AutoOrientationBtnActDialog.OnItemClickListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ InterceptCallback a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ InvokeStatistic e;
-        public final /* synthetic */ SchemeCheckInfo f;
-        public final /* synthetic */ lx g;
+        public final /* synthetic */ lx a;
 
-        public a(lx lxVar, InterceptCallback interceptCallback, boolean z, Context context, String str, InvokeStatistic invokeStatistic, SchemeCheckInfo schemeCheckInfo) {
+        public a(lx lxVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lxVar, interceptCallback, Boolean.valueOf(z), context, str, invokeStatistic, schemeCheckInfo};
+                Object[] objArr = {lxVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,49 +47,30 @@ public class lx {
                     return;
                 }
             }
-            this.g = lxVar;
-            this.a = interceptCallback;
-            this.b = z;
-            this.c = context;
-            this.d = str;
-            this.e = invokeStatistic;
-            this.f = schemeCheckInfo;
+            this.a = lxVar;
         }
 
-        @Override // com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog.OnItemClickListener
-        public void onItemClick(View view2) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                InterceptCallback interceptCallback = this.a;
-                if (interceptCallback != null) {
-                    if (this.b) {
-                        interceptCallback.onResult(this.g.e(this.c, this.d, this.e));
-                    } else {
-                        interceptCallback.onResult(true);
-                    }
-                }
-                OpenAppAllowAlertControl.addRule(this.f.getScheme());
-                OpenAppBlockAlertControl.removeRule(this.f.getScheme());
-                SchemeForbidStatisticUtils.ubcSchemaDialog(1);
-                this.e.confirmAlert();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d.f != null) {
+                this.a.d.f.onItemClick(view2);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements AutoOrientationBtnActDialog.OnItemClickListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ InterceptCallback a;
-        public final /* synthetic */ SchemeCheckInfo b;
-        public final /* synthetic */ InvokeStatistic c;
+        public final /* synthetic */ lx a;
 
-        public b(lx lxVar, InterceptCallback interceptCallback, SchemeCheckInfo schemeCheckInfo, InvokeStatistic invokeStatistic) {
+        public b(lx lxVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lxVar, interceptCallback, schemeCheckInfo, invokeStatistic};
+                Object[] objArr = {lxVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -119,47 +80,115 @@ public class lx {
                     return;
                 }
             }
-            this.a = interceptCallback;
-            this.b = schemeCheckInfo;
-            this.c = invokeStatistic;
+            this.a = lxVar;
         }
 
-        @Override // com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog.OnItemClickListener
-        public void onItemClick(View view2) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                InterceptCallback interceptCallback = this.a;
-                if (interceptCallback != null) {
-                    interceptCallback.onResult(false);
-                }
-                OpenAppBlockAlertControl.addRule(this.b.getScheme());
-                OpenAppAllowAlertControl.removeRule(this.b.getScheme());
-                SchemeForbidStatisticUtils.ubcSchemaDialog(3);
-                this.c.cancleAlert();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d.e != null) {
+                this.a.d.e.onItemClick(view2);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c {
+    public static class c extends AutoOrientationBtnActDialog.Builder {
         public static /* synthetic */ Interceptable $ic;
-        public static final lx a;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public float b;
+        public int c;
+        public int d;
+        public AutoOrientationBtnActDialog.OnItemClickListener e;
+        public AutoOrientationBtnActDialog.OnItemClickListener f;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(257149250, "Lcom/baidu/tieba/lx$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(257149250, "Lcom/baidu/tieba/lx$c;");
-                    return;
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new lx(null);
+        }
+
+        @Override // com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog.Builder
+        public AutoOrientationBtnActDialog getDialog() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                lx lxVar = (lx) super.getDialog();
+                lxVar.c(this);
+                return lxVar;
+            }
+            return (AutoOrientationBtnActDialog) invokeV.objValue;
+        }
+
+        @Override // com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog.Builder
+        public AutoOrientationBtnActDialog onCreateDialog() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return new lx();
+            }
+            return (AutoOrientationBtnActDialog) invokeV.objValue;
+        }
+
+        public c e(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (c) invokeL.objValue;
+        }
+
+        public c f(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+                this.b = f;
+                return this;
+            }
+            return (c) invokeF.objValue;
+        }
+
+        public c g(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                super.setTitle(i);
+                return this;
+            }
+            return (c) invokeI.objValue;
+        }
+
+        public c h(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                super.setTitle(str);
+                return this;
+            }
+            return (c) invokeL.objValue;
+        }
+
+        @Override // com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog.Builder
+        public /* bridge */ /* synthetic */ AutoOrientationBtnActDialog.Builder setTitle(int i) {
+            g(i);
+            return this;
+        }
+
+        @Override // com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog.Builder
+        public /* bridge */ /* synthetic */ AutoOrientationBtnActDialog.Builder setTitle(String str) {
+            h(str);
+            return this;
         }
     }
 
@@ -177,141 +206,59 @@ public class lx {
         }
     }
 
-    public static lx b() {
-        InterceptResult invokeV;
+    public void c(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.d = cVar;
         }
-        return (lx) invokeV.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        AutoOrientationBtnActDialog autoOrientationBtnActDialog;
+    public final void b() {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<AutoOrientationBtnActDialog> weakReference = this.a;
-            if (weakReference == null || (autoOrientationBtnActDialog = weakReference.get()) == null || !autoOrientationBtnActDialog.isShowing()) {
-                return false;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (cVar = this.d) == null) {
+            return;
+        }
+        if (!TextUtils.isEmpty(cVar.a)) {
+            if (this.d.b > 0.0f) {
+                this.b.setTextSize(0, this.d.b);
             }
-            return true;
+            this.b.setText(this.d.a);
+            this.b.setOnClickListener(new a(this));
+        } else {
+            this.a.setVisibility(8);
         }
-        return invokeV.booleanValue;
+        if (this.d.c > 0) {
+            this.c.setVisibility(0);
+            this.c.setText(AppRuntime.getAppContext().getText(this.d.c));
+            this.c.setOnClickListener(new b(this));
+        } else {
+            this.c.setVisibility(8);
+        }
+        if (this.d.d > 0) {
+            Drawable drawable = AppRuntime.getAppContext().getResources().getDrawable(this.d.d);
+            PorterDuffModeHelper.decorateSrcATopMode(AppRuntime.getAppContext(), drawable);
+            drawable.setBounds(0, 0, DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), 12.0f), DeviceUtil.ScreenInfo.dp2px(this.mContext, 12.0f));
+            this.c.setCompoundDrawables(drawable, null, null, null);
+        }
     }
 
-    public /* synthetic */ lx(a aVar) {
-        this();
-    }
-
-    public final boolean c(SchemeCheckInfo schemeCheckInfo) {
+    @Override // com.baidu.android.ext.widget.dialog.AutoOrientationBtnActDialog
+    public View createContentView(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, schemeCheckInfo)) == null) {
-            if (schemeCheckInfo.notAlert() || OpenAppAllowAlertControl.checkRule(schemeCheckInfo.getScheme())) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(AppRuntime.getAppContext()).inflate(R.layout.obfuscated_res_0x7f0d09d4, viewGroup, false);
+            this.a = inflate;
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f5a);
+            this.b = textView;
+            textView.setTextColor(AppRuntime.getAppContext().getResources().getColor(R.color.safe_dialog_message));
+            SelectorTextView selectorTextView = (SelectorTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f5b);
+            this.c = selectorTextView;
+            selectorTextView.setTextColor(AppRuntime.getAppContext().getResources().getColor(R.color.safe_dialog_btn_blue));
+            b();
+            return this.a;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(Context context, String str, boolean z, boolean z2, InvokeStatistic invokeStatistic) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2), invokeStatistic})) == null) {
-            if (TextUtils.isEmpty(str) || context == null) {
-                return false;
-            }
-            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
-                return false;
-            }
-            ResolveInfo next = queryIntentActivities.iterator().next();
-            if (next != null) {
-                String str2 = next.activityInfo.name;
-                Intent intent2 = new Intent("android.intent.action.MAIN");
-                intent2.addCategory("android.intent.category.LAUNCHER");
-                intent2.setComponent(new ComponentName(str, str2));
-                intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                try {
-                    boolean startActivitySafely = ActivityUtils.startActivitySafely(context, intent2, z, z2);
-                    if (startActivitySafely) {
-                        invokeStatistic.invokeSuc();
-                    } else {
-                        invokeStatistic.setSource("other").invokeFail();
-                    }
-                    return startActivitySafely;
-                } catch (ActivityNotFoundException unused) {
-                    invokeStatistic.setSource("other").invokeFail();
-                    return false;
-                }
-            }
-            invokeStatistic.setSource(InvokeStatisticKt.SCHEME_INVOKE_SOURCE_NOT_INSTALL).invokeFail();
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final boolean e(Context context, String str, InvokeStatistic invokeStatistic) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, invokeStatistic)) == null) {
-            return f(context, str, false, true, invokeStatistic);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateResource"})
-    public void g(SchemeCheckInfo schemeCheckInfo, String str, boolean z, InterceptCallback interceptCallback, boolean z2, InvokeStatistic invokeStatistic) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{schemeCheckInfo, str, Boolean.valueOf(z), interceptCallback, Boolean.valueOf(z2), invokeStatistic}) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            invokeStatistic.setValue(true);
-            if (z2 && c(schemeCheckInfo)) {
-                if (OpenAppBlockAlertControl.checkRule(schemeCheckInfo.getScheme())) {
-                    interceptCallback.onResult(false);
-                    return;
-                }
-                SchemeForbidStatisticUtils.ubcShowDialog();
-                if (d()) {
-                    return;
-                }
-                invokeStatistic.setValue(false);
-                if (interceptCallback != null && z) {
-                    invokeStatistic.setPage("package");
-                }
-                kx.c cVar = new kx.c();
-                cVar.g(R.string.third_party_visit_dialog_title);
-                cVar.e(String.format(appContext.getResources().getString(R.string.third_party_visit_dialog_content), OpenAppManager.getSchemeName(schemeCheckInfo)));
-                cVar.f(appContext.getResources().getDimensionPixelSize(R.dimen.third_party_visit_dialog_content_size));
-                cVar.setButton(new AutoOrientationBtnActDialog.BtnItem(appContext.getText(R.string.third_party_visit_dialog_cancel), R.color.obfuscated_res_0x7f0604a1, new b(this, interceptCallback, schemeCheckInfo, invokeStatistic))).setButton(new AutoOrientationBtnActDialog.BtnItem(appContext.getText(R.string.third_party_visit_dialog), R.color.obfuscated_res_0x7f0604a1, new a(this, interceptCallback, z, appContext, str, invokeStatistic, schemeCheckInfo)));
-                AutoOrientationBtnActDialog show = cVar.show();
-                invokeStatistic.showAlert();
-                this.a = new WeakReference<>(show);
-            } else if (interceptCallback != null) {
-                if (z) {
-                    invokeStatistic.setPage("package");
-                    interceptCallback.onResult(e(appContext, str, invokeStatistic));
-                    return;
-                }
-                interceptCallback.onResult(true);
-            }
-        }
-    }
-
-    @SuppressLint({"PrivateResource"})
-    public void h(String str, String str2, boolean z, InterceptCallback interceptCallback, boolean z2, InvokeStatistic invokeStatistic) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Boolean.valueOf(z), interceptCallback, Boolean.valueOf(z2), invokeStatistic}) == null) {
-            SchemeCheckInfo schemeInGlobalWhiteList = OpenAppManager.getSchemeInGlobalWhiteList(AppRuntime.getAppContext(), "", str, "", null, true);
-            if (schemeInGlobalWhiteList == null) {
-                schemeInGlobalWhiteList = SchemeCheckInfoKt.defaultSchemeCheckInfo(str);
-            }
-            g(schemeInGlobalWhiteList, str2, z, interceptCallback, z2, invokeStatistic);
-        }
+        return (View) invokeL.objValue;
     }
 }

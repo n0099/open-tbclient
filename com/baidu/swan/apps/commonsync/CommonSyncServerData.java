@@ -2,7 +2,7 @@ package com.baidu.swan.apps.commonsync;
 
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.tieba.z82;
+import com.baidu.tieba.c92;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
                     metaItemInfo.appKey = optJSONObject.getString("AppKey");
                     metaItemInfo.payProtected = optJSONObject.getInt("PayProtected");
                 } catch (JSONException e) {
-                    z82.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e);
+                    c92.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e);
                     metaItemInfo = null;
                 }
                 if (metaItemInfo != null) {

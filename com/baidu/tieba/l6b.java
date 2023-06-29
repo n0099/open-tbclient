@@ -1,70 +1,168 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsRewardVideoAd;
-import com.kwad.sdk.api.model.AdExposureFailedReason;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.ObjectInput;
 /* loaded from: classes6.dex */
-public class l6b extends j7b<KsRewardVideoAd> {
+public class l6b {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l6b(KsRewardVideoAd ksRewardVideoAd) {
-        super(ksRewardVideoAd);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ksRewardVideoAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896241, "Lcom/baidu/tieba/l6b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947896241, "Lcom/baidu/tieba/l6b;");
                 return;
             }
         }
+        a = new Object();
+        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
     }
 
-    @Override // com.baidu.tieba.j7b
-    public double a() {
+    public static v5b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            A a = this.a;
-            if (a == 0) {
-                return 0.0d;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (v5b) z5b.b(b.getString("key_adcfg", null), new q6b() { // from class: com.baidu.tieba.c5b
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.q6b
+            public final Object a(ObjectInput objectInput) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? l6b.c(objectInput) : invokeL.objValue;
             }
-            return ((KsRewardVideoAd) a).getECPM();
-        }
-        return invokeV.doubleValue;
+        }) : (v5b) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j7b
-    public void b(int i, int i2, int i3, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
-            return;
-        }
-        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
-        adExposureFailedReason.winEcpm = i;
-        ((KsRewardVideoAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
+    public static /* synthetic */ v5b c(ObjectInput objectInput) {
+        return new v5b(objectInput.readInt(), objectInput);
     }
 
-    @Override // com.baidu.tieba.j7b
-    public void c(long j, long j2) {
-        A a;
+    public static void d(double d) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d)}) == null) {
+            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
         }
-        ((KsRewardVideoAd) a).setBidEcpm((int) j);
+    }
+
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
+            g("key_rpt_fai_c", h() + i);
+        }
+    }
+
+    public static void f(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(65542, null, i, i2, i3) == null) {
+            synchronized (a) {
+                int k = k();
+                int l = l();
+                int j = j();
+                b.edit().putInt("key_rpt_req_c", ((k - i) - i2) - i3).putInt("key_rpt_fai_c", h() - i).putInt("key_rpt_suc_c", l - i2).putInt("key_rpt_mis_c", j - i3).apply();
+            }
+        }
+    }
+
+    public static void g(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65543, null, str, i) == null) {
+            b.edit().putInt(str, i).apply();
+        }
+    }
+
+    public static /* synthetic */ e6b i(ObjectInput objectInput) {
+        return new e6b(objectInput.readInt(), objectInput);
+    }
+
+    public static e6b m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? (e6b) z5b.b(b.getString("key_rptcfg", null), new q6b() { // from class: com.baidu.tieba.g5b
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.q6b
+            public final Object a(ObjectInput objectInput) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? l6b.i(objectInput) : invokeL.objValue;
+            }
+        }) : (e6b) invokeV.objValue;
+    }
+
+    public static double n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+            synchronized (a) {
+                g("key_rpt_req_c", k() + 1);
+            }
+        }
+    }
+
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return b.getInt("key_sid_c_pre_" + str, 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return b.getInt("key_rpt_fai_c", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return b.getInt("key_rpt_mis_c", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return b.getInt("key_rpt_req_c", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return b.getInt("key_rpt_suc_c", 0);
+        }
+        return invokeV.intValue;
     }
 }

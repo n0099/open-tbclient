@@ -4,14 +4,14 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.aja;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat$foldCloseView$2;
-import com.baidu.tieba.iea;
-import com.baidu.tieba.jea;
-import com.baidu.tieba.kea;
-import com.baidu.tieba.lx6;
+import com.baidu.tieba.qx6;
 import com.baidu.tieba.view.foldclose.FoldCloseView;
+import com.baidu.tieba.yia;
+import com.baidu.tieba.zia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
     }
 
     /* loaded from: classes5.dex */
-    public static final class a implements jea {
+    public static final class a implements zia {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCloseEdgeFloat a;
@@ -73,7 +73,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
             this.a = foldCloseEdgeFloat;
         }
 
-        @Override // com.baidu.tieba.jea
+        @Override // com.baidu.tieba.zia
         public void a(int i, int i2) {
             EdgeFloat c;
             EdgeFloat c2;
@@ -93,7 +93,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements kea {
+    public static final class b implements aja {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCloseEdgeFloat a;
@@ -116,9 +116,9 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
             this.a = foldCloseEdgeFloat;
         }
 
-        @Override // com.baidu.tieba.kea
+        @Override // com.baidu.tieba.aja
         public void a(boolean z) {
-            kea f;
+            aja f;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (f = this.a.f()) != null) {
                 f.a(z);
@@ -167,12 +167,12 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
             Intrinsics.checkNotNullExpressionValue(context, "getInst().context");
             final FoldCloseView foldCloseView = new FoldCloseView(context);
             final FoldCloseEdgeFloat foldCloseEdgeFloat = this.this$0;
-            iea ieaVar = new iea();
-            ieaVar.e(lx6.a.b());
-            ieaVar.g(lx6.a.d());
-            ieaVar.f(lx6.a.c());
-            foldCloseView.setData(ieaVar);
-            foldCloseView.setOnCloseClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kx6
+            yia yiaVar = new yia();
+            yiaVar.e(qx6.a.b());
+            yiaVar.g(qx6.a.d());
+            yiaVar.f(qx6.a.c());
+            foldCloseView.setData(yiaVar);
+            foldCloseView.setOnCloseClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.px6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -185,7 +185,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
                 }
             });
             foldCloseView.setOnFoldCloseWidthChangeListener(new a(foldCloseEdgeFloat));
-            foldCloseView.setOnOtherClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jx6
+            foldCloseView.setOnOtherClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ox6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

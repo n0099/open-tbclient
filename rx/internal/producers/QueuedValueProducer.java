@@ -1,20 +1,20 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.bpb;
-import com.baidu.tieba.gsb;
-import com.baidu.tieba.iob;
-import com.baidu.tieba.mob;
-import com.baidu.tieba.sob;
-import com.baidu.tieba.zqb;
-import com.baidu.tieba.zrb;
+import com.baidu.tieba.axb;
+import com.baidu.tieba.dtb;
+import com.baidu.tieba.jtb;
+import com.baidu.tieba.ttb;
+import com.baidu.tieba.tvb;
+import com.baidu.tieba.twb;
+import com.baidu.tieba.zsb;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class QueuedValueProducer<T> extends AtomicLong implements iob {
+public final class QueuedValueProducer<T> extends AtomicLong implements zsb {
     public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;
-    public final mob<? super T> child;
+    public final dtb<? super T> child;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
@@ -22,13 +22,13 @@ public final class QueuedValueProducer<T> extends AtomicLong implements iob {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedValueProducer(mob<? super T> mobVar) {
-        this(mobVar, r0);
-        Queue zqbVar;
-        if (gsb.b()) {
-            zqbVar = new zrb();
+    public QueuedValueProducer(dtb<? super T> dtbVar) {
+        this(dtbVar, r0);
+        Queue tvbVar;
+        if (axb.b()) {
+            tvbVar = new twb();
         } else {
-            zqbVar = new zqb();
+            tvbVar = new tvb();
         }
     }
 
@@ -44,12 +44,12 @@ public final class QueuedValueProducer<T> extends AtomicLong implements iob {
         return true;
     }
 
-    @Override // com.baidu.tieba.iob
+    @Override // com.baidu.tieba.zsb
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                bpb.b(this, j);
+                ttb.b(this, j);
                 drain();
                 return;
             }
@@ -58,8 +58,8 @@ public final class QueuedValueProducer<T> extends AtomicLong implements iob {
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    public QueuedValueProducer(mob<? super T> mobVar, Queue<Object> queue) {
-        this.child = mobVar;
+    public QueuedValueProducer(dtb<? super T> dtbVar, Queue<Object> queue) {
+        this.child = dtbVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -67,20 +67,20 @@ public final class QueuedValueProducer<T> extends AtomicLong implements iob {
     private void drain() {
         Object poll;
         if (this.wip.getAndIncrement() == 0) {
-            mob<? super T> mobVar = this.child;
+            dtb<? super T> dtbVar = this.child;
             Queue<Object> queue = this.queue;
-            while (!mobVar.isUnsubscribed()) {
+            while (!dtbVar.isUnsubscribed()) {
                 this.wip.lazySet(1);
                 long j = get();
                 long j2 = 0;
                 while (j != 0 && (poll = queue.poll()) != null) {
                     try {
                         if (poll == NULL_SENTINEL) {
-                            mobVar.onNext(null);
+                            dtbVar.onNext(null);
                         } else {
-                            mobVar.onNext(poll);
+                            dtbVar.onNext(poll);
                         }
-                        if (mobVar.isUnsubscribed()) {
+                        if (dtbVar.isUnsubscribed()) {
                             return;
                         }
                         j--;
@@ -89,7 +89,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements iob {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        sob.g(th, mobVar, poll);
+                        jtb.g(th, dtbVar, poll);
                         return;
                     }
                 }

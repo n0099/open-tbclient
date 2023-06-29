@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.un3;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tieba.zw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,46 +12,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ij3 extends ac3 {
+public final class ij3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static int f;
-    public static int g;
-    public static int h;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public mk3 a;
-    public final String b;
-    public final String c;
-    public final un3.a<Long> d;
-
-    public long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? Config.FULL_TRACE_LOG_LIMIT : invokeV.longValue;
-    }
 
     /* loaded from: classes6.dex */
-    public class a implements un3.a<Long> {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ij3 a;
+        public final /* synthetic */ ej3 a;
 
-        public a(ij3 ij3Var) {
+        public a(ej3 ej3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ij3Var};
+                Object[] objArr = {ej3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,19 +44,15 @@ public class ij3 extends ac3 {
                     return;
                 }
             }
-            this.a = ij3Var;
+            this.a = ej3Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.un3.a
-        public Long update() throws IllegalStateException {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Long.valueOf(this.a.e());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ji3.k("4165", this.a.f());
             }
-            return (Long) invokeV.objValue;
         }
     }
 
@@ -92,348 +69,95 @@ public class ij3 extends ac3 {
                 return;
             }
         }
-        e = js1.a;
-        f = 1024;
-        g = -1;
-        h = 1;
+        a = ms1.a;
     }
 
-    public mk3 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == null) {
-                this.a = new mk3(this.c, false);
-            }
-            return this.a;
-        }
-        return (mk3) invokeV.objValue;
-    }
-
-    public List<gj3> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String v = hj3.v(zb3.g0());
-            if (TextUtils.isEmpty(v)) {
-                return null;
-            }
-            return k(v);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ij3(zb3 zb3Var) {
-        super(zb3Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zb3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((zb3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = new a(this);
-        this.b = hj3.t(zb3Var);
-        this.c = "aiapp_" + this.b;
-        vn3.h.b(this.d);
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                g().edit().clear().commit();
-            } else {
-                g().edit().clear().apply();
-            }
-            ds4.k(hj3.x(zb3.g0()));
-            ds4.k(hj3.v(zb3.g0()));
-            vn3.h.update();
-        }
-    }
-
-    public static boolean b(@NonNull String str) {
+    public static String a(Response response) {
         InterceptResult invokeL;
+        ResponseBody body;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str.getBytes(StandardCharsets.UTF_8).length > 512) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str.getBytes(StandardCharsets.UTF_8).length > 3145728) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                if (file.length() > Config.FULL_TRACE_LOG_LIMIT) {
-                    return 2002;
-                }
-                return 2000;
-            }
-            return 2001;
-        }
-        return invokeL.intValue;
-    }
-
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.endsWith(File.separator)) {
-                int lastIndexOf = str.lastIndexOf(File.separator);
-                int length = str.length();
-                if (lastIndexOf != g && length > lastIndexOf) {
-                    return str.substring(lastIndexOf + h, length);
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public gj3 h(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            File file = new File(str);
-            if (file.isFile()) {
-                gj3 gj3Var = new gj3();
-                gj3Var.f(file.length());
-                gj3Var.d(file.lastModified());
-                return gj3Var;
-            }
-            return null;
-        }
-        return (gj3) invokeL.objValue;
-    }
-
-    public List<gj3> k(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (e) {
-                Log.d("SwanAppStorage", "——> getSavedFileList:  dir " + str);
-            }
-            File file = new File(str);
-            if (file.exists() && file.isDirectory()) {
-                return j(file);
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (e) {
-                File file = g().getFile();
-                Log.i("SwanAppStorage", this.b + " exists = " + file.exists() + " isFile = " + file.isFile() + " path = " + file.getPath() + " size = " + file.length());
-            }
-            return g().getContentSize();
-        }
-        return invokeV.longValue;
-    }
-
-    public List<gj3> j(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
-            if (file == null || !file.exists()) {
-                return null;
-            }
-            if (e) {
-                Log.d("SwanAppStorage", "——> getSavedFileList: " + file.getAbsolutePath());
-            }
-            gj3 gj3Var = new gj3();
-            ArrayList arrayList = new ArrayList();
-            if (file.isFile()) {
-                gj3Var.e(file.getAbsolutePath());
-                gj3Var.f(file.length());
-                gj3Var.d(file.lastModified());
-                arrayList.add(gj3Var);
-            } else {
-                File[] listFiles = file.listFiles();
-                if (listFiles == null) {
-                    return null;
-                }
-                for (File file2 : listFiles) {
-                    List<gj3> j = j(file2);
-                    if (j != null) {
-                        arrayList.addAll(arrayList.size(), j);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0048 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x004a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x004c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x0077 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x0016 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r7v0, types: [java.lang.Object, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r7v1 */
-    /* JADX WARN: Type inference failed for: r7v10 */
-    /* JADX WARN: Type inference failed for: r7v11 */
-    /* JADX WARN: Type inference failed for: r7v12 */
-    /* JADX WARN: Type inference failed for: r7v13 */
-    /* JADX WARN: Type inference failed for: r7v14 */
-    /* JADX WARN: Type inference failed for: r7v15 */
-    /* JADX WARN: Type inference failed for: r7v16, types: [java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r7v20 */
-    /* JADX WARN: Type inference failed for: r7v21 */
-    /* JADX WARN: Type inference failed for: r7v22 */
-    /* JADX WARN: Type inference failed for: r7v23 */
-    /* JADX WARN: Type inference failed for: r7v4 */
-    /* JADX WARN: Type inference failed for: r7v5, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r7v7 */
-    public String o(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Object obj2;
-        Closeable closeable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            String v = hj3.v(zb3.g0());
-            String str2 = "";
-            if (TextUtils.isEmpty(v)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, response)) == null) {
+            if (response == null || (body = response.body()) == null) {
                 return "";
             }
-            FileInputStream fileInputStream = null;
+            JSONObject jSONObject = null;
             try {
-                try {
-                    File l = l(v, f(str));
-                    FileInputStream fileInputStream2 = new FileInputStream(new File((String) str));
-                    try {
-                        str = new FileOutputStream(l);
-                        try {
-                            byte[] bArr = new byte[f];
-                            while (true) {
-                                int read = fileInputStream2.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                str.write(bArr, 0, read);
-                                str.flush();
-                            }
-                            str2 = l.getAbsolutePath();
-                            ds4.d(fileInputStream2);
-                            closeable = str;
-                        } catch (FileNotFoundException e2) {
-                            e = e2;
-                            fileInputStream = fileInputStream2;
-                            obj2 = str;
-                            str = obj2;
-                            if (e) {
-                                e.printStackTrace();
-                                str = obj2;
-                            }
-                            ds4.d(fileInputStream);
-                            closeable = str;
-                            ds4.d(closeable);
-                            return str2;
-                        } catch (IOException e3) {
-                            e = e3;
-                            fileInputStream = fileInputStream2;
-                            obj = str;
-                            str = obj;
-                            if (e) {
-                                e.printStackTrace();
-                                str = obj;
-                            }
-                            ds4.d(fileInputStream);
-                            closeable = str;
-                            ds4.d(closeable);
-                            return str2;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileInputStream = fileInputStream2;
-                            ds4.d(fileInputStream);
-                            ds4.d(str);
-                            throw th;
-                        }
-                    } catch (FileNotFoundException e4) {
-                        e = e4;
-                        str = 0;
-                    } catch (IOException e5) {
-                        e = e5;
-                        str = 0;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        str = 0;
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
+                str = body.string();
+            } catch (IOException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
-            } catch (FileNotFoundException e6) {
-                e = e6;
-                obj2 = null;
-            } catch (IOException e7) {
-                e = e7;
-                obj = null;
-            } catch (Throwable th4) {
-                th = th4;
-                str = 0;
+                str = null;
             }
-            ds4.d(closeable);
-            return str2;
+            if (str == null) {
+                return "";
+            }
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+            if (jSONObject == null) {
+                return "";
+            }
+            return jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "");
         }
         return (String) invokeL.objValue;
     }
 
-    public final File l(@NonNull String str, String str2) {
-        InterceptResult invokeLL;
+    public static void b(String str, int i, String str2, int i2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return new File(str, str2);
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) != null) || TextUtils.equals(str, GameAssistConstKt.METHOD_GET_LOCATION)) {
+            return;
         }
-        return (File) invokeLL.objValue;
+        c(str, i, str2, i2, str3, null);
     }
 
-    public boolean m(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public static void c(String str, int i, String str2, int i2, String str3, Response response) {
+        kb2 H;
+        iy1 q3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
-            if ((e() - g().getString(str, "").length()) + str2.length() > n()) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, response}) == null) {
+            ej3 ej3Var = new ej3();
+            cc3 b0 = cc3.b0();
+            if (b0 == null || (H = px2.T().H()) == null || (q3 = H.q3()) == null) {
+                return;
             }
-            return false;
+            String l = q3.l();
+            zw2.a W = b0.W();
+            String Z = b0.Z();
+            String appId = b0.getAppId();
+            String W2 = W.W();
+            String v1 = W.v1();
+            String i3 = hl3.i(px2.T().getCoreVersion(), W.G());
+            String a2 = a(response);
+            String d = NetworkUtils.d();
+            ej3Var.a = vi3.n(W.G());
+            ej3Var.c = b0.W().T();
+            ej3Var.d = b0.W().V();
+            ej3Var.f = appId;
+            ej3Var.a("name", Z);
+            ej3Var.a("apiName", str);
+            ej3Var.a("errorCode", String.valueOf(i));
+            ej3Var.a("errorMsg", str2);
+            ej3Var.a("pagePath", l);
+            if (i2 != -1) {
+                ej3Var.a("oldErrorCode", String.valueOf(i2));
+            }
+            ej3Var.a("oldErrorMsg", str3);
+            ej3Var.a("scheme", W2);
+            ej3Var.a("appVersion", v1);
+            ej3Var.a("swan", i3);
+            ej3Var.a("requestid", a2);
+            ej3Var.a("net", d);
+            if (nj4.b() != null) {
+                ej3Var.a("SDKVersion", nj4.b().b());
+                ej3Var.a("hostName", nj4.b().c());
+            }
+            wo3.j(new a(ej3Var), "monitor");
         }
-        return invokeLL.booleanValue;
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.swan.apps.media.chooser.listener;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
-import com.baidu.tieba.xz2;
+import com.baidu.tieba.a03;
 import java.util.Collections;
 /* loaded from: classes4.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
-    public xz2 a;
+    public a03 a;
     public SwanAppThumbnailAdapter b;
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -24,8 +24,8 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
     }
 
-    public SwanAppThumbnailTouchCallback(xz2 xz2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
-        this.a = xz2Var;
+    public SwanAppThumbnailTouchCallback(a03 a03Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
+        this.a = a03Var;
         this.b = swanAppThumbnailAdapter;
     }
 
@@ -64,9 +64,9 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
             Collections.swap(swanAppThumbnailAdapter.l(), adapterPosition, adapterPosition2);
             this.b.notifyItemMoved(adapterPosition, adapterPosition2);
         }
-        xz2 xz2Var = this.a;
-        if (xz2Var != null) {
-            xz2Var.onMove(adapterPosition, adapterPosition2);
+        a03 a03Var = this.a;
+        if (a03Var != null) {
+            a03Var.onMove(adapterPosition, adapterPosition2);
             return true;
         }
         return true;

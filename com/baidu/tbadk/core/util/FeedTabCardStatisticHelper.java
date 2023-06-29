@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.h35;
+import com.baidu.tieba.k35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -196,15 +196,15 @@ public class FeedTabCardStatisticHelper {
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadNEGFeedbackStatisticLog(h35 h35Var, String str) {
+    public static StatisticItem clickThreadNEGFeedbackStatisticLog(k35 k35Var, String str) {
         InterceptResult invokeLL;
         StatisticItem statisticItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, h35Var, str)) == null) {
-            if (h35Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, k35Var, str)) == null) {
+            if (k35Var == null) {
                 return null;
             }
-            int i = h35Var.o;
+            int i = k35Var.o;
             if (i != 2 && i != 6 && i != 8) {
                 statisticItem = new StatisticItem(KEY_TAB_FEED_PICTURE_TEXT_THREAD_NEG_FEEDBACK_CLICK);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
@@ -213,8 +213,8 @@ public class FeedTabCardStatisticHelper {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 2);
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("tid", h35Var.f());
-            statisticItem.param("fid", h35Var.c());
+            statisticItem.param("tid", k35Var.f());
+            statisticItem.param("fid", k35Var.c());
             statisticItem.param("resource_id", str);
             return statisticItem;
         }

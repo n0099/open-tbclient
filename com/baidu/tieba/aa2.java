@@ -1,160 +1,135 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class aa2 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class aa2 extends zd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public b b;
-    public c c;
+    public y92 c;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void onConnected();
-    }
-
-    /* loaded from: classes4.dex */
-    public interface c {
-        void start();
-
-        void stop();
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aa2 a;
-
-        public a(aa2 aa2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aa2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aa2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!c92.e() && aa2.e() == 0) {
-                    if (!c92.f()) {
-                        z82.c("V8Inspector", "Unknown inspect mode");
-                        return;
-                    }
-                    this.a.c = new da2(u92.e(), this.a.b);
-                } else {
-                    this.a.c = new ea2(String.format("v8in%s_devtools_remote", this.a.a.getPackageName()), this.a.b);
-                }
-                this.a.c.start();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947608375, "Lcom/baidu/tieba/aa2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947608375, "Lcom/baidu/tieba/aa2;");
-                return;
-            }
-        }
-        int i = 0;
-        if (nk3.a().getBoolean("Inspector", false)) {
-            i = 2;
-        }
-        d = i;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d;
-        }
-        return invokeV.intValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(this), "V8Inspector");
-        }
-    }
-
-    public void i() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cVar = this.c) != null) {
-            cVar.stop();
-            this.c = null;
-        }
-    }
-
-    public aa2(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa2(zc3 zc3Var) {
+        super(zc3Var, "/swanAPI/perfCat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {zc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
     }
 
-    public static void g(int i) {
-        boolean z;
+    @Override // com.baidu.tieba.zd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            hk3 a2 = nk3.a();
-            if (i == 2) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
+            if (zd3.b) {
+                Log.d("SwanAppPropertyLogAction", "handle entity: " + unitedSchemeEntity.toString());
+                return false;
             }
-            a2.putBoolean("Inspector", z);
-            d = i;
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public void f(b bVar) {
+    @Override // com.baidu.tieba.zd3
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, cc3 cc3Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, cc3Var)) == null) {
+            if (zd3.b) {
+                Log.d("SwanAppPropertyLogAction", "handleSubAction subAction: " + str);
+            }
+            if (!zd3.b) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(403));
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -322942229) {
+                if (hashCode != 227833272) {
+                    if (hashCode == 977180790 && str.equals("/swanAPI/perfCat/on")) {
+                        c = 0;
+                    }
+                } else if (str.equals("/swanAPI/perfCat/off")) {
+                    c = 1;
+                }
+            } else if (str.equals("/swanAPI/perfCat/duration")) {
+                c = 2;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
+                        return false;
+                    }
+                    if (optParamsAsJo == null) {
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
+                    } else {
+                        if (this.c != null) {
+                            this.c.g(optParamsAsJo.optInt("duration"));
+                        }
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    }
+                    return true;
+                }
+                JSONObject jSONObject = new JSONObject();
+                y92 y92Var = this.c;
+                if (y92Var == null) {
+                    c92.c("SwanAppPropertyLogAction", "Property log never start");
+                } else {
+                    String i = y92Var.i();
+                    this.c = null;
+                    px2.T().C();
+                    try {
+                        jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, px2.T().C());
+                        jSONObject.put("path", i);
+                    } catch (JSONException e) {
+                        if (zd3.b) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (zd3.b) {
+                        Log.d("SwanAppPropertyLogAction", "Video dispatch Params : " + jSONObject.toString());
+                    }
+                    c92.i("SwanAppPropertyLogAction", "Stop property log");
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            }
+            if (this.c == null) {
+                this.c = new y92();
+            }
+            this.c.h();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            c92.i("SwanAppPropertyLogAction", " Start property log：");
+            return true;
         }
+        return invokeLLLLL.booleanValue;
     }
 }

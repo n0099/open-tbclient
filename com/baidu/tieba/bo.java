@@ -1,14 +1,11 @@
 package com.baidu.tieba;
-
-import androidx.annotation.Nullable;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes5.dex */
-public interface bo<T> extends xn<T> {
-    int g(int i, int i2);
+public interface bo {
+    void cancelRefresh();
 
-    jn<wn, TypeAdapter.ViewHolder> h(wn wnVar);
+    yn getAdapter();
 
-    void notifyItemChanged(int i);
+    int getFirstVisiblePosition();
 
-    void notifyItemChanged(int i, @Nullable Object obj);
+    int getLastVisiblePosition();
 }

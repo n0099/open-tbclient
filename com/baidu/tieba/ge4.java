@@ -1,83 +1,124 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ge4 {
+public final class ge4 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<de4> a;
+    public static ArrayList<Integer> b;
+    public static final ge4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public JsFunction a;
-    public JsFunction b;
-    public JsFunction c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947791027, "Lcom/baidu/tieba/ge4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947791027, "Lcom/baidu/tieba/ge4;");
+                return;
+            }
+        }
+        c = new ge4();
+        a = new ArrayList<>();
+        b = new ArrayList<>();
+    }
 
     public ge4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void b() {
-        JsFunction jsFunction;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jsFunction = this.c) != null) {
-            jsFunction.call();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Iterator<de4> it = a.iterator();
+            while (it.hasNext()) {
+                it.next().close();
+            }
         }
     }
 
-    public void c() {
-        JsFunction jsFunction;
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (jsFunction = this.b) != null) {
-            jsFunction.call();
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || b.contains(Integer.valueOf(i))) {
+            return;
         }
+        b.add(Integer.valueOf(i));
     }
 
-    public static ge4 d(g42 g42Var) {
+    public final de4 b(JSRuntime jsRuntime) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g42Var)) == null) {
-            if (g42Var == null) {
-                return null;
-            }
-            ge4 ge4Var = new ge4();
-            JsFunction u = g42Var.u("onCheckForUpdate");
-            ge4Var.a = u;
-            if (u != null) {
-                u.setReleaseMode(false);
-            }
-            JsFunction u2 = g42Var.u("onUpdateReady");
-            ge4Var.b = u2;
-            if (u2 != null) {
-                u2.setReleaseMode(false);
-            }
-            JsFunction u3 = g42Var.u("onUpdateFailed");
-            ge4Var.c = u3;
-            if (u3 != null) {
-                u3.setReleaseMode(false);
-            }
-            return ge4Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
+            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
+            de4 de4Var = new de4(jsRuntime);
+            a.add(de4Var);
+            return de4Var;
         }
-        return (ge4) invokeL.objValue;
+        return (de4) invokeL.objValue;
     }
 
-    public void a(he4 he4Var) {
-        JsFunction jsFunction;
+    public final boolean c(de4 socket) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, he4Var) == null) && (jsFunction = this.a) != null) {
-            jsFunction.call(he4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return b.contains(Integer.valueOf(i));
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final void e(de4 socket) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                g(socket.A());
+                a.remove(socket);
+            }
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            b.remove(Integer.valueOf(i));
         }
     }
 }

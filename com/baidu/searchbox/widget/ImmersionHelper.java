@@ -148,9 +148,9 @@ public class ImmersionHelper {
 
     private int getDefaultStatusBarViewBg() {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a8c);
+            return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a8e);
         }
-        return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a8d);
+        return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a8f);
     }
 
     public static boolean isSupportImmersion() {
@@ -220,7 +220,7 @@ public class ImmersionHelper {
     }
 
     public static boolean isImmersionEnabled(View view2) {
-        if (!SUPPORT_IMMERSION || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f0910e2) == null) {
+        if (!SUPPORT_IMMERSION || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f0910ee) == null) {
             return false;
         }
         return true;
@@ -362,7 +362,7 @@ public class ImmersionHelper {
             childAt.setLayoutParams(layoutParams2);
             View view2 = new View(this.mActivity);
             view2.setTag(VIEW_TAG);
-            view2.setId(R.id.obfuscated_res_0x7f0910e2);
+            view2.setId(R.id.obfuscated_res_0x7f0910ee);
             this.mRootView.addView(view2, 0, new ViewGroup.LayoutParams(-1, statusBarHeight));
             return view2;
         }

@@ -5,16 +5,16 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tieba.ehb;
-import com.baidu.tieba.fhb;
-import com.baidu.tieba.hhb;
-import com.baidu.tieba.jhb;
-import com.baidu.tieba.khb;
-import com.baidu.tieba.nhb;
-import com.baidu.tieba.phb;
-import com.baidu.tieba.qhb;
-import com.baidu.tieba.rhb;
-import com.baidu.tieba.xhb;
+import com.baidu.tieba.amb;
+import com.baidu.tieba.bmb;
+import com.baidu.tieba.emb;
+import com.baidu.tieba.gmb;
+import com.baidu.tieba.hmb;
+import com.baidu.tieba.imb;
+import com.baidu.tieba.omb;
+import com.baidu.tieba.vlb;
+import com.baidu.tieba.wlb;
+import com.baidu.tieba.ylb;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import com.yy.gslbsdk.db.DelayTB;
 import com.yy.transvod.player.common.AlphaChannelData;
@@ -28,23 +28,23 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000\u0092\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\n\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u001e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0012\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0000\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u00042\u00020\u00052\u00020\u00062\u00020\u00072\u00020\b2\u00020\tB\u0019\u0012\u0006\u0010\n\u001a\u00020\u000b\u0012\n\b\u0002\u0010\f\u001a\u0004\u0018\u00010\r¢\u0006\u0002\u0010\u000eJ\u0010\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\u0015H\u0002J.\u0010\"\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u001a\u0010%\u001a\u0016\u0012\u0004\u0012\u00020'\u0018\u00010&j\n\u0012\u0004\u0012\u00020'\u0018\u0001`(H\u0016J\"\u0010)\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010*\u001a\u00020+2\u0006\u0010,\u001a\u00020\u0010H\u0016J\u001a\u0010-\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010.\u001a\u00020\u0015H\u0016J\u001c\u0010/\u001a\u00020 2\b\u00100\u001a\u0004\u0018\u00010$2\b\u0010%\u001a\u0004\u0018\u000101H\u0016J\"\u00102\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u00103\u001a\u00020\u00102\u0006\u00104\u001a\u00020\u0010H\u0016J\"\u00105\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u00106\u001a\u00020\u00102\u0006\u00107\u001a\u00020\u0010H\u0016J\u001a\u00108\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u00109\u001a\u00020\u0010H\u0016J,\u0010:\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\b\u0010;\u001a\u0004\u0018\u0001012\u0006\u0010<\u001a\u00020\u00102\u0006\u0010=\u001a\u00020\u0010H\u0016J*\u0010>\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u00106\u001a\u00020\u00102\u0006\u00107\u001a\u00020\u00102\u0006\u0010?\u001a\u00020\u0010H\u0016J\"\u0010@\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010<\u001a\u00020\u00102\u0006\u0010=\u001a\u00020\u0015H\u0016J\u0012\u0010A\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$H\u0016J\u0012\u0010B\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$H\u0016J\u001a\u0010C\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010D\u001a\u00020\u0010H\u0016J\u001a\u0010E\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010F\u001a\u00020\u0010H\u0016J\"\u0010G\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010H\u001a\u00020\u00102\u0006\u0010I\u001a\u00020\u0010H\u0016J$\u0010J\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010%\u001a\u00020\u00102\b\u0010K\u001a\u0004\u0018\u000101H\u0016J\"\u0010L\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u00106\u001a\u00020\u00102\u0006\u00107\u001a\u00020\u0010H\u0016J\"\u0010M\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010N\u001a\u00020+2\u0006\u0010,\u001a\u00020\u0010H\u0016J6\u0010O\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010%\u001a\u00020\u00102\u001a\u0010K\u001a\u0016\u0012\u0004\u0012\u00020P\u0018\u00010&j\n\u0012\u0004\u0012\u00020P\u0018\u0001`(H\u0016J.\u0010Q\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u001a\u0010%\u001a\u0016\u0012\u0004\u0012\u00020\u0015\u0018\u00010&j\n\u0012\u0004\u0012\u00020\u0015\u0018\u0001`(H\u0016J$\u0010R\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\b\u0010%\u001a\u0004\u0018\u00010S2\u0006\u0010K\u001a\u00020\u0010H\u0016J6\u0010T\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010%\u001a\u00020\u00102\u001a\u0010K\u001a\u0016\u0012\u0004\u0012\u00020U\u0018\u00010&j\n\u0012\u0004\u0012\u00020U\u0018\u0001`(H\u0016J6\u0010V\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\u0006\u0010%\u001a\u00020\u00102\u001a\u0010K\u001a\u0016\u0012\u0004\u0012\u00020W\u0018\u00010&j\n\u0012\u0004\u0012\u00020W\u0018\u0001`(H\u0016J$\u0010X\u001a\u00020 2\b\u0010#\u001a\u0004\u0018\u00010$2\b\u0010Y\u001a\u0004\u0018\u00010S2\u0006\u0010,\u001a\u00020\u0010H\u0016R\u001e\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u000f\u001a\u00020\u0010@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\n\u001a\u00020\u000bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\u001c\u0010\f\u001a\u0004\u0018\u00010\rX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR\u000e\u0010\u001e\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006Z"}, d2 = {"Lcom/baidu/searchbox/player/kernel/YYKernelInfoConverter;", "Lcom/yy/transvod/player/OnPlayerPlayCompletionListener;", "Lcom/yy/transvod/player/OnPlayerInfoListener;", "Lcom/yy/transvod/player/OnPlayerStateUpdateListener;", "Lcom/yy/transvod/player/OnPlayerFirstVideoFrameShowListener;", "Lcom/yy/transvod/player/OnPlayerErrorListener;", "Lcom/yy/transvod/player/OnPlayerStatisticsListener;", "Lcom/yy/transvod/player/OnPlayerAVExtraInfoListener;", "Lcom/yy/transvod/player/OnPlayerQualityMonitorListener;", "Lcom/yy/transvod/player/OnPlayerCachePositionUpdateListener;", "kernel", "Lcom/baidu/searchbox/player/kernel/AbsVideoKernel;", "kernelCallback", "Lcom/baidu/searchbox/player/kernel/IKernelPlayer;", "(Lcom/baidu/searchbox/player/kernel/AbsVideoKernel;Lcom/baidu/searchbox/player/kernel/IKernelPlayer;)V", "<set-?>", "", "bufferingPosition", "getBufferingPosition", "()I", "downloadSpeed", "", "getKernel", "()Lcom/baidu/searchbox/player/kernel/AbsVideoKernel;", "setKernel", "(Lcom/baidu/searchbox/player/kernel/AbsVideoKernel;)V", "getKernelCallback", "()Lcom/baidu/searchbox/player/kernel/IKernelPlayer;", "setKernelCallback", "(Lcom/baidu/searchbox/player/kernel/IKernelPlayer;)V", "videoDecodeSpeed", "onCarltonInfo", "", "carltonLength", "onDSEMixAudioExtraInfoV1", DI.LIVE_PLAYER, "Lcom/yy/transvod/player/VodPlayer;", ZeusPerformanceTiming.KEY_BROWSER_STARTUP, "Ljava/util/ArrayList;", "Lcom/yy/transvod/player/common/MixAudioExtraInfo;", "Lkotlin/collections/ArrayList;", "onPlayerAudioStalls", "audioStalls", "", "type", "onPlayerCachePositionUpdate", CriusAttrConstants.POSITION, "onPlayerCacheWriteToDiskCompleted", "p0", "", "onPlayerDecodeBitrate", "videoBitrate", "audioBitrate", "onPlayerDecodeOuputSize", "width", "height", "onPlayerDecodeType", "decodType", "onPlayerError", "url", "what", "extra", "onPlayerFirstVideoFrameShow", "costMs", "onPlayerInfo", "onPlayerPlayCompletion", "onPlayerPlayCompletionOneLoop", "onPlayerReceiveToRenderDelay", DelayTB.DELAY, "onPlayerRenderFramerate", "framerate", "onPlayerStateUpdate", GameAssistConstKt.KEY_DISK_NEW_STATE, "reason", "onPlayerStatistics", "p2", "onPlayerVideoSizeUpdate", "onPlayerVideoStalls", "videoStalls", "onSEIAlphaChannelInfo", "Lcom/yy/transvod/player/common/AlphaChannelData;", "onSEIAudioExtraInfoV0", "onSEIAudioOriginalData", "", "onSEIMixVideoExtraInfo", "Lcom/yy/transvod/player/common/MixVideoExtraInfo;", "onSEIVideoExtraInfo", "Lcom/yy/transvod/player/common/VideoExtraInfo;", "onSEIVideoOriginalData", "sei", "yykernel-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb, ehb, phb, fhb {
+public final class YYKernelInfoConverter implements emb, bmb, hmb, amb, ylb, imb, vlb, gmb, wlb {
     public int bufferingPosition;
     public long downloadSpeed;
     public AbsVideoKernel kernel;
     public IKernelPlayer kernelCallback;
     public int videoDecodeSpeed;
 
-    @Override // com.baidu.tieba.fhb
-    public void onPlayerCacheWriteToDiskCompleted(xhb xhbVar, String str) {
+    @Override // com.baidu.tieba.wlb
+    public void onPlayerCacheWriteToDiskCompleted(omb ombVar, String str) {
     }
 
-    @Override // com.baidu.tieba.ehb
-    public void onSEIAlphaChannelInfo(xhb xhbVar, int i, ArrayList<AlphaChannelData> arrayList) {
+    @Override // com.baidu.tieba.vlb
+    public void onSEIAlphaChannelInfo(omb ombVar, int i, ArrayList<AlphaChannelData> arrayList) {
     }
 
-    @Override // com.baidu.tieba.ehb
-    public void onSEIMixVideoExtraInfo(xhb xhbVar, int i, ArrayList<MixVideoExtraInfo> arrayList) {
+    @Override // com.baidu.tieba.vlb
+    public void onSEIMixVideoExtraInfo(omb ombVar, int i, ArrayList<MixVideoExtraInfo> arrayList) {
     }
 
     public YYKernelInfoConverter(AbsVideoKernel kernel, IKernelPlayer iKernelPlayer) {
@@ -53,28 +53,28 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         this.kernelCallback = iKernelPlayer;
     }
 
-    @Override // com.baidu.tieba.ehb
-    public void onDSEMixAudioExtraInfoV1(xhb xhbVar, ArrayList<MixAudioExtraInfo> arrayList) {
+    @Override // com.baidu.tieba.vlb
+    public void onDSEMixAudioExtraInfoV1(omb ombVar, ArrayList<MixAudioExtraInfo> arrayList) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onDSEMixAudioExtraInfoV1");
     }
 
-    @Override // com.baidu.tieba.phb
-    public void onPlayerDecodeType(xhb xhbVar, int i) {
+    @Override // com.baidu.tieba.gmb
+    public void onPlayerDecodeType(omb ombVar, int i) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerDecodeType decodeType = " + i);
     }
 
-    @Override // com.baidu.tieba.phb
-    public void onPlayerReceiveToRenderDelay(xhb xhbVar, int i) {
+    @Override // com.baidu.tieba.gmb
+    public void onPlayerReceiveToRenderDelay(omb ombVar, int i) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerReceiveToRenderDelay delay = " + i);
     }
 
-    @Override // com.baidu.tieba.phb
-    public void onPlayerRenderFramerate(xhb xhbVar, int i) {
+    @Override // com.baidu.tieba.gmb
+    public void onPlayerRenderFramerate(omb ombVar, int i) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerRenderFramerate framerate = " + i);
     }
 
-    @Override // com.baidu.tieba.ehb
-    public void onSEIAudioExtraInfoV0(xhb xhbVar, ArrayList<Long> arrayList) {
+    @Override // com.baidu.tieba.vlb
+    public void onSEIAudioExtraInfoV0(omb ombVar, ArrayList<Long> arrayList) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onSEIAudioExtraInfoV0");
     }
 
@@ -82,8 +82,8 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         this(absVideoKernel, (i & 2) != 0 ? null : iKernelPlayer);
     }
 
-    @Override // com.baidu.tieba.hhb
-    public void onPlayerError(xhb xhbVar, String str, int i, int i2) {
+    @Override // com.baidu.tieba.ylb
+    public void onPlayerError(omb ombVar, String str, int i, int i2) {
         IKernelPlayer iKernelPlayer = this.kernelCallback;
         if (iKernelPlayer != null) {
             iKernelPlayer.onError(i, i2, str);
@@ -91,8 +91,8 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerError：url = " + str + "; what = " + i + "; extra = " + i2);
     }
 
-    @Override // com.baidu.tieba.jhb
-    public void onPlayerFirstVideoFrameShow(xhb xhbVar, int i, int i2, int i3) {
+    @Override // com.baidu.tieba.amb
+    public void onPlayerFirstVideoFrameShow(omb ombVar, int i, int i2, int i3) {
         IKernelPlayer iKernelPlayer = this.kernelCallback;
         if (iKernelPlayer != null) {
             iKernelPlayer.onVideoSizeChanged(i, i2, 0, 0);
@@ -133,19 +133,19 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         return this.kernelCallback;
     }
 
-    @Override // com.baidu.tieba.phb
-    public void onPlayerAudioStalls(xhb xhbVar, boolean z, int i) {
+    @Override // com.baidu.tieba.gmb
+    public void onPlayerAudioStalls(omb ombVar, boolean z, int i) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerAudioStalls audioStalls = " + z + "; type = " + i);
     }
 
-    @Override // com.baidu.tieba.phb
-    public void onPlayerDecodeBitrate(xhb xhbVar, int i, int i2) {
+    @Override // com.baidu.tieba.gmb
+    public void onPlayerDecodeBitrate(omb ombVar, int i, int i2) {
         this.videoDecodeSpeed = i;
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerDecodeBitrate videoBitrate =" + i);
     }
 
-    @Override // com.baidu.tieba.phb
-    public void onPlayerDecodeOuputSize(xhb xhbVar, int i, int i2) {
+    @Override // com.baidu.tieba.gmb
+    public void onPlayerDecodeOuputSize(omb ombVar, int i, int i2) {
         IKernelPlayer iKernelPlayer = this.kernelCallback;
         if (iKernelPlayer != null) {
             iKernelPlayer.onVideoSizeChanged(i, i2, 0, 0);
@@ -153,31 +153,31 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerDecodeOuputSize width = " + i + "; height = " + i2);
     }
 
-    @Override // com.baidu.tieba.rhb
-    public void onPlayerStatistics(xhb xhbVar, int i, String str) {
+    @Override // com.baidu.tieba.imb
+    public void onPlayerStatistics(omb ombVar, int i, String str) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerStatistics p1 = " + i + "; p2 = " + str);
     }
 
-    @Override // com.baidu.tieba.khb
-    public void onPlayerVideoSizeUpdate(xhb xhbVar, int i, int i2) {
+    @Override // com.baidu.tieba.bmb
+    public void onPlayerVideoSizeUpdate(omb ombVar, int i, int i2) {
         IKernelPlayer iKernelPlayer = this.kernelCallback;
         if (iKernelPlayer != null) {
             iKernelPlayer.onVideoSizeChanged(i, i2, 0, 0);
         }
     }
 
-    @Override // com.baidu.tieba.ehb
-    public void onSEIAudioOriginalData(xhb xhbVar, byte[] bArr, int i) {
+    @Override // com.baidu.tieba.vlb
+    public void onSEIAudioOriginalData(omb ombVar, byte[] bArr, int i) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onSEIAudioOriginalData");
     }
 
-    @Override // com.baidu.tieba.ehb
-    public void onSEIVideoExtraInfo(xhb xhbVar, int i, ArrayList<VideoExtraInfo> arrayList) {
+    @Override // com.baidu.tieba.vlb
+    public void onSEIVideoExtraInfo(omb ombVar, int i, ArrayList<VideoExtraInfo> arrayList) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onSEIVideoExtraInfo");
     }
 
-    @Override // com.baidu.tieba.ehb
-    public void onSEIVideoOriginalData(xhb xhbVar, byte[] bArr, int i) {
+    @Override // com.baidu.tieba.vlb
+    public void onSEIVideoOriginalData(omb ombVar, byte[] bArr, int i) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onSEIVideoOriginalData");
         IKernelPlayer iKernelPlayer = this.kernelCallback;
         if (iKernelPlayer != null) {
@@ -185,11 +185,11 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         }
     }
 
-    @Override // com.baidu.tieba.fhb
-    public void onPlayerCachePositionUpdate(xhb xhbVar, long j) {
+    @Override // com.baidu.tieba.wlb
+    public void onPlayerCachePositionUpdate(omb ombVar, long j) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerCachePositionUpdate position = " + j);
-        if (xhbVar != null) {
-            long e = xhbVar.e();
+        if (ombVar != null) {
+            long e = ombVar.e();
             if (e <= 0) {
                 return;
             }
@@ -202,8 +202,8 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         }
     }
 
-    @Override // com.baidu.tieba.khb
-    public void onPlayerInfo(xhb xhbVar, int i, long j) {
+    @Override // com.baidu.tieba.bmb
+    public void onPlayerInfo(omb ombVar, int i, long j) {
         if (i != 0) {
             if (i != 1) {
                 if (i != 2) {
@@ -232,8 +232,8 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "downloadSpeed = " + j);
     }
 
-    @Override // com.baidu.tieba.qhb
-    public void onPlayerStateUpdate(xhb xhbVar, int i, int i2) {
+    @Override // com.baidu.tieba.hmb
+    public void onPlayerStateUpdate(omb ombVar, int i, int i2) {
         if (i != 0) {
             if (i != 1) {
                 switch (i) {
@@ -283,16 +283,16 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerStateUpdate state = unknow");
     }
 
-    @Override // com.baidu.tieba.nhb
-    public void onPlayerPlayCompletion(xhb xhbVar) {
+    @Override // com.baidu.tieba.emb
+    public void onPlayerPlayCompletion(omb ombVar) {
         IKernelPlayer iKernelPlayer = this.kernelCallback;
         if (iKernelPlayer != null) {
             iKernelPlayer.onCompletion();
         }
     }
 
-    @Override // com.baidu.tieba.nhb
-    public void onPlayerPlayCompletionOneLoop(xhb xhbVar) {
+    @Override // com.baidu.tieba.emb
+    public void onPlayerPlayCompletionOneLoop(omb ombVar) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerPlayCompletionOneLoop");
         IKernelPlayer iKernelPlayer = this.kernelCallback;
         if (iKernelPlayer != null) {
@@ -309,8 +309,8 @@ public final class YYKernelInfoConverter implements nhb, khb, qhb, jhb, hhb, rhb
         this.kernelCallback = iKernelPlayer;
     }
 
-    @Override // com.baidu.tieba.phb
-    public void onPlayerVideoStalls(xhb xhbVar, boolean z, int i) {
+    @Override // com.baidu.tieba.gmb
+    public void onPlayerVideoStalls(omb ombVar, boolean z, int i) {
         BdVideoLog.d(YYKernelInfoConverterKt.TAG, "onPlayerVideoStalls videoStalls = " + z + "; type = " + i);
         if (z) {
             IKernelPlayer iKernelPlayer = this.kernelCallback;

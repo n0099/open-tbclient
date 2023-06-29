@@ -32,9 +32,7 @@ public class is3 extends ProviderDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             Bundle bundle2 = new Bundle();
-            at3 A = as3.A(getAgent().getContext());
-            bundle2.putString("NICK_NAME", A.a);
-            bundle2.putString("AVATAR_URL", A.b);
+            bundle2.putString("result", ds3.q(getAgent().getContext()));
             return bundle2;
         }
         return (Bundle) invokeL.objValue;

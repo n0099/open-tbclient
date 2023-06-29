@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.abtest.AbTestManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class d30 {
+public class d30 {
     public static /* synthetic */ Interceptable $ic;
+    public static d30 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a(String str);
-
-    public abstract void b(String str, String str2);
+    public t8 a;
 
     public d30() {
         Interceptable interceptable = $ic;
@@ -23,7 +25,32 @@ public abstract class d30 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = t8.n(AppRuntime.getAppContext());
+    }
+
+    public static d30 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (AbTestManager.class) {
+                    if (b == null) {
+                        b = new d30();
+                    }
+                }
+            }
+            return b;
+        }
+        return (d30) invokeV.objValue;
+    }
+
+    public void b(List<b9> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) {
+            this.a.G(list, z);
         }
     }
 }

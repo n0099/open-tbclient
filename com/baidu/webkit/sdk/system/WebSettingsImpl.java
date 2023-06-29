@@ -9,7 +9,7 @@ import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class WebSettingsImpl extends WebSettings {
     public boolean mEnableFileSchemaOnPrivate = true;
     public android.webkit.WebSettings mSettings;

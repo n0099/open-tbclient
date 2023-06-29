@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.gif.NSGif;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.taskmanager.IdleTaskRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ac {
+public class ac implements xb {
     public static /* synthetic */ Interceptable $ic;
-    public static ac d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final IdleTaskRegister a;
-    public boolean b;
-    public boolean c;
 
     public ac() {
         Interceptable interceptable = $ic;
@@ -26,60 +22,35 @@ public class ac {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new IdleTaskRegister();
-        this.b = false;
-        this.c = false;
     }
 
-    public static ac b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xb
+    public in a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                d = new ac();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            NSGif f = NSGif.f(bArr, i, i2);
+            if (f == null) {
+                return null;
             }
-            return d;
+            return new in(f);
         }
-        return (ac) invokeV.objValue;
+        return (in) invokeLII.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xb
+    public in get(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
-            this.a.scheduleIdleTask(true);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            this.c = true;
-            this.a.scheduleIdleTask(false);
-        }
-    }
-
-    public void a(String str, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
-            if (!this.b) {
-                this.a.registerIdleTask(str, runnable);
-            } else {
-                runnable.run();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            NSGif e = NSGif.e(str);
+            if (e == null) {
+                return null;
             }
+            return new in(e);
         }
+        return (in) invokeL.objValue;
     }
 }

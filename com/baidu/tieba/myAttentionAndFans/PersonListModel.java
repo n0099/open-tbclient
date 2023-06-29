@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k9;
+import com.baidu.tieba.l9;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseFollowListSwitchMsg;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseLocalPersonListMessage;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseNetPersonListMessage;
-import com.baidu.tieba.re5;
-import com.baidu.tieba.s35;
+import com.baidu.tieba.v35;
+import com.baidu.tieba.ve5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public d d;
     public int e;
     public PersonListActivity f;
-    public re5 g;
+    public ve5 g;
     public int h;
     public HttpMessageListener httpListener;
     public int i;
@@ -61,7 +61,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     /* loaded from: classes6.dex */
     public interface d {
-        s35 a(s35 s35Var, boolean z);
+        v35 a(v35 v35Var, boolean z);
 
         void b(String str, boolean z);
     }
@@ -173,7 +173,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode == 200 && error == 0) {
-                s35 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
+                v35 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
                     if (!StringUtils.isNull(data.g)) {
                         this.a.j = data.g;
@@ -187,7 +187,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 }
             } else if (this.a.d != null) {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0df3);
+                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0e0f);
                 } else {
                     errorString = httpResponsedMessage.getErrorString();
                 }
@@ -230,7 +230,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                 return;
             }
-            s35 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+            v35 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
             if (data2 != null) {
                 if (!StringUtils.isNull(data2.g)) {
                     this.a.j = data2.g;
@@ -372,7 +372,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -385,9 +385,9 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
         this.f = personListActivity;
-        re5 re5Var = new re5(personListActivity.getPageContext());
-        this.g = re5Var;
-        re5Var.g(this.mLoadDataCallBack);
+        ve5 ve5Var = new ve5(personListActivity.getPageContext());
+        this.g = ve5Var;
+        ve5Var.g(this.mLoadDataCallBack);
         this.a = true;
         this.b = null;
         this.d = dVar;

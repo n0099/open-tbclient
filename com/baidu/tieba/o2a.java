@@ -1,222 +1,173 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.PriorityQueue;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class o2a {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static MainTabScheduleStrategy b;
-    public static boolean c;
-    public static final PriorityQueue<u2a> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<BdUniqueId, ArrayList<StatisticItem>> a;
+    public String[] b;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                o2a.d();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                o2a.d();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u2a a;
-
-        public c(u2a u2aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u2aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u2aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981739, "Lcom/baidu/tieba/o2a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947981739, "Lcom/baidu/tieba/o2a;");
+    public o2a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = MainTabScheduleStrategy.FLUSHING;
-        c = false;
-        d = new PriorityQueue<>();
+        this.b = new String[]{TiebaStatic.Params.OBJ_FLOOR, TiebaStatic.Params.OBJ_ISAD, "obj_id", "tid", "pid", "thread_type", "fid", TiebaStatic.Params.POST_TYPE, TiebaStatic.Params.IS_OFFICIAL, TiebaStatic.Params.OBJ_AD_LOCATE, TiebaStatic.Params.RECOM_WEIGHT, "recom_source", TiebaStatic.Params.RECOM_AB_TAG, TiebaStatic.Params.RECOM_EXTRA, TiebaStatic.Params.RECOM_TYPE, TiebaStatic.Params.UGC_VID, TiebaStatic.Params.UGC_NID, TiebaStatic.Params.UGC_TYPE, "obj_locate", TiebaStatic.Params.LIST_ORDER, TiebaStatic.Params.IS_SPECIAL_THREAD, TiebaStatic.Params.OBJ_PARAM3};
+        if (this.a == null) {
+            this.a = new LinkedHashMap();
+        }
     }
 
-    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
+    public void a(BdUniqueId bdUniqueId, StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
-            m2a.a("MainTabScheduler changeScheduleStrategy:" + mainTabScheduleStrategy);
-            b = mainTabScheduleStrategy;
-            if (mainTabScheduleStrategy != MainTabScheduleStrategy.UNSCHEDULE && !c) {
-                g(true);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bdUniqueId, statisticItem) == null) && statisticItem != null && bdUniqueId != null) {
+            ArrayList<StatisticItem> arrayList = this.a.get(bdUniqueId);
+            if (arrayList == null) {
+                arrayList = new ArrayList<>();
+                this.a.put(bdUniqueId, arrayList);
             }
+            arrayList.add(statisticItem);
         }
     }
 
-    public static void c(u2a u2aVar) {
+    public void d(BdUniqueId bdUniqueId, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, u2aVar) == null) {
-            m2a.a("MainTabScheduler execStep onStep:" + u2aVar.a);
-            System.nanoTime();
-            u2aVar.b();
-            xg.a().postAtFrontOfQueue(new c(u2aVar));
-        }
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || c) {
+        if ((interceptable != null && interceptable.invokeLZ(1048579, this, bdUniqueId, z) != null) || bdUniqueId == null) {
             return;
         }
-        c = true;
-        if (z) {
-            xg.a().postAtFrontOfQueue(new a());
-        } else {
-            xg.a().post(new b());
+        ArrayList<StatisticItem> arrayList = this.a.get(bdUniqueId);
+        if (ListUtils.getCount(arrayList) == 0) {
+            return;
         }
+        e(arrayList);
+        arrayList.clear();
     }
 
-    public static void d() {
+    public final String b(List<Object> list, String str) {
+        InterceptResult invokeLL;
+        int indexOf;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            c = false;
-            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str)) == null) {
+            if (ListUtils.getCount(list) == 0 || StringUtils.isNull(str) || (indexOf = list.indexOf(str)) < 0 || list.size() <= (i = indexOf + 1)) {
+                return "";
             }
-            if (b == MainTabScheduleStrategy.FLUSHING) {
-                e();
-                return;
+            String valueOf = String.valueOf(list.get(i));
+            if (StringUtils.isNull(valueOf, true)) {
+                return "";
             }
-            if (d.peek() != null && a >= d.peek().a) {
-                u2a poll = d.poll();
-                if (poll == null) {
-                    return;
+            return valueOf;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public boolean c(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
+            return this.a.containsKey(bdUniqueId);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
+        }
+        this.a.put(bdUniqueId, null);
+    }
+
+    public void h(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
+        }
+        this.a.remove(bdUniqueId);
+    }
+
+    public final void e(ArrayList<StatisticItem> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && ListUtils.getCount(arrayList) != 0) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (ListUtils.getCount(arrayList) == 1) {
+                TiebaStatic.log((StatisticItem) ListUtils.getItem(arrayList, 0));
+            } else {
+                HashMap hashMap = new HashMap();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    StatisticItem statisticItem = arrayList.get(i);
+                    if (hashMap.containsKey(statisticItem.getKey())) {
+                        ((List) hashMap.get(statisticItem.getKey())).add(statisticItem);
+                    } else {
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.add(statisticItem);
+                        hashMap.put(statisticItem.getKey(), arrayList2);
+                    }
                 }
-                c(poll);
-            }
-            if (b == MainTabScheduleStrategy.SCHEDULE) {
-                g(false);
-            }
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            while (!d.isEmpty()) {
-                u2a poll = d.poll();
-                if (poll != null) {
-                    m2a.a("MainTabScheduler flushAllSteps onStep:" + poll.a);
-                    poll.b();
-                    poll.c();
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    List list = (List) entry.getValue();
+                    if (ListUtils.getCount(list) != 0) {
+                        StatisticItem statisticItem2 = (StatisticItem) list.get(0);
+                        for (int i2 = 0; i2 < this.b.length; i2++) {
+                            StringBuilder sb = new StringBuilder();
+                            for (int i3 = 0; i3 < list.size(); i3++) {
+                                sb.append(b(((StatisticItem) list.get(i3)).getParams(), this.b[i2]));
+                                sb.append("|");
+                            }
+                            if (sb.length() > 0) {
+                                sb.deleteCharAt(sb.length() - 1);
+                            }
+                            statisticItem2.delete(this.b[i2]);
+                            statisticItem2.param(this.b[i2] + "s", sb.toString());
+                        }
+                        TiebaStatic.log(statisticItem2);
+                    }
+                }
+                if (!hashMap.isEmpty()) {
+                    hashMap.clear();
                 }
             }
+            if (BdLog.isDebugMode()) {
+                BdLog.e("logStatisticByKey->" + (System.currentTimeMillis() - currentTimeMillis) + "|size=" + arrayList.size());
+            }
         }
     }
 
-    public static void f(u2a u2aVar) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, u2aVar) != null) || u2aVar == null) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.a.size() == 0) {
             return;
         }
-        if (b == MainTabScheduleStrategy.FLUSHING) {
-            if (!(u2aVar instanceof v2a)) {
-                m2a.a("MainTabScheduler registerNextStep onStep:" + u2aVar.a);
-                u2aVar.d();
-                u2aVar.b();
+        for (Map.Entry<BdUniqueId, ArrayList<StatisticItem>> entry : this.a.entrySet()) {
+            ArrayList<StatisticItem> value = entry.getValue();
+            if (value != null) {
+                value.clear();
             }
-            u2aVar.c();
-            return;
-        }
-        u2aVar.d();
-        m2a.a("MainTabScheduler registerNextStep:" + u2aVar.a);
-        d.add(u2aVar);
-        if (b != MainTabScheduleStrategy.UNSCHEDULE && !c) {
-            g(false);
         }
     }
 }

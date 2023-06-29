@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk.performance;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PagePerformanceTimingData {
     public long mBrandAdCardPaint;
     public long mBrandAdLastImagePaint;

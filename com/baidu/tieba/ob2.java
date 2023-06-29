@@ -1,33 +1,62 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.tieba.lb2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ob2 implements pb2 {
+public class ob2 extends ib2 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout G0;
+    public RelativeLayout H0;
 
-    @Override // com.baidu.tieba.pb2
-    public void a() {
+    @Override // com.baidu.tieba.ib2
+    public boolean H() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pb2
-    public void b() {
+    @Override // com.baidu.tieba.ib2
+    public boolean e2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pb2
-    public void c() {
+    @Override // com.baidu.tieba.ib2
+    public boolean g2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ib2
+    public void l2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
@@ -43,5 +72,89 @@ public class ob2 implements pb2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static ob2 X2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new ob2();
+        }
+        return (ob2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ib2
+    public void W1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            X1(view2);
+            v2(-1);
+            E2(-16777216);
+            x2(K(R.string.obfuscated_res_0x7f0f1497));
+            z2(true);
+            L2(false);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091727) {
+                jv2.t0().a();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090304) {
+                Y2();
+            }
+        }
+    }
+
+    public final void W2(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091727);
+            this.G0 = relativeLayout;
+            relativeLayout.setOnClickListener(this);
+            if (jv2.y0().d() || !wp3.G()) {
+                this.G0.setVisibility(8);
+            }
+            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090304);
+            this.H0 = relativeLayout2;
+            relativeLayout2.setOnClickListener(this);
+        }
+    }
+
+    public final void Y2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (ib2.F0) {
+                Log.d("SwanAppBaseFragment", "startSettingFragment");
+            }
+            lb2 O1 = O1();
+            if (O1 == null) {
+                ub3.f(getContext(), R.string.obfuscated_res_0x7f0f01d2).G();
+                return;
+            }
+            lb2.b i = O1.i("navigateTo");
+            i.n(lb2.g, lb2.i);
+            i.k("authority", null).a();
+            s13.o(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    @Nullable
+    public View y0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08f5, viewGroup, false);
+            W1(inflate);
+            W2(inflate);
+            if (V1()) {
+                inflate = Y1(inflate);
+            }
+            return F1(inflate, this);
+        }
+        return (View) invokeLLL.objValue;
     }
 }

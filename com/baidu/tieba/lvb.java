@@ -1,75 +1,118 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 /* loaded from: classes6.dex */
-public class lvb implements dyb {
+public final class lvb {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public Activity c;
-    public txb d;
-    public AbsViewEventHandler e;
-    public kub f;
 
-    public lvb(int i, int i2, Activity activity, txb txbVar, AbsViewEventHandler absViewEventHandler, kub kubVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, txbVar, absViewEventHandler, kubVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements PrivilegedAction<ClassLoader> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.security.PrivilegedAction
+        /* renamed from: a */
+        public ClassLoader run() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return ClassLoader.getSystemClassLoader();
+            }
+            return (ClassLoader) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        boolean z;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957745, "Lcom/baidu/tieba/lvb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947957745, "Lcom/baidu/tieba/lvb;");
                 return;
             }
         }
-        RLog.info("PayWayDialogListener", "create PayWayDialogListener appId:" + i + " userChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = activity;
-        this.d = txbVar;
-        this.e = absViewEventHandler;
-        this.f = kubVar;
+        int d = d();
+        a = d;
+        if (d != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        b = z;
     }
 
-    @Override // com.baidu.tieba.dyb
-    public void a(CancelType cancelType) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayWayDialogListener", "PayWayDialog notifyCancelType clickArea:" + cancelType);
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                this.d.a();
-            }
-            this.f.g(cancelType, this.e);
-            pvb.b(this.a, this.b, cancelType);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.dyb
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
+    public static ClassLoader b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK && this.d.d()) {
-                RLog.info("PayWayDialogListener", "PayWayDialog interceptDialogClose  ShowSplitOrderView clickArea:" + cancelType);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (System.getSecurityManager() == null) {
+                return ClassLoader.getSystemClassLoader();
             }
-            return this.f.s(this.c, this.d, this.e);
+            return (ClassLoader) AccessController.doPrivileged(new a());
         }
-        return invokeLL.booleanValue;
+        return (ClassLoader) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                return ((Integer) Class.forName("android.os.Build$VERSION", true, b()).getField("SDK_INT").get(null)).intValue();
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeV.intValue;
     }
 }

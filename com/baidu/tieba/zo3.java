@@ -1,23 +1,109 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.net.Uri;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.io.JSONUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableBitmap;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 /* loaded from: classes8.dex */
-public final class zo3 {
+public class zo3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(String str, Bitmap bitmap);
+    }
+
+    /* loaded from: classes8.dex */
+    public static class a extends BaseBitmapDataSubscriber {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+
+        public a(b bVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+            this.b = str;
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
+        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                super.onCancellation(dataSource);
+                this.a.a(this.b, null);
+            }
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
+                this.a.a(this.b, null);
+            }
+        }
+
+        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
+        public void onNewResultImpl(Bitmap bitmap) {
+            Bitmap copy;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    try {
+                        if (bitmap.getConfig() == null) {
+                            copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                        } else {
+                            copy = bitmap.copy(bitmap.getConfig(), true);
+                        }
+                        this.a.a(this.b, copy);
+                        return;
+                    } catch (Exception e) {
+                        if (zo3.a) {
+                            Log.e("SwanAppFrescoImageUtils", e.getMessage());
+                        }
+                        this.a.a(this.b, null);
+                        return;
+                    }
+                }
+                this.a.a(this.b, null);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,114 +118,136 @@ public final class zo3 {
                 return;
             }
         }
-        a = js1.a;
+        a = ms1.a;
     }
 
-    public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
-        InterceptResult invokeLLL;
+    public static Bitmap b(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        InterceptResult invokeL;
+        CloseableReference<CloseableImage> closeableReference;
+        Throwable th;
+        Bitmap underlyingBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, cls)) == null) {
-            if (jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dataSource)) == null) {
+            if (dataSource == null) {
                 return null;
             }
-            T t = (T) jSONObject.opt(str);
-            if (cls.isInstance(t)) {
-                if (a) {
-                    String obj = t.toString();
-                    if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
-                        obj = obj.substring(0, 30) + "...";
-                    }
-                    if (a) {
-                        Log.d(JSONUtils.TAG, "json: " + str + "=" + obj);
+            try {
+                closeableReference = dataSource.getResult();
+                if (closeableReference != null) {
+                    try {
+                        CloseableImage closeableImage = closeableReference.get();
+                        if (closeableImage != null && (closeableImage instanceof CloseableBitmap) && (underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap()) != null && !underlyingBitmap.isRecycled()) {
+                            try {
+                                Bitmap createBitmap = Bitmap.createBitmap(underlyingBitmap);
+                                dataSource.close();
+                                CloseableReference.closeSafely(closeableReference);
+                                return createBitmap;
+                            } catch (OutOfMemoryError unused) {
+                                System.gc();
+                            }
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        dataSource.close();
+                        CloseableReference.closeSafely(closeableReference);
+                        throw th;
                     }
                 }
-                return t;
+                dataSource.close();
+                CloseableReference.closeSafely(closeableReference);
+                return null;
+            } catch (Throwable th3) {
+                closeableReference = null;
+                th = th3;
             }
-            if (a) {
-                if (t == null) {
-                    Log.w(JSONUtils.TAG, "Json has no value by name: '" + str + "'!");
-                } else {
-                    Log.w(JSONUtils.TAG, "Value of '" + str + "' is not a instance of '" + cls.getSimpleName() + "'!");
+        } else {
+            return (Bitmap) invokeL.objValue;
+        }
+    }
+
+    public static Bitmap c(Uri uri, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, context)) == null) {
+            if (uri != null && context != null) {
+                if (d(uri)) {
+                    if (a) {
+                        Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
+                    }
+                    return b(Fresco.getImagePipeline().fetchImageFromBitmapCache(ImageRequest.fromUri(uri), context.getApplicationContext()));
+                }
+                if (a) {
+                    Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
+                }
+                DataSource<Boolean> isInDiskCache = Fresco.getImagePipeline().isInDiskCache(uri);
+                if (isInDiskCache != null && isInDiskCache.hasResult() && isInDiskCache.getResult() != null && isInDiskCache.getResult().booleanValue()) {
+                    try {
+                        return b(Fresco.getImagePipeline().fetchDecodedImage(ImageRequest.fromUri(uri), context));
+                    } finally {
+                        isInDiskCache.close();
+                    }
                 }
             }
             return null;
         }
-        return (T) invokeLLL.objValue;
+        return (Bitmap) invokeLL.objValue;
     }
 
-    public static float b(JSONObject jSONObject, String str, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) {
-            if (jSONObject == null) {
-                return f;
-            }
-            return (float) jSONObject.optDouble(str, f);
-        }
-        return invokeCommon.floatValue;
-    }
-
-    public static JSONObject f(JSONObject jSONObject, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, str, obj)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            try {
-                jSONObject.put(str, obj);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static JSONArray c(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, str)) == null) {
-            return (JSONArray) a(jSONObject, str, JSONArray.class);
-        }
-        return (JSONArray) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject d(String str) {
+    public static boolean d(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            if (uri != null && Fresco.getImagePipeline().isInBitmapMemoryCache(uri)) {
+                return true;
             }
-            try {
-                return new JSONObject(str);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e);
-                }
-                return new JSONObject();
-            }
+            return false;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static JSONArray e(String str) {
-        InterceptResult invokeL;
+    public static void e(String str, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONArray();
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, bVar) == null) {
+            Uri C = wp3.C(str);
+            if (C == null) {
+                bVar.a(str, null);
+                return;
             }
+            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, str), UiThreadImmediateExecutorService.getInstance());
+        }
+    }
+
+    public static void f(Uri uri, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, uri, str) != null) || uri == null) {
+            return;
+        }
+        if (a) {
+            Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
+        }
+        Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequestBuilder.newBuilderWithSource(uri).build(), str);
+    }
+
+    public static Bitmap g(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bitmap, i, i2)) == null) {
+            if (bitmap == null || i <= 0 || i2 <= 0) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width == 0 || height == 0) {
+                return null;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
             try {
-                return new JSONArray(str);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e);
-                }
-                return new JSONArray();
+                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            } catch (Exception | OutOfMemoryError unused) {
+                return null;
             }
         }
-        return (JSONArray) invokeL.objValue;
+        return (Bitmap) invokeLII.objValue;
     }
 }

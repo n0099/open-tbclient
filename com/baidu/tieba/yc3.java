@@ -1,131 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+@Service
 /* loaded from: classes8.dex */
-public abstract class yc3 extends wd3 {
+public class yc3 extends zc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @NonNull
-    public abstract String j();
-
-    public abstract boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, zb3 zb3Var);
-
-    public abstract boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, zb3 zb3Var);
-
-    public abstract boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, zb3 zb3Var);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yc3(wc3 wc3Var, String str) {
-        super(wc3Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948325312, "Lcom/baidu/tieba/yc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948325312, "Lcom/baidu/tieba/yc3;");
                 return;
             }
         }
+        b = ms1.a;
     }
 
-    @Override // com.baidu.tieba.wd3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, zb3 zb3Var) {
-        InterceptResult invokeLLLLL;
-        boolean n;
+    public yc3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, zb3Var)) == null) {
-            String l = l("insert");
-            String l2 = l(StickerDataChangeType.UPDATE);
-            String l3 = l("remove");
-            if (TextUtils.equals(l, str)) {
-                n = m(context, unitedSchemeEntity, callbackHandler, str, zb3Var);
-            } else if (TextUtils.equals(l2, str)) {
-                n = p(context, unitedSchemeEntity, callbackHandler, str, zb3Var);
-            } else if (TextUtils.equals(l3, str)) {
-                n = o(context, unitedSchemeEntity, callbackHandler, str, zb3Var);
-            } else {
-                n = n(context, unitedSchemeEntity, callbackHandler, str, zb3Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            z82.b("AbsSwanAppWidget", "subAction = " + str + " ; handle result = " + n);
-            return n;
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public JSONObject k(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zc3
+    public void a() {
+        List<zd3> b2;
+        List<zd3> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                z82.c("AbsSwanAppWidget", "getParamsJSONObject entity is null");
-                return null;
-            }
-            String param = unitedSchemeEntity.getParam("params");
-            if (TextUtils.isEmpty(param)) {
-                z82.c("AbsSwanAppWidget", "getParamsJSONObject paramsJson is empty");
-                return null;
-            }
-            try {
-                return new JSONObject(param);
-            } catch (JSONException e) {
-                z82.c("AbsSwanAppWidget", "getParamsJSONObject exception = " + e.getMessage());
-                if (!wd3.b) {
-                    return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+            b(new sw2(this));
+            b(new p92(this));
+            b(new u92(this));
+            b(new i92(this));
+            b(new vd3(this));
+            b(new gd3(this));
+            b(new hf3(this));
+            b(new wm2(this));
+            b(new fn2(this));
+            b(new xm2(this));
+            b(new bn2(this));
+            b(new cn2(this));
+            b(new an2(this));
+            b(new gn2(this));
+            b(new zm2(this));
+            b(new en2(this));
+            b(new tr3(this));
+            b(new dn2(this));
+            b(new ym2(this));
+            ht1 d = kv2.d();
+            if (d != null && (a = d.a(this)) != null && !a.isEmpty()) {
+                for (zd3 zd3Var : a) {
+                    b(zd3Var);
                 }
-                e.printStackTrace();
-                return null;
+            }
+            if (b) {
+                b(new hn2(this));
+                b(new ad3(this));
+                if (d != null && (b2 = d.b(this)) != null && !b2.isEmpty()) {
+                    for (zd3 zd3Var2 : b2) {
+                        b(zd3Var2);
+                    }
+                }
             }
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return j() + "/" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean n(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, zb3 zb3Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, context, unitedSchemeEntity, callbackHandler, str, zb3Var)) == null) {
-            return super.i(context, unitedSchemeEntity, callbackHandler, str, zb3Var);
-        }
-        return invokeLLLLL.booleanValue;
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rx4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
                 TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 10).param("fid", this.a.e));
-                rx4.s(this.a.getContext(), (String) view2.getTag());
+                ux4.s(this.a.getContext(), (String) view2.getTag());
             }
         }
     }
@@ -154,7 +154,7 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01af, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905a8);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ab);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.a.setDefaultResource(17170445);
@@ -164,8 +164,8 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
             this.a.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a7);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a6);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905aa);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a9);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);

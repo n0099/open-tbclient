@@ -4,10 +4,10 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.tieba.q8b;
+import com.baidu.tieba.gdb;
 /* loaded from: classes9.dex */
 public class b extends Binder implements IInterface {
-    public static q8b a;
+    public static gdb a;
 
     public boolean a(int i, Parcel parcel) {
         return false;

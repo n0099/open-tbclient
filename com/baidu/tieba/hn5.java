@@ -1,22 +1,30 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class hn5 {
+public class hn5 extends xm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<fn5> a;
-    public Context b;
+    public ImageView a;
+    public EMTextView b;
+    public EMTextView c;
+    public TBSpecificationBtn d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hn5(Context context) {
+        super(LayoutInflater.from(context).inflate(R.layout.loaction_view_layout, (ViewGroup) null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,44 +34,65 @@ public class hn5 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = context;
+        a(context);
     }
 
-    public void a(fn5 fn5Var) {
+    public final void a(Context context) {
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, fn5Var) == null) && fn5Var != null && fn5Var.b() != null) {
-            Iterator<fn5> it = this.a.iterator();
-            while (it.hasNext()) {
-                fn5 next = it.next();
-                if (next != null && next.b() != null && next.b().e == fn5Var.b().e) {
-                    return;
-                }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && (view2 = this.attachedView) != null) {
+            this.a = (ImageView) view2.findViewById(R.id.location_view_emotion);
+            EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.location_view_title);
+            this.b = eMTextView;
+            eMTextView.setText(context.getResources().getString(R.string.location_view_title));
+            EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.location_view_desc);
+            this.c = eMTextView2;
+            eMTextView2.setText(context.getResources().getString(R.string.location_view_desc));
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.locatin_view_button);
+            this.d = tBSpecificationBtn;
+            tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0b11));
+            this.d.setTextSize(R.dimen.T_X05);
+            this.d.setConfig(new oa5());
+        }
+    }
+
+    public void b(View.OnClickListener onClickListener) {
+        TBSpecificationBtn tBSpecificationBtn;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && (tBSpecificationBtn = this.d) != null) {
+            tBSpecificationBtn.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            s75 d = s75.d(this.b);
+            d.C(R.dimen.T_X06);
+            d.x(R.color.CAM_X0107);
+            s75 d2 = s75.d(this.c);
+            d2.C(R.dimen.T_X09);
+            d2.x(R.color.CAM_X0108);
+            WebPManager.setMaskDrawable(this.a, R.drawable.new_pic_emotion_location, null);
+            TBSpecificationBtn tBSpecificationBtn = this.d;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
             }
-            this.a.add(fn5Var);
         }
     }
 
-    public ArrayList<fn5> b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xm5
+    public void onViewAttached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onViewAttached();
+            onChangeSkinType();
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
     }
 }

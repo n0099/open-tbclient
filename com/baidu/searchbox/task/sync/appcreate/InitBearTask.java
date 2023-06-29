@@ -7,10 +7,10 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.at7;
-import com.baidu.tieba.ps6;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.wv5;
+import com.baidu.tieba.bw5;
+import com.baidu.tieba.ft7;
+import com.baidu.tieba.us6;
+import com.baidu.tieba.xi;
 /* loaded from: classes4.dex */
 public class InitBearTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -32,16 +32,16 @@ public class InitBearTask extends LaunchTask {
         if (!TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
             return;
         }
-        boolean q = wv5.q();
+        boolean q = bw5.q();
         SpeedStatsManager.getInstance().setIsNeedBear(q);
-        SpeedStatsManager.getInstance().setIsNeedPlg(wv5.w());
+        SpeedStatsManager.getInstance().setIsNeedPlg(bw5.w());
         if (q) {
-            at7.m().u(new at7.k() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
-                @Override // com.baidu.tieba.at7.k
+            ft7.m().u(new ft7.k() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                @Override // com.baidu.tieba.ft7.k
                 public void initComplete() {
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        if (wi.E()) {
-                            ps6.a(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1.1
+                        if (xi.E()) {
+                            us6.a(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_PRELOAD_BEAR_START_STAMP_KEY);

@@ -308,7 +308,7 @@ public class LongSparseArray<E> implements Cloneable {
 
     public String toString() {
         if (size() <= 0) {
-            return StringUtil.EMPTY_ARRAY;
+            return "{}";
         }
         StringBuilder sb = new StringBuilder(this.mSize * 28);
         sb.append('{');

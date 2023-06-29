@@ -20,13 +20,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gy9;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.pg;
-import com.baidu.tieba.q9;
+import com.baidu.tieba.in;
+import com.baidu.tieba.l9;
 import com.baidu.tieba.qg;
-import com.baidu.tieba.wg;
+import com.baidu.tieba.r9;
+import com.baidu.tieba.rg;
+import com.baidu.tieba.s2a;
+import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,10 +55,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public int s;
     public boolean t;
     public HashMap<String, TbFragmentTabIndicator.a> u;
-    public final pg<hn> v;
+    public final qg<in> v;
 
     /* loaded from: classes4.dex */
-    public class a extends wg {
+    public class a extends xg {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -81,7 +81,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.a = fragmentTabIndicator;
         }
 
-        @Override // com.baidu.tieba.wg
+        @Override // com.baidu.tieba.xg
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, animation) != null) {
@@ -92,7 +92,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends pg<hn> {
+    public class b extends qg<in> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -116,15 +116,15 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pg
-        public void onLoaded(hn hnVar, String str, int i) {
+        @Override // com.baidu.tieba.qg
+        public void onLoaded(in inVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, hnVar, str, i) == null) {
-                super.onLoaded((b) hnVar, str, i);
-                if (this.a.p != null && hnVar != null && hnVar.w()) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, inVar, str, i) == null) {
+                super.onLoaded((b) inVar, str, i);
+                if (this.a.p != null && inVar != null && inVar.w()) {
                     this.a.p.setBackgroundResource(0);
                     this.a.p.setImageDrawable(null);
-                    hnVar.h(this.a.p);
+                    inVar.h(this.a.p);
                     return;
                 }
                 this.a.l();
@@ -255,7 +255,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             if (bdUniqueId != null) {
                 return bdUniqueId;
             }
-            k9<?> a2 = q9.a(getContext());
+            l9<?> a2 = r9.a(getContext());
             if (a2 != null) {
                 this.o = a2.getUniqueId();
             }
@@ -469,7 +469,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.i <= 0 && this.j <= 0) {
             if (!TextUtils.isEmpty(this.n)) {
-                qg.h().m(this.n, 10, this.v, getBdUniqueId());
+                rg.h().m(this.n, 10, this.v, getBdUniqueId());
             } else {
                 l();
             }
@@ -595,10 +595,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 ThemeColorInfo themeColorInfo = this.f;
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                        this.q.setTextColor(gy9.f(this.f.dark.font_color));
+                        this.q.setTextColor(s2a.f(this.f.dark.font_color));
                         return;
                     } else {
-                        this.q.setTextColor(gy9.f(this.f.day.font_color));
+                        this.q.setTextColor(s2a.f(this.f.day.font_color));
                         return;
                     }
                 }

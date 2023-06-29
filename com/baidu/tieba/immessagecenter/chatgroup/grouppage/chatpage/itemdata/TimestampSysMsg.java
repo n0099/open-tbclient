@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,7 +77,7 @@ public class TimestampSysMsg extends BaseSysMsg {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.wn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -95,9 +95,9 @@ public class TimestampSysMsg extends BaseSysMsg {
             Calendar calendar = Calendar.getInstance(Locale.CHINA);
             calendar.setTimeInMillis(j);
             if (sCalendar.get(1) == calendar.get(1) && sCalendar.get(6) == calendar.get(6)) {
-                return vi.getDateStringHm(calendar.getTime());
+                return wi.getDateStringHm(calendar.getTime());
             }
-            return vi.getDateStringMdHm(calendar.getTime());
+            return wi.getDateStringMdHm(calendar.getTime());
         }
         return (String) invokeJ.objValue;
     }

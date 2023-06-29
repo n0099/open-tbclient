@@ -2,14 +2,11 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
-import com.baidu.tieba.nd4;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tieba.zw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,27 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes7.dex */
-public class od4 extends EventTargetImpl {
+public class od4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public jj2 a;
-    public h64 b;
-    public String c;
 
     /* loaded from: classes7.dex */
-    public class a implements nd4.a {
+    public static class a extends i83 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ od4 a;
+        public final /* synthetic */ nd4 c;
 
-        public a(od4 od4Var) {
+        public a(nd4 nd4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {od4Var};
+                Object[] objArr = {nd4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,90 +42,28 @@ public class od4 extends EventTargetImpl {
                     return;
                 }
             }
-            this.a = od4Var;
+            this.c = nd4Var;
         }
 
-        @Override // com.baidu.tieba.nd4.a
-        public void b(int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.i83, com.baidu.tieba.j83, com.baidu.tieba.h83
+        public void onEvent(@NonNull f83 f83Var) {
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) {
-                return;
-            }
-            this.a.C(false);
-            tc4.j(this.a.c, i, "");
-        }
-
-        @Override // com.baidu.tieba.nd4.a
-        public void a(int i, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || !this.a.hasEventListener("progressupdate")) {
-                return;
-            }
-            pd4 pd4Var = new pd4();
-            pd4Var.progress = i;
-            pd4Var.totalBytesWritten = j;
-            pd4Var.totalBytesExpectedToWrite = j2;
-            JSEvent jSEvent = new JSEvent("progressupdate");
-            jSEvent.data = pd4Var;
-            if (od4.d) {
-                Log.i("LoadSubpackageTask", "progress :" + i + "totalBytesWritten :" + j + "totalBytesExpectedToWrite :" + j2);
-            }
-            this.a.dispatchEvent(jSEvent);
-        }
-
-        @Override // com.baidu.tieba.nd4.a
-        public void success() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                od4 od4Var = this.a;
-                this.a.C(od4Var.D(od4Var.c));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ od4 b;
-
-        public b(od4 od4Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {od4Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, f83Var) == null) {
+                if (!SwanAppNetworkUtils.i(null)) {
+                    i = -2;
+                } else if (f83Var.a() != null) {
+                    i = f83Var.a().getInt("net_quality");
+                } else {
+                    i = -1;
                 }
-            }
-            this.b = od4Var;
-            this.a = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a) {
-                    if (this.b.b != null) {
-                        this.b.b.c();
-                        if (od4.d) {
-                            Log.i("LoadSubpackageTask", "success call");
-                        }
-                    }
-                } else if (this.b.b != null) {
-                    this.b.b.a();
-                    if (od4.d) {
-                        Log.i("LoadSubpackageTask", "fail call");
-                    }
+                if (od4.a) {
+                    Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
                 }
+                nd4 nd4Var = this.c;
+                nd4Var.m = i;
+                vi3.x("976", nd4Var);
             }
         }
     }
@@ -148,95 +81,53 @@ public class od4 extends EventTargetImpl {
                 return;
             }
         }
-        d = js1.a;
+        a = ms1.a;
     }
 
-    public final void G() {
+    public static void b(nd4 nd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = null;
-            this.c = null;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public od4(jj2 jj2Var) {
-        super(jj2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jj2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jj2Var;
-    }
-
-    public void E(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            G();
-            F(jsObject);
-            if (TextUtils.isEmpty(this.c)) {
-                if (d) {
-                    Log.i("LoadSubpackageTask", IActiveUploadListener.PARAM_ERR_MSG);
-                }
-                tc4.j(this.c, 2111, "");
-                return;
-            }
-            nd4.a(this.c, new a(this));
-        }
-    }
-
-    public final void F(JsObject jsObject) {
-        g42 F;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jsObject) != null) || jsObject == null || (F = g42.F(jsObject)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, nd4Var) != null) || nd4Var == null) {
             return;
         }
-        this.b = h64.e(F);
-        try {
-            this.c = F.g("name");
-        } catch (JSTypeMismatchException e) {
-            if (d) {
-                e.printStackTrace();
-            }
-            le4.d(this.a, e);
-            G();
-        }
+        x83.Q().X(null, q33.class, new a(nd4Var));
     }
 
-    public final void C(boolean z) {
-        jj2 jj2Var;
+    public static void c(lp1 lp1Var) {
+        V8ExceptionInfo a2;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (jj2Var = this.a) != null) {
-            jj2Var.runOnJSThread(new b(this, z));
+        if ((interceptable != null && interceptable.invokeL(65539, null, lp1Var) != null) || lp1Var == null || (a2 = lp1Var.a()) == null) {
+            return;
         }
-    }
-
-    public final boolean D(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a == null) {
-                return false;
-            }
-            String str2 = mx2.T().z() + md4.b().c(str, 2);
-            String c = md4.b().c(str, 3);
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(c)) {
-                return false;
-            }
-            this.a.Y(str2, c);
-            return true;
+        String str = a2.exceptionMsg;
+        String str2 = a2.exceptionTrace;
+        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
+            return;
         }
-        return invokeL.booleanValue;
+        if (a) {
+            Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(m84.a()), TimeUtils.logTimeOfDay(a2.exceptionTime)));
+        }
+        if (a2.exceptionTime >= m84.a()) {
+            return;
+        }
+        nd4 nd4Var = new nd4();
+        nd4Var.b = "stuck";
+        nd4Var.e = "jserror";
+        nd4Var.f = cc3.g0();
+        if (cc3.M() != null && cc3.M().Y() != null) {
+            zw2.a Y = cc3.M().Y();
+            nd4Var.c = Y.T();
+            nd4Var.a = vi3.n(Y.G());
+        }
+        nd4Var.l = str + ParamableElem.DIVIDE_PARAM + str2;
+        if (zc4.d()) {
+            i = 20;
+        } else {
+            i = 10;
+        }
+        nd4Var.k = i;
+        nd4Var.n = m84.b();
+        nd4Var.o = System.currentTimeMillis() - a2.exceptionTime;
+        b(nd4Var);
     }
 }

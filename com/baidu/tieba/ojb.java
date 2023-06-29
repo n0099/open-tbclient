@@ -1,34 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.common.AudioSendStamp;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.FrameInfo;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public abstract class ojb extends jjb {
+public final class ojb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NativeFfmpeg A;
-    public ByteBuffer B;
-    public ByteBuffer C;
-    public TreeMap<Integer, Object> D;
-    public int E;
-    public FrameInfo F;
-    public qib G;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
     public ojb() {
         Interceptable interceptable = $ic;
@@ -43,191 +30,165 @@ public abstract class ojb extends jjb {
                 return;
             }
         }
-        this.A = new NativeFfmpeg();
-        this.B = null;
-        this.C = null;
-        this.D = new TreeMap<>();
-        this.E = 0;
-        this.F = new FrameInfo();
-        this.G = new qib(200);
+        this.c = 1.0f;
+        this.d = 1.0f;
     }
 
-    @Override // com.baidu.tieba.jjb
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            while (!this.r.b() && K() == 1) {
-                TLog.g(this, "handleEndOfStream");
-                try {
-                    Thread.sleep(20L);
-                } catch (Exception unused) {
-                    TLog.g(this, "handleEndOfStream error");
-                }
-            }
-        }
-    }
-
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TLog.g(this, "NativeFfmpegFilter.stopCodec enter.");
-            this.A.k();
-            this.B = null;
-            this.C = null;
-            this.E = 0;
-            this.F.a = 0L;
-            this.v = 0L;
-            G();
-            TLog.g(this, "NativeFfmpegFilter.stopCodec leave.");
-        }
-    }
-
-    @Override // com.baidu.tieba.jjb
-    public int D(MediaSample mediaSample) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample)) == null) {
-            K();
-            int J = J(mediaSample);
-            K();
-            return J;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.jjb, com.baidu.tieba.sjb, com.baidu.tieba.aib.a
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
-            if (message.what != 1002) {
-                super.handleMessage(message);
-            } else {
-                L();
-            }
-        }
-    }
-
-    public final int J(MediaSample mediaSample) {
-        InterceptResult invokeL;
-        AVframe aVframe;
-        MediaInfo mediaInfo;
-        ByteBuffer byteBuffer;
-        byte[] bArr;
-        byte[] bArr2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample)) == null) {
-            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || mediaInfo.k == null || mediaInfo.a == 0) {
-                return -1;
-            }
-            int i = aVframe.e;
-            int i2 = this.a;
-            if (i > i2) {
-                long j = this.v + 1;
-                this.v = j;
-                if (j < 10 || j % 1000 == 0) {
-                    TLog.c(this, String.format("ffmepg::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
-                }
-                return 0;
-            } else if (i < i2) {
-                long j2 = this.v + 1;
-                this.v = j2;
-                if (j2 < 10 || j2 % 1000 == 0) {
-                    TLog.c(this, String.format("ffmpeg::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
-                }
-                return -1;
-            } else {
-                byteBuffer.clear();
-                boolean z = mediaSample.g.c;
-                int capacity = mediaSample.i.k.capacity();
-                if (mediaSample.d && (bArr2 = mediaSample.g.q) != null) {
-                    capacity += bArr2.length + 7;
-                }
-                ByteBuffer byteBuffer2 = this.B;
-                if (byteBuffer2 == null || byteBuffer2.capacity() < capacity) {
-                    int i3 = (int) (capacity * 1.5d);
-                    if (i3 > 2000000 || i3 < capacity) {
-                        i3 = capacity;
-                    }
-                    this.B = ByteBuffer.allocateDirect(i3);
-                }
-                if (this.B.capacity() >= capacity) {
-                    if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
-                        fjb.d(bArr, this.B);
-                    }
-                    this.B.put(mediaSample.i.k).flip();
-                    if (this.A.o(this.B, mediaSample.d, mediaSample.l, mediaSample.k) < 0) {
-                        TLog.c(this, "mCodec.send_packet() failed.");
-                        m(51);
-                        return -1;
-                    }
-                }
-                this.G.b(mediaSample.t);
-                this.r.a(mediaSample);
-                return 1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public final int K() {
+    public final boolean a() {
         InterceptResult invokeV;
-        MediaInfo mediaInfo;
-        AVframe aVframe;
-        AVframe aVframe2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ByteBuffer byteBuffer = this.C;
-            if (byteBuffer != null) {
-                byteBuffer.clear();
-                this.D.clear();
-                FrameInfo frameInfo = this.F;
-                frameInfo.a = 0L;
-                frameInfo.b = 0L;
-                if (this.A.n(this.C, this.D, frameInfo) > 0) {
-                    MediaSample c = this.r.c();
-                    if (c != null && c.g != null && (mediaInfo = c.i) != null) {
-                        mediaInfo.c(this.q);
-                        c.i.k = this.C;
-                        FrameInfo frameInfo2 = this.F;
-                        c.l = frameInfo2.a;
-                        E(c, frameInfo2.b);
-                        this.u++;
-                        c.I = NativeFfmpeg.l(this.D);
-                        ArrayList<Long> m = NativeFfmpeg.m(this.D);
-                        if (m != null && !m.isEmpty()) {
-                            c.J = new ArrayList<>();
-                            Iterator<Long> it = m.iterator();
-                            while (it.hasNext()) {
-                                c.J.add(new AudioSendStamp(this.G.a(), it.next().longValue()));
-                            }
-                        }
-                        n(c);
-                        if (!c.c) {
-                            sib sibVar = this.s.get();
-                            if (sibVar != null && (aVframe2 = c.g) != null) {
-                                sibVar.t((int) aVframe2.l);
-                            }
-                        } else {
-                            sib sibVar2 = this.s.get();
-                            if (sibVar2 != null && (aVframe = c.g) != null) {
-                                sibVar2.s((int) aVframe.l);
-                            }
-                        }
-                        this.D.clear();
-                        wib.c(c, 6);
-                        synchronized (this.k) {
-                            if (this.d != null) {
-                                this.d.f(c);
-                            }
-                        }
-                        return 1;
-                    }
-                    return -1;
-                }
-                return 0;
-            }
-            return 0;
+            return this.a;
         }
-        return invokeV.intValue;
+        return invokeV.floatValue;
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = 0.0f;
+            this.b = 0.0f;
+            this.c = 1.0f;
+            this.d = 1.0f;
+            this.e = false;
+        }
+    }
+
+    public final void f(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), scaleType}) == null) && f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
+            g();
+            float f5 = (f - f3) / 2.0f;
+            float f6 = (f2 - f4) / 2.0f;
+            float f7 = f3 / f4;
+            float f8 = f / f2;
+            float f9 = f2 / f4;
+            float f10 = f / f3;
+            boolean z = false;
+            switch (njb.$EnumSwitchMapping$0[scaleType.ordinal()]) {
+                case 1:
+                    this.a = f5;
+                    this.b = f6;
+                    return;
+                case 2:
+                    if (f7 > f8) {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
+                    }
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    this.b = (f2 - (f4 * f10)) / 2.0f;
+                    return;
+                case 3:
+                    if (f3 < f && f4 < f2) {
+                        this.a = f5;
+                        this.b = f6;
+                        return;
+                    } else if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    } else {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
+                    }
+                case 4:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = (f - (f3 * f9)) / 2.0f;
+                    return;
+                case 5:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    return;
+                case 6:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = f2 - (f4 * f10);
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = f - (f3 * f9);
+                    return;
+                case 7:
+                    Math.max(f10, f9);
+                    if (f10 > f9) {
+                        z = true;
+                    }
+                    this.e = z;
+                    this.c = f10;
+                    this.d = f9;
+                    return;
+                default:
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    return;
+            }
+        }
     }
 }

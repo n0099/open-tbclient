@@ -1,85 +1,205 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.content.res.TypedArray;
-import android.os.Build;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.config.ABTestConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class f9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
+    public f9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0 && i != 1 && i != 11 && i != 12) {
-                switch (i) {
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                        break;
-                    default:
-                        return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = d9.b().a();
+    }
+
+    public HashMap<String, s8> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap<String, s8> hashMap = new HashMap<>();
+            for (String str : d9.b().f()) {
+                try {
+                    String optString = new JSONObject(d9.b().e(str)).optString("sid");
+                    String[] split = optString.split("_");
+                    if (split.length == 2) {
+                        hashMap.put(optString, new s8(i30.d(split[0]), i30.d(split[1])));
+                    }
+                } catch (JSONException unused) {
+                    if (ABTestConfig.isDebug()) {
+                        Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
+                    }
                 }
             }
-            return true;
+            return hashMap;
         }
-        return invokeI.booleanValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    public static void b(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || !d(activity)) {
-            return;
-        }
-        try {
-            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-            declaredField.setAccessible(true);
-            ActivityInfo activityInfo = (ActivityInfo) declaredField.get(activity);
-            if (a(activityInfo.screenOrientation)) {
-                activityInfo.screenOrientation = -1;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static boolean c(Activity activity) {
+    public HashMap<String, s8> b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            HashMap<String, s8> hashMap = new HashMap<>();
             try {
-                Field declaredField = Class.forName("com.android.internal.R$styleable").getDeclaredField("Window");
-                declaredField.setAccessible(true);
-                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
-                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isTranslucentOrFloating", TypedArray.class);
-                declaredMethod.setAccessible(true);
-                return ((Boolean) declaredMethod.invoke(null, obtainStyledAttributes)).booleanValue();
-            } catch (Exception e) {
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject(keys.next());
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("sid");
+                        String[] split = optString.split("_");
+                        if (split.length == 2) {
+                            hashMap.put(optString, new s8(i30.d(split[0]), i30.d(split[1])));
+                        }
+                    }
+                }
+            } catch (JSONException e) {
                 e.printStackTrace();
-                return false;
             }
+            return hashMap;
         }
-        return invokeL.booleanValue;
+        return (HashMap) invokeL.objValue;
     }
 
-    public static boolean d(Activity activity) {
+    public HashMap<String, s8> d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT == 26 && c(activity)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            HashMap<String, s8> hashMap = new HashMap<>();
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    JSONArray jSONArray = new JSONObject(str).getJSONArray("data");
+                    if (jSONArray != null && jSONArray.length() > 0) {
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            String string = jSONArray.getString(i);
+                            String[] split = string.split("_");
+                            if (split.length == 2) {
+                                hashMap.put(string, new s8(i30.d(split[0]), i30.d(split[1])));
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-            return false;
+            return hashMap;
         }
-        return invokeL.booleanValue;
+        return (HashMap) invokeL.objValue;
+    }
+
+    public List<b9> e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (String str : d9.b().f()) {
+                if (j30.a(str, this.a) == i) {
+                    try {
+                        arrayList.add(new b9(str, new JSONObject(d9.b().e(str)).opt("data")));
+                    } catch (JSONException unused) {
+                        if (ABTestConfig.isDebug()) {
+                            Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeI.objValue;
+    }
+
+    public HashMap<String, s8> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, s8> hashMap = new HashMap<>();
+            String c = d9.b().c();
+            if (!TextUtils.isEmpty(c)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(c);
+                    if (jSONArray.length() > 0) {
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            String string = jSONArray.getString(i);
+                            String[] split = string.split("_");
+                            if (split.length == 2) {
+                                hashMap.put(string, new s8(i30.d(split[0]), i30.d(split[1])));
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                String d = d9.b().d();
+                String c = d9.b().c();
+                if (!TextUtils.isEmpty(c)) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        JSONArray jSONArray = new JSONArray(c);
+                        jSONObject.put("version", d);
+                        jSONObject.put("exps", jSONArray);
+                        z20.h(jSONObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this) {
+                Set<String> f = d9.b().f();
+                JSONObject jSONObject = new JSONObject();
+                for (String str : f) {
+                    try {
+                        jSONObject.put(str, new JSONObject(d9.b().e(str)));
+                    } catch (JSONException unused) {
+                        if (ABTestConfig.isDebug()) {
+                            Log.d("V2DataProcessor", "ABTest switchInfo string parse json error");
+                        }
+                    }
+                }
+                z20.l(jSONObject);
+            }
+        }
     }
 }

@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.t75;
 /* loaded from: classes8.dex */
-public interface w75<T extends t75> {
-    void a(int i, T t);
+public interface w75 {
+    String getPicLinkUrl();
 
-    void b(int i, String str);
+    String getPicUrl();
 }

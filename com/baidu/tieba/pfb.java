@@ -1,100 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.SoftReference;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
 /* loaded from: classes7.dex */
-public final class pfb {
+public abstract class pfb<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<pfb> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public qfb a;
-    public String b;
-    public Context c;
+    public final String a;
+    public final IMessageEntity b;
+    public final zeb c;
+    public RequestHeader d;
+    public xfb<TResult> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948061533, "Lcom/baidu/tieba/pfb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948061533, "Lcom/baidu/tieba/pfb;");
-        }
-    }
+    public abstract void a(ApiException apiException, Object obj);
 
-    public pfb(Context context, String str) {
+    public pfb(String str, IMessageEntity iMessageEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str, iMessageEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ufb.b();
-        this.a = new qfb(context, str);
-        this.b = str;
-        this.c = context;
+        getClass().getSimpleName();
+        this.a = str;
+        this.b = iMessageEntity;
+        this.c = zeb.b(str);
     }
 
-    public static pfb b(Context context, String str) {
-        InterceptResult invokeLL;
-        pfb pfbVar;
-        pfb pfbVar2;
+    public final void b(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context != null && str != null) {
-                SoftReference<pfb> softReference = d;
-                if (softReference == null) {
-                    pfbVar = null;
-                } else {
-                    pfbVar = softReference.get();
-                }
-                if (pfbVar == null || !str.equals(pfbVar.b)) {
-                    synchronized (pfb.class) {
-                        pfbVar2 = new pfb(context, str);
-                        d = new SoftReference<>(pfbVar2);
-                    }
-                    return pfbVar2;
-                }
-                return pfbVar;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
+            if (this.e != null) {
+                a(apiException, obj);
+                return;
             }
-            throw new IllegalArgumentException("YYOpenSDK createInstance failed, Make sure context or appid is not null!");
-        }
-        return (pfb) invokeLL.objValue;
-    }
-
-    public final void a(Activity activity, nfb nfbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, nfbVar) == null) {
-            this.a.c(activity, "123", nfbVar);
-        }
-    }
-
-    public final void c(int i, int i2, Intent intent, nfb nfbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, nfbVar}) == null) {
-            this.a.d(i, i2, intent, nfbVar);
+            String str = "This Task has been canceled, uri:" + this.a;
         }
     }
 }

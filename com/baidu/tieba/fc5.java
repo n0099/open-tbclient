@@ -1,11 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes5.dex */
 public interface fc5 {
     void a();
 
-    void b(AccountData accountData);
+    boolean c();
 
-    void c(AccountData accountData);
+    boolean d(String str);
+
+    boolean e();
 }

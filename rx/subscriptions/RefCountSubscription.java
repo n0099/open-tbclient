@@ -1,17 +1,17 @@
 package rx.subscriptions;
 
-import com.baidu.tieba.gtb;
-import com.baidu.tieba.nob;
+import com.baidu.tieba.ayb;
+import com.baidu.tieba.etb;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class RefCountSubscription implements nob {
+public final class RefCountSubscription implements etb {
     public static final a c = new a(false, 0);
-    public final nob a;
+    public final etb a;
     public final AtomicReference<a> b = new AtomicReference<>(c);
 
     /* loaded from: classes2.dex */
-    public static final class InnerSubscription extends AtomicInteger implements nob {
+    public static final class InnerSubscription extends AtomicInteger implements etb {
         public static final long serialVersionUID = 7005765588239987643L;
         public final RefCountSubscription parent;
 
@@ -19,7 +19,7 @@ public final class RefCountSubscription implements nob {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.nob
+        @Override // com.baidu.tieba.etb
         public boolean isUnsubscribed() {
             if (get() != 0) {
                 return true;
@@ -27,7 +27,7 @@ public final class RefCountSubscription implements nob {
             return false;
         }
 
-        @Override // com.baidu.tieba.nob
+        @Override // com.baidu.tieba.etb
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
                 this.parent.b();
@@ -58,13 +58,13 @@ public final class RefCountSubscription implements nob {
         }
     }
 
-    public nob a() {
+    public etb a() {
         a aVar;
         AtomicReference<a> atomicReference = this.b;
         do {
             aVar = atomicReference.get();
             if (aVar.a) {
-                return gtb.c();
+                return ayb.c();
             }
         } while (!atomicReference.compareAndSet(aVar, aVar.a()));
         return new InnerSubscription(this);
@@ -81,12 +81,12 @@ public final class RefCountSubscription implements nob {
         c(b);
     }
 
-    @Override // com.baidu.tieba.nob
+    @Override // com.baidu.tieba.etb
     public boolean isUnsubscribed() {
         return this.b.get().a;
     }
 
-    @Override // com.baidu.tieba.nob
+    @Override // com.baidu.tieba.etb
     public void unsubscribe() {
         a aVar;
         a c2;
@@ -101,9 +101,9 @@ public final class RefCountSubscription implements nob {
         c(c2);
     }
 
-    public RefCountSubscription(nob nobVar) {
-        if (nobVar != null) {
-            this.a = nobVar;
+    public RefCountSubscription(etb etbVar) {
+        if (etbVar != null) {
+            this.a = etbVar;
             return;
         }
         throw new IllegalArgumentException("s");

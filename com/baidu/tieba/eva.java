@@ -1,13 +1,13 @@
 package com.baidu.tieba;
-
-import java.io.IOException;
 /* loaded from: classes5.dex */
 public interface eva {
-    void a() throws IOException;
+    bva a();
 
-    void b(String str) throws IOException;
+    dva b();
 
-    int c(byte[] bArr, int i, int i2) throws IOException;
+    dua c();
 
-    void d(mva mvaVar);
+    hua d();
+
+    cva e();
 }

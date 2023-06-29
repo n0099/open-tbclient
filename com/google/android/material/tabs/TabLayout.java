@@ -544,19 +544,19 @@ public class TabLayout extends HorizontalScrollView {
         @NonNull
 
         /* renamed from: view  reason: collision with root package name */
-        public TabView f1212view;
+        public TabView f1211view;
         public int position = -1;
         @LabelVisibility
         public int labelVisibilityMode = 1;
 
         @Nullable
         public BadgeDrawable getBadge() {
-            return this.f1212view.getBadge();
+            return this.f1211view.getBadge();
         }
 
         @Nullable
         public CharSequence getContentDescription() {
-            TabView tabView = this.f1212view;
+            TabView tabView = this.f1211view;
             if (tabView == null) {
                 return null;
             }
@@ -575,7 +575,7 @@ public class TabLayout extends HorizontalScrollView {
 
         @NonNull
         public BadgeDrawable getOrCreateBadge() {
-            return this.f1212view.getOrCreateBadge();
+            return this.f1211view.getOrCreateBadge();
         }
 
         public int getPosition() {
@@ -609,12 +609,12 @@ public class TabLayout extends HorizontalScrollView {
         }
 
         public void removeBadge() {
-            this.f1212view.removeBadge();
+            this.f1211view.removeBadge();
         }
 
         public void reset() {
             this.parent = null;
-            this.f1212view = null;
+            this.f1211view = null;
             this.tag = null;
             this.icon = null;
             this.text = null;
@@ -633,7 +633,7 @@ public class TabLayout extends HorizontalScrollView {
         }
 
         public void updateView() {
-            TabView tabView = this.f1212view;
+            TabView tabView = this.f1211view;
             if (tabView != null) {
                 tabView.update();
             }
@@ -650,7 +650,7 @@ public class TabLayout extends HorizontalScrollView {
 
         @NonNull
         public Tab setCustomView(@LayoutRes int i) {
-            return setCustomView(LayoutInflater.from(this.f1212view.getContext()).inflate(i, (ViewGroup) this.f1212view, false));
+            return setCustomView(LayoutInflater.from(this.f1211view.getContext()).inflate(i, (ViewGroup) this.f1211view, false));
         }
 
         @NonNull
@@ -698,7 +698,7 @@ public class TabLayout extends HorizontalScrollView {
         @NonNull
         public Tab setText(@Nullable CharSequence charSequence) {
             if (TextUtils.isEmpty(this.contentDesc) && !TextUtils.isEmpty(charSequence)) {
-                this.f1212view.setContentDescription(charSequence);
+                this.f1211view.setContentDescription(charSequence);
             }
             this.text = charSequence;
             updateView();
@@ -713,8 +713,8 @@ public class TabLayout extends HorizontalScrollView {
                 this.parent.updateTabViews(true);
             }
             updateView();
-            if (BadgeUtils.USE_COMPAT_PARENT && this.f1212view.hasBadgeDrawable() && this.f1212view.badgeDrawable.isVisible()) {
-                this.f1212view.invalidate();
+            if (BadgeUtils.USE_COMPAT_PARENT && this.f1211view.hasBadgeDrawable() && this.f1211view.badgeDrawable.isVisible()) {
+                this.f1211view.invalidate();
             }
             return this;
         }
@@ -727,8 +727,8 @@ public class TabLayout extends HorizontalScrollView {
                 this.parent.updateTabViews(true);
             }
             updateView();
-            if (BadgeUtils.USE_COMPAT_PARENT && this.f1212view.hasBadgeDrawable() && this.f1212view.badgeDrawable.isVisible()) {
-                this.f1212view.invalidate();
+            if (BadgeUtils.USE_COMPAT_PARENT && this.f1211view.hasBadgeDrawable() && this.f1211view.badgeDrawable.isVisible()) {
+                this.f1211view.invalidate();
             }
             return this;
         }
@@ -1500,7 +1500,7 @@ public class TabLayout extends HorizontalScrollView {
     public Tab newTab() {
         Tab createTabFromPool = createTabFromPool();
         createTabFromPool.parent = this;
-        createTabFromPool.f1212view = createTabView(createTabFromPool);
+        createTabFromPool.f1211view = createTabView(createTabFromPool);
         return createTabFromPool;
     }
 
@@ -1572,7 +1572,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     private void addTabView(@NonNull Tab tab) {
-        TabView tabView = tab.f1212view;
+        TabView tabView = tab.f1211view;
         tabView.setSelected(false);
         tabView.setActivated(false);
         this.slidingTabIndicator.addView(tabView, tab.getPosition(), createLayoutParamsForTabs());

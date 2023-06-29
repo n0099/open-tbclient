@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.o95;
+import com.baidu.tieba.r95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ public class PbLoadingViewOptimizeSwitch extends BaseNormalSwitch {
     public static final String ANDROID_PB_LOADING_VIEW_OPTIMIZE = "android_pb_Loading_view_optimize";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.df
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ef
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class PbLoadingViewOptimizeSwitch extends BaseNormalSwitch {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (o95.p().q("key_android_pb_loading_view_optimize", 0) != 1) {
+            if (r95.p().q("key_android_pb_loading_view_optimize", 0) != 1) {
                 return false;
             }
             return true;

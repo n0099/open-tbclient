@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,6 +9,54 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class pja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public float c;
+    public long d;
+    public Bitmap e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public nja j;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pja a;
+
+        public a(pja pjaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pjaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pjaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Bitmap bitmap;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                pja pjaVar = this.a;
+                if (pjaVar.j != null && (bitmap = pjaVar.e) != null && !bitmap.isRecycled()) {
+                    pja pjaVar2 = this.a;
+                    pjaVar2.j.a(pjaVar2.f, pjaVar2.e);
+                }
+            }
+        }
+    }
 
     public pja() {
         Interceptable interceptable = $ic;
@@ -20,6 +69,13 @@ public class pja {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            z1b.a().post(new a(this));
         }
     }
 }

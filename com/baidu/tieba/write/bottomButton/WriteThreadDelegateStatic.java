@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fn5;
-import com.baidu.tieba.gn5;
-import com.baidu.tieba.hn5;
-import com.baidu.tieba.in5;
-import com.baidu.tieba.nn5;
+import com.baidu.tieba.jn5;
+import com.baidu.tieba.kn5;
+import com.baidu.tieba.ln5;
+import com.baidu.tieba.mn5;
+import com.baidu.tieba.rn5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class WriteThreadDelegateStatic extends fn5 {
+public class WriteThreadDelegateStatic extends jn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.fn5
+    @Override // com.baidu.tieba.jn5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class WriteThreadDelegateStatic extends fn5 {
     }
 
     /* loaded from: classes8.dex */
-    public class a implements in5.b {
+    public class a implements mn5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -60,7 +60,7 @@ public class WriteThreadDelegateStatic extends fn5 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.in5.b
+        @Override // com.baidu.tieba.mn5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class WriteThreadDelegateStatic extends fn5 {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((hn5) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
+            ((ln5) customResponsedMessage.getData()).a(new WriteThreadDelegateStatic());
         }
     }
 
@@ -137,28 +137,28 @@ public class WriteThreadDelegateStatic extends fn5 {
         }
     }
 
-    @Override // com.baidu.tieba.fn5
-    public gn5 a() {
+    @Override // com.baidu.tieba.jn5
+    public kn5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gn5 gn5Var = new gn5();
-            gn5Var.a = new WriteThreadFragment();
-            gn5Var.e = 9;
-            gn5Var.d = R.drawable.icon_mask_home_publish;
-            gn5Var.h = nn5.f().d("write");
-            gn5Var.i = gn5.j;
-            return gn5Var;
+            kn5 kn5Var = new kn5();
+            kn5Var.a = new WriteThreadFragment();
+            kn5Var.e = 9;
+            kn5Var.d = R.drawable.icon_mask_home_publish;
+            kn5Var.h = rn5.f().d("write");
+            kn5Var.i = kn5.j;
+            return kn5Var;
         }
-        return (gn5) invokeV.objValue;
+        return (kn5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fn5
+    @Override // com.baidu.tieba.jn5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) in5.e().d(1003, new a(this, context));
+            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) mn5.e().d(1003, new a(this, context));
             this.b = maintabBottomIndicator;
             return maintabBottomIndicator;
         }

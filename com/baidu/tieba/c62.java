@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class c62 extends f52 {
+public class c62 extends i52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n52 a;
+    public float a;
 
     public c62() {
         Interceptable interceptable = $ic;
@@ -27,26 +27,24 @@ public class c62 extends f52 {
         }
     }
 
-    @Override // com.baidu.tieba.f52
-    public void a(g52 g52Var, Canvas canvas) {
-        n52 n52Var;
+    @Override // com.baidu.tieba.i52
+    public void a(j52 j52Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) && (n52Var = this.a) != null && n52Var.d()) {
-            if (this.a.c()) {
-                g52Var.b.setShader(this.a.b());
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, j52Var, canvas) == null) {
+            if (j52Var.a() == 0) {
+                j52Var.b(canvas.save());
             }
-            g52Var.e.setColor(this.a.a());
-            g52Var.b.setColor(this.a.a());
-            g52Var.b.setShader(null);
+            canvas.rotate(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.f52
+    @Override // com.baidu.tieba.i52
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new n52(jSONArray);
+            float optDouble = (float) jSONArray.optDouble(0);
+            this.a = optDouble;
+            this.a = (float) Math.toDegrees(optDouble);
         }
     }
 }

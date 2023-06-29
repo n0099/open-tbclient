@@ -1,13 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface ro8 {
-    void a(ICardInfo iCardInfo);
+public abstract class ro8 implements IUiIntent {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    ro8 b(String str, int i);
-
-    ro8 c(String str, long j);
-
-    ro8 d(String str, String str2);
+    public ro8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

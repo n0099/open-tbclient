@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.j95;
-import com.baidu.tieba.zl5;
+import com.baidu.tieba.dm5;
+import com.baidu.tieba.h9;
+import com.baidu.tieba.m95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,15 +99,15 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    zl5.c(scheme);
+                    dm5.c(scheme);
                 } else if ("MainTabActivity".equalsIgnoreCase(simpleName)) {
-                    int a = j95.a();
+                    int a = m95.a();
                     if (a != 2) {
                         this.a.X(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    zl5.c(scheme);
+                    dm5.c(scheme);
                 } else {
                     this.a.W();
                 }
@@ -141,11 +141,11 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String str = null;
             try {
-                Object invoke = g9.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(g9.f().b(), new Object[0]);
+                Object invoke = h9.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(h9.f().b(), new Object[0]);
                 if (invoke != null) {
                     str = (String) invoke;
                 }
-                zl5.b(str);
+                dm5.b(str);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -171,13 +171,13 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                zl5.b("a025");
+                dm5.b("a025");
             } else if (i == 22) {
-                zl5.b("a088");
+                dm5.b("a088");
             } else if (i == 3) {
-                zl5.b("a079");
+                dm5.b("a079");
             } else if (i == 8) {
-                zl5.b("a011");
+                dm5.b("a011");
             }
         }
     }

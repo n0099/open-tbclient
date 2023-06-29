@@ -1,43 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.res.ui.SelectorTextView;
+import com.baidu.tieba.ab3;
+import com.baidu.tieba.gb3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes8.dex */
-public class wb2 {
+public class wb2 extends ab3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View k;
+    public TextView l;
+    public SelectorTextView m;
+    public c n;
 
     /* loaded from: classes8.dex */
-    public static class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
+        public final /* synthetic */ wb2 a;
 
-        public a(String str, File file) {
+        public a(wb2 wb2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, file};
+                Object[] objArr = {wb2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,259 +45,213 @@ public class wb2 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = file;
+            this.a = wb2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (wb2.class) {
-                    ds4.S(this.a, this.b, true);
-                }
-                wb2.c();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.n.k != null) {
+                this.a.n.k.onItemClick(view2);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements Comparator<Long> {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wb2 a;
 
-        public b() {
+        public b(wb2 wb2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wb2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wb2Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.n.j != null) {
+                this.a.n.j.onItemClick(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c extends ab3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int g;
+        public int h;
+        public int i;
+        public ab3.c j;
+        public ab3.c k;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Long l, Long l2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.gb3.a
+        public /* bridge */ /* synthetic */ gb3.a U(int i) {
+            g0(i);
+            return this;
+        }
+
+        public c e0(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l, l2)) == null) {
-                return l2.compareTo(l);
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.g = i;
+                return this;
             }
-            return invokeLL.intValue;
+            return (c) invokeI.objValue;
+        }
+
+        public c g0(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                super.U(i);
+                return this;
+            }
+            return (c) invokeI.objValue;
+        }
+
+        @Override // com.baidu.tieba.gb3.a
+        public gb3 h(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+                return new wb2(context);
+            }
+            return (gb3) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.gb3.a
+        public /* bridge */ /* synthetic */ gb3.a v(int i) {
+            e0(i);
+            return this;
+        }
+
+        @Override // com.baidu.tieba.ab3.b, com.baidu.tieba.gb3.a
+        public gb3 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                wb2 wb2Var = (wb2) super.c();
+                wb2Var.r(this);
+                return wb2Var;
+            }
+            return (gb3) invokeV.objValue;
+        }
+
+        public c f0(int i, ab3.c cVar) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, cVar)) == null) {
+                this.g = i;
+                this.k = cVar;
+                return this;
+            }
+            return (c) invokeIL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948264738, "Lcom/baidu/tieba/wb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948264738, "Lcom/baidu/tieba/wb2;");
-                return;
-            }
-        }
-        a = js1.a;
-    }
-
-    public wb2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wb2(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static File b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
-            }
-            File file = new File(f + File.separator + j);
-            if (file.exists()) {
-                ds4.L(file);
-            }
-            ds4.h(file);
-            return file;
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public static long i(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-            try {
-                Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));
-                if (parse == null) {
-                    return -1L;
-                }
-                return parse.getTime();
-            } catch (ParseException e) {
-                if (js1.a) {
-                    e.printStackTrace();
-                }
-                return -1L;
-            }
-        }
-        return invokeJ.longValue;
-    }
-
-    public static void c() {
-        zb3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || (b0 = zb3.b0()) == null || TextUtils.isEmpty(b0.getAppId())) {
-            return;
-        }
-        File file = new File(vu2.g().getPath() + File.separator + "launch_tips");
-        if (file.exists() && file.isDirectory()) {
-            ds4.j(file);
-        }
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            zb3 b0 = zb3.b0();
-            if (b0 == null) {
-                return null;
-            }
-            String appId = b0.getAppId();
-            if (TextUtils.isEmpty(appId)) {
-                return null;
-            }
-            return vu2.g().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            File[] g = g();
-            if (g != null && g.length != 0) {
-                File file = null;
-                for (File file2 : g) {
-                    try {
-                        long parseLong = Long.parseLong(file2.getName());
-                        if (parseLong == j) {
-                            file = file2;
-                        } else if (j - parseLong >= 259200000) {
-                            ds4.j(file2);
-                        }
-                    } catch (NumberFormatException unused) {
-                        ds4.j(file2);
-                    }
-                }
-                if (file == null) {
-                    return b(j);
-                }
-                return file;
-            }
-            return b(j);
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File[] g = g();
-            if (g == null) {
-                return null;
-            }
-            TreeMap treeMap = new TreeMap(new b());
-            long i = i(System.currentTimeMillis());
-            for (File file : g) {
-                try {
-                    long parseLong = Long.parseLong(file.getName());
-                    if (i - parseLong >= 259200000) {
-                        ds4.j(file);
-                    } else {
-                        List<String> F = ds4.F(file);
-                        if (F != null && F.size() > 0) {
-                            treeMap.put(Long.valueOf(parseLong), F);
-                        }
-                    }
-                } catch (NumberFormatException unused) {
-                    ds4.j(file);
-                }
-            }
-            if (treeMap.size() == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder("\n（二）历史日志");
-            for (Map.Entry entry : treeMap.entrySet()) {
-                sb.append("\n----------【");
-                sb.append(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(((Long) entry.getKey()).longValue())));
-                sb.append("】----------");
-                for (String str : (List) entry.getValue()) {
-                    if (!TextUtils.isEmpty(str)) {
-                        sb.append("\n");
-                        sb.append(str);
-                    }
-                }
-            }
-            sb.append("\n");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
-            }
-            File file = new File(f);
-            if (!file.exists() || !file.isDirectory()) {
-                return null;
-            }
-            return file.listFiles();
-        }
-        return (File[]) invokeV.objValue;
-    }
-
-    public static void h(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) {
-            long i = i(j);
-            if (i == -1) {
-                if (a) {
-                    Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
-                    return;
-                }
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            File d = d(i);
-            if (d != null && d.exists()) {
-                to3.k(new a(str, d), "saveLaunchTipsLog");
-            }
+        }
+    }
+
+    public void r(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.n = cVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.ab3
+    public View k(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00d1, viewGroup, false);
+            this.k = inflate;
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f5a);
+            this.l = textView;
+            textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060459));
+            SelectorTextView selectorTextView = (SelectorTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091f5b);
+            this.m = selectorTextView;
+            selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060458));
+            q();
+            return this.k;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public final void q() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (cVar = this.n) == null) {
+            return;
+        }
+        this.l.setText(this.g.getText(cVar.g));
+        this.l.setOnClickListener(new a(this));
+        if (this.n.h > 0) {
+            this.m.setVisibility(0);
+            this.m.setText(this.g.getText(this.n.h));
+            this.m.setOnClickListener(new b(this));
+        } else {
+            this.m.setVisibility(8);
+        }
+        if (this.n.i > 0) {
+            Drawable drawable = this.g.getResources().getDrawable(this.n.i);
+            hp3.b(getContext(), drawable);
+            drawable.setBounds(0, 0, tp3.f(this.g, 12.0f), tp3.f(this.g, 12.0f));
+            this.m.setCompoundDrawables(drawable, null, null, null);
         }
     }
 }

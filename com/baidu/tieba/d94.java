@@ -1,61 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.p84;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-@Service
 /* loaded from: classes5.dex */
-public class d94 implements ht1 {
+public class d94 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile c94 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public d94() {
+    public static synchronized c94 a() {
+        InterceptResult invokeV;
+        c94 c94Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (d94.class) {
+                if (a == null) {
+                    a = new c94();
+                }
+                c94Var = a;
             }
+            return c94Var;
         }
-    }
-
-    @Override // com.baidu.tieba.ht1
-    public File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return p84.d();
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ht1
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return p84.d.g().getPath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ht1
-    public File a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            return p84.d.h(str, str2);
-        }
-        return (File) invokeLL.objValue;
+        return (c94) invokeV.objValue;
     }
 }

@@ -1,42 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.g22;
-import com.baidu.tieba.ll3;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class ml3 extends wd3 {
+public class ml3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public static String i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i == 1 ? "aigames_cur_remote_ver_key" : "aiapps_cur_remote_ver_key" : (String) invokeI.objValue;
+    }
+
+    public static String j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? i == 1 ? "aigames_cur_remote_ver_name_key" : "aiapps_cur_remote_ver_name_key" : (String) invokeI.objValue;
+    }
+
     /* loaded from: classes6.dex */
-    public class a implements ll3.a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ r22 c;
-        public final /* synthetic */ ml3 d;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ int b;
 
-        public a(ml3 ml3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, r22 r22Var) {
+        public a(long j, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ml3Var, unitedSchemeEntity, callbackHandler, r22Var};
+                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    gl3.c().a(this.a, this.b);
+                } catch (Exception e) {
+                    if (ml3.a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,112 +97,213 @@ public class ml3 extends wd3 {
                     return;
                 }
             }
-            this.d = ml3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = r22Var;
+            this.a = 0;
         }
 
-        @Override // com.baidu.tieba.ll3.a
-        public void a(double[] dArr) {
+        public static b d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
-                if (dArr != null && dArr.length == 3) {
-                    z82.i("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
-                    this.d.k(this.a, this.b, this.c, dArr);
-                    return;
-                }
-                z82.c("accelerometer", "illegal accelerometers");
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return a(0, "");
             }
+            return (b) invokeV.objValue;
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static b a(int i, String str) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+                b bVar = new b();
+                bVar.a = i;
+                bVar.b = str;
+                return bVar;
+            }
+            return (b) invokeIL.objValue;
+        }
+
+        public static b b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return a(1, str);
+            }
+            return (b) invokeL.objValue;
+        }
+
+        @NonNull
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "RemoteCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.b + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ml3(wc3 wc3Var) {
-        super(wc3Var, "/swanAPI/startAccelerometer");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976469, "Lcom/baidu/tieba/ml3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947976469, "Lcom/baidu/tieba/ml3;");
                 return;
             }
         }
+        a = ms1.a;
     }
 
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
-        InterceptResult invokeLLLL;
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            if (zb3Var == null) {
-                z82.c("accelerometer", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (wd3.b) {
-                    Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                z82.c("accelerometer", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (wd3.b) {
-                    Log.d("SwanAppAction", "startAccelerometer --- illegal context");
-                }
-                return false;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            l("0", 0L, i);
+        }
+    }
+
+    public static long e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            return qk3.a().getLong(i(i), 0L);
+        }
+        return invokeI.longValue;
+    }
+
+    public static String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            return qk3.a().getString(j(i), "");
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static File g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return new File(hl3.d(i), "remote");
+        }
+        return (File) invokeI.objValue;
+    }
+
+    public static b c(zk4 zk4Var, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, zk4Var, i)) == null) {
+            c92.k("RemoteSwanCoreControl", "doRemoteUpdate start. framework: " + zk4Var);
+            if (zk4Var == null) {
+                return b.b("framework is null.");
+            }
+            long j = zk4Var.i;
+            if (j == 0) {
+                return b.b("invalid version code : " + zk4Var.j);
+            } else if (!pp3.a(new File(zk4Var.a), zk4Var.m)) {
+                return b.b("sign failed.");
             } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    if (wd3.b) {
-                        Log.d("SwanAppAction", "startAccelerometer --- params is empty");
-                    }
-                    z82.c("accelerometer", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
+                String path = h(j, i).getPath();
+                if (!gs4.U(zk4Var.a, path)) {
+                    return b.b("unzip bundle failed.");
                 }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    if (wd3.b) {
-                        Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
+                if (i == 0) {
+                    boolean B = gs4.B(zk4Var.a, path);
+                    if (a) {
+                        Log.d("RemoteSwanCoreControl", "isZipFileMatchUnzipResult:" + B + ",path:" + path);
                     }
-                    z82.c("accelerometer", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
+                    if (!B) {
+                        hl3.m(1, i, j);
+                        gs4.M(path);
+                        if (!gs4.U(zk4Var.a, path)) {
+                            return b.b("unzip bundle failed.");
+                        }
+                    }
                 }
-                z82.i("accelerometer", " init ");
-                r22 r22Var = new r22("accelerometerChange", optParamsAsJo, optString);
-                ll3 a2 = ll3.a();
-                a2.b(context, g22.b.a(optParamsAsJo.optString("interval")));
-                a2.e(new a(this, unitedSchemeEntity, callbackHandler, r22Var));
-                a2.f();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                r22Var.a(unitedSchemeEntity, callbackHandler);
-                return true;
+                if (a) {
+                    String b2 = is4.b(new File(zk4Var.a), false);
+                    if (!TextUtils.isEmpty(b2)) {
+                        qk3.a().putString(gl3.d(i), b2);
+                    }
+                }
+                if (ProcessUtils.isMainProcess()) {
+                    hl3.b(g(i), k(e(i), j));
+                }
+                l(zk4Var.j, zk4Var.i, i);
+                c92.k("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + j);
+                return b.d();
             }
         }
-        return invokeLLLL.booleanValue;
+        return (b) invokeLI.objValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, r22 r22Var, double[] dArr) {
+    public static SwanCoreVersion d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, r22Var, dArr) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("x", dArr[0]);
-                jSONObject.put("y", dArr[1]);
-                jSONObject.put("z", dArr[2]);
-                r22Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                z82.c("accelerometer", "handle compass,json error，" + e.toString());
-                r22Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
+            swanCoreVersion.swanCoreType = 1;
+            swanCoreVersion.swanCoreVersionCode = e(i);
+            swanCoreVersion.swanCoreVersionName = f(i);
+            swanCoreVersion.swanCorePath = h(swanCoreVersion.swanCoreVersionCode, i).getPath();
+            return swanCoreVersion;
+        }
+        return (SwanCoreVersion) invokeI.objValue;
+    }
+
+    public static File h(long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            return new File(g(i), String.valueOf(j));
+        }
+        return (File) invokeCommon.objValue;
+    }
+
+    public static ArrayList<Long> k(long j, long j2) {
+        InterceptResult invokeCommon;
+        SwanCoreVersion swanCoreVersion;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            ArrayList<Long> arrayList = new ArrayList<>();
+            if (j != 0) {
+                arrayList.add(Long.valueOf(j));
             }
+            arrayList.add(Long.valueOf(j2));
+            for (b93 b93Var : d93.k().q()) {
+                SwanAppCores m = b93Var.m();
+                if (b93Var.T() && m != null && (swanCoreVersion = m.getSwanCoreVersion()) != null && !arrayList.contains(Long.valueOf(swanCoreVersion.swanCoreVersionCode))) {
+                    arrayList.add(Long.valueOf(swanCoreVersion.swanCoreVersionCode));
+                }
+            }
+            if (a) {
+                Log.d("RemoteSwanCoreControl", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public static void l(String str, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            qk3.a().putString(j(i), str);
+            qk3.a().putLong(i(i), j);
+            wo3.k(new a(j, i), "cacheSwanCoreInfo");
         }
     }
 }

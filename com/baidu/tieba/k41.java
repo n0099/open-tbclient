@@ -1,65 +1,59 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.query.JoinType;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class k41 {
+public abstract class k41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final JoinType a;
-    public final String b;
-    public final String c;
-    public final g41 d;
-    public final y31 e;
-    public final y31 f;
-    public final StringBuilder g;
-    public boolean h;
-    public boolean i;
 
-    public final void a(String str, String str2, y31 y31Var, y31 y31Var2) {
+    public abstract j41 b();
+
+    public k41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, y31Var, y31Var2) == null) {
-            this.g.append(str);
-            this.g.append(".");
-            this.g.append(y31Var.b);
-            this.g.append(" = ");
-            this.g.append(str2);
-            this.g.append(".");
-            this.g.append(y31Var2.b);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.h) {
-            return;
-        }
-        this.h = true;
-        this.g.append(" ");
-        this.g.append(this.a.toString());
-        this.g.append(" JOIN ");
-        this.g.append(this.d.g());
-        this.g.append(" AS ");
-        this.g.append(this.c);
-        this.g.append(" ON ");
-        if (this.i) {
-            this.g.append("(");
-        }
-        a(this.b, this.c, this.e, this.f);
-    }
-
-    public String c() {
+    public ContentValues a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return h41.b(b().c());
+        }
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Column[] c;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b();
             StringBuilder sb = new StringBuilder();
-            sb.append((CharSequence) this.g);
-            if (this.i) {
-                sb.append(") ");
+            sb.append(getClass().getName());
+            sb.append("\n");
+            for (Column column : b().c()) {
+                sb.append("|");
+                sb.append(column.field.e);
+                sb.append("| ");
+                sb.append(column.isAssignedValue ? 1 : 0);
+                sb.append(" | ");
+                sb.append(column.stringValue());
+                sb.append("\n");
             }
             return sb.toString();
         }

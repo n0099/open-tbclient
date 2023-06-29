@@ -1,104 +1,98 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.r55;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchSug.DataRes;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class is8 {
+public final class is8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final is8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public final List<jn> b;
-    public ks8 c;
-    public ns8 d;
-    public ls8 e;
-    public ms8 f;
-    public os8 g;
 
-    public is8(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864187, "Lcom/baidu/tieba/is8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947864187, "Lcom/baidu/tieba/is8;");
+                return;
+            }
+        }
+        a = new is8();
+    }
+
+    public is8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static final void b(Function1 switchVoiceMode, p55 builder, r55 r55Var, int i, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{switchVoiceMode, builder, r55Var, Integer.valueOf(i), view2}) == null) {
+            Intrinsics.checkNotNullParameter(switchVoiceMode, "$switchVoiceMode");
+            Intrinsics.checkNotNullParameter(builder, "$builder");
+            switchVoiceMode.invoke(Integer.valueOf(i));
+            builder.dismiss();
+        }
+    }
+
+    public final void a(TbPageContext<?> context, final Function1<? super Integer, Unit> switchVoiceMode) {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, switchVoiceMode) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(switchVoiceMode, "switchVoiceMode");
+            ArrayList arrayList = new ArrayList();
+            if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
+                string = TbadkCoreApplication.getInst().getString(R.string.group_close_receiver);
+            } else {
+                string = TbadkCoreApplication.getInst().getString(R.string.group_open_receiver);
+            }
+            arrayList.add(string);
+            final p55 p55Var = new p55(context);
+            Object[] array = arrayList.toArray(new String[0]);
+            if (array != null) {
+                p55Var.i(null, (String[]) array, new r55.f() { // from class: com.baidu.tieba.fs8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.r55.f
+                    public final void M0(r55 r55Var, int i, View view2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, r55Var, i, view2) == null) {
+                            is8.b(Function1.this, p55Var, r55Var, i, view2);
+                        }
+                    }
+                });
+                p55Var.l();
                 return;
             }
-        }
-        this.b = new ArrayList();
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        a(context, bdTypeRecyclerView);
-    }
-
-    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
-            this.c = new ks8(context, ps8.c);
-            this.d = new ns8(context, ss8.l);
-            this.e = new ls8(context, qs8.i);
-            this.f = new ms8(context, rs8.g);
-            this.g = new os8(context, ts8.e);
-            this.b.add(this.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
-            this.b.add(this.g);
-            this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.addAdapters(this.b);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ks8 ks8Var = this.c;
-            if (ks8Var != null) {
-                ks8Var.notifyDataSetChanged();
-            }
-            ns8 ns8Var = this.d;
-            if (ns8Var != null) {
-                ns8Var.notifyDataSetChanged();
-            }
-            ls8 ls8Var = this.e;
-            if (ls8Var != null) {
-                ls8Var.notifyDataSetChanged();
-            }
-            ms8 ms8Var = this.f;
-            if (ms8Var != null) {
-                ms8Var.notifyDataSetChanged();
-            }
-            os8 os8Var = this.g;
-            if (os8Var != null) {
-                os8Var.notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void c(DataRes dataRes, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) != null) || this.a == null) {
-            return;
-        }
-        List<wn> a = us8.a(dataRes, str);
-        if (!ListUtils.isEmpty(a)) {
-            this.a.setData(a);
+            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
         }
     }
 }

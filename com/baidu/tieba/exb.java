@@ -1,35 +1,131 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.txb;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
+import rx.exceptions.OnErrorNotImplementedException;
+import rx.exceptions.UnsubscribeFailedException;
 /* loaded from: classes5.dex */
-public class exb {
+public class exb<T> extends dtb<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final dtb<? super T> e;
+    public boolean f;
 
-    public static txb.b a(cwb cwbVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams) {
-        InterceptResult invokeLLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public exb(dtb<? super T> dtbVar) {
+        super(dtbVar);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, cwbVar, list, str, viewParams)) == null) {
-            txb.b bVar = new txb.b();
-            bVar.c = cwbVar;
-            bVar.a = list;
-            bVar.b = str;
-            if (viewParams != null) {
-                bVar.d = viewParams.appCustomExpand;
-                bVar.f = viewParams.viewEventListener;
-                bVar.e = viewParams.clientInfoExpand;
-                bVar.h = viewParams.windowParams;
-                bVar.i = viewParams.showFaqPage;
-                bVar.j = viewParams.splitOrderPayScene;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dtbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((dtb) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bVar;
         }
-        return (txb.b) invokeLLLL.objValue;
+        this.e = dtbVar;
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void g(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+            nxb.c().b().a(th);
+            try {
+                this.e.onError(th);
+                try {
+                    unsubscribe();
+                } catch (Throwable th2) {
+                    kxb.j(th2);
+                    throw new OnErrorFailedException(th2);
+                }
+            } catch (OnErrorNotImplementedException e) {
+                try {
+                    unsubscribe();
+                    throw e;
+                } catch (Throwable th3) {
+                    kxb.j(th3);
+                    throw new OnErrorNotImplementedException("Observer.onError not implemented and error while unsubscribing.", new CompositeException(Arrays.asList(th, th3)));
+                }
+            } catch (Throwable th4) {
+                kxb.j(th4);
+                try {
+                    unsubscribe();
+                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError", new CompositeException(Arrays.asList(th, th4)));
+                } catch (Throwable th5) {
+                    kxb.j(th5);
+                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError and during unsubscription.", new CompositeException(Arrays.asList(th, th4, th5)));
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
+    @Override // com.baidu.tieba.ysb
+    public void onCompleted() {
+        UnsubscribeFailedException unsubscribeFailedException;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f) {
+            this.f = true;
+            try {
+                this.e.onCompleted();
+                try {
+                    unsubscribe();
+                } finally {
+                }
+            } catch (Throwable th) {
+                try {
+                    jtb.e(th);
+                    kxb.j(th);
+                    throw new OnCompletedFailedException(th.getMessage(), th);
+                } catch (Throwable th2) {
+                    try {
+                        unsubscribe();
+                        throw th2;
+                    } finally {
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ysb
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            jtb.e(th);
+            if (!this.f) {
+                this.f = true;
+                g(th);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ysb
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            try {
+                if (!this.f) {
+                    this.e.onNext(t);
+                }
+            } catch (Throwable th) {
+                jtb.f(th, this);
+            }
+        }
     }
 }

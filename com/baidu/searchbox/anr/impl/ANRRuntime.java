@@ -6,16 +6,16 @@ import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ioc.IANRRegister_ANRRuntime_ListProvider;
 import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.fl1;
-import com.baidu.tieba.hl1;
+import com.baidu.tieba.il1;
+import com.baidu.tieba.kl1;
 /* loaded from: classes3.dex */
 public class ANRRuntime {
     public static ANRRuntime sInstance;
     @Inject
-    public hl1<IANRRegister> mIANRMonitorList;
+    public kl1<IANRRegister> mIANRMonitorList;
 
     public void initmIANRMonitorList() {
-        fl1 b = fl1.b();
+        il1 b = il1.b();
         this.mIANRMonitorList = b;
         b.a(new IANRRegister_ANRRuntime_ListProvider());
     }
@@ -35,13 +35,13 @@ public class ANRRuntime {
         return sInstance;
     }
 
-    public hl1<IANRRegister> getIANRUploadList() {
+    public kl1<IANRRegister> getIANRUploadList() {
         return this.mIANRMonitorList;
     }
 
     public boolean enableANR() {
-        hl1<IANRRegister> hl1Var = this.mIANRMonitorList;
-        if (hl1Var != null && hl1Var.getList() != null) {
+        kl1<IANRRegister> kl1Var = this.mIANRMonitorList;
+        if (kl1Var != null && kl1Var.getList() != null) {
             for (IANRRegister iANRRegister : this.mIANRMonitorList.getList()) {
                 if (iANRRegister != null && iANRRegister.checkEnable()) {
                     if (AppConfig.isDebug()) {

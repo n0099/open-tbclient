@@ -1,238 +1,133 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tm4;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.wm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class pl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ql4 a;
-    public BlockingQueue<Runnable> b;
-    public ThreadPoolExecutor c;
-    public bm4 d;
-    public final AtomicBoolean e;
-    @SuppressLint({"SyntheticAccessor"})
-    public final xl4 f;
-    public final hm4 g;
-    public wl4 h;
 
-    /* loaded from: classes7.dex */
-    public class a implements xl4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pl4 a;
+    public static <T> void a(@NonNull hm4 hm4Var, @NonNull List<em4<T>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, hm4Var, list) == null) {
+            for (em4<T> em4Var : list) {
+                hm4Var.c(cm4.b().a(em4Var));
+            }
+        }
+    }
 
-        public a(pl4 pl4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static synchronized void d(ym4 ym4Var, xj4 xj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, ym4Var, xj4Var) == null) {
+            synchronized (pl4.class) {
+                em4<dl4> i = gm4.i(ym4Var.a, xj4Var);
+                hm4 hm4Var = new hm4(xj4Var);
+                hm4Var.c(cm4.b().a(i));
+                hm4Var.e();
+            }
+        }
+    }
+
+    public static synchronized void g(List<dl4> list, xj4 xj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, list, xj4Var) == null) {
+            synchronized (pl4.class) {
+                List<em4<dl4>> e = gm4.e(list, xj4Var);
+                hm4 hm4Var = new hm4(xj4Var);
+                a(hm4Var, e);
+                hm4Var.e();
+            }
+        }
+    }
+
+    @NonNull
+    public static hm4 b(wm4 wm4Var, xj4 xj4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, wm4Var, xj4Var)) == null) {
+            List<em4<wm4.a>> f = gm4.f(wm4Var.a, xj4Var);
+            hm4 hm4Var = new hm4(xj4Var);
+            for (em4<wm4.a> em4Var : f) {
+                hm4Var.c(cm4.b().a(em4Var));
+            }
+            return hm4Var;
+        }
+        return (hm4) invokeLL.objValue;
+    }
+
+    public static synchronized void e(zm4 zm4Var, xj4 xj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, zm4Var, xj4Var) == null) {
+            synchronized (pl4.class) {
+                List<em4<cl4>> h = gm4.h(zm4Var.a, xj4Var);
+                hm4 hm4Var = new hm4(xj4Var);
+                for (em4<cl4> em4Var : h) {
+                    hm4Var.c(cm4.b().a(em4Var));
                 }
+                hm4Var.e();
             }
-            this.a = pl4Var;
-        }
-
-        @Override // com.baidu.tieba.xl4
-        public <T> void a(bm4<T> bm4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, bm4Var) != null) {
-                return;
-            }
-            this.a.d = bm4Var;
-        }
-
-        @Override // com.baidu.tieba.xl4
-        public <T> void b(bm4<T> bm4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bm4Var) != null) || this.a.d != bm4Var) {
-                return;
-            }
-            this.a.d = null;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements wl4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pl4 a;
+    public static synchronized void c(xm4 xm4Var, xj4 xj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, xm4Var, xj4Var) == null) {
+            synchronized (pl4.class) {
+                em4<zk4> d = gm4.d(xm4Var.d, xj4Var);
+                em4<bl4> g = gm4.g(xm4Var.a, xj4Var);
+                em4<xk4> c = gm4.c(xm4Var.f, xj4Var);
+                List<em4<cl4>> h = gm4.h(xm4Var.b, xj4Var);
+                List<em4<dl4>> e = gm4.e(xm4Var.c, xj4Var);
+                hm4 hm4Var = new hm4(xj4Var);
+                hm4Var.c(cm4.b().a(d));
+                hm4Var.c(cm4.b().a(g));
+                hm4Var.c(cm4.b().a(c));
+                a(hm4Var, h);
+                a(hm4Var, e);
+                hm4Var.e();
+            }
+        }
+    }
 
-        public b(pl4 pl4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static synchronized void f(uo4 uo4Var, xj4 xj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, uo4Var, xj4Var) == null) {
+            synchronized (pl4.class) {
+                em4<zk4> d = gm4.d(uo4Var.b, xj4Var);
+                em4<zk4> d2 = gm4.d(uo4Var.a, xj4Var);
+                em4<xk4> c = gm4.c(uo4Var.c, xj4Var);
+                hm4 hm4Var = new hm4(xj4Var);
+                if (d != null) {
+                    hm4Var.c(cm4.b().a(d));
                 }
-            }
-            this.a = pl4Var;
-        }
-
-        @Override // com.baidu.tieba.wl4
-        public Runnable a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                return this.a.d(z);
-            }
-            return (Runnable) invokeZ.objValue;
-        }
-    }
-
-    public pl4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new AtomicBoolean(false);
-        this.f = new a(this);
-        this.g = new hm4(this.f);
-        this.h = new b(this);
-        this.a = new ql4();
-        this.b = new LinkedBlockingQueue();
-        this.c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.b);
-        c(this.a);
-    }
-
-    public void c(xl4 xl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xl4Var) == null) {
-            this.g.c(xl4Var);
-        }
-    }
-
-    public synchronized Runnable d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    if (z) {
-                        return this.a.g();
-                    }
-                    return this.a.i();
+                if (d2 != null) {
+                    hm4Var.c(cm4.b().a(d2));
                 }
-                return null;
-            }
-        }
-        return (Runnable) invokeZ.objValue;
-    }
-
-    public synchronized <T> void g(bm4<T> bm4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bm4Var) == null) {
-            synchronized (this) {
-                this.a.h(bm4Var);
-            }
-        }
-    }
-
-    public synchronized <T> void h(bm4<T> bm4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bm4Var) == null) {
-            synchronized (this) {
-                g(bm4Var);
-                j();
-            }
-        }
-    }
-
-    public void i(xl4 xl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xl4Var) == null) {
-            this.g.d(xl4Var);
-        }
-    }
-
-    public synchronized boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    return false;
+                if (c != null) {
+                    hm4Var.c(cm4.b().a(c));
                 }
-                Object f = this.d.f();
-                if (f instanceof yk4) {
-                    return TextUtils.equals(((yk4) f).g, str);
-                }
-                if (!(f instanceof tm4.a)) {
-                    return false;
-                }
-                return TextUtils.equals(((tm4.a) f).b, str);
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                Iterator<bm4> f = this.a.f();
-                while (f.hasNext()) {
-                    bm4 next = f.next();
-                    if (next != null) {
-                        Object f2 = next.f();
-                        if (f2 instanceof yk4) {
-                            if (TextUtils.equals(((yk4) f2).g, str)) {
-                                return true;
-                            }
-                        } else if ((f2 instanceof tm4.a) && TextUtils.equals(((tm4.a) f2).b, str)) {
-                            return true;
+                if (uo4Var.d != null) {
+                    for (el4 el4Var : uo4Var.d) {
+                        em4<el4> j = gm4.j(el4Var, xj4Var);
+                        if (j != null) {
+                            hm4Var.c(cm4.b().a(j));
                         }
                     }
                 }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                if (this.b.size() < 1) {
-                    this.c.execute(new cm4(this.e, this.g, this.h));
+                if (uo4Var.e != null) {
+                    for (dl4 dl4Var : uo4Var.e) {
+                        em4<dl4> i = gm4.i(dl4Var, xj4Var);
+                        if (i != null) {
+                            hm4Var.c(cm4.b().a(i));
+                        }
+                    }
                 }
+                hm4Var.e();
             }
         }
     }

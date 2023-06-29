@@ -1,46 +1,183 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class p41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<a> a;
+    public final List<n41> b;
+    public String c;
+    public String d;
+    public l41 e;
+    public m41 f;
+    public o41 g;
+    public int h;
+    public int i;
 
-    public static void a(Runnable runnable, @NonNull String str, int i, long j) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) != null) || runnable == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final b41[] b;
+
+        public a(String str, b41[] b41VarArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, b41VarArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = b41VarArr;
         }
-        if (i != 0 && i != 1 && i != 2 && i != 3) {
-            i2 = 3;
-        } else {
-            i2 = i;
-        }
-        x41.b().a().a(runnable, str, i2, j);
     }
 
-    public static void b(Runnable runnable, @NonNull String str, long j) {
+    public p41() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Long.valueOf(j)}) != null) || runnable == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        x41.b().a().b(runnable, str, j);
+        this.a = new ArrayList(4);
+        this.b = new ArrayList(2);
+        this.h = -1;
+        this.i = -1;
     }
 
-    public static void c(@NonNull Runnable runnable, @NonNull String str, int i) {
+    public static p41 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, runnable, str, i) == null) {
-            a(runnable, str, i, 0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new p41();
         }
+        return (p41) invokeV.objValue;
     }
 
-    public static void d(@NonNull Runnable runnable, @NonNull String str) {
+    public String[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, runnable, str) == null) {
-            b(runnable, str, 0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            l41 l41Var = this.e;
+            if (l41Var == null) {
+                return null;
+            }
+            return l41Var.e();
         }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return d(null).toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public p41 a(String str, b41... b41VarArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, b41VarArr)) == null) {
+            this.a.add(new a(str, b41VarArr));
+            return this;
+        }
+        return (p41) invokeLL.objValue;
+    }
+
+    public p41 c(String str, k41 k41Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, k41Var)) == null) {
+            this.d = str;
+            this.c = k41Var.b().g();
+            return this;
+        }
+        return (p41) invokeLL.objValue;
+    }
+
+    public final StringBuilder d(StringBuilder sb) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sb)) == null) {
+            if (sb == null) {
+                sb = new StringBuilder();
+            }
+            sb.append("SELECT ");
+            int size = this.a.size();
+            String str = "";
+            for (int i = 0; i < size; i++) {
+                int i2 = 0;
+                while (i2 < this.a.get(i).b.length) {
+                    sb.append(str);
+                    String str2 = this.a.get(i).a;
+                    if (!TextUtils.isEmpty(str2)) {
+                        sb.append(str2);
+                        sb.append(".");
+                    }
+                    sb.append(this.a.get(i).b[i2].b);
+                    i2++;
+                    str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
+                }
+            }
+            sb.append(" ");
+            sb.append("FROM ");
+            sb.append(this.c);
+            if (!TextUtils.isEmpty(this.d)) {
+                sb.append(" AS ");
+                sb.append(this.d);
+            }
+            for (n41 n41Var : this.b) {
+                sb.append(n41Var.c());
+            }
+            l41 l41Var = this.e;
+            if (l41Var != null) {
+                sb.append(l41Var.k());
+            }
+            m41 m41Var = this.f;
+            if (m41Var != null) {
+                sb.append(m41Var.a());
+            }
+            o41 o41Var = this.g;
+            if (o41Var != null) {
+                sb.append(o41Var.a());
+            }
+            if (this.h > -1) {
+                sb.append(" LIMIT ");
+                sb.append(this.h);
+            }
+            if (this.i > -1) {
+                sb.append(" OFFSET ");
+                sb.append(this.i);
+            }
+            return sb;
+        }
+        return (StringBuilder) invokeL.objValue;
     }
 }

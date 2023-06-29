@@ -21,7 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResFragment extends DelegateFragment {
     public ResFragment() {
         super(new KsFragment(null));
@@ -43,7 +43,7 @@ public class ResFragment extends DelegateFragment {
         return super.getBase();
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.y1
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.z1
     @Nullable
     public Context getContext() {
         if (super.getContext() == null) {

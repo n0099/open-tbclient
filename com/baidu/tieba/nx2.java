@@ -1,184 +1,114 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.ox2;
 /* loaded from: classes7.dex */
-public class nx2 implements Application.ActivityLifecycleCallbacks {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile nx2 d;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+public interface nx2 extends ox2.b {
+    ky1 A(String str);
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
+    View B(String str);
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
+    String C();
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
+    cc3 D();
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
-        }
-    }
+    void E(zw2 zw2Var, wu2 wu2Var);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948017761, "Lcom/baidu/tieba/nx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948017761, "Lcom/baidu/tieba/nx2;");
-                return;
-            }
-        }
-        c = js1.a;
-    }
+    qt1 F();
 
-    public nx2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-    }
+    @NonNull
+    fk3 G();
 
-    public static nx2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (nx2.class) {
-                    if (d == null) {
-                        d = new nx2();
-                    }
-                }
-            }
-            return d;
-        }
-        return (nx2) invokeV.objValue;
-    }
+    kb2 H();
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
+    void I();
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (c) {
-                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
-            }
-            gv2.c().registerActivityLifecycleCallbacks(this);
-        }
-    }
+    SwanAppPropertyWindow J(Activity activity);
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c) {
-                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
-            }
-            gv2.c().unregisterActivityLifecycleCallbacks(this);
-        }
-    }
+    void K(String str);
 
-    public void d(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (z2 = this.a) != z) {
-            if (z2) {
-                this.a = false;
-                by2.a().e(null);
-                return;
-            }
-            this.a = true;
-            by2.a().d(null);
-        }
-    }
+    tt1 L();
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && !this.a) {
-            this.a = true;
-            by2.a().d(activity);
-        }
-    }
+    boolean M();
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
-            int i = this.b + 1;
-            this.b = i;
-            if (i == 1 && !this.a) {
-                if (c) {
-                    Log.d("SwanAppLifecycle", "onBackgroundToForeground");
-                }
-                this.a = true;
-                by2.a().d(activity);
-            }
-        }
-    }
+    void N();
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
-            int i = this.b - 1;
-            this.b = i;
-            if (i == 0 && this.a) {
-                if (c) {
-                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
-                }
-                this.a = false;
-                by2.a().e(activity);
-            }
-        }
-    }
+    tt1 O();
+
+    void a();
+
+    String b();
+
+    void c();
+
+    void d(zw2 zw2Var, wu2 wu2Var);
+
+    @NonNull
+    rc3 e(String str, SwanAppConfigData swanAppConfigData, String str2);
+
+    void exit();
+
+    @NonNull
+    rc3 f(String str);
+
+    String g();
+
+    SwanAppActivity getActivity();
+
+    SwanCoreVersion getCoreVersion();
+
+    jy1 i();
+
+    @NonNull
+    rc3 j(String str);
+
+    boolean k();
+
+    void l(SwanAppActivity swanAppActivity);
+
+    void m(String str, cm2 cm2Var);
+
+    FullScreenFloatView n(Activity activity);
+
+    void o();
+
+    void p();
+
+    @DebugTrace
+    hy1 q();
+
+    @NonNull
+    Pair<Integer, Integer> r();
+
+    void registerReceiver(Context context);
+
+    SwanAppConfigData s();
+
+    void t(Intent intent);
+
+    void u(cm2 cm2Var);
+
+    void unregisterReceiver(Context context);
+
+    void v();
+
+    void w();
+
+    @NonNull
+    Pair<Integer, Integer> x();
+
+    void y(fm2 fm2Var, boolean z);
+
+    String z();
 }

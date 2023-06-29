@@ -1,23 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface fta {
-    boolean available();
+    void a(long j);
 
-    int availableBytes();
+    void b(Exception exc, long j);
 
-    void clearQueues();
-
-    void close();
-
-    void flush();
-
-    int getBytes(byte[] bArr, int i);
-
-    void initVoiceChanger(int i, int i2, int i3, int i4);
-
-    boolean putBytes(byte[] bArr, int i);
-
-    void setVoiceChangeType(int[] iArr);
-
-    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
+    void onComplete(long j);
 }

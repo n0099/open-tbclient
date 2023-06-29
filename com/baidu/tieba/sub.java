@@ -1,37 +1,119 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tieba.txb;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.WindowParams;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.btb;
+import com.baidu.tieba.xsb;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
-public interface sub extends hub {
-    void a(Activity activity);
+public final class sub<T> implements btb.c<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final xsb.a<T> a;
 
-    void b(boolean z);
+    /* loaded from: classes7.dex */
+    public static final class a<T> extends dtb<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ctb<? super T> e;
+        public T f;
+        public int g;
 
-    void c(PayFlowType payFlowType, boolean z);
+        public a(ctb<? super T> ctbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ctbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = ctbVar;
+        }
 
-    void d(String str, PayFlowType payFlowType);
+        @Override // com.baidu.tieba.ysb
+        public void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (this.g == 2) {
+                    kxb.j(th);
+                    return;
+                }
+                this.f = null;
+                this.e.b(th);
+            }
+        }
 
-    boolean e();
+        @Override // com.baidu.tieba.ysb
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.g = 1;
+                    this.f = t;
+                } else if (i == 1) {
+                    this.g = 2;
+                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+                }
+            }
+        }
 
-    void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+        @Override // com.baidu.tieba.ysb
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.e.b(new NoSuchElementException());
+                } else if (i == 1) {
+                    this.g = 2;
+                    T t = this.f;
+                    this.f = null;
+                    this.e.c(t);
+                }
+            }
+        }
+    }
 
-    void g(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    public sub(xsb.a<T> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = aVar;
+    }
 
-    void h(Activity activity, txb.b bVar, bwb bwbVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    public void call(ctb<? super T> ctbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ctbVar) == null) {
+            a aVar = new a(ctbVar);
+            ctbVar.a(aVar);
+            this.a.call(aVar);
+        }
+    }
 
-    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
-
-    boolean k(PayFlowType payFlowType);
-
-    void l(String str, PayFlowType payFlowType);
-
-    void m(Activity activity);
-
-    void refreshWindow(WindowParams windowParams);
+    @Override // com.baidu.tieba.btb.c, com.baidu.tieba.ltb
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((ctb) ((ctb) obj));
+    }
 }

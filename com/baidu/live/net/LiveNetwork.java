@@ -9,11 +9,11 @@ import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.ee0;
-import com.baidu.tieba.sd0;
-import com.baidu.tieba.td0;
-import com.baidu.tieba.ud0;
+import com.baidu.tieba.he0;
 import com.baidu.tieba.vd0;
+import com.baidu.tieba.wd0;
+import com.baidu.tieba.xd0;
+import com.baidu.tieba.yd0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.Map;
 import kotlin.LazyKt__LazyJVMKt;
@@ -76,17 +76,17 @@ public final class LiveNetwork {
 
     /* JADX INFO: Add missing generic type declarations: [ResponseDataT] */
     /* loaded from: classes3.dex */
-    public static final class b<T, ResponseDataT> implements ud0<a<ResponseDataT>> {
+    public static final class b<T, ResponseDataT> implements xd0<a<ResponseDataT>> {
         public final /* synthetic */ Map b;
-        public final /* synthetic */ sd0 c;
+        public final /* synthetic */ vd0 c;
 
-        public b(Map map, sd0 sd0Var) {
+        public b(Map map, vd0 vd0Var) {
             this.b = map;
-            this.c = sd0Var;
+            this.c = vd0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ud0
+        @Override // com.baidu.tieba.xd0
         /* renamed from: b */
         public final a<ResponseDataT> a() {
             INetWork iNetWork = LiveNetwork.this.b;
@@ -96,12 +96,12 @@ public final class LiveNetwork {
             NetResponse res = iNetWork.postSync(this.b);
             Object obj = null;
             try {
-                sd0 sd0Var = this.c;
-                if (sd0Var != null) {
-                    obj = sd0Var.onParseResponseInBackground(res);
+                vd0 vd0Var = this.c;
+                if (vd0Var != null) {
+                    obj = vd0Var.onParseResponseInBackground(res);
                 }
             } catch (Exception e) {
-                ee0.e(e);
+                he0.e(e);
             }
             Intrinsics.checkExpressionValueIsNotNull(res, "res");
             return new a<>(res, obj);
@@ -110,20 +110,20 @@ public final class LiveNetwork {
 
     /* JADX INFO: Add missing generic type declarations: [ResponseDataT] */
     /* loaded from: classes3.dex */
-    public static final class c<T, ResponseDataT> implements vd0<a<ResponseDataT>> {
-        public final /* synthetic */ sd0 a;
+    public static final class c<T, ResponseDataT> implements yd0<a<ResponseDataT>> {
+        public final /* synthetic */ vd0 a;
 
-        public c(sd0 sd0Var) {
-            this.a = sd0Var;
+        public c(vd0 vd0Var) {
+            this.a = vd0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vd0
+        @Override // com.baidu.tieba.yd0
         /* renamed from: a */
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
             NetResponse netResponse;
-            sd0 sd0Var = this.a;
-            if (sd0Var != null) {
+            vd0 vd0Var = this.a;
+            if (vd0Var != null) {
                 ResponseDataT responsedatat = null;
                 if (aVar != null) {
                     netResponse = aVar.b();
@@ -133,7 +133,7 @@ public final class LiveNetwork {
                 if (aVar != null) {
                     responsedatat = aVar.a();
                 }
-                sd0Var.onNetResponse(netResponse, responsedatat);
+                vd0Var.onNetResponse(netResponse, responsedatat);
             }
         }
     }
@@ -179,10 +179,10 @@ public final class LiveNetwork {
         }
     }
 
-    public final <ResponseDataT> void b(Map<String, ? extends Object> map, sd0<ResponseDataT> sd0Var) {
+    public final <ResponseDataT> void b(Map<String, ? extends Object> map, vd0<ResponseDataT> vd0Var) {
         String str = this.a;
         if (str != null && (!StringsKt__StringsJVMKt.isBlank(str)) && this.b != null) {
-            td0.a(new b(map, sd0Var), new c(sd0Var));
+            wd0.a(new b(map, vd0Var), new c(vd0Var));
         }
     }
 }

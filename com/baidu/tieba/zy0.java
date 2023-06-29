@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class zy0 implements cz0 {
+public abstract class zy0 extends yy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final bz0 f;
+
+    public abstract void V(bz0 bz0Var);
 
     public zy0() {
         Interceptable interceptable = $ic;
@@ -21,34 +22,18 @@ public class zy0 implements cz0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = new bz0();
     }
 
-    @Override // com.baidu.tieba.cz0
-    @NonNull
-    public vy0 create(@NonNull String str) {
-        InterceptResult invokeL;
-        char c;
+    @Override // com.baidu.tieba.yy0
+    public void F(gz0 gz0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -812096555) {
-                if (hashCode == 26276517 && str.equals("CyberNetPlayer")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("CyberSysPlayer")) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                return new fz0();
-            }
-            return new xy0();
+        if (interceptable == null || interceptable.invokeL(1048576, this, gz0Var) == null) {
+            this.f.a(gz0Var);
+            V(this.f);
         }
-        return (vy0) invokeL.objValue;
     }
 }

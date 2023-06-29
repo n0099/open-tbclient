@@ -30,11 +30,11 @@ public final class b {
 
     /* renamed from: com.kwad.sdk.core.threads.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0671b implements a {
-        public C0671b() {
+    public static class C0681b implements a {
+        public C0681b() {
         }
 
-        public /* synthetic */ C0671b(byte b) {
+        public /* synthetic */ C0681b(byte b) {
             this();
         }
 
@@ -202,7 +202,7 @@ public final class b {
 
     public static ExecutorService vn() {
         com.kwad.sdk.core.e.b.d(TAG, "forBaseNetwork");
-        return a("httpIO", new C0671b((byte) 0));
+        return a("httpIO", new C0681b((byte) 0));
     }
 
     public static ExecutorService vo() {

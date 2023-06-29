@@ -12,8 +12,8 @@ import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.g05;
-import com.baidu.tieba.tr8;
+import com.baidu.tieba.ew8;
+import com.baidu.tieba.j05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -192,7 +192,7 @@ public class CustomViewPager extends TbViewPager {
             try {
                 super.onMeasure(i, i2);
             } catch (Exception e) {
-                if (!g05.e() && !g05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+                if (!j05.e() && !j05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
                     if ((getContext() instanceof Activity) && !((Activity) getContext()).isFinishing()) {
                         ((Activity) getContext()).finish();
@@ -294,9 +294,9 @@ public class CustomViewPager extends TbViewPager {
             try {
                 super.onLayout(z, i, i2, i3, i4);
             } catch (Exception e) {
-                if (!g05.e() && !g05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+                if (!j05.e() && !j05.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
-                    tr8 defaultLog = DefaultLog.getInstance();
+                    ew8 defaultLog = DefaultLog.getInstance();
                     defaultLog.b("CustomViewPager", "CustomViewPager onLayout crash, msg=" + e);
                     if ((getContext() instanceof Activity) && !((Activity) getContext()).isFinishing()) {
                         ((Activity) getContext()).finish();

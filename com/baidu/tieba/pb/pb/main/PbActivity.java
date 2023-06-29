@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.d85;
-import com.baidu.tieba.eu4;
-import com.baidu.tieba.f89;
-import com.baidu.tieba.fu4;
+import com.baidu.tieba.ao;
+import com.baidu.tieba.c65;
+import com.baidu.tieba.d65;
+import com.baidu.tieba.dd9;
 import com.baidu.tieba.g85;
-import com.baidu.tieba.j49;
-import com.baidu.tieba.o95;
+import com.baidu.tieba.hu4;
+import com.baidu.tieba.iu4;
+import com.baidu.tieba.j85;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
-import com.baidu.tieba.r89;
-import com.baidu.tieba.z55;
-import com.baidu.tieba.zn;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.rc9;
+import com.baidu.tieba.u89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class PbActivity extends AbsPbActivity {
     public int F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0768 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d077b : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -76,7 +76,7 @@ public class PbActivity extends AbsPbActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements zn {
+    public class a implements ao {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -103,7 +103,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.zn
+        @Override // com.baidu.tieba.ao
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -113,7 +113,7 @@ public class PbActivity extends AbsPbActivity {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements zn {
+    public class b implements ao {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -140,7 +140,7 @@ public class PbActivity extends AbsPbActivity {
             this.b = i2;
         }
 
-        @Override // com.baidu.tieba.zn
+        @Override // com.baidu.tieba.ao
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -174,10 +174,10 @@ public class PbActivity extends AbsPbActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (this.y >= 0) {
-                o95.p().F(o95.t("key_reaction_guide_show_number_pb"), this.y);
+                r95.p().F(r95.t("key_reaction_guide_show_number_pb"), this.y);
             }
             if (this.z != null) {
-                o95.p().J(o95.t("key_reaction_guide_show_pb_strategy"), this.z);
+                r95.p().J(r95.t("key_reaction_guide_show_pb_strategy"), this.z);
             }
         }
     }
@@ -189,10 +189,10 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONRESUME_STAMP_KEY);
             super.onResume();
             this.v = true;
-            a65.o(this, z55.o);
+            d65.o(this, c65.o);
             if (a2()) {
                 this.x.o(true);
-                fu4.w().Q(eu4.c0, this.x.d().c());
+                iu4.w().Q(hu4.c0, this.x.d().c());
             }
         }
     }
@@ -224,36 +224,36 @@ public class PbActivity extends AbsPbActivity {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public void D1(j49 j49Var) {
+    public void D1(u89 u89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j49Var) == null) {
-            super.D1(j49Var);
-            if (this.a != null && b2(j49Var)) {
-                this.a.v3(j49Var);
-                this.b.setArguments(this.x.g(j49Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u89Var) == null) {
+            super.D1(u89Var);
+            if (this.a != null && b2(u89Var)) {
+                this.a.v3(u89Var);
+                this.b.setArguments(this.x.g(u89Var));
                 this.x.l();
             }
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public String I1(j49 j49Var) {
+    public String I1(u89 u89Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, j49Var)) == null) {
-            if (j49Var != null && j49Var.w0()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u89Var)) == null) {
+            if (u89Var != null && u89Var.w0()) {
                 return "video_pb_fragment_tag";
             }
-            return super.I1(j49Var);
+            return super.I1(u89Var);
         }
         return (String) invokeL.objValue;
     }
 
-    public final boolean b2(j49 j49Var) {
+    public final boolean b2(u89 u89Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, j49Var)) == null) {
-            return "video_pb_fragment_tag".equals(I1(j49Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, u89Var)) == null) {
+            return "video_pb_fragment_tag".equals(I1(u89Var));
         }
         return invokeL.booleanValue;
     }
@@ -287,7 +287,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new f89(this));
+            registerListener(new rc9(this));
             X1();
         }
     }
@@ -307,7 +307,7 @@ public class PbActivity extends AbsPbActivity {
                 z = false;
             }
             String str2 = "";
-            String w = o95.p().w(o95.t("key_reaction_guide_show_pb_strategy"), "");
+            String w = r95.p().w(r95.t("key_reaction_guide_show_pb_strategy"), "");
             String[] split = w.split(",");
             int length = split.length;
             int i = 0;
@@ -338,51 +338,51 @@ public class PbActivity extends AbsPbActivity {
                 split = strArr;
             }
             String str5 = w;
-            this.y = o95.p().q(o95.t("key_reaction_guide_show_number_pb"), 0);
-            this.z = o95.p().w(o95.t("key_reaction_guide_show_pb_strategy"), str2);
+            this.y = r95.p().q(r95.t("key_reaction_guide_show_number_pb"), 0);
+            this.z = r95.p().w(r95.t("key_reaction_guide_show_pb_strategy"), str2);
             if (i2 == 0) {
                 if (z) {
-                    o95.p().F(o95.t("key_reaction_guide_show_number_pb"), 3);
-                    o95 p = o95.p();
-                    String t = o95.t("key_reaction_guide_show_pb_strategy");
+                    r95.p().F(r95.t("key_reaction_guide_show_number_pb"), 3);
+                    r95 p = r95.p();
+                    String t = r95.t("key_reaction_guide_show_pb_strategy");
                     p.J(t, str5 + "3,");
                     return;
                 }
-                o95.p().F(o95.t("key_reaction_guide_show_number_pb"), 1);
-                o95 p2 = o95.p();
-                String t2 = o95.t("key_reaction_guide_show_pb_strategy");
+                r95.p().F(r95.t("key_reaction_guide_show_number_pb"), 1);
+                r95 p2 = r95.p();
+                String t2 = r95.t("key_reaction_guide_show_pb_strategy");
                 p2.J(t2, str5 + "1,");
             } else if (i2 == 1) {
                 if (z) {
-                    o95.p().F(o95.t("key_reaction_guide_show_number_pb"), 3);
-                    o95 p3 = o95.p();
-                    String t3 = o95.t("key_reaction_guide_show_pb_strategy");
+                    r95.p().F(r95.t("key_reaction_guide_show_number_pb"), 3);
+                    r95 p3 = r95.p();
+                    String t3 = r95.t("key_reaction_guide_show_pb_strategy");
                     p3.J(t3, str5 + "3,");
                     return;
                 }
-                o95.p().F(o95.t("key_reaction_guide_show_number_pb"), 2);
-                o95 p4 = o95.p();
-                String t4 = o95.t("key_reaction_guide_show_pb_strategy");
+                r95.p().F(r95.t("key_reaction_guide_show_number_pb"), 2);
+                r95 p4 = r95.p();
+                String t4 = r95.t("key_reaction_guide_show_pb_strategy");
                 p4.J(t4, str5 + "2,");
             } else if (i2 == 4) {
-                o95.p().F(o95.t("key_reaction_guide_show_number_pb"), 1);
-                o95 p5 = o95.p();
-                String t5 = o95.t("key_reaction_guide_show_pb_strategy");
+                r95.p().F(r95.t("key_reaction_guide_show_number_pb"), 1);
+                r95 p5 = r95.p();
+                String t5 = r95.t("key_reaction_guide_show_pb_strategy");
                 p5.J(t5, str5 + "1,");
             } else if (i2 == 5) {
-                o95.p().F(o95.t("key_reaction_guide_show_number_pb"), 2);
-                o95 p6 = o95.p();
-                String t6 = o95.t("key_reaction_guide_show_pb_strategy");
+                r95.p().F(r95.t("key_reaction_guide_show_number_pb"), 2);
+                r95 p6 = r95.p();
+                String t6 = r95.t("key_reaction_guide_show_pb_strategy");
                 p6.J(t6, str5 + "2,");
             } else if (i2 == 3) {
-                o95.p().F(o95.t("key_reaction_guide_show_number_pb"), 3);
-                o95 p7 = o95.p();
-                String t7 = o95.t("key_reaction_guide_show_pb_strategy");
+                r95.p().F(r95.t("key_reaction_guide_show_number_pb"), 3);
+                r95 p7 = r95.p();
+                String t7 = r95.t("key_reaction_guide_show_pb_strategy");
                 p7.J(t7, str5 + "3,");
             } else if (i2 == 7) {
-                o95.p().F(o95.t("key_reaction_guide_show_number_pb"), 4);
-                o95 p8 = o95.p();
-                String t8 = o95.t("key_reaction_guide_show_pb_strategy");
+                r95.p().F(r95.t("key_reaction_guide_show_number_pb"), 4);
+                r95 p8 = r95.p();
+                String t8 = r95.t("key_reaction_guide_show_pb_strategy");
                 p8.J(t8, str5 + "4");
             }
         }
@@ -439,7 +439,7 @@ public class PbActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPause();
             this.v = false;
-            a65.n(z55.o);
+            d65.n(c65.o);
             if (a2()) {
                 this.x.o(false);
             }
@@ -462,17 +462,17 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
                 int i3 = -1;
-                if (g85.a().c == 1) {
+                if (j85.a().c == 1) {
                     i3 = 8;
                 }
-                if (g85.a().c == 2) {
+                if (j85.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, g85.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, j85.a().d);
             }
             long currentTimeMillis = System.currentTimeMillis() - H1();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, d85.e());
+            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, g85.e());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -497,9 +497,9 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void e2(int i, r89 r89Var) {
+    public void e2(int i, dd9 dd9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048589, this, i, r89Var) == null) && !this.u && K1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048589, this, i, dd9Var) == null) && !this.u && K1() != null) {
             int i2 = 1;
             this.u = true;
             if (K1() != null && K1().x1() == 7) {
@@ -510,7 +510,7 @@ public class PbActivity extends AbsPbActivity {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            r89Var.o2(new b(this, i, i2));
+            dd9Var.o2(new b(this, i, i2));
         }
     }
 

@@ -1,328 +1,163 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.ViewGroupKt;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLDecoder;
-/* loaded from: classes5.dex */
-public class gy5 {
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.sequences.Sequence;
+/* loaded from: classes6.dex */
+public final class gy5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final gy5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, View view2) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947810278, "Lcom/baidu/tieba/gy5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = view2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947810278, "Lcom/baidu/tieba/gy5;");
+                return;
+            }
         }
+        a = new gy5();
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921024) {
-                View view2 = this.a;
-                if (view2 instanceof WebView) {
-                    ((WebView) view2).reload();
-                } else if (view2 instanceof TbWebView) {
-                    ((TbWebView) view2).getController().d();
-                }
+    public gy5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = "";
-            this.a = str;
-            this.b = str2;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || b.class != obj.getClass()) {
-                    return false;
-                }
-                b bVar = (b) obj;
-                String str = this.a;
-                if (str == null) {
-                    if (bVar.a != null) {
-                        return false;
-                    }
-                } else if (!str.equals(bVar.a)) {
-                    return false;
-                }
-                String str2 = this.b;
-                if (str2 == null) {
-                    if (bVar.b != null) {
-                        return false;
-                    }
-                } else if (!str2.equals(bVar.b)) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            int hashCode;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String str = this.a;
-                int i = 0;
-                if (str == null) {
-                    hashCode = 0;
-                } else {
-                    hashCode = str.hashCode();
-                }
-                int i2 = (hashCode + 31) * 31;
-                String str2 = this.b;
-                if (str2 != null) {
-                    i = str2.hashCode();
-                }
-                return i2 + i;
-            }
-            return invokeV.intValue;
+    @JvmStatic
+    public static final void a(View view2, View view3, View view4, View view5, UserIconBox userIconBox, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{view2, view3, view4, view5, userIconBox, Integer.valueOf(i)}) == null) {
+            ArrayList arrayList = new ArrayList(4);
+            arrayList.add(view2);
+            arrayList.add(view3);
+            arrayList.add(view4);
+            arrayList.add(view5);
+            b(arrayList, userIconBox, i);
         }
     }
 
-    public static String a(String str) {
+    @JvmStatic
+    public static final void b(List<? extends View> views, UserIconBox userIconBox, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, views, userIconBox, i) == null) {
+            Intrinsics.checkNotNullParameter(views, "views");
+            new StatisticItem("c15270").addParam("obj_locate", a.e(views).toString()).addParam("obj_type", a.d(userIconBox).toString()).addParam("obj_source", i).eventStat();
+        }
+    }
+
+    @JvmStatic
+    public static final void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", str2);
+            statisticItem.param("obj_locate", str3);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final StringBuilder d(UserIconBox userIconBox) {
         InterceptResult invokeL;
+        Sequence<View> children;
+        TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (vi.isEmpty(str)) {
-                return str;
-            }
-            if (str.contains("page_type")) {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder(str);
-            if (str.contains("?")) {
-                sb.append("&");
-            } else {
-                sb.append("?");
-            }
-            sb.append("page_type");
-            sb.append("=");
-            sb.append(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (PermissionUtil.isBrowseMode() || Build.VERSION.SDK_INT < 17) {
-                return "";
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userIconBox)) == null) {
             StringBuilder sb = new StringBuilder();
-            String w = o95.p().w("key_default_useragent", "");
-            try {
-                if (TextUtils.isEmpty(w)) {
-                    w = WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst());
-                    o95.p().J("key_default_useragent", w);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            sb.append(w);
-            sb.append(" tieba/");
-            sb.append(TbConfig.getVersion());
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            int indexOf = str.indexOf(str2);
-            if (indexOf == -1) {
-                return "";
-            }
-            int length = indexOf + str2.length();
-            int i = length;
-            while (i < str.length() && str.charAt(i) != '&') {
-                i++;
-            }
-            try {
-                return URLDecoder.decode(str.substring(length, i));
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            String str3 = "";
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
-                for (int i = 1; i < split.length; i++) {
-                    String[] split2 = split[i].split("&");
-                    if (split2 != null && split2.length > 0) {
-                        int length = split2.length;
-                        int i2 = 0;
-                        while (true) {
-                            if (i2 < length) {
-                                String[] split3 = split2[i2].split("=");
-                                if (split3.length == 2) {
-                                    String str4 = split3[0];
-                                    String str5 = split3[1];
-                                    if (str2.equals(str4)) {
-                                        try {
-                                            str3 = URLDecoder.decode(str5);
-                                            break;
-                                        } catch (Exception unused) {
-                                            str3 = str5;
-                                        }
-                                    }
-                                }
-                                i2++;
-                            }
+            if (userIconBox != null && (children = ViewGroupKt.getChildren(userIconBox)) != null) {
+                int i = 0;
+                for (View view2 : children) {
+                    int i2 = i + 1;
+                    if (i < 0) {
+                        CollectionsKt__CollectionsKt.throwIndexOverflow();
+                    }
+                    View view3 = view2;
+                    if (view3 instanceof TbImageView) {
+                        tbImageView = (TbImageView) view3;
+                    } else {
+                        tbImageView = null;
+                    }
+                    if (tbImageView != null && tbImageView.getVisibility() == 0) {
+                        sb.append(tbImageView.getUrl());
+                        if (i != userIconBox.getChildCount() - 1) {
+                            sb.append(",");
                         }
                     }
+                    i = i2;
                 }
             }
-            return str3;
+            return sb;
         }
-        return (String) invokeLL.objValue;
+        return (StringBuilder) invokeL.objValue;
     }
 
-    public static void e(View view2, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, bdUniqueId) != null) || view2 == null) {
-            return;
-        }
-        a aVar = new a(2921024, view2);
-        if (bdUniqueId != null) {
-            aVar.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(aVar);
-        }
-    }
-
-    public static boolean f(String str) {
+    public final StringBuilder e(List<? extends View> list) {
         InterceptResult invokeL;
+        boolean z;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (!str.toLowerCase().startsWith("http://") && !str.toLowerCase().startsWith("https://")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Bundle g(String str) {
-        InterceptResult invokeL;
-        URL url;
-        String query;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            Bundle bundle = new Bundle();
-            try {
-                url = new URL(str);
-                query = url.getQuery();
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-            if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
-                return null;
-            }
-            bundle.putString("path", url.getPath());
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
-                    bundle.putString(split2[0], split2[1]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            for (Object obj : list) {
+                int i2 = i + 1;
+                if (i < 0) {
+                    CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
+                View view2 = (View) obj;
+                if (view2 != null && view2.getVisibility() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                sb.append(str);
+                if (i != list.size() - 1) {
+                    sb.append(",");
+                }
+                i = i2;
             }
-            return bundle;
+            return sb;
         }
-        return (Bundle) invokeL.objValue;
+        return (StringBuilder) invokeL.objValue;
     }
 }

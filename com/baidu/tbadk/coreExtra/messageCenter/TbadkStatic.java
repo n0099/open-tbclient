@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.atomData.SimpleVideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.httpNet.ComplianceParmasHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.le5;
+import com.baidu.tieba.dq9;
+import com.baidu.tieba.eq9;
 import com.baidu.tieba.pe5;
 import com.baidu.tieba.play.SimpleVideoPlayActivity;
-import com.baidu.tieba.rl9;
-import com.baidu.tieba.sl9;
+import com.baidu.tieba.te5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class TbadkStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<le5> {
+    public static class a implements CustomMessageTask.CustomRunnable<pe5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,11 +49,11 @@ public class TbadkStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<le5> run(CustomMessage<le5> customMessage) {
+        public CustomResponsedMessage<pe5> run(CustomMessage<pe5> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2156675, new pe5());
+                return new CustomResponsedMessage<>(2156675, new te5());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -87,7 +87,7 @@ public class TbadkStatic {
                 if (customMessage != null && customMessage.getData() != null) {
                     String obj = customMessage.getData().toString();
                     if ("isKeepOriginalLogic".equals(obj)) {
-                        z = sl9.b();
+                        z = eq9.b();
                     } else if (ComplianceParmasHelper.isNeedChange(obj)) {
                         z = true;
                     }
@@ -128,7 +128,7 @@ public class TbadkStatic {
                 if (customMessage != null && customMessage.getData() != null) {
                     String obj = customMessage.getData().toString();
                     if ("isKeepOriginalLogic".equals(obj)) {
-                        z = rl9.b();
+                        z = dq9.b();
                     } else if (ComplianceParmasHelper.isNeedChange(obj)) {
                         z = true;
                     }
@@ -172,22 +172,22 @@ public class TbadkStatic {
                         hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
                         hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
                     } else {
-                        hashMap.put(HttpRequest.NEED_DECRYPT, sl9.c());
-                        String g = sl9.g(HttpRequest.ANDROID_ID);
+                        hashMap.put(HttpRequest.NEED_DECRYPT, eq9.c());
+                        String g = eq9.g(HttpRequest.ANDROID_ID);
                         if (!TextUtils.isEmpty(g)) {
-                            hashMap.put(g, sl9.d());
+                            hashMap.put(g, eq9.d());
                         }
-                        String g2 = sl9.g(HttpRequest.PHONE_IMEI);
+                        String g2 = eq9.g(HttpRequest.PHONE_IMEI);
                         if (!TextUtils.isEmpty(g2)) {
-                            hashMap.put(g2, sl9.f());
+                            hashMap.put(g2, eq9.f());
                         }
-                        String g3 = sl9.g("oaid");
+                        String g3 = eq9.g("oaid");
                         if (!TextUtils.isEmpty(g3)) {
-                            hashMap.put(g3, sl9.i());
+                            hashMap.put(g3, eq9.i());
                         }
-                        String g4 = sl9.g("model");
+                        String g4 = eq9.g("model");
                         if (!TextUtils.isEmpty(g4)) {
-                            hashMap.put(g4, sl9.h());
+                            hashMap.put(g4, eq9.h());
                         }
                     }
                 }
@@ -227,10 +227,10 @@ public class TbadkStatic {
                         hashMap.remove("isKeepOriginalLogic");
                         hashMap.put(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
                     } else {
-                        hashMap.put("need_cam_decrypt", rl9.c());
-                        String d = rl9.d("mac");
+                        hashMap.put("need_cam_decrypt", dq9.c());
+                        String d = dq9.d("mac");
                         if (!TextUtils.isEmpty(d)) {
-                            hashMap.put(d, rl9.e());
+                            hashMap.put(d, dq9.e());
                         }
                     }
                 }

@@ -36,7 +36,7 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class WebKitFactory {
     public static final String ARCH_ARM = "armv";
     public static final int ARCH_ARM_INT = 7;
@@ -94,7 +94,7 @@ public final class WebKitFactory {
     public static Object sForceInitLock = new Object();
     public static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DelayedInitTask extends Thread {
         public boolean mResult;
 
@@ -229,7 +229,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -238,14 +238,14 @@ public final class WebKitFactory {
         void onForceInitZeusStart();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum SwitchState {
         Invalid,
         On,
         Off
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;

@@ -2,15 +2,19 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+@Singleton
 @Service
 /* loaded from: classes5.dex */
-public class c94 implements gt1 {
+public class c94 implements ht1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,41 +32,39 @@ public class c94 implements gt1 {
         }
     }
 
-    @Override // com.baidu.tieba.gt1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return v54.g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gt1
-    public boolean b() {
-        InterceptResult invokeV;
-        fb2 m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (zb3.M() != null && zb3.M().w0()) {
-                ib2 U = mx2.T().U();
-                if (U == null || (m = U.m()) == null || !(m instanceof w74)) {
-                    return true;
-                }
-                return ((w74) m).F3();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.gt1
-    public String c(String str) throws MalformedURLException {
+    @Override // com.baidu.tieba.ht1
+    public List<zd3> a(zc3 zc3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return v54.d(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zc3Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new s74(zc3Var));
+            arrayList.add(new t74(zc3Var));
+            return arrayList;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ht1
+    public List<zd3> c(zc3 zc3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zc3Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new lc4(zc3Var));
+            arrayList.add(new kc4(zc3Var));
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ht1
+    public List<zd3> b(zc3 zc3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zc3Var)) == null) {
+            return Arrays.asList(new f84(zc3Var), new u64(zc3Var), new d74(zc3Var), new q74(zc3Var));
+        }
+        return (List) invokeL.objValue;
     }
 }

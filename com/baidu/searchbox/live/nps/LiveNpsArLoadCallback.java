@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.nps;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface LiveNpsArLoadCallback {
     void onProgress(int i, int i2);
 

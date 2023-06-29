@@ -33,14 +33,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.OnActivityFinishListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eu4;
-import com.baidu.tieba.fu4;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.l46;
+import com.baidu.tieba.h9;
+import com.baidu.tieba.hu4;
+import com.baidu.tieba.iu4;
+import com.baidu.tieba.q46;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public List<VideoItemData> f;
     public VideoVerticalPageFragment g;
     public ImageView h;
-    public l46 i;
+    public q46 i;
     public boolean j;
     public CustomMessageListener k;
 
@@ -345,9 +345,9 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            l46 l46Var = this.i;
-            if (l46Var != null) {
-                l46Var.h();
+            q46 q46Var = this.i;
+            if (q46Var != null) {
+                q46Var.h();
             }
         }
     }
@@ -362,7 +362,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.g.setUserVisibleHint(false);
             }
-            fu4.w().E();
+            iu4.w().E();
         }
     }
 
@@ -375,7 +375,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.g.setUserVisibleHint(true);
-                fu4.w().Q(eu4.c0, this.g.m());
+                iu4.w().Q(hu4.c0, this.g.m());
             }
         }
     }
@@ -470,7 +470,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             x1();
-            if (!g9.f().h("MainTabActivity")) {
+            if (!h9.f().h("MainTabActivity")) {
                 if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
                     this.d = true;
                 } else if (this.c == 7) {
@@ -481,8 +481,8 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d09ab);
-            this.i = new l46(getPageContext(), "client_videomiddle");
+            setContentView(R.layout.obfuscated_res_0x7f0d09c0);
+            this.i = new q46(getPageContext(), "client_videomiddle");
             y1();
             addNoAdjustSoftInputHeightListener();
             if (!K1() && !M1() && !J1() && !A1() && !z1() && !L1() && !F1() && !D1() && !N1() && !I1() && !H1() && !C1() && !E1() && getWindow() != null) {
@@ -575,7 +575,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.f)) {
-                wi.P(this, R.string.obfuscated_res_0x7f0f0df0);
+                xi.P(this, R.string.obfuscated_res_0x7f0f0e0c);
                 finish();
                 return;
             }
@@ -583,7 +583,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             this.g = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092866, this.g);
+            beginTransaction.add(R.id.obfuscated_res_0x7f0928c8, this.g);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             ImageView imageView = new ImageView(getPageContext().getPageActivity());

@@ -1,185 +1,146 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.h9a;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.me5;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.w55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class u9a implements c9a, h9a.c, nr6 {
+public class u9a extends w55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public u8a b;
-    public g9a c;
-    public SelectMusicModel d;
-    public String e;
+    public final MainTabActivity c;
+    public LiveRemindRecommendData d;
+    public Map<String, Object> e;
+    public me5 f;
 
-    @Override // com.baidu.tieba.c9a
-    public void setMusicData(List<MusicData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+    /* loaded from: classes8.dex */
+    public class a implements me5.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u9a a;
+
+        public a(u9a u9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u9aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u9aVar;
+        }
+
+        @Override // com.baidu.tieba.me5.h
+        public void dismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
         }
     }
 
-    public u9a(u8a u8aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u9a(MainTabActivity mainTabActivity, e7a e7aVar) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u8aVar};
+            Object[] objArr = {mainTabActivity, e7aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = u8aVar;
-        this.a = u8aVar.a;
+        this.c = mainTabActivity;
     }
 
-    public final void a(String str) {
-        u8a u8aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (u8aVar = this.b) == null) {
-            return;
-        }
-        if (u8aVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        this.e = str;
-        VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.e);
-        videoInfo.setThumbPath(this.b.c);
-        u8a u8aVar2 = this.b;
-        if (u8aVar2 != null) {
-            u8aVar2.f(videoInfo);
-        }
-    }
-
+    @Override // com.baidu.tieba.w55
     public void b() {
-        u8a u8aVar;
+        me5 me5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (u8aVar = this.b) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (me5Var = this.f) != null) {
+            me5Var.t();
         }
-        if (u8aVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        if (StringUtils.isNull(this.b.d)) {
-            u8a u8aVar2 = this.b;
-            if (!u8aVar2.e) {
-                o1(u8aVar2.b, -4399, "");
-                return;
-            }
-        }
-        if (this.d == null) {
-            this.d = new SelectMusicModel(this.a.getPageContext(), this);
-        }
-        SelectMusicModel selectMusicModel = this.d;
-        u8a u8aVar3 = this.b;
-        selectMusicModel.X(u8aVar3.b, u8aVar3.d, v8a.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !u8aVar3.e);
     }
 
-    @Override // com.baidu.tieba.nr6
-    public void cancel() {
+    @Override // com.baidu.tieba.w55
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            u8a u8aVar = this.b;
-            if (u8aVar != null) {
-                u8aVar.i(true);
-            }
-            g9a g9aVar = this.c;
-            if (g9aVar != null && g9aVar.f()) {
-                this.c.e();
-            }
+            this.f = ne5.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
+            f95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
         }
     }
 
-    @Override // com.baidu.tieba.c9a
-    public void o1(String str, int i, String str2) {
+    @Override // com.baidu.tieba.w55
+    public void d(w55.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
-            u8a u8aVar = this.b;
-            if (u8aVar != null && u8aVar.b()) {
-                this.b.c();
-                this.b = null;
-            } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c7c);
-                u8a u8aVar2 = this.b;
-                if (u8aVar2 != null) {
-                    u8aVar2.g(i, str2);
-                }
-            } else {
-                u8a u8aVar3 = this.b;
-                if (u8aVar3 != null) {
-                    u8aVar3.h();
-                }
-                if (!StringUtils.isNull(this.b.f)) {
-                    if (!StringHelper.equals(str, this.b.b)) {
-                        this.b.g = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (d65.j()) {
+                aVar.callback(false);
+                return;
+            }
+            LiveRemindRecommendData c = e95.a().c(0);
+            this.d = c;
+            if (c != null && f95.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+                this.e = new HashMap();
+                int i = 3;
+                if (this.d.getRemindType() != 1) {
+                    if (this.d.getRemindType() == 2) {
+                        i = 4;
+                    } else if (this.d.getRemindType() == 3) {
+                        i = 2;
+                    } else {
+                        i = 0;
                     }
-                    if (this.c == null) {
-                        g9a g9aVar = new g9a(this.a.getActivity());
-                        this.c = g9aVar;
-                        g9aVar.i(this);
+                }
+                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
+                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
+                this.e.put("view_top_params_user_name", this.d.getUserName());
+                this.e.put("view_top_params_key_desc", this.d.getDesc());
+                this.e.put("view_top_params_room_id", this.d.getRoomId());
+                this.e.put("view_top_params_btn_text", this.d.getBtnText());
+                this.e.put("view_top_params_key_title", this.d.getTitle());
+                this.e.put("view_top_params_key_nid", this.d.getFeedId());
+                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
+                this.e.put("view_top_params_key_type", Integer.valueOf(i));
+                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
+                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !zf5.j()) {
+                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !zf5.j()) {
+                        aVar.callback(true);
+                        return;
+                    } else {
+                        aVar.callback(false);
+                        return;
                     }
-                    this.c.g(str, this.b.f);
-                    return;
                 }
-                u8a u8aVar4 = this.b;
-                if (u8aVar4 != null) {
-                    u8aVar4.e();
-                }
-                a(str);
+                aVar.callback(false);
+                return;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.h9a.c
-    public void onGenFilterVideoFail(int i, String str) {
-        u8a u8aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (u8aVar = this.b) != null) {
-            u8aVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.h9a.c
-    public void onGenFilterVideoRecordError(int i, String str) {
-        u8a u8aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (u8aVar = this.b) != null) {
-            u8aVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.h9a.c
-    public void onGenFilterVideoSuccess(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            u8a u8aVar = this.b;
-            if (u8aVar != null) {
-                u8aVar.e();
-            }
-            a(str);
+            aVar.callback(false);
         }
     }
 }

@@ -1,78 +1,49 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.MoreTreasureTrove.DataRes;
+import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
+import tbclient.ThreadInfo;
+/* loaded from: classes8.dex */
 public class tz7 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948198584, "Lcom/baidu/tieba/tz7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948198584, "Lcom/baidu/tieba/tz7;");
-        }
-    }
-
-    public static boolean a(Activity activity) {
+    public static List<xn> a(List<ThreadInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null) {
-                try {
-                    if (activity.isInMultiWindowMode()) {
-                        return true;
-                    }
-                    return false;
-                } catch (Throwable unused) {
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
-            return false;
+            ArrayList arrayList = new ArrayList(list.size());
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                threadData.isFromLowFlowsPage = true;
+                arrayList.add(threadData);
+            }
+            return hy7.a(arrayList);
         }
-        return invokeL.booleanValue;
+        return (List) invokeL.objValue;
     }
 
-    public static void b(BdTypeRecyclerView bdTypeRecyclerView) {
+    public static List<xn> b(MoreTreasureTroveResIdl moreTreasureTroveResIdl) {
+        InterceptResult invokeL;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, moreTreasureTroveResIdl)) == null) {
+            if (moreTreasureTroveResIdl != null && (dataRes = moreTreasureTroveResIdl.data) != null && !ListUtils.isEmpty(dataRes.hot_thread_info)) {
+                return a(moreTreasureTroveResIdl.data.hot_thread_info);
+            }
+            return null;
         }
-        int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
-        int i = 0;
-        View childAt = bdTypeRecyclerView.getChildAt(0);
-        if (childAt != null) {
-            i = childAt.getTop();
-        }
-        a = firstVisiblePosition;
-        b = i;
-    }
-
-    public static void c(BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || a > bdTypeRecyclerView.getCount() - 1) {
-            return;
-        }
-        bdTypeRecyclerView.requestFocusFromTouch();
-        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(a, b);
-        a = 0;
-        b = 0;
+        return (List) invokeL.objValue;
     }
 }

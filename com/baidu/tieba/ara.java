@@ -1,70 +1,128 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.VideoCategoryClassData;
+import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassReqMessage;
+import com.baidu.tieba.write.write.work.selecttag.model.GetSelectTagReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ara {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
+    public List<List<String>> b;
+    public VideoCategoryClassData c;
+    public BdUniqueId d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626169, "Lcom/baidu/tieba/ara;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947626169, "Lcom/baidu/tieba/ara;");
+    public ara(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ypa.m();
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new VideoCategoryClassData();
+        this.d = bdUniqueId;
     }
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
+    public VideoCategoryClassData a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (a) {
-                Log.d("UBCFileUtils", "delete file:" + file);
-            }
-            if (file == null) {
-                return false;
-            }
-            boolean z = true;
-            if (file.exists()) {
-                if (file.isFile()) {
-                    return true & file.delete();
-                }
-                if (file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null) {
-                        for (File file2 : listFiles) {
-                            z &= a(file2);
-                        }
-                    }
-                    return z & file.delete();
-                } else if (!a) {
-                    return true;
-                } else {
-                    Log.d("UBCFileUtils", "a special file:" + file);
-                    return true;
-                }
-            } else if (!a) {
-                return true;
-            } else {
-                Log.d("UBCFileUtils", "not found the file to delete:" + file);
-                return true;
-            }
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            this.c.setFirstClass(this.a.get(i));
+            this.c.setSecondClass(this.b.get(i).get(i2));
+            this.c.getTags().clear();
+            return this.c;
         }
-        return invokeL.booleanValue;
+        return (VideoCategoryClassData) invokeII.objValue;
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<List<String>> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public ArrayList<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.getTags();
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
+            getSelectClassReqMessage.setTag(this.d);
+            MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
+            getSelectTagReqMessage.setTag(this.d);
+            getSelectTagReqMessage.setFirstClass(this.c.getFirstClass());
+            getSelectTagReqMessage.setSecondClass(this.c.getSecondClass());
+            MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
+        }
+    }
+
+    public void g(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.a.clear();
+            this.a.addAll(list);
+        }
+    }
+
+    public void h(List<List<String>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.b.clear();
+            this.b.addAll(list);
+        }
+    }
+
+    public void i(VideoCategoryClassData videoCategoryClassData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
+            this.c = videoCategoryClassData;
+        }
     }
 }

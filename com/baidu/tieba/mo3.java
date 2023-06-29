@@ -1,44 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class mo3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static List<String> b;
-    public static List<String> c;
-    public static final Object d;
-    public static int e;
-    public static int f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static abstract class a {
+    public static class a extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final boolean a;
+        public final /* synthetic */ View a;
 
-        public a(boolean z) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,284 +37,85 @@ public class mo3 {
                     return;
                 }
             }
-            this.a = z;
+            this.a = view2;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setTranslationX(0.0f);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947979352, "Lcom/baidu/tieba/mo3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947979352, "Lcom/baidu/tieba/mo3;");
+    public static void a(lb2 lb2Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, lb2Var, context) == null) {
+            b(lb2Var, context, 2);
+        }
+    }
+
+    public static void b(lb2 lb2Var, Context context, int i) {
+        View b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65537, null, lb2Var, context, i) == null) && lb2Var != null && lb2Var.k() >= i) {
+            ib2 j = lb2Var.j(lb2Var.k() - i);
+            ib2 m = lb2Var.m();
+            if (m != null && m.E0) {
                 return;
             }
-        }
-        a = js1.a;
-        b = new ArrayList();
-        c = new ArrayList();
-        d = new Object();
-        e = 0;
-        f = 0;
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e()) {
-                if (a) {
-                    Log.d("SwanAppCompat", "has used ab description");
-                }
-                return true;
-            }
-            return !nk3.a().getBoolean("swan_app_js_native_ab_update_key", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "on App upgrade");
-            }
-            if (kj4.b() != null && go4.b()) {
-                kj4.b().i().putString("key_online_description_fix_version", "0");
-            }
-            nk3.a().putBoolean("swan_app_js_native_ab_update_key", true);
-        }
-    }
-
-    public static void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "start release descriptions");
-            }
-            synchronized (d) {
-                e = 0;
-                b = new ArrayList();
-                c = new ArrayList();
+            float o = tp3.o(context) >> 2;
+            if (j != null && (b0 = j.b0()) != null) {
+                ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
             }
         }
     }
 
-    public static void k() {
+    public static void c(lb2 lb2Var, Context context) {
+        View b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            if (a) {
-                Log.d("SwanAppCompat", "start prepare ab description");
-            }
-            synchronized (d) {
-                l(true);
-                l(false);
-            }
-            if (a) {
-                Log.d("SwanAppCompat", "end prepare ab description");
+        if ((interceptable == null || interceptable.invokeLL(65538, null, lb2Var, context) == null) && lb2Var != null && lb2Var.k() >= 2) {
+            ib2 j = lb2Var.j(lb2Var.k() - 2);
+            float o = tp3.o(context) >> 2;
+            if (j != null && (b0 = j.b0()) != null) {
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, 0.0f, -o);
+                ofFloat.setDuration(300L).start();
+                ofFloat.addListener(new a(b0));
             }
         }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static void d(@NonNull aq4 aq4Var, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            z82.c("JsNative", f + "-true");
-            return f + "-true-" + str + "-" + c();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            synchronized (d) {
-                if (b != null) {
-                    sb.append("v8list:{");
-                    for (String str : b) {
-                        if (!TextUtils.isEmpty(str)) {
-                            if (str.length() > 100) {
-                                sb.append(str.substring(0, 99));
-                                sb.append("...");
-                            } else {
-                                sb.append(str);
-                            }
-                            sb.append(ParamableElem.DIVIDE_PARAM);
-                        }
-                    }
-                    sb.append("},");
-                }
-                if (c != null) {
-                    sb.append("weblist:{");
-                    for (String str2 : c) {
-                        if (!TextUtils.isEmpty(str2)) {
-                            if (str2.length() > 100) {
-                                sb.append(str2.substring(0, 99));
-                                sb.append("...");
-                            } else {
-                                sb.append(str2);
-                            }
-                            sb.append(ParamableElem.DIVIDE_PARAM);
-                        }
-                    }
-                    sb.append("}");
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d(int i, String str) {
-        InterceptResult invokeIL;
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            f = 0;
-            if (e == 1) {
-                z82.i("SwanAppCompat", "type support default");
-                f = 1;
-                return SchemeCollecter.getSchemesDes(str, i);
-            } else if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_WEB)) {
-                return SchemeCollecter.getSchemesDes(str, i);
-            } else {
-                if (a() && !nw2.b().isEmpty()) {
-                    synchronized (d) {
-                        if (TextUtils.equals(str, SchemeCollecter.CLASSIFY_SWAN_V8)) {
-                            list = b;
-                        } else {
-                            list = c;
-                        }
-                        if (list != null && list.size() > 0) {
-                            if (a) {
-                                Log.d("SwanAppCompat", "support ab js native descriptions");
-                            }
-                            e = 2;
-                            f = 2;
-                            return list.get(i);
-                        } else if (list != null) {
-                            f = 3;
-                        } else {
-                            f = 4;
-                        }
-                    }
-                }
-                if (a) {
-                    Log.d("SwanAppCompat", "use default descriptions");
-                }
-                e = 1;
-                return SchemeCollecter.getSchemesDes(str, i);
-            }
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (e == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return !op3.f("3.320.0");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return !op3.f("3.120.2");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, null) == null) && a) {
-            Log.e("JsNative", f + "-true");
-        }
-    }
-
-    public static void l(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            if (a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("start prepare ab description :");
-                if (z) {
-                    str = V8Engine.TYPE_V8;
-                } else {
-                    str = AlbumActivityConfig.FROM_WEB_VIEW;
-                }
-                sb.append(str);
-                Log.d("SwanAppCompat", sb.toString());
-            }
-            kq3 kq3Var = new kq3(z);
-            String a2 = nw2.a();
-            String string = nk3.a().getString("swan_app_js_native_ab_sign", null);
-            if (!TextUtils.equals(a2, string)) {
-                if (a) {
-                    Log.w("SwanAppCompat", "js desc sign change: old=" + string + ", new=" + a2);
-                }
-                if (!kq3Var.a(3)) {
-                    return;
-                }
-                nk3.a().putString("swan_app_js_native_ab_sign", a2);
-            } else if (nk3.a().getBoolean("swan_app_js_native_ab_update_key", false)) {
-                if (!kq3Var.a(3)) {
-                    return;
-                }
-                nk3.a().putBoolean("swan_app_js_native_ab_update_key", false);
-            }
-            List<String> d2 = kq3Var.d();
-            if (d2 != null) {
-                m(d2, z);
-            }
-        }
-    }
-
-    public static void m(List<String> list, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65549, null, list, z) != null) || list == null || e != 0) {
+        if ((interceptable != null && interceptable.invokeLLII(65539, null, aq4Var, str, i, i2) != null) || aq4Var == null) {
             return;
         }
-        if (z) {
-            b = list;
-        } else {
-            c = list;
-        }
-        if (a) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("has update descriptions, list :");
-            sb.append(list.toString());
-            sb.append(" type :");
-            if (z) {
-                str = V8Engine.TYPE_V8;
-            } else {
-                str = AlbumActivityConfig.FROM_WEB_VIEW;
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1876181062) {
+            if (hashCode != -983638536) {
+                if (hashCode == 1528366175 && str.equals("showModalPage")) {
+                    c = 1;
+                }
+            } else if (str.equals("navigateBack")) {
+                c = 0;
             }
-            sb.append(str);
-            Log.d("SwanAppCompat", sb.toString());
+        } else if (str.equals("hideModalPage")) {
+            c = 2;
         }
+        if (c != 0) {
+            if (c != 1 && c != 2) {
+                aq4Var.i(i, i2);
+                return;
+            }
+            return;
+        }
+        lb2 U = px2.T().U();
+        ib2 j = U.j(U.k() - 1);
+        if (j != null && j.E0) {
+            return;
+        }
+        aq4Var.i(i, i2);
     }
 }

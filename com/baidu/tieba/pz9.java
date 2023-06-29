@@ -1,58 +1,34 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.statemachine.base.BaseStateMachine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class pz9 {
+public final class pz9 extends BaseStateMachine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<nz9> a;
-    public ArrayList<oz9> b;
 
-    public pz9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pz9(qz9 spriteStateMap) {
+        super(spriteStateMap);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spriteStateMap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((k2a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-    }
-
-    public void a(ActPost actPost) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
-            return;
-        }
-        String str = actPost.list_head;
-        for (ActHot actHot : actPost.act_hot) {
-            if (actHot != null) {
-                nz9 nz9Var = new nz9();
-                nz9Var.a(actHot);
-                this.a.add(nz9Var);
-            }
-        }
-        List<LinkInfo> list = actPost.link_info;
-        for (LinkInfo linkInfo : list) {
-            if (list != null) {
-                oz9 oz9Var = new oz9();
-                oz9Var.a(linkInfo);
-                this.b.add(oz9Var);
-            }
-        }
+        Intrinsics.checkNotNullParameter(spriteStateMap, "spriteStateMap");
     }
 }

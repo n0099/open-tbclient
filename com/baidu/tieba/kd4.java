@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kd4 extends bj3 {
+public class kd4 extends l64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int k;
-    public String l;
-    public int m;
-    public int n;
-    public long o;
+    @V8JavascriptField
+    public Object data;
 
     public kd4() {
         Interceptable interceptable = $ic;
@@ -31,29 +24,5 @@ public class kd4 extends bj3 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.bj3
-    public JSONObject f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                this.h.put("stage", this.k);
-                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
-                this.h.put("netStatus", this.m);
-                this.h.put(DownloadStatisticConstants.UBC_PAGE_VALUE_TOUCH, this.n);
-                this.h.put("stuck_interval", this.o);
-            } catch (JSONException e) {
-                if (bj3.j) {
-                    e.printStackTrace();
-                }
-            }
-            return super.f();
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

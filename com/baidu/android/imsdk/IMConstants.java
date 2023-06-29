@@ -69,6 +69,8 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int CAST_BACKPLAY = 1;
     public static final int CAST_ONLINEPLAY = 2;
     public static final String CATEGORY = "category";
+    public static final int CHAT_ROOM_BATCH_TYPE_JOIN_GROUP = 1;
+    public static final int CHAT_ROOM_BATCH_TYPE_SUBSCRIBE = 2;
     public static final int CHAT_ROOM_FETCH_ENTER_ACTION = 1;
     public static final int CHAT_ROOM_FETCH_OTHER_ACTION = 0;
     public static final int CHAT_TYPE_ADVISORY = 58;

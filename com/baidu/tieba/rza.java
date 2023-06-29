@@ -1,501 +1,341 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class rza {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public sza a;
-    public JSONObject b;
-    public JSONObject c;
+    public long a;
+    public String b;
+    public int c;
+    public int d;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rza a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-442927918, "Lcom/baidu/tieba/rza$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-442927918, "Lcom/baidu/tieba/rza$b;");
-                    return;
-                }
-            }
-            a = new rza(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948140304, "Lcom/baidu/tieba/rza;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948140304, "Lcom/baidu/tieba/rza;");
-                return;
-            }
-        }
-        d = AppConfig.isDebug();
-        e = AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "yalog/";
-    }
-
-    public rza() {
+    public rza(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i();
+        this.a = 88200L;
+        this.b = str;
     }
 
-    public static rza c() {
-        InterceptResult invokeV;
+    public final void a(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
+            int[] iArr = {96000, 88200, 64000, OpusReader.SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
+            int i2 = 0;
+            while (true) {
+                if (i2 < 13) {
+                    if (iArr[i2] == this.c) {
+                        break;
+                    }
+                    i2++;
+                } else {
+                    i2 = 4;
+                    break;
+                }
+            }
+            bArr[0] = -1;
+            bArr[1] = -7;
+            bArr[2] = (byte) (64 + (i2 << 2) + 0);
+            bArr[3] = (byte) (128 + (i >> 11));
+            bArr[4] = (byte) ((i & 2047) >> 3);
+            bArr[5] = (byte) (((i & 7) << 5) + 31);
+            bArr[6] = -4;
         }
-        return (rza) invokeV.objValue;
     }
 
-    public Map<String, tza> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.e();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public float b() {
+    @TargetApi(16)
+    public final MediaCodec b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.f();
+            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            MediaFormat mediaFormat = new MediaFormat();
+            mediaFormat.setString("mime", "audio/mp4a-latm");
+            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+            mediaFormat.setInteger("channel-count", this.d);
+            mediaFormat.setInteger("sample-rate", this.c);
+            mediaFormat.setInteger("aac-profile", 2);
+            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+            return createEncoderByType;
         }
-        return invokeV.floatValue;
+        return (MediaCodec) invokeV.objValue;
     }
 
-    public float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.g();
-        }
-        return invokeV.floatValue;
-    }
-
-    public List<uza> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.h();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public float f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.i();
-        }
-        return invokeV.floatValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.j();
-        }
-        return invokeV.floatValue;
-    }
-
-    public float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.k();
-        }
-        return invokeV.floatValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.a == null) {
-                this.a = new sza();
-            }
-            j();
-            k();
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.l();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a.m();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public /* synthetic */ rza(a aVar) {
-        this();
-    }
-
-    public final void j() {
+    /* JADX WARN: Removed duplicated region for block: B:101:0x0223 A[Catch: Exception -> 0x021f, TRY_LEAVE, TryCatch #1 {Exception -> 0x021f, blocks: (B:97:0x021b, B:101:0x0223), top: B:109:0x021b }] */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x021b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x0210 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x0189 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x01bf A[SYNTHETIC] */
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(String str) {
+        Throwable th;
+        FileInputStream fileInputStream;
+        FileOutputStream fileOutputStream;
+        ByteBuffer[] byteBufferArr;
+        long j;
+        long j2;
+        long j3;
+        long j4;
+        int dequeueInputBuffer;
         boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (!new File(e).exists()) {
-                if (d) {
-                    Log.d("YaLogConfigManager", "dir not exists.");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            MediaCodec mediaCodec = null;
+            try {
+                try {
+                    if (this.c == 0) {
+                        this.c = OpusReader.SAMPLE_RATE;
+                    }
+                    if (this.d == 0) {
+                        this.d = 1;
+                    }
+                    this.a = (this.c * 16) / 8;
+                    fileInputStream = new FileInputStream(this.b);
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return;
                 }
-                return;
-            }
-            File file = new File(e, "yalog_cloud.txt");
-            if (!file.exists()) {
-                if (d) {
-                    Log.d("YaLogConfigManager", "yalog_cloud.txt not exists, use default value.");
-                }
-                this.a.p();
-                return;
-            }
-            String a2 = a0b.a(file);
-            if (d) {
-                Log.d("YaLogConfigManager", "read from local: " + a2);
-            }
-            if (TextUtils.isEmpty(a2)) {
-                this.a.p();
-                return;
+            } catch (Exception e2) {
+                e = e2;
+                fileInputStream = null;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream = null;
+                fileOutputStream = null;
             }
             try {
-                JSONObject jSONObject = new JSONObject(a2);
-                this.b = jSONObject;
-                this.a.t(jSONObject.optString(TbConfig.SW_APID));
-                this.a.q(this.b.optString("cl"));
-                this.a.A((float) this.b.optDouble("tosize"));
-                this.a.w((float) this.b.optDouble("sisize"));
-                this.a.y((float) this.b.optDouble("spsize"));
-                this.a.z((float) this.b.optDouble("sptime"));
-                this.a.v((float) this.b.optDouble("idsize"));
-                if (this.b.has("spdelist")) {
-                    List<String> asList = Arrays.asList(this.b.optString("spdelist"));
-                    if (asList.size() > 0) {
-                        this.a.s(asList);
-                    }
-                }
-                if (this.b.has("splist")) {
-                    JSONObject optJSONObject = this.b.optJSONObject("splist");
-                    ArrayList arrayList = new ArrayList();
-                    if (optJSONObject != null && optJSONObject.length() > 0) {
-                        Iterator<String> keys = optJSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                            if (optJSONObject2 != null) {
-                                if (!TextUtils.equals("0", optJSONObject2.optString(TbConfig.SW_APID))) {
+                fileOutputStream = new FileOutputStream(str);
+                try {
+                    try {
+                        mediaCodec = b();
+                        mediaCodec.start();
+                        ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
+                        ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
+                        MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                        byte[] bArr = new byte[4096];
+                        ByteBuffer[] byteBufferArr2 = outputBuffers;
+                        long j5 = 0;
+                        long j6 = 0;
+                        boolean z2 = false;
+                        int i2 = 0;
+                        boolean z3 = false;
+                        boolean z4 = false;
+                        int i3 = 0;
+                        while (!z3) {
+                            ByteBuffer[] byteBufferArr3 = byteBufferArr2;
+                            if (!z4 && (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) >= 0) {
+                                ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
+                                byteBuffer.clear();
+                                int remaining = byteBuffer.remaining();
+                                if (remaining != bArr.length) {
+                                    bArr = new byte[remaining];
+                                }
+                                byte[] bArr2 = bArr;
+                                if (!z2 && (i2 = fileInputStream.read(bArr2)) == -1) {
+                                    i = i2;
                                     z = true;
                                 } else {
-                                    z = false;
+                                    z = z2;
+                                    i = i2;
                                 }
-                                arrayList.add(new uza(next, z, (float) optJSONObject2.optDouble("size"), (float) optJSONObject2.optDouble("time")));
+                                if (z) {
+                                    j = j5;
+                                    mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                    byteBufferArr = inputBuffers;
+                                    bArr = bArr2;
+                                    z2 = z;
+                                    i2 = i;
+                                    j2 = 10000;
+                                    z4 = true;
+                                } else {
+                                    j = j5;
+                                    byteBuffer.put(bArr2, 0, i);
+                                    int i4 = i3 + i;
+                                    byteBufferArr = inputBuffers;
+                                    mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, i, j6, 0);
+                                    i3 = i4;
+                                    j6 = (long) (((i4 / 2.0d) * 1000000.0d) / this.a);
+                                    z2 = z;
+                                    i2 = i;
+                                    j2 = 10000;
+                                    bArr = bArr2;
+                                }
+                            } else {
+                                byteBufferArr = inputBuffers;
+                                j = j5;
+                                j2 = 10000;
                             }
-                        }
-                    }
-                    if (arrayList.size() > 0) {
-                        this.a.x(arrayList);
-                    }
-                }
-            } catch (JSONException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final void k() {
-        boolean z;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (!new File(e).exists()) {
-                if (d) {
-                    Log.d("YaLogConfigManager", "dir not exists.");
-                    return;
-                }
-                return;
-            }
-            File file = new File(e, "yalog_id_cloud.txt");
-            if (!file.exists()) {
-                if (d) {
-                    Log.d("YaLogConfigManager", "yalog_id_cloud.txt not exists.");
-                    return;
-                }
-                return;
-            }
-            String a2 = a0b.a(file);
-            if (d) {
-                Log.d("YaLogConfigManager", "read from local: " + a2);
-            }
-            if (!TextUtils.isEmpty(a2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(a2);
-                    this.c = jSONObject;
-                    if (jSONObject.has("iddemap") && (optJSONObject = this.c.optJSONObject("iddemap")) != null && optJSONObject.length() > 0) {
-                        HashMap hashMap = new HashMap();
-                        Iterator<String> keys = optJSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            hashMap.put(next, optJSONObject.optString(next));
-                        }
-                        if (hashMap.size() > 0) {
-                            this.a.r(hashMap);
-                        }
-                    }
-                    if (this.c.has("idlist")) {
-                        JSONObject optJSONObject2 = this.c.optJSONObject("idlist");
-                        HashMap hashMap2 = new HashMap();
-                        if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                            Iterator<String> keys2 = optJSONObject2.keys();
-                            while (keys2.hasNext()) {
-                                String next2 = keys2.next();
-                                JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next2);
-                                if (optJSONObject3 != null) {
-                                    String optString = optJSONObject3.optString(TbConfig.SW_APID);
-                                    long optLong = optJSONObject3.optLong("v");
-                                    if (!TextUtils.equals("0", optString)) {
-                                        z = true;
+                            int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, j2);
+                            if (dequeueOutputBuffer >= 0) {
+                                if ((bufferInfo.flags & 2) != 0) {
+                                    h1b.b("audio encoder: codec config buffer");
+                                    mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                    j3 = j;
+                                    j5 = j3;
+                                    byteBufferArr2 = byteBufferArr3;
+                                } else {
+                                    if (bufferInfo.size != 0) {
+                                        ByteBuffer byteBuffer2 = byteBufferArr3[dequeueOutputBuffer];
+                                        byteBuffer2.position(bufferInfo.offset);
+                                        byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
+                                        h1b.b(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
+                                        j4 = j;
+                                        if (j4 < bufferInfo.presentationTimeUs) {
+                                            long j7 = bufferInfo.presentationTimeUs;
+                                            int i5 = bufferInfo.size;
+                                            int i6 = i5 + 7;
+                                            byteBuffer2.position(bufferInfo.offset);
+                                            byteBuffer2.limit(bufferInfo.offset + i5);
+                                            byte[] bArr3 = new byte[i6];
+                                            a(bArr3, i6);
+                                            byteBuffer2.get(bArr3, 7, i5);
+                                            fileOutputStream.write(bArr3, 0, i6);
+                                            h1b.b(i6 + " bytes written.");
+                                            j5 = j7;
+                                            mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            byteBufferArr2 = byteBufferArr3;
+                                            if ((bufferInfo.flags & 4) == 0) {
+                                                inputBuffers = byteBufferArr;
+                                                z3 = true;
+                                            }
+                                        } else {
+                                            h1b.b("error sample! its presentationTimeUs should not lower than before. lastPTS = " + j4 + ", bufferPTS = " + bufferInfo.presentationTimeUs);
+                                        }
                                     } else {
-                                        z = false;
+                                        j4 = j;
                                     }
-                                    hashMap2.put(next2, new tza(next2, optLong, z, (float) optJSONObject3.optDouble("size")));
+                                    j5 = j4;
+                                    mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                    byteBufferArr2 = byteBufferArr3;
+                                    if ((bufferInfo.flags & 4) == 0) {
+                                    }
+                                }
+                            } else {
+                                j3 = j;
+                                if (dequeueOutputBuffer == -3) {
+                                    j5 = j3;
+                                    byteBufferArr2 = mediaCodec.getOutputBuffers();
+                                    inputBuffers = byteBufferArr;
+                                } else {
+                                    if (dequeueOutputBuffer == -2) {
+                                        h1b.b("format change : " + mediaCodec.getOutputFormat());
+                                    }
+                                    j5 = j3;
+                                    byteBufferArr2 = byteBufferArr3;
                                 }
                             }
+                            inputBuffers = byteBufferArr;
                         }
-                        if (hashMap2.size() > 0) {
-                            this.a.u(hashMap2);
+                        h1b.b("acc encode done");
+                        if (mediaCodec != null) {
+                            try {
+                                mediaCodec.release();
+                            } catch (Exception e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        fileInputStream.close();
+                        fileOutputStream.close();
+                    } catch (Exception e4) {
+                        e = e4;
+                        e.printStackTrace();
+                        if (mediaCodec != null) {
+                            try {
+                                mediaCodec.release();
+                            } catch (Exception e5) {
+                                e5.printStackTrace();
+                            }
+                        }
+                        if (fileInputStream != null) {
+                            fileInputStream.close();
+                        }
+                        if (fileOutputStream != null) {
+                            fileOutputStream.close();
                         }
                     }
-                } catch (JSONException e2) {
-                    if (d) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    public final void n(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            try {
-                File file = new File(e);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                File file2 = new File(e, str);
-                String str3 = e;
-                File file3 = new File(str3, ComboPraiseProvider.PREFIX_PRESSED_CLICKED + str);
-                file3.createNewFile();
-                a0b.b(str2, file3);
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                file3.renameTo(file2);
-                if (d) {
-                    Log.d("YaLogConfigManager", "save to local: " + str2);
-                }
-            } catch (IOException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void o(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) && jSONObject != null && jSONObject.length() != 0) {
-            if (d) {
-                Log.d("YaLogConfigManager", "update Config: " + jSONObject.toString());
-            }
-            if (this.a == null) {
-                this.a = new sza();
-            }
-            this.a.n(jSONObject);
-            p(this.a);
-        }
-    }
-
-    public final void p(sza szaVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, szaVar) != null) || szaVar == null) {
-            return;
-        }
-        if (this.b == null) {
-            this.b = new JSONObject();
-        }
-        try {
-            this.b.put(TbConfig.SW_APID, szaVar.d());
-            this.b.put("cl", szaVar.a());
-            this.b.put("tosize", String.valueOf(szaVar.k()));
-            this.b.put("sisize", String.valueOf(szaVar.g()));
-            this.b.put("spsize", String.valueOf(szaVar.i()));
-            this.b.put("sptime", String.valueOf(szaVar.j()));
-            this.b.put("idsize", String.valueOf(szaVar.f()));
-            List<String> c = szaVar.c();
-            if (c != null && c.size() > 0) {
-                this.b.put("spdelist", TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, c));
-            }
-            List<uza> h = szaVar.h();
-            if (h != null && h.size() > 0) {
-                JSONObject jSONObject = new JSONObject();
-                for (uza uzaVar : h) {
-                    String b2 = uzaVar.b();
-                    if (!TextUtils.isEmpty(b2)) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        if (uzaVar.c()) {
-                            str = "1";
-                        } else {
-                            str = "0";
+                } catch (Throwable th3) {
+                    th = th3;
+                    if (mediaCodec != null) {
+                        try {
+                            mediaCodec.release();
+                        } catch (Exception e6) {
+                            e6.printStackTrace();
                         }
-                        jSONObject2.put(TbConfig.SW_APID, str);
-                        jSONObject2.put("size", uzaVar.a());
-                        jSONObject2.put("time", uzaVar.d());
-                        jSONObject.put(b2, jSONObject2);
                     }
-                }
-                if (jSONObject.length() > 0) {
-                    this.b.put("splist", jSONObject);
-                }
-            }
-            n("yalog_cloud.txt", this.b.toString());
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public final void r(sza szaVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048592, this, szaVar) != null) || szaVar == null) {
-            return;
-        }
-        if (this.c == null) {
-            this.c = new JSONObject();
-        }
-        try {
-            Map<String, String> b2 = szaVar.b();
-            if (b2 != null && b2.size() > 0) {
-                JSONObject jSONObject = new JSONObject();
-                for (String str2 : b2.keySet()) {
-                    jSONObject.put(str2, b2.get(str2));
-                }
-                this.c.put("iddemap", jSONObject);
-            }
-            Map<String, tza> e2 = szaVar.e();
-            if (e2 != null && e2.size() > 0) {
-                JSONObject jSONObject2 = new JSONObject();
-                for (String str3 : e2.keySet()) {
-                    tza tzaVar = e2.get(str3);
-                    if (tzaVar != null) {
-                        JSONObject jSONObject3 = new JSONObject();
-                        if (tzaVar.b()) {
-                            str = "1";
-                        } else {
-                            str = "0";
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e7) {
+                            e7.printStackTrace();
+                            throw th;
                         }
-                        jSONObject3.put(TbConfig.SW_APID, str);
-                        jSONObject3.put("size", tzaVar.a());
-                        jSONObject3.put("v", tzaVar.c());
-                        jSONObject2.put(str3, jSONObject3);
                     }
+                    if (fileOutputStream != null) {
+                        fileOutputStream.close();
+                    }
+                    throw th;
                 }
-                if (jSONObject2.length() > 0) {
-                    this.c.put("idlist", jSONObject2);
+            } catch (Exception e8) {
+                e = e8;
+                fileOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                fileOutputStream = null;
+                if (mediaCodec != null) {
                 }
+                if (fileInputStream != null) {
+                }
+                if (fileOutputStream != null) {
+                }
+                throw th;
             }
-            n("yalog_id_cloud.txt", this.c.toString());
-        } catch (JSONException e3) {
-            e3.printStackTrace();
         }
     }
 
-    public void q(JSONObject jSONObject, boolean z) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048591, this, jSONObject, z) == null) && jSONObject != null && jSONObject.length() != 0) {
-            if (d) {
-                Log.d("YaLogConfigManager", "update Config: " + jSONObject.toString());
-            }
-            if (this.a == null) {
-                this.a = new sza();
-            }
-            this.a.o(jSONObject, z);
-            r(this.a);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
     }
 }

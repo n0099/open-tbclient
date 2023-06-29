@@ -12,7 +12,7 @@ import androidx.annotation.RequiresApi;
 import com.kwad.sdk.R;
 import com.kwad.sdk.widget.h;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KSCornerButton extends Button {
     public h Pq;
 

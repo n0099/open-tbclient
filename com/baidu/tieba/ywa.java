@@ -1,44 +1,251 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.mwa;
+import com.baidu.tieba.pwa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.UUID;
 /* loaded from: classes8.dex */
-public class ywa {
+public final class ywa implements mwa.a {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, HashMap> a;
+    public static com.baidu.ubs.analytics.a.n f;
+    public static long g;
+    public static long h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public Handler c;
+    public Runnable d;
+    public e e;
 
     /* loaded from: classes8.dex */
-    public interface a {
-        void a(String str);
+    public interface e {
+        void a();
 
         void b();
+    }
 
-        void c(String str);
+    @Override // com.baidu.tieba.mwa.a
+    public final void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
 
-        void d();
+    @Override // com.baidu.tieba.mwa.a
+    public final void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+        }
+    }
 
-        void e(boolean z);
+    /* loaded from: classes8.dex */
+    public class a implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ywa a;
 
-        void f(boolean z);
+        /* renamed from: com.baidu.tieba.ywa$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0543a extends bxa {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-        void g(int i);
+            public C0543a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
 
-        void h();
+            @Override // com.baidu.tieba.bxa
+            public final void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    zwa.b("记录一次app启动事件");
+                    wva.c("power_on", "", "", null);
+                    yva.h().d(false);
+                }
+            }
+        }
 
-        void i();
+        public a(ywa ywaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ywaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ywaVar;
+        }
 
-        void j(String str);
+        @Override // com.baidu.tieba.ywa.e
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                zwa.b("app   went foreground ");
+                if (currentTimeMillis - ywa.h > ywa.g) {
+                    this.a.m(currentTimeMillis);
+                }
+                if (yva.h().g()) {
+                    axa.a(new C0543a(this));
+                }
+            }
+        }
 
-        void k(int i);
+        @Override // com.baidu.tieba.ywa.e
+        public final void b() {
+            pwa pwaVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                pwaVar = pwa.a.a;
+                if (pwaVar.a().size() == 0) {
+                    zwa.b("后台应用退出了 了               ");
+                    yva.h().d(true);
+                    ywa.h();
+                    return;
+                }
+                zwa.b("进入后台但没退出                  ");
+            }
+        }
+    }
 
-        void onRecordEnd();
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ywa a;
+
+        public b(ywa ywaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ywaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ywaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a && this.a.b) {
+                ywa.k(this.a);
+                try {
+                    this.a.e.b();
+                } catch (Exception e) {
+                    hxa.b("Listener threw exception!:" + e.toString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c extends bxa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(ywa ywaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ywaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.bxa
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                ywa.f.z(String.valueOf(currentTimeMillis));
+                try {
+                    ywa.f.A(String.valueOf(currentTimeMillis - Long.parseLong(ywa.f.N())));
+                } catch (NumberFormatException e) {
+                    zwa.b(e.getLocalizedMessage());
+                }
+                jwa jwaVar = new jwa();
+                if (jwaVar.b(ywa.f.I())) {
+                    jwaVar.e(ywa.f);
+                } else {
+                    jwaVar.f(ywa.f);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d extends bxa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(ywa ywaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ywaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.bxa
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zwa.b("超时了……………… 一个新的session");
+                new jwa().f(ywa.f);
+            }
+        }
     }
 
     static {
@@ -54,356 +261,98 @@ public class ywa {
                 return;
             }
         }
-        a = new HashMap<>();
+        g = rwa.a();
     }
 
-    public static HashMap a() {
+    public static com.baidu.ubs.analytics.a.n e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_clear");
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return f;
         }
-        return (HashMap) invokeV.objValue;
+        return (com.baidu.ubs.analytics.a.n) invokeV.objValue;
     }
 
-    public static HashMap b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_start");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
+    public static /* synthetic */ long h() {
+        h = 0L;
+        return 0L;
     }
 
-    public static HashMap c(int i) {
-        InterceptResult invokeI;
+    public ywa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("sex_type", Integer.valueOf(i));
-            hashMap.put("event_name", "sex_event");
-            hashMap.put("event_data", hashMap2);
-            return hashMap;
-        }
-        return (HashMap) invokeI.objValue;
-    }
-
-    public static HashMap e(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "audio_volume");
-            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
-            return hashMap;
-        }
-        return (HashMap) invokeCommon.objValue;
-    }
-
-    public static HashMap d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (a.get(str) != null) {
-                return a.get(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            HashMap hashMap = null;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1909077165:
-                    if (str.equals("startRecord")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1848594969:
-                    if (str.equals("pauseRecord")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -815530368:
-                    if (str.equals("resetRecord")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -793791417:
-                    if (str.equals("startOverRecord")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 473974106:
-                    if (str.equals("capture_timer_clear")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 488985455:
-                    if (str.equals("capture_timer_start")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
+        }
+        this.a = false;
+        this.b = true;
+        this.c = new Handler();
+        this.e = new a(this);
+        long currentTimeMillis = System.currentTimeMillis();
+        h = currentTimeMillis;
+        m(currentTimeMillis);
+    }
+
+    @Override // com.baidu.tieba.mwa.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = true;
+            Runnable runnable = this.d;
+            if (runnable != null) {
+                this.c.removeCallbacks(runnable);
+                this.d = null;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c == 5) {
-                                    hashMap = i();
-                                }
-                            } else {
-                                hashMap = b();
-                            }
-                        } else {
-                            hashMap = a();
-                        }
-                    } else {
-                        hashMap = g();
-                    }
-                } else {
-                    hashMap = f();
+            h = System.currentTimeMillis();
+            axa.c(new c(this));
+            Handler handler = this.c;
+            b bVar = new b(this);
+            this.d = bVar;
+            handler.postDelayed(bVar, 1000L);
+        }
+    }
+
+    @Override // com.baidu.tieba.mwa.a
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = false;
+            boolean z = !this.a;
+            this.a = true;
+            Runnable runnable = this.d;
+            if (runnable != null) {
+                this.c.removeCallbacks(runnable);
+            }
+            if (z) {
+                try {
+                    this.e.a();
+                } catch (Exception e2) {
+                    hxa.b("Listener threw exception!:" + e2.toString());
                 }
-            } else {
-                hashMap = h();
             }
-            if (hashMap != null) {
-                a.put(str, hashMap);
-            }
-            return hashMap;
         }
-        return (HashMap) invokeL.objValue;
     }
 
-    public static HashMap f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_pause");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
+    public static /* synthetic */ boolean k(ywa ywaVar) {
+        ywaVar.a = false;
+        return false;
     }
 
-    public static HashMap g() {
-        InterceptResult invokeV;
+    public final void m(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_reset");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start_over");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static void j(HashMap<String, Object> hashMap, a aVar) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !wwa.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
-            String str = (String) obj;
-            char c = 65535;
-            boolean z = true;
-            int i = 0;
-            switch (str.hashCode()) {
-                case -1903331025:
-                    if (str.equals("show_text")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1768834290:
-                    if (str.equals("game_end")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case -1584838740:
-                    if (str.equals("filter_adjust_enable")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -1272940549:
-                    if (str.equals("game_is_ready")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -708270859:
-                    if (str.equals("phone_shake")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -672934016:
-                    if (str.equals("case_reset")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -548493597:
-                    if (str.equals("need_volume")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 902635637:
-                    if (str.equals("child_status")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 967087977:
-                    if (str.equals("game_pause")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 969912325:
-                    if (str.equals("game_score")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1000807605:
-                    if (str.equals("game_http")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 1001154298:
-                    if (str.equals("game_time")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 1076032614:
-                    if (str.equals("need_face")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (hashMap.get("text_content") instanceof String) {
-                        aVar.c((String) hashMap.get("text_content"));
-                        return;
-                    }
-                    return;
-                case 1:
-                    aVar.d();
-                    return;
-                case 2:
-                case 3:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                        return;
-                    }
-                    return;
-                case 4:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                    }
-                    aVar.onRecordEnd();
-                    return;
-                case 5:
-                    aVar.h();
-                    return;
-                case 6:
-                    aVar.b();
-                    return;
-                case 7:
-                    if (hashMap.get("text_content") instanceof Float) {
-                        try {
-                            i = ((Float) hashMap.get("text_content")).intValue();
-                        } catch (Exception e) {
-                            rwa.g(e);
-                        }
-                        aVar.g(i);
-                        return;
-                    }
-                    return;
-                case '\b':
-                    if (hashMap.get("isDefaultChild") != null) {
-                        String obj2 = hashMap.get("isDefaultChild").toString();
-                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
-                            z = false;
-                        }
-                        aVar.f(z);
-                        return;
-                    }
-                    return;
-                case '\t':
-                    if (hashMap.get("volume_ability") != null) {
-                        if (vwa.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
-                            z = false;
-                        }
-                        aVar.e(z);
-                        return;
-                    }
-                    return;
-                case '\n':
-                    aVar.i();
-                    return;
-                case 11:
-                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
-                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
-                        return;
-                    }
-                    return;
-                case '\f':
-                    if (hashMap.get("set_content") != null) {
-                        aVar.j(hashMap.get("set_content").toString());
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
+            f = nVar;
+            nVar.setStartTime(String.valueOf(j));
+            f.x(UUID.randomUUID().toString().replace("-", ""));
+            axa.c(new d(this));
         }
     }
 }

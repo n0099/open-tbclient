@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
-import com.baidu.tieba.ug;
-import com.baidu.tieba.wn;
+import com.baidu.tieba.vg;
+import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class GroupInfoData extends AbstractImageProvider implements wn, Parcelable, Serializable, PreLoadImageProvider {
+public class GroupInfoData extends AbstractImageProvider implements xn, Parcelable, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GroupInfoData> CREATOR;
     public static final String SHARE_KEY_ALBUM_ID = "album_id";
@@ -323,7 +323,7 @@ public class GroupInfoData extends AbstractImageProvider implements wn, Parcelab
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wn
+    @Override // com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -366,7 +366,7 @@ public class GroupInfoData extends AbstractImageProvider implements wn, Parcelab
             groupInfoData.setGroupId(groupChatRoomPojo.getRoomId());
             groupInfoData.setName(groupChatRoomPojo.getName());
             groupInfoData.setPortrait(groupChatRoomPojo.getAvatar());
-            groupInfoData.forumId = ug.g(groupChatRoomPojo.getForumId(), -1L);
+            groupInfoData.forumId = vg.g(groupChatRoomPojo.getForumId(), -1L);
             groupInfoData.forumName = groupChatRoomPojo.getForumName();
             groupInfoData.lastUpdateTime = groupChatRoomPojo.getTimestamp();
             return groupInfoData;

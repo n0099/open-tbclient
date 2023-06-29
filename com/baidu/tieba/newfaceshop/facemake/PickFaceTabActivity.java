@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a19;
-import com.baidu.tieba.e05;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.l59;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements l59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,7 +176,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.a19
+    @Override // com.baidu.tieba.l59
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -185,7 +185,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
         }
     }
 
-    @Override // com.baidu.tieba.a19
+    @Override // com.baidu.tieba.l59
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -197,7 +197,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
         }
     }
 
-    @Override // com.baidu.tieba.a19
+    @Override // com.baidu.tieba.l59
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
                 this.c.setTitle(this.j.getText(R.string.album_all).toString());
                 return;
             }
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f06f1).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f06f4).toString());
         }
     }
 
@@ -233,7 +233,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            e05 layoutMode = getLayoutMode();
+            h05 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -258,8 +258,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d07cc);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09229c);
+            setContentView(R.layout.obfuscated_res_0x7f0d07df);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f0922fc);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
@@ -273,7 +273,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
     public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String string = this.j.getString(R.string.obfuscated_res_0x7f0f00e5);
+            String string = this.j.getString(R.string.obfuscated_res_0x7f0f00e7);
             if (this.i > 0) {
                 FaceGroupMakeTitleBar faceGroupMakeTitleBar = this.c;
                 faceGroupMakeTitleBar.setRightText(string + "(" + this.i + SmallTailInfo.EMOTION_SUFFIX);
@@ -330,12 +330,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
                     C1();
                 }
             }
-            x1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f06ed).toString());
-            x1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f06e9).toString());
+            x1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f06f0).toString());
+            x1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f06ec).toString());
             x1(this.g, 2, this.j.getText(R.string.my_mark).toString());
             this.e.k(1);
             this.e.setCurrentTab(0);
-            this.e.getFragmentTabWidget().getLayoutParams().height = wi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070358);
+            this.e.getFragmentTabWidget().getLayoutParams().height = xi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070358);
             this.e.getFragmentTabWidget().setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d_alpha90));
         }
     }
@@ -346,7 +346,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements a19 {
             this.a = (LinearLayout) findViewById(R.id.layout_root);
             this.b = (NavigationBar) findViewById(R.id.navigation_bar);
             this.c = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
-            this.c.setLayoutParams(new RelativeLayout.LayoutParams(wi.l(getPageContext().getPageActivity()), -1));
+            this.c.setLayoutParams(new RelativeLayout.LayoutParams(xi.l(getPageContext().getPageActivity()), -1));
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.c, (View.OnClickListener) null);
             this.d = (NoNetworkView) findViewById(R.id.view_no_network);
             this.c.setRightListener(new a(this));

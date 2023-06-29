@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class f3a {
+public class f3a implements xn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public long b;
+    public ForumData a;
 
-    public f3a(MainTabActivity mainTabActivity, s2a s2aVar) {
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public f3a(ForumData forumData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, s2aVar};
+            Object[] objArr = {forumData, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,35 +48,15 @@ public class f3a {
                 return;
             }
         }
-        this.b = 0L;
-        this.a = mainTabActivity;
+        this.a = forumData;
     }
 
-    public final void a() {
+    public ForumData a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || System.currentTimeMillis() - this.b < 7200000) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        HashMap hashMap = new HashMap();
-        hashMap.put("type", "start");
-        hashMap.put("uname", TbadkCoreApplication.getCurrentAccountName());
-        hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2006002, hashMap));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005013, null));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-        this.b = System.currentTimeMillis();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qg.h().b(this.a.getUniqueId());
-            a();
-            try {
-                this.a.moveTaskToBack(true);
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-        }
+        return (ForumData) invokeV.objValue;
     }
 }

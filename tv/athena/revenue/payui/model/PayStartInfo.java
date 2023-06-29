@@ -1,10 +1,10 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.zvb;
+import com.baidu.tieba.t0c;
 @Keep
 /* loaded from: classes2.dex */
-public class PayStartInfo extends zvb {
+public class PayStartInfo extends t0c {
     public int code;
     public String message;
 

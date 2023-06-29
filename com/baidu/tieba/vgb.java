@@ -1,94 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Process;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.transvod.player.log.TLog;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
 public class vgb {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<?> a;
+    public final Class<?> b;
+    public boolean c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948241240, "Lcom/baidu/tieba/vgb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948241240, "Lcom/baidu/tieba/vgb;");
-                return;
-            }
-        }
-        a = new AtomicBoolean(false);
-    }
-
-    public static boolean a() {
+    public Class<?> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.get();
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Class) invokeV.objValue;
     }
 
-    public static synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (vgb.class) {
-                TLog.h("[LibraryLoad]", "loadAllLibrary return for this version need dynamic download library!");
-            }
-        }
-    }
-
-    public static synchronized void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (vgb.class) {
-                TLog.h("[LibraryLoad]", "loadAllLibrary with context");
-                if (a.get()) {
-                    TLog.h("[LibraryLoad]", "loadAllLibrary with context is loading or already loaded");
-                    return;
-                }
-                if (a.compareAndSet(false, true)) {
-                    d();
-                    boolean y = xib.y(context);
-                    a.set(y);
-                    if (y) {
-                        TLog.h("[LibraryLoad]", "load transvod success, processId:" + Process.myPid());
-                    }
-                }
-            }
-        }
-    }
-
-    public static boolean d() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String[] strArr = {SwanKV.LIB_CPP_SHARED, "cyber-ffmpeg", "ssl.1.1.1j", "crypto.1.1.1j"};
-            boolean z = true;
-            for (int i = 0; i < strArr.length; i++) {
-                try {
-                    TLog.h("[LibraryLoad]", "loadLibrary: " + strArr[i]);
-                    System.loadLibrary(strArr[i]);
-                } catch (UnsatisfiedLinkError e) {
-                    TLog.d("[LibraryLoad]", "load transvod failed, UnsatisfiedLinkError " + e.getMessage());
-                    z = false;
-                }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public Class<?> getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Class) invokeV.objValue;
     }
 }

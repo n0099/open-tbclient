@@ -1,133 +1,182 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rxb;
-import com.baidu.tieba.sxb;
-import com.baidu.tieba.txb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.impl.YYPayAmountView;
-import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
-import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
-import tv.athena.revenue.payui.view.impl.YYPayGiftView;
-import tv.athena.revenue.payui.view.impl.YYPayResultView;
-import tv.athena.revenue.payui.view.impl.YYPaySignView;
-import tv.athena.revenue.payui.view.impl.YYPaySplitOrderView;
-import tv.athena.revenue.payui.view.impl.YYPayWayView;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
-public class rvb implements lub {
+public final class rvb<E> extends pvb<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public PayUIKitConfig c;
+    public final AtomicLong c;
+    public long d;
+    public final AtomicLong e;
+    public final int f;
 
-    public rvb(int i, int i2, PayUIKitConfig payUIKitConfig) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136491, "Lcom/baidu/tieba/rvb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948136491, "Lcom/baidu/tieba/rvb;");
+                return;
+            }
+        }
+        g = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    }
+
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.get();
+        }
+        return invokeV.longValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.get();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (g() == f()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return c(a(this.e.get()));
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = this.e.get();
+            int a = a(j);
+            AtomicReferenceArray<E> atomicReferenceArray = this.a;
+            E d = d(atomicReferenceArray, a);
+            if (d == null) {
+                return null;
+            }
+            e(atomicReferenceArray, a, null);
+            h(j + 1);
+            return d;
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            long f = f();
+            while (true) {
+                long g2 = g();
+                long f2 = f();
+                if (f == f2) {
+                    return (int) (g2 - f2);
+                }
+                f = f2;
+            }
+        } else {
+            return invokeV.intValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rvb(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        RLog.info("PayFlowViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = payUIKitConfig;
+        this.c = new AtomicLong();
+        this.e = new AtomicLong();
+        this.f = Math.min(i / 4, g.intValue());
     }
 
-    @Override // com.baidu.tieba.lub
-    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, iub iubVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, iubVar)) == null) {
-            return new YYPayAmountView(activity, this.a, this.b, this.c, viewParams, iubVar);
-        }
-        return (IYYPayAmountView) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lub
-    public IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, iub iubVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, cVar, iubVar)) == null) {
-            return new YYPayResultView(activity, this.c, this.a, this.b, cVar, iubVar);
-        }
-        return (IYYPayResultView) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lub
-    public rxb f(Activity activity, rxb.b bVar, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, bVar, payUIKitConfig)) == null) {
-            return new YYPaySignView(activity, bVar, payUIKitConfig, this.a, this.b);
-        }
-        return (rxb) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lub
-    public txb g(Activity activity, txb.b bVar, nub nubVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, activity, bVar, nubVar)) == null) {
-            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, nubVar);
-        }
-        return (txb) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lub
-    public pxb b(Activity activity) {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            return new YYPayConfirmView(activity, this.a, this.b, this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
+            if (e != null) {
+                AtomicReferenceArray<E> atomicReferenceArray = this.a;
+                int i = this.b;
+                long j = this.c.get();
+                int b = b(j, i);
+                if (j >= this.d) {
+                    long j2 = this.f + j;
+                    if (d(atomicReferenceArray, b(j2, i)) == null) {
+                        this.d = j2;
+                    } else if (d(atomicReferenceArray, b) != null) {
+                        return false;
+                    }
+                }
+                e(atomicReferenceArray, b, e);
+                i(j + 1);
+                return true;
+            }
+            throw new NullPointerException("Null is not a valid element");
         }
-        return (pxb) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lub
-    public oxb c(Activity activity) {
-        InterceptResult invokeL;
+    public final void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            return new YYPayCampaignView(activity, this.a, this.b, this.c);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.e.lazySet(j);
         }
-        return (oxb) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.lub
-    public qxb d(Activity activity) {
-        InterceptResult invokeL;
+    public final void i(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-            return new YYPayGiftView(activity, this.a, this.b, this.c);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.c.lazySet(j);
         }
-        return (qxb) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lub
-    public sxb h(Activity activity, PayUIKitConfig payUIKitConfig, sxb.b bVar, nub nubVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, payUIKitConfig, bVar, nubVar)) == null) {
-            return new YYPaySplitOrderView(activity, payUIKitConfig, this.a, this.b, bVar, nubVar);
-        }
-        return (sxb) invokeLLLL.objValue;
     }
 }

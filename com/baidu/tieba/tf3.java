@@ -1,87 +1,50 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.hi2;
+import com.baidu.tieba.rf3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.UUID;
+@Deprecated
 /* loaded from: classes7.dex */
-public class tf3 extends wd3 {
+public class tf3 extends zd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements rf3.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ zb3 c;
-        public final /* synthetic */ tf3 d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ px2 b;
+        public final /* synthetic */ c23 c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ cc3 f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ lb2 h;
+        public final /* synthetic */ Context i;
+        public final /* synthetic */ tf3 j;
 
-        /* renamed from: com.baidu.tieba.tf3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0456a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Bitmap a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0456a(a aVar, Bitmap bitmap) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bitmap};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = bitmap;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.b;
-                    aVar.d.o(this.a, aVar.a, aVar.b, aVar.c);
-                }
-            }
-        }
-
-        public a(tf3 tf3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
+        public a(tf3 tf3Var, String str, px2 px2Var, c23 c23Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var, String str2, lb2 lb2Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tf3Var, unitedSchemeEntity, callbackHandler, zb3Var};
+                Object[] objArr = {tf3Var, str, px2Var, c23Var, unitedSchemeEntity, callbackHandler, cc3Var, str2, lb2Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,34 +54,102 @@ public class tf3 extends wd3 {
                     return;
                 }
             }
-            this.d = tf3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = zb3Var;
+            this.j = tf3Var;
+            this.a = str;
+            this.b = px2Var;
+            this.c = c23Var;
+            this.d = unitedSchemeEntity;
+            this.e = callbackHandler;
+            this.f = cc3Var;
+            this.g = str2;
+            this.h = lb2Var;
+            this.i = context;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.rf3.e
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                i53.d(this.a);
+                c92.i("redirect", "check pages success");
+                this.b.o();
+                hi2.e f = hi2.f(this.b.getActivity(), mi2.c(this.c.a));
+                lf3.l(this.d, this.e, this.f, f.a.a(), this.c.a, null, this.g);
+                this.j.n(f, this.c, this.h, this.a);
+            }
+        }
+
+        @Override // com.baidu.tieba.rf3.e
+        public void b(int i, vn3 vn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, vn3Var) == null) {
+                c92.c("redirect", "check pages failed");
+                this.b.o();
+                if (zd3.b) {
+                    Context context = this.i;
+                    ub3.g(context, this.i.getString(R.string.obfuscated_res_0x7f0f01d4) + i).G();
+                }
+                lf3.j(this.d, this.e, this.g);
+                qi3.j(this.c, vn3Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements hi2.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hi2.e a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ c23 c;
+        public final /* synthetic */ lb2 d;
+
+        public b(tf3 tf3Var, hi2.e eVar, String str, c23 c23Var, lb2 lb2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tf3Var, eVar, str, c23Var, lb2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+            this.b = str;
+            this.c = c23Var;
+            this.d = lb2Var;
+        }
+
+        @Override // com.baidu.tieba.hi2.f
+        public void onReady() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bitmap y = qp3.y();
-                if (y == null) {
-                    this.d.n(this.a, this.b, "can't get screenshot");
-                } else {
-                    to3.k(new RunnableC0456a(this, y), "savescreenshot");
+                if (zd3.b) {
+                    Log.d("redirectTo", "tryToExecutePageRoute onReady start.");
+                }
+                i53.e(this.a, this.b);
+                lf3.e(this.a.a, this.c, this.b);
+                w12.A(this.d, this.c, this.b, false);
+                if (zd3.b) {
+                    Log.d("redirectTo", "tryToExecutePageRoute onReady end.");
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tf3(wc3 wc3Var) {
-        super(wc3Var, "/swanAPI/getScreenshot");
+    public tf3(zc3 zc3Var) {
+        super(zc3Var, "/swanAPI/redirectTo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var};
+            Object[] objArr = {zc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,128 +163,98 @@ public class tf3 extends wd3 {
         }
     }
 
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
+    @Override // com.baidu.tieba.zd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            if (zb3Var == null) {
-                z82.c("Screenshot", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
+            if (zd3.b) {
+                Log.d("redirectTo", "handle entity: " + unitedSchemeEntity.toString());
             }
-            String optString = zo3.d(unitedSchemeEntity.getParam("params")).optString("name");
-            this.c = optString;
-            if (TextUtils.isEmpty(optString)) {
-                z82.c("Screenshot", "invalid params");
+            String uuid = UUID.randomUUID().toString();
+            i53.b(uuid);
+            String o = lf3.o(unitedSchemeEntity, "params");
+            if (TextUtils.isEmpty(o)) {
+                c92.c("redirect", "url is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            m(unitedSchemeEntity, callbackHandler, zb3Var);
-            return true;
+            px2 T2 = px2.T();
+            lb2 U = T2.U();
+            if (U == null) {
+                c92.c("redirect", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            c23 d = c23.d(o, T2.z());
+            d.e = "2";
+            d.f = uuid;
+            qi3.g(d);
+            if (!wp3.b(T2.s(), d, false)) {
+                c92.c("redirect", "page params error : path=" + d.a + " ; routePath=" + d.d);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                qi3.i(d);
+                return false;
+            }
+            String str = unitedSchemeEntity.getParams().get("initData");
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(d.d) && cc3.M() != null) {
+                cc3.M().L0(str, d.d);
+            }
+            String n = lf3.n(unitedSchemeEntity, "params", "startTime");
+            if (!TextUtils.isEmpty(n)) {
+                HybridUbcFlow q = h53.q("route", uuid);
+                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
+                ubcFlowEvent.h(Long.valueOf(n).longValue());
+                q.F(ubcFlowEvent);
+            }
+            if (zd3.b) {
+                Log.d("redirectTo", "PreloadSlaveManager start.");
+            }
+            String optString = cp3.d(unitedSchemeEntity.getParam("params")).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                c92.c("redirect", "cb is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                qi3.i(d);
+                return false;
+            } else if (pe3.b().a(d)) {
+                pe3.b().i("redirectTo", d);
+                c92.c("redirectTo", "access to this page is prohibited");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                T2.a();
+                rf3.g(cc3Var, d, "", new a(this, uuid, T2, d, unitedSchemeEntity, callbackHandler, cc3Var, optString, U, context), uuid);
+                return true;
+            }
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final JSONObject l(boolean z, String str, String str2) {
-        InterceptResult invokeCommon;
+    public final void n(hi2.e eVar, c23 c23Var, lb2 lb2Var, String str) {
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.c);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("message", str2);
-                }
-                if (z) {
-                    jSONObject.put("path", str);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, c23Var, lb2Var, str) == null) {
+            if (eVar != null && eVar.b) {
+                z = true;
+            } else {
+                z = false;
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public final void m(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull zb3 zb3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, zb3Var) == null) {
-            tp3.e0(new a(this, unitedSchemeEntity, callbackHandler, zb3Var));
-        }
-    }
-
-    public final void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, unitedSchemeEntity, callbackHandler, str) == null) {
-            z82.c("Screenshot", str);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(false, null, str), 0));
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x00ba */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00dd */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0077 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0077 */
-    public final void o(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull zb3 zb3Var) {
-        String x;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, bitmap, unitedSchemeEntity, callbackHandler, zb3Var) == null) && (x = hj3.x(zb3Var.b)) != null) {
-            String str = x + File.separator + StatisticConstants.SCREENSHOT;
-            File file = new File(str);
-            if (!file.exists() || !file.isDirectory()) {
-                file.delete();
-                if (!file.mkdir()) {
-                    n(unitedSchemeEntity, callbackHandler, "mkdir fail");
-                    return;
-                }
+            HybridUbcFlow q = h53.q("route", str);
+            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
+            if (z) {
+                str2 = "1";
+            } else {
+                str2 = "0";
             }
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault());
-            String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.c + ".png";
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(str2);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                    }
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
+            q.D("preload", str2);
+            if (zd3.b) {
+                Log.d("redirectTo", "tryToExecutePageRoute start. isReady : " + z);
             }
-            try {
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-                String str3 = "save screenshot to " + str2;
-                z82.i("Screenshot", str3);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, hj3.J(str2, zb3Var.b), "success"), 0));
-                fileOutputStream.close();
-                fileOutputStream2 = str3;
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                    fileOutputStream2 = fileOutputStream2;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                        n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                    }
-                }
-                throw th;
+            hi2.q(eVar, new b(this, eVar, str, c23Var, lb2Var));
+            if (zd3.b) {
+                Log.d("redirectTo", "tryToExecutePageRoute end.");
             }
         }
     }

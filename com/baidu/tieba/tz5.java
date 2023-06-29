@@ -1,5 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.widget.falling.FallingEventType;
+/* loaded from: classes8.dex */
 public interface tz5 {
-    void a(boolean z);
+    void a(FallingEventType fallingEventType, @Nullable Object obj);
 }

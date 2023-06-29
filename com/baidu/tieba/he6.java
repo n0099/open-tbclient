@@ -1,39 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class he6 extends fn5 {
+public class he6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaFrsLiveFragment c;
+    public l9 a;
+    public BdTypeListView b;
+    public final List<kn> c;
+    public ge6 d;
+    public de6 e;
+    public be6 f;
+    public ce6 g;
 
-    @Override // com.baidu.tieba.fn5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public he6(boolean z) {
+    public he6(l9 l9Var, BdTypeListView bdTypeListView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {l9Var, bdTypeListView, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,76 +36,51 @@ public class he6 extends fn5 {
                 return;
             }
         }
-        AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
-        this.c = alaFrsLiveFragment;
-        alaFrsLiveFragment.V1(z);
-        b().a = this.c;
+        this.c = new ArrayList();
+        this.a = l9Var;
+        this.b = bdTypeListView;
+        a(z);
     }
 
-    @Override // com.baidu.tieba.fn5
-    public gn5 a() {
-        InterceptResult invokeV;
+    public final void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gn5 gn5Var = new gn5();
-            gn5Var.e = 2;
-            gn5Var.b = R.string.ala_live;
-            gn5Var.i = gn5.k;
-            return gn5Var;
-        }
-        return (gn5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fn5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.R1(str);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (z) {
+                de6 de6Var = new de6((TbPageContext) this.a, we6.c);
+                this.e = de6Var;
+                this.c.add(de6Var);
+            } else {
+                ge6 ge6Var = new ge6((TbPageContext) this.a, we6.c);
+                this.d = ge6Var;
+                this.c.add(ge6Var);
+            }
+            this.f = new be6((TbPageContext) this.a, je6.a);
+            this.g = new ce6((TbPageContext) this.a, ke6.a);
+            this.c.add(this.f);
+            this.c.add(this.g);
+            this.b.addAdapters(this.c);
         }
     }
 
-    public void h(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    public void b(ua6 ua6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.S1(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ua6Var) == null) {
+            ge6 ge6Var = this.d;
+            if (ge6Var != null) {
+                ge6Var.u(ua6Var);
+            }
+            de6 de6Var = this.e;
+            if (de6Var != null) {
+                de6Var.u(ua6Var);
+            }
         }
     }
 
-    public void i(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
+    public void c(List<xn> list) {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.T1(str);
-        }
-    }
-
-    public void j(int i) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.U1(i);
-        }
-    }
-
-    public void k(boolean z) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.W1(z);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeListView = this.b) != null) {
+            bdTypeListView.setData(list);
         }
     }
 }

@@ -13,6 +13,7 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -24,12 +25,12 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.CookieHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g05;
-import com.baidu.tieba.gx5;
-import com.baidu.tieba.jz9;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.om6;
-import com.baidu.tieba.vb;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.lx5;
+import com.baidu.tieba.tm6;
+import com.baidu.tieba.v3a;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,8 +40,10 @@ import com.google.gson.internal.C$Gson$Types;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import kotlin.Unit;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements LifecycleObserver {
@@ -61,7 +64,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
     @Nullable
     public String g;
     public int h;
-    public String i;
+    public final String i;
     public boolean j;
 
     /* loaded from: classes4.dex */
@@ -89,7 +92,9 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
 
     /* loaded from: classes4.dex */
     public static class ResponseMessage extends JsonHttpResponsedMessage {
-        public static /* synthetic */ Interceptable $ic;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final String JSON_ARRAY = "[]";
+        public static final String JSON_OBJECT = "{}";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -112,25 +117,42 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             }
         }
 
+        @NonNull
+        private String getDefaultDataJson(@NonNull Type type) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, type)) == null) {
+                Class<?> rawType = C$Gson$Types.getRawType(type);
+                if (List.class.isAssignableFrom(rawType)) {
+                    return "[]";
+                }
+                if (!Unit.class.isAssignableFrom(rawType) && !Void.class.isAssignableFrom(rawType)) {
+                    return "";
+                }
+                return "{}";
+            }
+            return (String) invokeL.objValue;
+        }
+
         @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
         public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
                 super.decodeLogicInBackGround(i, jSONObject);
                 Object extra = getmOrginalMessage().getExtra();
-                gx5.d(extra instanceof c);
+                lx5.d(extra instanceof c);
                 c cVar = (c) extra;
                 Type type = cVar.a;
                 e eVar = cVar.b;
                 String str = cVar.c;
                 int i2 = cVar.d;
-                gx5.b(type);
+                lx5.b(type);
                 if (jSONObject == null) {
                     jSONObject = new JSONObject();
                     setError(-1);
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0695));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0698));
                 }
-                if (g05.e()) {
+                if (j05.e()) {
                     if (str != null) {
                         parseServerResponsedData(str);
                         jSONObject = new JSONObject(str);
@@ -139,7 +161,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
                         TimeUnit.MILLISECONDS.sleep(i2);
                     }
                 }
-                String optString = jSONObject.optString("data");
+                String optString = jSONObject.optString("data", getDefaultDataJson(type));
                 Object obj = null;
                 if (eVar != null) {
                     obj = eVar.a(optString);
@@ -299,11 +321,8 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
                         try {
                             this.a.e.e(resultData);
                         } catch (Exception e) {
-                            if (!g05.e()) {
-                                this.a.e.b(-21, NetWorkErr.NETWORK_DATA_EXCEPTION_MSG, resultData);
-                            } else {
-                                throw new IllegalStateException("业务处理网络返回的数据出现异常，请处理！", e);
-                            }
+                            BdLog.detailException(httpResponsedMessage.getClass().getName(), new IllegalStateException("业务处理网络返回的数据出现异常，请处理！", e), true);
+                            this.a.e.b(-21, NetWorkErr.NETWORK_DATA_EXCEPTION_MSG, resultData);
                         }
                     }
                     this.a.e.c();
@@ -324,7 +343,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -333,7 +352,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         this.c = new HashMap();
         this.d = new HashMap();
         this.j = false;
-        TbHttpMessageTask e2 = jz9.e(i, str, ResponseMessage.class, false, true, true, true);
+        TbHttpMessageTask e2 = v3a.e(i, str, ResponseMessage.class, false, true, true, true);
         this.a = e2;
         this.i = e2.getUrl();
         d dVar = new d(this, i, true);
@@ -357,7 +376,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.a.setConnectTimeOut(new vb(i, i, i));
+            this.a.setConnectTimeOut(new wb(i, i, i));
             return this;
         }
         return (FastRequest) invokeI.objValue;
@@ -411,7 +430,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            this.a.setTimeOut(new vb(i, i, i));
+            this.a.setTimeOut(new wb(i, i, i));
             return this;
         }
         return (FastRequest) invokeI.objValue;
@@ -465,7 +484,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
             }
             if (this.j) {
                 Map<String, String> b2 = CookieHelper.b();
-                if (!om6.b(b2)) {
+                if (!tm6.b(b2)) {
                     for (Map.Entry<String, String> entry2 : b2.entrySet()) {
                         httpMessage.addCookie(entry2.getKey(), entry2.getValue());
                     }

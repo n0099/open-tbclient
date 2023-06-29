@@ -1,91 +1,131 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.ImShareCardCommonData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes8.dex */
 public class y7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Timer a;
+    public TimerTask b;
 
-    public static String a(k9 k9Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, k9Var, str)) == null) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    sb.append(jSONArray.optJSONObject(i).optString("src"));
+    /* loaded from: classes8.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y7a a;
+
+        /* renamed from: com.baidu.tieba.y7a$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class RunnableC0536a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0536a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
-                return sb.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return k9Var.getString(R.string.pic_str);
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.b();
+                }
             }
         }
-        return (String) invokeLL.objValue;
+
+        public a(y7a y7aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y7aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y7aVar;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yg.a().post(new RunnableC0536a(this));
+            }
+        }
     }
 
-    public static String b(k9 k9Var, ChatMessage chatMessage) {
-        InterceptResult invokeLL;
-        String string;
-        ImShareCardCommonData c;
+    public y7a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, k9Var, chatMessage)) == null) {
-            int msgType = chatMessage.getMsgType();
-            String str = "";
-            if (msgType != 1) {
-                if (msgType != 2) {
-                    if (msgType != 3) {
-                        if (msgType != 30) {
-                            if (msgType != 32) {
-                                if (msgType != 33) {
-                                    if (msgType != 37) {
-                                        if (msgType == 38 && (c = ac8.c(chatMessage)) != null) {
-                                            if (c.getType() == 1) {
-                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_topic_share);
-                                            } else if (c.getType() == 2) {
-                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_compilation_share);
-                                            }
-                                        }
-                                    } else {
-                                        str = k9Var.getString(R.string.last_msg_chatroom_share);
-                                    }
-                                } else {
-                                    str = k9Var.getString(R.string.last_msg_forum_share);
-                                }
-                            } else {
-                                str = k9Var.getString(R.string.last_msg_thread_share);
-                            }
-                        }
-                    } else {
-                        str = k9Var.getString(R.string.voice_str);
-                    }
-                } else {
-                    str = a(k9Var, chatMessage.getContent());
-                }
-                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
-                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                        string = k9Var.getString(R.string.private_message_report_person);
-                    } else {
-                        string = k9Var.getString(R.string.private_message_is_report_name);
-                    }
-                    return string + chatMessage.getToUserInfo().getUserName() + k9Var.getString(R.string.private_message_report_content) + str;
-                }
-                return k9Var.getString(R.string.private_message_is_report_name);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            str = chatMessage.getContent();
-            if (chatMessage == null) {
-            }
-            return k9Var.getString(R.string.private_message_is_report_name);
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Timer timer = this.a;
+            if (timer != null) {
+                timer.cancel();
+                this.a = null;
+            }
+            TimerTask timerTask = this.b;
+            if (timerTask != null) {
+                timerTask.cancel();
+                this.b = null;
+            }
+        }
+    }
+
+    public void a() {
+        long j;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
+            return;
+        }
+        this.a = new Timer();
+        a aVar = new a(this);
+        this.b = aVar;
+        Timer timer = this.a;
+        if (m36.a()) {
+            j = 1000;
+        } else {
+            j = 2400000;
+        }
+        timer.schedule(aVar, j);
     }
 }

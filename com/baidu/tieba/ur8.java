@@ -1,126 +1,122 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public abstract class ur8<T> {
+public final class ur8 extends sr8<VoiceMsgContent, ChatVoiceView, up8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final int b;
+    public final int c;
+    public final int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948220718, "Lcom/baidu/tieba/ur8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948220718, "Lcom/baidu/tieba/ur8;");
-        }
-    }
-
-    public ur8(String key) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ur8(String name) {
+        super(name);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {key};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {name};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(key, "key");
-        this.a = "default";
-        this.a = "key_prefix_" + key;
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.b = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.c = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+        this.d = xi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
     }
 
-    public final T a(T t) {
-        InterceptResult invokeL;
+    public static final boolean l(up8 data, View it) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            Intrinsics.checkNotNullParameter(t, "default");
-            return (T) b(t);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, data, it)) == null) {
+            Intrinsics.checkNotNullParameter(data, "$data");
+            Function2<View, bq8<VoiceMsgContent>, Unit> d = data.d();
+            if (d != null) {
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                d.invoke(it, data.c());
+                return true;
+            }
+            return true;
         }
-        return (T) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public final void e(String str) {
+    @Override // com.baidu.tieba.sr8
+    public void f(ViewGroup container) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+            int i = this.b;
+            int i2 = this.d;
+            container.setPadding(i, i2, this.c, i2);
         }
     }
 
-    public final Object b(T t) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sr8
+    /* renamed from: k */
+    public void d(ChatVoiceView chatVoiceView, final up8 data) {
+        VoiceData.VoiceModel d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            if (t instanceof String) {
-                String w = o95.p().w(this.a, (String) t);
-                Intrinsics.checkNotNullExpressionValue(w, "getInstance().getString(key, default as String)");
-                return w;
-            } else if (t instanceof Integer) {
-                return Integer.valueOf(o95.p().q(this.a, ((Integer) t).intValue()));
-            } else {
-                if (t instanceof Long) {
-                    return Long.valueOf(o95.p().r(this.a, ((Long) t).longValue()));
+        if (interceptable == null || interceptable.invokeLL(1048579, this, chatVoiceView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (chatVoiceView != null) {
+                chatVoiceView.j(true, !data.c().e().d());
+                VoiceMsgContent f = data.c().f();
+                if (f != null && (d = f.d()) != null) {
+                    chatVoiceView.setData(d);
                 }
-                if (t instanceof Boolean) {
-                    return Boolean.valueOf(o95.p().l(this.a, ((Boolean) t).booleanValue()));
-                }
-                if (t instanceof Float) {
-                    return Float.valueOf(o95.p().o(this.a, ((Float) t).floatValue()));
-                }
-                return t;
+                chatVoiceView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.lr8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.view.View.OnLongClickListener
+                    public final boolean onLongClick(View view2) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? ur8.l(up8.this, view2) : invokeL.booleanValue;
+                    }
+                });
             }
         }
-        return invokeL.objValue;
     }
 
-    public final T d(T value) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sr8
+    /* renamed from: m */
+    public ChatVoiceView g(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, value)) == null) {
-            Intrinsics.checkNotNullParameter(value, "value");
-            if (value instanceof String) {
-                o95.p().J(this.a, (String) value);
-            } else if (value instanceof Integer) {
-                o95.p().F(this.a, ((Integer) value).intValue());
-            } else if (value instanceof Long) {
-                o95.p().H(this.a, ((Long) value).longValue());
-            } else if (value instanceof Boolean) {
-                o95.p().A(this.a, ((Boolean) value).booleanValue());
-            } else if (value instanceof Float) {
-                o95.p().D(this.a, ((Float) value).floatValue());
-            }
-            return value;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            ChatVoiceView chatVoiceView = new ChatVoiceView(parent.getContext(), true);
+            chatVoiceView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            chatVoiceView.setId(R.id.obfuscated_res_0x7f090e96);
+            chatVoiceView.setOnClickListener(chatVoiceView);
+            return chatVoiceView;
         }
-        return (T) invokeL.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (ChatVoiceView) invokeL.objValue;
     }
 }

@@ -1,18 +1,11 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.support.v4.app.Fragment;
-import com.baidu.tieba.ei2;
-import com.baidu.tieba.ib2;
-import com.baidu.tieba.of3;
+import com.baidu.tieba.lb2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,222 +13,75 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class u12 extends q12 {
+/* loaded from: classes8.dex */
+public class u12 extends t12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.c02
+    @Override // com.baidu.tieba.f02
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "RelaunchApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mx2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ z13 c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ ib2 e;
-        public final /* synthetic */ u12 f;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ ib2 b;
+        public final /* synthetic */ lb2 c;
+        public final /* synthetic */ lb2.b d;
+        public final /* synthetic */ u12 e;
 
-        /* renamed from: com.baidu.tieba.u12$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0467a implements of3.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ zb3 b;
-            public final /* synthetic */ a c;
-
-            public C0467a(a aVar, Activity activity, zb3 zb3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity, zb3Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = activity;
-                this.b = zb3Var;
-            }
-
-            @Override // com.baidu.tieba.of3.e
-            public void a(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    f53.d(this.c.d);
-                    z82.i("RelaunchApi", "check pages success");
-                    this.c.a.o();
-                    ei2.e f = ei2.f(this.a, ji2.c(this.c.c.a));
-                    String a = f.a.a();
-                    a aVar = this.c;
-                    if3.m(aVar.f, this.b, a, aVar.c.a, null, aVar.b);
-                    ji3.t(a);
-                    a aVar2 = this.c;
-                    aVar2.f.z(f, aVar2.c, aVar2.e, aVar2.d);
-                }
-            }
-
-            @Override // com.baidu.tieba.of3.e
-            public void b(int i, sn3 sn3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, sn3Var) == null) {
-                    z82.c("RelaunchApi", "check pages failed");
-                    this.c.a.o();
-                    a aVar = this.c;
-                    if3.k(aVar.f, aVar.b);
-                    ni3.j(this.c.c, sn3Var);
-                }
-            }
-        }
-
-        public a(u12 u12Var, mx2 mx2Var, String str, z13 z13Var, String str2, ib2 ib2Var) {
+        public a(u12 u12Var, int i, ib2 ib2Var, lb2 lb2Var, lb2.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u12Var, mx2Var, str, z13Var, str2, ib2Var};
+                Object[] objArr = {u12Var, Integer.valueOf(i), ib2Var, lb2Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f = u12Var;
-            this.a = mx2Var;
-            this.b = str;
-            this.c = z13Var;
-            this.d = str2;
-            this.e = ib2Var;
+            this.e = u12Var;
+            this.a = i;
+            this.b = ib2Var;
+            this.c = lb2Var;
+            this.d = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SwanAppActivity activity = this.a.getActivity();
-                if (activity != null && !activity.isFinishing()) {
-                    zb3 M = zb3.M();
-                    if (M == null) {
-                        this.f.d(this.b, new z32(1001, "swan app is null"));
-                        ni3.i(this.c);
-                        return;
-                    }
-                    this.a.a();
-                    of3.g(M, this.c, "", new C0467a(this, activity, M), this.d);
-                    return;
+                if (this.a > 1 && !this.b.E0) {
+                    mo3.b(this.c, this.e.getContext(), 1);
                 }
-                this.f.d(this.b, new z32(1001, "swan activity is null"));
-                ni3.i(this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ei2.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ei2.e a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ z13 c;
-        public final /* synthetic */ ib2 d;
-
-        public b(u12 u12Var, ei2.e eVar, String str, z13 z13Var, ib2 ib2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u12Var, eVar, str, z13Var, ib2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = str;
-            this.c = z13Var;
-            this.d = ib2Var;
-        }
-
-        @Override // com.baidu.tieba.ei2.f
-        public void onReady() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f53.e(this.a, this.b);
-                if3.e(this.a.a, this.c, this.b);
-                u12.y(this.d, this.c, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements ib2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ib2.a
-        public void a(@NonNull Fragment fragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, fragment) == null) {
-            }
-        }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ib2.a
-        public void b(@NonNull Fragment fragment) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment) == null) && (fragment instanceof hb2)) {
-                ((hb2) fragment).T0 = true;
+                this.d.a();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u12(@NonNull a02 a02Var) {
-        super(a02Var);
+    public u12(@NonNull d02 d02Var) {
+        super(d02Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a02Var};
+            Object[] objArr = {d02Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a02) newInitContext.callArgs[0]);
+                super((d02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -243,111 +89,98 @@ public class u12 extends q12 {
         }
     }
 
-    public static void y(ib2 ib2Var, z13 z13Var, String str) {
+    public static void y() {
+        cc3 b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, ib2Var, z13Var, str) == null) {
-            if (z13Var != null) {
-                z82.i("RelaunchApi", "doReLaunch page=" + z13Var.a + " routePage=" + z13Var.d);
-            }
-            SwanAppActivity w = yb3.K().w();
-            if (w != null && !w.isFinishing() && !w.isDestroyed()) {
-                c cVar = new c();
-                f53.c(3, str);
-                hb2.U3(tp3.n());
-                ib2Var.g(cVar);
-                ib2.b i = ib2Var.i("reLaunch");
-                i.n(0, 0);
-                i.f();
-                i.k("normal", z13Var).b();
-                ib2Var.p(cVar);
-                e53.q("route", str).F(new UbcFlowEvent("na_push_page_end"));
-                f53.a(str, z13Var);
-            }
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (b0 = cc3.b0()) != null) {
+            b0.B().I(b0.getAppId());
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public z32 A(String str) {
+    public c42 A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q("#hideModalPage", false);
+            y();
+            return z(1, "hideModalPage", 10);
+        }
+        return (c42) invokeV.objValue;
+    }
+
+    public c42 B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#reLaunch params" + str, false);
-            String uuid = UUID.randomUUID().toString();
-            f53.b(uuid);
-            Pair<z32, JSONObject> s = s(str);
-            z32 z32Var = (z32) s.first;
-            if (!z32Var.isSuccess()) {
-                return z32Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#navigateBack params=" + str, false);
+            y();
+            Pair<c42, JSONObject> s = s(str);
+            c42 c42Var = (c42) s.first;
+            if (!c42Var.isSuccess()) {
+                return c42Var;
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String p = if3.p(jSONObject);
-            if (TextUtils.isEmpty(p)) {
-                z82.c("RelaunchApi", "url is null");
-                return new z32(202, "url is null");
-            }
-            mx2 T2 = mx2.T();
-            ib2 U = T2.U();
-            if (U == null) {
-                z82.c("RelaunchApi", "manager is null");
-                return new z32(1001, "manager is null");
-            }
-            z13 d = z13.d(p, T2.z());
-            d.e = "3";
-            d.f = uuid;
-            ni3.g(d);
-            if (!tp3.b(T2.s(), d, true)) {
-                String str2 = "page params error : path=" + d.a + " ; routePath=" + d.d;
-                z82.c("RelaunchApi", str2);
-                ni3.i(d);
-                return new z32(202, str2);
-            }
-            String optString = jSONObject.optString("initData");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(d.d) && zb3.M() != null) {
-                zb3.M().L0(optString, d.d);
-            }
-            String optString2 = jSONObject.optString("startTime");
-            if (!TextUtils.isEmpty(optString2)) {
-                HybridUbcFlow q = e53.q("route", uuid);
-                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
-                ubcFlowEvent.h(Long.valueOf(optString2).longValue());
-                q.F(ubcFlowEvent);
-            }
-            String optString3 = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString3)) {
-                z82.c("RelaunchApi", "cb is null");
-                ni3.i(d);
-                return new z32(202, "cb is null");
-            } else if (me3.b().a(d)) {
-                me3.b().i("reLaunch", d);
-                z82.c("RelaunchApi", "access to this page is prohibited");
-                return new z32(1003, "access to this page is prohibited");
-            } else {
-                tp3.a0(new a(this, T2, optString3, d, uuid, U));
-                return z32.f();
-            }
+            return z(((JSONObject) s.second).optInt("delta", 1), "navigateBack", 1);
         }
-        return (z32) invokeL.objValue;
+        return (c42) invokeL.objValue;
     }
 
-    public final void z(ei2.e eVar, z13 z13Var, ib2 ib2Var, String str) {
-        boolean z;
+    public final c42 z(int i, String str, int i2) {
+        InterceptResult invokeCommon;
+        c23 o3;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, z13Var, ib2Var, str) == null) {
-            if (eVar != null && eVar.b) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
+            String uuid = UUID.randomUUID().toString();
+            i53.b(uuid);
+            lb2 U = px2.T().U();
+            if (U == null) {
+                c92.c("NavigateBackApi", "manager is null");
+                return new c42(1001, "manager is null");
             }
-            HybridUbcFlow q = e53.q("route", str);
-            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-            if (z) {
-                str2 = "1";
-            } else {
-                str2 = "0";
+            int k = U.k();
+            if (k == 1) {
+                c92.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
+                return new c42(1001, "navigateBack api can only work when slave's count greater than 1");
             }
-            q.D("preload", str2);
-            ei2.q(eVar, new b(this, eVar, str, z13Var, ib2Var));
+            if (i >= k) {
+                i = k - 1;
+            }
+            c23 f = qi3.f(uuid, i);
+            ib2 m = U.m();
+            if (m == null) {
+                c92.c("NavigateBackApi", "slave container is null");
+                return new c42(1001, "slave container is null");
+            } else if (TextUtils.equals("hideModalPage", str) && !m.E0) {
+                c92.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
+                return new c42(1001, "hideModalPage api can only work after showModalPage");
+            } else {
+                i53.c(i2, uuid);
+                lb2.b i3 = U.i(str);
+                i3.n(lb2.i, lb2.h);
+                i3.h(i);
+                wp3.a0(new a(this, k, m, U, i3));
+                kb2 o = U.o();
+                if (o == null) {
+                    o3 = null;
+                } else {
+                    o3 = o.o3();
+                }
+                h53.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
+                i53.a(uuid, o3);
+                if (!(U.m() instanceof kb2)) {
+                    c92.c("NavigateBackApi", "top fragment error");
+                    qi3.i(f);
+                    return new c42(1001, "top fragment error");
+                }
+                kb2 kb2Var = (kb2) U.m();
+                if (kb2Var != null) {
+                    str2 = kb2Var.v3();
+                } else {
+                    str2 = "";
+                }
+                return new c42(0, lf3.c(str2));
+            }
         }
+        return (c42) invokeCommon.objValue;
     }
 }

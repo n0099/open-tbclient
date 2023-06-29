@@ -5,10 +5,10 @@ import com.kwad.components.offline.api.OfflineHostProvider;
 import com.kwad.sdk.utils.r;
 import com.kwai.adclient.kscommerciallogger.model.BusinessType;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class TkLoggerReporter {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Holder {
         public static final TkLoggerReporter sInstance = new TkLoggerReporter();
     }

@@ -1,246 +1,521 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class iw5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<WeakReference<Activity>> a;
+    public ArrayList<WeakReference<Activity>> b;
+    public int c;
+    public final CustomMessageListener d;
+    public final a05 e;
 
-    public static Bitmap a(Bitmap bitmap, int i, boolean z) {
-        InterceptResult invokeCommon;
-        int width;
-        int height;
-        int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int i2 = i;
-            if (z) {
-                width = bitmap.getWidth() / 2;
-                height = bitmap.getHeight() / 4;
-            } else {
-                width = bitmap.getWidth();
-                height = bitmap.getHeight();
-            }
-            if (width == 0 || height == 0) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height);
-            if (i2 < 1) {
-                return null;
-            }
-            int i3 = width * height;
-            int[] iArr2 = new int[i3];
-            createBitmap.getPixels(iArr2, 0, width, 0, 0, width, height);
-            int i4 = width - 1;
-            int i5 = height - 1;
-            int i6 = i2 + i2 + 1;
-            int[] iArr3 = new int[i3];
-            int[] iArr4 = new int[i3];
-            int[] iArr5 = new int[i3];
-            int[] iArr6 = new int[Math.max(width, height)];
-            int i7 = (i6 + 1) >> 1;
-            int i8 = i7 * i7;
-            int i9 = i8 * 256;
-            int[] iArr7 = new int[i9];
-            for (int i10 = 0; i10 < i9; i10++) {
-                iArr7[i10] = i10 / i8;
-            }
-            int[][] iArr8 = (int[][]) Array.newInstance(int.class, i6, 3);
-            int i11 = i2 + 1;
-            int i12 = 0;
-            int i13 = 0;
-            int i14 = 0;
-            while (i12 < height) {
-                Bitmap bitmap2 = createBitmap;
-                int i15 = 0;
-                int i16 = 0;
-                int i17 = 0;
-                int i18 = 0;
-                int i19 = 0;
-                int i20 = 0;
-                int i21 = 0;
-                int i22 = 0;
-                int i23 = -i2;
-                int i24 = 0;
-                while (i23 <= i2) {
-                    int i25 = height;
-                    int i26 = i5;
-                    int i27 = iArr2[i13 + Math.min(i4, Math.max(i23, 0))];
-                    int[] iArr9 = iArr8[i23 + i2];
-                    iArr9[0] = (i27 & 16711680) >> 16;
-                    iArr9[1] = (i27 & 65280) >> 8;
-                    iArr9[2] = i27 & 255;
-                    int abs = i11 - Math.abs(i23);
-                    i24 += iArr9[0] * abs;
-                    i15 += iArr9[1] * abs;
-                    i16 += iArr9[2] * abs;
-                    if (i23 > 0) {
-                        i20 += iArr9[0];
-                        i21 += iArr9[1];
-                        i22 += iArr9[2];
-                    } else {
-                        i17 += iArr9[0];
-                        i18 += iArr9[1];
-                        i19 += iArr9[2];
-                    }
-                    i23++;
-                    height = i25;
-                    i5 = i26;
-                }
-                int i28 = height;
-                int i29 = i5;
-                int i30 = i2;
-                int i31 = i24;
-                int i32 = 0;
-                while (i32 < width) {
-                    iArr3[i13] = iArr7[i31];
-                    iArr4[i13] = iArr7[i15];
-                    iArr5[i13] = iArr7[i16];
-                    int i33 = i31 - i17;
-                    int i34 = i15 - i18;
-                    int i35 = i16 - i19;
-                    int[] iArr10 = iArr8[((i30 - i2) + i6) % i6];
-                    int i36 = i17 - iArr10[0];
-                    int i37 = i18 - iArr10[1];
-                    int i38 = i19 - iArr10[2];
-                    if (i12 == 0) {
-                        iArr = iArr7;
-                        iArr6[i32] = Math.min(i32 + i2 + 1, i4);
-                    } else {
-                        iArr = iArr7;
-                    }
-                    int i39 = iArr2[i14 + iArr6[i32]];
-                    iArr10[0] = (i39 & 16711680) >> 16;
-                    iArr10[1] = (i39 & 65280) >> 8;
-                    iArr10[2] = i39 & 255;
-                    int i40 = i20 + iArr10[0];
-                    int i41 = i21 + iArr10[1];
-                    int i42 = i22 + iArr10[2];
-                    i31 = i33 + i40;
-                    i15 = i34 + i41;
-                    i16 = i35 + i42;
-                    i30 = (i30 + 1) % i6;
-                    int[] iArr11 = iArr8[i30 % i6];
-                    i17 = i36 + iArr11[0];
-                    i18 = i37 + iArr11[1];
-                    i19 = i38 + iArr11[2];
-                    i20 = i40 - iArr11[0];
-                    i21 = i41 - iArr11[1];
-                    i22 = i42 - iArr11[2];
-                    i13++;
-                    i32++;
-                    iArr7 = iArr;
-                }
-                i14 += width;
-                i12++;
-                createBitmap = bitmap2;
-                height = i28;
-                i5 = i29;
-            }
-            int i43 = height;
-            int i44 = i5;
-            int[] iArr12 = iArr7;
-            Bitmap bitmap3 = createBitmap;
-            int i45 = 0;
-            while (i45 < width) {
-                int i46 = -i2;
-                int i47 = i6;
-                int[] iArr13 = iArr6;
-                int i48 = 0;
-                int i49 = 0;
-                int i50 = 0;
-                int i51 = 0;
-                int i52 = 0;
-                int i53 = 0;
-                int i54 = 0;
-                int i55 = i46;
-                int i56 = i46 * width;
-                int i57 = 0;
-                int i58 = 0;
-                while (i55 <= i2) {
-                    int i59 = width;
-                    int max = Math.max(0, i56) + i45;
-                    int[] iArr14 = iArr8[i55 + i2];
-                    iArr14[0] = iArr3[max];
-                    iArr14[1] = iArr4[max];
-                    iArr14[2] = iArr5[max];
-                    int abs2 = i11 - Math.abs(i55);
-                    i57 += iArr3[max] * abs2;
-                    i58 += iArr4[max] * abs2;
-                    i48 += iArr5[max] * abs2;
-                    if (i55 > 0) {
-                        i52 += iArr14[0];
-                        i53 += iArr14[1];
-                        i54 += iArr14[2];
-                    } else {
-                        i49 += iArr14[0];
-                        i50 += iArr14[1];
-                        i51 += iArr14[2];
-                    }
-                    int i60 = i44;
-                    if (i55 < i60) {
-                        i56 += i59;
-                    }
-                    i55++;
-                    i44 = i60;
-                    width = i59;
-                }
-                int i61 = width;
-                int i62 = i44;
-                int i63 = i2;
-                int i64 = i45;
-                int i65 = i43;
-                int i66 = 0;
-                while (i66 < i65) {
-                    iArr2[i64] = (iArr2[i64] & (-16777216)) | (iArr12[i57] << 16) | (iArr12[i58] << 8) | iArr12[i48];
-                    int i67 = i57 - i49;
-                    int i68 = i58 - i50;
-                    int i69 = i48 - i51;
-                    int[] iArr15 = iArr8[((i63 - i2) + i47) % i47];
-                    int i70 = i49 - iArr15[0];
-                    int i71 = i50 - iArr15[1];
-                    int i72 = i51 - iArr15[2];
-                    if (i45 == 0) {
-                        iArr13[i66] = Math.min(i66 + i11, i62) * i61;
-                    }
-                    int i73 = iArr13[i66] + i45;
-                    iArr15[0] = iArr3[i73];
-                    iArr15[1] = iArr4[i73];
-                    iArr15[2] = iArr5[i73];
-                    int i74 = i52 + iArr15[0];
-                    int i75 = i53 + iArr15[1];
-                    int i76 = i54 + iArr15[2];
-                    i57 = i67 + i74;
-                    i58 = i68 + i75;
-                    i48 = i69 + i76;
-                    i63 = (i63 + 1) % i47;
-                    int[] iArr16 = iArr8[i63];
-                    i49 = i70 + iArr16[0];
-                    i50 = i71 + iArr16[1];
-                    i51 = i72 + iArr16[2];
-                    i52 = i74 - iArr16[0];
-                    i53 = i75 - iArr16[1];
-                    i54 = i76 - iArr16[2];
-                    i64 += i61;
-                    i66++;
-                    i2 = i;
-                }
-                i45++;
-                i2 = i;
-                i44 = i62;
-                i43 = i65;
-                iArr6 = iArr13;
-                i6 = i47;
-                width = i61;
-            }
-            int i77 = width;
-            bitmap3.setPixels(iArr2, 0, i77, 0, 0, i77, i43);
-            return bitmap3;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947867938, "Lcom/baidu/tieba/iw5;")) == null) {
+            return;
         }
-        return (Bitmap) invokeCommon.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947867938, "Lcom/baidu/tieba/iw5;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iw5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(iw5 iw5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iw5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int skinType;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001304 || !(customResponsedMessage.getData() instanceof Integer) || this.a.c == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+                return;
+            }
+            this.a.c = skinType;
+            if (iw5.f) {
+                this.a.r();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends a05 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iw5 a;
+
+        public b(iw5 iw5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iw5Var;
+        }
+
+        @Override // com.baidu.tieba.a05, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && iw5.f) {
+                iw5 iw5Var = this.a;
+                if (iw5Var.j(iw5Var.l(activity))) {
+                    this.a.a.add(new WeakReference(activity));
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.a05, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+                this.a.b.add(new WeakReference(activity));
+            }
+        }
+
+        @Override // com.baidu.tieba.a05, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            WeakReference weakReference;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                Iterator it = this.a.b.iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        weakReference = (WeakReference) it.next();
+                        if (weakReference.get() != null && weakReference.get() == activity) {
+                            break;
+                        }
+                    } else {
+                        weakReference = null;
+                        break;
+                    }
+                }
+                if (weakReference != null) {
+                    this.a.b.remove(weakReference);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.a05, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && iw5.f) {
+                iw5 iw5Var = this.a;
+                if (iw5Var.t(iw5Var.l(activity))) {
+                    WeakReference weakReference = null;
+                    Iterator it = this.a.a.iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        WeakReference weakReference2 = (WeakReference) it.next();
+                        if (activity != null && activity == weakReference2.get()) {
+                            weakReference = weakReference2;
+                            break;
+                        }
+                    }
+                    if (weakReference != null) {
+                        this.a.a.remove(weakReference);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iw5 a;
+
+        public c(iw5 iw5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iw5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.q(view2.getContext());
+                this.a.u(false);
+                this.a.k();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final iw5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-704671582, "Lcom/baidu/tieba/iw5$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-704671582, "Lcom/baidu/tieba/iw5$d;");
+                    return;
+                }
+            }
+            a = new iw5(null);
+        }
+    }
+
+    public iw5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = TbadkCoreApplication.getInst().getSkinType();
+        this.d = new a(this, 2001304);
+        this.e = new b(this);
+        MessageManager.getInstance().registerListener(this.d);
+    }
+
+    public final void r() {
+        FrameLayout l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            Iterator<WeakReference<Activity>> it = this.a.iterator();
+            while (it.hasNext()) {
+                WeakReference<Activity> next = it.next();
+                if (next != null && next.get() != null && !next.get().isFinishing() && (l = l(next.get())) != null) {
+                    Object tag = l.getTag(R.id.tag_scheme_baidu_box_app_back_view);
+                    if (tag instanceof ViewGroup) {
+                        o((ViewGroup) tag, l.getContext());
+                    }
+                }
+            }
+        }
+    }
+
+    public /* synthetic */ iw5(a aVar) {
+        this();
+    }
+
+    public final ViewGroup n(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.layout_baiduboxapp_back_view, (ViewGroup) null);
+            o(viewGroup, context);
+            return viewGroup;
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    public final boolean p(View view2) {
+        InterceptResult invokeL;
+        IBinder windowToken;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
+            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
+                try {
+                    if (windowToken.isBinderAlive()) {
+                        if (windowToken.pingBinder()) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void s(Application application) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, application) != null) || application == null) {
+            return;
+        }
+        try {
+            application.registerActivityLifecycleCallbacks(this.e);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static final iw5 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return d.a;
+        }
+        return (iw5) invokeV.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            BackBaiduBoxViewEvent backBaiduBoxViewEvent = new BackBaiduBoxViewEvent();
+            backBaiduBoxViewEvent.isShow = f;
+            sp5.i(backBaiduBoxViewEvent);
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            xi.P(TbadkCoreApplication.getInst(), R.string.not_install_baidu_box_app_tip);
+        }
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v1 */
+    public final boolean j(FrameLayout frameLayout) {
+        InterceptResult invokeL;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, frameLayout)) == null) {
+            if (frameLayout == null) {
+                return false;
+            }
+            try {
+                Object tag = frameLayout.getTag(R.id.tag_scheme_baidu_box_app_back_view);
+                ViewGroup viewGroup2 = 0;
+                if (tag instanceof ViewGroup) {
+                    viewGroup = (ViewGroup) tag;
+                } else {
+                    viewGroup = null;
+                }
+                if (viewGroup != null && viewGroup.getParent() != null) {
+                    if (viewGroup.getParent() == frameLayout) {
+                        return false;
+                    }
+                    frameLayout.setTag(R.id.tag_scheme_baidu_box_app_back_view, null);
+                } else {
+                    viewGroup2 = viewGroup;
+                }
+                if (viewGroup2 == null) {
+                    viewGroup2 = n(frameLayout.getContext());
+                }
+                if (viewGroup2 == null) {
+                    return false;
+                }
+                frameLayout.addView(viewGroup2);
+                frameLayout.setTag(R.id.tag_scheme_baidu_box_app_back_view, viewGroup2);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds339), xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds89));
+                layoutParams.gravity = 83;
+                layoutParams.bottomMargin = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds442) + UtilHelper.getNavigationBarHeight(frameLayout.getContext());
+                viewGroup2.setLayoutParams(layoutParams);
+                c cVar = new c(this);
+                viewGroup2.setClickable(true);
+                viewGroup2.setOnClickListener(cVar);
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && f != z) {
+            f = z;
+            if (z) {
+                Iterator<WeakReference<Activity>> it = this.b.iterator();
+                while (it.hasNext()) {
+                    WeakReference<Activity> next = it.next();
+                    if (next.get() != null && !next.get().isFinishing()) {
+                        Activity activity = next.get();
+                        if (j(l(activity))) {
+                            this.a.add(new WeakReference<>(activity));
+                        }
+                    }
+                }
+                return;
+            }
+            Iterator<WeakReference<Activity>> it2 = this.b.iterator();
+            while (it2.hasNext()) {
+                WeakReference<Activity> next2 = it2.next();
+                if (next2.get() != null && !next2.get().isFinishing()) {
+                    t(l(next2.get()));
+                }
+            }
+            this.a.clear();
+        }
+    }
+
+    public final FrameLayout l(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            if (activity != null) {
+                try {
+                    if (!activity.isFinishing() && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
+                        View decorView = activity.getWindow().getDecorView();
+                        if (!(decorView instanceof FrameLayout)) {
+                            return null;
+                        }
+                        return (FrameLayout) decorView;
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return null;
+        }
+        return (FrameLayout) invokeL.objValue;
+    }
+
+    public void q(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, context) != null) || context == null) {
+            return;
+        }
+        try {
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("baiduboxapp://donothing"));
+            if (context.getPackageManager().resolveActivity(intent, 65536) != null) {
+                context.startActivity(intent);
+            } else {
+                v();
+            }
+        } catch (Exception unused) {
+            v();
+        }
+    }
+
+    public final void o(ViewGroup viewGroup, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, viewGroup, context) == null) && viewGroup != null && context != null) {
+            SkinManager.setViewTextColor((TextView) viewGroup.findViewById(R.id.tv_back_shoubai_text), (int) R.color.CAM_X0101);
+            float g = xi.g(context, R.dimen.tbds424);
+            TBSelector.makeDrawableSelector().setShape(0).setType(1).trRadius(g).brRadius(g).defaultColor(R.color.topic_disagree_des_color).into(viewGroup);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.shoubai_back_icon), R.drawable.ic_icon_pure_list_arrow16_left_n_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.shoubai_logo_icon), R.drawable.ic_icon_mask_home_backbtn_logo_n_svg, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        }
+    }
+
+    public final boolean t(FrameLayout frameLayout) {
+        InterceptResult invokeL;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, frameLayout)) == null) {
+            if (frameLayout == null) {
+                return false;
+            }
+            try {
+                Object tag = frameLayout.getTag(R.id.tag_scheme_baidu_box_app_back_view);
+                if (tag instanceof ViewGroup) {
+                    viewGroup = (ViewGroup) tag;
+                } else {
+                    viewGroup = null;
+                }
+                if (viewGroup != null && viewGroup.getParent() != null && viewGroup.getParent() == frameLayout && p(frameLayout) && p(viewGroup)) {
+                    frameLayout.removeView(viewGroup);
+                    frameLayout.setTag(R.id.tag_scheme_baidu_box_app_back_view, null);
+                    return true;
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

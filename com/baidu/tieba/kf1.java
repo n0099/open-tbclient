@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
+import com.baidu.nps.interfa.ISignatureVerifier;
+import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,14 +17,14 @@ public class kf1 {
     public static kf1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public gl1<IWebViewDataDirectoryManager> a;
+    public jl1<ISignatureVerifier> a;
 
-    public void b() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            el1 b2 = el1.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            hl1 b2 = hl1.b();
             this.a = b2;
-            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
+            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
         }
     }
 
@@ -58,7 +57,7 @@ public class kf1 {
                 return;
             }
         }
-        b();
+        c();
     }
 
     public static kf1 a() {
@@ -70,13 +69,12 @@ public class kf1 {
         return (kf1) invokeV.objValue;
     }
 
-    public void c() {
+    public ISignatureVerifier b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (dg1.a()) {
-                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
-            }
-            this.a.get().setDataDirectorySuffix();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
         }
+        return (ISignatureVerifier) invokeV.objValue;
     }
 }

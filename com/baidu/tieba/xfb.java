@@ -1,130 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.TypeIntrinsics;
 /* loaded from: classes8.dex */
-public final class xfb {
+public class xfb<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static xfb b;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, ggb> a;
-
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final xfb a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return xfb.b;
-            }
-            return (xfb) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948299861, "Lcom/baidu/tieba/xfb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948299861, "Lcom/baidu/tieba/xfb;");
-                return;
-            }
-        }
-        c = new a(null);
-        b = new xfb();
-    }
+    public final ffb<TResult> a;
 
     public xfb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.a = new ffb<>();
     }
 
-    public final void b(String str, ggb ggbVar) {
+    public void a(Exception exc) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, ggbVar) == null) && this.a.get(str) == null) {
-            this.a.put(str, ggbVar);
-        }
-    }
-
-    public final ggb c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.a.get(str);
-        }
-        return (ggb) invokeL.objValue;
-    }
-
-    public final boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a.get(str) != null) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            ffb<TResult> ffbVar = this.a;
+            synchronized (ffbVar.a) {
+                if (!ffbVar.b) {
+                    ffbVar.b = true;
+                    ffbVar.d = exc;
+                    ffbVar.a.notifyAll();
+                    ffbVar.b();
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public final void e(String str) {
+    public void b(TResult tresult) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+            ffb<TResult> ffbVar = this.a;
+            synchronized (ffbVar.a) {
+                if (!ffbVar.b) {
+                    ffbVar.b = true;
+                    ffbVar.c = tresult;
+                    ffbVar.a.notifyAll();
+                    ffbVar.b();
+                }
+            }
         }
-        ConcurrentHashMap<String, ggb> concurrentHashMap = this.a;
-        if (concurrentHashMap != null) {
-            TypeIntrinsics.asMutableMap(concurrentHashMap).remove(str);
-            return;
-        }
-        throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.MutableMap<K, V>");
     }
 }

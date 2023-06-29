@@ -1,31 +1,49 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public final class fgb {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringsKt__StringsJVMKt.isBlank(str)) {
-                return "";
+    /* loaded from: classes5.dex */
+    public interface a {
+        String a(dgb dgbVar);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947764584, "Lcom/baidu/tieba/fgb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append('[');
-            Thread currentThread = Thread.currentThread();
-            Intrinsics.checkExpressionValueIsNotNull(currentThread, "Thread.currentThread()");
-            sb.append(currentThread.getName());
-            sb.append("] ");
-            sb.append(str);
-            return sb.toString();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947764584, "Lcom/baidu/tieba/fgb;");
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        a = new HashMap();
+    }
+
+    public static Map<String, a> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Map) invokeV.objValue;
+    }
+
+    public static void b(String str, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
+            a.put(str, aVar);
+        }
     }
 }

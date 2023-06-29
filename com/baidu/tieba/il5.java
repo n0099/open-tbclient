@@ -9,13 +9,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes6.dex */
-public class il5 extends dl5 {
+public class il5 extends hl5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int f;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
     public int c;
     public int d;
-    public byte[] e;
+    public int e;
+    public int f;
+    public short g;
+    public short h;
+    public byte i;
+    public byte j;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +35,7 @@ public class il5 extends dl5 {
                 return;
             }
         }
-        f = dl5.a("IHDR");
+        k = hl5.a("fcTL");
     }
 
     public il5() {
@@ -43,20 +48,23 @@ public class il5 extends dl5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.e = new byte[5];
     }
 
-    @Override // com.baidu.tieba.dl5
-    public void b(kl5 kl5Var) throws IOException {
+    @Override // com.baidu.tieba.hl5
+    public void b(ol5 ol5Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kl5Var) == null) {
-            this.c = kl5Var.e();
-            this.d = kl5Var.e();
-            byte[] bArr = this.e;
-            kl5Var.read(bArr, 0, bArr.length);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ol5Var) == null) {
+            ol5Var.e();
+            this.c = ol5Var.e();
+            this.d = ol5Var.e();
+            this.e = ol5Var.e();
+            this.f = ol5Var.e();
+            this.g = ol5Var.f();
+            this.h = ol5Var.f();
+            this.i = ol5Var.peek();
+            this.j = ol5Var.peek();
         }
     }
 }

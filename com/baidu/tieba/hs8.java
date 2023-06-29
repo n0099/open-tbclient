@@ -1,18 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,37 +15,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Vector;
+import kotlin.collections.CollectionsKt__MutableCollectionsKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class hs8 extends BaseAdapter {
+public final class hs8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Vector<String> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public Context c;
+    public final String a;
+    public final long b;
+    public final String c;
+    public final Runnable d;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ hs8 a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public View b;
-        public TextView c;
-        public View d;
-
-        public b(hs8 hs8Var) {
+        public a(hs8 hs8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,128 +51,222 @@ public class hs8 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = 3;
+            this.a = hs8Var;
         }
 
-        public /* synthetic */ b(hs8 hs8Var, a aVar) {
-            this(hs8Var);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
+                if (this.a.i()) {
+                    return;
+                }
+                String loadingTimeOutContent = this.a.c;
+                Intrinsics.checkNotNullExpressionValue(loadingTimeOutContent, "loadingTimeOutContent");
+                nn5.j(loadingTimeOutContent, this.a.j());
+                hs8.e.clear();
+            }
         }
     }
 
-    public hs8(Context context, ArrayList<String> arrayList) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947834396, "Lcom/baidu/tieba/hs8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947834396, "Lcom/baidu/tieba/hs8;");
+                return;
+            }
+        }
+        e = new Vector<>();
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (e.isEmpty()) {
+                e();
+                return;
+            }
+            z1b.a().removeCallbacks(this.d);
+            z1b.a().postDelayed(this.d, this.b);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            z1b.a().removeCallbacks(this.d);
+        }
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object first = CollectionsKt___CollectionsKt.first((List<? extends Object>) e);
+            Intrinsics.checkNotNullExpressionValue(first, "sendMsgkeyList.first()");
+            return (String) first;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            long r = r95.p().r("key_funny_sprite_loading_animation_show", 0L);
+            if (i() || r <= 0) {
+                return 0L;
+            }
+            return this.b - (System.currentTimeMillis() - r);
+        }
+        return invokeV.longValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            String loadingTimeOutContent = this.c;
+            Intrinsics.checkNotNullExpressionValue(loadingTimeOutContent, "loadingTimeOutContent");
+            return loadingTimeOutContent;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return e.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String lastElement = e.lastElement();
+            Intrinsics.checkNotNullExpressionValue(lastElement, "sendMsgkeyList.lastElement()");
+            return lastElement;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public hs8(SpriteMsgProcessor spriteMsgProcessor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {spriteMsgProcessor};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = context;
-        this.b = arrayList;
+        Intrinsics.checkNotNullParameter(spriteMsgProcessor, "spriteMsgProcessor");
+        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f140d);
+        Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.sprite_time_out_hint)");
+        this.a = string;
+        this.b = r95.p().q("key_funny_sprite_msg_time_out", 60) * 1000;
+        this.c = r95.p().w("key_funny_sprite_msg_time_out_content", this.a);
+        this.d = new a(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public String getItem(int i) {
-        InterceptResult invokeI;
+    public final void c(String msgKey) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int count = getCount();
-            if (count > 0 && i < count) {
-                return this.b.get(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, msgKey) == null) {
+            Intrinsics.checkNotNullParameter(msgKey, "msgKey");
+            if (!e.contains(msgKey)) {
+                e.add(msgKey);
             }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void c(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                notifyDataSetChanged();
-            }
+            d();
+            r95.p().H("key_funny_sprite_loading_animation_show", System.currentTimeMillis());
         }
     }
 
-    public void d(String str) {
+    public final void k(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        this.a = str.trim();
-    }
-
-    public void b(TextView textView, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.a.toLowerCase();
-            if (!lowerCase.contains(lowerCase2)) {
-                textView.setText(str);
-                return;
-            }
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.a.length() + indexOf, 33);
-            textView.setText(spannableStringBuilder);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            z1b.a().removeCallbacks(this.d);
+            z1b.a().postDelayed(this.d, j);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public final void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<String> list = this.b;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            if (z) {
+                e.clear();
             }
-            return list.size();
+            e();
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public final void l(String msgKey, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0851, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091edc);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092035);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f092034);
-                view2.setTag(bVar);
-            } else {
-                bVar = (b) view2.getTag();
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, msgKey, z) == null) {
+            Intrinsics.checkNotNullParameter(msgKey, "msgKey");
+            if (z) {
+                e.remove(msgKey);
+            } else if (!i()) {
+                CollectionsKt__MutableCollectionsKt.removeFirst(e);
             }
-            String item = getItem(i);
-            if (StringUtils.isNull(item)) {
-                return view2;
-            }
-            b(bVar.c, item);
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != bVar.a) {
-                bVar.a = skinType;
-                SkinManager.setBackgroundResource(bVar.b, R.drawable.addresslist_item_bg);
-                SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
-            }
-            return view2;
+            d();
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public final boolean m(SizedSyncTreeSet<wp8> set) {
+        InterceptResult invokeL;
+        Object obj;
+        bq8 bq8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, set)) == null) {
+            Intrinsics.checkNotNullParameter(set, "set");
+            if (i()) {
+                return true;
+            }
+            ArrayList arrayList = new ArrayList(set);
+            ListIterator listIterator = arrayList.listIterator(arrayList.size());
+            while (true) {
+                if (listIterator.hasPrevious()) {
+                    obj = listIterator.previous();
+                    if (Intrinsics.areEqual(((wp8) obj).b(), f())) {
+                        break;
+                    }
+                } else {
+                    obj = null;
+                    break;
+                }
+            }
+            int lastIndexOf = CollectionsKt___CollectionsKt.lastIndexOf((List<? extends wp8>) arrayList, (wp8) obj);
+            if (lastIndexOf >= -1 && lastIndexOf < arrayList.size() - 1) {
+                int size = arrayList.size();
+                for (int i = lastIndexOf + 1; i < size; i++) {
+                    Object item = ListUtils.getItem(arrayList, i);
+                    if (item instanceof bq8) {
+                        bq8Var = (bq8) item;
+                    } else {
+                        bq8Var = null;
+                    }
+                    if (bq8Var != null && !bq8Var.e().d() && !wi.isEmpty(bq8Var.g().a())) {
+                        l(bq8Var.g().a(), true);
+                    }
+                }
+            }
+            return i();
+        }
+        return invokeL.booleanValue;
     }
 }

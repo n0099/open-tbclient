@@ -1,15 +1,28 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
-public interface n87<V extends View, M> {
-    @NonNull
-    View a(@NonNull ViewGroup viewGroup);
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class n87 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull V v, @NonNull M m);
-
-    @NonNull
-    String c();
+    public static final boolean a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "<this>");
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f0928e6);
+            if ((tag instanceof Integer) && Intrinsics.areEqual(tag, Integer.valueOf(SkinManager.getCurrentSkinType()))) {
+                return true;
+            }
+            view2.setTag(R.id.obfuscated_res_0x7f0928e6, Integer.valueOf(SkinManager.getCurrentSkinType()));
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

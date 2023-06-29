@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ma5;
-import com.baidu.tieba.qy;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.ry;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.ua5;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xa5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.TagInfo;
 /* loaded from: classes5.dex */
-public class CardItemInfoTagLayout extends FrameLayout implements qy {
+public class CardItemInfoTagLayout extends FrameLayout implements ry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerView a;
@@ -67,13 +67,13 @@ public class CardItemInfoTagLayout extends FrameLayout implements qy {
 
             /* renamed from: com.baidu.tieba.frs.itemtab.card.CardItemInfoTagLayout$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class View$OnClickListenerC0299a implements View.OnClickListener {
+            public class View$OnClickListenerC0313a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ View a;
                 public final /* synthetic */ a b;
 
-                public View$OnClickListenerC0299a(a aVar, b bVar, View view2) {
+                public View$OnClickListenerC0313a(a aVar, b bVar, View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements qy {
                             if (tBSpecificationBtn.a instanceof HashMap) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "CatetoryRecommendList", (HashMap) tBSpecificationBtn.a)));
                                 if (valueOf instanceof Integer) {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ua5(2, valueOf.intValue())));
+                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new xa5(2, valueOf.intValue())));
                                 }
                             }
                         }
@@ -130,22 +130,22 @@ public class CardItemInfoTagLayout extends FrameLayout implements qy {
                 }
                 this.b = bVar;
                 FrameLayout frameLayout = (FrameLayout) view2;
-                ma5 ma5Var = new ma5();
-                ma5Var.i(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
-                ma5Var.h(R.color.CAM_X0107);
-                ma5Var.g(wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
-                ma5Var.f(0);
-                ma5Var.v(R.color.CAM_X0105);
-                ma5Var.j(1, 0);
-                ma5Var.o(wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
-                ma5Var.n(wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+                pa5 pa5Var = new pa5();
+                pa5Var.i(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
+                pa5Var.h(R.color.CAM_X0107);
+                pa5Var.g(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+                pa5Var.f(0);
+                pa5Var.v(R.color.CAM_X0105);
+                pa5Var.j(1, 0);
+                pa5Var.o(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
+                pa5Var.n(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
                 TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(view2.getContext());
                 this.a = tBSpecificationBtn;
-                tBSpecificationBtn.setConfig(ma5Var);
+                tBSpecificationBtn.setConfig(pa5Var);
                 if (this.a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.a.getLayoutParams()).rightMargin = TbadkApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006);
                 }
-                this.a.setOnClickListener(new View$OnClickListenerC0299a(this, bVar, view2));
+                this.a.setOnClickListener(new View$OnClickListenerC0313a(this, bVar, view2));
                 frameLayout.addView(this.a);
             }
 
@@ -251,11 +251,11 @@ public class CardItemInfoTagLayout extends FrameLayout implements qy {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
                 if (i == 0) {
-                    rect.set(wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
+                    rect.set(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0, xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
                 } else if (i == this.a.e.size() - 1) {
-                    rect.set(0, 0, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
+                    rect.set(0, 0, xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
                 } else {
-                    rect.set(0, 0, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
+                    rect.set(0, 0, xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
                 }
             }
         }
@@ -345,7 +345,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements qy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            setPadding(0, wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), 0, 0);
+            setPadding(0, xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), 0, 0);
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
             this.a = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
@@ -353,7 +353,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements qy {
             this.a.setNestedScrollingEnabled(false);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             this.c = new View(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds52), -1);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds52), -1);
             layoutParams.gravity = 5;
             this.c.setLayoutParams(layoutParams);
             addView(this.c);
@@ -363,7 +363,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements qy {
         }
     }
 
-    @Override // com.baidu.tieba.qy
+    @Override // com.baidu.tieba.ry
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

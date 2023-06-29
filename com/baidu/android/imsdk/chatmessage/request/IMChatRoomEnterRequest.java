@@ -149,7 +149,7 @@ public class IMChatRoomEnterRequest extends BaseHttpRequest {
                     JSONObject jSONObject2 = (JSONObject) jSONObject.opt("room_info");
                     if (jSONObject2 != null) {
                         chatRoomInfo.roomInfo.appId = jSONObject2.optLong("app_id");
-                        chatRoomInfo.roomInfo.roomType = jSONObject2.optInt("room_type");
+                        chatRoomInfo.roomInfo.roomType = jSONObject2.optInt(Constants.EXTRA_ROOM_TYPE);
                         chatRoomInfo.roomInfo.roomName = jSONObject2.optString(DpStatConstants.KEY_ROOM_NAME);
                         chatRoomInfo.roomInfo.roomImage = jSONObject2.optString("room_image");
                         chatRoomInfo.roomInfo.roomNotice = jSONObject2.optString("room_notice");

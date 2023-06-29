@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jb;
-import com.baidu.tieba.jz9;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.qz4;
+import com.baidu.tieba.kb;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.tz4;
+import com.baidu.tieba.v3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,8 +31,8 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public qz4 c;
-    public jb d;
+    public tz4 c;
+    public kb d;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -55,7 +55,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends jb {
+    public class a extends kb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RelateRecThreadListModel a;
@@ -82,7 +82,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
             this.a = relateRecThreadListModel;
         }
 
-        @Override // com.baidu.tieba.jb
+        @Override // com.baidu.tieba.kb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             RelateRecThreadRequestMessage relateRecThreadRequestMessage;
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
                     }
                     Log.e("RecThreadList", "errno=" + error + ",errmsg=" + errorString);
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.Y(R.string.obfuscated_res_0x7f0f0695);
+                        errorString = this.a.Y(R.string.obfuscated_res_0x7f0f0698);
                     }
                     if (this.a.c != null) {
                         this.a.c.onError(error, errorString);
@@ -119,18 +119,18 @@ public class RelateRecThreadListModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RelateRecThreadListModel(k9 k9Var, BdUniqueId bdUniqueId) {
-        super(k9Var);
+    public RelateRecThreadListModel(l9 l9Var, BdUniqueId bdUniqueId) {
+        super(l9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k9Var, bdUniqueId};
+            Object[] objArr = {l9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -151,18 +151,18 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return (String) invokeI.objValue;
     }
 
-    public void b0(qz4 qz4Var) {
+    public void b0(tz4 tz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qz4Var) == null) {
-            this.c = qz4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, tz4Var) == null) {
+            this.c = tz4Var;
         }
     }
 
     public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jz9.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            jz9.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            v3a.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            v3a.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);

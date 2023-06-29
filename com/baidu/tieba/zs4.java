@@ -1,29 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.videoplayer.SwanVideoView;
+import android.graphics.Bitmap;
+import android.media.MediaPlayer;
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface zs4 {
-    void a();
 
-    void b(boolean z);
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(b bVar);
 
-    void c(SwanVideoView swanVideoView);
+        void b(b bVar, int i, int i2);
 
-    void d(boolean z);
+        void c(b bVar, int i, int i2, int i3);
+    }
 
-    void onBufferingUpdate(int i);
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(MediaPlayer mediaPlayer);
 
-    void onError(int i, int i2, String str);
+        zs4 b();
+    }
 
-    void onPause();
+    void a(a aVar);
 
-    void onPrepared();
+    void b(a aVar);
 
-    void onResume();
+    Bitmap getBitmap();
 
-    void onSeekEnd();
+    View getView();
 
-    void onStart();
+    void release();
 
-    void onVideoSizeChanged(int i, int i2);
+    void setAspectRatio(int i);
+
+    void setVideoSize(int i, int i2);
 }

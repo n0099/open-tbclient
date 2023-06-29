@@ -1,89 +1,244 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.txb;
+import com.baidu.tieba.atb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes5.dex */
-public class gvb implements IYYPayResultView.a {
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes6.dex */
+public final class gvb extends atb {
     public static /* synthetic */ Interceptable $ic;
+    public static final gvb a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public AbsViewEventHandler b;
-    public Dialog c;
-    public kub d;
-    public IPayCallback<CurrencyChargeMessage> e;
-    public IYYPayResultView.c f;
 
-    public gvb(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler, Dialog dialog, kub kubVar, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayResultView.c cVar) {
+    public static int a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            if (i < i2) {
+                return -1;
+            }
+            return i == i2 ? 0 : 1;
+        }
+        return invokeII.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a extends atb.a implements etb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final AtomicInteger a;
+        public final PriorityBlockingQueue<b> b;
+        public final wxb c;
+        public final AtomicInteger d;
+
+        /* renamed from: com.baidu.tieba.gvb$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0324a implements ktb {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+            public final /* synthetic */ a b;
+
+            public C0324a(a aVar, b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.tieba.ktb
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.b.remove(this.a);
+                }
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new AtomicInteger();
+            this.b = new PriorityBlockingQueue<>();
+            this.c = new wxb();
+            this.d = new AtomicInteger();
+        }
+
+        @Override // com.baidu.tieba.atb.a
+        public etb b(ktb ktbVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ktbVar)) == null) {
+                return d(ktbVar, a());
+            }
+            return (etb) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.atb.a
+        public etb c(ktb ktbVar, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{ktbVar, Long.valueOf(j), timeUnit})) == null) {
+                long a = a() + timeUnit.toMillis(j);
+                return d(new fvb(ktbVar, this, a), a);
+            }
+            return (etb) invokeCommon.objValue;
+        }
+
+        public final etb d(ktb ktbVar, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, ktbVar, j)) == null) {
+                if (this.c.isUnsubscribed()) {
+                    return ayb.c();
+                }
+                b bVar = new b(ktbVar, Long.valueOf(j), this.a.incrementAndGet());
+                this.b.add(bVar);
+                if (this.d.getAndIncrement() == 0) {
+                    do {
+                        b poll = this.b.poll();
+                        if (poll != null) {
+                            poll.a.call();
+                        }
+                    } while (this.d.decrementAndGet() > 0);
+                    return ayb.c();
+                }
+                return ayb.a(new C0324a(this, bVar));
+            }
+            return (etb) invokeLJ.objValue;
+        }
+
+        @Override // com.baidu.tieba.etb
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.c.isUnsubscribed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.etb
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.c.unsubscribe();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b implements Comparable<b> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ktb a;
+        public final Long b;
+        public final int c;
+
+        public b(ktb ktbVar, Long l, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ktbVar, l, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ktbVar;
+            this.b = l;
+            this.c = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.lang.Comparable
+        /* renamed from: a */
+        public int compareTo(b bVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
+                int compareTo = this.b.compareTo(bVar.b);
+                if (compareTo == 0) {
+                    return gvb.a(this.c, bVar.c);
+                }
+                return compareTo;
+            }
+            return invokeL.intValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947808790, "Lcom/baidu/tieba/gvb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947808790, "Lcom/baidu/tieba/gvb;");
+                return;
+            }
+        }
+        a = new gvb();
+    }
+
+    public gvb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, iYYPayResultView, absViewEventHandler, dialog, kubVar, iPayCallback, cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        RLog.info("PayResultViewCallback", "create PayResultViewCallback payCallback:" + iPayCallback);
-        this.a = activity;
-        this.b = absViewEventHandler;
-        this.c = dialog;
-        this.d = kubVar;
-        this.e = iPayCallback;
-        this.f = cVar;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
-    public void a(cwb cwbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cwbVar) == null) {
-            IYYPayResultView.c cVar = this.f;
-            if (cVar != null && cVar.j != null) {
-                vwb.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-                txb.b bVar = this.f.j;
-                bVar.c = cwbVar;
-                bVar.j = "2";
-                this.d.d(this.a, bVar, this.e);
-                return;
-            }
-            RLog.error("PayResultViewCallback", "toPayWayDialog error payResultViewParams:" + this.f, new Object[0]);
-            vwb.b(this.c, PayDialogType.PAY_RESULT_DIALOG);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PayResultViewCallback", "onBtnConfirm");
-            vwb.b(this.c, PayDialogType.PAY_RESULT_DIALOG);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
-    public boolean c() {
+    @Override // com.baidu.tieba.atb
+    public atb.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d.c(this.a, this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
-        return invokeV.booleanValue;
+        return (atb.a) invokeV.objValue;
     }
 }

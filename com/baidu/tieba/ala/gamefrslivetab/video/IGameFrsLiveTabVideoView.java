@@ -22,5 +22,5 @@ public interface IGameFrsLiveTabVideoView extends WebViewLifeCycle {
 
     void onChangeSkinType(int i);
 
-    void x(BaseFragment baseFragment);
+    void y(BaseFragment baseFragment);
 }

@@ -1,55 +1,27 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v84 implements m94 {
+public class v84 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile u84 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v84() {
+    public static synchronized u84 a() {
+        InterceptResult invokeV;
+        u84 u84Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.m94
-    public byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str != null && bArr != null) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 76158) {
-                    if (hashCode == 1952093519 && str.equals("BASE64")) {
-                        c = 1;
-                    }
-                } else if (str.equals("MD5")) {
-                    c = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (v84.class) {
+                if (a == null) {
+                    a = new u84();
                 }
-                if (c != 0) {
-                    if (c != 1) {
-                        return bArr;
-                    }
-                    return Base64.encode(bArr, 2);
-                }
-                return fs4.d(bArr, false).getBytes();
+                u84Var = a;
             }
-            return bArr;
+            return u84Var;
         }
-        return (byte[]) invokeLL.objValue;
+        return (u84) invokeV.objValue;
     }
 }

@@ -6,8 +6,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
-import com.baidu.tieba.jb;
-import com.baidu.tieba.q48;
+import com.baidu.tieba.kb;
+import com.baidu.tieba.v48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q48 a;
-    public jb b;
-    public jb c;
+    public v48 a;
+    public kb b;
+    public kb c;
     public boolean d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -34,9 +34,9 @@ public class TopicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                q48 q48Var = this.a;
-                if (q48Var != null) {
-                    q48Var.k0(-1, null);
+                v48 v48Var = this.a;
+                if (v48Var != null) {
+                    v48Var.k0(-1, null);
                 }
             } else if (this.d) {
             } else {
@@ -51,10 +51,10 @@ public class TopicModel extends BdBaseModel {
         }
     }
 
-    public void V(q48 q48Var) {
+    public void V(v48 v48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q48Var) == null) {
-            this.a = q48Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v48Var) == null) {
+            this.a = v48Var;
         }
     }
 

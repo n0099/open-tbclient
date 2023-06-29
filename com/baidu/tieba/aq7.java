@@ -1,15 +1,46 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import java.util.List;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.message.UpgradePopWindowMessage;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface aq7 {
-    void a(Context context, eq7 eq7Var);
+public class aq7 extends n65 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int b();
+    public aq7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    View getView();
-
-    void setData(List<lf7> list);
+    @Override // com.baidu.tieba.n65
+    public void a(@NonNull Context context, @NonNull f65 f65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, f65Var) == null) {
+            if (!(context instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "FRS升级弹窗失败：当前Activity非FrsActivity");
+                d65.s("frsUpgrade");
+                return;
+            }
+            UpgradePopWindowMessage upgradePopWindowMessage = new UpgradePopWindowMessage(2001016, ((FrsActivity) context).getPageContext());
+            upgradePopWindowMessage.setFromPage("frs");
+            MessageManager.getInstance().sendMessage(upgradePopWindowMessage);
+        }
+    }
 }

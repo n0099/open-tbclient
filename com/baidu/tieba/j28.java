@@ -1,44 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.db.DBTableDefine;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class j28 {
+public class j28 extends cy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public yo9 B;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947831513, "Lcom/baidu/tieba/j28;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j28(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947831513, "Lcom/baidu/tieba/j28;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    @JvmStatic
-    public static final boolean a() {
+    @Override // com.baidu.tieba.cy, com.baidu.tieba.tz
+    public yo9 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return zf5.g(TbadkCoreApplication.getInst(), 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.m) && this.m.equals("index")) {
+                this.B = new l28(this.b, this.i);
+            } else {
+                this.B = new k28(this.b, this.i);
             }
-            return im9.d.a().b(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+            this.B.setStageType("2001");
+            return this.B;
         }
-        return invokeV.booleanValue;
+        return (yo9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tz
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.z();
+            yo9 yo9Var = this.l;
+            if (yo9Var instanceof l28) {
+                ((l28) yo9Var).c();
+            }
+        }
     }
 }

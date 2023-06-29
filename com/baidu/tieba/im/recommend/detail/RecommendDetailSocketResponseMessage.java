@@ -3,8 +3,8 @@ package com.baidu.tieba.im.recommend.detail;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c55;
-import com.baidu.tieba.we;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.xe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,8 +52,8 @@ public class RecommendDetailSocketResponseMessage extends SocketResponsedMessage
         UserInfoBigVip userInfoBigVip;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            c55.d();
-            we<byte[]> b = c55.b("tb.im_recommend_detail");
+            f55.d();
+            xe<byte[]> b = f55.b("tb.im_recommend_detail");
             if (b != null && bArr != null && (userInfoBigVip = this.mDetailInfo) != null && userInfoBigVip.user_id != null) {
                 b.g(this.mDetailInfo.user_id + "", bArr);
             }

@@ -1,41 +1,43 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l22 extends f22 {
+public class l22 extends i22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public sq3<Integer> g;
 
-    @Override // com.baidu.tieba.c02
+    @Override // com.baidu.tieba.f02
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ExitFullScreenApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements sq3<Integer> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l22 a;
+        public final /* synthetic */ Context a;
 
-        public a(l22 l22Var) {
+        public a(l22 l22Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l22Var};
+                Object[] objArr = {l22Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,72 +47,82 @@ public class l22 extends f22 {
                     return;
                 }
             }
-            this.a = l22Var;
+            this.a = context;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sq3
-        /* renamed from: b */
-        public void a(Integer num) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
-                if (num.intValue() != 1 && num.intValue() != 0) {
-                    return;
-                }
-                this.a.z();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !ub3.d()) {
+                ub3.f(this.a, R.string.obfuscated_res_0x7f0f046d).G();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l22(@NonNull a02 a02Var) {
-        super(a02Var);
+    public l22(@NonNull d02 d02Var) {
+        super(d02Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a02Var};
+            Object[] objArr = {d02Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a02) newInitContext.callArgs[0]);
+                super((d02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new a(this);
     }
 
-    public z32 y(String str) {
+    @SuppressLint({"KotlinPropertyAccess"})
+    public c42 x() {
+        InterceptResult invokeV;
+        String charSequence;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getClipboardData", false);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                CharSequence a2 = xp3.b(getContext()).a();
+                if (TextUtils.isEmpty(a2)) {
+                    charSequence = "";
+                } else {
+                    charSequence = a2.toString();
+                }
+                jSONObject.put("data", charSequence);
+                return new c42(0, jSONObject);
+            } catch (JSONException e) {
+                p("#getClipboardData json put data fail", e, false);
+                return new c42(1001, "JSONException");
+            }
+        }
+        return (c42) invokeV.objValue;
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public c42 y(String str) {
         InterceptResult invokeL;
+        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#exitFullScreen", false);
-            Pair<z32, JSONObject> s = s(str);
-            z32 z32Var = (z32) s.first;
-            if (!z32Var.isSuccess()) {
-                return z32Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#setClipboardData", false);
+            Pair<c42, JSONObject> s = s(str);
+            c42 c42Var = (c42) s.first;
+            if (!c42Var.isSuccess()) {
+                return c42Var;
             }
-            String optString = ((JSONObject) s.second).optString("cb");
-            this.f = optString;
-            if (TextUtils.isEmpty(optString)) {
-                return new z32(201);
+            xp3.b(getContext()).c(((JSONObject) s.second).optString("data"));
+            cc3 q = bc3.K().q();
+            if (q != null && (w = q.w()) != null) {
+                wp3.f0(new a(this, w), 200L);
             }
-            q22.e().v(this.g);
-            q22.e().m();
-            return z32.f();
+            return c42.f();
         }
-        return (z32) invokeL.objValue;
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            q22.e().w();
-            q22.e().p();
-            d(this.f, new z32(0));
-        }
+        return (c42) invokeL.objValue;
     }
 }

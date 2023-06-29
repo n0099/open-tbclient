@@ -1,70 +1,133 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cp9 {
+public class cp9 extends bp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public double b;
-    public List<String> c;
-    public int d;
-    public int e;
+    public int S0;
+    public int T0;
 
-    public cp9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cp9(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        s0(false);
+        this.S0 = xi.l(this.R) / 10;
+    }
+
+    public void E0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.X = str2;
+            T();
+            U();
+            v0(this.b);
+            this.F.setPlayer(this.t.getControl());
+            this.B.setVisibility(8);
+            this.u.setPlaceHolder(3);
+            this.u.N(str, 10, false);
+            this.H.setShareData(null);
         }
     }
 
-    public static cp9 a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.bp9
+    public void Z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            Context context = this.R;
+            if (context instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.b0);
+            } else if (context instanceof BaseActivity) {
+                ((BaseActivity) context).setSwipeBackEnabled(this.b0);
+            }
+            super.Z(z);
+            if (this.b0) {
+                this.f1091T.getLayoutParams().height = -1;
+                return;
+            }
+            this.f1091T.getLayoutParams().height = this.T0;
+        }
+    }
+
+    @Override // com.baidu.tieba.bp9
+    public void h0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.t.getControl().setVolume(1.0f, 1.0f);
+        }
+    }
+
+    @Override // com.baidu.tieba.bp9
+    public boolean i0(MotionEvent motionEvent) {
         InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (!this.b0 && motionEvent.getX() <= this.S0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bp9
+    public void v0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.v0(i);
+            this.J.setVisibility(8);
+            this.D.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.bp9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPrepared();
+            if (this.t.getControl().getPlayerWidth() == 0) {
+                return;
             }
-            cp9 cp9Var = new cp9();
-            if (jSONObject.optInt("label_measure") == 2) {
+            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
                 z = true;
             } else {
                 z = false;
             }
-            cp9Var.a = z;
-            cp9Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        sp8.a(arrayList, optJSONObject.optString("pic"));
-                    }
-                }
+            this.W = z;
+            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * xi.l(this.R));
+            this.T0 = playerHeight;
+            if (playerHeight > xi.j(this.R)) {
+                this.T0 = xi.j(this.R);
             }
-            cp9Var.c = arrayList;
-            cp9Var.d = jSONObject.optInt("width");
-            cp9Var.e = jSONObject.optInt("height");
-            return cp9Var;
+            this.f1091T.getLayoutParams().height = this.T0;
+            this.f1091T.requestLayout();
         }
-        return (cp9) invokeL.objValue;
     }
 }

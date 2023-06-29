@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,13 +17,23 @@ public class em0 {
     public String b;
     public String c;
     public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
+    public long e;
+    public boolean f;
+    public int g;
+    public int h;
+    public int i;
     public String j;
-    public cm0 k;
+    public int k;
+    public int l;
+    public String m;
+    public String n;
+    public String o;
+    public long p;
+    public long q;
+    public boolean r;
+    public boolean s;
+    public int t;
+    public boolean u;
 
     public em0() {
         Interceptable interceptable = $ic;
@@ -35,27 +45,69 @@ public class em0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = "";
+        this.e = 0L;
+        this.f = false;
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        this.p = -1L;
+        this.q = -1L;
+        this.s = false;
+        this.t = 0;
+        this.u = true;
     }
 
     @NonNull
     public static em0 a(String str) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject c = z21.c(str);
             em0 em0Var = new em0();
-            em0Var.a = c.optString("als_ext");
-            em0Var.b = c.optString("cmd");
-            em0Var.c = c.optString("defer_cmd");
-            em0Var.d = c.optString("init_text");
-            em0Var.e = c.optString("opt_icon");
-            em0Var.f = c.optString("opt_text");
-            em0Var.g = c.optString("app_icon_url");
-            em0Var.h = c.optString("app_name");
-            em0Var.i = c.optString("version_code");
-            em0Var.j = c.optString(LegoListActivityConfig.AD_ID);
+            JSONObject c = c31.c(str);
+            em0Var.a = c.optString("page");
+            em0Var.b = c.optString("business");
+            em0Var.d = c.optString("content_type");
+            em0Var.e = c.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
+            boolean z3 = false;
+            if (c.optInt("is_dirty", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            em0Var.f = z;
+            em0Var.g = c.optInt("close_v_download", 0);
+            em0Var.h = c.optInt("no_click_opt");
+            em0Var.i = c.optInt("open_after_install");
+            em0Var.j = c.optString("action_area");
+            em0Var.k = c.optInt("notification_show_count");
+            em0Var.l = c.optInt("tips_show_count");
+            em0Var.p = c.optLong("als_app_save_day");
+            em0Var.q = c.optLong("finished_install_time", -1L);
+            if (c.optInt("lazy_launch_switch", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            em0Var.s = z2;
+            em0Var.t = c.optInt("lazy_launch_internal", 0);
+            int optInt = c.optInt("package_launch_switch", Integer.MIN_VALUE);
+            if (optInt == Integer.MIN_VALUE) {
+                if (io0.b().a().a("package_launch_switch", 1) == 1) {
+                    z3 = true;
+                }
+                em0Var.u = z3;
+            } else {
+                if (optInt == 1) {
+                    z3 = true;
+                }
+                em0Var.u = z3;
+            }
             return em0Var;
         }
         return (em0) invokeL.objValue;
@@ -63,20 +115,42 @@ public class em0 {
 
     public static String b(@NonNull em0 em0Var) {
         InterceptResult invokeL;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, em0Var)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("als_ext", em0Var.a);
-                jSONObject.put("cmd", em0Var.b);
-                jSONObject.put("defer_cmd", em0Var.c);
-                jSONObject.put("init_text", em0Var.d);
-                jSONObject.put("opt_icon", em0Var.e);
-                jSONObject.put("opt_text", em0Var.f);
-                jSONObject.put("app_icon_url", em0Var.g);
-                jSONObject.put("app_name", em0Var.h);
-                jSONObject.put("version_code", em0Var.i);
-                jSONObject.put(LegoListActivityConfig.AD_ID, em0Var.j);
+                jSONObject.put("page", em0Var.a);
+                jSONObject.put("business", em0Var.b);
+                jSONObject.put("content_type", em0Var.d);
+                jSONObject.put(BreakpointSQLiteKey.CONTENT_LENGTH, em0Var.e);
+                int i3 = 1;
+                if (em0Var.f) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                jSONObject.put("is_dirty", i);
+                jSONObject.put("close_v_download", em0Var.g);
+                jSONObject.put("no_click_opt", em0Var.h);
+                jSONObject.put("open_after_install", em0Var.i);
+                jSONObject.put("action_area", em0Var.j);
+                jSONObject.put("notification_show_count", em0Var.k);
+                jSONObject.put("tips_show_count", em0Var.l);
+                jSONObject.put("als_app_save_day", em0Var.p);
+                jSONObject.put("finished_install_time", em0Var.q);
+                if (em0Var.s) {
+                    i2 = 1;
+                } else {
+                    i2 = 0;
+                }
+                jSONObject.put("lazy_launch_switch", i2);
+                jSONObject.put("lazy_launch_internal", em0Var.t);
+                if (!em0Var.u) {
+                    i3 = 0;
+                }
+                jSONObject.put("package_launch_switch", i3);
             } catch (JSONException unused) {
             }
             return jSONObject.toString();

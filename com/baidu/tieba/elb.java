@@ -1,214 +1,106 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.sdk.crashreportbaidu.ReportInfo;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
-import java.util.TreeSet;
 /* loaded from: classes5.dex */
-public class elb {
+public class elb<T extends ReportInfo> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile elb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<Integer, a> a;
-    public TreeMap<Integer, TreeSet<String>> b;
+    public final SharedPreferences a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947739598, "Lcom/baidu/tieba/elb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947739598, "Lcom/baidu/tieba/elb;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            this.b = false;
-        }
-    }
-
-    public elb() {
+    public elb(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new TreeMap<>();
-        this.b = new TreeMap<>();
+        this.a = context.getSharedPreferences(str, 0);
     }
 
-    public static elb c() {
-        InterceptResult invokeV;
+    public String a(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (elb.class) {
-                    if (c == null) {
-                        c = new elb();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            if (t == null) {
+                return "anr info is null";
+            }
+            dlb.d("ReportDB", "add info: " + t.crashId);
+            try {
+                List<T> c = c();
+                int size = c.size();
+                SharedPreferences.Editor edit = this.a.edit();
+                for (int i = 0; i <= size - 30; i++) {
+                    T t2 = c.get(i);
+                    t2.clearFiles(t2.fileList);
+                    edit.remove(t2.crashId);
                 }
+                edit.putString(t.crashId, t.serialize()).commit();
+                return null;
+            } catch (IOException e) {
+                String C = glb.C(e);
+                dlb.c("ReportDB", C, e);
+                return C;
             }
-            return c;
         }
-        return (elb) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public synchronized int a() {
-        InterceptResult invokeV;
-        int size;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                size = this.b.size();
-            }
-            return size;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.edit().clear().commit();
         }
-        return invokeV.intValue;
     }
 
-    public synchronized int d() {
+    public List<T> c() {
         InterceptResult invokeV;
-        int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                size = this.a.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int b() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, TreeSet<String>> entry : this.b.entrySet()) {
-                    i += entry.getValue().size();
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized int f() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
-                    if (entry.getValue().a && entry.getValue().b) {
-                        i++;
+            ArrayList arrayList = new ArrayList();
+            Map<String, ?> all = this.a.getAll();
+            if (all != null && !all.isEmpty()) {
+                for (Map.Entry<String, ?> entry : all.entrySet()) {
+                    try {
+                        arrayList.add((ReportInfo) ReportInfo.deserialize((String) entry.getValue()));
+                        dlb.d("ReportDB", String.format("read info:%s", entry.getKey()));
+                    } catch (Exception e) {
+                        delete(entry.getKey());
+                        dlb.b("ReportDB", String.format("read info error:[%s] %s", entry.getKey(), glb.C(e)));
                     }
                 }
+                dlb.d("ReportDB", "get all size: " + arrayList.size());
             }
-            return i;
+            return arrayList;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    public synchronized int i() {
-        InterceptResult invokeV;
-        int i;
+    public void delete(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                i = 0;
-                for (Map.Entry<Integer, a> entry : this.a.entrySet()) {
-                    if (entry.getValue().a) {
-                        i++;
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void e(bjb bjbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bjbVar) == null) {
-            synchronized (this) {
-                if (bjbVar != null) {
-                    if (!this.a.containsKey(Integer.valueOf(bjbVar.hashCode()))) {
-                        this.a.put(Integer.valueOf(bjbVar.hashCode()), new a());
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void h(bjb bjbVar) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bjbVar) == null) {
-            synchronized (this) {
-                if (bjbVar != null) {
-                    if (this.a.containsKey(Integer.valueOf(bjbVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(bjbVar.hashCode()))) != null) {
-                        aVar.a = false;
-                        aVar.b = false;
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void g(bjb bjbVar, int i, boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bjbVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (bjbVar != null) {
-                    if (this.a.containsKey(Integer.valueOf(bjbVar.hashCode())) && (aVar = this.a.get(Integer.valueOf(bjbVar.hashCode()))) != null) {
-                        aVar.a = true;
-                        aVar.b = z;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            dlb.d("ReportDB", "delete info: " + str);
+            if (this.a.contains(str)) {
+                this.a.edit().remove(str).commit();
             }
         }
     }

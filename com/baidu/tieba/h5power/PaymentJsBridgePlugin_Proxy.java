@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.r0a;
-import com.baidu.tieba.ry4;
-import com.baidu.tieba.s0a;
-import com.baidu.tieba.t0a;
-import com.baidu.tieba.v0a;
-import com.baidu.tieba.zl6;
+import com.baidu.tieba.d5a;
+import com.baidu.tieba.e5a;
+import com.baidu.tieba.em6;
+import com.baidu.tieba.f5a;
+import com.baidu.tieba.h5a;
+import com.baidu.tieba.uy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,17 +24,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class PaymentJsBridgePlugin_Proxy extends r0a {
+public class PaymentJsBridgePlugin_Proxy extends d5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ry4 mJsBridge;
+    public uy4 mJsBridge;
 
-    public PaymentJsBridgePlugin_Proxy(ry4 ry4Var) {
+    public PaymentJsBridgePlugin_Proxy(uy4 uy4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ry4Var};
+            Object[] objArr = {uy4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,79 +44,79 @@ public class PaymentJsBridgePlugin_Proxy extends r0a {
                 return;
             }
         }
-        this.mJsBridge = ry4Var;
+        this.mJsBridge = uy4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
         hashSet.add(CommonTbJsBridge.OPEN_VIP_SUCCESS);
     }
 
-    @Override // com.baidu.tieba.r0a
-    public t0a dispatch(WebView webView, v0a v0aVar, t0a t0aVar) {
+    @Override // com.baidu.tieba.d5a
+    public f5a dispatch(WebView webView, h5a h5aVar, f5a f5aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, v0aVar, t0aVar)) == null) {
-            if (t0aVar == null) {
-                t0aVar = new t0a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, h5aVar, f5aVar)) == null) {
+            if (f5aVar == null) {
+                f5aVar = new f5a();
             }
-            String b = v0aVar.b();
-            JSONObject e = v0aVar.e();
+            String b = h5aVar.b();
+            JSONObject e = h5aVar.e();
             if (b.equals("payment/openMXDYab")) {
-                t0aVar.s(true);
-                t0a c = this.mJsBridge.c(webView, e.optString(PushConstants.PARAMS));
+                f5aVar.s(true);
+                f5a c = this.mJsBridge.c(webView, e.optString(PushConstants.PARAMS));
                 if (c != null) {
-                    t0aVar.y(c.f());
-                    t0aVar.u(c.b());
-                    t0aVar.o(c.a());
-                    t0aVar.x(c.e());
+                    f5aVar.y(c.f());
+                    f5aVar.u(c.b());
+                    f5aVar.o(c.a());
+                    f5aVar.x(c.e());
                 }
-                t0aVar.z(0);
+                f5aVar.z(0);
             }
-            return t0aVar;
+            return f5aVar;
         }
-        return (t0a) invokeLLL.objValue;
+        return (f5a) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.r0a
-    public zl6 getJsBridge() {
+    @Override // com.baidu.tieba.d5a
+    public em6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (zl6) invokeV.objValue;
+        return (em6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r0a
-    public List<t0a> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.d5a
+    public List<f5a> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            t0a t0aVar = null;
+            f5a f5aVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals(CommonTbJsBridge.OPEN_VIP_SUCCESS)) {
-                t0aVar = this.mJsBridge.d(webView, hashMap);
+                f5aVar = this.mJsBridge.d(webView, hashMap);
             }
-            if (t0aVar != null) {
-                t0aVar.z(0);
+            if (f5aVar != null) {
+                f5aVar.z(0);
             }
-            List<s0a> list = this.mAsyncCallBackMethodList.get(str);
-            if (t0aVar != null && list != null) {
-                Iterator<s0a> it = list.iterator();
-                if (!TextUtils.isEmpty(t0aVar.e())) {
+            List<e5a> list = this.mAsyncCallBackMethodList.get(str);
+            if (f5aVar != null && list != null) {
+                Iterator<e5a> it = list.iterator();
+                if (!TextUtils.isEmpty(f5aVar.e())) {
                     while (it.hasNext()) {
-                        s0a next = it.next();
-                        if (next.b().equals(t0aVar.e())) {
-                            t0a t0aVar2 = new t0a();
-                            t0aVar2.w(next.a());
-                            t0aVar2.y(t0aVar.f());
-                            t0aVar2.u(t0aVar.b());
-                            t0aVar2.o(t0aVar.a());
-                            t0aVar2.A(t0aVar.l());
-                            arrayList.add(t0aVar2);
+                        e5a next = it.next();
+                        if (next.b().equals(f5aVar.e())) {
+                            f5a f5aVar2 = new f5a();
+                            f5aVar2.w(next.a());
+                            f5aVar2.y(f5aVar.f());
+                            f5aVar2.u(f5aVar.b());
+                            f5aVar2.o(f5aVar.a());
+                            f5aVar2.A(f5aVar.l());
+                            arrayList.add(f5aVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -124,14 +124,14 @@ public class PaymentJsBridgePlugin_Proxy extends r0a {
                     }
                 } else {
                     while (it.hasNext()) {
-                        s0a next2 = it.next();
-                        t0a t0aVar3 = new t0a();
-                        t0aVar3.w(next2.a());
-                        t0aVar3.y(t0aVar.f());
-                        t0aVar3.u(t0aVar.b());
-                        t0aVar3.o(t0aVar.a());
-                        t0aVar3.A(t0aVar.l());
-                        arrayList.add(t0aVar3);
+                        e5a next2 = it.next();
+                        f5a f5aVar3 = new f5a();
+                        f5aVar3.w(next2.a());
+                        f5aVar3.y(f5aVar.f());
+                        f5aVar3.u(f5aVar.b());
+                        f5aVar3.o(f5aVar.a());
+                        f5aVar3.A(f5aVar.l());
+                        arrayList.add(f5aVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

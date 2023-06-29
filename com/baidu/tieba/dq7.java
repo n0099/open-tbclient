@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TabPic;
+@Service
 /* loaded from: classes5.dex */
-public class dq7 {
+public class dq7 implements d75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public mf7 c;
-    public String d;
-    public int e;
-    public TabPic f;
-    public boolean g;
+
+    @Override // com.baidu.tieba.d75
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_UPGRADE_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public dq7() {
         Interceptable interceptable = $ic;
@@ -32,20 +34,13 @@ public class dq7 {
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        String str;
+    @Override // com.baidu.tieba.d75
+    public b75 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj != null && (obj instanceof dq7)) {
-                dq7 dq7Var = (dq7) obj;
-                if (this.b == dq7Var.b && (str = this.a) != null && str.equals(dq7Var.a)) {
-                    return true;
-                }
-                return super.equals(obj);
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new cq7();
         }
-        return invokeL.booleanValue;
+        return (b75) invokeV.objValue;
     }
 }

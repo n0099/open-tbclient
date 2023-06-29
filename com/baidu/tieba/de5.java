@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.coreExtra.data.VcodeExtra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.ThreadInfo;
-import tbclient.VoiceRoom;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class de5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
+    public String a;
     public String b;
-    public List<VoiceRoom> c;
+    public String c;
+    public VcodeExtra d;
 
     public de5() {
         Interceptable interceptable = $ic;
@@ -35,25 +33,27 @@ public class de5 {
                 return;
             }
         }
-        this.c = new ArrayList();
+        this.a = null;
+        this.b = null;
+        this.c = null;
     }
 
-    public List<VoiceRoom> a() {
+    public VcodeExtra a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.d;
         }
-        return (List) invokeV.objValue;
+        return (VcodeExtra) invokeV.objValue;
     }
 
-    public Long b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (Long) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     public String c() {
@@ -65,23 +65,63 @@ public class de5 {
         return (String) invokeV.objValue;
     }
 
-    public void d(DataRes dataRes) {
-        VoiceRoom voiceRoom;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, dataRes) != null) || dataRes == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                g(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            try {
+                g(jSONObject);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        ForumInfo forumInfo = dataRes.forum;
-        if (forumInfo != null) {
-            this.a = forumInfo.id;
-            this.b = forumInfo.name;
-        }
-        if (!ListUtils.isEmpty(dataRes.voice_room_list)) {
-            for (ThreadInfo threadInfo : dataRes.voice_room_list) {
-                if (threadInfo != null && (voiceRoom = threadInfo.voice_room) != null && !StringUtils.isNull(voiceRoom.room_name) && voiceRoom.room_id.longValue() > 0) {
-                    this.c.add(voiceRoom);
-                }
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("info");
+            if (optJSONObject == null) {
+                optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
             }
+            if (optJSONObject == null) {
+                return;
+            }
+            this.a = optJSONObject.optString("vcode_md5");
+            this.b = optJSONObject.optString("vcode_pic_url");
+            this.c = optJSONObject.optString("vcode_type");
+            JSONObject jSONObject2 = optJSONObject.getJSONObject("vcode_extra");
+            VcodeExtra vcodeExtra = new VcodeExtra();
+            this.d = vcodeExtra;
+            vcodeExtra.textImg = jSONObject2.optString("textimg");
+            this.d.slideImg = jSONObject2.optString("slideimg");
+            this.d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
+            this.d.successImg = jSONObject2.optString("successimg");
+            this.d.slideEndPoint = jSONObject2.optString("slideendpoint");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

@@ -1,82 +1,110 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes8.dex */
 public class u2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
+    public boolean c;
 
-    public static com.fun.module.csj.f0 a(TTNativeAd tTNativeAd) {
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return i != 5 ? -1 : 0;
+                        }
+                        return 1;
+                    }
+                    return 3;
+                }
+                return 4;
+            }
+            return 6;
+        }
+        return invokeI.intValue;
+    }
+
+    public u2b(String str, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = z;
+        this.c = z2;
+    }
+
+    public String b(byte[] bArr) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
-            int imageMode = tTNativeAd.getImageMode();
-            if (imageMode == 15) {
-                i = R.layout.fun_csj_ad_native_vertical_video_view;
-            } else if (imageMode != 16) {
-                if (imageMode != 166) {
-                    if (imageMode == 2) {
-                        i = R.layout.fun_csj_ad_native_small_img_view;
-                    } else if (imageMode == 3) {
-                        i = R.layout.fun_csj_ad_native_large_img_view;
-                    } else if (imageMode == 4) {
-                        i = R.layout.fun_csj_ad_native_group_img_view;
-                    } else if (imageMode != 5) {
-                        return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
+                short[] sArr = new short[5];
+                int[] iArr = new int[8];
+                int i3 = 5;
+                for (int i4 = 0; i4 < 5; i4++) {
+                    int i5 = (i2 * 5) + i4;
+                    if (i5 < bArr.length) {
+                        sArr[i4] = (short) (bArr[i5] & 255);
+                    } else {
+                        sArr[i4] = 0;
+                        i3--;
                     }
                 }
-                i = R.layout.fun_csj_ad_native_large_video_view;
-            } else {
-                i = R.layout.fun_csj_ad_native_vertical_img_view;
-            }
-            com.fun.module.csj.f0 f0Var = (com.fun.module.csj.f0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
-            f0Var.a(tTNativeAd);
-            return f0Var;
-        }
-        return (com.fun.module.csj.f0) invokeL.objValue;
-    }
-
-    public static String b(boolean z) {
-        InterceptResult invokeZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            HashMap hashMap = new HashMap();
-            if (z) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("personal_ads_type", str);
-            if (hashMap.isEmpty()) {
-                return "";
-            }
-            try {
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("name", entry.getKey());
-                    jSONObject.put("value", entry.getValue());
-                    jSONArray.put(jSONObject);
+                int a = a(i3);
+                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
+                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
+                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
+                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
+                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
+                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
+                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
+                iArr[7] = (byte) (sArr[4] & 31);
+                int i6 = 0;
+                while (true) {
+                    i = 8 - a;
+                    if (i6 >= i) {
+                        break;
+                    }
+                    char charAt = this.a.charAt(iArr[i6]);
+                    if (this.c) {
+                        charAt = Character.toLowerCase(charAt);
+                    }
+                    byteArrayOutputStream.write(charAt);
+                    i6++;
                 }
-                return jSONArray.toString();
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return "";
+                if (this.b) {
+                    while (i < 8) {
+                        byteArrayOutputStream.write(61);
+                        i++;
+                    }
+                }
             }
+            return new String(byteArrayOutputStream.toByteArray());
         }
-        return (String) invokeZ.objValue;
+        return (String) invokeL.objValue;
     }
 }

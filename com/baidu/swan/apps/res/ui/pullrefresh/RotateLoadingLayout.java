@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.go3;
+import com.baidu.tieba.jo3;
 /* loaded from: classes4.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static final Interpolator k = new LinearInterpolator();
@@ -28,7 +28,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void g() {
-        this.g.setText(R.string.obfuscated_res_0x7f0f01dc);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01de);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -44,29 +44,29 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void h() {
         o();
         this.f.startAnimation(this.j);
-        this.g.setText(R.string.obfuscated_res_0x7f0f01db);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01dd);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void i() {
         super.i();
-        this.g.setText(R.string.obfuscated_res_0x7f0f01da);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01dc);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void j() {
-        this.g.setText(R.string.obfuscated_res_0x7f0f01dd);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01df);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void k() {
         o();
-        this.g.setText(R.string.obfuscated_res_0x7f0f01dc);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01de);
     }
 
     public final void o() {
         this.f.clearAnimation();
-        if (go3.c()) {
+        if (jo3.c()) {
             this.f.setRotation(0.0f);
         }
     }
@@ -78,7 +78,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void d(float f) {
-        if (go3.c()) {
+        if (jo3.c()) {
             this.f.setRotation(f * 180.0f);
         }
     }
@@ -112,11 +112,11 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d1a);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d18);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d1b);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d1e);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d20);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d75);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d73);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d76);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d79);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d7b);
         this.f.setScaleType(ImageView.ScaleType.CENTER);
         this.f.setImageResource(R.drawable.obfuscated_res_0x7f08015c);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);

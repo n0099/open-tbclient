@@ -1,34 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.statemachine.base.BaseStateMachine;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+@Service
 /* loaded from: classes6.dex */
-public final class mx9 extends BaseStateMachine {
+public class mx9 implements IHostStateAbiltiy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mx9(yx9 animationTipStateMap) {
-        super(animationTipStateMap);
+    public mx9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {animationTipStateMap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yx9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(animationTipStateMap, "animationTipStateMap");
+    }
+
+    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
+    public boolean hasAgreedPrivacyPolicy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return PermissionUtil.isAgreePrivacyPolicy();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
+    public boolean isForeground() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !tw5.g().k();
+        }
+        return invokeV.booleanValue;
     }
 }

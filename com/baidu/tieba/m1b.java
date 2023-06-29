@@ -1,203 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.VisibleForTesting;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.q1b;
-import com.baidu.tieba.s1b;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class m1b {
+public class m1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public o1b d;
-    public final Set<Ssp> e;
-    public final Set<s1b> f;
-    public final Set<q1b> g;
 
-    public m1b() {
+    public static <T> boolean a(List<T> list, List<T> list2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, list2)) == null) {
+            if (!e(list2) && list != null) {
+                return list.addAll(list2);
             }
+            return false;
         }
-        this.e = new HashSet();
-        this.f = new HashSet();
-        this.g = new HashSet();
+        return invokeLL.booleanValue;
     }
 
-    public boolean b(String str) {
+    public static <T> T c(List<T> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
+            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+                return null;
+            }
+            return list.get(i);
+        }
+        return (T) invokeLI.objValue;
+    }
+
+    public static <T> T g(List<T> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
+            if (!e(list) && list != null && i >= 0 && i < list.size()) {
+                return list.remove(i);
+            }
+            return null;
+        }
+        return (T) invokeLI.objValue;
+    }
+
+    public static <T> int b(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                return list.size();
             }
-            try {
-                c(str);
-                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
-                if (d()) {
-                    a();
-                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
-                    return true;
-                }
-            } catch (JSONException e) {
-                LogPrinter.e(e);
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static <T> T d(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                return (T) c(list, list.size() - 1);
             }
-            this.e.clear();
-            this.f.clear();
-            this.g.clear();
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static <T> boolean e(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            if (b(list) <= 0) {
+                return true;
+            }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    @VisibleForTesting
-    public boolean d() {
-        InterceptResult invokeV;
+    public static <T> boolean f(Map map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashSet hashSet = new HashSet();
-            HashSet hashSet2 = new HashSet();
-            for (Ssp ssp : this.e) {
-                if (hashSet.contains(ssp.type)) {
-                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
-                    return false;
-                }
-                hashSet.add(ssp.type);
-                for (Ssp.Pid pid : ssp.pids) {
-                    if (hashSet2.contains(Long.valueOf(pid.id))) {
-                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
-                        return false;
-                    }
-                    hashSet2.add(Long.valueOf(pid.id));
-                }
-            }
-            HashSet hashSet3 = new HashSet();
-            for (s1b s1bVar : this.f) {
-                if (hashSet3.contains(s1bVar.a)) {
-                    LogPrinter.e("Duplicate sid(%s) found in SlotId", s1bVar.a);
-                    return false;
-                }
-                hashSet3.add(s1bVar.a);
-                for (s1b.c cVar : s1bVar.e) {
-                    HashSet hashSet4 = new HashSet();
-                    for (s1b.b bVar : cVar.b) {
-                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
-                            return false;
-                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), s1bVar.a);
-                            return false;
-                        } else {
-                            hashSet4.add(Long.valueOf(bVar.a));
-                        }
-                    }
-                }
-            }
-            if (this.c == 2) {
-                for (q1b q1bVar : this.g) {
-                    if (hashSet3.contains(q1bVar.a)) {
-                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", q1bVar.a);
-                        return false;
-                    }
-                    hashSet3.add(q1bVar.a);
-                    for (q1b.b bVar2 : q1bVar.b) {
-                        for (q1b.a aVar : bVar2.b) {
-                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
-                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
-                                return false;
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            if (map != null && !map.isEmpty()) {
+                return false;
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void a() {
-        int length;
+    public static <T> void h(List<T> list, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.a;
-            int i = this.b;
-            int i2 = this.c;
-            f1b f1bVar = new f1b(this.e, this.f, this.g);
-            o1b o1bVar = this.d;
-            Object obj = v1b.a;
-            String d = j1b.d(f1bVar);
-            Object[] objArr = new Object[1];
-            if (d == null) {
-                length = -1;
-            } else {
-                length = d.length();
-            }
-            objArr[0] = Integer.valueOf(length);
-            LogPrinter.v("sspsUTF len:%d", objArr);
-            v1b.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", d).putString("key_rptcfg", j1b.d(o1bVar)).apply();
-        }
-    }
-
-    @VisibleForTesting
-    public void c(String str) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
-            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
-            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
-            this.c = NumberUtils.adjustInt(jSONObject2.optInt(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 1), 1);
-            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
-            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
-            HashMap hashMap = new HashMap();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
-                for (Ssp.Pid pid : ssp.pids) {
-                    hashMap.put(Long.valueOf(pid.id), pid);
-                }
-                this.e.add(ssp);
-            }
-            JSONArray jSONArray2 = jSONObject3.getJSONArray(Config.SID);
-            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                this.f.add(new s1b(jSONArray2.getJSONObject(i2), hashMap));
-            }
-            if (this.c >= 2 && (optJSONArray = jSONObject3.optJSONArray("serialSids")) != null) {
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    this.g.add(new q1b(optJSONArray.getJSONObject(i3), hashMap));
-                }
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("rptConfig");
-            if (optJSONObject != null) {
-                this.d = new o1b(optJSONObject);
-            }
+        if ((interceptable == null || interceptable.invokeLII(65543, null, list, i, i2) == null) && !e(list) && i >= 0 && i2 >= 0 && i <= b(list) - 1 && i2 <= b(list) - 1) {
+            Collections.swap(list, i, i2);
         }
     }
 }

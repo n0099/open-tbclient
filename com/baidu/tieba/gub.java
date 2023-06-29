@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* loaded from: classes5.dex */
-public interface gub {
-    void a(View view2);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public final class gub<T, R> extends dtb<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(View view2);
+    public abstract void g();
 }

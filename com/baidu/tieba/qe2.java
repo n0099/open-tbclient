@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,10 +13,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qe2 extends be2 {
+public class qe2 implements fe2<ee2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile Boolean a;
+    public volatile fe2<ee2> b;
 
     static {
         InterceptResult invokeClinit;
@@ -30,45 +33,179 @@ public class qe2 extends be2 {
                 return;
             }
         }
-        l = js1.a;
+        c = ms1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qe2(boolean z, boolean z2) {
-        super(z, z2);
+    public qe2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (l) {
-            Log.d("PreloadMasterManagerMulti", "PreloadMasterManagerMulti created");
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.ge2
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return l().f();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ge2
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return l().g();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ge2
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return l().h();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.fe2
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return l().i();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ge2
+    /* renamed from: k */
+    public ee2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return (ee2) l().a();
+        }
+        return (ee2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ge2
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            l().reset();
+            synchronized (this) {
+                this.a = null;
+                this.b = null;
+            }
         }
     }
 
-    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.fe2
+    public void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, cVar)) == null) {
-            if (this.e == null || this.e.b == null) {
-                return false;
-            }
-            if (pMSAppInfo.versionCode == this.e.b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.e.a) && !m(cVar, this.e.c)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar, pMSAppInfo) == null) {
+            l().b(str, cVar, pMSAppInfo);
         }
-        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.he2<com.baidu.tieba.ee2> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.tieba.ge2
+    public void c(he2<ee2> he2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, he2Var) == null) {
+            l().c(he2Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.fe2
+    public void d(cm2 cm2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cm2Var) == null) {
+            l().d(cm2Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ge2
+    /* renamed from: n */
+    public ee2 e(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, pMSAppInfo)) == null) {
+            return (ee2) l().e(pMSAppInfo);
+        }
+        return (ee2) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fe2
+    public void j(boolean z, ne2 ne2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048585, this, z, ne2Var) == null) {
+            l().j(z, ne2Var);
+        }
+    }
+
+    public final fe2<ee2> l() {
+        InterceptResult invokeV;
+        fe2<ee2> pe2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.b == null) {
+                synchronized (this) {
+                    if (this.b == null) {
+                        if (m()) {
+                            pe2Var = new ue2();
+                        } else {
+                            pe2Var = new pe2();
+                        }
+                        this.b = pe2Var;
+                        if (c) {
+                            Log.d("SwanAppMasterProviderWrapper", "provider - " + this.b.getClass().getSimpleName());
+                        }
+                    }
+                }
+            }
+            return this.b;
+        }
+        return (fe2) invokeV.objValue;
+    }
+
+    public final boolean m() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (this.a == null) {
+                if (cg2.l() > 0 && cg2.i()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                this.a = Boolean.valueOf(z);
+            }
+            if (c) {
+                Log.d("SwanAppMasterProviderWrapper", "loaded swan core version - " + wi2.U().d0());
+                Log.d("SwanAppMasterProviderWrapper", "use multi preload - " + this.a);
+            }
+            return this.a.booleanValue();
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -471,7 +471,7 @@ public class SimpleArrayMap<K, V> {
 
     public String toString() {
         if (isEmpty()) {
-            return StringUtil.EMPTY_ARRAY;
+            return "{}";
         }
         StringBuilder sb = new StringBuilder(this.mSize * 28);
         sb.append('{');

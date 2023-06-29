@@ -1,86 +1,94 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.App;
+import tbclient.GoodsInfo;
 /* loaded from: classes7.dex */
 public class rr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
+    @NonNull
+    public static String a(@NonNull App app) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int lastIndexOf = str.lastIndexOf(File.separator);
-            if (lastIndexOf == -1) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            String str = "";
+            if (list == null) {
                 return "";
             }
-            return str.substring(0, lastIndexOf);
+            for (GoodsInfo goodsInfo : list) {
+                if (goodsInfo != null) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("ad_common");
+                        if (optJSONObject != null) {
+                            str = optJSONObject.optString("id");
+                        }
+                        return str;
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
-            } catch (Exception e) {
-                BdLog.e(Log.getStackTraceString(e));
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String path = Environment.getExternalStorageDirectory().getPath();
-            int length = path.length() - 1;
-            if (length > 0 && !path.substring(length).equals(File.separator)) {
-                return path + File.separator;
-            }
-            return path;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d() + "tieba/Logs/";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e(String str) {
+    public static int b(@NonNull App app) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String a = a(str);
-            if (TextUtils.isEmpty(a)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            if (list == null) {
+                return -1;
             }
-            File file = new File(a);
-            if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
-                return false;
+            Iterator<GoodsInfo> it = list.iterator();
+            while (it.hasNext()) {
+                GoodsInfo next = it.next();
+                if (next != null) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(next.lego_card).optJSONObject("ad_common");
+                        if (optJSONObject == null) {
+                            return -1;
+                        }
+                        return vg.e(optJSONObject.optString("pos"), -1);
+                    } catch (JSONException unused) {
+                    }
+                }
             }
-            return true;
+            return -1;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public static void c(@NonNull App.Builder builder, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65538, null, builder, i) != null) || builder.goods_info == null) {
+            return;
+        }
+        for (int i2 = 0; i2 < builder.goods_info.size(); i2++) {
+            GoodsInfo goodsInfo = (GoodsInfo) du8.d(builder.goods_info, i2);
+            if (goodsInfo != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(goodsInfo.lego_card);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
+                    if (optJSONObject != null) {
+                        optJSONObject.put("pos", String.valueOf(vg.e(optJSONObject.optString("pos"), 0) + i));
+                        GoodsInfo.Builder builder2 = new GoodsInfo.Builder(goodsInfo);
+                        builder2.lego_card = jSONObject.toString();
+                        builder.goods_info.set(i2, builder2.build(false));
+                    }
+                } catch (JSONException unused) {
+                }
+            }
+        }
     }
 }

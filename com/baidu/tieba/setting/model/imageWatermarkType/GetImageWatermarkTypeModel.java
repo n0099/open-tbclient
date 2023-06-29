@@ -7,8 +7,8 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.o05;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.r05;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -65,7 +65,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             }
             GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
             if (getImageWatermarkTypeResMsg.mMaskType > -1) {
-                o05.c().i(getImageWatermarkTypeResMsg.mMaskType);
+                r05.c().i(getImageWatermarkTypeResMsg.mMaskType);
             }
         }
     }
@@ -82,7 +82,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

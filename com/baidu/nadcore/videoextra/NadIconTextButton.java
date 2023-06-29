@@ -12,28 +12,28 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d61;
-import com.baidu.tieba.fp0;
-import com.baidu.tieba.sc1;
-import com.baidu.tieba.u71;
+import com.baidu.tieba.g61;
+import com.baidu.tieba.ip0;
+import com.baidu.tieba.vc1;
+import com.baidu.tieba.x71;
 /* loaded from: classes3.dex */
 public class NadIconTextButton extends AppCompatTextView {
 
     /* loaded from: classes3.dex */
-    public class a implements fp0 {
+    public class a implements ip0 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.fp0
+        @Override // com.baidu.tieba.ip0
         public void b(Bitmap bitmap) {
             if (bitmap != null) {
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(NadIconTextButton.this.getResources(), bitmap);
-                bitmapDrawable.setBounds(0, 0, d61.c.a(NadIconTextButton.this.getContext(), 12.0f), d61.c.a(NadIconTextButton.this.getContext(), 12.0f));
+                bitmapDrawable.setBounds(0, 0, g61.c.a(NadIconTextButton.this.getContext(), 12.0f), g61.c.a(NadIconTextButton.this.getContext(), 12.0f));
                 NadIconTextButton.this.setCompoundDrawables(bitmapDrawable, null, null, null);
             }
         }
 
-        @Override // com.baidu.tieba.fp0
+        @Override // com.baidu.tieba.ip0
         public void a() {
             Drawable drawable = ContextCompat.getDrawable(NadIconTextButton.this.getContext(), R.drawable.nad_sv_button_icon);
             if (drawable != null) {
@@ -47,17 +47,17 @@ public class NadIconTextButton extends AppCompatTextView {
         this(context, null);
     }
 
-    public final void d(@Nullable u71 u71Var) {
-        if (u71Var != null && !TextUtils.isEmpty(u71Var.b)) {
-            setText(u71Var.b);
+    public final void d(@Nullable x71 x71Var) {
+        if (x71Var != null && !TextUtils.isEmpty(x71Var.b)) {
+            setText(x71Var.b);
         } else {
             setText(getContext().getString(R.string.nad_icon_text));
         }
     }
 
-    public void update(@Nullable u71 u71Var) {
-        d(u71Var);
-        c(u71Var);
+    public void update(@Nullable x71 x71Var) {
+        d(x71Var);
+        c(x71Var);
     }
 
     public NadIconTextButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -84,9 +84,9 @@ public class NadIconTextButton extends AppCompatTextView {
         setPadding(dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset, dimensionPixelOffset2);
     }
 
-    public final void c(@Nullable u71 u71Var) {
-        if (u71Var != null && !TextUtils.isEmpty(u71Var.a)) {
-            sc1.a().c(u71Var.a, new a());
+    public final void c(@Nullable x71 x71Var) {
+        if (x71Var != null && !TextUtils.isEmpty(x71Var.a)) {
+            vc1.a().c(x71Var.a, new a());
             return;
         }
         Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.nad_sv_button_icon);

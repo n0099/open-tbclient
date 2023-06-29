@@ -12,7 +12,7 @@ import com.kwad.components.offline.api.core.api.INet;
 import com.kwad.components.offline.api.core.api.IOfflineCompoLogcat;
 import com.kwad.components.offline.api.core.api.IZipper;
 import com.kwad.components.offline.api.core.video.IVideo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IOfflineHostApi {
     IAsync async();
 

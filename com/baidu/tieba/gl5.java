@@ -1,45 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class gl5 extends dl5 {
+public class gl5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947797785, "Lcom/baidu/tieba/gl5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static List<hl5> a(ol5 ol5Var) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ol5Var)) == null) {
+            if (ol5Var.c("\u0089PNG") && ol5Var.c("\r\n\u001a\n")) {
+                ArrayList arrayList = new ArrayList();
+                while (ol5Var.available() > 0) {
+                    arrayList.add(b(ol5Var));
+                }
+                return arrayList;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947797785, "Lcom/baidu/tieba/gl5;");
-                return;
-            }
+            throw new IOException("APNG Format error");
         }
-        c = dl5.a("IDAT");
+        return (List) invokeL.objValue;
     }
 
-    public gl5() {
+    public static hl5 b(ol5 ol5Var) throws IOException {
+        InterceptResult invokeL;
+        hl5 hl5Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ol5Var)) == null) {
+            int position = ol5Var.position();
+            int e = ol5Var.e();
+            int d = ol5Var.d();
+            if (d == dl5.d) {
+                hl5Var = new dl5();
+            } else if (d == il5.k) {
+                hl5Var = new il5();
+            } else if (d == jl5.c) {
+                hl5Var = new jl5();
+            } else if (d == kl5.c) {
+                hl5Var = new kl5();
+            } else if (d == ll5.c) {
+                hl5Var = new ll5();
+            } else if (d == ml5.f) {
+                hl5Var = new ml5();
+            } else {
+                hl5Var = new hl5();
             }
+            hl5Var.b = position;
+            hl5Var.a = e;
+            hl5Var.c(ol5Var);
+            ol5Var.e();
+            return hl5Var;
         }
+        return (hl5) invokeL.objValue;
     }
 }

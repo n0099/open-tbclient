@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.SurfaceHolder;
-/* loaded from: classes7.dex */
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public interface tm1 {
-    void b();
+    @Nullable
+    sk1 a();
 
-    void surfaceCreated(SurfaceHolder surfaceHolder);
+    JSONObject b();
 }

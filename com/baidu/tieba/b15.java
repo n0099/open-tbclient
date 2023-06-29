@@ -1,92 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.PersonPrivateData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetBigday.BigdayInfo;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class b15 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public long d;
-    public int e;
-    public long f;
-    public long g;
 
-    public b15() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947592131, "Lcom/baidu/tieba/b15;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947592131, "Lcom/baidu/tieba/b15;");
+                return;
+            }
+        }
+        a = new HashMap<>();
+    }
+
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
+            if (a.containsKey(str)) {
+                return a.get(str).intValue();
+            }
+            a.put(str, 1);
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public static void b(PersonPrivateData personPrivateData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, personPrivateData) != null) || personPrivateData == null) {
+            return;
+        }
+        String str = TbadkCoreApplication.getCurrentAccount() + "@2";
+        int U = personPrivateData.U();
+        if (!a.containsKey(str)) {
+            a.put(str, Integer.valueOf(U));
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNULL(this.a) && this.d > 0) {
-                int i = this.e;
-                if (i == 1 || i == 3) {
-                    long j = this.f;
-                    if (j > 0) {
-                        long j2 = this.g;
-                        if (j2 > 0 && j2 > j) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
+            a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
         }
-        return invokeV.booleanValue;
-    }
-
-    public void b(BigdayInfo bigdayInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) && bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
-            if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
-                this.a = bigdayInfo.img_url;
-                this.b = bigdayInfo.jump_url;
-                this.c = bigdayInfo.img_colour.intValue();
-                this.d = bigdayInfo.id.longValue();
-                this.e = bigdayInfo.position.intValue();
-                this.f = bigdayInfo.start_time.longValue();
-                this.g = bigdayInfo.end_time.longValue();
-            }
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (!(obj instanceof b15)) {
-                return false;
-            }
-            b15 b15Var = (b15) obj;
-            if (!b15Var.a() || !a() || this.d != b15Var.d || !StringHelper.equals(this.a, b15Var.a) || (((this.b != null || b15Var.b != null) && !StringHelper.equals(this.b, b15Var.b)) || this.c != b15Var.c || this.e != b15Var.e || this.f != b15Var.f || this.g != b15Var.g)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

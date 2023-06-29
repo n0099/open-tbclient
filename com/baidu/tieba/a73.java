@@ -1,100 +1,52 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.g73;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public interface a73 {
-    public static final a73 a = new a();
+/* loaded from: classes5.dex */
+public final class a73 implements g73.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final f73 b;
 
-    /* loaded from: classes4.dex */
-    public interface b {
+    public a73(int i, @NonNull f73 f73Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), f73Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = f73Var;
     }
 
-    void a(String str);
-
-    boolean b();
-
-    Object c(Activity activity, String str, b bVar, boolean z);
-
-    void d(Activity activity, Object obj);
-
-    boolean e(Activity activity, int i, String[] strArr, int[] iArr, Object obj);
-
-    void f(Activity activity, Object obj);
-
-    /* loaded from: classes4.dex */
-    public static class a implements a73 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.a73
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+    @Override // com.baidu.tieba.g73.a
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
+            if (i != this.a) {
+                this.b.b(2, "request permission fail");
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.a73
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.a73
-        public Object c(Activity activity, String str, b bVar, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, bVar, Boolean.valueOf(z)})) == null) {
-                return null;
-            }
-            return invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.a73
-        public void d(Activity activity, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, activity, obj) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.a73
-        public boolean e(Activity activity, int i, String[] strArr, int[] iArr, Object obj) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{activity, Integer.valueOf(i), strArr, iArr, obj})) == null) {
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.a73
-        public void f(Activity activity, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, activity, obj) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            for (int i2 : iArr) {
+                if (i2 == -1) {
+                    this.b.b(1, "user denied");
+                    return;
                 }
             }
+            this.b.a("permission granted successful");
         }
     }
 }

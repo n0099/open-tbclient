@@ -1,111 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public abstract class pv3 {
+public class pv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
 
-    public abstract void e(IOException iOException);
-
-    public abstract void f(int i);
-
-    public abstract void h(byte[] bArr);
-
-    public pv3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = 0;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.b = 0;
-            yu3.b().a(str, this);
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final String g(byte[] bArr) {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static lv3 a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            String str = new String(bArr);
-            if (vu3.a) {
-                Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            lv3 lv3Var = null;
+            if (bArr == null) {
+                return null;
             }
-            if (this.a) {
-                jv3 c = zu3.f().c(bv3.l().m(), bArr);
-                if (c != null) {
-                    if (!TextUtils.isEmpty(c.a())) {
-                        str = c.a();
-                    }
-                    this.b = c.b().intValue();
-                } else {
-                    this.b = -1;
-                }
-                bv3.l().m().s(this.b);
-                if (this.b == -1) {
-                    yu3.b().f(false);
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                lv3Var = new lv3();
+                wrap.get();
+                wrap.get();
+                lv3Var.r(wrap.get());
+                lv3Var.p(wrap.get());
+                int i = wrap.getShort();
+                lv3Var.q(i);
+                int i2 = wrap.getInt();
+                lv3Var.k(i2);
+                lv3Var.l(wrap.getLong());
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                lv3Var.o(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    lv3Var.j(bArr3);
                 }
             }
-            return str;
+            return lv3Var;
         }
-        return (String) invokeL.objValue;
+        return (lv3) invokeL.objValue;
+    }
+
+    public static byte[] b(lv3 lv3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, lv3Var)) == null) {
+            if (lv3Var == null) {
+                return null;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(lv3Var.h() + 20 + lv3Var.b());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (lv3Var.e() != null && lv3Var.e().length == 2) {
+                allocate.put(lv3Var.e()[0]);
+                allocate.put(lv3Var.e()[1]);
+                allocate.put(lv3Var.i());
+                allocate.put(lv3Var.g());
+                if (lv3Var.f() != null && lv3Var.f().length != 0) {
+                    int length = lv3Var.f().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (lv3Var.a() != null && lv3Var.a().length != 0) {
+                        allocate.putInt(lv3Var.a().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    allocate.putLong(lv3Var.c());
+                    if (lv3Var.f() != null) {
+                        allocate.put(lv3Var.f());
+                    }
+                    if (lv3Var.a() != null) {
+                        allocate.put(lv3Var.a());
+                    }
+                    return allocate.array();
+                }
+            }
+            return null;
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

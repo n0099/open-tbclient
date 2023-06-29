@@ -1,12 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.boxdownload.BoxDownloadManager;
+import com.baidu.searchbox.boxdownload.IBoxDownloadDbOperator;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class u20 implements BoxDownloadManager {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class u20 implements IBoxDownloadDbOperator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -20,7 +22,9 @@ public class u20 implements BoxDownloadManager {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullExpressionValue(AppRuntime.getAppContext().getContentResolver(), "getAppContext().contentResolver");
     }
 }

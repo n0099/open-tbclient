@@ -24,6 +24,6 @@ public class SlideTipsView extends FrameLayout {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_SlideTipsView, i, 0);
         boolean z = obtainStyledAttributes.getBoolean(0, true);
         obtainStyledAttributes.recycle();
-        FrameLayout.inflate(context, z ? com.baidu.tieba.R.layout.obfuscated_res_0x7f0d049b : com.baidu.tieba.R.layout.obfuscated_res_0x7f0d04a0, this);
+        FrameLayout.inflate(context, z ? com.baidu.tieba.R.layout.obfuscated_res_0x7f0d049c : com.baidu.tieba.R.layout.obfuscated_res_0x7f0d04a1, this);
     }
 }

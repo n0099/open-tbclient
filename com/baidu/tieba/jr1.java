@@ -1,77 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.SecureRandom;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
 public final class jr1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
             try {
+                byte[] bArr2 = new byte[32];
+                new SecureRandom().nextBytes(bArr2);
+                byte[] bArr3 = new byte[16];
+                System.arraycopy(bArr2, 8, bArr3, 0, 16);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr3);
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
+                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                cipher.init(1, secretKeySpec, ivParameterSpec);
+                byte[] doFinal = cipher.doFinal(bArr);
+                byte[] bArr4 = new byte[doFinal.length + 32];
+                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
+                System.arraycopy(bArr2, 0, bArr4, doFinal.length, 32);
+                return Base64.encodeToString(bArr4, 0);
             } catch (Throwable th) {
-                ir1.d(th);
-            }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            a = sp1.g(context).F();
-            return a;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(b)) {
-                    return b;
-                }
-                String c = c(context);
-                b = c;
-                if (!TextUtils.isEmpty(c)) {
-                    return b;
-                }
-                String a2 = new vp1(context).a();
-                b = a2;
-                if (!TextUtils.isEmpty(a2)) {
-                    return b;
-                }
-                return "";
-            } catch (Throwable th) {
-                ir1.d(th);
-                return "";
+                th.printStackTrace();
+                return null;
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static String c(Context context) {
+    public static byte[] b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             try {
-                Class<?> cls = Class.forName("com.baidu.sofire.ac.F");
-                Object invoke = cls.getDeclaredMethod("getInstance", new Class[0]).invoke(cls, new Object[0]);
-                if (invoke == null) {
-                    return "";
+                if (TextUtils.isEmpty(str)) {
+                    return null;
                 }
-                return (String) cls.getDeclaredMethod("gzd", Context.class).invoke(invoke, context);
+                byte[] decode = Base64.decode(str, 0);
+                if (decode != null && decode.length >= 32) {
+                    byte[] bArr = new byte[32];
+                    int length = decode.length - 32;
+                    byte[] bArr2 = new byte[length];
+                    System.arraycopy(decode, 0, bArr2, 0, length);
+                    System.arraycopy(decode, length, bArr, 0, 32);
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                    Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                    byte[] bArr3 = new byte[16];
+                    System.arraycopy(bArr, 8, bArr3, 0, 16);
+                    cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                    return cipher.doFinal(bArr2);
+                }
+                return decode;
             } catch (Throwable th) {
-                ir1.d(th);
-                return "";
+                th.printStackTrace();
+                return null;
             }
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

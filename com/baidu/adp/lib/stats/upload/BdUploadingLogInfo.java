@@ -3,9 +3,9 @@ package com.baidu.adp.lib.stats.upload;
 import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ec;
-import com.baidu.tieba.jc;
-import com.baidu.tieba.oh;
+import com.baidu.tieba.fc;
+import com.baidu.tieba.kc;
+import com.baidu.tieba.ph;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class BdUploadingLogInfo extends ArrayList<ArrayList<oh>> {
+public class BdUploadingLogInfo extends ArrayList<ArrayList<ph>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1737585838278753290L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,15 +47,15 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<oh>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            jc jcVar = new jc(this.mLogDir, str, DiskFileOperate.Action.READ);
-            jcVar.setSdCard(this.mUseSdCard);
+            kc kcVar = new kc(this.mLogDir, str, DiskFileOperate.Action.READ);
+            kcVar.setSdCard(this.mUseSdCard);
             if (!this.mMustSuccess) {
-                jcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-                jcVar.setTrySuccessWeight(3);
+                kcVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+                kcVar.setTrySuccessWeight(3);
             }
-            ec.f().call(jcVar);
-            if (jcVar.isSuccess()) {
-                return jcVar.a();
+            fc.f().call(kcVar);
+            if (kcVar.isSuccess()) {
+                return kcVar.a();
             }
             return null;
         }
@@ -74,7 +74,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<oh>> {
             } else {
                 i2 = 0;
             }
-            ArrayList<oh> arrayList2 = get(i);
+            ArrayList<ph> arrayList2 = get(i);
             ArrayList<String> arrayList3 = new ArrayList<>();
             for (int i3 = 0; i3 < arrayList2.size(); i3++) {
                 String readLogFileString = readLogFileString(arrayList2.get(i3).b);
@@ -105,7 +105,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<oh>> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ArrayList<oh> arrayList = get(i);
+            ArrayList<ph> arrayList = get(i);
             ArrayList<String> arrayList2 = new ArrayList<>();
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 String readLogFileString = readLogFileString(arrayList.get(i2).b);

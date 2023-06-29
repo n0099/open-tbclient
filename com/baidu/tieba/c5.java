@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.utils.JsonValue;
+import com.baidu.tieba.h7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class c5 extends w4 {
+public abstract class c5 extends x4 implements h7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -20,6 +22,15 @@ public abstract class c5 extends w4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.x4, com.baidu.tieba.h7.c
+    public void a(h7 h7Var, JsonValue jsonValue) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, h7Var, jsonValue) == null) {
+            ((Integer) h7Var.l("minParticleCount", Integer.TYPE, jsonValue)).intValue();
+            ((Integer) h7Var.l("maxParticleCount", Integer.TYPE, jsonValue)).intValue();
         }
     }
 }

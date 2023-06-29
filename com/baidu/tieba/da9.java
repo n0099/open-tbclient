@@ -1,92 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.vx;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class da9 extends aa9 {
+public abstract class da9<D extends IBaseDialogData> implements ia9<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout f;
-    public TextView g;
+    public TbPageContext<?> a;
+    public ViewGroup b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public da9(TbPageContext tbPageContext, int i) {
-        super(tbPageContext);
+    public da9(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tbPageContext;
+        this.b = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a(), (ViewGroup) null, false);
+        b();
     }
 
-    @Override // com.baidu.tieba.aa9
-    public View a() {
+    public TbPageContext<?> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
-            this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923a9);
-            return this.f;
+            return this.a;
         }
-        return (View) invokeV.objValue;
+        return (TbPageContext) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.aa9
-    public void b(TbPageContext tbPageContext, int i) {
+    @Override // com.baidu.tieba.ia9
+    public ViewGroup getViewGroup() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
-            this.e = i;
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-    }
-
-    @Override // com.baidu.tieba.aa9
-    public void c(OriginalThreadInfo originalThreadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.g.setText(new SpannableString(this.a.getString(R.string.origin_thread_deleted_title)));
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-        }
-    }
-
-    @Override // com.baidu.tieba.aa9
-    public void d(vx.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            super.d(aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.aa9
-    public void e(lo6 lo6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lo6Var) == null) {
-            super.e(lo6Var);
-        }
+        return (ViewGroup) invokeV.objValue;
     }
 }

@@ -5,9 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tieba.s3;
-import com.baidu.tieba.s6;
-import com.baidu.tieba.w0;
+import com.baidu.tieba.t3;
+import com.baidu.tieba.t6;
+import com.baidu.tieba.x0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class ParticleEmitter {
     public transient /* synthetic */ FieldHolder $fh;
     public float A;
     public String B;
-    public s6<String> C;
+    public t6<String> C;
     public int D;
     public boolean[] E;
     public boolean F;
@@ -72,7 +72,7 @@ public class ParticleEmitter {
     public g r;
     public h s;
     public float t;
-    public s6<s3> u;
+    public t6<t3> u;
     public SpriteMode v;
     public d[] w;
     public int x;
@@ -503,7 +503,7 @@ public class ParticleEmitter {
                         bufferedReader.reset();
                         return;
                     } else {
-                        w0.a.error("ParticleEmitter", "The loaded particle effect descriptor file uses an old invalid format. Please download the latest version of the Particle Editor tool and recreate the file by loading and saving it again.");
+                        x0.a.error("ParticleEmitter", "The loaded particle effect descriptor file uses an old invalid format. Please download the latest version of the Particle Editor tool and recreate the file by loading and saving it again.");
                         throw new IOException("The loaded particle effect descriptor file uses an old invalid format. Please download the latest version of the Particle Editor tool and recreate the file by loading and saving it again.");
                     }
                 }
@@ -513,7 +513,7 @@ public class ParticleEmitter {
     }
 
     /* loaded from: classes.dex */
-    public static class d extends s3 {
+    public static class d extends t3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float A;
@@ -540,18 +540,18 @@ public class ParticleEmitter {
         public float z;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(s3 s3Var) {
-            super(s3Var);
+        public d(t3 t3Var) {
+            super(t3Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s3Var};
+                Object[] objArr = {t3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((s3) newInitContext.callArgs[0]);
+                    super((t3) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -935,19 +935,19 @@ public class ParticleEmitter {
         return (String) invokeL.objValue;
     }
 
-    public d j(s3 s3Var) {
+    public d j(t3 t3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, s3Var)) == null) {
-            return new d(s3Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t3Var)) == null) {
+            return new d(t3Var);
         }
         return (d) invokeL.objValue;
     }
 
-    public void r(s6<String> s6Var) {
+    public void r(t6<String> t6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, s6Var) == null) {
-            this.C = s6Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, t6Var) == null) {
+            this.C = t6Var;
         }
     }
 
@@ -982,7 +982,7 @@ public class ParticleEmitter {
     }
 
     public final void a(int i) {
-        s3 first;
+        t3 first;
         float f2;
         float l;
         float l2;
@@ -1208,22 +1208,22 @@ public class ParticleEmitter {
         }
     }
 
-    public s6<String> f() {
+    public t6<String> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.C;
         }
-        return (s6) invokeV.objValue;
+        return (t6) invokeV.objValue;
     }
 
-    public s6<s3> g() {
+    public t6<t3> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.u;
         }
-        return (s6) invokeV.objValue;
+        return (t6) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
@@ -1278,8 +1278,8 @@ public class ParticleEmitter {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.u = new s6<>();
-            this.C = new s6<>();
+            this.u = new t6<>();
+            this.C = new t6<>();
             this.c.c(true);
             this.e.c(true);
             this.d.c(true);
@@ -1356,15 +1356,15 @@ public class ParticleEmitter {
                     this.v = SpriteMode.valueOf(p(readLine));
                     bufferedReader.readLine();
                 }
-                s6<String> s6Var = new s6<>();
+                t6<String> t6Var = new t6<>();
                 while (true) {
                     String readLine2 = bufferedReader.readLine();
                     if (readLine2 == null || readLine2.isEmpty()) {
                         break;
                     }
-                    s6Var.a(readLine2);
+                    t6Var.a(readLine2);
                 }
-                r(s6Var);
+                r(t6Var);
             } catch (RuntimeException e2) {
                 if (this.B == null) {
                     throw e2;
@@ -1443,36 +1443,36 @@ public class ParticleEmitter {
         }
     }
 
-    public void u(s6<s3> s6Var) {
+    public void u(t6<t3> t6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, s6Var) == null) {
-            this.u = s6Var;
-            if (s6Var.b == 0) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, t6Var) == null) {
+            this.u = t6Var;
+            if (t6Var.b == 0) {
                 return;
             }
             int length = this.w.length;
             for (int i = 0; i < length; i++) {
                 d dVar = this.w[i];
                 if (dVar != null) {
-                    s3 s3Var = null;
+                    t3 t3Var = null;
                     int i2 = a.a[this.v.ordinal()];
                     if (i2 != 1) {
                         if (i2 != 2) {
                             if (i2 == 3) {
-                                s3Var = s6Var.g();
+                                t3Var = t6Var.g();
                             }
                         } else {
                             float f2 = 1.0f - (dVar.u / dVar.t);
-                            int i3 = s6Var.b;
+                            int i3 = t6Var.b;
                             int min = Math.min((int) (f2 * i3), i3 - 1);
                             dVar.O = min;
-                            s3Var = s6Var.get(min);
+                            t3Var = t6Var.get(min);
                         }
                     } else {
-                        s3Var = s6Var.first();
+                        t3Var = t6Var.first();
                     }
-                    dVar.i(s3Var);
-                    dVar.v(s3Var.l(), s3Var.m());
+                    dVar.i(t3Var);
+                    dVar.v(t3Var.l(), t3Var.m());
                 } else {
                     return;
                 }
@@ -1624,13 +1624,13 @@ public class ParticleEmitter {
                 int i4 = this.u.b;
                 int min = Math.min((int) (f6 * i4), i4 - 1);
                 if (dVar.O != min) {
-                    s3 s3Var = this.u.get(min);
+                    t3 t3Var = this.u.get(min);
                     float n = dVar.n();
                     float k = dVar.k();
-                    dVar.i(s3Var);
-                    dVar.z(s3Var.n(), s3Var.k());
-                    dVar.v(s3Var.l(), s3Var.m());
-                    dVar.A((n - s3Var.n()) / 2.0f, (k - s3Var.k()) / 2.0f);
+                    dVar.i(t3Var);
+                    dVar.z(t3Var.n(), t3Var.k());
+                    dVar.v(t3Var.l(), t3Var.m());
+                    dVar.A((n - t3Var.n()) / 2.0f, (k - t3Var.k()) / 2.0f);
                     dVar.O = min;
                 }
             }

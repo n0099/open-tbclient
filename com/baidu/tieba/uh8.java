@@ -2,22 +2,21 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public interface uh8 {
-    void a(int i);
+    void b(@NonNull String str, @NonNull String str2, @NonNull Map<String, Object> map);
 
-    void b(@NonNull eh8 eh8Var);
+    void d(@NonNull String str, int i);
 
-    boolean c();
+    void f(@NonNull String str, @Nullable Object obj, @Nullable nf8 nf8Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i);
 
-    void d(@NonNull List<eh8> list);
+    void g(@NonNull String str, int i);
 
-    void e(int i);
+    void j(@NonNull String str, @NonNull String str2);
 
-    @Nullable
-    eh8 f();
-
-    void g(@NonNull ChatRoomDetail chatRoomDetail);
+    void l(@NonNull AbilityItem abilityItem);
 }

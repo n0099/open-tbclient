@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AwardInfo;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s15 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,14 +24,13 @@ public class s15 {
         }
     }
 
-    public void a(AwardInfo awardInfo) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, awardInfo) != null) || awardInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        awardInfo.award_id.longValue();
-        awardInfo.award_act_id.longValue();
-        String str = awardInfo.award_name;
-        String str2 = awardInfo.award_imgsrc;
+        jSONObject.optInt("label_id");
+        jSONObject.optString("label_name");
+        jSONObject.optString("label_rgb");
     }
 }

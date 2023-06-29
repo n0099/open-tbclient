@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lo6;
-import com.baidu.tieba.rx4;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.xd9;
-import com.baidu.tieba.ye9;
+import com.baidu.tieba.ji9;
+import com.baidu.tieba.kj9;
+import com.baidu.tieba.qo6;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,13 +31,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xd9 a;
+    public ji9 a;
     public Bundle b;
-    public ye9 c;
-    public lo6 d;
+    public kj9 c;
+    public qo6 d;
 
     /* loaded from: classes7.dex */
-    public class a extends lo6<ye9> {
+    public class a extends qo6<kj9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,12 +61,12 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lo6
+        @Override // com.baidu.tieba.qo6
         /* renamed from: d */
-        public void a(View view2, ye9 ye9Var) {
+        public void a(View view2, kj9 kj9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ye9Var) == null) {
-                this.b.c = ye9Var;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, kj9Var) == null) {
+                this.b.c = kj9Var;
                 if (this.b.c == null || this.b.E1()) {
                     return;
                 }
@@ -110,9 +110,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            xd9 xd9Var = this.a;
-            if (xd9Var != null) {
-                xd9Var.d();
+            ji9 ji9Var = this.a;
+            if (ji9Var != null) {
+                ji9Var.d();
             }
         }
     }
@@ -146,14 +146,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                wi.P(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
+                xi.P(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            rx4.C(getPageContext().getPageActivity(), true, str);
+            ux4.C(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -166,10 +166,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0791);
-            xd9 xd9Var = new xd9(getPageContext(), this.b, this.d);
-            this.a = xd9Var;
-            xd9Var.c();
+            setContentView(R.layout.obfuscated_res_0x7f0d07a4);
+            ji9 ji9Var = new ji9(getPageContext(), this.b, this.d);
+            this.a = ji9Var;
+            ji9Var.c();
         }
     }
 

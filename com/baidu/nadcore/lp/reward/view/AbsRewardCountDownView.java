@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tieba.ms0;
-import com.baidu.tieba.zp0;
+import com.baidu.tieba.cq0;
+import com.baidu.tieba.ps0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
@@ -21,7 +21,7 @@ import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000j\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0015\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b \u0018\u00002\u00020\u0001B'\b\u0007\u0012\u0006\u0010K\u001a\u00020J\u0012\n\b\u0002\u0010M\u001a\u0004\u0018\u00010L\u0012\b\b\u0002\u0010N\u001a\u00020\u0004¢\u0006\u0004\bO\u0010PJ;\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0003\u001a\u00020\u00022\b\b\u0002\u0010\u0005\u001a\u00020\u00042\b\b\u0002\u0010\u0007\u001a\u00020\u00062\u000e\b\u0002\u0010\n\u001a\b\u0012\u0004\u0012\u00020\t0\bH\u0016¢\u0006\u0004\b\f\u0010\rJ#\u0010\u0010\u001a\u00020\u000b2\u0006\u0010\u000e\u001a\u00020\u00042\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u000b0\b¢\u0006\u0004\b\u0010\u0010\u0011J\r\u0010\u0012\u001a\u00020\u000b¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0015\u001a\u00020\u0014H\u0016¢\u0006\u0004\b\u0015\u0010\u0016J\r\u0010\u0017\u001a\u00020\u000b¢\u0006\u0004\b\u0017\u0010\u0013J\u0017\u0010\u001a\u001a\u00020\u000b2\u0006\u0010\u0019\u001a\u00020\u0018H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ-\u0010 \u001a\u00020\u000b2\u0006\u0010\u001c\u001a\u00020\u00042\u0006\u0010\u001e\u001a\u00020\u001d2\f\u0010\u001f\u001a\b\u0012\u0004\u0012\u00020\u000b0\bH&¢\u0006\u0004\b \u0010!J\u0017\u0010$\u001a\u00020\u000b2\u0006\u0010#\u001a\u00020\"H&¢\u0006\u0004\b$\u0010%J\r\u0010&\u001a\u00020\u000b¢\u0006\u0004\b&\u0010\u0013J\r\u0010'\u001a\u00020\u000b¢\u0006\u0004\b'\u0010\u0013J#\u0010)\u001a\u00020\u000b2\u0006\u0010(\u001a\u00020\u00042\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u000b0\b¢\u0006\u0004\b)\u0010\u0011R*\u0010\u0010\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010*\u001a\u0004\b+\u0010,\"\u0004\b-\u0010.R\"\u0010/\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u00100\u001a\u0004\b1\u00102\"\u0004\b3\u00104R*\u00105\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b5\u0010*\u001a\u0004\b6\u0010,\"\u0004\b7\u0010.R$\u00109\u001a\u0004\u0018\u0001088\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b9\u0010:\u001a\u0004\b;\u0010<\"\u0004\b=\u0010>R$\u0010@\u001a\u0004\u0018\u00010?8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b@\u0010A\u001a\u0004\bB\u0010C\"\u0004\bD\u0010ER*\u0010)\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b)\u0010*\u001a\u0004\bF\u0010,\"\u0004\bG\u0010.R\"\u0010(\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b(\u00100\u001a\u0004\bH\u00102\"\u0004\bI\u00104¨\u0006Q"}, d2 = {"Lcom/baidu/nadcore/lp/reward/view/AbsRewardCountDownView;", "Landroidx/appcompat/widget/LinearLayoutCompat;", "Landroid/view/ViewGroup;", "viewGroup", "", "index", "", "animation", "Lkotlin/Function0;", "Landroid/view/ViewGroup$MarginLayoutParams;", SapiUtils.KEY_QR_LOGIN_LP, "", "attachToViewGroup", "(Landroid/view/ViewGroup;IZLkotlin/Function0;)V", "showTime", WebChromeClient.KEY_ARG_CALLBACK, "bigCardShowCallback", "(ILkotlin/Function0;)V", "continueCountDown", "()V", "", "getMillisUntilFinished", "()J", "removeCountDownCallback", "Landroid/view/View$OnClickListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setCountDownClickListener", "(Landroid/view/View$OnClickListener;)V", "taskDuration", "Lcom/baidu/nadcore/model/RewardData;", "rewardData", "onFinish", "setData", "(ILcom/baidu/nadcore/model/RewardData;Lkotlin/Function0;)V", "", "tips", "showRewardTips", "(Ljava/lang/String;)V", "startCountDown", "stopCountDown", "suspendShowTime", "suspendShowCallback", "Lkotlin/Function0;", "getBigCardShowCallback", "()Lkotlin/jvm/functions/Function0;", "setBigCardShowCallback", "(Lkotlin/jvm/functions/Function0;)V", "bigCardShowTime", "I", "getBigCardShowTime", "()I", "setBigCardShowTime", "(I)V", "countDownFinish", "getCountDownFinish", "setCountDownFinish", "Lcom/baidu/nadcore/lp/reward/util/MultipleStartCountDownTime;", "countDownTime", "Lcom/baidu/nadcore/lp/reward/util/MultipleStartCountDownTime;", "getCountDownTime", "()Lcom/baidu/nadcore/lp/reward/util/MultipleStartCountDownTime;", "setCountDownTime", "(Lcom/baidu/nadcore/lp/reward/util/MultipleStartCountDownTime;)V", "Ljava/lang/Runnable;", "delayTimingTask", "Ljava/lang/Runnable;", "getDelayTimingTask", "()Ljava/lang/Runnable;", "setDelayTimingTask", "(Ljava/lang/Runnable;)V", "getSuspendShowCallback", "setSuspendShowCallback", "getSuspendShowTime", "setSuspendShowTime", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
-    public zp0 a;
+    public cq0 a;
     public Function0<Unit> b;
     public Runnable c;
     public int d;
@@ -41,7 +41,7 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
 
     public abstract void f(String str);
 
-    public abstract void setData(int i, ms0 ms0Var, Function0<Unit> function0);
+    public abstract void setData(int i, ps0 ps0Var, Function0<Unit> function0);
 
     /* loaded from: classes3.dex */
     public static final class a implements ValueAnimator.AnimatorUpdateListener {
@@ -156,25 +156,25 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
     }
 
     public final void d() {
-        zp0 zp0Var = this.a;
-        if (zp0Var != null) {
-            zp0Var.i();
+        cq0 cq0Var = this.a;
+        if (cq0Var != null) {
+            cq0Var.i();
         }
     }
 
     public final void e() {
         this.b = null;
         removeCallbacks(this.c);
-        zp0 zp0Var = this.a;
-        if (zp0Var != null) {
-            zp0Var.h();
+        cq0 cq0Var = this.a;
+        if (cq0Var != null) {
+            cq0Var.h();
         }
     }
 
     public final void g() {
-        zp0 zp0Var = this.a;
-        if (zp0Var != null) {
-            zp0Var.h();
+        cq0 cq0Var = this.a;
+        if (cq0Var != null) {
+            cq0Var.h();
         }
     }
 
@@ -190,7 +190,7 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
         return this.b;
     }
 
-    public final zp0 getCountDownTime() {
+    public final cq0 getCountDownTime() {
         return this.a;
     }
 
@@ -199,9 +199,9 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
     }
 
     public long getMillisUntilFinished() {
-        zp0 zp0Var = this.a;
-        if (zp0Var != null) {
-            return zp0Var.k();
+        cq0 cq0Var = this.a;
+        if (cq0Var != null) {
+            return cq0Var.k();
         }
         return 0L;
     }
@@ -231,8 +231,8 @@ public abstract class AbsRewardCountDownView extends LinearLayoutCompat {
         this.b = function0;
     }
 
-    public final void setCountDownTime(zp0 zp0Var) {
-        this.a = zp0Var;
+    public final void setCountDownTime(cq0 cq0Var) {
+        this.a = cq0Var;
     }
 
     public final void setDelayTimingTask(Runnable runnable) {

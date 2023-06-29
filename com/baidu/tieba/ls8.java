@@ -1,231 +1,119 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.MeasureTextLength;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestForumViewHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.interestlabel.view.LabelItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ls8 extends jn<qs8, SearchSuggestForumViewHolder> {
+public class ls8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public Context a;
+    public List<ms8> b;
+    public View.OnClickListener c;
 
-    /* loaded from: classes6.dex */
-    public class a implements go {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ ls8 b;
-
-        public a(ls8 ls8Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ls8Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ls8Var;
-            this.a = context;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return null;
         }
-
-        @Override // com.baidu.tieba.go
-        public void b(View view2, wn wnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, wnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(wnVar instanceof qs8)) {
-                return;
-            }
-            qs8 qs8Var = (qs8) wnVar;
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a).createNormalCfg(qs8Var.c(), FrsActivityConfig.FRS_FROM_SEARCH_SUG);
-            createNormalCfg.setCallFrom(16);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
-            this.b.u(qs8Var);
-        }
+        return invokeI.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947953560, "Lcom/baidu/tieba/ls8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947953560, "Lcom/baidu/tieba/ls8;");
-                return;
-            }
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
         }
-        b = wi.g(TbadkApplication.getInst(), R.dimen.tbds370);
+        return invokeI.longValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ls8(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public ls8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new ArrayList();
         this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
     }
 
-    public final void t(StatisticItem statisticItem, qs8 qs8Var) {
+    public void a(List<ms8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, statisticItem, qs8Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", qs8Var.b().longValue());
-            statisticItem.param("fname", qs8Var.c());
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.b = list;
+        notifyDataSetChanged();
+    }
+
+    public void b(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.c = onClickListener;
         }
     }
 
-    public final void A(qs8 qs8Var) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qs8Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_SHOW);
-            t(statisticItem, qs8Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void u(qs8 qs8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qs8Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_FORUM_CLICK);
-            t(statisticItem, qs8Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: x */
-    public SearchSuggestForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new SearchSuggestForumViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0850, viewGroup, false));
-        }
-        return (SearchSuggestForumViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.jn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qs8 qs8Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
-        y(i, view2, viewGroup, qs8Var, searchSuggestForumViewHolder);
-        return view2;
-    }
-
-    public View y(int i, View view2, ViewGroup viewGroup, qs8 qs8Var, SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qs8Var, searchSuggestForumViewHolder})) == null) {
-            if (qs8Var == null) {
-                return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int size = this.b.size();
+            int i = size % 3;
+            int i2 = size / 3;
+            if (i != 0) {
+                return i2 + 1;
             }
-            z(searchSuggestForumViewHolder);
-            searchSuggestForumViewHolder.b.setConrers(15);
-            searchSuggestForumViewHolder.b.setRadiusById(R.string.J_X06);
-            searchSuggestForumViewHolder.b.N(qs8Var.a(), 10, false);
-            String str = qs8Var.c() + this.a.getString(R.string.obfuscated_res_0x7f0f0767);
-            searchSuggestForumViewHolder.c.setText(str);
-            if (!StringUtils.isNull(qs8Var.h())) {
-                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f12cf, qs8Var.h()));
+            return i2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        LabelItemView labelItemView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                labelItemView = new LabelItemView(this.a);
             } else {
-                Context context = this.a;
-                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f12cf, context.getString(R.string.obfuscated_res_0x7f0f12d0)));
+                labelItemView = (LabelItemView) view2;
             }
-            searchSuggestForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f04b0), StringHelper.numberUniformFormatExtraWithRoundInt(qs8Var.f().intValue())));
-            searchSuggestForumViewHolder.f.setText(String.format(this.a.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(qs8Var.i().intValue())));
-            if (qs8Var.e()) {
-                if (!StringUtils.isNull(qs8Var.h())) {
-                    searchSuggestForumViewHolder.d.setText(qs8Var.h());
-                } else {
-                    searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f12d0));
-                }
-                if (qs8Var.d() == 1) {
-                    searchSuggestForumViewHolder.h.setVisibility(0);
-                    searchSuggestForumViewHolder.c.setText(MeasureTextLength.fitTextLabel(str, "...", MeasureTextLength.spaceLength(b), searchSuggestForumViewHolder.c.getPaint(), ""));
-                } else {
-                    searchSuggestForumViewHolder.h.setVisibility(8);
-                }
+            int i2 = i * 3;
+            int min = Math.min(this.b.size(), i2 + 3);
+            boolean z = true;
+            if (i != getCount() - 1) {
+                z = false;
             }
-            A(qs8Var);
-            return view2;
+            labelItemView.setData(this.b.subList(i2, min), z);
+            labelItemView.setOnClickListener(this.c);
+            return labelItemView;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void z(SearchSuggestForumViewHolder searchSuggestForumViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, searchSuggestForumViewHolder) == null) {
-            p75 d = p75.d(searchSuggestForumViewHolder.c);
-            d.D(R.string.F_X02);
-            d.C(R.dimen.T_X06);
-            d.x(R.color.CAM_X0105);
-            p75 d2 = p75.d(searchSuggestForumViewHolder.d);
-            d2.C(R.dimen.T_X09);
-            d2.x(R.color.CAM_X0108);
-            p75 d3 = p75.d(searchSuggestForumViewHolder.e);
-            d3.C(R.dimen.T_X09);
-            d3.x(R.color.CAM_X0108);
-            p75 d4 = p75.d(searchSuggestForumViewHolder.f);
-            d4.C(R.dimen.T_X09);
-            d4.x(R.color.CAM_X0108);
-            SkinManager.setBackgroundResource(searchSuggestForumViewHolder.a, R.drawable.addresslist_item_bg);
-            p75.d(searchSuggestForumViewHolder.g).f(R.color.CAM_X0203);
-            TextView textView = searchSuggestForumViewHolder.h;
-            if (textView != null) {
-                p75 d5 = p75.d(textView);
-                d5.C(R.dimen.T_X10);
-                d5.D(R.string.F_X01);
-                d5.x(R.color.msg_chat_friend_text_color);
-                d5.o(R.string.J_X04);
-                d5.f(R.color.CAM_X0204);
-            }
-        }
+        return (View) invokeILL.objValue;
     }
 }

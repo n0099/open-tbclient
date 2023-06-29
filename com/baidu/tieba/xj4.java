@@ -1,950 +1,224 @@
 package com.baidu.tieba;
 
-import android.content.ContentProviderOperation;
-import android.content.ContentProviderResult;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.wm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import org.apache.commons.codec.net.RFC1522Codec;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xj4 extends wj4 {
+public abstract class xj4 implements uj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final bp4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ak4 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948302279, "Lcom/baidu/tieba/xj4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948302279, "Lcom/baidu/tieba/xj4;");
-                return;
-            }
+    public tj4<cl4> A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        c = bp4.c();
+        return (tj4) invokeV.objValue;
+    }
+
+    public Map<String, String> B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public void C(wk4 wk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wk4Var) == null) {
+        }
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void G(kp4 kp4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, kp4Var) == null) {
+        }
+    }
+
+    public void H(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
+        }
+    }
+
+    public void I(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uj4
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uj4
+    public void n(@Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+        }
+    }
+
+    public wj4 p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return null;
+        }
+        return (wj4) invokeV.objValue;
+    }
+
+    public tj4<dl4> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return null;
+        }
+        return (tj4) invokeV.objValue;
+    }
+
+    public tj4<xk4> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (tj4) invokeV.objValue;
+    }
+
+    public tj4<zk4> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (tj4) invokeV.objValue;
+    }
+
+    public Map<String, String> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public tj4<bl4> u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (tj4) invokeV.objValue;
+    }
+
+    public pj4<wm4.a> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return null;
+        }
+        return (pj4) invokeV.objValue;
+    }
+
+    public wo4 w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            return null;
+        }
+        return (wo4) invokeL.objValue;
+    }
+
+    public tj4<dl4> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return null;
+        }
+        return (tj4) invokeV.objValue;
+    }
+
+    public Map<String, String> y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public tj4<el4> z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return null;
+        }
+        return (tj4) invokeV.objValue;
     }
 
     public xj4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = new ak4();
-    }
-
-    public final <T extends xk4> boolean A(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            try {
-                bp4 bp4Var = c;
-                bp4Var.i("PMSDBImpl", "#addPackage bundleId=" + t);
-                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.b.b(t.getClass()), this.b.a(t.getClass()).c(t));
-                if (insert != null) {
-                    if (ContentUris.parseId(insert) > 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#addPackage error", e);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final PMSAppInfo B(String str) {
-        InterceptResult invokeL;
-        Throwable th;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                zj4 a = this.b.a(PMSAppInfo.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");
-                if (cursor != null) {
-                    try {
-                        try {
-                            PMSAppInfo pMSAppInfo = (PMSAppInfo) a.d(cursor);
-                            ep4.a(cursor);
-                            return pMSAppInfo;
-                        } catch (Exception e) {
-                            e = e;
-                            c.g("PMSDBImpl", "#queryAppInfo error", e);
-                            ep4.a(cursor);
-                            return null;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        ep4.a(cursor);
-                        throw th;
-                    }
-                }
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th3) {
-                th = th3;
-                cursor = null;
-                ep4.a(cursor);
-                throw th;
-            }
-            ep4.a(cursor);
-            return null;
-        }
-        return (PMSAppInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            bp4 bp4Var = c;
-            bp4Var.i("PMSDBImpl", "#clearSubPackage appId=" + str);
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                AppRuntime.getAppContext().getContentResolver().delete(this.b.b(zk4.class), "app_id=?", new String[]{str});
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#clearSubPackage error", e);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.wj4
-    public boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            bp4 bp4Var = c;
-            bp4Var.i("PMSDBImpl", "#deleteSwanApp appId=" + str);
-            try {
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#deleteSwanApp error", e);
-            }
-            if (AppRuntime.getAppContext().getContentResolver().delete(this.b.b(PMSAppInfo.class), "app_id =? ", new String[]{str}) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    @WorkerThread
-    public int j(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            Cursor cursor = null;
-            int i = -1;
-            try {
-                try {
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(zk4.class), new String[]{"version_code"}, "app_id=?", new String[]{str}, "version_code DESC limit 1");
-                    if (cursor != null && cursor.moveToFirst()) {
-                        i = cursor.getInt(0);
-                    }
-                } catch (Exception e) {
-                    c.g("PMSDBImpl", "#getNewestSubPkgVersion fail", e);
-                }
-                return i;
-            } finally {
-                ep4.a(cursor);
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public boolean l(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, pMSAppInfo)) == null) {
-            try {
-                bp4 bp4Var = c;
-                bp4Var.i("PMSDBImpl", "#insertOrUpdateSwanApp appId=" + pMSAppInfo.appId);
-                Class<?> cls = pMSAppInfo.getClass();
-                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(this.b.b(cls), this.b.a(cls).c(pMSAppInfo));
-                if (insert != null) {
-                    if (ContentUris.parseId(insert) > 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#insertOrUpdateSwanApp error", e);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0038 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    @Override // com.baidu.tieba.wj4
-    @Nullable
-    public bl4 t(String str) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
-            ?? r1 = 0;
-            try {
-                try {
-                    zj4 a = this.b.a(bl4.class);
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(bl4.class), null, "lib_name =? ", new String[]{str}, "version_code DESC");
-                    if (cursor != null) {
-                        try {
-                            bl4 bl4Var = (bl4) a.d(cursor);
-                            ep4.a(cursor);
-                            return bl4Var;
-                        } catch (Exception e) {
-                            e = e;
-                            c.g("PMSDBImpl", "#querySoLib error", e);
-                            ep4.a(cursor);
-                            return null;
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    r1 = str;
-                    ep4.a(r1);
-                    throw th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ep4.a(r1);
-                throw th;
-            }
-            ep4.a(cursor);
-            return null;
-        }
-        return (bl4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public List<al4> w(String str) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
-            Cursor cursor2 = null;
-            try {
-                zj4 a = this.b.a(al4.class);
-                Uri.Builder buildUpon = this.b.b(al4.class).buildUpon();
-                buildUpon.appendQueryParameter("rawQuery", "");
-                cursor = AppRuntime.getAppContext().getContentResolver().query(buildUpon.build(), null, str, null, null);
-                if (cursor != null) {
-                    try {
-                        try {
-                            List<al4> e = a.e(cursor);
-                            ep4.a(cursor);
-                            return e;
-                        } catch (Exception e2) {
-                            e = e2;
-                            c.g("PMSDBImpl", "#rawQueryPlugins error", e);
-                            ep4.a(cursor);
-                            return null;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        ep4.a(cursor2);
-                        throw th;
-                    }
-                }
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ep4.a(cursor2);
-                throw th;
-            }
-            ep4.a(cursor);
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final <T> List<T> C(Class<T> cls, String str, String[] strArr, String str2) {
-        InterceptResult invokeLLLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, cls, str, strArr, str2)) == null) {
-            Cursor cursor2 = null;
-            try {
-                zj4<T> a = this.b.a(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(cls), null, str, strArr, str2);
-                if (cursor != null) {
-                    try {
-                        try {
-                            List<T> e = a.e(cursor);
-                            ep4.a(cursor);
-                            return e;
-                        } catch (Exception e2) {
-                            e = e2;
-                            c.g("PMSDBImpl", "#queryAppInfoList error", e);
-                            ep4.a(cursor);
-                            return null;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        ep4.a(cursor2);
-                        throw th;
-                    }
-                }
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ep4.a(cursor2);
-                throw th;
-            }
-            ep4.a(cursor);
-            return null;
-        }
-        return (List) invokeLLLL.objValue;
-    }
-
-    public final <T> List<T> E(Class<T> cls, String str, String[] strArr, String str2) {
-        InterceptResult invokeLLLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, cls, str, strArr, str2)) == null) {
-            Cursor cursor2 = null;
-            try {
-                zj4<T> a = this.b.a(cls);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(cls), null, str, strArr, str2);
-                if (cursor != null) {
-                    try {
-                        try {
-                            List<T> e = a.e(cursor);
-                            ep4.a(cursor);
-                            return e;
-                        } catch (Exception e2) {
-                            e = e2;
-                            c.g("PMSDBImpl", "#queryPackageList error", e);
-                            ep4.a(cursor);
-                            return null;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        ep4.a(cursor2);
-                        throw th;
-                    }
-                }
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ep4.a(cursor2);
-                throw th;
-            }
-            ep4.a(cursor);
-            return null;
-        }
-        return (List) invokeLLLL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0034 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    public final <T> T D(Class<T> cls, String str) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cls, str)) == null) {
-            ?? r0 = 0;
-            try {
-                try {
-                    zj4<T> a = this.b.a(cls);
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(cls), null, "bundle_id =? ", new String[]{str}, "version_code DESC");
-                    if (cursor != null) {
-                        try {
-                            T d = a.d(cursor);
-                            ep4.a(cursor);
-                            return d;
-                        } catch (Exception e) {
-                            e = e;
-                            c.g("PMSDBImpl", "#queryPackage error", e);
-                            ep4.a(cursor);
-                            return null;
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    r0 = cls;
-                    ep4.a(r0);
-                    throw th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ep4.a(r0);
-                throw th;
-            }
-            ep4.a(cursor);
-            return null;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            bp4 bp4Var = c;
-            bp4Var.i("PMSDBImpl", "#clearSubPackage appId=" + str + " versionCode=" + str2);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    AppRuntime.getAppContext().getContentResolver().delete(this.b.b(zk4.class), "app_id=? AND version_code=?", new String[]{str, str2});
-                } catch (Exception e) {
-                    c.g("PMSDBImpl", "#clearSubPackage error", e);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public <T extends xk4> boolean e(Class<T> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, cls, str)) == null) {
-            try {
-                bp4 bp4Var = c;
-                bp4Var.i("PMSDBImpl", "#deletePkg bundleId=" + str);
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#deletePkg error", e);
-            }
-            if (AppRuntime.getAppContext().getContentResolver().delete(this.b.b(cls), "bundle_id =? ", new String[]{str}) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0030 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    @Override // com.baidu.tieba.wj4
-    public List<al4> r(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, strArr)) == null) {
-            ?? r1 = 0;
-            try {
-                try {
-                    zj4 a = this.b.a(al4.class);
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(al4.class), null, str, strArr, "update_time DESC");
-                    if (cursor != null) {
-                        try {
-                            List<al4> e = a.e(cursor);
-                            ep4.a(cursor);
-                            return e;
-                        } catch (Exception e2) {
-                            e = e2;
-                            c.g("PMSDBImpl", "#queryPlugin error", e);
-                            ep4.a(cursor);
-                            return null;
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    r1 = str;
-                    ep4.a(r1);
-                    throw th;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ep4.a(r1);
-                throw th;
-            }
-            ep4.a(cursor);
-            return null;
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public List<al4> F(String str, long j, long j2, boolean z) {
-        InterceptResult invokeCommon;
-        Cursor cursor;
-        List<al4> e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            Cursor cursor2 = null;
-            try {
-                zj4 a = this.b.a(al4.class);
-                cursor = AppRuntime.getAppContext().getContentResolver().query(this.b.b(al4.class), null, "bundle_id = ? AND version_code >= ? AND version_code <= ? ", new String[]{str, String.valueOf(j), String.valueOf(j2)}, "version_code DESC");
-                if (cursor != null) {
-                    try {
-                        if (z) {
-                            e = Collections.singletonList(a.d(cursor));
-                        } else {
-                            e = a.e(cursor);
-                        }
-                        ep4.a(cursor);
-                        return e;
-                    } catch (Exception unused) {
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        ep4.a(cursor2);
-                        throw th;
-                    }
-                }
-            } catch (Exception unused2) {
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-            ep4.a(cursor);
-            return null;
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public boolean a(yk4 yk4Var, PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, yk4Var, pMSAppInfo)) == null) {
-            return b(yk4Var, null, null, null, pMSAppInfo);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public <T extends xk4> T o(Class<T> cls, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, cls, str)) == null) {
-            return (T) D(cls, str);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public boolean b(yk4 yk4Var, List<zk4> list, wk4 wk4Var, uk4 uk4Var, PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeLLLLL;
-        ContentProviderResult[] applyBatch;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, yk4Var, list, wk4Var, uk4Var, pMSAppInfo)) == null) {
-            c.i("PMSDBImpl", "#bulkInsert");
-            ArrayList<ContentProviderOperation> arrayList = new ArrayList<>();
-            if (yk4Var != null) {
-                arrayList.add(ContentProviderOperation.newInsert(this.b.b(yk4.class)).withValues(this.b.a(yk4.class).c(yk4Var)).build());
-            }
-            if (list != null && !list.isEmpty()) {
-                zj4 a = this.b.a(zk4.class);
-                for (zk4 zk4Var : list) {
-                    arrayList.add(ContentProviderOperation.newInsert(this.b.b(zk4.class)).withValues(a.c(zk4Var)).build());
-                }
-            }
-            if (wk4Var != null) {
-                arrayList.add(ContentProviderOperation.newInsert(this.b.b(wk4.class)).withValues(this.b.a(wk4.class).c(wk4Var)).build());
-            }
-            if (uk4Var != null) {
-                arrayList.add(ContentProviderOperation.newInsert(this.b.b(uk4.class)).withValues(this.b.a(uk4.class).c(uk4Var)).build());
-            }
-            if (pMSAppInfo != null) {
-                arrayList.add(ContentProviderOperation.newInsert(this.b.b(PMSAppInfo.class)).withValues(this.b.a(PMSAppInfo.class).c(pMSAppInfo)).build());
-            }
-            try {
-                for (ContentProviderResult contentProviderResult : AppRuntime.getAppContext().getContentResolver().applyBatch(qk4.c, arrayList)) {
-                    if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
-                        return false;
-                    }
-                }
-                return true;
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#bulkInsert error", e);
-                return false;
-            }
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public boolean f(@NonNull al4 al4Var) {
-        InterceptResult invokeL;
-        Uri b;
-        String str;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, al4Var)) == null) {
-            try {
-                bp4 bp4Var = c;
-                bp4Var.i("PMSDBImpl", "#deletePlugin bundleId=" + al4Var.g + " versionCode=" + al4Var.i);
-                b = this.b.b(al4Var.getClass());
-                if (al4Var.i >= 0) {
-                    str = "bundle_id = ?  and version_code < ? ";
-                    strArr = new String[]{al4Var.g, String.valueOf(al4Var.i)};
-                } else {
-                    str = "bundle_id = ? ";
-                    strArr = new String[]{al4Var.g};
-                }
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#deletePlugin error", e);
-            }
-            if (AppRuntime.getAppContext().getContentResolver().delete(b, str, strArr) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public boolean g(List<al4> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                try {
-                    Uri b = this.b.b(al4.class);
-                    StringBuilder sb = new StringBuilder();
-                    ArrayList arrayList = new ArrayList();
-                    boolean z = true;
-                    for (al4 al4Var : list) {
-                        if (z) {
-                            z = false;
-                        } else {
-                            sb.append(" or ");
-                        }
-                        sb.append("( ");
-                        sb.append("bundle_id");
-                        sb.append(" = ? and ");
-                        sb.append("version_code");
-                        sb.append(" = ?");
-                        sb.append(" )");
-                        arrayList.add(al4Var.g);
-                        arrayList.add(String.valueOf(al4Var.i));
-                    }
-                    if (AppRuntime.getAppContext().getContentResolver().delete(b, sb.toString(), (String[]) arrayList.toArray(new String[0])) > 0) {
-                        return true;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public boolean x(@NonNull al4 al4Var) {
-        InterceptResult invokeL;
-        Uri b;
-        ContentValues c2;
-        String str;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, al4Var)) == null) {
-            try {
-                bp4 bp4Var = c;
-                bp4Var.i("PMSDBImpl", "#deletePlugin bundleId=" + al4Var.g + " versionCode=" + al4Var.i);
-                zj4 a = this.b.a(al4Var.getClass());
-                b = this.b.b(al4Var.getClass());
-                c2 = a.c(al4Var);
-                if (al4Var.i >= 0) {
-                    str = "bundle_id = ?  and version_code = ? ";
-                    strArr = new String[]{al4Var.g, String.valueOf(al4Var.i)};
-                } else {
-                    str = "bundle_id = ?  and version_name = ? ";
-                    strArr = new String[]{al4Var.g, al4Var.j};
-                }
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#updatePlugin error", e);
-            }
-            if (AppRuntime.getAppContext().getContentResolver().update(b, c2, str, strArr) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public boolean y(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, pMSAppInfo)) == null) {
-            try {
-                bp4 bp4Var = c;
-                bp4Var.i("PMSDBImpl", "#updateSwanApp appId=" + pMSAppInfo.appId);
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#updateSwanApp error", e);
-            }
-            if (AppRuntime.getAppContext().getContentResolver().update(this.b.b(pMSAppInfo.getClass()), this.b.a(pMSAppInfo.getClass()).c(pMSAppInfo), "app_id =? ", new String[]{pMSAppInfo.appId}) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x007f  */
-    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.wj4
+    @Override // com.baidu.tieba.vj4
     @NonNull
-    @WorkerThread
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<zk4> k(@NonNull String str, int i) {
-        InterceptResult invokeLI;
-        Cursor cursor;
-        String str2;
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, str, i)) == null) {
-            Cursor cursor2 = null;
-            r1 = null;
-            r1 = null;
-            List<zk4> list = null;
-            try {
-                if (i >= 0) {
-                    str2 = "app_id=? and version_code" + RFC1522Codec.PREFIX;
-                } else {
-                    str2 = "app_id=? and version_code>?";
-                }
-                Uri b = this.b.b(zk4.class);
-                zj4 a = this.b.a(zk4.class);
-                Cursor query = AppRuntime.getAppContext().getContentResolver().query(b, null, str2, new String[]{str, String.valueOf(i)}, null);
-                if (query != null && a != null) {
-                    try {
-                        list = a.e(query);
-                    } catch (Exception e) {
-                        cursor = query;
-                        e = e;
-                        try {
-                            c.g("PMSDBImpl", "#getSubPackageByAppId fail", e);
-                            ep4.a(cursor);
-                            if (list != null) {
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor2 = cursor;
-                            ep4.a(cursor2);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        cursor2 = query;
-                        th = th2;
-                        ep4.a(cursor2);
-                        throw th;
-                    }
-                }
-                ep4.a(query);
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th3) {
-                th = th3;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (set.contains("event_performance_ubc")) {
+                n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+                set.remove("event_performance_ubc");
             }
-            if (list != null) {
-                return Collections.emptyList();
-            }
-            return list;
+            return bundle2;
         }
-        return (List) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public <T extends xk4> boolean m(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, t)) == null) {
-            c.i("PMSDBImpl", "#insertPkg");
-            return A(t);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public PMSAppInfo u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
-            return B(str);
-        }
-        return (PMSAppInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public boolean n(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048594, this, str, str2, str3)) == null) {
-            boolean z = false;
-            Cursor cursor = null;
-            try {
-                try {
-                    Uri b = this.b.b(zk4.class);
-                    zj4 a = this.b.a(zk4.class);
-                    cursor = AppRuntime.getAppContext().getContentResolver().query(b, null, "app_id=? AND version_code=? AND sub_pkg_name=?", new String[]{str, str2, str3}, null);
-                    if (cursor != null) {
-                        if (a.d(cursor) != null) {
-                            z = true;
-                        }
-                        return z;
-                    }
-                } catch (Exception e) {
-                    c.g("PMSDBImpl", "#isSubPackageExist error", e);
-                }
-                return false;
-            } finally {
-                ep4.a(cursor);
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public Map<String, yk4> p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            HashMap hashMap = new HashMap();
-            List<yk4> E = E(yk4.class, "state =? ", new String[]{"10"}, "version_code ASC");
-            if (E != null && E.size() > 0) {
-                for (yk4 yk4Var : E) {
-                    if (yk4Var != null) {
-                        hashMap.put(yk4Var.g, yk4Var);
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public Map<String, PMSAppInfo> v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            HashMap hashMap = new HashMap();
-            List<PMSAppInfo> C = C(PMSAppInfo.class, null, null, null);
-            if (C != null && C.size() > 0) {
-                for (PMSAppInfo pMSAppInfo : C) {
-                    if (pMSAppInfo != null && !TextUtils.isEmpty(pMSAppInfo.appId)) {
-                        hashMap.put(pMSAppInfo.appId, pMSAppInfo);
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public al4 q(String str, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            List<al4> F = F(str, j, j2, true);
-            if (F != null && !F.isEmpty()) {
-                return F.get(0);
-            }
-            return null;
-        }
-        return (al4) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public List<al4> s(String str, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return F(str, j, j2, false);
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.wj4
-    public boolean z(String str, int i) {
-        InterceptResult invokeLI;
-        Uri b;
-        ContentValues contentValues;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048606, this, str, i)) == null) {
-            bp4 bp4Var = c;
-            bp4Var.i("PMSDBImpl", "#updateSwanAppPendingErrCode appId=" + str + " errCode=" + i);
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                b = this.b.b(PMSAppInfo.class);
-                contentValues = new ContentValues();
-                contentValues.put("pending_err_code", Integer.valueOf(i));
-            } catch (Exception e) {
-                c.g("PMSDBImpl", "#updateSwanAppPendingErrCode error", e);
-            }
-            if (AppRuntime.getAppContext().getContentResolver().update(b, contentValues, "app_id =? ", new String[]{str}) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
+        return (Bundle) invokeLL.objValue;
     }
 }

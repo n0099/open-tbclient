@@ -1,37 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
-import java.util.Objects;
-import tbclient.Loop.FestivalInfo;
-import tbclient.ThemeColorInfo;
+import org.json.JSONObject;
+import tbclient.TailInfo;
 /* loaded from: classes8.dex */
 public class wg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    @SerializedName("main_fname")
-    public String a;
-    @SerializedName("main_fid")
-    public long b;
-    @Nullable
-    @SerializedName("bless")
-    public String c;
-    @Nullable
-    @SerializedName("write_select_tips")
-    public String d;
-    @Nullable
-    @SerializedName("comment_tips")
-    public String e;
-    @Nullable
-    @SerializedName("tips_color")
-    public ThemeColorInfo f;
 
     public wg5() {
         Interceptable interceptable = $ic;
@@ -47,44 +26,31 @@ public class wg5 {
         }
     }
 
-    public void a(FestivalInfo festivalInfo) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            try {
+                jSONObject.optString("icon_url");
+                jSONObject.optString("icon_link");
+                jSONObject.optString("content");
+                jSONObject.optInt("tail_type");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        this.a = festivalInfo.main_fname;
-        this.b = festivalInfo.main_fid.longValue();
-        this.c = festivalInfo.bless;
-        this.d = festivalInfo.write_select_tips;
-        this.e = festivalInfo.comment_tips;
-        this.f = festivalInfo.tips_color;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public void b(TailInfo tailInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tailInfo) == null) {
+            try {
+                String str = tailInfo.icon_url;
+                String str2 = tailInfo.icon_link;
+                String str3 = tailInfo.content;
+                tailInfo.tail_type.intValue();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (obj == null || wg5.class != obj.getClass()) {
-                return false;
-            }
-            wg5 wg5Var = (wg5) obj;
-            if (Objects.equals(this.a, wg5Var.a) && this.b == wg5Var.b && Objects.equals(this.c, wg5Var.c) && Objects.equals(this.d, wg5Var.d) && Objects.equals(this.e, wg5Var.e)) {
-                return true;
-            }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
-        }
-        return invokeV.intValue;
     }
 }

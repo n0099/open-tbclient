@@ -1,88 +1,171 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.coreExtra.data.FriendBotPostConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class u79 extends g79<r49, PbLoadMoreItemViewHolder> {
+public final class u79 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId g;
-    public View.OnClickListener h;
-    public int i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u79(jc9 jc9Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(jc9Var, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jc9Var, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((jc9) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948164050, "Lcom/baidu/tieba/u79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948164050, "Lcom/baidu/tieba/u79;");
                 return;
             }
         }
-        this.g = bdUniqueId2;
-        this.i = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        a = new a(null);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: u */
-    public PbLoadMoreItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @JvmStatic
+    public static final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.g);
-        }
-        return (PbLoadMoreItemViewHolder) invokeL.objValue;
-    }
-
-    public void y(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.h = onClickListener;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            a.a(str);
         }
     }
 
-    @Override // com.baidu.tieba.g79, com.baidu.tieba.jn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, (r49) obj, (PbLoadMoreItemViewHolder) viewHolder);
-        return view2;
+    @JvmStatic
+    public static final Map<String, Long> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.b() : (Map) invokeV.objValue;
     }
 
-    public View x(int i, View view2, ViewGroup viewGroup, r49 r49Var, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
-        InterceptResult invokeCommon;
+    @JvmStatic
+    public static final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r49Var, pbLoadMoreItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) r49Var, (r49) pbLoadMoreItemViewHolder);
-            if (r49Var.b) {
-                pbLoadMoreItemViewHolder.e(r49Var.a);
-            } else {
-                pbLoadMoreItemViewHolder.d(r49Var.a, this.i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.c() : invokeV.booleanValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            pbLoadMoreItemViewHolder.c(this.h);
-            pbLoadMoreItemViewHolder.b();
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+
+        @JvmStatic
+        public final void a(String tid) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, tid) == null) {
+                Intrinsics.checkNotNullParameter(tid, "tid");
+                if (TextUtils.isEmpty(tid)) {
+                    return;
+                }
+                String str = "friend_bot_sha_time" + tid;
+                Map<String, Long> b = b();
+                if (b.containsKey(str)) {
+                    b.remove(str);
+                    String jSONObject = new JSONObject(b).toString();
+                    Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject(tidMap as Map<*, *>).toString()");
+                    r95.p().J("friend_bot_sha_time_tids", jSONObject);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final Map<String, Long> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                String w = r95.p().w("friend_bot_sha_time_tids", "");
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                try {
+                    JSONObject jSONObject = new JSONObject(w);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        long optLong = jSONObject.optLong(next);
+                        if (optLong > 0) {
+                            Long valueOf = Long.valueOf(optLong);
+                            Intrinsics.checkNotNullExpressionValue(next, "next");
+                            linkedHashMap.put(next, valueOf);
+                        }
+                    }
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                return linkedHashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        @JvmStatic
+        public final boolean c() {
+            InterceptResult invokeV;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                FriendBotPostConfigData friendBotPostConfigData = TbSingleton.getInstance().getFriendBotPostConfigData();
+                if (friendBotPostConfigData == null) {
+                    return false;
+                }
+                Integer pbFirstFloorBotBubbleShow = friendBotPostConfigData.getPbFirstFloorBotBubbleShow();
+                if (pbFirstFloorBotBubbleShow != null) {
+                    i = pbFirstFloorBotBubbleShow.intValue();
+                } else {
+                    i = 0;
+                }
+                long r = r95.p().r("friend_bot_guide_show", 0L);
+                if (i == 0) {
+                    if (r > 0) {
+                        return false;
+                    }
+                    return true;
+                } else if (i != 1) {
+                    return false;
+                } else {
+                    if (r < 0) {
+                        return true;
+                    }
+                    return !TimeHelper.isSameDay(r, System.currentTimeMillis());
+                }
+            }
+            return invokeV.booleanValue;
+        }
     }
 }

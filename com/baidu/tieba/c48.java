@@ -1,70 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class c48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<jn> b;
-    public co c;
-    public d48 d;
-    public b48 e;
-    public s48 f;
+    public String a;
+    public String b;
 
-    public c48(TbPageContext tbPageContext, co coVar) {
+    public c48() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, coVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        this.c = coVar;
-        a();
-        this.c.addAdapters(this.b);
     }
 
-    public final void a() {
+    public static c48 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new ArrayList();
-            this.d = new d48(this.a);
-            this.e = new b48(this.a);
-            this.f = new s48(this.a);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            c48 c48Var = new c48();
+            c48Var.a = jSONObject.optString("content");
+            c48Var.b = jSONObject.optString("tid");
+            return c48Var;
         }
-    }
-
-    public void b() {
-        co coVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (coVar = this.c) != null) {
-            coVar.getListAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<wn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.setData(list);
-        }
+        return (c48) invokeL.objValue;
     }
 }

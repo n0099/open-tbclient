@@ -1,144 +1,237 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.widget.RelativeLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.AlaCmdConfigCustom;
+import com.baidu.ala.gift.AlaDynamicGift;
+import com.baidu.ala.gift.AlaDynamicGiftAndNativeData;
+import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
+import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
+import com.baidu.ala.gift.IFrameCallback;
+import com.baidu.ala.gift.IImageFramePlayerViewController;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fh6 extends nn6<xf6> {
+public class fh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TextView j;
-    public TextView k;
-    public HeadImageView l;
-    public HeadImageView m;
-    public HeadImageView n;
-    public ImageView o;
+    public Context a;
+    public RelativeLayout b;
+    public IImageFramePlayerViewController c;
+    public AlaEffectPreviewView d;
+    public AlaEnterEffectData e;
+    public int f;
+    public IFrameCallback g;
+    public c h;
 
-    @Override // com.baidu.tieba.nn6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010c : invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+    /* loaded from: classes5.dex */
+    public class a implements IFrameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fh6 a;
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameUpdate(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
+
+        public a(fh6 fh6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fh6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fh6Var;
+        }
+
+        @Override // com.baidu.ala.gift.IFrameCallback
+        public void onFrameEnd() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fh6.b(this.a);
+                if (this.a.f <= 0 && this.a.e != null) {
+                    fh6 fh6Var = this.a;
+                    fh6Var.g(fh6Var.e);
+                }
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nn6
-    /* renamed from: t */
-    public void i(xf6 xf6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xf6Var) == null) {
+    /* loaded from: classes5.dex */
+    public class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fh6 a;
+
+        public b(fh6 fh6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fh6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fh6Var;
+        }
+
+        @Override // com.baidu.tieba.fh6.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fh6.b(this.a);
+                if (this.a.e != null) {
+                    if (this.a.e.type == 1 && this.a.f <= 0) {
+                        fh6 fh6Var = this.a;
+                        fh6Var.g(fh6Var.e);
+                    } else if (this.a.e.type == 0) {
+                        fh6 fh6Var2 = this.a;
+                        fh6Var2.g(fh6Var2.e);
+                    }
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fh6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public fh6(Context context, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        s(h());
+        this.f = 2;
+        this.g = new a(this);
+        this.h = new b(this);
+        this.a = context;
+        this.b = relativeLayout;
     }
 
-    public void u(String str) {
-        TextView textView;
+    public static /* synthetic */ int b(fh6 fh6Var) {
+        int i = fh6Var.f;
+        fh6Var.f = i - 1;
+        return i;
+    }
+
+    public void g(AlaEnterEffectData alaEnterEffectData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (textView = this.k) != null) {
-            textView.setText(str);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
+            return;
+        }
+        this.e = alaEnterEffectData;
+        int i = alaEnterEffectData.type;
+        if (i == 1) {
+            this.f = 2;
+            e(alaEnterEffectData);
+            f(alaEnterEffectData);
+        } else if (i == 0) {
+            f(alaEnterEffectData);
         }
     }
 
-    public void x(int i) {
-        ImageView imageView;
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (imageView = this.o) != null) {
-            imageView.setVisibility(i);
-        }
-    }
-
-    public void y(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (view2 = this.i) != null) {
-            view2.setVisibility(i);
-        }
-    }
-
-    public void z(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (textView = this.j) != null) {
-            textView.setText(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.nn6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (i == 1) {
-                this.o.setAlpha(0.7f);
-            } else {
-                this.o.setAlpha(1);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            IImageFramePlayerViewController iImageFramePlayerViewController = this.c;
+            if (iImageFramePlayerViewController != null) {
+                iImageFramePlayerViewController.onDestroy();
             }
-            this.i.setBackgroundColor(SkinManager.getColor(i, (int) R.color.CAM_X0204));
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-        }
-    }
-
-    public TextView r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            TextView textView = this.k;
-            if (textView != null) {
-                return textView;
+            AlaEffectPreviewView alaEffectPreviewView = this.d;
+            if (alaEffectPreviewView != null) {
+                alaEffectPreviewView.f();
             }
-            return null;
         }
-        return (TextView) invokeV.objValue;
     }
 
-    public final void s(View view2) {
+    public final void e(AlaEnterEffectData alaEnterEffectData) {
+        AlaDynamicGiftConfigInfo alaDynamicGiftConfigInfo;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f09021e);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09021f);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09021d);
-            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090219);
-            this.l = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09021a);
-            this.m = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09021b);
-            this.n = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09021c);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) == null) {
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.a)) != null && runTask.getData() != null) {
+                IImageFramePlayerViewController iImageFramePlayerViewController = (IImageFramePlayerViewController) runTask.getData();
+                this.c = iImageFramePlayerViewController;
+                iImageFramePlayerViewController.setFrameCallback(this.g);
+            }
+            IImageFramePlayerViewController iImageFramePlayerViewController2 = this.c;
+            if (iImageFramePlayerViewController2 != null) {
+                if (iImageFramePlayerViewController2.getAnimView().getParent() == null) {
+                    this.b.addView(this.c.getAnimView(), new RelativeLayout.LayoutParams(-1, xi.j(this.a)));
+                }
+                AlaDynamicGiftAndNativeData alaDynamicGiftAndNativeData = new AlaDynamicGiftAndNativeData();
+                AlaDynamicGift alaDynamicGift = alaEnterEffectData.gift;
+                alaDynamicGiftAndNativeData.mAlaDynamicGift = alaDynamicGift;
+                if (alaDynamicGift != null && (alaDynamicGiftConfigInfo = alaDynamicGift.configInfo) != null) {
+                    alaDynamicGiftConfigInfo.isBottomMargin = 1;
+                    alaDynamicGiftConfigInfo.oppositeY = 0.6499999761581421d;
+                }
+                alaDynamicGiftAndNativeData.upZipDirPath = AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName;
+                this.c.setData(alaDynamicGiftAndNativeData);
+                this.c.startAnim();
+            }
+        }
+    }
+
+    public final void f(AlaEnterEffectData alaEnterEffectData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaEnterEffectData) == null) {
+            if (this.d == null) {
+                AlaEffectPreviewView alaEffectPreviewView = new AlaEffectPreviewView(this.a);
+                this.d = alaEffectPreviewView;
+                alaEffectPreviewView.setAnimCompleteCallback(this.h);
+            }
+            if (this.d.getParent() == null) {
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                layoutParams.addRule(2, R.id.obfuscated_res_0x7f090982);
+                layoutParams.bottomMargin = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e9);
+                this.b.addView(this.d, layoutParams);
+            }
+            this.d.setData(alaEnterEffectData);
+            this.d.g();
         }
     }
 }

@@ -1,37 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vi1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        String str3;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (!TextUtils.isEmpty(str2)) {
-                str3 = "statecode={" + i + "};order_no={" + str + "};notify=" + str2;
-            } else {
-                str3 = "statecode={" + i + "};order_no={" + str + "};notify={" + str2 + "}";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
             try {
-                jSONObject.put("statusCode", i);
-                jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_MSG, str2);
-                jSONObject.put("responseData", str3);
-            } catch (JSONException e) {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
+                return null;
             }
-            return jSONObject.toString();
         }
-        return (String) invokeILL.objValue;
+        return (String) invokeL.objValue;
     }
 }

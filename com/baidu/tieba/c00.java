@@ -1,53 +1,72 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewPropertyAnimator;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes5.dex */
 public class c00 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public g00[] a;
 
-    public c00() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620806, "Lcom/baidu/tieba/c00;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947620806, "Lcom/baidu/tieba/c00;");
                 return;
             }
         }
-        this.a = new g00[]{new h00(8, 0), new i00(0, 1), new i00(1, 1), new h00(7, 1)};
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
     }
 
-    public byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(1.0f);
+            animate.scaleX(1.0f);
+            animate.translationY(0.0f);
+            animate.setDuration(0L);
+            animate.start();
         }
-        f00 f00Var = new f00();
-        byte[] b = d00.b(bArr, bArr.length + ((this.a.length + 1) * f00.b));
-        d00.a(b, f00Var.b(), bArr.length);
-        int i = 0;
-        while (true) {
-            g00[] g00VarArr = this.a;
-            if (i >= g00VarArr.length) {
-                return Arrays.copyOf(f00Var.b(), f00.b);
-            }
-            g00 g00Var = g00VarArr[i];
-            i++;
-            int length = bArr.length + (f00.b * i);
-            f00Var.a(g00Var.b(b, 0, length), g00Var.a(), g00Var.c(), g00Var.d());
-            d00.a(b, f00Var.b(), length);
+    }
+
+    public static void b(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(0.75f);
+            animate.scaleX(0.75f);
+            animate.translationY(-a);
+            animate.setDuration(i);
+            animate.start();
+        }
+    }
+
+    public static void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
+            view2.setPivotX(0.0f);
+            view2.setPivotY(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(0.75f);
+            animate.scaleX(0.75f);
+            animate.translationY((-a) / 2.0f);
+            animate.setDuration(400L);
+            animate.start();
         }
     }
 }

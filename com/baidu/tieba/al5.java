@@ -1,48 +1,68 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.Rect;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.CloseAdData;
+import com.baidu.tbadk.data.PayMemberInfoData;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
+import com.baidu.tbadk.getUserInfo.GetUserInfoRequstData;
+import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class al5 extends nl5<kl5, ll5> {
-    public static /* synthetic */ Interceptable $ic;
+public class al5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static al5 c = null;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public ll5 v;
-    public int w;
-    public final Paint x;
-    public final b y;
+    public UserData a;
+    public TbHttpMessageTask b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947619039, "Lcom/baidu/tieba/al5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947619039, "Lcom/baidu/tieba/al5;");
+        }
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public byte a;
-        public Rect b;
-        public ByteBuffer c;
+        public final /* synthetic */ al5 a;
 
-        public b() {
+        public a(al5 al5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {al5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,200 +72,189 @@ public class al5 extends nl5<kl5, ll5> {
                     return;
                 }
             }
-            this.b = new Rect();
+            this.a = al5Var;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                GetUserInfoRequstData c = this.a.c();
+                c.setNetType(NetMessage.NetType.HTTP);
+                if (this.a.b != null) {
+                    new HttpClient.a(c.getHttpMessage(), this.a.b).execute(new HttpMessage[0]);
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public al5(wl5 wl5Var, ol5 ol5Var) {
-        super(wl5Var, ol5Var);
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
+
+        public b(al5 al5Var, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {al5Var, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = accountData;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                u05.g(this.a);
+            }
+        }
+    }
+
+    public al5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wl5Var, ol5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((wl5) objArr2[0], (ol5) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static al5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (al5.class) {
+                    if (c == null) {
+                        c = new al5();
+                    }
+                }
+            }
+            return c;
+        }
+        return (al5) invokeV.objValue;
+    }
+
+    public UserData e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (UserData) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            us6.a(new a(this), "sendGetUserInfoForDau", 3);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (d) {
+                g();
+                d = false;
                 return;
             }
-        }
-        this.x = new Paint();
-        this.y = new b(null);
-        this.x.setAntiAlias(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nl5
-    /* renamed from: Q */
-    public kl5 x(sl5 sl5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sl5Var)) == null) {
-            return new kl5(sl5Var);
-        }
-        return (kl5) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nl5
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.y.c = null;
-            this.v = null;
+            MessageManager.getInstance().sendMessage(c());
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nl5
-    /* renamed from: R */
-    public ll5 z() {
+    public final GetUserInfoRequstData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.v == null) {
-                this.v = new ll5();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                getUserInfoRequstData.setUid(vg.g(currentAccountObj.getID(), 0L));
             }
-            return this.v;
+            getUserInfoRequstData.setScreenWidth(xi.l(TbadkCoreApplication.getInst().getApp()));
+            return getUserInfoRequstData;
         }
-        return (ll5) invokeV.objValue;
+        return (GetUserInfoRequstData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nl5
-    public int v() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.w;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.nl5
-    public void J(ml5<kl5, ll5> ml5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ml5Var) == null) && ml5Var != null && this.o != null) {
-            try {
-                Bitmap E = E(this.o.width() / this.j, this.o.height() / this.j);
-                Canvas canvas = this.m.get(E);
-                if (canvas == null) {
-                    canvas = new Canvas(E);
-                    this.m.put(E, canvas);
-                }
-                Canvas canvas2 = canvas;
-                if (ml5Var instanceof bl5) {
-                    this.n.rewind();
-                    E.copyPixelsFromBuffer(this.n);
-                    if (this.d == 0) {
-                        canvas2.drawColor(0, PorterDuff.Mode.CLEAR);
-                    } else {
-                        canvas2.save();
-                        canvas2.clipRect(this.y.b);
-                        byte b2 = this.y.a;
-                        if (b2 != 1) {
-                            if (b2 == 2) {
-                                this.y.c.rewind();
-                                E.copyPixelsFromBuffer(this.y.c);
-                            }
-                        } else {
-                            canvas2.drawColor(0, PorterDuff.Mode.CLEAR);
-                        }
-                        canvas2.restore();
-                    }
-                    if (((bl5) ml5Var).j == 2 && this.y.a != 2) {
-                        this.y.c.rewind();
-                        E.copyPixelsToBuffer(this.y.c);
-                    }
-                    this.y.a = ((bl5) ml5Var).j;
-                    canvas2.save();
-                    if (((bl5) ml5Var).i == 0) {
-                        canvas2.clipRect(ml5Var.d / this.j, ml5Var.e / this.j, (ml5Var.d + ml5Var.b) / this.j, (ml5Var.e + ml5Var.c) / this.j);
-                        canvas2.drawColor(0, PorterDuff.Mode.CLEAR);
-                    }
-                    this.y.b.set(ml5Var.d / this.j, ml5Var.e / this.j, (ml5Var.d + ml5Var.b) / this.j, (ml5Var.e + ml5Var.c) / this.j);
-                    canvas2.restore();
-                }
-                Bitmap E2 = E(ml5Var.b, ml5Var.c);
-                G(ml5Var.a(canvas2, this.x, this.j, E2, z()));
-                G(E2);
-                this.n.rewind();
-                E.copyPixelsToBuffer(this.n);
-                G(E);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            v3a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = v3a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, true, false);
+            this.b = c2;
+            c2.setTimeOut(tb.d().b());
+            this.b.setRetry(tb.d().a());
+            this.b.setConnectTimeOut(tb.d().c());
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nl5
-    /* renamed from: S */
-    public Rect F(kl5 kl5Var) throws IOException {
-        InterceptResult invokeL;
+    public void i(UserData userData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, kl5Var)) == null) {
-            List<dl5> a2 = cl5.a(kl5Var);
-            ArrayList arrayList = new ArrayList();
-            byte[] bArr = new byte[0];
-            Iterator<dl5> it = a2.iterator();
-            bl5 bl5Var = null;
-            boolean z = false;
-            int i = 0;
-            int i2 = 0;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                dl5 next = it.next();
-                if (next instanceof zk5) {
-                    this.w = ((zk5) next).c;
-                    z = true;
-                } else if (next instanceof el5) {
-                    bl5Var = new bl5(kl5Var, (el5) next);
-                    bl5Var.m = arrayList;
-                    bl5Var.k = bArr;
-                    this.c.add(bl5Var);
-                } else if (next instanceof fl5) {
-                    if (bl5Var != null) {
-                        bl5Var.l.add(next);
-                    }
-                } else if (next instanceof gl5) {
-                    if (!z) {
-                        jl5 jl5Var = new jl5(kl5Var);
-                        jl5Var.b = i;
-                        jl5Var.c = i2;
-                        this.c.add(jl5Var);
-                        this.w = 1;
-                        break;
-                    } else if (bl5Var != null) {
-                        bl5Var.l.add(next);
-                    }
-                } else if (next instanceof il5) {
-                    il5 il5Var = (il5) next;
-                    i = il5Var.c;
-                    i2 = il5Var.d;
-                    bArr = il5Var.e;
-                } else if (!(next instanceof hl5)) {
-                    arrayList.add(next);
-                }
+        if (interceptable == null || interceptable.invokeL(1048581, this, userData) == null) {
+            this.a = userData;
+            if (userData == null) {
+                return;
             }
-            int i3 = i * i2;
-            int i4 = this.j;
-            this.n = ByteBuffer.allocate(((i3 / (i4 * i4)) + 1) * 4);
-            b bVar = this.y;
-            int i5 = this.j;
-            bVar.c = ByteBuffer.allocate(((i3 / (i5 * i5)) + 1) * 4);
-            return new Rect(0, 0, i, i2);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj == null) {
+                currentAccountObj = new AccountData();
+            }
+            if (!StringUtils.isNull(userData.getUserName())) {
+                currentAccountObj.setAccount(userData.getUserName());
+            }
+            if (!StringUtils.isNull(userData.getPortrait())) {
+                currentAccountObj.setPortrait(userData.getPortrait());
+            }
+            currentAccountObj.setSex(userData.getSex());
+            currentAccountObj.setMemberType(userData.getIsMem());
+            currentAccountObj.setVipInfo(userData.getUserVipInfo());
+            currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
+            if (userData.getGodUserData() != null) {
+                currentAccountObj.setGodType(userData.getGodUserData().getType());
+            }
+            if (userData.getNewGodData() != null) {
+                currentAccountObj.setNewGodStatus(userData.getNewGodData().getStatus());
+            }
+            if (!TextUtils.isEmpty(userData.getUk())) {
+                currentAccountObj.setUk(userData.getUk());
+            }
+            currentAccountObj.setIsBigV(userData.isBigV());
+            currentAccountObj.setNameShow(userData.getName_show());
+            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
+            TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(userData.getDynamicUrl());
+            PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
+            if (currentAccountObj.getVipInfo() != null) {
+                currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
+            } else {
+                currentAccountObj.setMemberIconUrl(null);
+            }
+            CloseAdData closeAdData = userData.getCloseAdData();
+            if (closeAdData != null) {
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.U());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.V());
+            }
+            currentAccountObj.setUserIcons(userData.getIconInfo());
+            currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
+            bh.a().c(new b(this, currentAccountObj));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
         }
-        return (Rect) invokeL.objValue;
     }
 }

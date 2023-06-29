@@ -1,195 +1,64 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 /* loaded from: classes5.dex */
-public class fq4<D> {
+public class fq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public b<D> b;
-    public a<D> c;
-    public Context d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
 
-    /* loaded from: classes5.dex */
-    public interface a<D> {
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b<D> {
-    }
-
-    public void c() {
+    public static int a(@NonNull Context context, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public String a(D d) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d)) == null) {
-            StringBuilder sb = new StringBuilder(64);
-            iq4.a(d, sb);
-            sb.append("}");
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void g(a<D> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            if (this.c == null) {
-                this.c = aVar;
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (str != null) {
+                return context.checkPermission(str, Process.myPid(), Process.myUid());
             }
-            throw new IllegalStateException("There is already a listener registered");
+            throw new IllegalArgumentException("permission is null");
         }
+        return invokeLL.intValue;
     }
 
-    public void k(b<D> bVar) {
+    public static final int b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            b<D> bVar2 = this.b;
-            if (bVar2 != null) {
-                if (bVar2 == bVar) {
-                    this.b = null;
-                    return;
-                }
-                throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return hq4.a(context, i);
             }
-            throw new IllegalStateException("No listener register");
+            return context.getResources().getColor(i);
         }
+        return invokeLI.intValue;
     }
 
-    public void l(a<D> aVar) {
+    public static final ColorStateList c(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            a<D> aVar2 = this.c;
-            if (aVar2 != null) {
-                if (aVar2 == aVar) {
-                    this.c = null;
-                    return;
-                }
-                throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return hq4.b(context, i);
             }
-            throw new IllegalStateException("No listener register");
+            return context.getResources().getColorStateList(i);
         }
+        return (ColorStateList) invokeLI.objValue;
     }
 
-    public void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public static final Drawable d(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fileDescriptor, printWriter, strArr) == null) {
-            printWriter.print(str);
-            printWriter.print("mId=");
-            printWriter.print(this.a);
-            printWriter.print(" mListener=");
-            printWriter.println(this.b);
-            if (this.e || this.h || this.i) {
-                printWriter.print(str);
-                printWriter.print("mStarted=");
-                printWriter.print(this.e);
-                printWriter.print(" mContentChanged=");
-                printWriter.print(this.h);
-                printWriter.print(" mProcessingChange=");
-                printWriter.println(this.i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return gq4.a(context, i);
             }
-            if (this.f || this.g) {
-                printWriter.print(str);
-                printWriter.print("mAbandoned=");
-                printWriter.print(this.f);
-                printWriter.print(" mReset=");
-                printWriter.println(this.g);
-            }
+            return context.getResources().getDrawable(i);
         }
-    }
-
-    public void f(int i, b<D> bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bVar) == null) {
-            if (this.b == null) {
-                this.b = bVar;
-                this.a = i;
-                return;
-            }
-            throw new IllegalStateException("There is already a listener registered");
-        }
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c();
-            this.g = true;
-            this.e = false;
-            this.f = false;
-            this.h = false;
-            this.i = false;
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.e = true;
-            this.g = false;
-            this.f = false;
-            d();
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.e = false;
-            e();
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            StringBuilder sb = new StringBuilder(64);
-            iq4.a(this, sb);
-            sb.append(" id=");
-            sb.append(this.a);
-            sb.append("}");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return (Drawable) invokeLI.objValue;
     }
 }

@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dq5 implements hp5<MissionEvent> {
+public class dq5 implements mp5<HotEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,30 +27,18 @@ public class dq5 implements hp5<MissionEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hp5
+    @Override // com.baidu.tieba.mp5
     /* renamed from: a */
-    public boolean onEvent(MissionEvent missionEvent) {
+    public boolean onEvent(HotEvent hotEvent) {
         InterceptResult invokeL;
+        HotEventData hotEventData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
+            if (hotEvent != null && (hotEventData = hotEvent.hotEventData) != null) {
+                zf5.u(hotEventData);
+                return true;
             }
-            int i = missionEvent.pageId;
-            int i2 = missionEvent.pageType;
-            long j = missionEvent.tid;
-            String str = missionEvent.actionType;
-            if ("onResume".equals(str)) {
-                fu4.w().L(i, j);
-                fu4.w().Q(i2, j);
-            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                fu4.w().E();
-            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-                fu4.w().F();
-            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                fu4.w().L(i, j);
-            }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

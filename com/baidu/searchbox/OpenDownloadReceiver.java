@@ -41,7 +41,7 @@ import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.ng.browser.init.BlinkInitHelper;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.x20;
+import com.baidu.tieba.y20;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -234,7 +234,7 @@ public class OpenDownloadReceiver extends BroadcastReceiver {
                 if (ApkCloudStatisticsUtils.enableAppsearchCloudStatic()) {
                     doCloudStatisticJob(parseId, str3, str4, str2);
                 }
-                x20.j(parseId);
+                y20.j(parseId);
             }
         }
     }

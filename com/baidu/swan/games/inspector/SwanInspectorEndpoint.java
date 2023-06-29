@@ -9,9 +9,9 @@ import com.baidu.searchbox.websocket.WebSocketManager;
 import com.baidu.searchbox.websocket.WebSocketRequest;
 import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hj2;
-import com.baidu.tieba.js1;
-import com.baidu.tieba.n84;
+import com.baidu.tieba.kj2;
+import com.baidu.tieba.ms1;
+import com.baidu.tieba.q84;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import java.util.UUID;
@@ -20,17 +20,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SwanInspectorEndpoint {
-    public static final boolean t = js1.a;
+    public static final boolean t = ms1.a;
     public static SwanInspectorEndpoint u = new SwanInspectorEndpoint();
     public String a;
     public String c;
     public String d;
-    public n84.a g;
+    public q84.a g;
     public Runnable i;
     public ConnectionState j;
     public ConnectionState k;
     public Throwable l;
-    public hj2 m;
+    public kj2 m;
     public int n;
     public WebSocketTask o;
     public int p;
@@ -262,11 +262,11 @@ public class SwanInspectorEndpoint {
         p(false);
     }
 
-    public final void t(hj2 hj2Var) throws Exception {
+    public final void t(kj2 kj2Var) throws Exception {
         this.k = ConnectionState.CONNECTING;
-        if (this.n != hj2Var.hashCode()) {
-            this.m = hj2Var;
-            this.n = hj2Var.hashCode();
+        if (this.n != kj2Var.hashCode()) {
+            this.m = kj2Var;
+            this.n = kj2Var.hashCode();
             c cVar = new c();
             this.s = cVar;
             this.r = this.m.q0(cVar);
@@ -276,7 +276,7 @@ public class SwanInspectorEndpoint {
         throw new Exception("Can not use the previous connected v8Engine.");
     }
 
-    public void w(n84.a aVar) {
+    public void w(q84.a aVar) {
         this.g = aVar;
     }
 
@@ -314,16 +314,16 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void r(n84 n84Var, hj2 hj2Var, n84.a aVar, Runnable runnable) {
+    public void r(q84 q84Var, kj2 kj2Var, q84.a aVar, Runnable runnable) {
         p(false);
         w(aVar);
         try {
-            t(hj2Var);
-            if (n84Var.d()) {
+            t(kj2Var);
+            if (q84Var.d()) {
                 this.i = runnable;
-                s(n84Var);
+                s(q84Var);
             } else {
-                s(n84Var);
+                s(q84Var);
                 runnable.run();
             }
         } catch (Exception e) {
@@ -334,11 +334,11 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void s(n84 n84Var) {
+    public final void s(q84 q84Var) {
         this.j = ConnectionState.CONNECTING;
-        this.c = n84Var.a();
-        this.f = n84Var.b();
-        this.e = n84Var.d();
+        this.c = q84Var.a();
+        this.f = q84Var.b();
+        this.e = q84Var.d();
         this.d = "ws://" + this.c + "/inspect/inspectorTarget/" + this.a;
         if (t) {
             Log.i("SwanInspector", "Starting inspector to " + this.d);
@@ -357,9 +357,9 @@ public class SwanInspectorEndpoint {
         String string3;
         StringBuilder sb = new StringBuilder();
         long currentTimeMillis = System.currentTimeMillis();
-        n84.a aVar = this.g;
+        q84.a aVar = this.g;
         if (aVar == null) {
-            aVar = n84.a.c();
+            aVar = q84.a.c();
         }
         sb.append(aVar.a());
         sb.append("\n");
@@ -369,43 +369,43 @@ public class SwanInspectorEndpoint {
         String str = null;
         ConnectionState connectionState = this.j;
         if (connectionState == ConnectionState.OPEN) {
-            string = resources.getString(R.string.obfuscated_res_0x7f0f019e);
+            string = resources.getString(R.string.obfuscated_res_0x7f0f01a0);
         } else if (this.l == null && (connectionState != ConnectionState.CONNECTING || currentTimeMillis - this.q <= 5000)) {
             if (this.j == ConnectionState.CONNECTING) {
-                string = resources.getString(R.string.obfuscated_res_0x7f0f019c);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f019e);
             } else {
-                string = resources.getString(R.string.obfuscated_res_0x7f0f019b);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f019d);
             }
         } else {
-            string = resources.getString(R.string.obfuscated_res_0x7f0f019d);
-            str = resources.getString(R.string.obfuscated_res_0x7f0f019a);
+            string = resources.getString(R.string.obfuscated_res_0x7f0f019f);
+            str = resources.getString(R.string.obfuscated_res_0x7f0f019c);
         }
-        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a1));
+        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a3));
         sb.append(string);
         sb.append("\n");
         if (str != null) {
             sb.append(str);
             sb.append("\n");
         }
-        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a0));
+        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a2));
         sb.append(this.c);
         sb.append("\n");
         if (this.j == ConnectionState.OPEN) {
-            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a3));
+            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a5));
             if (this.i != null) {
-                string2 = resources.getString(R.string.obfuscated_res_0x7f0f01a5);
+                string2 = resources.getString(R.string.obfuscated_res_0x7f0f01a7);
             } else if (this.h) {
-                string2 = resources.getString(R.string.obfuscated_res_0x7f0f01a4);
-            } else {
                 string2 = resources.getString(R.string.obfuscated_res_0x7f0f01a6);
+            } else {
+                string2 = resources.getString(R.string.obfuscated_res_0x7f0f01a8);
             }
             sb.append(string2);
             sb.append("\n");
-            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a2));
+            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a4));
             if (this.e) {
-                string3 = resources.getString(R.string.obfuscated_res_0x7f0f01a8);
+                string3 = resources.getString(R.string.obfuscated_res_0x7f0f01aa);
             } else {
-                string3 = resources.getString(R.string.obfuscated_res_0x7f0f01a7);
+                string3 = resources.getString(R.string.obfuscated_res_0x7f0f01a9);
             }
             sb.append(string3);
             sb.append("\n");

@@ -1,52 +1,67 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class s62 extends f52 {
+public class s62 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n52 a;
+    public int a;
+    public int b;
+    public int c;
+    public q52 d;
 
-    public s62() {
+    public s62(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.f52
-    public void a(g52 g52Var, Canvas canvas) {
-        n52 n52Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, g52Var, canvas) == null) && (n52Var = this.a) != null && n52Var.d()) {
-            if (this.a.c()) {
-                g52Var.c.setShader(this.a.b());
                 return;
             }
-            g52Var.m = this.a.a();
-            g52Var.c.setColor(this.a.a());
-            g52Var.b.setShader(null);
         }
+        b(jSONArray);
     }
 
-    @Override // com.baidu.tieba.f52
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q52 q52Var = this.d;
+            if (q52Var != null && q52Var.d()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new n52(jSONArray);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 3) {
+                    this.a = tp3.g((float) jSONArray.optDouble(0));
+                    this.b = tp3.g((float) jSONArray.optDouble(1));
+                    this.c = jSONArray.optInt(2);
+                    this.d = new q52(jSONArray.optJSONArray(3));
+                }
+            } catch (Exception e) {
+                if (ms1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

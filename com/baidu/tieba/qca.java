@@ -1,11 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface qca {
-    VideoItemModel O0();
+public final class qca {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void w0(int i);
+    public static final void a(String str) {
+        xe<byte[]> c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && (c = f55.c(str, TbadkCoreApplication.getCurrentAccount())) != null) {
+            c.g("0", null);
+        }
+    }
 
-    int y();
+    public static final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a("tb.rec_frs_update");
+        }
+    }
 }

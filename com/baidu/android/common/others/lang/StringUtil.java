@@ -965,7 +965,7 @@ public final class StringUtil implements IStringUtil {
             }
             int length = bArr.length;
             if (length == 0) {
-                return EMPTY_ARRAY;
+                return "{}";
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++) {
@@ -1266,7 +1266,7 @@ public final class StringUtil implements IStringUtil {
             }
             int length = cArr.length;
             if (length == 0) {
-                return EMPTY_ARRAY;
+                return "{}";
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++) {
@@ -1294,7 +1294,7 @@ public final class StringUtil implements IStringUtil {
             }
             int length = dArr.length;
             if (length == 0) {
-                return EMPTY_ARRAY;
+                return "{}";
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++) {
@@ -1320,7 +1320,7 @@ public final class StringUtil implements IStringUtil {
             }
             int length = fArr.length;
             if (length == 0) {
-                return EMPTY_ARRAY;
+                return "{}";
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++) {
@@ -1346,7 +1346,7 @@ public final class StringUtil implements IStringUtil {
             }
             int length = iArr.length;
             if (length == 0) {
-                return EMPTY_ARRAY;
+                return "{}";
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++) {
@@ -1372,7 +1372,7 @@ public final class StringUtil implements IStringUtil {
             }
             int length = jArr.length;
             if (length == 0) {
-                return EMPTY_ARRAY;
+                return "{}";
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++) {
@@ -1398,7 +1398,7 @@ public final class StringUtil implements IStringUtil {
             }
             int length = objArr.length;
             if (length == 0) {
-                return EMPTY_ARRAY;
+                return "{}";
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++) {
@@ -1424,7 +1424,7 @@ public final class StringUtil implements IStringUtil {
             }
             int length = sArr.length;
             if (length == 0) {
-                return EMPTY_ARRAY;
+                return "{}";
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++) {
@@ -1450,7 +1450,7 @@ public final class StringUtil implements IStringUtil {
             }
             int length = zArr.length;
             if (length == 0) {
-                return EMPTY_ARRAY;
+                return "{}";
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++) {

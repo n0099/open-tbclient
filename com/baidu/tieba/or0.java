@@ -1,47 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class or0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public String a;
-    @JvmField
-    public String b;
-    @JvmField
-    public String c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041724, "Lcom/baidu/tieba/or0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948041724, "Lcom/baidu/tieba/or0;");
-                return;
-            }
-        }
-        d = new a(null);
-    }
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,33 +31,20 @@ public final class or0 {
             }
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final or0 a(JSONObject jSONObject) {
+        public static a a(@Nullable JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                a aVar = new a();
+                if (jSONObject != null) {
+                    jSONObject.optInt("count");
+                    jSONObject.optInt("type");
+                    jSONObject.optString("ext");
+                    jSONObject.optString("id");
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject("panel");
-                if (optJSONObject == null) {
-                    optJSONObject = z21.c(jSONObject.optString("panel"));
-                }
-                if (optJSONObject == null) {
-                    return null;
-                }
-                or0 or0Var = new or0();
-                or0Var.a = optJSONObject.optString("title");
-                or0Var.b = optJSONObject.optString("brand_name");
-                or0Var.c = optJSONObject.optString("avatar");
-                optJSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST);
-                return or0Var;
+                return aVar;
             }
-            return (or0) invokeL.objValue;
+            return (a) invokeL.objValue;
         }
     }
 
@@ -93,13 +52,24 @@ public final class or0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static or0 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            or0 or0Var = new or0();
+            a.a(jSONObject);
+            return or0Var;
+        }
+        return (or0) invokeL.objValue;
     }
 }

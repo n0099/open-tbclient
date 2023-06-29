@@ -1,24 +1,24 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.iob;
-import com.baidu.tieba.mob;
-import com.baidu.tieba.sob;
+import com.baidu.tieba.dtb;
+import com.baidu.tieba.jtb;
+import com.baidu.tieba.zsb;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements iob {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements zsb {
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
     public static final int NO_REQUEST_HAS_VALUE = 1;
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
-    public final mob<? super T> child;
+    public final dtb<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(mob<? super T> mobVar) {
-        this.child = mobVar;
+    public SingleDelayedProducer(dtb<? super T> dtbVar) {
+        this.child = dtbVar;
     }
 
-    @Override // com.baidu.tieba.iob
+    @Override // com.baidu.tieba.zsb
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
@@ -56,18 +56,18 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements iob
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(mob<? super T> mobVar, T t) {
-        if (mobVar.isUnsubscribed()) {
+    public static <T> void emit(dtb<? super T> dtbVar, T t) {
+        if (dtbVar.isUnsubscribed()) {
             return;
         }
         try {
-            mobVar.onNext(t);
-            if (mobVar.isUnsubscribed()) {
+            dtbVar.onNext(t);
+            if (dtbVar.isUnsubscribed()) {
                 return;
             }
-            mobVar.onCompleted();
+            dtbVar.onCompleted();
         } catch (Throwable th) {
-            sob.g(th, mobVar, t);
+            jtb.g(th, dtbVar, t);
         }
     }
 }

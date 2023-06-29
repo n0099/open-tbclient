@@ -1,237 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestLiveViewHolder;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetTagList.DataRes;
+import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes7.dex */
-public class ns8 extends jn<ss8, SearchSuggestLiveViewHolder> {
+public class ns8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public List<ms8> a;
+    public List<ms8> b;
+    public List<Integer> c;
 
-    /* loaded from: classes7.dex */
-    public class a implements go {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ ns8 b;
-
-        public a(ns8 ns8Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ns8Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ns8Var;
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.go
-        public void b(View view2, wn wnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, wnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(wnVar instanceof ss8)) {
-                return;
-            }
-            ss8 ss8Var = (ss8) wnVar;
-            this.b.u(ss8Var);
-            TbPageContext tbPageContext = (TbPageContext) q9.a(this.a);
-            String c = ss8Var.c();
-            String d = ss8Var.d();
-            String f = ss8Var.f();
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, c, d, f, "" + ss8Var.b(), "search_sug_live");
-            wi.z(this.a, view2);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public b(ns8 ns8Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ns8Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.playAnimation();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ns8(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public ns8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
     }
 
-    public final void t(StatisticItem statisticItem, ss8 ss8Var) {
+    public List<ms8> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, statisticItem, ss8Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
-            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
-            statisticItem.param(TiebaStatic.Params.FRIEND_UID, ss8Var.h());
-            statisticItem.param(TiebaStatic.Params.ZHIBO_TYPE, ss8Var.k());
-            statisticItem.param(TiebaStatic.YYParams.YYSID, ss8Var.c());
-            statisticItem.param(TiebaStatic.YYParams.YYSSID, ss8Var.d());
-            statisticItem.param("yyuid", ss8Var.i());
-            statisticItem.param("template_id", ss8Var.f());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<ms8> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
+            ArrayList arrayList = new ArrayList();
+            this.a = arrayList;
+            d(arrayList, dataRes.sex_taglist);
+        }
+        if (!ListUtils.isEmpty(dataRes.taglist)) {
+            this.b = new ArrayList();
+            this.c = new ArrayList();
+            d(this.b, dataRes.taglist);
         }
     }
 
-    public final void A(SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+    public final void d(List<ms8> list, List<ResponseTagInfo> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, searchSuggestLiveViewHolder) == null) {
-            p75 d = p75.d(searchSuggestLiveViewHolder.b);
-            d.x(R.color.CAM_X0105);
-            d.C(R.dimen.T_X06);
-            p75 d2 = p75.d(searchSuggestLiveViewHolder.f);
-            d2.x(R.color.CAM_X0101);
-            d2.C(R.dimen.T_X10);
-            SkinManager.setBackgroundResource(searchSuggestLiveViewHolder.a, R.drawable.addresslist_item_bg);
-            p75.d(searchSuggestLiveViewHolder.g).f(R.color.CAM_X0203);
-        }
-    }
-
-    public final void B(ss8 ss8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ss8Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_SHOW);
-            t(statisticItem, ss8Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void C(TBLottieAnimationView tBLottieAnimationView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBLottieAnimationView) == null) {
-            tBLottieAnimationView.cancelAnimation();
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110053);
-            tBLottieAnimationView.setRepeatCount(-1);
-            tBLottieAnimationView.post(new b(this, tBLottieAnimationView));
-        }
-    }
-
-    public final void u(ss8 ss8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ss8Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_CLICK);
-            t(statisticItem, ss8Var);
-            statisticItem.param("source", "search_sug_live");
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void x(TextView textView) {
-        Context context;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, textView) == null) && (context = this.a) != null && textView != null) {
-            textView.setMaxWidth(wi.l(context) - wi.g(this.a, R.dimen.tbds297));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: y */
-    public SearchSuggestLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            return new SearchSuggestLiveViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0853, viewGroup, false));
-        }
-        return (SearchSuggestLiveViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.jn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ss8 ss8Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
-        z(i, view2, viewGroup, ss8Var, searchSuggestLiveViewHolder);
-        return view2;
-    }
-
-    public View z(int i, View view2, ViewGroup viewGroup, ss8 ss8Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ss8Var, searchSuggestLiveViewHolder})) == null) {
-            if (ss8Var == null) {
-                return view2;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) && list != null && list2 != null) {
+            for (ResponseTagInfo responseTagInfo : list2) {
+                if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
+                    ms8 ms8Var = new ms8();
+                    ms8Var.a(responseTagInfo);
+                    list.add(ms8Var);
+                    List<Integer> list3 = this.c;
+                    if (list3 != null && ms8Var.c) {
+                        list3.add(Integer.valueOf(ms8Var.a));
+                    }
+                }
             }
-            A(searchSuggestLiveViewHolder);
-            WebPManager.setPureDrawable(searchSuggestLiveViewHolder.c, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
-            p75 d = p75.d(searchSuggestLiveViewHolder.e);
-            d.o(R.string.J_X01);
-            d.f(R.color.CAM_X0308);
-            js8.a(searchSuggestLiveViewHolder.b, ss8Var.e(), ss8Var.a());
-            x(searchSuggestLiveViewHolder.b);
-            C(searchSuggestLiveViewHolder.d);
-            B(ss8Var);
-            return view2;
         }
-        return (View) invokeCommon.objValue;
     }
 }

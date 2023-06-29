@@ -99,8 +99,8 @@ public class KsRefluxNativeView extends FrameLayout {
             if (itemViewType == FeedType.FEED_TYPE_UNKNOWN.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_ABOVE.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_LEFT.getType()) {
                 if (aVar.eP()) {
                     aVar.eK();
-                    aVar.a(new a.InterfaceC0600a() { // from class: com.kwad.components.ad.reflux.KsRefluxNativeView.b.1
-                        @Override // com.kwad.components.ad.reflux.a.InterfaceC0600a
+                    aVar.a(new a.InterfaceC0610a() { // from class: com.kwad.components.ad.reflux.KsRefluxNativeView.b.1
+                        @Override // com.kwad.components.ad.reflux.a.InterfaceC0610a
                         public final void eF() {
                             try {
                                 b.this.notifyDataSetChanged();
@@ -118,7 +118,7 @@ public class KsRefluxNativeView extends FrameLayout {
             if (view2 instanceof com.kwad.components.ad.reflux.kwai.a) {
                 final com.kwad.components.ad.reward.c.b eJ = aVar.eJ();
                 ((com.kwad.components.ad.reflux.kwai.a) view2).setAdClickListener(new b.a() { // from class: com.kwad.components.ad.reflux.KsRefluxNativeView.b.2
-                    @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0655b
+                    @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0665b
                     public final void onAdClicked() {
                         super.onAdClicked();
                         if (b.this.kJ != null) {
@@ -126,7 +126,7 @@ public class KsRefluxNativeView extends FrameLayout {
                         }
                     }
 
-                    @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0655b
+                    @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0665b
                     public final void onAdShow() {
                         super.onAdShow();
                         if (b.this.kJ != null) {
@@ -149,9 +149,9 @@ public class KsRefluxNativeView extends FrameLayout {
                 cVar = new com.kwad.components.ad.reflux.kwai.b(this.mContext);
             } else {
                 if (i == -1) {
-                    i2 = R.layout.obfuscated_res_0x7f0d04b4;
+                    i2 = R.layout.obfuscated_res_0x7f0d04b5;
                 } else if (i == -2) {
-                    i2 = R.layout.obfuscated_res_0x7f0d04b8;
+                    i2 = R.layout.obfuscated_res_0x7f0d04b9;
                 } else {
                     cVar = new com.kwad.components.ad.reflux.kwai.c(this.mContext);
                 }
@@ -188,8 +188,8 @@ public class KsRefluxNativeView extends FrameLayout {
     }
 
     private void L(@NonNull Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04b7, this);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091320);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04b8, this);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091330);
         this.kG = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
         b bVar = new b(getContext());

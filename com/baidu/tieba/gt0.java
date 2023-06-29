@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-/* loaded from: classes5.dex */
+import androidx.annotation.Nullable;
+/* loaded from: classes6.dex */
 public interface gt0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "net");
+    @Nullable
+    String a();
 
-    et0 a();
+    @Nullable
+    String b();
+
+    long c();
+
+    boolean isSuccess();
 }

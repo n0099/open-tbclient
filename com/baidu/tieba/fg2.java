@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.ug2;
+import java.io.File;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
 public interface fg2 {
-    boolean a(@NonNull ug2.a aVar);
+    void a(String str, File file, gg2 gg2Var);
+
+    InputStream get(String str);
+
+    boolean isClosed();
 }

@@ -1,80 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class h28 extends vx<i15> {
+public class h28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w48 f;
-    public int g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h28(Context context, TbPageContext<?> tbPageContext) {
-        super(context);
+    public static int a(int i, @NonNull List<xn> list, @NonNull String str) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, list, str)) == null) {
+            if (!ListUtils.isEmpty(list) && i >= 0 && i < list.size()) {
+                while (i < list.size()) {
+                    i++;
+                    if (i >= list.size()) {
+                        return list.size();
+                    }
+                    if (list.get(i) instanceof yo6) {
+                        yo6 yo6Var = (yo6) list.get(i);
+                        if (yo6Var.getThreadData() == null || (!TextUtils.isEmpty(yo6Var.getThreadData().getTid()) && str.equals(yo6Var.getThreadData().getTid()))) {
+                        }
+                    }
+                    return i;
+                }
             }
+            return -1;
         }
-        this.g = 3;
-        this.f = new w48(tbPageContext);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.py
-    /* renamed from: s */
-    public void a(i15 i15Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, i15Var) == null) && (i15Var instanceof t48)) {
-            this.f.i((t48) i15Var);
-        }
-    }
-
-    public void t(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.f.o(bdUniqueId);
-        }
-    }
-
-    @Override // com.baidu.tieba.vx
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f.r();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qy
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.j(tbPageContext, i);
-                q(k(), 3);
-            }
-            this.g = i;
-        }
+        return invokeILL.intValue;
     }
 }

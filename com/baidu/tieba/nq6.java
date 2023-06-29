@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Userlike.UserFollowLive;
+import java.util.ArrayList;
+import java.util.List;
+@Service
 /* loaded from: classes7.dex */
-public class nq6 implements m67<Message> {
+public class nq6 implements k87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,23 +29,17 @@ public class nq6 implements m67<Message> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m67
-    /* renamed from: a */
-    public o87<?> b(Message message) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.k87
+    @NonNull
+    public List<s87<?, ?>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof UserFollowLive)) {
-                return null;
-            }
-            lw7 lw7Var = new lw7();
-            lw7Var.d((UserFollowLive) message);
-            po6 po6Var = new po6(null, lw7Var.c(), ImageViewerConfig.FROM_CONCERN);
-            c67 c67Var = new c67();
-            c67Var.a = po6Var;
-            return new p87(new m37(c67Var), "ala_live_attention");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new eq6());
+            arrayList.add(new fq6());
+            return arrayList;
         }
-        return (o87) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 }

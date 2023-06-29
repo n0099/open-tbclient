@@ -1,221 +1,75 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Writer;
 /* loaded from: classes6.dex */
-public class mq4<E> implements Cloneable {
+public class mq4 extends Writer {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int[] b;
-    public Object[] c;
-    public int d;
+    public final String a;
+    public StringBuilder b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981305, "Lcom/baidu/tieba/mq4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947981305, "Lcom/baidu/tieba/mq4;");
-                return;
-            }
-        }
-        e = new Object();
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public mq4() {
-        this(10);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = this.d;
-            Object[] objArr = this.c;
-            for (int i2 = 0; i2 < i; i2++) {
-                objArr[i2] = null;
-            }
-            this.d = 0;
-            this.a = false;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: b */
-    public mq4<E> clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            mq4<E> mq4Var = null;
-            try {
-                mq4<E> mq4Var2 = (mq4) super.clone();
-                try {
-                    mq4Var2.b = (int[]) this.b.clone();
-                    mq4Var2.c = (Object[]) this.c.clone();
-                    return mq4Var2;
-                } catch (CloneNotSupportedException unused) {
-                    mq4Var = mq4Var2;
-                    return mq4Var;
-                }
-            } catch (CloneNotSupportedException unused2) {
-            }
-        } else {
-            return (mq4) invokeV.objValue;
-        }
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.a) {
-                c();
-            }
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public mq4(int i) {
+    public mq4(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        if (i == 0) {
-            this.b = hq4.a;
-            this.c = hq4.b;
-        } else {
-            int d = hq4.d(i);
-            this.b = new int[d];
-            this.c = new Object[d];
-        }
-        this.d = 0;
+        this.b = new StringBuilder(128);
+        this.a = str;
     }
 
-    public final void c() {
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.length() > 0) {
+            Log.d(this.a, this.b.toString());
+            StringBuilder sb = this.b;
+            sb.delete(0, sb.length());
+        }
+    }
+
+    @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+        }
+    }
+
+    @Override // java.io.Writer, java.io.Flushable
+    public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i = this.d;
-            int[] iArr = this.b;
-            Object[] objArr = this.c;
-            int i2 = 0;
-            for (int i3 = 0; i3 < i; i3++) {
-                Object obj = objArr[i3];
-                if (obj != e) {
-                    if (i3 != i2) {
-                        iArr[i2] = iArr[i3];
-                        objArr[i2] = obj;
-                        objArr[i3] = null;
-                    }
-                    i2++;
-                }
-            }
-            this.a = false;
-            this.d = i2;
+            a();
         }
     }
 
-    public int d(int i) {
-        InterceptResult invokeI;
+    @Override // java.io.Writer
+    public void write(char[] cArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.a) {
-                c();
-            }
-            return this.b[i];
-        }
-        return invokeI.intValue;
-    }
-
-    public void delete(int i) {
-        int a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (a = hq4.a(this.b, this.d, i)) >= 0) {
-            Object[] objArr = this.c;
-            Object obj = objArr[a];
-            Object obj2 = e;
-            if (obj != obj2) {
-                objArr[a] = obj2;
-                this.a = true;
-            }
-        }
-    }
-
-    public E f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (this.a) {
-                c();
-            }
-            return (E) this.c[i];
-        }
-        return (E) invokeI.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (e() <= 0) {
-                return StringUtil.EMPTY_ARRAY;
-            }
-            StringBuilder sb = new StringBuilder(this.d * 28);
-            sb.append('{');
-            for (int i = 0; i < this.d; i++) {
-                if (i > 0) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-                sb.append(d(i));
-                sb.append('=');
-                E f = f(i);
-                if (f != this) {
-                    sb.append(f);
+        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
+            for (int i3 = 0; i3 < i2; i3++) {
+                char c = cArr[i + i3];
+                if (c == '\n') {
+                    a();
                 } else {
-                    sb.append("(this Map)");
+                    this.b.append(c);
                 }
             }
-            sb.append('}');
-            return sb.toString();
         }
-        return (String) invokeV.objValue;
     }
 }

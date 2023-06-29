@@ -2,7 +2,7 @@ package com.kwad.components.offline.api.core.api;
 
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IZipper {
     boolean unZip(InputStream inputStream, String str);
 

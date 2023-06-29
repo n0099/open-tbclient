@@ -1,22 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.coreExtra.message.PingMessage;
-import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,114 +12,228 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lg5 extends Handler implements ha {
+public class lg5 {
     public static /* synthetic */ Interceptable $ic;
-    public static lg5 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public int d;
-    public PingMessage e;
+    public String a;
+    public List<String> b;
+    public c c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947941935, "Lcom/baidu/tieba/lg5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947941935, "Lcom/baidu/tieba/lg5;");
-        }
-    }
-
-    @Override // com.baidu.tieba.ha
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1003;
-        }
-        return invokeV.intValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes6.dex */
-    public class a extends lb {
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends BdAsyncTask<Object, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lg5 a;
+        public b a;
+        public volatile NetWork b;
+        public final /* synthetic */ lg5 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(lg5 lg5Var, int i) {
-            super(i);
+        /* loaded from: classes6.dex */
+        public class a implements Comparator<Map.Entry<String, Integer>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // java.util.Comparator
+            /* renamed from: a */
+            public int compare(Map.Entry<String, Integer> entry, Map.Entry<String, Integer> entry2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
+                    return (int) (vg.e(String.valueOf(entry.getValue()), 0) - vg.e(String.valueOf(entry2.getValue()), 0));
+                }
+                return invokeLL.intValue;
+            }
+        }
+
+        public c(lg5 lg5Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lg5Var, Integer.valueOf(i)};
+                Object[] objArr = {lg5Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = lg5Var;
+            this.c = lg5Var;
+            this.a = null;
+            this.b = null;
+            this.a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(Object... objArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null) {
-                this.a.l(socketResponsedMessage);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                try {
+                    this.b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
+                    String postNetData = this.b.postNetData();
+                    if (this.b.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        JSONObject jSONObject = new JSONObject(postNetData);
+                        if (jSONObject.optInt("error_code") == 0) {
+                            String optString = jSONObject.optString("urls");
+                            this.c.b = this.c.j(optString);
+                            if (this.c.b != null && this.c.b.size() > 0) {
+                                HashMap hashMap = new HashMap();
+                                int i = 0;
+                                for (int i2 = 0; i2 < this.c.b.size(); i2++) {
+                                    String str = (String) this.c.b.get(i2);
+                                    qg5 qg5Var = new qg5();
+                                    qg5Var.a(str);
+                                    if (qg5Var.d()) {
+                                        hashMap.put(str, Integer.valueOf(qg5Var.b()));
+                                    }
+                                }
+                                if (hashMap.size() > 0) {
+                                    this.c.b = new ArrayList();
+                                    ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
+                                    Collections.sort(arrayList, new a(this));
+                                    StringBuilder sb = new StringBuilder(50);
+                                    for (Map.Entry entry : arrayList) {
+                                        this.c.b.add(entry.getKey());
+                                        if (i != 0) {
+                                            sb.append(",");
+                                        }
+                                        i++;
+                                        sb.append((String) entry.getKey());
+                                    }
+                                    optString = sb.toString();
+                                }
+                                r95.p().H("KeyOfSharedPrefListGetTime", System.currentTimeMillis());
+                                r95.p().J("KeyOfSharedPrefIpList", optString);
+                                return null;
+                            }
+                            return null;
+                        }
+                        return null;
+                    }
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            return (Void) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onCancelled(Void r5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
+                this.c.c = null;
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(Void r5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
+                this.c.c = null;
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.b != null) {
+                    this.b.cancelNetConnect();
+                    this.b = null;
+                }
+                this.c.c = null;
+                super.cancel(true);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.c.c = null;
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a();
+                }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
+        public static lg5 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lg5 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(lg5 lg5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lg5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-633560465, "Lcom/baidu/tieba/lg5$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-633560465, "Lcom/baidu/tieba/lg5$d;");
                     return;
                 }
             }
-            this.a = lg5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
-                this.a.h((BackgroundSwitchMessage) customResponsedMessage);
-            }
+            a = new lg5(null);
         }
     }
 
@@ -139,179 +241,134 @@ public class lg5 extends Handler implements ha {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 180000;
-        this.c = 900000;
-        this.d = 900000;
-        this.e = null;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = false;
+        this.d = false;
+        this.b = null;
     }
 
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
-            if (socketHeartBeatStratgy.length == 2) {
-                int i = socketHeartBeatStratgy[0] * 1000;
-                this.b = i;
-                this.c = socketHeartBeatStratgy[1] * 1000;
-                if (i < 180000) {
-                    this.b = 180000;
-                }
-                if (this.c < 180000) {
-                    this.c = 180000;
-                }
-            }
-        }
-    }
-
-    public static lg5 j() {
+    public static lg5 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (lg5.class) {
-                    if (f == null) {
-                        f = new lg5();
-                    }
-                }
-            }
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d.a;
         }
         return (lg5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ha
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            removeMessages(1);
-        }
-    }
-
-    @Override // com.baidu.tieba.ha
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            removeMessages(1);
-            sendMessageDelayed(obtainMessage(1), this.d);
-            this.a = System.currentTimeMillis();
-        }
-    }
-
-    public int i() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return r95.p().q("KeyOfSharedPrefImCount", 0);
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ha
-    public boolean b(boolean z, String str) {
-        InterceptResult invokeZL;
-        String str2;
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            if ((!z && System.currentTimeMillis() - this.a < LiveFeedPageSdk.REFRESH_TIME) || !BdSocketLinkService.isOpen()) {
-                return false;
-            }
-            this.a = System.currentTimeMillis();
-            MessageManager.getInstance().sendMessage(this.e);
-            PingMessage pingMessage = this.e;
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            sb.append("-");
-            if (this.d == this.c) {
-                str2 = "back";
-            } else {
-                str2 = "fore";
-            }
-            sb.append(str2);
-            oa.c("PingManager", pingMessage, 0, "send_ping", 0, sb.toString());
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        return invokeZL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ha
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        if (BdSocketLinkService.isClose()) {
-            sm5.b(0, 0, 0, 1, 10);
-            BdSocketLinkService.startService(false, str);
-        } else if (BdSocketLinkService.isOpen()) {
-            b(false, str);
-        }
-    }
-
-    public final void h(BackgroundSwitchMessage backgroundSwitchMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, backgroundSwitchMessage) != null) || backgroundSwitchMessage == null) {
-            return;
-        }
-        if (backgroundSwitchMessage.getData().booleanValue()) {
-            this.d = this.c;
-            return;
-        }
-        this.d = this.b;
-        d("switchToForeground");
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, message) == null) && message.what == 1) {
-            e();
-            b(true, "regular time send");
-        }
+        return invokeV.booleanValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            rt5 rt5Var = new rt5(1003);
-            rt5Var.setResponsedClass(ResponsedPingMessage.class);
-            rt5Var.h(false);
-            rt5Var.setPriority(-3);
-            rt5Var.f(SocketMessageTask.DupLicateMode.REMOVE_ME);
-            rt5Var.e(false);
-            MessageManager.getInstance().registerTask(rt5Var);
-            this.e = new PingMessage();
-            m();
-            a aVar = new a(this, 1003);
-            MessageManager.getInstance().registerListener(new b(this, 2001011));
-            MessageManager.getInstance().registerListener(aVar);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = false;
         }
     }
 
-    public final void l(ResponsedMessage<?> responsedMessage) {
+    public /* synthetic */ lg5(a aVar) {
+        this();
+    }
+
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, responsedMessage) != null) || responsedMessage == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TiebaIMConfig.defaultUrl.equals(str)) {
+            this.a = str;
+            r95.p().J("KeyOfSharedPrefValidIp", str);
         }
-        int error = responsedMessage.getError();
-        if (error == 0) {
-            com.baidu.adp.framework.message.Message<?> orginalMessage = responsedMessage.getOrginalMessage();
-            int i = k05.a;
-            oa.c("PingManager", orginalMessage, 0, "ping_succ", i, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
-            return;
+    }
+
+    public void m(b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && this.c == null) {
+            this.d = true;
+            c cVar = new c(this, bVar);
+            this.c = cVar;
+            cVar.setSelfExecute(true);
+            this.c.execute(new Object[0]);
         }
-        BdSocketLinkService.close(7, "ping error");
-        int cmd = this.e.getCmd();
-        long clientLogID = this.e.getClientLogID();
-        oa.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
+    }
+
+    public List<String> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                if (System.currentTimeMillis() - r95.p().r("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
+                    r95.p().J("KeyOfSharedPrefIpList", "");
+                    return null;
+                }
+                this.b = j(r95.p().w("KeyOfSharedPrefIpList", null));
+            }
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int e = e();
+            if (e >= 10) {
+                r95.p().F("KeyOfSharedPrefImCount", 0);
+                r95.p().J("KeyOfSharedPrefValidIp", "");
+                this.a = null;
+                return null;
+            }
+            if (this.a == null) {
+                this.a = r95.p().w("KeyOfSharedPrefValidIp", null);
+            }
+            if (!wi.isEmpty(this.a)) {
+                r95.p().F("KeyOfSharedPrefImCount", e + 1);
+            } else {
+                this.a = null;
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final List<String> j(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {
+                ArrayList arrayList = new ArrayList(3);
+                for (String str2 : split) {
+                    arrayList.add(str2);
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -1,91 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.data.AtSelectData;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import android.opengl.Matrix;
+import android.os.Handler;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
+import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 /* loaded from: classes6.dex */
-public interface kja {
-    void A();
+public class kja extends BaseOutputSurface {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public float[] a;
+    public MultiMediaData b;
 
-    void B();
+    public kja(int i, int i2, boolean z, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new float[16];
+        this.b = new MultiMediaData();
+        init(i, i2, z, handler);
+        this.mFullScreenEXT.setMirror(true);
+        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
+    }
 
-    void D(yh5 yh5Var);
+    public void a(int i, int i2, float f) {
+        float f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
+            MultiMediaData multiMediaData = this.b;
+            multiMediaData.type = 1;
+            multiMediaData.width = i;
+            multiMediaData.height = i2;
+            multiMediaData.rotation = f;
+            if (f != 90.0f && f != 270.0f) {
+                f2 = (i * 1.0f) / i2;
+            } else {
+                f2 = (i2 * 1.0f) / i;
+            }
+            if (f2 <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
+                this.b.scaleType = "center_crop";
+            } else {
+                this.b.scaleType = "center_inside";
+            }
+        }
+    }
 
-    void E();
-
-    LinkedList<gb5> F();
-
-    void b(boolean z);
-
-    void c(String str);
-
-    void d(int i, boolean z);
-
-    void e();
-
-    void f();
-
-    int g();
-
-    void h();
-
-    boolean i();
-
-    void j();
-
-    void k(boolean z);
-
-    void m();
-
-    void n(@Nullable ArrayList<AtSelectData> arrayList);
-
-    void o(boolean z);
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    boolean onBackPressed();
-
-    void onChangeSkinType(int i);
-
-    void onCreate(Bundle bundle);
-
-    void onDestroy();
-
-    void onNewIntent(Intent intent);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void onStart();
-
-    void onStop();
-
-    void p(boolean z);
-
-    void r();
-
-    void s();
-
-    @NonNull
-    PermissionJudgePolicy t();
-
-    void u();
-
-    void v();
-
-    void w();
-
-    void x(int[] iArr);
-
-    void y(boolean z);
-
-    void z(yh5 yh5Var);
+    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
+    public void drawImage(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.drawImage(i);
+            if (this.mFullScreenEXT == null) {
+                return;
+            }
+            float[] fArr = new float[16];
+            Matrix.setIdentityM(fArr, 0);
+            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
+            this.mFullScreenEXT.setAngle(180.0f);
+            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
+            Matrix.setIdentityM(fArr, 0);
+            this.mFullScreenEXT.setVertexPoint(fArr);
+        }
+    }
 }

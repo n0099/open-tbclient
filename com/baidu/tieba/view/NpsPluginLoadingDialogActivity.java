@@ -7,8 +7,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.at8;
-import com.baidu.tieba.qt7;
+import com.baidu.tieba.lx8;
+import com.baidu.tieba.vt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -79,9 +79,9 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.e) {
-                qt7.i().l();
+                vt7.i().l();
             } else {
-                at8.j().n();
+                lx8.j().n();
             }
         }
     }
@@ -89,7 +89,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0915fb) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09160b) {
             finish();
             x1();
         }
@@ -113,35 +113,35 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.obfuscated_res_0x7f0d09eb);
+            setContentView(R.layout.obfuscated_res_0x7f0d0a00);
             Intent intent = getIntent();
             this.c = intent.getBooleanExtra("showHideView", false);
             intent.getLongExtra("dialogId", -1L);
             String stringExtra = intent.getStringExtra("tag");
             this.d = stringExtra;
             this.e = (stringExtra == null || !stringExtra.equals("gameAssistTag")) ? false : false;
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091cda);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091d35);
             this.a = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.a.setRoundColor(0);
             this.a.setTextColor(-1);
             this.a.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fb);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09160b);
             this.b = textView;
             if (this.c) {
                 textView.setVisibility(8);
             }
             this.b.setOnClickListener(this);
             if (this.e) {
-                if (!qt7.i().k()) {
+                if (!vt7.i().k()) {
                     finish();
                 } else {
-                    qt7.i().m(this);
+                    vt7.i().m(this);
                 }
-            } else if (!at8.j().m()) {
+            } else if (!lx8.j().m()) {
                 finish();
             } else {
-                at8.j().o(this);
+                lx8.j().o(this);
             }
         }
     }

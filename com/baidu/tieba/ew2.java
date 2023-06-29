@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface ew2 {
+    void a(Activity activity, String str, String str2);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
+    boolean b(Context context);
 
-        void b();
-    }
+    void c(Activity activity, String str, xg1 xg1Var);
 
-    void a(Context context, JSONObject jSONObject, a aVar);
+    void d(Context context, JSONObject jSONObject, xg1 xg1Var);
 
-    void b(Context context, String str, Uri uri);
+    void e(Activity activity, String str, xg1 xg1Var);
+
+    void f(Activity activity, String str, jh1<JSONObject> jh1Var);
 }

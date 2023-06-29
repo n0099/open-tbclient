@@ -4,13 +4,13 @@ import com.kwad.components.core.webview.b.d.b;
 import com.kwad.sdk.utils.bd;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public final Set<b> mw;
 
     /* renamed from: com.kwad.components.core.webview.b.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0645a {
+    /* loaded from: classes10.dex */
+    public static class C0655a {
         public static final a Os = new a((byte) 0);
     }
 
@@ -33,7 +33,7 @@ public final class a {
     }
 
     public static a pR() {
-        return C0645a.Os;
+        return C0655a.Os;
     }
 
     public final void a(b bVar) {

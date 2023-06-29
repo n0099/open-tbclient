@@ -1,13 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface xn9 {
-    String a0();
+public class xn9 implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    int r1();
+    public xn9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    TbPageContext<?> t();
-
-    void v0();
+    @Override // java.lang.Runnable
+    public void run() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = this.a) != null && (view2.getTag() instanceof bo9)) {
+            ((bo9) this.a.getTag()).startPlay();
+        }
+    }
 }

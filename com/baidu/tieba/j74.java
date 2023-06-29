@@ -1,113 +1,124 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class j74 extends hj2 {
+public class j74 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static long b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jj2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements V8Engine.WorkerFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j74 a;
-
-        public a(j74 j74Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836194, "Lcom/baidu/tieba/j74;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j74Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = j74Var;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
-        public V8Engine onCreateWorker() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                k74 k74Var = new k74(this.a.getInitBasePath());
-                k74Var.G0();
-                k74Var.t(new tj2(k74Var));
-                k74Var.F0(new uj2(k74Var));
-                return k74Var.k0();
-            }
-            return (V8Engine) invokeV.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j74(@NonNull String str, @NonNull ek2 ek2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        super(str, ek2Var, v8ThreadDelegatePolicy);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, ek2Var, v8ThreadDelegatePolicy};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (ek2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947836194, "Lcom/baidu/tieba/j74;");
                 return;
             }
         }
-        V8Engine v8Engine = this.a;
-        if (v8Engine == null) {
-            return;
-        }
-        v8Engine.setWorkerFactoryDelegate(new a(this));
+        a = ms1.a;
+        b = 86400000L;
+        c = "duration_permission_list";
     }
 
-    @Override // com.baidu.tieba.hj2
-    public EventTarget C() {
-        InterceptResult invokeV;
+    public static void a(JsObject jsObject) {
+        k74 k74Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new j64(this);
+        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
+            cc3 M = cc3.M();
+            j42 j42Var = null;
+            if (jsObject != null && M != null && b(M)) {
+                if (a) {
+                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
+                }
+                j42 F = j42.F(jsObject);
+                String B = F.B("swanGameId");
+                if (!TextUtils.isEmpty(B)) {
+                    kk3 a2 = qk3.a();
+                    if (!c(Long.valueOf(a2.getLong(B + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                        a2.putLong(B + "_Duration", 0L);
+                    }
+                    k74Var = new k74();
+                    k74Var.duration = a2.getLong(B + "_Duration", 0L);
+                } else {
+                    k74Var = null;
+                }
+                j42Var = F;
+            } else {
+                k74Var = null;
+            }
+            oe4.call(j42Var, true, k74Var);
         }
-        return (EventTarget) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hj2
-    @NonNull
-    public EventTarget z() {
-        InterceptResult invokeV;
+    public static boolean b(cc3 cc3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new g64(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cc3Var)) == null) {
+            String string = qk3.a().getString(c, "");
+            if (!TextUtils.isEmpty(string)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(string);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        if (cc3.g0().contains(jSONArray.optString(i))) {
+                            return true;
+                        }
+                    }
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return false;
         }
-        return (EventTarget) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Long l, Long l2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && j2 > j && cc3.M() != null && !TextUtils.isEmpty(cc3.g0())) {
+            String g0 = cc3.g0();
+            kk3 a2 = qk3.a();
+            long j3 = a2.getLong(g0 + "_LastPause", 0L);
+            long j4 = a2.getLong(g0 + "_Duration", 0L);
+            if (c(Long.valueOf(j), Long.valueOf(j2))) {
+                if (c(Long.valueOf(j3), Long.valueOf(j))) {
+                    a2.putLong(g0 + "_Duration", (j4 + j2) - j);
+                } else {
+                    a2.putLong(g0 + "_Duration", j2 - j);
+                }
+            } else {
+                a2.putLong(g0 + "_Duration", j2 % b);
+            }
+            a2.putLong(g0 + "_LastPause", System.currentTimeMillis());
+        }
     }
 }

@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.bpb;
-import com.baidu.tieba.btb;
-import com.baidu.tieba.gob;
-import com.baidu.tieba.iob;
-import com.baidu.tieba.mob;
-import com.baidu.tieba.tob;
+import com.baidu.tieba.dtb;
+import com.baidu.tieba.ktb;
+import com.baidu.tieba.ttb;
+import com.baidu.tieba.vxb;
+import com.baidu.tieba.xsb;
+import com.baidu.tieba.zsb;
 import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.Queue;
@@ -14,39 +14,39 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
-public final class OperatorWindowWithSize$WindowOverlap<T> extends mob<T> implements tob {
-    public final mob<? super gob<T>> e;
+public final class OperatorWindowWithSize$WindowOverlap<T> extends dtb<T> implements ktb {
+    public final dtb<? super xsb<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
-    public final ArrayDeque<btb<T, T>> i;
+    public final ArrayDeque<vxb<T, T>> i;
     public final AtomicLong j;
     public final AtomicInteger k;
-    public final Queue<btb<T, T>> l;
+    public final Queue<vxb<T, T>> l;
     public Throwable m;
     public volatile boolean n;
     public int o;
     public int p;
 
     /* loaded from: classes2.dex */
-    public final class WindowOverlapProducer extends AtomicBoolean implements iob {
+    public final class WindowOverlapProducer extends AtomicBoolean implements zsb {
         public static final long serialVersionUID = 4625807964358024108L;
 
         public WindowOverlapProducer() {
         }
 
-        @Override // com.baidu.tieba.iob
+        @Override // com.baidu.tieba.zsb
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
                     OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = OperatorWindowWithSize$WindowOverlap.this;
                     if (!get() && compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowOverlap.e(bpb.a(bpb.c(operatorWindowWithSize$WindowOverlap.g, j - 1), operatorWindowWithSize$WindowOverlap.f));
+                        operatorWindowWithSize$WindowOverlap.e(ttb.a(ttb.c(operatorWindowWithSize$WindowOverlap.g, j - 1), operatorWindowWithSize$WindowOverlap.f));
                     } else {
-                        OperatorWindowWithSize$WindowOverlap.this.e(bpb.c(operatorWindowWithSize$WindowOverlap.g, j));
+                        OperatorWindowWithSize$WindowOverlap.this.e(ttb.c(operatorWindowWithSize$WindowOverlap.g, j));
                     }
-                    bpb.b(operatorWindowWithSize$WindowOverlap.j, j);
+                    ttb.b(operatorWindowWithSize$WindowOverlap.j, j);
                     operatorWindowWithSize$WindowOverlap.j();
                     return;
                 }
@@ -56,16 +56,16 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends mob<T> implem
         }
     }
 
-    @Override // com.baidu.tieba.tob
+    @Override // com.baidu.tieba.ktb
     public void call() {
         if (this.h.decrementAndGet() == 0) {
             unsubscribe();
         }
     }
 
-    @Override // com.baidu.tieba.hob
+    @Override // com.baidu.tieba.ysb
     public void onCompleted() {
-        Iterator<btb<T, T>> it = this.i.iterator();
+        Iterator<vxb<T, T>> it = this.i.iterator();
         while (it.hasNext()) {
             it.next().onCompleted();
         }
@@ -74,18 +74,18 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends mob<T> implem
         j();
     }
 
-    public boolean i(boolean z, boolean z2, mob<? super btb<T, T>> mobVar, Queue<btb<T, T>> queue) {
-        if (mobVar.isUnsubscribed()) {
+    public boolean i(boolean z, boolean z2, dtb<? super vxb<T, T>> dtbVar, Queue<vxb<T, T>> queue) {
+        if (dtbVar.isUnsubscribed()) {
             queue.clear();
             return true;
         } else if (z) {
             Throwable th = this.m;
             if (th != null) {
                 queue.clear();
-                mobVar.onError(th);
+                dtbVar.onError(th);
                 return true;
             } else if (z2) {
-                mobVar.onCompleted();
+                dtbVar.onCompleted();
                 return true;
             } else {
                 return false;
@@ -127,8 +127,8 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends mob<T> implem
         if (atomicInteger.getAndIncrement() != 0) {
             return;
         }
-        mob<? super gob<T>> mobVar = this.e;
-        Queue<btb<T, T>> queue = this.l;
+        dtb<? super xsb<T>> dtbVar = this.e;
+        Queue<vxb<T, T>> queue = this.l;
         int i = 1;
         do {
             long j = this.j.get();
@@ -139,27 +139,27 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends mob<T> implem
                     break;
                 }
                 boolean z2 = this.n;
-                btb<T, T> poll = queue.poll();
+                vxb<T, T> poll = queue.poll();
                 if (poll == null) {
                     z = true;
                 } else {
                     z = false;
                 }
-                if (i(z2, z, mobVar, queue)) {
+                if (i(z2, z, dtbVar, queue)) {
                     return;
                 }
                 if (z) {
                     break;
                 }
-                mobVar.onNext(poll);
+                dtbVar.onNext(poll);
                 j2++;
             }
         } while (i != 0);
     }
 
-    @Override // com.baidu.tieba.hob
+    @Override // com.baidu.tieba.ysb
     public void onError(Throwable th) {
-        Iterator<btb<T, T>> it = this.i.iterator();
+        Iterator<vxb<T, T>> it = this.i.iterator();
         while (it.hasNext()) {
             it.next().onError(th);
         }
@@ -169,25 +169,25 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends mob<T> implem
         j();
     }
 
-    @Override // com.baidu.tieba.hob
+    @Override // com.baidu.tieba.ysb
     public void onNext(T t) {
         int i = this.o;
-        ArrayDeque<btb<T, T>> arrayDeque = this.i;
+        ArrayDeque<vxb<T, T>> arrayDeque = this.i;
         if (i == 0 && !this.e.isUnsubscribed()) {
             this.h.getAndIncrement();
-            UnicastSubject H = UnicastSubject.H(16, this);
-            arrayDeque.offer(H);
-            this.l.offer(H);
+            UnicastSubject O = UnicastSubject.O(16, this);
+            arrayDeque.offer(O);
+            this.l.offer(O);
             j();
         }
-        Iterator<btb<T, T>> it = this.i.iterator();
+        Iterator<vxb<T, T>> it = this.i.iterator();
         while (it.hasNext()) {
             it.next().onNext(t);
         }
         int i2 = this.p + 1;
         if (i2 == this.f) {
             this.p = i2 - this.g;
-            btb<T, T> poll = arrayDeque.poll();
+            vxb<T, T> poll = arrayDeque.poll();
             if (poll != null) {
                 poll.onCompleted();
             }

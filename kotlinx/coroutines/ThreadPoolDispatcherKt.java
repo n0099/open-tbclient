@@ -11,7 +11,7 @@ import kotlin.Metadata;
 import kotlinx.coroutines.ThreadPoolDispatcherKt;
 import org.aspectj.runtime.reflect.SignatureImpl;
 @Metadata(d1 = {"\u0000\u0016\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u001a\u0018\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\u0007\u001a\u0010\u0010\u0006\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u0005H\u0007¨\u0006\u0007"}, d2 = {"newFixedThreadPoolContext", "Lkotlinx/coroutines/ExecutorCoroutineDispatcher;", "nThreads", "", "name", "", "newSingleThreadContext", "kotlinx-coroutines-core"}, k = 2, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ThreadPoolDispatcherKt {
     @DelicateCoroutinesApi
     public static final ExecutorCoroutineDispatcher newFixedThreadPoolContext(final int i, final String str) {
@@ -21,7 +21,7 @@ public final class ThreadPoolDispatcherKt {
         }
         if (z) {
             final AtomicInteger atomicInteger = new AtomicInteger();
-            return ExecutorsKt.from((ExecutorService) Executors.newScheduledThreadPool(i, new ThreadFactory() { // from class: com.baidu.tieba.ilb
+            return ExecutorsKt.from((ExecutorService) Executors.newScheduledThreadPool(i, new ThreadFactory() { // from class: com.baidu.tieba.zpb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

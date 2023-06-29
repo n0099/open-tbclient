@@ -141,7 +141,7 @@ public class UnLoginCastService {
                     String str2 = UnLoginCastService.TAG;
                     LogUtils.d(str2, "HBBH work ts duration is " + optLong + " " + i5 + " num is " + i + " size is " + length2);
                     if (i <= 0) {
-                        ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage(this.this$0.mCastId, jSONArray2);
+                        ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage("", this.this$0.mCastId, jSONArray2);
                         return;
                     }
                     int i6 = 0;
@@ -155,7 +155,7 @@ public class UnLoginCastService {
                         }
                         String str3 = UnLoginCastService.TAG;
                         LogUtils.d(str3, "FXF upload a ts message  " + jSONArray4.toString());
-                        ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage(this.this$0.mCastId, jSONArray4);
+                        ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage("", this.this$0.mCastId, jSONArray4);
                         try {
                             Thread.sleep(1000L);
                         } catch (InterruptedException e) {
@@ -172,7 +172,7 @@ public class UnLoginCastService {
                         }
                         String str4 = UnLoginCastService.TAG;
                         LogUtils.d(str4, "FXF upload a last ts message  " + jSONArray5.toString());
-                        ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage(this.this$0.mCastId, jSONArray5);
+                        ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage("", this.this$0.mCastId, jSONArray5);
                     }
                 } catch (JSONException e2) {
                     LogUtils.e(UnLoginCastService.TAG, "m3u8 work task execption  ");

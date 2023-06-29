@@ -55,19 +55,19 @@ public abstract class a extends LinearLayout {
 
     private void initView() {
         this.BA = LinearLayout.inflate(getContext(), getLayoutId(), this);
-        this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091236);
-        this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f091238);
-        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091239);
-        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091235);
-        this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f091237);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09126c);
+        this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091246);
+        this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f091248);
+        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091249);
+        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091245);
+        this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f091247);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09127c);
         this.wZ = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
         this.wZ.setTextColor(-1);
-        this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f091331);
-        this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f09132b);
-        this.up = (Button) findViewById(R.id.obfuscated_res_0x7f09132d);
-        this.un = findViewById(R.id.obfuscated_res_0x7f09132c);
+        this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f091341);
+        this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f09133b);
+        this.up = (Button) findViewById(R.id.obfuscated_res_0x7f09133d);
+        this.un = findViewById(R.id.obfuscated_res_0x7f09133c);
         this.ux = new com.kwad.components.ad.g.a(this.BA);
     }
 
@@ -91,7 +91,7 @@ public abstract class a extends LinearLayout {
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0091: INVOKE  (r5v0 int A[REMOVE]) =  type: STATIC call: com.kwad.sdk.core.config.d.sf():int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0092: INVOKE  (r5v0 int A[REMOVE]) =  type: STATIC call: com.kwad.sdk.core.config.d.sf():int)] */
     public void c(@NonNull AdTemplate adTemplate) {
         ImageView imageView;
         String bn;

@@ -5,10 +5,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.bx5;
-import com.baidu.tieba.fd9;
-import com.baidu.tieba.o05;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.gx5;
+import com.baidu.tieba.r05;
+import com.baidu.tieba.rh9;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,13 +23,13 @@ public class PersonPolymericReqMsg extends NetMessage {
     public int pn;
     public long uid;
 
-    public fd9 getPersonCenterData() {
+    public rh9 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (fd9) invokeV.objValue;
+        return (rh9) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,12 +59,12 @@ public class PersonPolymericReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.uid = Long.valueOf(this.uid);
             builder.pn = Integer.valueOf(this.pn);
-            builder.scr_w = Integer.valueOf(wi.l(TbadkCoreApplication.getInst().getApp()));
-            builder.scr_h = Integer.valueOf(wi.j(TbadkCoreApplication.getInst().getApp()));
-            builder.q_type = Integer.valueOf(o05.c().e());
-            builder.scr_dip = Double.valueOf(wi.i(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_w = Integer.valueOf(xi.l(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_h = Integer.valueOf(xi.j(TbadkCoreApplication.getInst().getApp()));
+            builder.q_type = Integer.valueOf(r05.c().e());
+            builder.scr_dip = Double.valueOf(xi.i(TbadkCoreApplication.getInst().getApp()));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                bx5.a(builder, true);
+                gx5.a(builder, true);
             }
             PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
             builder2.data = builder.build(false);

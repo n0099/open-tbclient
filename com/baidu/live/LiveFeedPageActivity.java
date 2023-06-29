@@ -8,15 +8,15 @@ import android.view.ViewConfiguration;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
-import com.baidu.tieba.ab0;
-import com.baidu.tieba.gb0;
-import com.baidu.tieba.ld0;
-import com.baidu.tieba.mb0;
-import com.baidu.tieba.nd0;
+import com.baidu.tieba.db0;
+import com.baidu.tieba.jb0;
+import com.baidu.tieba.od0;
+import com.baidu.tieba.pb0;
+import com.baidu.tieba.qd0;
 /* loaded from: classes3.dex */
 public class LiveFeedPageActivity extends AppCompatActivity {
-    public ab0 a;
-    public final int b = ld0.a().b();
+    public db0 a;
+    public final int b = od0.a().b();
     public Handler c;
     public int d;
     public float e;
@@ -35,18 +35,18 @@ public class LiveFeedPageActivity extends AppCompatActivity {
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
-        ab0 ab0Var = this.a;
-        if (ab0Var != null) {
-            ab0Var.T();
+        db0 db0Var = this.a;
+        if (db0Var != null) {
+            db0Var.T();
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        ab0 ab0Var = this.a;
-        if (ab0Var != null) {
-            ab0Var.a0();
+        db0 db0Var = this.a;
+        if (db0Var != null) {
+            db0Var.a0();
             this.a.e0(false);
         }
     }
@@ -54,9 +54,9 @@ public class LiveFeedPageActivity extends AppCompatActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        ab0 ab0Var = this.a;
-        if (ab0Var != null) {
-            ab0Var.b0();
+        db0 db0Var = this.a;
+        if (db0Var != null) {
+            db0Var.b0();
             this.a.e0(true);
         }
     }
@@ -70,25 +70,25 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             this.e = motionEvent.getX();
             this.f = motionEvent.getY();
             boolean z4 = false;
-            if (mb0.g(this.a.z(), (int) this.e, (int) this.f) && !this.a.z().canScrollHorizontally(-1)) {
+            if (pb0.g(this.a.z(), (int) this.e, (int) this.f) && !this.a.z().canScrollHorizontally(-1)) {
                 z = true;
             } else {
                 z = false;
             }
             this.i = z;
-            if (mb0.g(this.a.C(), (int) this.e, (int) this.f) && !this.a.C().canScrollHorizontally(-1)) {
+            if (pb0.g(this.a.C(), (int) this.e, (int) this.f) && !this.a.C().canScrollHorizontally(-1)) {
                 z2 = true;
             } else {
                 z2 = false;
             }
             this.k = z2;
-            if (mb0.g(this.a.B(), (int) this.e, (int) this.f) && !this.a.B().canScrollHorizontally(-1)) {
+            if (pb0.g(this.a.B(), (int) this.e, (int) this.f) && !this.a.B().canScrollHorizontally(-1)) {
                 z3 = true;
             } else {
                 z3 = false;
             }
             this.l = z3;
-            if (mb0.g(this.a.D(), (int) this.e, (int) this.f) && this.a.P()) {
+            if (pb0.g(this.a.D(), (int) this.e, (int) this.f) && this.a.P()) {
                 z4 = true;
             }
             this.j = z4;
@@ -120,7 +120,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
         String str2;
         String str3;
         boolean z;
-        nd0.g(this);
+        qd0.g(this);
         super.onCreate(bundle);
         this.d = ViewConfiguration.get(this).getScaledTouchSlop();
         if (bundle != null) {
@@ -142,11 +142,11 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             str3 = stringExtra;
             str2 = stringExtra3;
         }
-        ab0 ab0Var = new ab0(this, this.b, getSupportFragmentManager(), LiveFeedPageSdk.IMMERSION, str3, false, str, str2, z);
-        this.a = ab0Var;
-        setContentView(ab0Var.A());
+        db0 db0Var = new db0(this, this.b, getSupportFragmentManager(), LiveFeedPageSdk.IMMERSION, str3, false, str, str2, z);
+        this.a = db0Var;
+        setContentView(db0Var.A());
         this.a.Q();
-        gb0.u(this, str3, "chenjinshi");
+        jb0.u(this, str3, "chenjinshi");
         if (!TextUtils.isEmpty(str4)) {
             if (this.c == null) {
                 this.c = new Handler();

@@ -1,5 +1,5 @@
 package com.kwad.components.offline.api.core.video.mdoel;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KsPlayerLogParams {
     public long adStyle;
     public long clickTime = -1;

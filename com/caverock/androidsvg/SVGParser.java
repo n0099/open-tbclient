@@ -22,8 +22,9 @@ import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.e0b;
-import com.baidu.tieba.f0b;
+import com.baidu.tieba.fx;
+import com.baidu.tieba.u4b;
+import com.baidu.tieba.v4b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -177,7 +178,7 @@ public class SVGParser {
         public static final SVGAttr requiredFormats;
 
         /* renamed from: rx  reason: collision with root package name */
-        public static final SVGAttr f1202rx;
+        public static final SVGAttr f1201rx;
         public static final SVGAttr ry;
         public static final SVGAttr solid_color;
         public static final SVGAttr solid_opacity;
@@ -239,7 +240,7 @@ public class SVGParser {
             direction = new SVGAttr(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, 8);
             dx = new SVGAttr(LoginConstants.DX_ONE_KEY_LOGIN, 9);
             dy = new SVGAttr("dy", 10);
-            fx = new SVGAttr("fx", 11);
+            fx = new SVGAttr(fx.a, 11);
             fy = new SVGAttr("fy", 12);
             d = new SVGAttr("d", 13);
             display = new SVGAttr(CriusAttrConstants.DISPLAY, 14);
@@ -284,7 +285,7 @@ public class SVGParser {
             requiredExtensions = new SVGAttr("requiredExtensions", 53);
             requiredFormats = new SVGAttr("requiredFormats", 54);
             requiredFonts = new SVGAttr("requiredFonts", 55);
-            f1202rx = new SVGAttr("rx", 56);
+            f1201rx = new SVGAttr("rx", 56);
             ry = new SVGAttr("ry", 57);
             solid_color = new SVGAttr("solid_color", 58);
             solid_opacity = new SVGAttr("solid_opacity", 59);
@@ -321,7 +322,7 @@ public class SVGParser {
             visibility = new SVGAttr("visibility", 90);
             SVGAttr sVGAttr = new SVGAttr("UNSUPPORTED", 91);
             UNSUPPORTED = sVGAttr;
-            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, image_rendering, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1202rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
+            $VALUES = new SVGAttr[]{CLASS, clip, clip_path, clipPathUnits, clip_rule, color, cx, cy, direction, dx, dy, fx, fy, d, display, fill, fill_rule, fill_opacity, font, font_family, font_size, font_weight, font_style, gradientTransform, gradientUnits, height, href, image_rendering, marker, marker_start, marker_mid, marker_end, markerHeight, markerUnits, markerWidth, mask, maskContentUnits, maskUnits, media, offset, opacity, orient, overflow, pathLength, patternContentUnits, patternTransform, patternUnits, points, preserveAspectRatio, r, refX, refY, requiredFeatures, requiredExtensions, requiredFormats, requiredFonts, f1201rx, ry, solid_color, solid_opacity, spreadMethod, startOffset, stop_color, stop_opacity, stroke, stroke_dasharray, stroke_dashoffset, stroke_linecap, stroke_linejoin, stroke_miterlimit, stroke_opacity, stroke_width, style, systemLanguage, text_anchor, text_decoration, transform, type, vector_effect, version, viewBox, width, x, y, x1, y1, x2, y2, viewport_fill, viewport_fill_opacity, visibility, sVGAttr};
             cache = new HashMap();
             for (SVGAttr sVGAttr2 : values()) {
                 if (sVGAttr2 == CLASS) {
@@ -422,7 +423,7 @@ public class SVGParser {
         public static final SVGElem use;
 
         /* renamed from: view  reason: collision with root package name */
-        public static final SVGElem f1203view;
+        public static final SVGElem f1202view;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -469,10 +470,10 @@ public class SVGParser {
             tref = new SVGElem(TrackReferenceBox.TYPE, 27);
             tspan = new SVGElem("tspan", 28);
             use = new SVGElem("use", 29);
-            f1203view = new SVGElem("view", 30);
+            f1202view = new SVGElem("view", 30);
             SVGElem sVGElem = new SVGElem("UNSUPPORTED", 31);
             UNSUPPORTED = sVGElem;
-            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1203view, sVGElem};
+            $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1202view, sVGElem};
             cache = new HashMap();
             for (SVGElem sVGElem2 : values()) {
                 if (sVGElem2 == SWITCH) {
@@ -593,7 +594,7 @@ public class SVGParser {
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                b[SVGAttr.f1202rx.ordinal()] = 10;
+                b[SVGAttr.f1201rx.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
@@ -1023,7 +1024,7 @@ public class SVGParser {
             } catch (NoSuchFieldError unused116) {
             }
             try {
-                a[SVGElem.f1203view.ordinal()] = 28;
+                a[SVGElem.f1202view.ordinal()] = 28;
             } catch (NoSuchFieldError unused117) {
             }
             try {
@@ -1441,7 +1442,7 @@ public class SVGParser {
         public String a;
         public int b;
         public int c;
-        public f0b d;
+        public v4b d;
 
         public boolean j(int i) {
             InterceptResult invokeI;
@@ -1472,7 +1473,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new f0b();
+            this.d = new v4b();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -4062,7 +4063,7 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             int i = 5;
             if (str.charAt(0) == '#') {
-                e0b b2 = e0b.b(str, 1, str.length());
+                u4b b2 = u4b.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 != 4) {
@@ -4585,7 +4586,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new f0b().b(str, i, i2);
+            float b2 = new v4b().b(str, i, i2);
             if (!Float.isNaN(b2)) {
                 return b2;
             }

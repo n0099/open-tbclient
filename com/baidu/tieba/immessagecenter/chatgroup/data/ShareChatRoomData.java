@@ -3,7 +3,7 @@ package com.baidu.tieba.immessagecenter.chatgroup.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.a;
+import com.baidu.tieba.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -92,7 +92,7 @@ public final class ShareChatRoomData implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (((((((((a.a(this.id) * 31) + this.name.hashCode()) * 31) + this.icon.hashCode()) * 31) + a.a(this.forumId)) * 31) + this.forumName.hashCode()) * 31) + a.a(this.chatCount) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (((((((((b.a(this.id) * 31) + this.name.hashCode()) * 31) + this.icon.hashCode()) * 31) + b.a(this.forumId)) * 31) + this.forumName.hashCode()) * 31) + b.a(this.chatCount) : invokeV.intValue;
     }
 
     public String toString() {

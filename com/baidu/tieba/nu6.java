@@ -1,108 +1,113 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class nu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<it6> a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public static final st6 a(g0 g0Var) {
-        InterceptResult invokeL;
+    public nu6(List<it6> data, long j, long j2, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, g0Var)) == null) {
-            Intrinsics.checkNotNullParameter(g0Var, "<this>");
-            return (st6) g0Var.d(st6.class);
-        }
-        return (st6) invokeL.objValue;
-    }
-
-    public static final pt6 b(g0 g0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g0Var)) == null) {
-            Intrinsics.checkNotNullParameter(g0Var, "<this>");
-            return (pt6) g0Var.d(pt6.class);
-        }
-        return (pt6) invokeL.objValue;
-    }
-
-    public static final long c(g0 g0Var) {
-        InterceptResult invokeL;
-        dt6 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, g0Var)) == null) {
-            Intrinsics.checkNotNullParameter(g0Var, "<this>");
-            pt6 b = b(g0Var);
-            if (b != null && (a = b.a()) != null) {
-                return a.g();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 0L;
         }
-        return invokeL.longValue;
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = i;
+        this.c = i2;
+        this.d = z;
     }
 
-    public static final ot6 d(g0 g0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, g0Var)) == null) {
-            Intrinsics.checkNotNullParameter(g0Var, "<this>");
-            return (ot6) g0Var.d(ot6.class);
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ nu6(List list, long j, long j2, int i, int i2, boolean z, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(list, j, j2, i, i2, r9);
+        boolean z2;
+        if ((i3 & 32) != 0) {
+            z2 = false;
+        } else {
+            z2 = z;
         }
-        return (ot6) invokeL.objValue;
     }
 
-    public static final qt6 e(g0 g0Var) {
-        InterceptResult invokeL;
+    public final List<it6> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, g0Var)) == null) {
-            Intrinsics.checkNotNullParameter(g0Var, "<this>");
-            return (qt6) g0Var.d(qt6.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (qt6) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static final long f(g0 g0Var) {
-        InterceptResult invokeL;
-        dt6 a;
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, g0Var)) == null) {
-            Intrinsics.checkNotNullParameter(g0Var, "<this>");
-            pt6 b = b(g0Var);
-            if (b != null && (a = b.a()) != null) {
-                return a.j();
-            }
-            return 0L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return invokeL.longValue;
+        return invokeV.intValue;
     }
 
-    public static final boolean g(g0 g0Var, long j) {
-        InterceptResult invokeLJ;
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, g0Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(g0Var, "<this>");
-            if (j - f(g0Var) < 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return invokeLJ.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static final boolean h(g0 g0Var, long j) {
-        InterceptResult invokeLJ;
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, g0Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(g0Var, "<this>");
-            if (j - f(g0Var) > c(g0Var)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        return invokeLJ.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
+        }
     }
 }

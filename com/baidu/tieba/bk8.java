@@ -1,94 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class bk8 extends jn<zj8, CardViewHolder<ck8>> {
+public class bk8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public lo6 b;
-    public String c;
+    public final WeakReference<a> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bk8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(CustomResponsedMessage<?> customResponsedMessage);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public bk8(int i, a callback) {
+        this(i, false, callback, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i), callback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (a) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        Intrinsics.checkNotNullParameter(callback, "callback");
     }
 
-    @Override // com.baidu.tieba.jn
-    public go getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public bk8(int i, boolean z, a callback) {
+        super(i, z);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), callback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (go) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(callback, "callback");
+        this.a = new WeakReference<>(callback);
+    }
+
+    public /* synthetic */ bk8(int i, boolean z, a aVar, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i2 & 2) != 0 ? false : z, aVar);
+    }
+
+    public static final void a(bk8 this$0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            MessageManager.getInstance().unRegisterListener(this$0);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: s */
-    public CardViewHolder<ck8> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> responsedMessage) {
+        Unit unit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ck8 ck8Var = new ck8(this.a, viewGroup);
-            lo6 lo6Var = this.b;
-            if (lo6Var != null) {
-                ck8Var.k(lo6Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+            Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
+            a aVar = this.a.get();
+            if (aVar != null) {
+                aVar.a(responsedMessage);
+                unit = Unit.INSTANCE;
+            } else {
+                unit = null;
             }
-            return new CardViewHolder<>(ck8Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
+            if (unit == null) {
+                ch.c(new Runnable() { // from class: com.baidu.tieba.ak8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zj8 zj8Var, CardViewHolder<ck8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zj8Var, cardViewHolder})) == null) {
-            if (zj8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().y(this.c);
-                cardViewHolder.a().i(zj8Var);
-                return cardViewHolder.getView();
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            bk8.a(bk8.this);
+                        }
+                    }
+                });
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
     }
 }

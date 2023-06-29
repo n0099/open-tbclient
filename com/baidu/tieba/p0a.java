@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
+import com.baidu.tbadk.core.data.ErrorData;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface p0a {
-    @Deprecated
-    boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult);
+    void onError(String str, ErrorData errorData);
+
+    void onNoData(ErrorData errorData);
+
+    void onSucc(String str, List<String> list, List<xn> list2);
 }

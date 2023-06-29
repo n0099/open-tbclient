@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopicSubNode;
-import com.baidu.tieba.lg;
+import com.baidu.tieba.mg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.List;
 public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lg<CardFrsGameSpecialTopicItemView> a;
+    public mg<CardFrsGameSpecialTopicItemView> a;
     public int b;
     public int c;
     public int d;
@@ -162,10 +162,10 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(lg<CardFrsGameSpecialTopicItemView> lgVar) {
+    public void setViewPool(mg<CardFrsGameSpecialTopicItemView> mgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, lgVar) == null) {
-            this.a = lgVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, mgVar) == null) {
+            this.a = mgVar;
         }
     }
 
@@ -229,8 +229,8 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         }
         cardFrsGameSpecialTopicItemView.getSpecialTopicPicView().N(featureCardTopicSubNode.image, 10, false);
         cardFrsGameSpecialTopicItemView.getSpecialTopicNameView().setText(featureCardTopicSubNode.title);
-        cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f080e, String.valueOf(featureCardTopicSubNode.article_num)));
-        cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.obfuscated_res_0x7f0f080f, StringHelper.getTimeInterval(featureCardTopicSubNode.update_time)));
+        cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0811, String.valueOf(featureCardTopicSubNode.article_num)));
+        cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.obfuscated_res_0x7f0f0812, StringHelper.getTimeInterval(featureCardTopicSubNode.update_time)));
         cardFrsGameSpecialTopicItemView.setTag(featureCardTopicSubNode.url);
         cardFrsGameSpecialTopicItemView.c(TbadkCoreApplication.getInst().getSkinType());
     }

@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
+import android.util.SparseArray;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.HotForum.HotTopicList;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class zr8 {
+public final class zr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
+    public final SparseArray<yr8<ChatMsg, bq8<?>>> a;
+    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
     public zr8() {
         Interceptable interceptable = $ic;
@@ -25,43 +27,58 @@ public class zr8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new SparseArray<>();
+        this.b = new HashMap<>();
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public final void a(int i, yr8<ChatMsg, bq8<?>> converter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
+            Intrinsics.checkNotNullParameter(converter, "converter");
+            this.a.put(i, converter);
         }
-        return invokeV.longValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            this.b.put(sdkMsg, Integer.valueOf(i));
         }
-        return (String) invokeV.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public final ChatMsg c(bq8<?> tbMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            yr8<ChatMsg, bq8<?>> yr8Var = this.a.get(tbMsg.e().getType());
+            if (yr8Var == null) {
+                return null;
+            }
+            return yr8Var.b(tbMsg);
         }
-        return invokeV.intValue;
+        return (ChatMsg) invokeL.objValue;
     }
 
-    public void d(HotTopicList hotTopicList) {
+    public final bq8<?> d(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) && hotTopicList != null) {
-            this.a = hotTopicList.topic_id.longValue();
-            this.b = hotTopicList.topic_name;
-            this.c = hotTopicList.tag.intValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Integer num = this.b.get(sdkMsg.getClass());
+            if (num == null) {
+                return null;
+            }
+            yr8<ChatMsg, bq8<?>> yr8Var = this.a.get(num.intValue());
+            if (yr8Var == null) {
+                return null;
+            }
+            return yr8Var.a(sdkMsg);
         }
+        return (bq8) invokeL.objValue;
     }
 }

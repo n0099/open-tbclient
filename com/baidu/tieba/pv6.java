@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class pv6 extends BaseCardInfo {
+public final class pv6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final pv6 a;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<it6> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public lk7 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +35,10 @@ public class pv6 extends BaseCardInfo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = new pv6();
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
     }
 
     public pv6() {
@@ -47,29 +55,50 @@ public class pv6 extends BaseCardInfo {
         }
     }
 
-    public lk7 c() {
+    public final PointF b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PointF acquire = c.acquire();
+            if (acquire == null) {
+                return new PointF();
+            }
+            return acquire;
         }
-        return (lk7) invokeV.objValue;
+        return (PointF) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.wn
-    public BdUniqueId getType() {
+    public final RectF c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
+            RectF acquire = b.acquire();
+            if (acquire == null) {
+                return new RectF();
+            }
+            return acquire;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (RectF) invokeV.objValue;
     }
 
-    public void d(lk7 lk7Var) {
+    public final it6 a(jt6 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lk7Var) == null) {
-            this.a = lk7Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            it6 acquire = d.acquire();
+            if (acquire != null) {
+                acquire.l(data);
+                acquire.q(player.m().w());
+            } else {
+                acquire = null;
+            }
+            if (acquire == null) {
+                return new it6(data, player);
+            }
+            return acquire;
         }
+        return (it6) invokeLL.objValue;
     }
 }

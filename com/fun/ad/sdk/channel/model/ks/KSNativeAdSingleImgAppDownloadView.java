@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i7b;
+import com.baidu.tieba.ybb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -162,7 +162,7 @@ public class KSNativeAdSingleImgAppDownloadView extends y {
             }
             this.f.setText(ksNativeAd.getAppName());
             this.g.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new i7b(ksNativeAd.getActionDescription(), this.g));
+            ksNativeAd.setDownloadListener(new ybb(ksNativeAd.getActionDescription(), this.g));
         }
     }
 }

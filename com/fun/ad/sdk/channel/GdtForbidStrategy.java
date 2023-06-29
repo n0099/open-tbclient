@@ -3,7 +3,7 @@ package com.fun.ad.sdk.channel;
 import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tieba.z4b;
+import com.baidu.tieba.p9b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class GdtForbidStrategy implements IAdForbidStrategy {
             synchronized (this) {
                 long currentTimeMillis = System.currentTimeMillis();
                 LogPrinter.d("开始判断是否需要拦截当前请求，广告位：" + str, new Object[0]);
-                SharedPreferences sharedPreferences = z4b.a;
+                SharedPreferences sharedPreferences = p9b.a;
                 long j = sharedPreferences.getLong(str + SubPbActivityConfig.KEY_ANTI, 0L);
                 LogPrinter.d("上次出现5004错误的时间：" + j, new Object[0]);
                 if (j != 0) {
@@ -49,7 +49,7 @@ public class GdtForbidStrategy implements IAdForbidStrategy {
                         LogPrinter.d("gdt还没有超出5004错误的限制时间，广告位：" + str + " 不发起load", new Object[0]);
                         return 5004;
                     }
-                    SharedPreferences.Editor editor = z4b.b;
+                    SharedPreferences.Editor editor = p9b.b;
                     editor.remove(str + SubPbActivityConfig.KEY_ANTI).apply();
                 }
                 long j2 = sharedPreferences.getLong(str, 0L);
@@ -60,7 +60,7 @@ public class GdtForbidStrategy implements IAdForbidStrategy {
                         return ErrorCode.ServerError.REQUEST_FREQUENTLY;
                     }
                     LogPrinter.d("该广告位 " + str + " 的109502错误的限制时间已经过去了", new Object[0]);
-                    z4b.b.remove(str).apply();
+                    p9b.b.remove(str).apply();
                 }
                 LogPrinter.d("不需要拦截，广告位" + str, new Object[0]);
                 return 0;
@@ -77,11 +77,11 @@ public class GdtForbidStrategy implements IAdForbidStrategy {
                 LogPrinter.d("gdt发生了错误，错误码为：" + i + "  广告位：" + str, new Object[0]);
                 if (i == 109502) {
                     LogPrinter.d("记录109502出现的时间" + System.currentTimeMillis(), new Object[0]);
-                    z4b.b.putLong(str, System.currentTimeMillis()).apply();
+                    p9b.b.putLong(str, System.currentTimeMillis()).apply();
                 } else if (i == 5004) {
                     LogPrinter.d("记录错误码5004出现的时间" + System.currentTimeMillis(), new Object[0]);
                     long currentTimeMillis = System.currentTimeMillis();
-                    SharedPreferences.Editor editor = z4b.b;
+                    SharedPreferences.Editor editor = p9b.b;
                     editor.putLong(str + SubPbActivityConfig.KEY_ANTI, currentTimeMillis).apply();
                 }
             }

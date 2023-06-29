@@ -27,7 +27,7 @@ public final class MapPoi {
         if (jSONObject == null) {
             return;
         }
-        String optString = jSONObject.optString("tx");
+        String optString = jSONObject.optString(MapBundleKey.MapObjKey.OBJ_TEXT);
         this.a = optString;
         if (optString != null && !optString.equals("")) {
             this.a = this.a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");

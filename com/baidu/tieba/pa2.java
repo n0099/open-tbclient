@@ -1,170 +1,40 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.R;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.an4;
-import com.baidu.tieba.dn4;
-import com.baidu.tieba.tm4;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.spswitch.emotion.Emoticons;
+import com.baidu.tieba.ki3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.nio.channels.FileChannel;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class pa2 implements tl2 {
+public class pa2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-
-        void b(int i);
-
-        void c();
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a extends te2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ Map c;
-
-        public a(b bVar, Map map) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bVar;
-            this.c = map;
-            this.a = false;
-        }
-
-        @Override // com.baidu.tieba.te2
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.a();
-                b bVar = this.b;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.te2
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                i();
-                b bVar = this.b;
-                if (bVar != null && !this.a) {
-                    bVar.a();
-                }
-            }
-        }
-
-        public final void i() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                for (String str : this.c.keySet()) {
-                    j(str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.te2
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                super.b(i);
-                b bVar = this.b;
-                if (bVar != null) {
-                    if (i == 1010) {
-                        bVar.a();
-                    } else {
-                        bVar.b(3);
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.te2
-        public void c(@NonNull tm4.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                super.c(aVar);
-                j(aVar.b);
-                pf2.c(aVar.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.te2
-        public void f(tk4 tk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, tk4Var) == null) {
-                super.f(tk4Var);
-                if (tk4Var.a != 1010) {
-                    this.a = true;
-                    b bVar = this.b;
-                    if (bVar != null) {
-                        bVar.b(3);
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.te2
-        public void g(@NonNull zk4 zk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, zk4Var) == null) {
-                super.g(zk4Var);
-                j(zk4Var.o);
-            }
-        }
-
-        public final void j(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.c.containsKey(str)) {
-                Set<String> set = (Set) this.c.get(str);
-                if (set != null && !set.isEmpty()) {
-                    for (String str2 : set) {
-                        pf2.d(str, str2);
-                    }
-                    return;
-                }
-                pf2.c(str);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -179,203 +49,289 @@ public final class pa2 implements tl2 {
                 return;
             }
         }
-        a = js1.a;
+        a = ms1.a;
     }
 
-    public static void a(@NonNull List<dn4.b> list, @Nullable String str, b bVar) {
-        String[] i;
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, list, str, bVar) == null) {
-            if (!c(nk3.a().getString("predownload_network_switch", "1"))) {
-                if (a) {
-                    Log.e("SwanPreDownload", "pre download net invalid");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return jv2.o().N();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void a(File file, File file2) throws IOException {
+        FileChannel fileChannel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, file, file2) == null) {
+            FileChannel fileChannel2 = 0;
+            try {
+                FileChannel channel = new FileInputStream(file).getChannel();
+                try {
+                    fileChannel2 = new FileOutputStream(file2).getChannel();
+                    fileChannel2.transferFrom(channel, 0L, channel.size());
+                    gs4.d(channel);
+                    gs4.d(fileChannel2);
+                } catch (Throwable th) {
+                    th = th;
+                    FileChannel fileChannel3 = fileChannel2;
+                    fileChannel2 = channel;
+                    fileChannel = fileChannel3;
+                    gs4.d(fileChannel2);
+                    gs4.d(fileChannel);
+                    throw th;
                 }
-                if (bVar != null) {
-                    bVar.b(6);
-                    return;
+            } catch (Throwable th2) {
+                th = th2;
+                fileChannel = null;
+            }
+        }
+    }
+
+    public static void b(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            c(str, str2, str3, false);
+        }
+    }
+
+    public static void c(String str, String str2, String str3, boolean z) {
+        FileInputStream fileInputStream;
+        BufferedWriter bufferedWriter;
+        File file;
+        File file2;
+        File file3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            BufferedReader bufferedReader = null;
+            try {
+                file = new File(str);
+                String absolutePath = file.getParentFile().getAbsolutePath();
+                String name = file.getName();
+                file2 = new File(absolutePath + File.separator + name + ".tmp");
+                file3 = new File(absolutePath + File.separator + name + ".bak");
+            } catch (Exception e) {
+                e = e;
+                fileInputStream = null;
+                bufferedWriter = null;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = null;
+                bufferedWriter = null;
+            }
+            if (z) {
+                if (file3.exists()) {
+                    file3.renameTo(file);
                 }
+                gs4.d(null);
+                gs4.d(null);
+                gs4.d(null);
                 return;
             }
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            for (dn4.b bVar2 : list) {
-                if (bVar2 != null) {
-                    if (bVar2.i() != null && bVar2.i().length != 0) {
-                        Set set = (Set) hashMap.get(bVar2.b());
-                        if (set == null) {
-                            set = new HashSet();
-                        }
-                        boolean z = false;
-                        for (String str2 : bVar2.i()) {
-                            if (pf2.f(bVar2.b(), str2) && !z) {
-                                arrayList.add(bVar2);
-                                z = true;
+            FileInputStream fileInputStream2 = new FileInputStream(file);
+            try {
+                BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(fileInputStream2));
+                try {
+                    if (file3.exists()) {
+                        a(file3, file);
+                    } else {
+                        a(file, file3);
+                    }
+                    bufferedWriter = new BufferedWriter(new FileWriter(file2));
+                    boolean z2 = false;
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
                             }
-                            set.add(str2);
+                            if (readLine.contains(str2)) {
+                                bufferedWriter.write(str3 + "\n");
+                                z2 = true;
+                            }
+                            bufferedWriter.write(readLine + "\n");
+                        } catch (Exception e2) {
+                            e = e2;
+                            bufferedReader = bufferedReader2;
+                            Exception exc = e;
+                            fileInputStream = fileInputStream2;
+                            e = exc;
+                            try {
+                                e.printStackTrace();
+                                gs4.d(bufferedReader);
+                                gs4.d(fileInputStream);
+                                gs4.d(bufferedWriter);
+                            } catch (Throwable th2) {
+                                th = th2;
+                                gs4.d(bufferedReader);
+                                gs4.d(fileInputStream);
+                                gs4.d(bufferedWriter);
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            bufferedReader = bufferedReader2;
+                            Throwable th4 = th;
+                            fileInputStream = fileInputStream2;
+                            th = th4;
+                            gs4.d(bufferedReader);
+                            gs4.d(fileInputStream);
+                            gs4.d(bufferedWriter);
+                            throw th;
                         }
-                        hashMap.put(bVar2.b(), set);
-                    } else if (pf2.e(bVar2.b())) {
-                        arrayList.add(bVar2);
-                        hashMap.put(bVar2.b(), null);
+                    }
+                    bufferedWriter.flush();
+                    if (z2) {
+                        file2.renameTo(file);
+                    } else {
+                        file2.delete();
+                    }
+                    gs4.d(bufferedReader2);
+                    gs4.d(fileInputStream2);
+                } catch (Exception e3) {
+                    e = e3;
+                    bufferedWriter = null;
+                } catch (Throwable th5) {
+                    th = th5;
+                    bufferedWriter = null;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                bufferedWriter = null;
+            } catch (Throwable th6) {
+                th = th6;
+                bufferedWriter = null;
+            }
+            gs4.d(bufferedWriter);
+        }
+    }
+
+    public static void e(@NonNull Context context) {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                Class<?> cls = Class.forName("android.content.res.AssetManager");
+                Field declaredField = cls.getDeclaredField("mStringBlocks");
+                boolean z3 = true;
+                declaredField.setAccessible(true);
+                Object[] objArr = (Object[]) declaredField.get(context.getAssets());
+                if (objArr == null) {
+                    jSONObject.put("stringBlocks", StringUtil.NULL_STRING);
+                } else {
+                    jSONObject.put("stringBlocks size", objArr.length);
+                    for (int i = 0; i < objArr.length; i++) {
+                        String str = "stringBlocks " + i;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(" == null :");
+                        if (objArr[i] == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        sb.append(z);
+                        jSONObject.put(str, sb.toString());
                     }
                 }
-            }
-            if (arrayList.isEmpty()) {
-                if (a) {
-                    Log.i("SwanPreDownload", "preDownload list empty");
+                Field declaredField2 = cls.getDeclaredField("sSystem");
+                declaredField2.setAccessible(true);
+                Object obj = declaredField2.get(cls);
+                Field declaredField3 = cls.getDeclaredField("mStringBlocks");
+                declaredField3.setAccessible(true);
+                Object[] objArr2 = (Object[]) declaredField3.get(obj);
+                if (objArr2 == null) {
+                    jSONObject.put("stringBlocksSys", StringUtil.NULL_STRING);
+                } else {
+                    jSONObject.put("stringBlocksSys size", objArr2.length);
+                    for (int i2 = 0; i2 < objArr2.length; i2++) {
+                        String str2 = "stringBlocksSys " + i2;
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append(" == null :");
+                        if (objArr2[i2] == null) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        sb2.append(z2);
+                        jSONObject.put(str2, sb2.toString());
+                    }
                 }
-                if (bVar != null) {
-                    bVar.a();
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, R.styleable.View, Resources.getSystem().getIdentifier("webViewStyle", Emoticons.KEY_ATTR, "android"), 0);
+                if (obtainStyledAttributes == null) {
+                    jSONObject.put("TypedArray", StringUtil.NULL_STRING);
+                } else {
+                    jSONObject.put("TypedArray ", obtainStyledAttributes.toString());
+                    jSONObject.put("TypedArray mLength", obtainStyledAttributes.length());
+                    Field declaredField4 = obtainStyledAttributes.getClass().getDeclaredField("mRecycled");
+                    declaredField4.setAccessible(true);
+                    jSONObject.put("TypedArray mRecycled", declaredField4.get(obtainStyledAttributes));
+                    Field declaredField5 = obtainStyledAttributes.getClass().getDeclaredField("mAssets");
+                    declaredField5.setAccessible(true);
+                    if (declaredField5.get(obtainStyledAttributes) != context.getAssets()) {
+                        z3 = false;
+                    }
+                    jSONObject.put("TypedArray mAssets", z3);
+                    obtainStyledAttributes.recycle();
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            String jSONObject2 = jSONObject.toString();
+            if (TextUtils.isEmpty(jSONObject2)) {
+                if (a) {
+                    Log.d("SwanAppCoreUtils", "reportFatalInfo: empty");
                     return;
                 }
                 return;
             }
-            dn4 dn4Var = new dn4(arrayList, xp3.b());
-            dn4Var.e(str);
-            dn4Var.d("1");
-            we2 we2Var = new we2(new a(bVar, hashMap));
-            we2Var.L(ff2.a(str));
-            jj4.f(dn4Var, we2Var);
-        }
-    }
-
-    public static void b(@NonNull List<an4.a> list, @NonNull String str, @NonNull te2 te2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, list, str, te2Var) == null) {
-            if (!c(nk3.a().getString("predownload_network_switch", "1"))) {
-                te2Var.b(6);
-                return;
+            if (a) {
+                Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
             }
-            List<an4.a> i = pf2.i(list);
-            if (i.isEmpty()) {
-                te2Var.d();
-                return;
-            }
-            an4 an4Var = new an4((List<? extends an4.a>) i, (cp4) xp3.b());
-            an4Var.d("1");
-            an4Var.e(str);
-            we2 we2Var = new we2(te2Var);
-            we2Var.L(ff2.a(str));
-            jj4.f(an4Var, we2Var);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
-        if (com.baidu.swan.apps.network.SwanAppNetworkUtils.j(com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()) != false) goto L8;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            boolean z = true;
-            if (!TextUtils.equals(str, "0")) {
-                if (!TextUtils.equals(str, "1")) {
-                    TextUtils.equals(str, "2");
-                    z = false;
-                }
-                if (a) {
-                    Log.d("SwanPreDownload", "SwanPredownload: current net suits for net config = " + z);
-                }
-                return z;
-            }
-        } else {
-            return invokeL.booleanValue;
-        }
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!TextUtils.equals(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME, str)) {
-                return true;
-            }
-            gv2.g0().getSwitch("swan_game_feed_predownload", 0);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(@NonNull String str, @Nullable String str2, @Nullable String str3, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, bVar) == null) {
-            dn4.b bVar2 = new dn4.b(str);
-            if (!TextUtils.isEmpty(str2)) {
-                bVar2.l(new String[]{str2});
-            }
-            a(Collections.singletonList(bVar2), str3, bVar);
+            ki3.b bVar = new ki3.b(10006);
+            bVar.i(jSONObject2);
+            bVar.h(cc3.g0());
+            bVar.m();
         }
     }
 
     public static void f(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.e("SwanPreDownload", "pre download swanAppId invalid");
-                }
-            } else if (!c(nk3.a().getString("predownload_network_switch", "1"))) {
-                if (a) {
-                    Log.e("SwanPreDownload", "pre download net invalid");
-                }
-            } else {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(new an4.a(str));
-                List<an4.a> i = pf2.i(arrayList);
-                if (i.isEmpty()) {
-                    if (a) {
-                        Log.e("SwanPreDownload", "pre download has record");
-                        return;
-                    }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("url", str);
+                jSONObject.put("package", AppRuntime.getApplication().getPackageName());
+                jSONObject.put("processName", ProcessUtils.getCurProcessName());
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
+                jSONObject.put("errMessage", str3);
+                jSONObject.put("isMainThread", wp3.O());
+                String jSONObject2 = jSONObject.toString();
+                if (a && TextUtils.isEmpty(jSONObject2)) {
+                    Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: empty");
                     return;
                 }
-                an4 an4Var = new an4((List<? extends an4.a>) i, (cp4) xp3.b());
-                an4Var.e(str2);
-                an4Var.d("1");
-                we2 we2Var = new we2();
-                we2Var.L(ff2.a(str2));
-                jj4.f(an4Var, we2Var);
+                if (a) {
+                    Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
+                }
+                ki3.b bVar = new ki3.b(10008);
+                bVar.i(jSONObject2);
+                bVar.h(cc3.g0());
+                bVar.m();
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
-    public static void g(@Nullable String str, @Nullable String str2, @Nullable String str3, boolean z, @Nullable String str4, b bVar) {
+    public static void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, bVar}) == null) {
-            if (a) {
-                Log.d("SwanPreDownload", "preDownloadSwanAppByFeed appId: " + str + " ,appType: " + str2 + " ,isClick: " + z + ", scheme=" + str4);
-            }
-            if (z) {
-                if (bVar != null) {
-                    bVar.a();
-                }
-            } else if (TextUtils.isEmpty(str)) {
-                if (bVar != null) {
-                    bVar.c();
-                }
-            } else if (!d(str2)) {
-                if (bVar != null) {
-                    bVar.b(6);
-                }
-            } else {
-                String str5 = null;
-                if (!TextUtils.isEmpty(str4)) {
-                    try {
-                        Uri parse = Uri.parse(str4);
-                        if (parse != null) {
-                            str5 = rp3.n(str, parse, false);
-                        }
-                    } catch (Exception e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                e(str, str5, str3, bVar);
-            }
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            c(str, null, null, true);
         }
     }
 }

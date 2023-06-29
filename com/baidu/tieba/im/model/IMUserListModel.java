@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.ug;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ public class IMUserListModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
+                super((l9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,7 +75,7 @@ public class IMUserListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            o95 p = o95.p();
+            r95 p = r95.p();
             long r = p.r("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), 0L);
             if (r == 0 || System.currentTimeMillis() - r > 7200000) {
                 return true;
@@ -103,7 +103,7 @@ public class IMUserListModel extends BdBaseModel {
         }
         ArrayList arrayList = new ArrayList();
         for (String str : list) {
-            if (ug.g(str, 0L) <= 0) {
+            if (vg.g(str, 0L) <= 0) {
                 arrayList.add(str);
             }
         }
@@ -115,7 +115,7 @@ public class IMUserListModel extends BdBaseModel {
             sendMessage(new IMUserListHttpReqMessage(list));
         } else if (canRequestIfControl()) {
             sendMessage(new IMUserListHttpReqMessage(list));
-            o95 p = o95.p();
+            r95 p = r95.p();
             p.H("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
         }
     }

@@ -1,69 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.hybrid.BridgeHandler;
+import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v85 {
+public abstract class v85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public Context b;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public abstract void c(w85 w85Var);
+
+    public abstract void e(String str, BridgeHandler bridgeHandler);
+
+    public v85(View view2, n85 n85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            try {
-                URL url = new URL(str);
-                String protocol = url.getProtocol();
-                if ("file".equals(protocol)) {
-                    return true;
-                }
-                if (!"http".equals(protocol) && !"https".equals(protocol)) {
-                    return false;
-                }
-                if (url.getHost().endsWith(".baidu.com")) {
-                    if (str.contains("tieba_hybrid_enabled=1")) {
-                        return true;
-                    }
-                    if (str.contains("tieba_hybrid_enabled%3D1")) {
-                        return true;
-                    }
-                }
-                return false;
-            } catch (MalformedURLException unused) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, n85Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.booleanValue;
+        this.a = view2;
+        this.b = view2.getContext();
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public final void d(NamedBridgeHandler namedBridgeHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            try {
-                URL url = new URL(str);
-                String protocol = url.getProtocol();
-                if ("file".equals(protocol)) {
-                    return true;
-                }
-                if (!"http".equals(protocol) && !"https".equals(protocol)) {
-                    return false;
-                }
-                return url.getHost().endsWith(".baidu.com");
-            } catch (MalformedURLException unused) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, namedBridgeHandler) == null) {
+            e(namedBridgeHandler.scope(), namedBridgeHandler);
         }
-        return invokeL.booleanValue;
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
     }
 }

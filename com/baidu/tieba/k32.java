@@ -1,54 +1,53 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.ArrayMap;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.ww2;
+import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k32 extends y22 {
+public class k32 extends b32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.c02
+    @Override // com.baidu.tieba.f02
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "UbcFlowJarApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "PreviewImageApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public class a implements vq3<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ zb3 b;
+        public final /* synthetic */ ArrayMap a;
+        public final /* synthetic */ JSONArray b;
+        public final /* synthetic */ JSONArray c;
+        public final /* synthetic */ JSONArray d;
+        public final /* synthetic */ JSONObject e;
+        public final /* synthetic */ k32 f;
 
-        public a(JSONObject jSONObject, zb3 zb3Var) {
+        public a(k32 k32Var, ArrayMap arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, zb3Var};
+                Object[] objArr = {k32Var, arrayMap, jSONArray, jSONArray2, jSONArray3, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,74 +57,68 @@ public class k32 extends y22 {
                     return;
                 }
             }
-            this.a = jSONObject;
-            this.b = zb3Var;
+            this.f = k32Var;
+            this.a = arrayMap;
+            this.b = jSONArray;
+            this.c = jSONArray2;
+            this.d = jSONArray3;
+            this.e = jSONObject;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vq3
+        /* renamed from: b */
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            k32.y(this.a, this.b);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ HybridUbcFlow b;
-        public final /* synthetic */ fy1 c;
-
-        public b(String str, HybridUbcFlow hybridUbcFlow, fy1 fy1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, hybridUbcFlow, fy1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            JSONArray jSONArray = null;
+            try {
+                jSONArray = new JSONArray(str);
+            } catch (JSONException unused) {
             }
-            this.a = str;
-            this.b = hybridUbcFlow;
-            this.c = fy1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (TextUtils.equals(this.a, "1")) {
-                    this.b.S();
+            if (jSONArray != null && jSONArray.length() > 0) {
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    String optString = optJSONObject.optString("fileID");
+                    String optString2 = optJSONObject.optString("tempFileURL");
+                    if (optJSONObject.optString("status").equals("0") && !TextUtils.isEmpty(optString2)) {
+                        this.a.put(optString, optString2);
+                    }
+                }
+                this.f.G(this.a, this.b, "images");
+                this.f.G(this.a, this.c, "urls");
+                this.f.G(this.a, this.d, "url");
+                try {
+                    this.e.put("images", this.b);
+                    this.e.put("urls", this.c);
+                    this.e.put("url", this.d);
+                } catch (JSONException unused2) {
+                }
+                SwanAppActivity activity = px2.T().getActivity();
+                if (activity != null) {
+                    jv2.C().b(activity, this.e);
                 } else {
-                    this.b.C(this.c);
+                    jv2.C().b(this.f.getContext(), this.e);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k32(@NonNull a02 a02Var) {
-        super(a02Var);
+    public k32(@NonNull d02 d02Var) {
+        super(d02Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a02Var};
+            Object[] objArr = {d02Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a02) newInitContext.callArgs[0]);
+                super((d02) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -133,156 +126,190 @@ public class k32 extends y22 {
         }
     }
 
-    public static UbcFlowEvent G(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final String A(JSONArray jSONArray, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, jSONArray, str, i)) == null) {
+            if (str.equals("images")) {
+                return jSONArray.optJSONObject(i).optString("url");
             }
-            String optString = jSONObject.optString("actionId");
-            long optLong = jSONObject.optLong("timestamp");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
-            ubcFlowEvent.h(optLong);
-            return ubcFlowEvent;
+            return jSONArray.optString(i);
         }
-        return (UbcFlowEvent) invokeL.objValue;
+        return (String) invokeLLI.objValue;
     }
 
-    public static List<UbcFlowEvent> H(JSONArray jSONArray) {
+    public c42 B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray == null) {
-                return arrayList;
-            }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                UbcFlowEvent G = G(jSONArray.optJSONObject(i));
-                if (G != null) {
-                    G.e("FE");
-                    arrayList.add(G);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x004d  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x005b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void A(HybridUbcFlow hybridUbcFlow, zb3 zb3Var, String str, @Nullable fy1 fy1Var) {
-        long j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, hybridUbcFlow, zb3Var, str, fy1Var) == null) && hybridUbcFlow != null && zb3Var != null) {
-            if (!ti2.U().p0()) {
-                if (TextUtils.equals(str, "1")) {
-                    hybridUbcFlow.S();
-                    return;
-                } else {
-                    hybridUbcFlow.C(fy1Var);
-                    return;
-                }
-            }
-            long H = gv2.g0().H();
-            if (H <= 0) {
-                return;
-            }
-            ww2.a Y = zb3Var.Y();
-            boolean z = false;
-            if (Y != null) {
-                long currentTimeMillis = System.currentTimeMillis() - Y.N();
-                if (currentTimeMillis >= H) {
-                    z = true;
-                } else {
-                    j = H - currentTimeMillis;
-                    if (!z) {
-                        if (TextUtils.equals(str, "1")) {
-                            hybridUbcFlow.S();
-                            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#handlePreviewImage", false);
+            if (n()) {
+                c92.c("PreviewImageApi", "PreviewImageApi does not supported when app is invisible.");
+                return new c42(1001, "PreviewImageApi does not supported when app is invisible.");
+            } else if (TextUtils.isEmpty(str)) {
+                return new c42(202);
+            } else {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optBoolean("only_support_wifi") && !SwanAppNetworkUtils.j(getContext())) {
+                        return new c42(403);
+                    }
+                    String optString = jSONObject.optString("source", "unitedscheme");
+                    String optString2 = jSONObject.optString("type", "0");
+                    JSONArray optJSONArray = jSONObject.optJSONArray("urls");
+                    if (optJSONArray != null && optJSONArray.length() != 0) {
+                        JSONArray optJSONArray2 = jSONObject.optJSONArray("images");
+                        if (optJSONArray2 != null) {
+                            F(optJSONArray2);
+                            jSONObject.put("images", optJSONArray2);
                         } else {
-                            hybridUbcFlow.C(fy1Var);
-                            return;
+                            JSONArray jSONArray = new JSONArray();
+                            int length = optJSONArray.length();
+                            for (int i = 0; i < length; i++) {
+                                JSONObject jSONObject2 = new JSONObject();
+                                String optString3 = optJSONArray.optString(i);
+                                jSONObject2.put("url", optString3);
+                                String b = jp3.b();
+                                if (jp3.c(optString3) && !TextUtils.isEmpty(b)) {
+                                    jSONObject2.put("referer", b);
+                                }
+                                String g0 = wi2.U().g0();
+                                if (!TextUtils.isEmpty(g0)) {
+                                    jSONObject2.put(HttpRequest.USER_AGENT, g0);
+                                }
+                                jSONArray.put(jSONObject2);
+                            }
+                            jSONObject.put("images", jSONArray);
                         }
-                    } else if (j <= 0) {
-                        return;
-                    } else {
-                        to3.c(new b(str, hybridUbcFlow, fy1Var), "waitFcp", j, TimeUnit.MILLISECONDS);
-                        return;
+                        if (TextUtils.equals(optString, "swan")) {
+                            C(optJSONArray);
+                        }
+                        jSONObject.put("url", optJSONArray);
+                        jSONObject.put("type", optString2);
+                        int z = z(jSONObject, optJSONArray);
+                        if (z >= 0 && z < optJSONArray.length()) {
+                            jSONObject.put("index", String.valueOf(z));
+                            ArrayMap<String, String> arrayMap = new ArrayMap<>();
+                            JSONArray optJSONArray3 = jSONObject.optJSONArray("images");
+                            JSONArray optJSONArray4 = jSONObject.optJSONArray("urls");
+                            JSONArray optJSONArray5 = jSONObject.optJSONArray("url");
+                            D(arrayMap, optJSONArray3, "images");
+                            D(arrayMap, optJSONArray4, "urls");
+                            D(arrayMap, optJSONArray5, "url");
+                            if (arrayMap.keySet().size() > 0) {
+                                E(jSONObject, arrayMap, optJSONArray3, optJSONArray4, optJSONArray5);
+                            } else {
+                                Context activity = px2.T().getActivity();
+                                if (activity != null) {
+                                    jv2.C().b(activity, jSONObject);
+                                } else {
+                                    jv2.C().b(getContext(), jSONObject);
+                                }
+                            }
+                            return c42.f();
+                        }
+                        return new c42(202);
+                    }
+                    return new c42(202);
+                } catch (JSONException unused) {
+                    return new c42(202);
+                }
+            }
+        }
+        return (c42) invokeL.objValue;
+    }
+
+    public final JSONArray C(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        cc3 M;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+            int length = jSONArray.length();
+            if (jSONArray != null && length > 0 && (M = cc3.M()) != null && !TextUtils.isEmpty(M.b) && !TextUtils.isEmpty(M.k0())) {
+                for (int i = 0; i < length; i++) {
+                    try {
+                        String optString = jSONArray.optString(i);
+                        PathType s = kj3.s(optString);
+                        if (s == PathType.BD_FILE) {
+                            optString = kj3.M(optString, M.b);
+                        } else if (s == PathType.RELATIVE) {
+                            optString = kj3.L(optString, M, M.k0());
+                        }
+                        if (!TextUtils.isEmpty(optString)) {
+                            jSONArray.put(i, optString);
+                        }
+                    } catch (JSONException unused) {
                     }
                 }
             }
-            j = 0;
-            if (!z) {
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public final void F(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) {
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                try {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("url");
+                        String b = jp3.b();
+                        if (jp3.c(optString) && !TextUtils.isEmpty(b)) {
+                            optJSONObject.put("referer", b);
+                        }
+                        String g0 = wi2.U().g0();
+                        if (!TextUtils.isEmpty(g0)) {
+                            optJSONObject.put(HttpRequest.USER_AGENT, g0);
+                        }
+                    }
+                } catch (JSONException unused) {
+                    return;
+                }
             }
         }
     }
 
-    public static void B(JSONObject jSONObject, zb3 zb3Var) {
+    public final void D(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, jSONObject, zb3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(jSONObject, zb3Var), "handlePerformMsg", 2);
-        }
-    }
-
-    public static void C(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) && (optJSONArray = jSONObject.optJSONArray("data")) != null && optJSONArray.length() >= 1) {
-            g53.e().c(optJSONArray.optJSONObject(0));
-        }
-    }
-
-    public static void D(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("ext")) == null) {
-            return;
-        }
-        String optString = optJSONObject.optString("routeId");
-        if (TextUtils.isEmpty(optString)) {
-            return;
-        }
-        HybridUbcFlow q = e53.q("route", optString);
-        if (TextUtils.equals(optJSONObject.optString("hasWebView"), "1")) {
-            q.I(HybridUbcFlow.SubmitStrategy.ROUTE_WEB);
-        }
-        q.G(H(jSONObject.optJSONArray("data")));
-        q.n();
-        hy1 A = mx2.T().A(optJSONObject.optString("slaveId"));
-        if (A instanceof SwanAppSlaveManager) {
-            ((SwanAppSlaveManager) A).h1();
-        }
-    }
-
-    public static void E(@Nullable JSONArray jSONArray) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, jSONArray) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("FlowJarAction-671: ");
-            if (jSONArray == null) {
-                obj = StringUtil.NULL_STRING;
-            } else {
-                obj = jSONArray;
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, arrayMap, jSONArray, str) == null) && jSONArray != null && jSONArray.length() > 0) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                String A = A(jSONArray, str, i);
+                if (!TextUtils.isEmpty(A) && kj3.s(A) == PathType.CLOUD) {
+                    arrayMap.put(A, A);
+                }
             }
-            sb.append(obj);
-            z82.k("UbcFlowJarApi", sb.toString());
-            if (jSONArray != null && jSONArray.length() != 0) {
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
+        }
+    }
+
+    public final void E(JSONObject jSONObject, ArrayMap<String, String> arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLLL(1048580, this, jSONObject, arrayMap, jSONArray, jSONArray2, jSONArray3) == null) && jSONObject != null && arrayMap != null && arrayMap.keySet().size() > 0) {
+            JSONArray jSONArray4 = new JSONArray();
+            for (String str : arrayMap.values()) {
+                jSONArray4.put(str);
+            }
+            kw1 l = jv2.l();
+            if (l == null) {
+                return;
+            }
+            l.c(getContext(), jSONArray4, new a(this, arrayMap, jSONArray, jSONArray2, jSONArray3, jSONObject));
+        }
+    }
+
+    public final void G(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, arrayMap, jSONArray, str) == null) && arrayMap != null && jSONArray != null && jSONArray.length() > 0) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                String str2 = arrayMap.get(A(jSONArray, str, i));
+                if (!TextUtils.isEmpty(str2)) {
                     try {
-                        JSONObject jSONObject = jSONArray.getJSONObject(i);
-                        if (TextUtils.equals(jSONObject.optString("type"), "feTraceError")) {
-                            zh3.d().h(jSONObject);
+                        if (str.equals("images")) {
+                            jSONArray.optJSONObject(i).put("url", str2);
                         } else {
-                            zh3.d().k(jSONObject);
+                            jSONArray.put(i, str2);
                         }
                     } catch (JSONException unused) {
                     }
@@ -291,193 +318,26 @@ public class k32 extends y22 {
         }
     }
 
-    public static void F(JSONArray jSONArray) {
-        hb2 H;
+    public final int z(@NonNull JSONObject jSONObject, @NonNull JSONArray jSONArray) throws JSONException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, jSONArray) != null) || (H = mx2.T().H()) == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = jSONArray.getJSONObject(0);
-            if (jSONObject != null) {
-                String string = jSONObject.getString("eventId");
-                String optString = jSONObject.optString(PmsConstant.Statistic.Key.REV_TIMESTAMP);
-                long j = 0;
-                if (!TextUtils.isEmpty(optString)) {
-                    try {
-                        j = Long.valueOf(optString).longValue();
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-                H.N3(new dj3(string, j));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, jSONArray)) == null) {
+            int optInt = jSONObject.optInt(ProgressInfo.JSON_KEY_CURRENT, -1);
+            if (optInt >= 0) {
+                return optInt;
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public static void y(JSONObject jSONObject, zb3 zb3Var) {
-        int i;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, jSONObject, zb3Var) == null) {
-            vd2 W = ti2.U().W();
-            if (W instanceof zd2) {
-                i = ((zd2) W).i();
-            } else {
-                i = 0;
-            }
-            ji3.C(true);
-            ji3.r();
-            HybridUbcFlow p = e53.p("startup");
-            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
-            fy1 fy1Var = null;
-            String str2 = "0";
-            if (optJSONObject != null) {
-                str2 = optJSONObject.optString("hasWebView", "0");
-                str = optJSONObject.optString("hasRelaunch");
-                hy1 A = mx2.T().A(optJSONObject.optString("slaveId"));
-                if (A instanceof fy1) {
-                    fy1Var = (fy1) A;
-                }
-            } else {
-                str = "";
-            }
-            if (TextUtils.equals(str2, "1")) {
-                HybridUbcFlow.SubmitStrategy i2 = p.i();
-                if (i2 == HybridUbcFlow.SubmitStrategy.HYBRID) {
-                    p.I(HybridUbcFlow.SubmitStrategy.HYBRID_WEB);
-                } else if (i2 == HybridUbcFlow.SubmitStrategy.RELAUNCH) {
-                    p.I(HybridUbcFlow.SubmitStrategy.RELAUNCH_WEB);
-                }
-            }
-            if (TextUtils.equals(str, "none")) {
-                if (TextUtils.equals(str2, "1")) {
-                    p.S();
-                } else {
-                    p.C(fy1Var);
-                }
-            }
-            A(p, zb3Var, str2, fy1Var);
-            JSONArray optJSONArray = jSONObject.optJSONArray("data");
-            p.D("codecache", String.valueOf(i));
-            p.D("slave_codecache", String.valueOf(z()));
-            p.G(H(optJSONArray));
-            p.n();
-        }
-    }
-
-    public static int z() {
-        InterceptResult invokeV;
-        hb2 o;
-        fy1 q3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            ib2 U = mx2.T().U();
-            if (U == null || (o = U.o()) == null || (q3 = o.q3()) == null) {
+            String optString = jSONObject.optString(ProgressInfo.JSON_KEY_CURRENT);
+            if (TextUtils.isEmpty(optString)) {
                 return 0;
             }
-            return q3.e0();
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0089, code lost:
-        if (r2.equals("670") != false) goto L20;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public z32 I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            char c = 0;
-            q("#ubcFlowJar", false);
-            zb3 b0 = zb3.b0();
-            if (b0 == null) {
-                return new z32(1001, "swan app is null");
-            }
-            Pair<z32, JSONObject> s = s(str);
-            z32 z32Var = (z32) s.first;
-            if (!z32Var.isSuccess()) {
-                return z32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("flowId");
-            if (TextUtils.isEmpty(optString)) {
-                return new z32(201, "empty flowId");
-            }
-            switch (optString.hashCode()) {
-                case 53647:
-                    break;
-                case 53648:
-                    if (optString.equals("671")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 55357:
-                    if (optString.equals("805")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 56506:
-                    if (optString.equals("967")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 46733230:
-                    if (optString.equals("10360")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1529139648:
-                    if (optString.equals("renderMonitorLog")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c != 5) {
-                                    return new z32(201, "unknown flowId");
-                                }
-                                C(jSONObject);
-                            } else {
-                                D(jSONObject);
-                            }
-                        } else {
-                            E(jSONObject.optJSONArray("data"));
-                        }
-                    } else {
-                        ur3.a().g(jSONObject.optJSONArray("data"));
-                    }
-                } else {
-                    F(jSONObject.optJSONArray("data"));
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                if (TextUtils.equals(optString, jSONArray.getString(i))) {
+                    return i;
                 }
-            } else {
-                B(jSONObject, b0);
             }
-            return z32.f();
+            return -1;
         }
-        return (z32) invokeL.objValue;
+        return invokeLL.intValue;
     }
 }

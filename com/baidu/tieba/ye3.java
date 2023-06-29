@@ -1,118 +1,104 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.jb3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes8.dex */
-public class ye3 {
+public class ye3 extends zd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean q;
-    public static String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final double b;
-    public final double c;
-    public final float d;
-    public final double e;
-    public final double f;
-    public final double g;
-    public final double h;
-    public final String i;
-    public final String j;
-    public final String k;
-    public final String l;
-    public final String m;
-    public final String n;
-    public final String o;
-    public final String p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327234, "Lcom/baidu/tieba/ye3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948327234, "Lcom/baidu/tieba/ye3;");
-                return;
-            }
-        }
-        q = js1.a;
-        r = "LocationResult";
-    }
-
-    public ye3(String str, double d, double d2, float f, double d3, double d4, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ye3(zc3 zc3Var) {
+        super(zc3Var, "/swanAPI/showLoading");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Double.valueOf(d), Double.valueOf(d2), Float.valueOf(f), Double.valueOf(d3), Double.valueOf(d4), str2, str3, str4, str5, str6, str7, str8, str9};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {zc3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = d;
-        this.c = d2;
-        this.d = f;
-        this.e = d3;
-        this.f = d4;
-        this.g = 0.0d;
-        this.h = d3;
-        this.i = str2;
-        this.j = str3;
-        this.k = str4;
-        this.l = str5;
-        this.m = str6;
-        this.n = str7;
-        this.o = str8;
-        this.p = str9;
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("longitude", this.b);
-                jSONObject.put("latitude", this.c);
-                jSONObject.put("speed", this.d);
-                jSONObject.put("accuracy", this.e);
-                jSONObject.put("altitude", this.f);
-                jSONObject.put("verticalAccuracy", this.g);
-                jSONObject.put("horizontalAccuracy", this.h);
-                jSONObject.put("country", this.i);
-                jSONObject.put("countryCode", this.j);
-                jSONObject.put("city", this.k);
-                jSONObject.put("cityCode", this.l);
-                jSONObject.put("province", this.m);
-                jSONObject.put("district", this.n);
-                jSONObject.put("street", this.o);
-                jSONObject.put("streetNumber", this.p);
-                jSONObject.put("isFullAccuracy", true);
-            } catch (JSONException e) {
-                if (q) {
-                    String str = r;
-                    Log.e(str, "toJSON error: " + Log.getStackTraceString(e));
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
+            if (zd3.b) {
+                Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            return jSONObject;
+            if (cc3Var != null && cc3Var.n0()) {
+                if (zd3.b) {
+                    Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                return false;
+            } else if (!(context instanceof SwanAppActivity)) {
+                c92.c("showLoading", "context not support");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    c92.c("showLoading", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                c92.i("showLoading", "handleShowLoading : joParams = \n" + optParamsAsJo);
+                String optString = optParamsAsJo.optString("title");
+                if (TextUtils.isEmpty(optString)) {
+                    c92.c("showLoading", "none title");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
+                lb2 Y = ((SwanAppActivity) context).Y();
+                if (Y == null) {
+                    c92.c("showLoading", "none fragment");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
+                    return false;
+                }
+                ib2 m = Y.m();
+                if (!(m instanceof jb3.a)) {
+                    c92.c("showLoading", "fragment not support");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
+                    return false;
+                }
+                jb3 floatLayer = ((jb3.a) m).getFloatLayer();
+                if (floatLayer == null) {
+                    c92.c("showLoading", "can't get floatLayer");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
+                    return false;
+                }
+                kb3.f(floatLayer, context, optString, optBoolean);
+                c92.i("showLoading", "show loading success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

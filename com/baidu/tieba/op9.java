@@ -1,35 +1,119 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tbadk.core.view.NavigationBarShadowView;
+import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Abstract;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes7.dex */
 public class op9 {
     public static /* synthetic */ Interceptable $ic;
-    public static op9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, List<JSONObject>> a;
-    public ConcurrentHashMap<String, Integer> b;
+    public Context a;
+    public View b;
+    public BdTypeListView c;
+    public NoDataView d;
+    public en5 e;
+    public NavigationBarShadowView f;
+    public kp9 g;
+    public View.OnClickListener h;
+    public AbsListView.OnScrollListener i;
 
-    public op9() {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ op9 a;
+
+        public a(op9 op9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {op9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = op9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                if (this.a.e != null) {
+                    this.a.e.dettachView(this.a.b);
+                    this.a.e = null;
+                }
+                if (this.a.g != null) {
+                    this.a.g.B();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements AbsListView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ op9 a;
+
+        public b(op9 op9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {op9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = op9Var;
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+            View childAt;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) && i == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
+                this.a.f.a();
+            }
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScrollStateChanged(AbsListView absListView, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && i == 1) {
+                this.a.f.c();
+            }
+        }
+    }
+
+    public op9(Context context, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,153 +123,46 @@ public class op9 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
+        this.d = null;
+        this.h = new a(this);
+        this.i = new b(this);
+        this.a = context;
+        this.b = view2;
+        this.c = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09150b);
+        this.f = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091897);
+        this.c.setOnScrollListener(this.i);
     }
 
-    public static op9 f() {
+    public void h(kp9 kp9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kp9Var) == null) {
+            this.g = kp9Var;
+        }
+    }
+
+    public void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
+            mp9.b(this.e, this.h, this.a, this.b, str, z);
+            this.c.setVisibility(8);
+        }
+    }
+
+    public BdTypeListView f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (op9.class) {
-                    if (c == null) {
-                        c = new op9();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (op9) invokeV.objValue;
+        return (BdTypeListView) invokeV.objValue;
     }
 
-    public static JSONObject b(ThreadInfo threadInfo) {
-        InterceptResult invokeL;
+    public kp9 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadInfo)) == null) {
-            if (threadInfo == null) {
-                return null;
-            }
-            return c(threadInfo, threadInfo.fname);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.put(str, new ArrayList());
-        }
-    }
-
-    public String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return g(this.a.get(str));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Integer num = this.b.get(str);
-            if (num == null) {
-                return 0;
-            }
-            return num.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public static JSONObject c(ThreadInfo threadInfo, String str) {
-        InterceptResult invokeLL;
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, threadInfo, str)) == null) {
-            if (threadInfo == null) {
-                return null;
-            }
-            String str2 = "" + threadInfo.tid;
-            String str3 = "0";
-            if (StringUtils.isNull(str2) || "0".equals(str2)) {
-                str2 = "" + threadInfo.id;
-            }
-            if (threadInfo.video_info != null) {
-                str3 = "" + threadInfo.video_info.video_duration;
-            }
-            StringBuilder sb = new StringBuilder();
-            List<Abstract> list = threadInfo._abstract;
-            if (list != null) {
-                for (int i = 0; i < list.size(); i++) {
-                    Abstract r6 = (Abstract) sp8.d(list, i);
-                    if (r6 != null && r6.type.intValue() == 0) {
-                        sb.append(r6.text);
-                    }
-                }
-            }
-            String sb2 = sb.toString();
-            String str4 = "" + threadInfo.author_id;
-            User user = threadInfo.author;
-            if (user != null && (l = user.id) != null && l.longValue() != 0) {
-                str4 = "" + threadInfo.author.id;
-            }
-            if (StringUtils.isNull(str)) {
-                str = threadInfo.fname;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("title", threadInfo.title);
-                jSONObject.put("tid", str2);
-                jSONObject.put("fname", str);
-                jSONObject.put("abstract", sb2);
-                jSONObject.put("author_id", str4);
-                jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, str3);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public final String g(List<JSONObject> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            try {
-                if (ListUtils.isEmpty(list)) {
-                    return "";
-                }
-                JSONArray jSONArray = new JSONArray();
-                for (JSONObject jSONObject : list) {
-                    if (jSONObject != null) {
-                        jSONArray.put(jSONObject);
-                    }
-                }
-                return oi.j(jSONArray.toString().getBytes("UTF-8"));
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void h(String str, List<JSONObject> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(list);
-            this.a.put(str, arrayList);
-        }
-    }
-
-    public void i(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            this.b.put(str, Integer.valueOf(i));
-        }
+        return (kp9) invokeV.objValue;
     }
 }

@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co8;
-import com.baidu.tieba.do8;
-import com.baidu.tieba.fo8;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
-import com.baidu.tieba.o95;
+import com.baidu.tieba.ns8;
+import com.baidu.tieba.os8;
+import com.baidu.tieba.qs8;
+import com.baidu.tieba.r95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel a;
-    public fo8 b;
+    public qs8 b;
     public int c;
-    public do8 d;
+    public os8 d;
 
     /* loaded from: classes6.dex */
-    public class a implements do8 {
+    public class a implements os8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelRecommendActivity a;
@@ -56,14 +56,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             this.a = labelRecommendActivity;
         }
 
-        @Override // com.baidu.tieba.do8
-        public void a(LabelRequestEnum labelRequestEnum, co8 co8Var, int i) {
+        @Override // com.baidu.tieba.os8
+        public void a(LabelRequestEnum labelRequestEnum, ns8 ns8Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, co8Var, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, ns8Var, i) == null) {
                 int i2 = b.a[labelRequestEnum.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2 && i == 0) {
-                        o95.p().A("set_recommend_label", true);
+                        r95.p().A("set_recommend_label", true);
                         this.a.z1();
                         this.a.finish();
                         return;
@@ -72,14 +72,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
                 LabelRecommendActivity labelRecommendActivity = this.a;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.b.c());
-                if (co8Var != null && !ListUtils.isEmpty(co8Var.b()) && !ListUtils.isEmpty(co8Var.a())) {
+                if (ns8Var != null && !ListUtils.isEmpty(ns8Var.b()) && !ListUtils.isEmpty(ns8Var.a())) {
                     LabelRecommendActivity labelRecommendActivity2 = this.a;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.b.c());
-                    this.a.b.j(co8Var);
+                    this.a.b.j(ns8Var);
                     return;
                 }
                 LabelRecommendActivity labelRecommendActivity3 = this.a;
-                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0df3), true);
+                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e0f), true);
             }
         }
     }
@@ -168,9 +168,9 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            fo8 fo8Var = new fo8(this);
-            this.b = fo8Var;
-            fo8Var.k(this);
+            qs8 qs8Var = new qs8(this);
+            this.b = qs8Var;
+            qs8Var.k(this);
             LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
             this.a = labelSettingModel;
             labelSettingModel.b0(this.d);
@@ -179,7 +179,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             }
             TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.c));
             a();
-            o95.p().A("show_recommend_label", true);
+            r95.p().A("show_recommend_label", true);
         }
     }
 

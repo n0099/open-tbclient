@@ -1,44 +1,69 @@
 package com.baidu.tieba;
 
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.i39;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.SingleThreadEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class t59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SingleThreadEmotionHorizontalAdater a;
+    public BdListView b;
+    public z59 c;
+    public List<EmotionPackageData> d;
 
-    public static w59 a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
-        InterceptResult invokeLL;
+    public void update() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, iBaseDialogData)) == null) {
-            if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
-                return null;
-            }
-            StatisticItem statisticItem = new StatisticItem(i39.a.a);
-            int i = 0;
-            int from = iBaseDialogData.getFrom();
-            if (from != 0) {
-                if (from != 1) {
-                    if (from == 2) {
-                        i = 4;
-                    }
-                } else {
-                    i = 3;
-                }
-            } else {
-                i = 2;
-            }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-            return new u59(tbPageContext, (CustomDialogData) iBaseDialogData);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (w59) invokeLL.objValue;
+    }
+
+    public t59(TbPageContext<?> tbPageContext, BdListView bdListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = bdListView;
+        z59 z59Var = new z59(tbPageContext);
+        this.c = z59Var;
+        z59Var.c(TbadkCoreApplication.getInst().getSkinType());
+        this.b.addHeaderView(this.c.b());
+        this.d = new ArrayList();
+        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.d, tbPageContext);
+        this.a = singleThreadEmotionHorizontalAdater;
+        this.b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
+    }
+
+    public void update(List<EmotionPackageData> list) {
+        z59 z59Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && (z59Var = this.c) != null && this.a != null) {
+            z59Var.update(Integer.valueOf(list.size()));
+            this.d.clear();
+            if (list != null) {
+                this.d.addAll(list);
+            }
+            this.a.notifyDataSetChanged();
+        }
     }
 }

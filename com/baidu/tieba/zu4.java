@@ -1,73 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
-import android.os.Build;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class zu4 implements SensorEventListener {
+public class zu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public b b;
-    public SensorManager c;
-    public Sensor d;
-    public Vibrator e;
-    public SoundPool f;
-    public int g;
-    public int h;
-    public long i;
-    public boolean j;
-    public MediaPlayer k;
-    public double l;
-    public double m;
+    public av4 a;
+    public long b;
+    public CustomMessageListener c;
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void a();
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, sensor, i) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements MediaPlayer.OnPreparedListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zu4 a;
 
-        public a(zu4 zu4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zu4 zu4Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zu4Var};
+                Object[] objArr = {zu4Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -76,21 +53,20 @@ public class zu4 implements SensorEventListener {
             this.a = zu4Var;
         }
 
-        @Override // android.media.MediaPlayer.OnPreparedListener
-        public void onPrepared(MediaPlayer mediaPlayer) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.a.k.start();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
+                this.a.g();
             }
         }
     }
 
-    public zu4(@NonNull Context context, @Nullable b bVar) {
+    public zu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -100,104 +76,52 @@ public class zu4 implements SensorEventListener {
                 return;
             }
         }
-        this.l = 2.5d;
-        this.m = 4.2d;
-        if (context == null) {
-            return;
-        }
-        this.a = context;
-        this.b = bVar;
-        SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-        this.c = sensorManager;
-        if (sensorManager != null) {
-            this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
-        }
-        this.e = (Vibrator) context.getSystemService("vibrator");
-        SoundPool soundPool = new SoundPool(1, 3, 0);
-        this.f = soundPool;
-        if (soundPool != null) {
-            try {
-                this.g = soundPool.load(context, R.raw.shake_tone, 1);
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-        }
+        this.c = new a(this, 2001371);
+        this.a = new av4();
+        MessageManager.getInstance().registerListener(this.c);
+        g();
+        this.b = r95.p().r("key_redpacket_pop_last_time", 0L);
     }
 
-    public void j(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.m = d;
-        }
-    }
-
-    public void k(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.l = d;
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.b) != null) {
-            bVar.a();
-        }
-    }
-
-    public final boolean b() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.i > 2000) {
-                this.i = currentTimeMillis;
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.isEmpty(this.a.c())) {
+                return false;
+            }
+            Date date = new Date();
+            Iterator<ev4> it = this.a.c().iterator();
+            while (it.hasNext()) {
+                ev4 next = it.next();
+                if (date.getTime() >= next.b() && date.getTime() <= next.a() && !c(next)) {
+                    return true;
+                }
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void c() {
-        SensorManager sensorManager;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (sensorManager = this.c) != null) {
-            sensorManager.unregisterListener(this);
-            this.j = false;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !wi.isEmpty(this.a.d())) {
+            this.b = System.currentTimeMillis();
+            r95.p().H("key_redpacket_pop_last_time", this.b);
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RED_PACKET_POP_WINDOW_SHOW));
+            String str = this.a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null) {
+                ux4.v(currentActivity, "", str, true);
+            }
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (sensor = this.d) != null) {
-            this.c.registerListener(this, sensor, 2);
-            this.j = true;
-        }
-    }
-
-    public final boolean e(float[] fArr) {
+    public final boolean c(ev4 ev4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fArr)) == null) {
-            double sqrt = Math.sqrt(Math.pow(Math.abs(fArr[0]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[1]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[2]) / 9.8d, 2.0d));
-            if (Build.VERSION.SDK_INT <= 23) {
-                if (sqrt >= this.l && b()) {
-                    return true;
-                }
-            } else if (sqrt >= this.m && b()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ev4Var)) == null) {
+            if (ev4Var != null && this.b >= ev4Var.b() && this.b <= ev4Var.a()) {
                 return true;
             }
             return false;
@@ -205,67 +129,30 @@ public class zu4 implements SensorEventListener {
         return invokeL.booleanValue;
     }
 
-    public boolean g() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d() && e()) {
+            f();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.e(r95.p().w("key_redpacket_pop", ""));
+        }
+    }
+
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Context context = this.a;
-            if (context == null) {
-                return false;
-            }
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-            int i = -1;
-            if (audioManager != null) {
-                i = audioManager.getRingerMode();
-            }
-            Vibrator vibrator = this.e;
-            if (vibrator == null || !vibrator.hasVibrator() || i <= 0) {
-                return false;
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                this.e.vibrate(VibrationEffect.createOneShot(400L, 255));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Date date = new Date();
+            if (date.getTime() >= this.a.b() && date.getTime() <= this.a.a()) {
                 return true;
             }
-            this.e.vibrate(400L);
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void h(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (!z && (i = this.h) != 0) {
-                SoundPool soundPool = this.f;
-                if (soundPool != null) {
-                    soundPool.play(i, 1.0f, 1.0f, 0, 0, 1.0f);
-                    return;
-                }
-                return;
-            }
-            SoundPool soundPool2 = this.f;
-            if (soundPool2 != null) {
-                soundPool2.play(this.g, 1.0f, 1.0f, 0, 0, 1.0f);
-            }
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (this.k == null) {
-                this.k = new MediaPlayer();
-            }
-            try {
-                this.k.reset();
-                this.k.setLooping(false);
-                this.k.setDataSource(str);
-                this.k.prepareAsync();
-                this.k.setOnPreparedListener(new a(this));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

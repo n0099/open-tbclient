@@ -1,17 +1,44 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public final class afb {
+public final class afb<TResult> implements tfb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public wfb<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    public static void a(Object obj, String str) {
+    public afb(Executor executor, wfb<TResult> wfbVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, obj, str) != null) || obj != null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, wfbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        throw new NullPointerException(str);
+        this.c = new Object();
+        this.a = wfbVar;
+        this.b = executor;
+    }
+
+    @Override // com.baidu.tieba.tfb
+    public final void a(ffb<TResult> ffbVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ffbVar) == null) && ffbVar.f()) {
+            ffbVar.e();
+            this.b.execute(new yeb(this, ffbVar));
+        }
     }
 }

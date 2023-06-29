@@ -1,118 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class qv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final rv4 a;
 
-    public static String a(char[] cArr) {
-        InterceptResult invokeL;
+    public qv4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cArr)) == null) {
-            if (cArr != null && cArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (char c : cArr) {
-                    if (c != 0) {
-                        sb.append(c);
-                    }
-                }
-                return sb.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeL.objValue;
+        this.a = new rv4();
     }
 
-    public static String d(String str) {
+    public pv4 a(String str) {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!StringUtils.isNull(str) && str.endsWith("!") && str.startsWith("$")) {
-                return str.replace("$", "").replace("!", "");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str3 = null;
+            if (wi.isEmpty(str)) {
+                return null;
             }
-            return null;
+            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
+            if (!matcher.find()) {
+                return null;
+            }
+            String group = matcher.group();
+            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
+            if (matcher2.find()) {
+                str2 = tv4.d(matcher2.group());
+            } else {
+                str2 = null;
+            }
+            if (str2 != null && str2.startsWith("Y")) {
+                sv4.a(str2);
+                str3 = b(group);
+            }
+            return new pv4(group, str3, str2);
         }
-        return (String) invokeL.objValue;
+        return (pv4) invokeL.objValue;
     }
 
-    public static char[][] e(char[][] cArr) {
+    public final String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr)) == null) {
-            if (cArr != null && cArr[0] != null) {
-                char[][] cArr2 = (char[][]) Array.newInstance(char.class, cArr.length, cArr[0].length);
-                for (int length = cArr.length - 1; length >= 0; length--) {
-                    cArr2[(cArr.length - length) - 1] = cArr[length];
-                }
-                return cArr2;
-            }
-            return null;
-        }
-        return (char[][]) invokeL.objValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            char[] charArray = str.toCharArray();
-            char[][] cArr = (char[][]) Array.newInstance(char.class, (charArray.length / 2) + 1, 2);
-            c(charArray, cArr);
-            return a(b(e(cArr)));
+            return this.a.a(tv4.f(str.replaceAll("\\$", "")));
         }
         return (String) invokeL.objValue;
-    }
-
-    public static char[] b(char[][] cArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if (cArr != null && cArr[0] != null) {
-                char[] cArr2 = new char[cArr.length * cArr[0].length];
-                int i = 0;
-                for (int i2 = 0; i2 < cArr.length; i2++) {
-                    for (int i3 = 0; i3 < cArr[i2].length; i3++) {
-                        if (cArr[i2][i3] != 0) {
-                            cArr2[i] = cArr[i2][i3];
-                            i++;
-                        }
-                    }
-                }
-                return cArr2;
-            }
-            return null;
-        }
-        return (char[]) invokeL.objValue;
-    }
-
-    public static void c(char[] cArr, char[][] cArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, cArr, cArr2) == null) {
-            int length = cArr2.length;
-            int length2 = cArr2[0].length;
-            int i = 0;
-            int i2 = 0;
-            for (char c : cArr) {
-                if (i >= length2) {
-                    i2++;
-                    i = 0;
-                }
-                if (i2 < length) {
-                    cArr2[i2][i] = c;
-                    i++;
-                } else {
-                    return;
-                }
-            }
-        }
     }
 }

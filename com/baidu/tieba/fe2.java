@@ -1,78 +1,15 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.ee2;
 /* loaded from: classes5.dex */
-public class fe2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static AtomicInteger b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fe2<T extends ee2> extends ge2<T> {
+    void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947761174, "Lcom/baidu/tieba/fe2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947761174, "Lcom/baidu/tieba/fe2;");
-                return;
-            }
-        }
-        a = js1.a;
-        b = new AtomicInteger(0);
-    }
+    void d(cm2 cm2Var);
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.startsWith("master")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    boolean i();
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = "master";
-            if (!zf2.h()) {
-                return "master";
-            }
-            int andIncrement = b.getAndIncrement();
-            if (andIncrement >= 1) {
-                str = "master" + andIncrement;
-            }
-            if (a) {
-                Log.i("MasterIdGenerator", "next master id - " + str);
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = b.getAndSet(0);
-            if (a) {
-                Log.i("MasterIdGenerator", "last master id - " + andSet);
-            }
-            return andSet;
-        }
-        return invokeV.intValue;
-    }
+    void j(boolean z, ne2 ne2Var);
 }

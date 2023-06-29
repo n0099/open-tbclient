@@ -1,15 +1,10 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import java.io.File;
+import android.content.DialogInterface;
+import com.baidu.tieba.gb3;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface dw1 {
-    void a(String str, String str2);
-
-    File b(Context context, String str);
-
-    JSONObject c(Context context, String str);
-
-    void d();
+    gb3.a a(Context context, cc3 cc3Var, ch3 ch3Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

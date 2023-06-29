@@ -1,161 +1,209 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
-import com.baidu.tieba.personExtra.RecommendGodReqMsg;
-import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
+import com.baidu.searchbox.live.interfaces.LiveConstants;
+import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dy8 {
+public class dy8 implements EventDispatcherService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public hi9 b;
-    public b c;
-    public int d;
-    public boolean e;
-    public jb f;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(hi9 hi9Var, int i);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends jb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dy8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(dy8 dy8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dy8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dy8Var;
-        }
-
-        @Override // com.baidu.tieba.jb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
-                return;
-            }
-            this.a.b = null;
-            if (responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
-                this.a.b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
-            } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
-                this.a.b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
-            }
-            if (this.a.b != null) {
-                dy8 dy8Var = this.a;
-                dy8Var.d = dy8Var.b.a;
-            }
-            int error = responsedMessage.getError();
-            if (error == 0 && this.a.b != null) {
-                if (ListUtils.isEmpty(this.a.b.b)) {
-                    if (this.a.e) {
-                        error = 3;
-                    } else {
-                        error = 2;
-                    }
-                }
-            } else {
-                error = 1;
-            }
-            if (this.a.c != null) {
-                this.a.c.a(this.a.b, error);
-            }
+    public final void a(Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
         }
     }
 
-    public dy8(BdUniqueId bdUniqueId) {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public dy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = 0;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684);
-        this.f = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public void j(b bVar) {
+    public static void f(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.c = bVar;
+        if ((interceptable != null && interceptable.invokeL(65537, null, arrayList) != null) || arrayList == null || arrayList.size() == 0) {
         }
     }
 
-    public void i(String str, int i) {
+    public final void h(Map<String, ?> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            this.d = i;
-            h(str);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(this.a);
-            MessageManager.getInstance().unRegisterListener(this.a);
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
-            recommendGodReqMsg.portrait = str;
-            if (this.d == 0) {
-                this.e = false;
-            } else {
-                this.e = true;
+        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
+            String str = (String) map.get("data");
+            if (!TextUtils.isEmpty(str) && str != null) {
+                try {
+                    kv8.o(new JSONObject(str));
+                } catch (JSONException unused) {
+                }
             }
-            recommendGodReqMsg.pageNum = this.d + 1;
-            recommendGodReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(recommendGodReqMsg);
+        }
+    }
+
+    public final void c(Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("roomId", map.get("roomId"));
+                jSONObject.put("isClosed", map.get("isClosed"));
+                jSONObject.put("liveId", map.get("liveId"));
+                jSONObject.put("type", map.get("type"));
+                jSONObject.put("sid", map.get("sid"));
+                jSONObject.put(YyLiveRoomConfig.KEY_SSID, map.get(YyLiveRoomConfig.KEY_SSID));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
+        }
+    }
+
+    public void d(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, map) != null) || wi.isEmpty(str)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (map != null) {
+            for (String str2 : map.keySet()) {
+                statisticItem.param(str2, map.get(str2));
+            }
+        }
+        TiebaStatic.log(statisticItem);
+    }
+
+    public void e(Map<String, ?> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, map) != null) || map == null) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        String obj = map.remove("key").toString();
+        for (String str : map.keySet()) {
+            hashMap.put(str, map.get(str).toString());
+        }
+        d(obj, hashMap);
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.searchbox.live.interfaces.service.EventDispatcherService
+    public void onEvent(String str, Map<String, ?> map) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, map) == null) {
+            switch (str.hashCode()) {
+                case -2147386482:
+                    if (str.equals("sync_webview_cookie")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1369745389:
+                    if (str.equals("living_room_is_closed")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1326603888:
+                    if (str.equals(LiveConstants.SdkToHostEvents.DO_LOG)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -841542404:
+                    if (str.equals(LiveConstants.SdkToHostEvents.GO_FEEDBACK)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 152519529:
+                    if (str.equals("live_show_close")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1766660371:
+                    if (str.equals(LiveConstants.SdkToHostEvents.BUY_TBEAN_RESULT)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1785162541:
+                    if (str.equals(LiveConstants.SdkToHostEvents.KEY_PRE_DOWANLOAD_SWAN)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    g();
+                    return;
+                case 1:
+                    b();
+                    return;
+                case 2:
+                    e(map);
+                    return;
+                case 3:
+                    f((ArrayList) map.get(str));
+                    return;
+                case 4:
+                    a(map);
+                    return;
+                case 5:
+                    h(map);
+                    return;
+                case 6:
+                    c(map);
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }

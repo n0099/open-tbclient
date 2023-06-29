@@ -1,205 +1,226 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.AdOperator;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class w51 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
+    public static final HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948221462, "Lcom/baidu/tieba/w51;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948221462, "Lcom/baidu/tieba/w51;");
-        }
-    }
-
-    public static void e(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, exc) == null) {
-        }
-    }
-
-    public w51() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221462, "Lcom/baidu/tieba/w51;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948221462, "Lcom/baidu/tieba/w51;");
+                return;
             }
         }
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("__AD_EXTRA_PARAM_ENCODE_0__", 0);
+        a.put("__AD_EXTRA_PARAM_ENCODE_1__", 1);
+        a.put("__AD_EXTRA_PARAM_ENCODE_2__", 2);
+        a.put("__AD_EXTRA_PARAM_ENCODE_3__", 3);
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = a;
-            if (str == null) {
-                synchronized (w51.class) {
-                    str = a;
-                    if (str == null) {
-                        Context b = lk0.b();
-                        String c = c();
-                        if (c == null && (c = b(b)) == null) {
-                            c = b.getPackageName();
-                        }
-                        a = c;
-                        str = c;
-                    }
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (i <= 0) {
+                return str;
+            }
+            for (int i2 = 0; i2 < i; i2++) {
+                str = Uri.encode(str);
             }
             return str;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLI.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public static String g(@NonNull AdBaseModel adBaseModel, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, adBaseModel, str)) == null) {
+            if (!m(str)) {
+                return str;
             }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
+            String c = c(adBaseModel);
+            if (!TextUtils.isEmpty(c)) {
+                return l(str, c);
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(@NonNull AdBaseModel adBaseModel, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, adBaseModel, str)) == null) {
+            mr0 mr0Var = adBaseModel.l;
+            if (mr0Var != null && mr0Var.e) {
+                String str2 = mr0Var.a;
+                if (TextUtils.isEmpty(str2)) {
+                    return str;
                 }
+                boolean d = d(str2);
+                String str3 = mr0Var.b;
+                if (d) {
+                    if (TextUtils.isEmpty(str3)) {
+                        return str;
+                    }
+                } else {
+                    str3 = "";
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    return str3;
+                }
+                return str;
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String c(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adBaseModel)) == null) {
+            if (adBaseModel != null && (str = adBaseModel.f.d) != null) {
+                return str;
             }
             return null;
         }
         return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    public static String c() {
-        InterceptResult invokeV;
-        ?? r2;
-        BufferedReader bufferedReader;
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            BufferedReader bufferedReader2 = 0;
-            BufferedReader bufferedReader3 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
-                r2 = null;
-            }
-            try {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    readLine = readLine.trim();
-                }
-                try {
-                    bufferedReader.close();
-                    return readLine;
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    return readLine;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                r2 = null;
-                bufferedReader3 = bufferedReader;
-                e("AppProcessManager", e);
-                if (bufferedReader3 != null) {
-                    try {
-                        bufferedReader3.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                bufferedReader2 = r2;
-                return bufferedReader2;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != 0) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
+                ok0.b().getPackageManager().getApplicationInfo(str, 0);
+                return true;
+            } catch (PackageManager.NameNotFoundException | Exception unused) {
+                return false;
             }
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:8:0x001b A[Catch: Exception -> 0x003a, TryCatch #0 {Exception -> 0x003a, blocks: (B:5:0x0005, B:6:0x0015, B:8:0x001b, B:10:0x002d, B:12:0x0031), top: B:25:0x0005 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean d(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
+    public static void e(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            try {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                    String str2 = runningAppProcessInfo.processName;
-                    int myPid = Process.myPid();
-                    if (str2.equals(str) || runningAppProcessInfo.pid == myPid) {
-                        if (runningAppProcessInfo.importance != 100) {
-                            return false;
-                        }
-                        return true;
-                    }
-                    while (r4.hasNext()) {
-                    }
+        if (interceptable == null || interceptable.invokeL(65541, null, adBaseModel) == null) {
+            h(adBaseModel);
+            j(adBaseModel);
+        }
+    }
+
+    public static void f(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, adBaseModel) == null) && adBaseModel.d && !TextUtils.isEmpty(adBaseModel.h.d)) {
+            AdOperator adOperator = adBaseModel.h;
+            adOperator.d = g(adBaseModel, adOperator.d);
+        }
+    }
+
+    public static void h(AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, adBaseModel) == null) {
+            i(adBaseModel);
+            f(adBaseModel);
+            k(adBaseModel);
+        }
+    }
+
+    public static void i(@NonNull AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65545, null, adBaseModel) != null) || TextUtils.isEmpty(adBaseModel.f.c)) {
+            return;
+        }
+        ur0 ur0Var = adBaseModel.f;
+        ur0Var.c = g(adBaseModel, ur0Var.c);
+    }
+
+    public static void k(AdBaseModel adBaseModel) {
+        mr0 mr0Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, adBaseModel) == null) && (mr0Var = adBaseModel.l) != null && (str = mr0Var.b) != null) {
+            mr0Var.b = g(adBaseModel, str);
+        }
+    }
+
+    public static void j(@NonNull AdBaseModel adBaseModel) {
+        mr0 mr0Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65546, null, adBaseModel) == null) && (mr0Var = adBaseModel.l) != null && mr0Var.e) {
+            String str2 = mr0Var.b;
+            if (str2.contains("__AUTO_INVOKE__")) {
+                if (d(adBaseModel.l.a)) {
+                    str = "0";
+                } else {
+                    str = "1";
                 }
-                return false;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
+                adBaseModel.l.b = str2.replace("__AUTO_INVOKE__", str);
             }
         }
-        return invokeLL.booleanValue;
+    }
+
+    public static boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (Map.Entry<String, Integer> entry : a.entrySet()) {
+                if (str.contains(entry.getKey())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String l(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                for (Map.Entry<String, Integer> entry : a.entrySet()) {
+                    if (str.contains(entry.getKey())) {
+                        try {
+                            str = str.replaceAll(entry.getKey(), a(str2, entry.getValue().intValue()));
+                        } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException unused) {
+                        }
+                    }
+                }
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
     }
 }

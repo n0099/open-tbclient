@@ -1,15 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.Map;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes7.dex */
-public interface rx3 {
-    void a(wc3 wc3Var);
+public class rx3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    Map<String, Object> b(@NonNull a02 a02Var);
+    @Inject(force = false)
+    public static sx3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return z96.a();
+        }
+        return (sx3) invokeV.objValue;
+    }
 
-    @Nullable
-    Map<String, Object> c(@NonNull a02 a02Var);
+    @Inject(force = false)
+    public static tx3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new as3();
+        }
+        return (tx3) invokeV.objValue;
+    }
 }

@@ -2,12 +2,12 @@ package com.kwad.components.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
 import com.ksad.json.annotation.KsJson;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class m implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.b Lk;
 
     @KsJson
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String playableExtraData;
     }

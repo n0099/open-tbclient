@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,9 +8,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ow4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaUserInfoData a;
+    public int a;
     public int b;
-    public boolean c;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
     public ow4() {
         Interceptable interceptable = $ic;
@@ -23,7 +25,11 @@ public class ow4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = -1;
+        this.f = -1;
     }
 }

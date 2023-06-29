@@ -1,68 +1,108 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mo4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    public mo4(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947979383, "Lcom/baidu/tieba/mo4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947979383, "Lcom/baidu/tieba/mo4;");
+        }
     }
 
-    public static mo4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new mo4(2, 2, 1000);
-        }
-        return (mo4) invokeV.objValue;
-    }
-
-    @NonNull
-    public static mo4 b(@Nullable JSONObject jSONObject) {
+    public static int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                return new mo4(jSONObject.optInt("max_num", 2), jSONObject.optInt("per_call_num", 2), jSONObject.optInt("call_interval", 1000));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int i = 5;
+            if (c() <= 0) {
+                return 5;
             }
-            return a();
+            String string = nj4.b().i().getString("expire_time", "");
+            if (TextUtils.isEmpty(string)) {
+                return 5;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(string);
+                i = jSONObject.optInt("time", 5);
+                JSONObject optJSONObject = jSONObject.optJSONObject("appkeys");
+                if (optJSONObject == null) {
+                    return i;
+                }
+                int optInt = optJSONObject.optInt(str, -1);
+                if (optInt >= 0) {
+                    return optInt;
+                }
+                return i;
+            } catch (JSONException unused) {
+                return i;
+            }
         }
-        return (mo4) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public String toString() {
+    public static void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+            return;
+        }
+        nj4.b().i().putString("expire_time_version", optString);
+        nj4.b().i().putString("expire_time", optJSONObject.toString());
+    }
+
+    public static long b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return TimeUnit.HOURS.toMillis(a(str));
+        }
+        return invokeL.longValue;
+    }
+
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PkgDownloadLimitStrategy{maxNum=" + this.a + ", perCallNum=" + this.b + ", callInterval=" + this.c + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a < 0) {
+                nj4.b().F("swan_update_expired_time", 0);
+                a = 0;
+            }
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return nj4.b().i().getString("expire_time_version", "0");
         }
         return (String) invokeV.objValue;
     }

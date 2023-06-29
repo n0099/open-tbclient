@@ -8,7 +8,7 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.FunctionReferenceImpl;
 import kotlinx.coroutines.flow.FlowCollector;
 @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public /* synthetic */ class SafeCollectorKt$emitFun$1 extends FunctionReferenceImpl implements Function3<FlowCollector<? super Object>, Object, Unit>, SuspendFunction {
     public static final SafeCollectorKt$emitFun$1 INSTANCE = new SafeCollectorKt$emitFun$1();
 

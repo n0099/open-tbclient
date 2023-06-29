@@ -9,13 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class nz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static final nz1 b;
+    public static final nz1 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +28,9 @@ public final class nz1 {
                 return;
             }
         }
-        b = new nz1();
+        nz1 nz1Var = new nz1();
+        a = nz1Var;
+        Intrinsics.checkNotNullExpressionValue(nz1Var.getClass().getSimpleName(), "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
     }
 
     public nz1() {
@@ -50,58 +49,17 @@ public final class nz1 {
 
     public final String a() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = a;
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                a = b();
-            }
-            return a;
+            return up3.l(new na2().getCookie(".baidu.com"), "OPENBDUSS");
         }
         return (String) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            hk3 a2 = nk3.a();
-            if (a2 == null) {
-                return null;
-            }
-            return a2.getString("alliance_login_uk", null);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            nk3.a().putString("alliance_login_uk", "");
-            a = null;
-        }
-    }
-
-    public final void c(int i, JSONObject jsonObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jsonObject) == null) {
-            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
-            if (i == 0) {
-                e(jsonObject);
-            }
-        }
-    }
-
-    public final void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            nk3.a().putString("alliance_login_uk", jSONObject.optString("uk"));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            kz1.b(jv2.c(), "");
         }
     }
 }

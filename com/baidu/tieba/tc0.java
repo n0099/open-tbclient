@@ -1,23 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes7.dex */
-public class tc0 {
+public final class tc0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<String, List<sc0>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static uc0 a() {
-        InterceptResult invokeV;
+    @JvmStatic
+    @JvmOverloads
+    public static final sc0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return ac0.a();
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (sc0) invokeL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948176264, "Lcom/baidu/tieba/tc0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948176264, "Lcom/baidu/tieba/tc0;");
+                return;
+            }
         }
-        return (uc0) invokeV.objValue;
+        a = new ConcurrentHashMap<>();
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final sc0 b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
+            List<sc0> list = a.get(str2);
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (!list.isEmpty() && list.size() >= 2) {
+                sc0 sc0Var = list.get(0);
+                Collections.swap(list, 0, 1);
+                if (sc0Var.isPlaying()) {
+                    sc0Var.detachFromContainer();
+                    sc0Var.stop();
+                }
+                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + sc0Var);
+                return sc0Var;
+            }
+            sc0 sc0Var2 = new sc0(new uc0(str, 0, null, null, 14, null));
+            list.add(sc0Var2);
+            a.put(str2, list);
+            return sc0Var2;
+        }
+        return (sc0) invokeLL.objValue;
+    }
+
+    public static /* synthetic */ sc0 c(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = "";
+        }
+        return b(str, str2);
+    }
+
+    @JvmStatic
+    public static final void d(String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
+            List<sc0> list = a.get(str);
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return;
+            }
+            for (sc0 sc0Var : list) {
+                sc0Var.detachFromContainer();
+                sc0Var.release();
+            }
+            list.clear();
+            a.remove(str);
+        }
     }
 }

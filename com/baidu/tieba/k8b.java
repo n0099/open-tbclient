@@ -1,168 +1,250 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import com.google.android.material.badge.BadgeDrawable;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k8b extends d8b {
+public final class k8b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public StringBuffer d;
-    public int e;
-    public long f;
-    public long g;
+    public final /* synthetic */ Object a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k8b(long j) {
-        super(j);
+    public k8b(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new StringBuffer();
-        this.e = 0;
-        this.f = 0L;
-        this.g = 0L;
+        this.a = obj;
     }
 
-    @Override // com.baidu.tieba.d8b
-    public void b() {
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2;
-        String readLine;
+    /* JADX WARN: Code restructure failed: missing block: B:172:0x02d0, code lost:
+        continue;
+     */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        boolean z;
+        Object obj;
         String str;
+        Field[] fieldArr;
+        Object obj2;
+        String str2;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.setLength(0);
-            BufferedReader bufferedReader3 = null;
             try {
                 try {
-                    bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/stat")), 1000);
-                    try {
-                        readLine = bufferedReader2.readLine();
-                        str = "";
-                        if (readLine == null) {
-                            readLine = "";
+                    LogPrinter.d("开始获取ripper路径，开始时间：" + System.currentTimeMillis(), new Object[0]);
+                    ArrayList arrayList = new ArrayList();
+                    new HashMap();
+                    Object obj3 = this.a;
+                    ArrayList arrayList2 = new ArrayList();
+                    ArrayList arrayList3 = new ArrayList();
+                    arrayList3.add(obj3.getClass().getName());
+                    Class<? super Object> superclass = obj3.getClass().getSuperclass();
+                    String name = obj3.getClass().getName();
+                    Class<? super Object> cls = superclass;
+                    while (true) {
+                        z = true;
+                        if (cls == null || !cls.getName().contains("bytedance")) {
+                            break;
                         }
-                        if (this.e == 0) {
-                            this.e = Process.myPid();
-                        }
-                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.e + "/stat")), 1000);
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedReader = null;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedReader = null;
-                }
-                try {
-                    String readLine2 = bufferedReader.readLine();
-                    if (readLine2 != null) {
-                        str = readLine2;
-                    }
-                    f(readLine, str);
-                    bufferedReader2.close();
-                    bufferedReader.close();
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedReader3 = bufferedReader2;
-                    try {
-                        Log.e("SampleCpuSampler", "doSample: ", th);
-                        if (bufferedReader3 != null) {
-                            bufferedReader3.close();
-                        }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                    } catch (Throwable th4) {
-                        if (bufferedReader3 != null) {
-                            try {
-                                bufferedReader3.close();
-                            } catch (IOException e) {
-                                Log.e("SampleCpuSampler", "doSample: ", e);
-                                throw th4;
+                        for (Field field : cls.getDeclaredFields()) {
+                            field.setAccessible(true);
+                            String name2 = field.getType().getName();
+                            if (!arrayList2.contains(name2)) {
+                                try {
+                                    Object obj4 = field.get(obj3);
+                                    if (obj4 != null) {
+                                        arrayList3.add(name + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + obj4.getClass().getName());
+                                        arrayList2.add(name2);
+                                        arrayList.add(obj4);
+                                    }
+                                } catch (IllegalAccessException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                        throw th4;
+                        cls = cls.getSuperclass();
                     }
+                    int i = 0;
+                    while (obj3 != null) {
+                        String str3 = "";
+                        String str4 = "";
+                        for (int i2 = 0; i2 < arrayList3.size(); i2++) {
+                            str4 = (String) arrayList3.get(i2);
+                            if (str4.endsWith(obj3.getClass().getName())) {
+                                break;
+                            }
+                        }
+                        Field[] declaredFields2 = obj3.getClass().getDeclaredFields();
+                        int length = declaredFields2.length;
+                        int i3 = 0;
+                        while (i3 < length) {
+                            Field field2 = declaredFields2[i3];
+                            field2.setAccessible(z);
+                            try {
+                                String name3 = field2.getType().getName();
+                                if (!arrayList2.contains(name3) && name3.contains("bytedance") && (obj2 = field2.get(obj3)) != null) {
+                                    if (str4.equals(str3)) {
+                                        str2 = name3;
+                                    } else {
+                                        str2 = str4 + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + name3;
+                                    }
+                                    arrayList3.add(str2);
+                                    arrayList2.add(name3);
+                                    arrayList.add(obj2);
+                                    Class<? super Object> superclass2 = obj2.getClass().getSuperclass();
+                                    String str5 = str2 + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX;
+                                    if (superclass2 != null) {
+                                        while (superclass2 != null && superclass2.getName().contains("bytedance")) {
+                                            Field[] declaredFields3 = superclass2.getDeclaredFields();
+                                            obj = obj3;
+                                            try {
+                                                int length2 = declaredFields3.length;
+                                                str = str3;
+                                                int i4 = 0;
+                                                while (i4 < length2) {
+                                                    int i5 = length2;
+                                                    try {
+                                                        Field field3 = declaredFields3[i4];
+                                                        Field[] fieldArr2 = declaredFields3;
+                                                        field3.setAccessible(true);
+                                                        String name4 = field3.getType().getName();
+                                                        Object obj5 = field3.get(obj2);
+                                                        if (obj5 != null && !arrayList2.contains(name4) && name4.contains("bytedance")) {
+                                                            fieldArr = declaredFields2;
+                                                            try {
+                                                                if (name4.contains("java.lang.Object")) {
+                                                                    arrayList3.add(str5 + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + name4);
+                                                                    arrayList2.add(name4);
+                                                                    arrayList.add(obj5);
+                                                                }
+                                                                i4++;
+                                                                length2 = i5;
+                                                                declaredFields3 = fieldArr2;
+                                                                declaredFields2 = fieldArr;
+                                                            } catch (Exception unused) {
+                                                            }
+                                                        }
+                                                        fieldArr = declaredFields2;
+                                                        i4++;
+                                                        length2 = i5;
+                                                        declaredFields3 = fieldArr2;
+                                                        declaredFields2 = fieldArr;
+                                                    } catch (Exception unused2) {
+                                                    }
+                                                }
+                                                Field[] fieldArr3 = declaredFields2;
+                                                superclass2 = superclass2.getSuperclass();
+                                                str5 = str5 + "+super+";
+                                                obj3 = obj;
+                                                str3 = str;
+                                                declaredFields2 = fieldArr3;
+                                            } catch (Exception unused3) {
+                                            }
+                                        }
+                                    }
+                                }
+                            } catch (Exception unused4) {
+                            }
+                            obj = obj3;
+                            str = str3;
+                            fieldArr = declaredFields2;
+                            i3++;
+                            obj3 = obj;
+                            str3 = str;
+                            declaredFields2 = fieldArr;
+                            z = true;
+                        }
+                        if (i >= arrayList.size()) {
+                            obj3 = null;
+                        } else {
+                            obj3 = arrayList.get(i);
+                            i++;
+                        }
+                        z = true;
+                    }
+                    Iterator it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        Object next = it.next();
+                        boolean z2 = false;
+                        for (Class<?> cls2 = next.getClass(); cls2 != null && cls2.getName().contains("bytedance"); cls2 = cls2.getSuperclass()) {
+                            ArrayList arrayList4 = new ArrayList();
+                            Method[] methods = cls2.getMethods();
+                            int length3 = methods.length;
+                            int i6 = 0;
+                            while (true) {
+                                if (i6 >= length3) {
+                                    break;
+                                }
+                                Method method = methods[i6];
+                                method.setAccessible(true);
+                                if (method.getReturnType() != JSONObject.class && method.getReturnType() != String.class) {
+                                    i6++;
+                                }
+                                arrayList4.add(method.getName());
+                                Object invoke = ReflectionUtils.invoke(next, method.getName(), null, new Object[0]);
+                                if (invoke != null && !TextUtils.isEmpty(invoke.toString()) && invoke.toString().contains("\"target_url\"")) {
+                                    Iterator it2 = arrayList3.iterator();
+                                    while (true) {
+                                        if (!it2.hasNext()) {
+                                            break;
+                                        }
+                                        String str6 = (String) it2.next();
+                                        if (str6.endsWith(cls2.getName())) {
+                                            String str7 = str6.substring(str6.indexOf(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + 1) + "+*" + method.getName();
+                                            l8b.a = str7;
+                                            h8b.b.putString("key_ad_ripper_path_config", str7).apply();
+                                            break;
+                                        }
+                                    }
+                                    z2 = true;
+                                } else {
+                                    i6++;
+                                }
+                            }
+                            if (z2) {
+                                break;
+                            }
+                        }
+                        continue;
+                        if (z2) {
+                            break;
+                        }
+                    }
+                    LogPrinter.d("获取ripper路径完成，完成时间：" + System.currentTimeMillis(), new Object[0]);
+                } catch (Exception e2) {
+                    e = e2;
+                    LogPrinter.e(e);
                 }
-            } catch (IOException e2) {
-                Log.e("SampleCpuSampler", "doSample: ", e2);
+            } catch (Error e3) {
+                e = e3;
+                LogPrinter.e(e);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.d8b
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.c();
-            g();
-        }
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = 0L;
-            this.g = 0L;
-        }
-    }
-
-    public final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            String[] split = str.split(" ");
-            if (split.length < 9) {
-                return;
-            }
-            long parseLong = Long.parseLong(split[2]);
-            long parseLong2 = Long.parseLong(split[3]);
-            long parseLong3 = Long.parseLong(split[4]);
-            long parseLong4 = Long.parseLong(split[5]);
-            long parseLong5 = parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
-            if (str2.split(" ").length < 17) {
-                return;
-            }
-            if (parseLong5 != 0) {
-                long j = parseLong5 - this.g;
-                this.d.append(((j - (parseLong4 - this.f)) * 100) / j);
-            }
-            this.f = parseLong4;
-            this.g = parseLong5;
         }
     }
 }

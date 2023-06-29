@@ -1,355 +1,333 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.ForumTagInfo;
+import com.baidu.tbadk.core.view.NormalItemCell;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.ICronetEngineBuilder;
-import com.baidu.turbonet.net.impl.VersionSafeCallbacks;
-import com.baidu.webkit.internal.ETAG;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class mna extends ICronetEngineBuilder {
+public class mna extends tna<moa> implements vna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public String b;
-    public String c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public long h;
-    public boolean i;
-    public int j;
-    public String k;
-    public JSONObject l;
-    public String m;
+    @Nullable
+    public ForumTagInfo g;
+    @Nullable
+    public String h;
+    @Nullable
+    public View i;
+    @Nullable
+    public NormalItemCell j;
+    @Nullable
+    public eqa k;
 
-    public VersionSafeCallbacks.c v() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yna
+    public void a(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
         }
-        return (VersionSafeCallbacks.c) invokeV.objValue;
     }
 
-    public mna(Context context) {
+    @Override // com.baidu.tieba.yna
+    public void c(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mna a;
+
+        public a(mna mnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mnaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.L()) {
+                    if (this.a.b != null) {
+                        this.a.b.c(this.a.a.getString(R.string.obfuscated_res_0x7f0f043a));
+                    }
+                } else if (this.a.g == null) {
+                    if (!TextUtils.isEmpty(this.a.h)) {
+                        this.a.N();
+                    } else {
+                        this.a.M();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements bqa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mna a;
+
+        public b(mna mnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mnaVar;
+        }
+
+        @Override // com.baidu.tieba.bqa
+        public void a(@NonNull QuestionTagListData.QuestionTag questionTag) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, questionTag) == null) {
+                if (this.a.e != null) {
+                    this.a.e.setQuestionTagId(questionTag.id);
+                    this.a.e.setQuestionTagManualCreated(true);
+                }
+                if (this.a.j != null) {
+                    this.a.j.setSubTitle(questionTag.tagName);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mna(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, moa.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = 20;
-        this.a = context.getApplicationContext();
-        this.l = new JSONObject();
-        m(true);
-        k(true);
-        j(false);
-        l(false, "");
     }
 
-    public final void A(String str, String str2, Object obj) {
+    @Override // com.baidu.tieba.yna
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
-            try {
-                JSONObject optJSONObject = this.l.optJSONObject(str);
-                if (optJSONObject == null) {
-                    optJSONObject = new JSONObject();
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            NormalItemCell normalItemCell = this.j;
+            if (normalItemCell != null) {
+                normalItemCell.d();
+            }
+            eqa eqaVar = this.k;
+            if (eqaVar != null) {
+                eqaVar.r();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vna
+    public void onUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, obj) == null) && (obj instanceof SelectForumData)) {
+            SelectForumData selectForumData = (SelectForumData) obj;
+            this.g = selectForumData.forumTagInfo;
+            this.h = selectForumData.firstCategory;
+            O();
+        }
+    }
+
+    public final boolean L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WriteData writeData = this.e;
+            if (writeData == null || !"2".equals(writeData.getCallFrom()) || this.g != null || !TextUtils.isEmpty(this.e.getForumName())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void M() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e != null && this.j != null && this.a.getPageActivity() != null && !this.a.getPageActivity().isFinishing()) {
+            if (this.k == null) {
+                this.k = new eqa();
+            }
+            String str = null;
+            if (this.g == null) {
+                str = this.j.getSubTitleContent();
+            }
+            this.k.u(this.a.getPageActivity(), str, this.e.getForumId(), new b(this));
+        }
+    }
+
+    public final void O() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.j == null) {
+            return;
+        }
+        ForumTagInfo forumTagInfo = this.g;
+        if (forumTagInfo != null) {
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                writeData.setQuestionTagId(forumTagInfo.id);
+                this.e.setQuestionTagManualCreated(false);
+            }
+            this.j.setSubTitle(this.g.name);
+            this.j.a();
+            return;
+        }
+        WriteData writeData2 = this.e;
+        if (writeData2 != null) {
+            writeData2.setQuestionTagId(null);
+            this.e.setQuestionTagManualCreated(false);
+        }
+        this.j.setSubTitle(null);
+        this.j.h();
+    }
+
+    public final void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            QuestionTagChooseActivityConfig questionTagChooseActivityConfig = new QuestionTagChooseActivityConfig(this.a.getPageActivity());
+            questionTagChooseActivityConfig.setCategory(this.h);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, questionTagChooseActivityConfig));
+        }
+    }
+
+    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.d();
+            eqa eqaVar = this.k;
+            if (eqaVar != null) {
+                eqaVar.s();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            if (bundle != null) {
+                this.h = bundle.getString(WriteActivityConfig.FORUM_FIRST_CATEGORY);
+                this.g = (ForumTagInfo) bundle.getSerializable(WriteActivityConfig.FORUM_TAG_INFO);
+            } else if (intent != null) {
+                this.h = intent.getStringExtra(WriteActivityConfig.FORUM_FIRST_CATEGORY);
+                this.g = (ForumTagInfo) intent.getSerializableExtra(WriteActivityConfig.FORUM_TAG_INFO);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 != -1 || i != 25072 || intent == null || this.e == null || this.j == null) {
+                return;
+            }
+            if (intent.getBooleanExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_CREATE_TAG, false)) {
+                M();
+                return;
+            }
+            QuestionTagListData.QuestionTag questionTag = (QuestionTagListData.QuestionTag) intent.getParcelableExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_TAG);
+            if (questionTag == null) {
+                return;
+            }
+            this.e.setQuestionTagId(questionTag.id);
+            this.e.setQuestionTagManualCreated(false);
+            this.j.setSubTitle(questionTag.tagName);
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        ForumTagInfo forumTagInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0539, viewGroup, false);
+            this.i = inflate;
+            this.j = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091dbc);
+            NormalItemCell.a aVar = new NormalItemCell.a();
+            aVar.b = 1;
+            aVar.f = this.a.getString(R.string.obfuscated_res_0x7f0f0447);
+            aVar.e = this.a.getString(R.string.obfuscated_res_0x7f0f0446);
+            NormalItemCell normalItemCell = this.j;
+            if (normalItemCell != null) {
+                normalItemCell.setConfig(aVar);
+                this.j.setOnClickListener(new a(this));
+                WriteData writeData = this.e;
+                if (writeData != null && "2".equals(writeData.getCallFrom()) && (forumTagInfo = this.g) != null && forumTagInfo.isValid()) {
+                    this.e.setQuestionTagId(this.g.id);
+                    this.e.setQuestionTagManualCreated(false);
+                    this.j.setSubTitle(this.g.name);
+                    this.j.setOnClickListener(null);
+                    this.j.a();
                 }
-                optJSONObject.put(str2, obj);
-                this.l.put(str, optJSONObject);
-            } catch (JSONException e) {
-                throw new IllegalStateException("JSON expcetion:", e);
             }
-        }
-    }
-
-    public mna B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (new File(str).isDirectory()) {
-                this.c = str;
-                return this;
-            }
-            throw new IllegalArgumentException("Storage path must be set to existing directory");
-        }
-        return (mna) invokeL.objValue;
-    }
-
-    public mna C(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            A(SchemeCollecter.CLASSIFY_BASE, HttpRequest.USER_AGENT, str);
-            this.b = str;
-            return this;
-        }
-        return (mna) invokeL.objValue;
-    }
-
-    public int E(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            int i2 = this.j;
-            if (i2 != 20) {
-                return i2;
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
-        g(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
-        y(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
-        z(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
-        B(str);
-        return this;
-    }
-
-    public mna g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            this.m = str;
-            return this;
-        }
-        return (mna) invokeL.objValue;
-    }
-
-    public mna j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
-            this.f = z;
-            return this;
-        }
-        return (mna) invokeZ.objValue;
-    }
-
-    public mna k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-            A(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-            this.e = z;
-            return this;
-        }
-        return (mna) invokeZ.objValue;
-    }
-
-    public mna m(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-            A(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
-            this.d = z;
-            return this;
-        }
-        return (mna) invokeZ.objValue;
-    }
-
-    public mna y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
-            A("app", "cuid", str);
-            return this;
-        }
-        return (mna) invokeL.objValue;
-    }
-
-    public mna z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
-            A("app", "app_name", str);
-            return this;
-        }
-        return (mna) invokeL.objValue;
-    }
-
-    public String D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.k;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.l.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return loa.b(this.a);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public long t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.h;
-        }
-        return invokeV.longValue;
-    }
-
-    public int u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            JSONObject optJSONObject = this.l.optJSONObject(SchemeCollecter.CLASSIFY_BASE);
-            if (optJSONObject == null) {
-                return 0;
-            }
-            return optJSONObject.optInt("http_cache_mode", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.i;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
-        l(z, str);
-        return this;
-    }
-
-    public mna l(boolean z, String str) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048592, this, z, str)) == null) {
-            A("nq", "network_quality_enabled", Boolean.valueOf(z));
-            A("nq", "watched_groups", str);
-            this.i = z;
-            return this;
-        }
-        return (mna) invokeZL.objValue;
+        return (View) invokeL.objValue;
     }
 }

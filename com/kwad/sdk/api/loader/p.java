@@ -7,7 +7,7 @@ import android.content.res.Resources;
 import androidx.appcompat.view.ContextThemeWrapper;
 import com.kwad.sdk.api.core.ResContext;
 @SuppressLint({"RestrictedApi"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class p extends ContextThemeWrapper implements ResContext {
     public Resources.Theme SF;
     public final ContextThemeWrapper SG;

@@ -1,57 +1,116 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.zp2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class yp2 implements ZeusPluginFactory {
+public final class yp2<W extends zp2> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final HashMap<String, wp2<W>> a;
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_input" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948337774, "Lcom/baidu/tieba/yp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948337774, "Lcom/baidu/tieba/yp2;");
+                return;
+            }
+        }
+        b = ms1.a;
     }
 
-    public yp2(@NonNull String str) {
+    public yp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
+        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
+    public void a(wp2<W> wp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            zp2 zp2Var = new zp2(invoker, this.a);
-            if (js1.a) {
-                Log.i("【InlineInputFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + zp2Var.hashCode() + "」");
+        if (interceptable == null || interceptable.invokeL(1048576, this, wp2Var) == null) {
+            if (b) {
+                Log.v("CommandDispatcher", wp2Var.b() + " command added to supported command list");
             }
-            return new xp2(zp2Var);
+            this.a.put(wp2Var.b(), wp2Var);
         }
-        return (ZeusPlugin) invokeL.objValue;
+    }
+
+    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
+            if (command != null && !TextUtils.isEmpty(command.what)) {
+                if (w == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
+                        return;
+                    }
+                    return;
+                }
+                wp2<W> wp2Var = this.a.get(command.what);
+                if (wp2Var == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
+                        return;
+                    }
+                    return;
+                }
+                if (b) {
+                    Log.d("CommandDispatcher", command.what + " command dispatched");
+                }
+                wp2Var.a(command, w);
+            } else if (b) {
+                Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
+            }
+        }
+    }
+
+    public void c(@Nullable ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            if (command != null && !TextUtils.isEmpty(command.what)) {
+                wp2<W> wp2Var = this.a.get(command.what);
+                if (wp2Var == null) {
+                    if (b) {
+                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
+                        return;
+                    }
+                    return;
+                }
+                if (b) {
+                    Log.d("CommandDispatcher", command.what + " cached command return value processed");
+                }
+                wp2Var.c(command);
+            } else if (b) {
+                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
+            }
+        }
     }
 }

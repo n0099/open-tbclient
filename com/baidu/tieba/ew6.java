@@ -1,155 +1,76 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.callback.IDownloadListener;
+import com.baidu.searchbox.download.unified.DownloadParams;
+import com.baidu.searchbox.download.unified.DownloadUnifiedManager;
+import com.baidu.searchbox.download.unified.EventCallback;
+import com.baidu.searchbox.download.unified.EventControlInfoForResume;
+import com.baidu.searchbox.download.unified.EventControlInfoForStart;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ApkDetail;
-import tbclient.ManageInfo;
 /* loaded from: classes5.dex */
-public class ew6 implements wn {
+public class ew6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static volatile ew6 a;
+    public static volatile DownloadUnifiedManager b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public int b;
-    public int c;
-    public boolean d;
-
-    public static boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 3 || i == 4 : invokeI.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947748805, "Lcom/baidu/tieba/ew6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947748805, "Lcom/baidu/tieba/ew6;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
 
     public ew6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
-        this.c = 0;
-        this.d = true;
+        b = DownloadUnifiedManager.getInstance();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public ew6 clone() {
+    public static ew6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ew6 ew6Var = new ew6();
-            ew6Var.a = this.a;
-            ew6Var.b = this.b;
-            ew6Var.c = this.c;
-            ew6Var.d = this.d;
-            return ew6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (ew6.class) {
+                    if (a == null) {
+                        a = new ew6();
+                    }
+                }
+            }
+            return a;
         }
         return (ew6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void b(Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e;
+        if (interceptable == null || interceptable.invokeL(1048576, this, uri) == null) {
+            b.pauseDownload(uri);
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static ew6 b(vg5 vg5Var) {
-        InterceptResult invokeL;
+    public void c(Context context, String str, Uri uri, IDownloadListener iDownloadListener, EventControlInfoForResume eventControlInfoForResume, EventCallback eventCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, vg5Var)) == null) {
-            ew6 ew6Var = new ew6();
-            ew6Var.a = vg5Var.b;
-            ew6Var.b = vg5Var.d;
-            ew6Var.c = vg5Var.e;
-            return ew6Var;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback}) == null) {
+            b.resumeDownload(context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback);
         }
-        return (ew6) invokeL.objValue;
     }
 
-    public static ew6 c(ManageInfo manageInfo) {
-        InterceptResult invokeL;
+    public void d(Context context, String str, DownloadParams downloadParams, IDownloadListener iDownloadListener, EventControlInfoForStart eventControlInfoForStart, EventCallback eventCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
-            ew6 ew6Var = new ew6();
-            ItemData itemData = new ItemData();
-            ew6Var.a = itemData;
-            itemData.parseProto(manageInfo.item);
-            ew6Var.b = manageInfo.item_source.intValue();
-            return ew6Var;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback}) == null) {
+            b.startDownload(context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback);
         }
-        return (ew6) invokeL.objValue;
-    }
-
-    public boolean d(ew6 ew6Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        ItemData itemData;
-        ApkDetail apkDetail;
-        ApkDetail apkDetail2;
-        ItemData itemData2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ew6Var)) == null) {
-            if (this.b == ew6Var.b && this.c == ew6Var.c) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ItemData itemData3 = this.a;
-            if (itemData3 != null && (itemData2 = ew6Var.a) != null) {
-                z2 = itemData3.pkgName.equals(itemData2.pkgName);
-            } else {
-                z2 = false;
-            }
-            ItemData itemData4 = this.a;
-            if (itemData4 != null && (itemData = ew6Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
-                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
-            } else {
-                z3 = false;
-            }
-            if (z && z2 && z3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

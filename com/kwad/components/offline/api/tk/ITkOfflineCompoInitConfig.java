@@ -3,7 +3,7 @@ package com.kwad.components.offline.api.tk;
 import android.content.Context;
 import com.kwad.components.offline.api.IOfflineCompoInitConfig;
 import com.kwad.components.offline.api.core.soloader.ISoLoader;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ITkOfflineCompoInitConfig extends IOfflineCompoInitConfig {
     String getSpKeyTkSoLoadTimes();
 

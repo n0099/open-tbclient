@@ -5,13 +5,13 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c1;
-import com.baidu.tieba.d3;
-import com.baidu.tieba.e1;
-import com.baidu.tieba.g3;
-import com.baidu.tieba.i1;
-import com.baidu.tieba.s6;
-import com.baidu.tieba.w0;
+import com.baidu.tieba.d1;
+import com.baidu.tieba.e3;
+import com.baidu.tieba.f1;
+import com.baidu.tieba.h3;
+import com.baidu.tieba.j1;
+import com.baidu.tieba.t6;
+import com.baidu.tieba.x0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class Cubemap extends g3 {
+public class Cubemap extends h3 {
     public static /* synthetic */ Interceptable $ic;
-    public static e1 j;
-    public static final Map<Application, s6<Cubemap>> k;
+    public static f1 j;
+    public static final Map<Application, t6<Cubemap>> k;
     public transient /* synthetic */ FieldHolder $fh;
-    public d3 i;
+    public e3 i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -140,7 +140,7 @@ public class Cubemap extends g3 {
     }
 
     /* loaded from: classes.dex */
-    public static class a implements c1.a {
+    public static class a implements d1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -163,11 +163,11 @@ public class Cubemap extends g3 {
             this.a = i;
         }
 
-        @Override // com.baidu.tieba.c1.a
-        public void a(e1 e1Var, String str, Class cls) {
+        @Override // com.baidu.tieba.d1.a
+        public void a(f1 f1Var, String str, Class cls) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, e1Var, str, cls) == null) {
-                e1Var.A(str, this.a);
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, f1Var, str, cls) == null) {
+                f1Var.A(str, this.a);
             }
         }
     }
@@ -188,13 +188,13 @@ public class Cubemap extends g3 {
         k = new HashMap();
     }
 
-    public d3 u() {
+    public e3 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.i;
         }
-        return (d3) invokeV.objValue;
+        return (e3) invokeV.objValue;
     }
 
     public boolean x() {
@@ -210,7 +210,7 @@ public class Cubemap extends g3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (x()) {
-                this.b = w0.e.a();
+                this.b = x0.e.a();
                 y(this.i);
                 return;
             }
@@ -219,13 +219,13 @@ public class Cubemap extends g3 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Cubemap(d3 d3Var) {
+    public Cubemap(e3 e3Var) {
         super(34067);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d3Var};
+            Object[] objArr = {e3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -236,22 +236,22 @@ public class Cubemap extends g3 {
                 return;
             }
         }
-        this.i = d3Var;
-        y(d3Var);
-        if (d3Var.a()) {
-            s(w0.a, this);
+        this.i = e3Var;
+        y(e3Var);
+        if (e3Var.a()) {
+            s(x0.a, this);
         }
     }
 
     public static void s(Application application, Cubemap cubemap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, cubemap) == null) {
-            s6<Cubemap> s6Var = k.get(application);
-            if (s6Var == null) {
-                s6Var = new s6<>();
+            t6<Cubemap> t6Var = k.get(application);
+            if (t6Var == null) {
+                t6Var = new t6<>();
             }
-            s6Var.a(cubemap);
-            k.put(application, s6Var);
+            t6Var.a(cubemap);
+            k.put(application, t6Var);
         }
     }
 
@@ -279,21 +279,21 @@ public class Cubemap extends g3 {
     }
 
     public static void w(Application application) {
-        s6<Cubemap> s6Var;
+        t6<Cubemap> t6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (s6Var = k.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, application) != null) || (t6Var = k.get(application)) == null) {
             return;
         }
-        e1 e1Var = j;
-        if (e1Var == null) {
-            for (int i = 0; i < s6Var.b; i++) {
-                s6Var.get(i).z();
+        f1 f1Var = j;
+        if (f1Var == null) {
+            for (int i = 0; i < t6Var.b; i++) {
+                t6Var.get(i).z();
             }
             return;
         }
-        e1Var.h();
-        s6<? extends Cubemap> s6Var2 = new s6<>(s6Var);
-        s6.b<? extends Cubemap> it = s6Var2.iterator();
+        f1Var.h();
+        t6<? extends Cubemap> t6Var2 = new t6<>(t6Var);
+        t6.b<? extends Cubemap> it = t6Var2.iterator();
         while (it.hasNext()) {
             Cubemap next = it.next();
             String m = j.m(next);
@@ -303,7 +303,7 @@ public class Cubemap extends g3 {
                 int q = j.q(m);
                 j.A(m, 0);
                 next.b = 0;
-                i1.b bVar = new i1.b();
+                j1.b bVar = new j1.b();
                 bVar.d = next.u();
                 bVar.e = next.h();
                 bVar.f = next.f();
@@ -312,38 +312,38 @@ public class Cubemap extends g3 {
                 bVar.c = next;
                 bVar.a = new a(q);
                 j.C(m);
-                next.b = w0.e.a();
+                next.b = x0.e.a();
                 j.w(m, Cubemap.class, bVar);
             }
         }
-        s6Var.clear();
-        s6Var.b(s6Var2);
+        t6Var.clear();
+        t6Var.b(t6Var2);
     }
 
-    @Override // com.baidu.tieba.g3, com.baidu.tieba.z6
+    @Override // com.baidu.tieba.h3, com.baidu.tieba.a7
     public void dispose() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b == 0) {
             return;
         }
         delete();
-        if (this.i.a() && k.get(w0.a) != null) {
-            k.get(w0.a).i(this, true);
+        if (this.i.a() && k.get(x0.a) != null) {
+            k.get(x0.a).i(this, true);
         }
     }
 
-    public void y(d3 d3Var) {
+    public void y(e3 e3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, d3Var) == null) {
-            if (!d3Var.isPrepared()) {
-                d3Var.prepare();
+        if (interceptable == null || interceptable.invokeL(1048579, this, e3Var) == null) {
+            if (!e3Var.isPrepared()) {
+                e3Var.prepare();
             }
             a();
             o(this.c, this.d, true);
             p(this.e, this.f, true);
             n(this.g, true);
-            d3Var.e();
-            w0.e.N(this.a, 0);
+            e3Var.e();
+            x0.e.N(this.a, 0);
         }
     }
 }

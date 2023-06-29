@@ -1,30 +1,20 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.publisher.PublishParams;
-import com.baidu.swan.apps.publisher.draft.DraftData;
-import com.baidu.swan.apps.publisher.emoji.EmojiEditText;
-import com.baidu.swan.apps.publisher.view.PhotoChooseView;
-import com.baidu.swan.apps.publisher.view.SPSwitchPanelLinearLayout;
-import com.baidu.tieba.db3;
-import com.baidu.tieba.ib2;
-import com.baidu.tieba.v93;
-import com.baidu.tieba.y93;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.process.ipc.SwanProcessCallStub;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,93 +22,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Locale;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class d93 extends fb2 implements View.OnClickListener, uz2<MediaModel>, y93.b {
+public final class d93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b1;
+    public static final boolean i;
+    public static final long j;
     public transient /* synthetic */ FieldHolder $fh;
-    public SPSwitchPanelLinearLayout G0;
-    public EmojiEditText H0;
-    public EmojiEditText I0;
-    public TextView J0;
-    public ImageView K0;
-    public PhotoChooseView L0;
-    public ImageView M0;
-    public TextView N0;
-    public TextView O0;
-    public ImageView P0;
-    public View Q0;
-    public PublishParams R0;
-    public boolean S0;
-    public DraftData T0;
-    public b93 U0;
-    public boolean V0;
-    public int W0;
-    public int X0;
-    public int Y0;
-    public EmojiEditText.e Z0;
-    public EmojiEditText.e a1;
+    public final LinkedHashMap<SwanAppProcessInfo, b93> a;
+    public final Deque<Long> b;
+    public final Handler c;
+    public final Messenger d;
+    public final SwanProcessCallStub e;
+    public long f;
+    public final Set<z83> g;
+    public final z83 h;
 
-    @Override // com.baidu.tieba.uz2
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fb2
-    public boolean e2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fb2
-    public boolean g2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fb2
-    public void l2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface c<FILTER> {
+        boolean a(FILTER filter, b93 b93Var);
     }
 
     /* loaded from: classes5.dex */
-    public class l implements Runnable {
+    public class a implements z83 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ ViewGroup d;
-        public final /* synthetic */ d93 e;
+        public final /* synthetic */ d93 a;
 
+        @Override // com.baidu.tieba.z83
+        public void timeout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.d93$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class a implements Runnable {
+        public class C0271a implements vq3<z83> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ l a;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ b93 b;
 
-            public a(l lVar) {
+            public C0271a(a aVar, String str, b93 b93Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {lVar};
+                    Object[] objArr = {aVar, str, b93Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -128,81 +91,18 @@ public class d93 extends fb2 implements View.OnClickListener, uz2<MediaModel>, y
                         return;
                     }
                 }
-                this.a = lVar;
+                this.a = str;
+                this.b = b93Var;
             }
 
-            @Override // java.lang.Runnable
-            public void run() {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.vq3
+            /* renamed from: b */
+            public void a(z83 z83Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    hb3.d(this.a.d);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z83Var) == null) {
+                    z83Var.a(this.a, this.b);
                 }
-            }
-        }
-
-        public l(d93 d93Var, List list, String str, String str2, ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var, list, str, str2, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = d93Var;
-            this.a = list;
-            this.b = str;
-            this.c = str2;
-            this.d = viewGroup;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONObject a2 = u93.a(this.a, this.e.R0.getImageRatio());
-                    if (a2 == null) {
-                        if (d93.b1) {
-                            Log.d("SwanAppPublisher", "图片解析失败");
-                        }
-                        a2 = new JSONObject();
-                    }
-                    if (!this.b.isEmpty()) {
-                        a2.put("title", this.e.H0.getText().toString());
-                    }
-                    if (!this.c.isEmpty()) {
-                        a2.put("content", this.e.I0.getText().toString());
-                    }
-                    if (d93.b1) {
-                        Log.d("SwanAppPublisher", "publish result " + a2.toString());
-                    }
-                    this.d.post(new a(this));
-                    k93.a();
-                    this.e.U0.a(a2);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements EmojiEditText.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        @Override // com.baidu.swan.apps.publisher.emoji.EmojiEditText.e
-        public void onBack() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
@@ -224,465 +124,84 @@ public class d93 extends fb2 implements View.OnClickListener, uz2<MediaModel>, y
             this.a = d93Var;
         }
 
-        @Override // com.baidu.swan.apps.publisher.emoji.EmojiEditText.e
-        public void a(int i) {
+        @Override // com.baidu.tieba.z83
+        public void a(String str, b93 b93Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, b93Var) == null) {
+                if (d93.i) {
+                    Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + b93Var.b);
+                }
+                synchronized (this.a.g) {
+                    uq3.a(bc3.M(), new C0271a(this, str, b93Var), this.a.g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z83 a;
+        public final /* synthetic */ d93 b;
+
+        public b(d93 d93Var, z83 z83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d93Var, z83Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = d93Var;
+            this.a = z83Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.X0 = i;
-            int i2 = i - 4999;
-            this.a.N0.setVisibility(0);
-            if (i2 < 999) {
-                this.a.N0.setText(String.format("超%d字", Integer.valueOf(i2)));
-            } else {
-                this.a.N0.setText("超999+");
-            }
-            this.a.N0.setTextColor(-65536);
-            this.a.r3();
-        }
-
-        @Override // com.baidu.swan.apps.publisher.emoji.EmojiEditText.e
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) {
-                return;
-            }
-            this.a.X0 = i;
-            if (i > 4979) {
-                this.a.N0.setText(String.format("剩%d字", Integer.valueOf(4999 - i)));
-                this.a.N0.setVisibility(0);
-                this.a.N0.setTextColor(this.a.Y0);
-            } else {
-                this.a.N0.setVisibility(8);
-            }
-            this.a.r3();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        public b(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(1048576, this, dialogInterface, i) != null) {
-                return;
-            }
-            this.a.x3();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        public c(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                w93.onEvent("draft_save");
-                this.a.T0.setTimeStamp(System.currentTimeMillis());
-                this.a.T0.setTitle(this.a.H0.getText().toString());
-                this.a.T0.setContent(this.a.I0.getText().toString());
-                this.a.T0.setImages(this.a.y3());
-                k93.d(this.a.T0);
-                this.a.s3();
-                if (this.a.U0 != null) {
-                    this.a.U0.onCancel();
+            synchronized (this.b.g) {
+                if (this.b.g.contains(this.a)) {
+                    if (d93.i) {
+                        Log.i("SwanPuppetManager", "timeout: callback = " + this.a);
+                    }
+                    this.b.h(this.a);
+                    this.a.timeout();
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements DialogInterface.OnClickListener {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
+        public static d93 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
 
-        public d(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-905135221, "Lcom/baidu/tieba/d93$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-905135221, "Lcom/baidu/tieba/d93$d;");
                     return;
                 }
             }
-            this.a = d93Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                w93.onEvent("draft_quit");
-                k93.a();
-                this.a.s3();
-                if (this.a.U0 != null) {
-                    this.a.U0.onCancel();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements v93.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        public e(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-
-        @Override // com.baidu.tieba.v93.c
-        public void onClickSwitch(View view2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLZ(1048576, this, view2, z) != null) {
-                return;
-            }
-            this.a.p3(z);
-            w93.onEvent("emoji_clk");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements View.OnFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        public f(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view2, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLZ(1048576, this, view2, z) != null) || !z) {
-                return;
-            }
-            this.a.t3();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class g implements View.OnKeyListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        @Override // android.view.View.OnKeyListener
-        public boolean onKey(View view2, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view2, i, keyEvent)) == null) {
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-
-        public g(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h implements View.OnFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        public h(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view2, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLZ(1048576, this, view2, z) != null) || !z) {
-                return;
-            }
-            this.a.v3();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class i implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        public i(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() != 1) {
-                    return false;
-                }
-                this.a.q3();
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class j implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        public j(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) != null) {
-                return invokeLL.booleanValue;
-            }
-            this.a.G3(view2, motionEvent);
-            return false;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class k implements PhotoChooseView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        public k(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-
-        @Override // com.baidu.swan.apps.publisher.view.PhotoChooseView.b
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    this.a.r3();
-                }
-                if (i != this.a.R0.getMaxImageNum() - 1) {
-                    return;
-                }
-                this.a.w3();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class m implements EmojiEditText.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d93 a;
-
-        @Override // com.baidu.swan.apps.publisher.emoji.EmojiEditText.e
-        public void onBack() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        public m(d93 d93Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d93Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d93Var;
-        }
-
-        @Override // com.baidu.swan.apps.publisher.emoji.EmojiEditText.e
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) {
-                return;
-            }
-            this.a.W0 = i;
-            if (i == 0) {
-                this.a.P0.setVisibility(8);
-            } else {
-                this.a.P0.setVisibility(0);
-            }
-            this.a.r3();
-        }
-
-        @Override // com.baidu.swan.apps.publisher.emoji.EmojiEditText.e
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
-                return;
-            }
-            this.a.W0 = i;
-            this.a.H0.setText(this.a.H0.getText().toString().substring(0, 20));
-            this.a.H0.setSelection(20);
-            aa3.h(this.a.getContext(), R.string.obfuscated_res_0x7f0f1518);
-            this.a.r3();
+            a = new d93(null);
         }
     }
 
@@ -699,100 +218,47 @@ public class d93 extends fb2 implements View.OnClickListener, uz2<MediaModel>, y
                 return;
             }
         }
-        b1 = js1.a;
+        i = ms1.a;
+        j = TimeUnit.MINUTES.toMillis(5L);
     }
 
-    public final void E3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (D3()) {
-                I3();
-                return;
-            }
-            s3();
-            b93 b93Var = this.U0;
-            if (b93Var != null) {
-                b93Var.onCancel();
-            }
-        }
-    }
-
-    public final void q3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            v93.d(this.G0, this.I0);
-            ImageView imageView = this.K0;
-            if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081431);
-            }
-        }
-    }
-
-    public void s3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            y93.k(this.I0);
-            this.I0.d();
-            this.H0.d();
-            x3();
-        }
-    }
-
-    public final void t3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081430);
-            this.K0.setClickable(false);
-        }
-    }
-
-    public final void u3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f08142a);
-            this.M0.setClickable(false);
-        }
-    }
-
-    public final void v3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081431);
-            this.K0.setClickable(true);
-        }
-    }
-
-    public final void w3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f081415);
-            this.M0.setClickable(true);
-        }
-    }
-
-    public final void x3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            ib2.b i2 = mx2.T().U().i("navigateBack");
-            i2.n(ib2.i, ib2.h);
-            i2.g();
-            i2.a();
-        }
-    }
-
-    public final List<String> y3() {
+    @SuppressLint({"BDThrowableCheck"})
+    public static d93 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            if (this.R0.supportImage().booleanValue()) {
-                return this.L0.getData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (!i || ProcessUtils.isMainProcess()) {
+                return d.a;
             }
-            return null;
+            throw new IllegalStateException("SwanAppClientObjManager should run in main process only");
         }
-        return (List) invokeV.objValue;
+        return (d93) invokeV.objValue;
+    }
+
+    public z83 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
+        }
+        return (z83) invokeV.objValue;
+    }
+
+    public synchronized LinkedHashSet<b93> q() {
+        InterceptResult invokeV;
+        LinkedHashSet<b93> linkedHashSet;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            synchronized (this) {
+                linkedHashSet = new LinkedHashSet<>(this.a.values());
+            }
+            return linkedHashSet;
+        }
+        return (LinkedHashSet) invokeV.objValue;
     }
 
     public d93() {
+        SwanAppProcessInfo[] indices;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -805,431 +271,406 @@ public class d93 extends fb2 implements View.OnClickListener, uz2<MediaModel>, y
                 return;
             }
         }
-        this.S0 = false;
-        this.V0 = false;
-        this.W0 = 0;
-        this.X0 = 0;
-        this.Z0 = new m(this);
-        this.a1 = new a(this);
+        this.a = new LinkedHashMap<>();
+        this.b = new ArrayDeque();
+        this.c = new SwanAppMessengerService.a();
+        this.d = new Messenger(this.c);
+        this.e = new SwanProcessCallStub(this.c);
+        this.f = 0L;
+        this.g = new HashSet();
+        this.h = new a(this);
+        for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
+            if (swanAppProcessInfo != null && swanAppProcessInfo.isSwanAppProcess()) {
+                this.a.put(swanAppProcessInfo, new b93(swanAppProcessInfo));
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.fb2
-    public boolean H() {
+    @Nullable
+    public synchronized b93 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.V0) {
-                if (b1) {
-                    Log.d("SwanAppPublisher", "backPress: hide soft");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                u("b4 computNextPreloadProcess");
+                b93 b93Var = null;
+                for (int i2 = 0; i2 <= 5; i2++) {
+                    b93 b93Var2 = this.a.get(SwanAppProcessInfo.indexOf(i2));
+                    if (b93Var2 != null && b93Var2.b.isSwanAppProcess() && !b93Var2.E()) {
+                        if (b93Var2.S()) {
+                            if (i) {
+                                Log.i("SwanPuppetManager", "computNextPreloadProcess: return null by found empty process=" + b93Var2);
+                            }
+                            return null;
+                        } else if (b93Var == null) {
+                            b93Var = b93Var2;
+                        }
+                    }
                 }
-                y93.k(this.I0);
-                this.V0 = false;
-                return true;
-            } else if (!D3()) {
-                return false;
-            } else {
-                if (b1) {
-                    Log.d("SwanAppPublisher", "backPress: show draft dialog");
+                if (i) {
+                    Log.i("SwanPuppetManager", "computNextPreloadProcess: firstPreloadableClient=" + b93Var);
                 }
-                I3();
-                return true;
+                return b93Var;
+            }
+        }
+        return (b93) invokeV.objValue;
+    }
+
+    public /* synthetic */ d93(a aVar) {
+        this();
+    }
+
+    public void b(z83 z83Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, z83Var) == null) {
+            c(z83Var, -1L);
+        }
+    }
+
+    @Nullable
+    public synchronized b93 i(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            synchronized (this) {
+                List<b93> j2 = j(str);
+                if (j2.isEmpty()) {
+                    return null;
+                }
+                return j2.get(j2.size() - 1);
+            }
+        }
+        return (b93) invokeL.objValue;
+    }
+
+    public synchronized b93 l(@Nullable String str) {
+        InterceptResult invokeL;
+        b93 i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            synchronized (this) {
+                i2 = i(str);
+                if (i2 == null) {
+                    i2 = e();
+                }
+            }
+            return i2;
+        }
+        return (b93) invokeL.objValue;
+    }
+
+    public synchronized b93 n(int i2) {
+        InterceptResult invokeI;
+        b93 o;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
+            synchronized (this) {
+                o = o(SwanAppProcessInfo.indexOf(i2));
+            }
+            return o;
+        }
+        return (b93) invokeI.objValue;
+    }
+
+    public synchronized b93 o(SwanAppProcessInfo swanAppProcessInfo) {
+        InterceptResult invokeL;
+        b93 b93Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, swanAppProcessInfo)) == null) {
+            synchronized (this) {
+                b93Var = this.a.get(swanAppProcessInfo);
+            }
+            return b93Var;
+        }
+        return (b93) invokeL.objValue;
+    }
+
+    @NonNull
+    public synchronized b93 r(@Nullable String str) {
+        InterceptResult invokeL;
+        b93 l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            synchronized (this) {
+                l = l(str);
+                v(l.b);
+            }
+            return l;
+        }
+        return (b93) invokeL.objValue;
+    }
+
+    public void c(z83 z83Var, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z83Var, j2) == null) {
+            synchronized (this.g) {
+                this.g.add(z83Var);
+                if (i) {
+                    Log.i("SwanPuppetManager", "addCallback: after = " + this.g.size());
+                }
+            }
+            if (j2 > 0) {
+                bc3.M().postDelayed(new b(this, z83Var), j2);
+            }
+        }
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.b) {
+                t("checkRescuable ===>");
+                boolean z = false;
+                if (this.f > System.currentTimeMillis()) {
+                    t(String.format(Locale.getDefault(), "disallowRescue by mRescueRefractoryUntil(%d)", Long.valueOf(this.f)));
+                    return false;
+                } else if (this.b.size() < 3) {
+                    t(String.format(Locale.getDefault(), "allowRescue by size(%d) < max(%d)", Integer.valueOf(this.b.size()), 3));
+                    return true;
+                } else {
+                    int size = this.b.size() - 3;
+                    t("after offer purgeCount=" + size);
+                    if (size > 0) {
+                        for (int i2 = 0; i2 < size; i2++) {
+                            t("purge: " + this.b.poll());
+                        }
+                    }
+                    t("after purge");
+                    Long peek = this.b.peek();
+                    if (peek == null) {
+                        t("allowRescue by null oldestRecord is should not happen");
+                        return true;
+                    }
+                    long currentTimeMillis = System.currentTimeMillis() - peek.longValue();
+                    if (currentTimeMillis > j) {
+                        z = true;
+                    }
+                    t("allowRescue:" + z + " oldestRecordDuration:" + currentTimeMillis);
+                    return z;
+                }
             }
         }
         return invokeV.booleanValue;
     }
 
-    public final void H3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            db3.a aVar = new db3.a(getContext());
-            aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f150f);
-            aVar.v(R.string.obfuscated_res_0x7f0f1513);
-            aVar.O(R.string.obfuscated_res_0x7f0f0144, new b(this));
-            aVar.X();
-        }
-    }
-
-    public final void I3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            db3.a aVar = new db3.a(getActivity());
-            aVar.U(R.string.obfuscated_res_0x7f0f1523);
-            aVar.B(R.string.obfuscated_res_0x7f0f1520, new d(this));
-            aVar.v(R.string.obfuscated_res_0x7f0f1522);
-            aVar.O(R.string.obfuscated_res_0x7f0f1521, new c(this));
-            aVar.X();
-        }
-    }
-
-    public final void G3(View view2, MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, motionEvent) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 2) {
-                    if (view2 != null) {
-                        view2.setAlpha(1.0f);
-                    }
-                } else if (view2 != null) {
-                    view2.setAlpha(0.2f);
-                }
-            } else if (view2 != null) {
-                view2.setAlpha(0.2f);
-            }
-        }
-    }
-
-    public void F3(b93 b93Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, b93Var) == null) {
-            this.U0 = b93Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.y93.b
-    public void onSoftInputShowing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            if (b1) {
-                Log.d("SwanAppPublisher", "soft input is showing ? " + z);
-            }
-            this.V0 = z;
-        }
-    }
-
-    public final void p3(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            if (z) {
-                this.K0.setImageResource(R.drawable.obfuscated_res_0x7f08142e);
-            } else {
-                this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081431);
-            }
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void v0(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
-            super.v0(bundle);
-            Bundle o = o();
-            if (o != null) {
-                PublishParams publishParams = (PublishParams) o.getParcelable("params");
-                this.R0 = publishParams;
-                if (publishParams == null) {
-                    this.S0 = true;
-                    return;
-                }
-                return;
-            }
-            this.S0 = true;
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public View y0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, layoutInflater, viewGroup, bundle)) == null) {
-            super.y0(layoutInflater, viewGroup, bundle);
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08f3, viewGroup, false);
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    public final void A3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            DraftData c2 = k93.c();
-            this.T0 = c2;
-            if (c2 != null) {
-                if (b1) {
-                    Log.d("SwanAppPublisher", "update view from draft data");
-                }
-                String title = this.T0.getTitle();
-                if (this.R0.supportTitle().booleanValue() && !TextUtils.isEmpty(title)) {
-                    this.H0.setText(title);
-                    this.H0.setSelection(title.length());
-                    this.Q0 = this.H0;
-                }
-                String content = this.T0.getContent();
-                if (!TextUtils.isEmpty(content)) {
-                    this.I0.setText(content);
-                    if (this.R0.supportEmoji().booleanValue() && m93.c().e()) {
-                        this.I0.c();
-                    }
-                    EmojiEditText emojiEditText = this.I0;
-                    emojiEditText.setSelection(emojiEditText.getText().length());
-                    this.Q0 = this.I0;
-                }
-                if (this.R0.supportImage().booleanValue()) {
-                    this.L0.update(this.T0.getImages());
-                    if (this.L0.getLeftCount() == 0) {
-                        u3();
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            this.T0 = new DraftData(0L, "", "", null);
-        }
-    }
-
-    public final boolean D3() {
+    public synchronized b93 e() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.R0.supportTitle().booleanValue()) {
-                str = this.H0.getText().toString().trim();
-            } else {
+            synchronized (this) {
+                u("b4 computNextAvailableProcess");
+                b93 b93Var = null;
+                b93 b93Var2 = null;
+                for (int i2 = 0; i2 <= 5; i2++) {
+                    b93 b93Var3 = this.a.get(SwanAppProcessInfo.indexOf(i2));
+                    if (b93Var3 != null && b93Var3.b.isSwanAppProcess() && !b93Var3.E()) {
+                        if (b93Var3.S()) {
+                            if (i) {
+                                Log.i("SwanPuppetManager", "computNextAvailableProcess: firstPreloadedClient=" + b93Var3);
+                            }
+                            return b93Var3;
+                        }
+                        if (b93Var == null && b93Var3.T()) {
+                            b93Var = b93Var3;
+                        }
+                        if (b93Var2 == null) {
+                            b93Var2 = b93Var3;
+                        }
+                    }
+                }
+                if (b93Var != null) {
+                    if (i) {
+                        Log.i("SwanPuppetManager", "computNextAvailableProcess: firstConnectedEmptyClient=" + b93Var);
+                    }
+                    return b93Var;
+                } else if (b93Var2 != null) {
+                    if (i) {
+                        Log.i("SwanPuppetManager", "computNextAvailableProcess: firstEmptyClient=" + b93Var2);
+                    }
+                    return b93Var2;
+                } else {
+                    for (b93 b93Var4 : this.a.values()) {
+                        if (b93Var4 != null) {
+                            if (i) {
+                                Log.i("SwanPuppetManager", "computNextAvailableProcess: lruClient=" + b93Var4);
+                            }
+                            return b93Var4;
+                        }
+                    }
+                    if (i) {
+                        Log.i("SwanPuppetManager", "computNextAvailableProcess: P0");
+                    }
+                    return o(SwanAppProcessInfo.P0);
+                }
+            }
+        }
+        return (b93) invokeV.objValue;
+    }
+
+    public synchronized void g(String str, b93 b93Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, b93Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                List<b93> j2 = k().j(str);
+                if (j2.isEmpty()) {
+                    return;
+                }
+                for (b93 b93Var2 : j2) {
+                    if (b93Var2 != b93Var && b93Var2 != null && b93Var2.E()) {
+                        if (i) {
+                            Log.i("SwanPuppetManager", "deduplicateClients: protectedClient=" + b93Var);
+                            Log.i("SwanPuppetManager", "deduplicateClients: exClient=" + b93Var2);
+                        }
+                        b93Var2.e0();
+                        b93Var2.d0();
+                        if (b93Var2.T()) {
+                            s83 e = s83.e();
+                            u83 u83Var = new u83(110, new Bundle());
+                            u83Var.b(b93Var2.b);
+                            e.h(u83Var);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void h(z83 z83Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, z83Var) == null) {
+            synchronized (this.g) {
+                this.g.remove(z83Var);
+                if (i) {
+                    Log.i("SwanPuppetManager", "delCallback: after = " + this.g.size());
+                }
+            }
+        }
+    }
+
+    public void s(Message message) {
+        b93 o;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, message) != null) || message == null) {
+            return;
+        }
+        SwanAppProcessInfo indexOf = SwanAppProcessInfo.indexOf(message.arg1);
+        if (!indexOf.isSwanAppProcess() || (o = o(indexOf)) == null) {
+            return;
+        }
+        Object obj = message.obj;
+        if (!(obj instanceof Bundle)) {
+            return;
+        }
+        Bundle bundle = (Bundle) obj;
+        bundle.setClassLoader(d93.class.getClassLoader());
+        o.o0(bundle.getLong("property_launch_cost", -1L));
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && i) {
+            if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            String trim = this.I0.getText().toString().trim();
-            List<String> y3 = y3();
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(trim) && y3 == null) {
-                k93.a();
-                return false;
-            }
-            if (TextUtils.equals(str, this.T0.getTitle()) && TextUtils.equals(trim, this.T0.getContent())) {
-                List<String> images = this.T0.getImages();
-                if (images == null && y3 == null) {
-                    return false;
+            Log.i("SwanPuppetManager", "\nlogStatus by " + str + ":\n" + toString());
+        }
+    }
+
+    public synchronized void v(SwanAppProcessInfo swanAppProcessInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, swanAppProcessInfo) == null) {
+            synchronized (this) {
+                b93 remove = this.a.remove(swanAppProcessInfo);
+                if (remove != null) {
+                    this.a.put(swanAppProcessInfo, remove);
                 }
-                if (images != null && y3 != null && images.size() == y3.size()) {
-                    for (int i2 = 0; i2 < y3.size(); i2++) {
-                        if (!TextUtils.equals(images.get(i2), y3.get(i2))) {
-                            return true;
+                if (i) {
+                    u("lru -> " + swanAppProcessInfo);
+                }
+            }
+        }
+    }
+
+    @NonNull
+    public synchronized List<b93> j(@Nullable String str) {
+        InterceptResult invokeL;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                if (!TextUtils.isEmpty(str)) {
+                    for (b93 b93Var : this.a.values()) {
+                        if (TextUtils.equals(b93Var.getAppId(), str)) {
+                            arrayList.add(b93Var);
                         }
                     }
-                    return false;
                 }
             }
-            return true;
+            return arrayList;
         }
-        return invokeV.booleanValue;
+        return (List) invokeL.objValue;
     }
 
-    public final void B3() {
+    public synchronized <FILTER> b93 p(FILTER filter, c<FILTER> cVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            y93.c(getActivity(), (ViewGroup) getActivity().findViewById(16908290), this.G0, this);
-            v93.b(this.G0, this.K0, this.I0, new e(this));
-            o93.b().c(getActivity(), this.G0, this.I0, this.R0.getEmojiPath(), this.R0.getAppId(), this.R0.getAppVersion());
-        }
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public final void C3(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (b1) {
-                Log.d("SwanAppPublisher", "init view");
-            }
-            this.H0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091c7f);
-            if (this.R0.supportTitle().booleanValue()) {
-                view2.findViewById(R.id.obfuscated_res_0x7f091c80).setVisibility(0);
-                this.H0.setHint(this.R0.getTitleHint());
-                this.H0.setListener(this.Z0);
-                this.H0.setMaxSize(20);
-                this.H0.setOnFocusChangeListener(new f(this));
-            } else {
-                view2.findViewById(R.id.obfuscated_res_0x7f091c80).setVisibility(8);
-            }
-            this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090125);
-            if (this.R0.supportEmoji().booleanValue() && !TextUtils.isEmpty(this.R0.getEmojiPath().trim())) {
-                this.K0.setVisibility(0);
-            } else {
-                this.K0.setVisibility(8);
-            }
-            this.G0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09097e);
-            view2.findViewById(R.id.obfuscated_res_0x7f09182f).setBackgroundColor(this.R0.getNavBarBgColor());
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d07);
-            textView.setText(this.R0.getNavBarTitle());
-            textView.setTextColor(this.R0.getNavBarTextColor());
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09070a);
-            this.P0 = imageView;
-            imageView.setOnClickListener(this);
-            this.J0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c7b);
-            if (this.R0.supportTarget().booleanValue() && !TextUtils.isEmpty(this.R0.getTarget().trim())) {
-                TextView textView2 = this.J0;
-                textView2.setText("发布到 " + this.R0.getTarget());
-            } else {
-                view2.findViewById(R.id.obfuscated_res_0x7f091c7c).setVisibility(8);
-            }
-            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d4);
-            EmojiEditText emojiEditText = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091c61);
-            this.I0 = emojiEditText;
-            emojiEditText.setOnKeyListener(new g(this));
-            this.I0.setHint(this.R0.getContentHint());
-            this.I0.setListener(this.a1);
-            this.I0.setMaxSize(4999);
-            this.I0.setOnFocusChangeListener(new h(this));
-            view2.findViewById(R.id.obfuscated_res_0x7f0907bf).setOnTouchListener(new i(this));
-            TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cf9);
-            this.O0 = textView3;
-            textView3.setText(this.R0.getPublishText());
-            this.O0.setOnClickListener(this);
-            this.O0.setClickable(false);
-            TextView textView4 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052b);
-            textView4.setText(this.R0.getCancelText());
-            textView4.setTextColor(this.R0.getCancelTextColor());
-            textView4.setOnClickListener(this);
-            textView4.setOnTouchListener(new j(this));
-            this.M0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09013a);
-            this.L0 = (PhotoChooseView) view2.findViewById(R.id.obfuscated_res_0x7f091be8);
-            if (this.R0.supportImage().booleanValue()) {
-                this.M0.setVisibility(0);
-                this.M0.setOnClickListener(this);
-                this.L0.setVisibility(0);
-                this.L0.d(getActivity());
-                this.L0.setMaxCount(this.R0.getMaxImageNum());
-                this.L0.setCallback(this);
-                this.L0.setDeleteListener(new k(this));
-            } else {
-                this.M0.setVisibility(8);
-                this.L0.setVisibility(8);
-            }
-            this.Y0 = getResources().getColor(R.color.obfuscated_res_0x7f060b06);
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void N0(View view2, Bundle bundle) {
-        EmojiEditText emojiEditText;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, view2, bundle) == null) {
-            super.N0(view2, bundle);
-            if (this.S0) {
-                H3();
-                return;
-            }
-            C3(view2);
-            if (this.R0.supportEmoji().booleanValue() && !TextUtils.isEmpty(this.R0.getEmojiPath().trim())) {
-                B3();
-            }
-            A3();
-            if (this.Q0 == null) {
-                if (this.R0.supportTitle().booleanValue()) {
-                    emojiEditText = this.H0;
-                } else {
-                    emojiEditText = this.I0;
-                }
-                this.Q0 = emojiEditText;
-            }
-            y93.n(this.Q0, 300L);
-            w93.onEvent("show");
-            r3();
-        }
-    }
-
-    @Override // com.baidu.tieba.uz2
-    public void f(List<MediaModel> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (MediaModel mediaModel : list) {
-                arrayList.add(mediaModel.getPath());
-            }
-            this.L0.update(arrayList);
-            if (this.R0.supportTitle().booleanValue() && this.W0 == 0 && this.X0 == 0) {
-                y93.n(this.H0, 300L);
-            } else {
-                y93.n(this.I0, 300L);
-            }
-            r3();
-            if (this.L0.getLeftCount() == 0) {
-                u3();
-            }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
-            int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091cf9) {
-                w93.onEvent("pub_clk");
-                z3();
-            } else if (id == R.id.obfuscated_res_0x7f09052b) {
-                w93.onEvent("cancel_clk");
-                E3();
-            } else if (id == R.id.obfuscated_res_0x7f09013a) {
-                w93.onEvent("pic_clk_bar");
-                aa3.i(this.L0.getLeftCount(), this);
-            } else if (id == R.id.obfuscated_res_0x7f09070a) {
-                this.H0.setText("");
-            }
-        }
-    }
-
-    public final void r3() {
-        int i2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            List<String> y3 = y3();
-            if (!this.R0.supportTitle().booleanValue() ? !(((i2 = this.X0) <= 0 || i2 > 4999) && (y3 == null || y3.size() <= 0)) : !(this.W0 <= 0 || (this.X0 <= 0 && (y3 == null || y3.size() <= 0)))) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z && !this.O0.isClickable()) {
-                this.O0.setClickable(true);
-                this.O0.setTextColor(this.R0.getPublishTextColor());
-            } else if (!z && this.O0.isClickable()) {
-                this.O0.setClickable(false);
-                this.O0.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060b07));
-            }
-        }
-    }
-
-    public final void z3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            if (b1) {
-                Log.d("SwanAppPublisher", "go publish");
-            }
-            if (!SwanAppNetworkUtils.i(getContext())) {
-                aa3.h(getContext(), R.string.obfuscated_res_0x7f0f1511);
-            } else if (this.U0 == null) {
-            } else {
-                String obj = this.H0.getText().toString();
-                String obj2 = this.I0.getText().toString();
-                List<String> y3 = y3();
-                if (this.R0.supportTitle().booleanValue() && TextUtils.isEmpty(obj.trim())) {
-                    aa3.h(getContext(), R.string.obfuscated_res_0x7f0f150e);
-                } else if (TextUtils.isEmpty(obj2.trim()) && (y3 == null || y3.size() == 0)) {
-                    aa3.h(getContext(), R.string.obfuscated_res_0x7f0f150e);
-                } else if (y3 != null && y3.size() > 0) {
-                    ViewGroup viewGroup = (ViewGroup) getActivity().findViewById(16908290);
-                    hb3.h(getContext(), viewGroup, getResources().getString(R.string.obfuscated_res_0x7f0f1510));
-                    this.O0.setClickable(false);
-                    this.O0.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060b07));
-                    to3.f().execute(new l(this, y3, obj, obj2, viewGroup));
-                } else {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        if (!obj.isEmpty()) {
-                            jSONObject.put("title", this.H0.getText().toString());
-                        }
-                        if (!obj2.isEmpty()) {
-                            jSONObject.put("content", this.I0.getText().toString());
-                        }
-                        if (b1) {
-                            Log.d("SwanAppPublisher", "publish result " + jSONObject.toString());
-                        }
-                        k93.a();
-                        this.U0.a(jSONObject);
-                    } catch (JSONException e2) {
-                        if (b1) {
-                            e2.printStackTrace();
-                        }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, filter, cVar)) == null) {
+            synchronized (this) {
+                for (b93 b93Var : this.a.values()) {
+                    if (cVar.a(filter, b93Var)) {
+                        return b93Var;
                     }
+                }
+                return null;
+            }
+        }
+        return (b93) invokeLL.objValue;
+    }
+
+    public final void t(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && i) {
+            Log.i("SwanPuppetManager", "SwanRescue:: status => " + str);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault());
+            Iterator<Long> it = this.b.iterator();
+            while (it.hasNext()) {
+                Log.i("SwanPuppetManager", "SwanRescue::   >>>  record @ " + simpleDateFormat.format(new Date(it.next().longValue())));
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            LinkedHashSet<b93> q = q();
+            StringBuilder sb = new StringBuilder();
+            sb.append(super.toString());
+            sb.append(":");
+            sb.append("\n-> clients: ");
+            for (b93 b93Var : q) {
+                sb.append("\n--> ");
+                sb.append(b93Var.toString());
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            synchronized (this.b) {
+                if (d()) {
+                    this.b.offer(Long.valueOf(System.currentTimeMillis()));
+                    Bundle bundle = new Bundle();
+                    bundle.putString("bundle_key_preload_preload_scene", "1");
+                    a93.n(jv2.c(), bundle);
                 }
             }
         }

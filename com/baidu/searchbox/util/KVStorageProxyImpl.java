@@ -9,7 +9,7 @@ import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tieba.gs1;
+import com.baidu.tieba.js1;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -39,15 +39,15 @@ public class KVStorageProxyImpl implements IKVStorageProxy {
     }
 
     public static void initializeKVStorage() {
-        gs1 gs1Var = new gs1(AppRuntime.getAppContext());
-        gs1Var.f(new SwanKV.b() { // from class: com.baidu.searchbox.util.KVStorageProxyImpl.3
+        js1 js1Var = new js1(AppRuntime.getAppContext());
+        js1Var.f(new SwanKV.b() { // from class: com.baidu.searchbox.util.KVStorageProxyImpl.3
             @Override // com.baidu.storage.swankv.SwanKV.b
             public void loadLibrary(String str) {
                 SoLoader.load(AppRuntime.getAppContext(), str);
             }
         });
-        gs1Var.e(true);
-        SwanKV.initialize(gs1Var);
+        js1Var.e(true);
+        SwanKV.initialize(js1Var);
         try {
             SwanKV.registerEventHandler(new KVEventHandler());
         } catch (UnsatisfiedLinkError unused) {

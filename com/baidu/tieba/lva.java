@@ -1,11 +1,12 @@
 package com.baidu.tieba;
+
+import android.util.JsonWriter;
+import java.io.IOException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface lva {
-    void onCancel();
+    JSONObject a() throws JSONException;
 
-    void onExceptionThrown(String str);
-
-    void onProgressChanged(int i, double d, long j);
-
-    void onTrackEnd(int i);
+    void b(JsonWriter jsonWriter) throws IOException;
 }

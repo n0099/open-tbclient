@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n8a;
-import com.baidu.tieba.us6;
-import com.baidu.tieba.vs6;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.wn;
-import com.baidu.tieba.ws6;
+import com.baidu.tieba.at6;
+import com.baidu.tieba.bt6;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.xn;
+import com.baidu.tieba.zca;
+import com.baidu.tieba.zs6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
 @Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\b\u0086\b\u0018\u0000 \u001a2\u00020\u0001:\u0001\u001aB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\t\u0010\r\u001a\u00020\u0003HÆ\u0003J\u0006\u0010\u000e\u001a\u00020\u000fJ\u0013\u0010\u0010\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\u0011\u001a\u00020\u00122\b\u0010\u0013\u001a\u0004\u0018\u00010\u0014HÖ\u0003J\b\u0010\u0015\u001a\u00020\u0016H\u0016J\t\u0010\u0017\u001a\u00020\u0018HÖ\u0001J\t\u0010\u0019\u001a\u00020\bHÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u001a\u0010\u0007\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\f¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/pb/data/PbFirstFloorRecommendData;", "Lcom/baidu/adp/widget/ListView/IAdapterData;", "novelRecomCard", "Ltbclient/NovelRecomCard;", "(Ltbclient/NovelRecomCard;)V", "getNovelRecomCard", "()Ltbclient/NovelRecomCard;", "tid", "", "getTid", "()Ljava/lang/String;", "setTid", "(Ljava/lang/String;)V", "component1", "convert2RecommendCardItem", "Lcom/baidu/tieba/core/widget/recommendcard/RecommendCardItemBuilder;", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "", "getType", "Lcom/baidu/adp/BdUniqueId;", TTDownloadField.TT_HASHCODE, "", "toString", "Companion", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class PbFirstFloorRecommendData implements wn {
+public final class PbFirstFloorRecommendData implements xn {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     @JvmField
@@ -171,7 +171,7 @@ public final class PbFirstFloorRecommendData implements wn {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wn
+    @Override // com.baidu.tieba.xn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -181,20 +181,20 @@ public final class PbFirstFloorRecommendData implements wn {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final us6 c() {
+    public final zs6 c() {
         InterceptResult invokeV;
         String str;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int g = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds229);
-            int g2 = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds304);
+            int g = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds229);
+            int g2 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds304);
             String str3 = this.a.icon_url;
             String str4 = "";
             if (str3 == null) {
                 str3 = "";
             }
-            vs6 vs6Var = new vs6(g, g2, str3);
+            at6 at6Var = new at6(g, g2, str3);
             String str5 = this.a.title;
             if (str5 == null) {
                 str = "";
@@ -205,79 +205,79 @@ public final class PbFirstFloorRecommendData implements wn {
             if (list == null) {
                 list = CollectionsKt__CollectionsKt.emptyList();
             }
-            ws6 ws6Var = new ws6(str, list, false, 4, null);
+            bt6 bt6Var = new bt6(str, list, false, 4, null);
             ThemeColorInfo themeColorInfo = this.a.chapter_bg_color;
             if (themeColorInfo == null) {
                 themeColorInfo = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo, "novelRecomCard.chapter_b…or ?: emptyThemeColorInfo");
-            String c2 = n8a.c(themeColorInfo);
-            int g3 = wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds25);
+            String c2 = zca.c(themeColorInfo);
+            int g3 = xi.g(TbadkCoreApplication.getInst(), R.dimen.tbds25);
             ThemeColorInfo themeColorInfo2 = this.a.chapter_new_labels;
             if (themeColorInfo2 == null) {
                 themeColorInfo2 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "novelRecomCard.chapter_n…ls ?: emptyThemeColorInfo");
-            vs6 a2 = n8a.a(themeColorInfo2);
+            at6 a2 = zca.a(themeColorInfo2);
             ThemeColorInfo themeColorInfo3 = this.a.chapter_name_color;
             if (themeColorInfo3 == null) {
                 themeColorInfo3 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo3, "novelRecomCard.chapter_n…or ?: emptyThemeColorInfo");
-            String c3 = n8a.c(themeColorInfo3);
+            String c3 = zca.c(themeColorInfo3);
             String str6 = this.a.chapter_name;
             if (str6 == null) {
                 str2 = "";
             } else {
                 str2 = str6;
             }
-            us6 us6Var = new us6(R.color.CAM_X0204, vs6Var, ws6Var, c2, g3, a2, c3, str2);
+            zs6 zs6Var = new zs6(R.color.CAM_X0204, at6Var, bt6Var, c2, g3, a2, c3, str2);
             String str7 = this.a.author;
             if (str7 == null) {
                 str7 = "";
             }
-            us6Var.F(str7);
+            zs6Var.F(str7);
             String str8 = this.a._abstract;
             if (str8 == null) {
                 str8 = "";
             }
-            us6Var.g(str8);
+            zs6Var.g(str8);
             String str9 = this.a.button_name;
             if (str9 == null) {
                 str9 = "";
             }
-            us6Var.D(str9);
+            zs6Var.D(str9);
             ThemeColorInfo themeColorInfo4 = this.a.bottom_left_icon;
             if (themeColorInfo4 == null) {
                 themeColorInfo4 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo4, "novelRecomCard.bottom_le…on ?: emptyThemeColorInfo");
-            us6Var.a(n8a.a(themeColorInfo4));
+            zs6Var.a(zca.a(themeColorInfo4));
             String str10 = this.a.bottom_title;
             if (str10 == null) {
                 str10 = "";
             }
-            us6Var.b(str10);
+            zs6Var.b(str10);
             ThemeColorInfo themeColorInfo5 = this.a.bottom_right_icon;
             if (themeColorInfo5 == null) {
                 themeColorInfo5 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo5, "novelRecomCard.bottom_ri…on ?: emptyThemeColorInfo");
-            us6Var.e(n8a.a(themeColorInfo5));
+            zs6Var.e(zca.a(themeColorInfo5));
             String str11 = this.a.bottom_guide;
             if (str11 != null) {
                 str4 = str11;
             }
-            us6Var.d(str4);
+            zs6Var.d(str4);
             ThemeColorInfo themeColorInfo6 = this.a.bottom_right_icon_2;
             if (themeColorInfo6 == null) {
                 themeColorInfo6 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo6, "novelRecomCard.bottom_ri…_2 ?: emptyThemeColorInfo");
-            us6Var.c(n8a.a(themeColorInfo6));
-            return us6Var;
+            zs6Var.c(zca.a(themeColorInfo6));
+            return zs6Var;
         }
-        return (us6) invokeV.objValue;
+        return (zs6) invokeV.objValue;
     }
 
     public final void f(String str) {

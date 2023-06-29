@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public abstract class bb extends db<HttpMessage, HttpMessageTask> {
+public abstract class bb extends fb<HttpResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

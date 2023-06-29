@@ -2,8 +2,9 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,126 +15,179 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e23 extends b23 {
+public abstract class e23 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LruCache<String, JSONObject> a;
+    public final LruCache<String, JSONObject> b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final e23 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-882970779, "Lcom/baidu/tieba/e23$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-882970779, "Lcom/baidu/tieba/e23$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682403, "Lcom/baidu/tieba/e23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new e23(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947682403, "Lcom/baidu/tieba/e23;");
+                return;
+            }
         }
+        c = ms1.a;
     }
 
     public e23() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new LruCache<>(5);
+        this.b = new LruCache<>(5);
     }
 
-    public static e23 g() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (c) {
+                Log.d("SwanAppExtInfo", "release cache");
+            }
+            this.a.evictAll();
+            this.b.evictAll();
         }
-        return (e23) invokeV.objValue;
     }
 
-    public /* synthetic */ e23(a aVar) {
-        this();
-    }
-
-    public boolean j(PMSAppInfo pMSAppInfo) {
+    public final JSONObject a(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
-            return TextUtils.equals(c(pMSAppInfo), "1");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public JSONObject k(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 != null && b2.length() > 0) {
-                return b2.optJSONObject("topPages");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfo is null");
+                }
+                return null;
+            }
+            String str = pMSAppInfo.appId;
+            String valueOf = String.valueOf(pMSAppInfo.appSign);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
+                String e = e(str, valueOf);
+                JSONObject jSONObject = this.a.get(e);
+                if (jSONObject == null) {
+                    jSONObject = jp4.p(f23.a(pMSAppInfo));
+                    this.a.put(e, jSONObject);
+                }
+                if (c) {
+                    Log.d("SwanAppExtInfo", "appId - " + str + " app info' ext - " + jSONObject.toString());
+                }
+                return jSONObject;
+            }
+            if (c) {
+                Log.e("SwanAppExtInfo", "appId or app sign is empty");
             }
             return null;
         }
         return (JSONObject) invokeL.objValue;
     }
 
-    public boolean h(PMSAppInfo pMSAppInfo) {
+    public final JSONObject d(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
-            JSONObject d = d(pMSAppInfo);
-            if (d != null && d.length() > 0) {
-                boolean optBoolean = d.optBoolean("is_opti");
-                if (b23.c) {
-                    Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfo is null");
                 }
-                return optBoolean;
+                return null;
             }
-            return false;
+            String str = pMSAppInfo.appId;
+            String valueOf = String.valueOf(pMSAppInfo.versionCode);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
+                String e = e(str, valueOf);
+                JSONObject jSONObject = this.b.get(e);
+                if (jSONObject == null) {
+                    jSONObject = jp4.p(g23.f(pMSAppInfo));
+                    this.a.put(e, jSONObject);
+                }
+                if (c) {
+                    Log.d("SwanAppExtInfo", "appId - " + str + " pkg info' ext - " + jSONObject.toString());
+                }
+                return jSONObject;
+            }
+            if (c) {
+                Log.e("SwanAppExtInfo", "appId or version code is empty");
+            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public boolean i(PMSAppInfo pMSAppInfo) {
+    public final JSONObject b(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 != null && b2.has(PrefetchEvent.MODULE)) {
-                z = b2.optBoolean(PrefetchEvent.MODULE);
-            } else {
-                JSONObject a2 = a(pMSAppInfo);
-                if (a2 != null && a2.optBoolean(PrefetchEvent.MODULE)) {
-                    z = true;
-                } else {
-                    z = false;
+            JSONObject a = a(pMSAppInfo);
+            if (a == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfoExt is null");
                 }
+                return null;
             }
-            if (b23.c) {
-                Log.d("SwanAppExtInfo", "is prefetch on - " + z);
+            JSONObject optJSONObject = a.optJSONObject(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT);
+            if (optJSONObject == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "clientInfo is null");
+                }
+                return null;
             }
-            return z;
+            if (c) {
+                Log.d("SwanAppExtInfo", "clientInfo - " + optJSONObject);
+            }
+            return optJSONObject;
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final String c(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
+            JSONObject a = a(pMSAppInfo);
+            if (a == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfoExt is null");
+                }
+                return null;
+            }
+            String optString = a.optString("webview_whitelist_switch");
+            if (TextUtils.isEmpty(optString)) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "webview whitelist switch is empty");
+                }
+                return null;
+            }
+            if (c) {
+                Log.d("SwanAppExtInfo", "webview whitelist switch - " + optString);
+            }
+            return optString;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            return str + "_" + str2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

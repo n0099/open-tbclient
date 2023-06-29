@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,7 +41,7 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        float g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.a = g;
         this.d = new float[]{g, g, g, g, g, g, g, g};
         a();
@@ -66,7 +66,7 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        float g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.a = g;
         this.d = new float[]{g, g, g, g, g, g, g, g};
         a();
@@ -91,7 +91,7 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float g = wi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        float g = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.a = g;
         this.d = new float[]{g, g, g, g, g, g, g, g};
         a();

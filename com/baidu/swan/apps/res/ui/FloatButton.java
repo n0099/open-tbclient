@@ -14,17 +14,17 @@ import android.widget.Button;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.js1;
-import com.baidu.tieba.qp3;
+import com.baidu.tieba.ms1;
+import com.baidu.tieba.tp3;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.chromium.net.NetError;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class FloatButton extends FullScreenFloatView {
-    public static final boolean o = js1.a;
+    public static final boolean o = ms1.a;
 
     public void setFloatButtonDefaultPosition() {
-        findViewById(R.id.float_imgview).setBottom(qp3.O(191.0f));
+        findViewById(R.id.float_imgview).setBottom(tp3.O(191.0f));
     }
 
     public FloatButton(Context context, AttributeSet attributeSet) {

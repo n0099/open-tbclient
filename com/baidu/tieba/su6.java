@@ -1,73 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class su6 implements ru6 {
+public final class su6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ru6
-    public void a(dt6 item, long j, dv6 displayer, xs6 config) {
+    public static final xt6 a(h0 h0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            return (xt6) h0Var.d(xt6.class);
         }
+        return (xt6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ru6
-    public void b(dt6 item) {
+    public static final ut6 b(h0 h0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            return (ut6) h0Var.d(ut6.class);
         }
+        return (ut6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ru6
-    public void c(int i, int i2) {
+    public static final long c(h0 h0Var) {
+        InterceptResult invokeL;
+        it6 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            ut6 b = b(h0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.g();
+            }
+            return 0L;
         }
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.tieba.ru6
-    public void clear() {
+    public static final tt6 d(h0 h0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            return (tt6) h0Var.d(tt6.class);
         }
+        return (tt6) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ru6
-    public boolean d(dt6 item, long j, dv6 displayer, xs6 config) {
-        InterceptResult invokeCommon;
+    public static final vt6 e(h0 h0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            return (vt6) h0Var.d(vt6.class);
+        }
+        return (vt6) invokeL.objValue;
+    }
+
+    public static final long f(h0 h0Var) {
+        InterceptResult invokeL;
+        it6 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            ut6 b = b(h0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.j();
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public static final boolean g(h0 h0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, h0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            if (j - f(h0Var) < 0) {
+                return true;
+            }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeLJ.booleanValue;
     }
 
-    public su6() {
+    public static final boolean h(h0 h0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, h0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            if (j - f(h0Var) > c(h0Var)) {
+                return true;
             }
+            return false;
         }
+        return invokeLJ.booleanValue;
     }
 }

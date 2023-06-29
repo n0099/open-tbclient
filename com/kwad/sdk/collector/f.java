@@ -8,7 +8,7 @@ import com.kwad.sdk.utils.aj;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f {
     @Nullable
     public static JSONArray aL(Context context) {

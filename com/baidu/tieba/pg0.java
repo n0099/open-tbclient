@@ -1,71 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.io.FileInputStream;
-import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pg0 {
+public class pg0 extends wg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948060944, "Lcom/baidu/tieba/pg0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948060944, "Lcom/baidu/tieba/pg0;");
+        }
+
+        public static a a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    a aVar = new a();
+                    aVar.a = jSONObject.optString("name");
+                    aVar.b = jSONObject.optString("path");
+                    aVar.c = jSONObject.optString(PackageTable.MD5);
+                    return aVar;
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pg0(qg0 qg0Var) {
+        super(qg0Var.b, qg0Var.g);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qg0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (File) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
-    public static String a(String str) {
+    public static boolean t(File file) {
         InterceptResult invokeL;
+        File file2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            byte[] bArr = new byte[1024];
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
             try {
-                FileInputStream fileInputStream = new FileInputStream(str);
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read > 0) {
-                        messageDigest.update(bArr, 0, read);
+                file2 = new File(file, "files.json");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (!file2.exists()) {
+                return false;
+            }
+            FileInputStream fileInputStream = new FileInputStream(file2);
+            byte[] bArr = new byte[fileInputStream.available()];
+            fileInputStream.read(bArr);
+            String str = new String(bArr);
+            fileInputStream.close();
+            JSONArray optJSONArray = new JSONObject(str).optJSONArray(NetDiskFileMsg.JSON_KEY_FILES);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    arrayList.add(a.a(optJSONArray.getString(i)));
+                }
+                return u(file, arrayList);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean u(File file, ArrayList<a> arrayList) {
+        InterceptResult invokeLL;
+        File file2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, file, arrayList)) == null) {
+            if (arrayList == null || arrayList.size() <= 0) {
+                return false;
+            }
+            try {
+                Iterator<a> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    a next = it.next();
+                    String str = next.b;
+                    if (TextUtils.isEmpty(str)) {
+                        file2 = new File(file, next.a);
                     } else {
-                        fileInputStream.close();
-                        return b(messageDigest.digest());
+                        file2 = new File(file, str + File.separator + next.a);
+                    }
+                    if (!file2.exists()) {
+                        return false;
+                    }
+                    String a2 = sg0.a(file2.getAbsolutePath());
+                    boolean equals = TextUtils.equals(a2, next.c);
+                    if (!equals) {
+                        wg0.j(equals + " " + a2 + "!=" + next.c + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getAbsolutePath());
+                        return false;
                     }
                 }
+                return true;
             } catch (Exception unused) {
-                return "";
+                return false;
             }
-        } else {
-            return (String) invokeL.objValue;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static String b(byte[] bArr) {
+    @Override // com.baidu.tieba.wg0
+    public boolean i(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(a[(bArr[i] & 240) >>> 4]);
-                sb.append(a[bArr[i] & 15]);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+            return t(file);
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

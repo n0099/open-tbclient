@@ -14,7 +14,7 @@ import com.baidu.webkit.internal.b.f;
 import com.baidu.webkit.internal.b.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WebViewClient {
     public static final int ERROR_AUTHENTICATION = -4;
     public static final int ERROR_BAD_URL = -12;
@@ -37,7 +37,7 @@ public class WebViewClient {
     public static final String TAG = "WebViewClient";
     public List<g> mUrlHandlers = new ArrayList();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum InteractionType {
         INPUT,
         CONTENT_CHANGE,
@@ -45,7 +45,7 @@ public class WebViewClient {
         OTHERS
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SecurityInfo {
         public WebSiteInfo info;
         public SecurityLevel level = SecurityLevel.UNCERTAIN;
@@ -67,7 +67,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum SecurityLevel {
         SECURE,
         DANGEROUS,
@@ -79,7 +79,7 @@ public class WebViewClient {
         DEFAULT
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class WebSiteInfo {
         public String name;
         public WebSiteType type;
@@ -99,7 +99,7 @@ public class WebViewClient {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum WebSiteType {
         BANK,
         PAYMENT,
@@ -111,7 +111,7 @@ public class WebViewClient {
         DEFAULT
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ZeusVideoInfoDelegate {
         void notifyUpdateVideoInfo(String str);
     }

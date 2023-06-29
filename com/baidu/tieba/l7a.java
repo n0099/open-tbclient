@@ -1,107 +1,166 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
-import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
-import com.baidu.tbadk.TbSingleton;
+import android.text.format.DateFormat;
+import android.text.format.Time;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tbadk.core.message.RemindRecommendMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import java.util.Date;
+import java.util.Calendar;
+import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes6.dex */
 public class l7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ClientUpdateInfo clientUpdateInfo, String str) {
+    public static RemindRecommendMessage a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, clientUpdateInfo, str) == null) && clientUpdateInfo != null && !TextUtils.isEmpty(str)) {
-            if (!LooperBlockSwitch.getIsOn()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("is_force_update", clientUpdateInfo.mIsForceUpdate);
-                jSONObject.put("status", clientUpdateInfo.mStatus);
-                jSONObject.put("reverson", clientUpdateInfo.mReverson);
-                jSONObject.put("content_url", clientUpdateInfo.mContentUrl);
-                jSONObject.put("apk_md5_rsa", str);
-                jSONObject.put("version_code", clientUpdateInfo.mVercode);
-                jSONObject.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, clientUpdateInfo.mVername);
-                jSONObject.put("download_url", clientUpdateInfo.mDownurl);
-                jSONObject.put("change_log", clientUpdateInfo.mChangelog);
-                jSONObject.put("size", clientUpdateInfo.mSize);
-                jSONObject.put("package_name", clientUpdateInfo.mPackageName);
-                jSONObject.put("sign", clientUpdateInfo.mSign);
-                jSONObject.put("prod_line", clientUpdateInfo.mProdline);
-                jSONObject.put(FkApkInfoSearchRequestKt.PARAMS_KEY_SIGN_MD5, clientUpdateInfo.mSignMd5);
-                jSONObject.put("apk_md5", clientUpdateInfo.mApkMd5);
-                jSONObject.put("patch_download_url", clientUpdateInfo.mPatchDownUrl);
-                jSONObject.put("patch_size", clientUpdateInfo.mPatchSize);
-                jSONObject.put("icon_url", clientUpdateInfo.mIconUrl);
-                jSONObject.put(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, clientUpdateInfo.mSname);
-                jSONObject.put("update_time", clientUpdateInfo.mUpdateTime);
-            } catch (Exception e) {
-                BdLog.e(e);
+                RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
+                JSONObject jSONObject = new JSONObject(str);
+                remindRecommendMessage.title = jSONObject.optString("title");
+                remindRecommendMessage.url = jSONObject.optString("url");
+                remindRecommendMessage.picture = jSONObject.optString("picture");
+                remindRecommendMessage.name = jSONObject.optString("name");
+                remindRecommendMessage.isLocal = false;
+                return remindRecommendMessage;
+            } catch (JSONException unused) {
+                return null;
             }
-            a65.p(TbadkCoreApplication.getInst().getApp(), "lcUpdateDialog", jSONObject);
         }
+        return (RemindRecommendMessage) invokeL.objValue;
     }
 
-    public static void b(xe5 xe5Var) {
+    public static String g(DataRes dataRes) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, xe5Var) != null) || xe5Var == null) {
-            return;
-        }
-        VersionData u = xe5Var.u();
-        TbadkCoreApplication.getInst().setVersionData(u);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (u.forceUpdate()) {
-            if (xe5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0 && !LooperBlockSwitch.getIsOn()) {
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u, xe5Var.j())));
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dataRes)) == null) {
+            if (dataRes != null && dataRes.local_dialog != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("title", dataRes.local_dialog.title);
+                    jSONObject.put("picture", dataRes.local_dialog.picture);
+                    jSONObject.put("url", dataRes.local_dialog.url);
+                    jSONObject.put("name", dataRes.local_dialog.name);
+                    return jSONObject.toString();
+                } catch (JSONException unused) {
+                }
             }
-            return;
+            return null;
         }
-        Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
-        Long valueOf2 = Long.valueOf(new Date().getTime());
-        if (valueOf2.longValue() - valueOf.longValue() > 86400000 && u.getStrategy() == 0 && xe5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
-            TbSingleton.getInstance().setSyncModel(xe5Var);
-            if (TbSingleton.getInstance().hasPerformedFirstLoginTest() && !LooperBlockSwitch.getIsOn()) {
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-                e56.d();
-            }
-            TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
-        }
+        return (String) invokeL.objValue;
     }
 
-    public static void c(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
+    public static long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{versionData, clientUpdateInfo, str, Boolean.valueOf(z)}) != null) || versionData == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c(System.currentTimeMillis());
         }
-        TbadkCoreApplication.getInst().setVersionData(versionData);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
-            if (versionData.forceUpdate()) {
-                a(clientUpdateInfo, str);
-            } else if ((Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime()).longValue() > 86400000 || z) && versionData.getStrategy() == 0) {
-                a(clientUpdateInfo, str);
+        return invokeV.longValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (r95.p().q("sync_local_dialog", 1) == 1) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static long c(long j) {
+        InterceptResult invokeJ;
+        int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            String str = "12:05:00";
+            String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
+            if (!TextUtils.isEmpty(loadString)) {
+                str = loadString;
+            }
+            String[] split = str.split(":");
+            int i4 = 5;
+            if (split != null && split.length == 3) {
+                i2 = vg.e(split[0], 12);
+                i3 = vg.e(split[1], 5);
+                i = vg.e(split[2], 0);
+            } else {
+                i = 0;
+                i2 = 12;
+                i3 = 5;
+            }
+            if (i2 >= 0 && i2 <= 23 && i3 >= 0 && i3 <= 59 && i >= 0 && i <= 59) {
+                i4 = i3;
+            } else {
+                i = 0;
+                i2 = 12;
+            }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            calendar.set(12, i4);
+            calendar.set(13, i);
+            Application app = TbadkCoreApplication.getInst().getApp();
+            if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
+                calendar.set(11, i2);
+            } else {
+                if (i2 >= 12) {
+                    i2 -= 12;
+                    calendar.set(9, 1);
+                } else {
+                    calendar.set(9, 0);
+                }
+                calendar.set(10, i2);
+            }
+            return calendar.getTimeInMillis();
+        }
+        return invokeJ.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TbadkSettings.getInst().loadInt(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_server_switch", 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
+            Time time = new Time();
+            time.set(j);
+            int i = time.year;
+            int i2 = time.month;
+            int i3 = time.monthDay;
+            time.set(System.currentTimeMillis());
+            if (i == time.year && i2 == time.month && i3 == time.monthDay) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.kwad.components.core.webview.b.kwai;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i extends e {
     public final void c(com.kwad.components.core.webview.b.a.i iVar) {
         super.b(iVar);

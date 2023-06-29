@@ -11,7 +11,7 @@ public final class BuildConfig {
     public static final boolean DEBUG = false;
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.android.imsdk";
     public static final int VERSION_CODE = 1;
-    public static final String VERSION_NAME = "10.35.4";
+    public static final String VERSION_NAME = "10.35.5";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

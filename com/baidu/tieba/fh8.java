@@ -1,32 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class fh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    @SerializedName("skill")
-    public List<BotsDTO.BotListDTO.SkillDTO> a;
 
-    public fh8() {
+    public static void a(long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_CLICK);
+            statisticItem.param("uid", j);
+            statisticItem.param("obj_locate", j2);
+            statisticItem.param("obj_type", str);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void b(long j, long j2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_EXPLORE);
+            statisticItem.param("uid", j);
+            statisticItem.param("obj_locate", j2);
+            statisticItem.param("obj_type", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

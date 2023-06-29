@@ -1,142 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class yq7 {
+public class yq7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948338890, "Lcom/baidu/tieba/yq7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948338890, "Lcom/baidu/tieba/yq7;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a.b(str);
-        }
-    }
-
-    @JvmStatic
-    public static final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.c(str);
-        }
-    }
-
     /* loaded from: classes8.dex */
-    public static final class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yd7 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(yd7 yd7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yd7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = yd7Var;
         }
 
-        public final void a(StatisticItem statisticItem, String str) {
-            boolean z;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, statisticItem, str) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.Q0();
+            }
+        }
+    }
+
+    public static void a(ResponsedMessage<?> responsedMessage, yd7 yd7Var, FrsViewData frsViewData) {
+        List<DownloadData> data;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65536, null, responsedMessage, yd7Var, frsViewData) != null) || frsViewData == null || yd7Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
+            return;
+        }
+        boolean z = false;
+        Iterator<DownloadData> it = data.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            } else if (it.next().getStatus() == 0) {
+                z = true;
+                break;
+            }
+        }
+        if (z) {
+            yg.a().postDelayed(new a(yd7Var), TimeUnit.SECONDS.toMillis(2L));
+        }
+    }
+
+    public static void b(yd7 yd7Var) {
+        HashMap<Integer, ThreadData> h;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, yd7Var) == null) && yd7Var != null && yd7Var.a0() != null && (h = yd7Var.a0().h()) != null) {
+            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
+            for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
+                ThreadData value = entry.getValue();
+                if (value != null && (value instanceof AdvertAppInfo)) {
+                    arrayList.add((AdvertAppInfo) value);
                 }
-                if (!z) {
-                    statisticItem.param("fid", str);
-                }
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             }
-        }
-
-        @JvmStatic
-        public final void d(String str, String str2) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-                StatisticItem statisticItem = new StatisticItem("c15896");
-                if (str2 != null && str2.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z) {
-                    statisticItem.param("obj_param1", str2);
-                }
-                a(statisticItem, str);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @JvmStatic
-        public final void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                StatisticItem statisticItem = new StatisticItem("c15889");
-                a(statisticItem, str);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @JvmStatic
-        public final void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                StatisticItem statisticItem = new StatisticItem("c15888");
-                a(statisticItem, str);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @JvmStatic
-        public final void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                StatisticItem statisticItem = new StatisticItem("c15895");
-                a(statisticItem, str);
-                TiebaStatic.log(statisticItem);
-            }
+            ct9.n().w(arrayList);
         }
     }
 }

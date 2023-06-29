@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.view.GroupAdapter;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -137,19 +137,19 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             LinearLayout linearLayout = new LinearLayout(parent.getContext());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, wi.g(parent.getContext(), R.dimen.tbds75));
-            marginLayoutParams.leftMargin = wi.g(parent.getContext(), R.dimen.M_W_X006);
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, xi.g(parent.getContext(), R.dimen.tbds75));
+            marginLayoutParams.leftMargin = xi.g(parent.getContext(), R.dimen.M_W_X006);
             linearLayout.setLayoutParams(marginLayoutParams);
-            linearLayout.setPadding(wi.g(parent.getContext(), R.dimen.M_W_X006), 0, wi.g(parent.getContext(), R.dimen.M_W_X004), 0);
+            linearLayout.setPadding(xi.g(parent.getContext(), R.dimen.M_W_X006), 0, xi.g(parent.getContext(), R.dimen.M_W_X004), 0);
             linearLayout.setGravity(16);
             TextView textView = new TextView(parent.getContext());
-            textView.setPadding(0, 0, 0, wi.g(parent.getContext(), R.dimen.tbds2));
+            textView.setPadding(0, 0, 0, xi.g(parent.getContext(), R.dimen.tbds2));
             linearLayout.addView(textView);
             ImageView imageView = new ImageView(parent.getContext());
-            imageView.setPadding(0, wi.g(parent.getContext(), R.dimen.tbds1), 0, 0);
+            imageView.setPadding(0, xi.g(parent.getContext(), R.dimen.tbds1), 0, 0);
             imageView.setAlpha(0.6f);
             linearLayout.addView(imageView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gs7
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ls7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

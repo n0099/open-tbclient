@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
-import com.baidu.tieba.av;
-import com.baidu.tieba.dt;
-import com.baidu.tieba.du;
+import com.baidu.tieba.bv;
 import com.baidu.tieba.et;
+import com.baidu.tieba.eu;
+import com.baidu.tieba.ft;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,13 +30,13 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static final class a implements dt {
+    public static final class a implements et {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Function0 a;
         public final /* synthetic */ View b;
         public final /* synthetic */ Function0 c;
-        public final /* synthetic */ av d;
+        public final /* synthetic */ bv d;
 
         /* renamed from: com.baidu.bdtask.ui.utils.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -124,12 +124,12 @@ public final class d {
             }
         }
 
-        public a(Function0 function0, View view2, Function0 function02, av avVar) {
+        public a(Function0 function0, View view2, Function0 function02, bv bvVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {function0, view2, function02, avVar};
+                Object[] objArr = {function0, view2, function02, bvVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -142,22 +142,22 @@ public final class d {
             this.a = function0;
             this.b = view2;
             this.c = function02;
-            this.d = avVar;
+            this.d = bvVar;
         }
 
-        @Override // com.baidu.tieba.dt
+        @Override // com.baidu.tieba.et
         public void a(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
-                du.c(new b(this, bitmap));
+                eu.c(new b(this, bitmap));
             }
         }
 
-        @Override // com.baidu.tieba.dt
+        @Override // com.baidu.tieba.et
         public void onError() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                du.c(new RunnableC0083a(this));
+                eu.c(new RunnableC0083a(this));
             }
         }
     }
@@ -207,12 +207,12 @@ public final class d {
             } else if (view2 == null) {
                 function02.invoke();
             } else {
-                av v = BDPTask.m.v();
+                bv v = BDPTask.m.v();
                 if (v == null) {
                     function02.invoke();
                     return;
                 }
-                et i = v.i();
+                ft i = v.i();
                 if (str == null) {
                     Intrinsics.throwNpe();
                 }

@@ -1,126 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BawuThrones;
 /* loaded from: classes5.dex */
-public class fd7 {
+public class fd7 extends sn6<ad7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zd7 a;
-    public BawuThrones b;
+    public BarImageView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public int m;
+    public ad7 n;
+    public View.OnClickListener o;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.sn6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0308 : invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static fd7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-808046414, "Lcom/baidu/tieba/fd7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-808046414, "Lcom/baidu/tieba/fd7$b;");
-                    return;
-                }
-            }
-            a = new fd7(null);
-        }
-    }
-
-    public fd7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fd7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.m = 3;
+        this.i = (BarImageView) h().findViewById(R.id.forum_avatar);
+        this.j = (TextView) h().findViewById(R.id.forum_name);
+        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090b91);
+        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090c01);
+        h().setOnClickListener(this);
+        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public static fd7 c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sn6
+    /* renamed from: r */
+    public void i(ad7 ad7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, ad7Var) != null) || ad7Var == null) {
+            return;
         }
-        return (fd7) invokeV.objValue;
+        this.n = ad7Var;
+        this.i.N(ad7Var.c(), 10, false);
+        this.j.setText(s(ad7Var.f(), ad7Var.k()));
+        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f04b2), ad7Var.d()));
+        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f12e9), ad7Var.i()));
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void a() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            zd7 zd7Var = this.a;
-            if (zd7Var != null) {
-                zd7Var.g();
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || this.n == null) {
+            return;
+        }
+        TiebaStatic.log("c12261");
+        yc7.d(this.n.k());
+        view2.setTag(this.n);
+        View.OnClickListener onClickListener = this.o;
+        if (onClickListener != null) {
+            onClickListener.onClick(view2);
+        }
+    }
+
+    public void t(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
+            this.o = onClickListener;
+        }
+    }
+
+    @Override // com.baidu.tieba.sn6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.m == i) {
+            return;
+        }
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+        SkinManager.setBackgroundResource(h(), R.drawable.square_search_item_bg);
+        this.m = i;
+    }
+
+    public SpannableStringBuilder s(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                String trim = str2.trim();
+                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                int indexOf = str.indexOf(trim);
+                if (indexOf != -1) {
+                    spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, trim.length() + indexOf, 33);
+                }
+                return spannableStringBuilder;
             }
-            this.a = null;
+            return null;
         }
-    }
-
-    public BawuThrones b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (BawuThrones) invokeV.objValue;
-    }
-
-    public /* synthetic */ fd7(a aVar) {
-        this();
-    }
-
-    public void e(BawuThrones bawuThrones) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bawuThrones) == null) {
-            this.b = bawuThrones;
-        }
-    }
-
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_RECOMMEND);
-            httpMessage.addParam("forum_id", str);
-            httpMessage.addParam("thread_id", str2);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void f(TbPageContext tbPageContext, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, tbPageContext, str, str2) == null) {
-            if (this.a == null) {
-                this.a = new zd7();
-            }
-            this.a.i(tbPageContext, str, str2);
-        }
+        return (SpannableStringBuilder) invokeLL.objValue;
     }
 }

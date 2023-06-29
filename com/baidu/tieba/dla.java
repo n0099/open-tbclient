@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tbadk.album.MediaFileInfo;
 /* loaded from: classes5.dex */
 public interface dla {
-    void callback(List<String> list);
+    boolean a(int i, MediaFileInfo mediaFileInfo);
 }

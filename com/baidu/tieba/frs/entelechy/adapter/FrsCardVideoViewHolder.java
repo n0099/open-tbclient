@@ -3,21 +3,21 @@ package com.baidu.tieba.frs.entelechy.adapter;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bo9;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.mi7;
-import com.baidu.tieba.nn6;
-import com.baidu.tieba.pj9;
+import com.baidu.tieba.ri7;
+import com.baidu.tieba.sn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FrsCardVideoViewHolder<T extends mi7> extends CardViewHolder<T> implements pj9 {
+public class FrsCardVideoViewHolder<T extends ri7> extends CardViewHolder<T> implements bo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.bo9
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class FrsCardVideoViewHolder<T extends mi7> extends CardViewHolder<T> imp
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nn6) newInitContext.callArgs[0]);
+                super((sn6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,7 +59,7 @@ public class FrsCardVideoViewHolder<T extends mi7> extends CardViewHolder<T> imp
         return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.bo9
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,12 +68,12 @@ public class FrsCardVideoViewHolder<T extends mi7> extends CardViewHolder<T> imp
             if (t == 0) {
                 return 0;
             }
-            return ((mi7) t).getCurrentPosition();
+            return ((ri7) t).getCurrentPosition();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.bo9
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,12 +82,12 @@ public class FrsCardVideoViewHolder<T extends mi7> extends CardViewHolder<T> imp
             if (t == 0) {
                 return null;
             }
-            return ((mi7) t).J();
+            return ((ri7) t).J();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.bo9
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,12 +96,12 @@ public class FrsCardVideoViewHolder<T extends mi7> extends CardViewHolder<T> imp
             if (t == 0) {
                 return null;
             }
-            return ((mi7) t).K();
+            return ((ri7) t).K();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.bo9
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -110,12 +110,12 @@ public class FrsCardVideoViewHolder<T extends mi7> extends CardViewHolder<T> imp
             if (t == 0) {
                 return false;
             }
-            return ((mi7) t).T();
+            return ((ri7) t).T();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.bo9
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -124,26 +124,26 @@ public class FrsCardVideoViewHolder<T extends mi7> extends CardViewHolder<T> imp
             if (t == 0) {
                 return false;
             }
-            return ((mi7) t).isPlaying();
+            return ((ri7) t).isPlaying();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.bo9
     public void startPlay() {
         T t;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (t = this.a) != 0) {
-            ((mi7) t).startPlay();
+            ((ri7) t).startPlay();
         }
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.bo9
     public void stopPlay() {
         T t;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (t = this.a) != 0) {
-            ((mi7) t).stopPlay();
+            ((ri7) t).stopPlay();
         }
     }
 }

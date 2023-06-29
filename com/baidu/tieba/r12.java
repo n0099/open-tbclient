@@ -1,186 +1,161 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.ib2;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
+import com.facebook.common.internal.Sets;
+import java.util.List;
+import java.util.Set;
+import okhttp3.Headers;
+import okhttp3.HttpUrl;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r12 extends q12 {
+public class r12 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.c02
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ fb2 b;
-        public final /* synthetic */ ib2 c;
-        public final /* synthetic */ ib2.b d;
-        public final /* synthetic */ r12 e;
-
-        public a(r12 r12Var, int i, fb2 fb2Var, ib2 ib2Var, ib2.b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948068694, "Lcom/baidu/tieba/r12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r12Var, Integer.valueOf(i), fb2Var, ib2Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.e = r12Var;
-            this.a = i;
-            this.b = fb2Var;
-            this.c = ib2Var;
-            this.d = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a > 1 && !this.b.E0) {
-                    jo3.b(this.c, this.e.getContext(), 1);
-                }
-                this.d.a();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r12(@NonNull a02 a02Var) {
-        super(a02Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a02Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((a02) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948068694, "Lcom/baidu/tieba/r12;");
                 return;
             }
         }
+        a = ms1.a;
+        b = Sets.newHashSet("localhost", "127.0.0.1");
     }
 
-    public static void y() {
-        zb3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (b0 = zb3.b0()) != null) {
-            b0.B().I(b0.getAppId());
-        }
-    }
-
-    public z32 A() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q("#hideModalPage", false);
-            y();
-            return z(1, "hideModalPage", 10);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return jp3.b();
         }
-        return (z32) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public z32 B(String str) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#navigateBack params=" + str, false);
-            y();
-            Pair<z32, JSONObject> s = s(str);
-            z32 z32Var = (z32) s.first;
-            if (!z32Var.isSuccess()) {
-                return z32Var;
-            }
-            return z(((JSONObject) s.second).optInt("delta", 1), "navigateBack", 1);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return str + "_" + System.currentTimeMillis();
         }
-        return (z32) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final z32 z(int i, String str, int i2) {
-        InterceptResult invokeCommon;
-        z13 o3;
-        String str2;
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
-            String uuid = UUID.randomUUID().toString();
-            f53.b(uuid);
-            ib2 U = mx2.T().U();
-            if (U == null) {
-                z82.c("NavigateBackApi", "manager is null");
-                return new z32(1001, "manager is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("cancelTag", str);
+                }
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            int k = U.k();
-            if (k == 1) {
-                z82.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
-                return new z32(1001, "navigateBack api can only work when slave's count greater than 1");
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String e(@Nullable String str) {
+        InterceptResult invokeL;
+        HttpUrl parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (parse = HttpUrl.parse(str)) != null) {
+                return parse.host();
             }
-            if (i >= k) {
-                i = k - 1;
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(@Nullable HttpUrl httpUrl) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, httpUrl)) == null) {
+            boolean i = tc3.i();
+            if (!jv2.g0().D()) {
+                i = false;
             }
-            z13 f = ni3.f(uuid, i);
-            fb2 m = U.m();
-            if (m == null) {
-                z82.c("NavigateBackApi", "slave container is null");
-                return new z32(1001, "slave container is null");
-            } else if (TextUtils.equals("hideModalPage", str) && !m.E0) {
-                z82.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
-                return new z32(1001, "hideModalPage api can only work after showModalPage");
+            if (httpUrl == null) {
+                return false;
+            }
+            if ((i && HttpUrl.defaultPort(httpUrl.scheme()) != httpUrl.port()) || b.contains(httpUrl.host().toLowerCase())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static HttpUrl f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            HttpUrl parse = HttpUrl.parse(str);
+            if (bc3.K().w() == null) {
+                if (!b(parse)) {
+                    return null;
+                }
+                return parse;
+            } else if (b83.o()) {
+                return parse;
             } else {
-                f53.c(i2, uuid);
-                ib2.b i3 = U.i(str);
-                i3.n(ib2.i, ib2.h);
-                i3.h(i);
-                tp3.a0(new a(this, k, m, U, i3));
-                hb2 o = U.o();
-                if (o == null) {
-                    o3 = null;
-                } else {
-                    o3 = o.o3();
+                if (!b(parse)) {
+                    return null;
                 }
-                e53.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
-                f53.a(uuid, o3);
-                if (!(U.m() instanceof hb2)) {
-                    z82.c("NavigateBackApi", "top fragment error");
-                    ni3.i(f);
-                    return new z32(1001, "top fragment error");
-                }
-                hb2 hb2Var = (hb2) U.m();
-                if (hb2Var != null) {
-                    str2 = hb2Var.v3();
-                } else {
-                    str2 = "";
-                }
-                return new z32(0, if3.c(str2));
+                return parse;
             }
         }
-        return (z32) invokeCommon.objValue;
+        return (HttpUrl) invokeL.objValue;
+    }
+
+    public static JSONObject g(Headers headers) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, headers)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (headers == null) {
+                return jSONObject;
+            }
+            for (String str : headers.names()) {
+                if (!TextUtils.isEmpty(str)) {
+                    List<String> values = headers.values(str);
+                    StringBuilder sb = new StringBuilder();
+                    int size = values.size();
+                    for (int i = 0; i < size; i++) {
+                        sb.append(values.get(i));
+                        if (i == size - 1) {
+                            break;
+                        }
+                        sb.append(",");
+                    }
+                    jSONObject.put(str, sb.toString());
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

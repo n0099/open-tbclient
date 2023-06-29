@@ -1,113 +1,289 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.switchs.CheckIsQuestionThreadSwitch;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.q17;
+import com.baidu.tieba.view.cloudmusic.MusicPlayer;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.view.cloudmusic.model.CloudMusicListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class iia {
+public class iia implements mia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CloudMusicListModel a;
+    public final nia b;
+    public MusicPlayer c;
 
-    public static void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_type", i2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class b implements q17.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ iia c;
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
+        /* loaded from: classes6.dex */
+        public class a implements MusicPlayer.b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ b b;
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() != 3 && CheckIsQuestionThreadSwitch.getSwitchType() != 2) {
-                return false;
+            public a(b bVar, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = str;
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
 
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TimeHelper.getDayDifference(System.currentTimeMillis(), o95.p().r("key_check_is_question_thread_time", 0L)) > 7) {
-                return true;
+            @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.c.c.f();
+                    if (this.a.startsWith("/")) {
+                        File file = new File(this.a);
+                        if (file.exists()) {
+                            file.delete();
+                        }
+                        q17.h().e();
+                        b bVar = this.b;
+                        bVar.c.b(bVar.a, bVar.b);
+                    }
+                }
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
 
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 2) {
-                return true;
+        public b(iia iiaVar, CloudMusicData.MusicTagList.MusicList musicList, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iiaVar, musicList, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.c = iiaVar;
+            this.a = musicList;
+            this.b = i;
         }
-        return invokeV.booleanValue;
-    }
 
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 3) {
-                return true;
+        @Override // com.baidu.tieba.q17.b
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.c.b.n0(this.b);
             }
-            return false;
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.tieba.q17.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.b.r0(this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.q17.b
+        public void c(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+                if (!TextUtils.isEmpty(str2)) {
+                    str = str2;
+                }
+                this.c.c.e(str, this.a, new a(this, str));
+            }
+        }
     }
 
-    public static void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements ria<CloudMusicData.MusicTagList> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iia a;
+
+        public a(iia iiaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iiaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iiaVar;
         }
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).closeLoadingDialog();
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).closeLoadingDialog();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ria
+        /* renamed from: b */
+        public void a(CloudMusicData.MusicTagList musicTagList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, musicTagList) == null) {
+                this.a.b.M(false);
+                if (ListUtils.isEmpty(musicTagList.music_list) && musicTagList.page.pn == 1) {
+                    this.a.b.o(true);
+                } else {
+                    this.a.b.o(false);
+                    this.a.b.K0(musicTagList);
+                }
+                if (musicTagList.page.has_more == 0) {
+                    this.a.b.O();
+                }
+            }
         }
     }
 
-    public static void h(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, activity) != null) || activity == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class c implements MusicPlayer.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ iia d;
+
+        public c(iia iiaVar, String str, CloudMusicData.MusicTagList.MusicList musicList, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iiaVar, str, musicList, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = iiaVar;
+            this.a = str;
+            this.b = musicList;
+            this.c = i;
         }
-        String string = activity.getString(R.string.obfuscated_res_0x7f0f0429);
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).showLoadingDialog(string);
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).showLoadingDialog(string);
+
+        @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.c.f();
+                if (this.a.startsWith("/")) {
+                    File file = new File(this.a);
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    q17.h().e();
+                    this.d.b(this.b, this.c);
+                }
+            }
+        }
+    }
+
+    public iia(CloudMusicListModel cloudMusicListModel, nia niaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cloudMusicListModel, niaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = cloudMusicListModel;
+        this.b = niaVar;
+        niaVar.h0(this);
+        this.c = MusicPlayer.c();
+    }
+
+    @Override // com.baidu.tieba.mia
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b.M(true);
+            this.a.W(i, new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.mia
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.cancelLoadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.mia
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.Y();
+        }
+    }
+
+    @Override // com.baidu.tieba.mia
+    public void b(CloudMusicData.MusicTagList.MusicList musicList, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, musicList, i) == null) && musicList != null && !TextUtils.isEmpty(musicList.resource)) {
+            String g = q17.h().g(musicList.resource);
+            if (TextUtils.isEmpty(g)) {
+                this.b.b1(i);
+                q17.h().f(String.valueOf(musicList.music_id), musicList.resource, new b(this, musicList, i));
+                return;
+            }
+            this.c.e(g, musicList, new c(this, g, musicList, i));
+        }
+    }
+
+    @Override // com.baidu.tieba.mia
+    public void d(CloudMusicData.MusicTagList musicTagList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, musicTagList) == null) {
+            if (ListUtils.isEmpty(musicTagList.music_list)) {
+                this.b.o(true);
+            } else {
+                this.b.o(false);
+                this.b.K0(musicTagList);
+            }
+            if (musicTagList.page.has_more == 0) {
+                this.b.O();
+            }
         }
     }
 }

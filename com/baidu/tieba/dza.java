@@ -1,9 +1,17 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface dza {
-    String getBizType();
 
-    void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(String str, dza dzaVar);
+    }
+
+    void cancel();
+
+    boolean isRunning();
+
+    void pause();
+
+    void start();
 }

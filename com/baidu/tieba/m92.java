@@ -1,399 +1,147 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.vu2;
-import com.baidu.tieba.wv1;
-import com.baidu.tieba.xw2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class m92 extends wd3 {
+public class m92 {
     public static /* synthetic */ Interceptable $ic;
-    public static Set<String> g;
-    public static Set<String> h;
     public transient /* synthetic */ FieldHolder $fh;
-    public o92 c;
-    public ExecutorService d;
-    public int e;
-    public xw2.a f;
 
     /* loaded from: classes6.dex */
-    public class a implements wv1.b {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ m92 d;
 
-        public a(m92 m92Var, UnitedSchemeEntity unitedSchemeEntity, Context context, CallbackHandler callbackHandler) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m92Var, unitedSchemeEntity, context, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.d = m92Var;
-            this.a = unitedSchemeEntity;
-            this.b = context;
-            this.c = callbackHandler;
-        }
-
-        @Override // com.baidu.tieba.wv1.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    z82.c("DebuggerLaunchAction", "Authentication Success");
-                    m92.h.add(this.d.o(this.b));
-                    this.d.p(this.b, this.a, this.c);
-                    return;
-                }
-                z82.c("DebuggerLaunchAction", "Authentication Fail : Not developer");
-                this.a.result = UnitedSchemeUtility.wrapCallbackParams(401);
-                this.d.v(this.b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
-            }
-        }
-
-        @Override // com.baidu.tieba.wv1.b
-        public void b(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                z82.d("DebuggerLaunchAction", "onFail : Authentication exception :", exc);
-                this.a.result = UnitedSchemeUtility.wrapCallbackParams(401);
-                this.d.v(this.b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ File c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ CallbackHandler e;
-        public final /* synthetic */ m92 f;
-
-        public b(m92 m92Var, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m92Var, context, str, file, unitedSchemeEntity, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = m92Var;
-            this.a = context;
-            this.b = str;
-            this.c = file;
-            this.d = unitedSchemeEntity;
-            this.e = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
+            cc3 b0;
+            SwanAppActivity w;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = cc3.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
+                w.M();
             }
-            this.f.w(this.a, this.b, this.c, this.d, this.e);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927427, "Lcom/baidu/tieba/m92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947927427, "Lcom/baidu/tieba/m92;");
-                return;
-            }
-        }
-        h = new HashSet();
-    }
+    /* loaded from: classes6.dex */
+    public static class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public final boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            JSONArray jSONArray = this.c.b;
-            if (jSONArray != null && jSONArray.length() > 0 && !TextUtils.isEmpty(this.c.c)) {
+        @Override // android.view.View.OnTouchListener
+        @SuppressLint({"ClickableViewAccessibility"})
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 return true;
             }
-            return false;
+            return invokeLL.booleanValue;
         }
-        return invokeV.booleanValue;
-    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m92(wc3 wc3Var) {
-        super(wc3Var, "/swanAPI/debuggerlaunch");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            boolean equals = TextUtils.equals(nk3.a().getString("enableSwitch", "1"), "1");
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo != null && optParamsAsJo.length() > 0 && equals) {
-                o92 b2 = o92.b(optParamsAsJo);
-                this.c = b2;
-                if (b2 == null) {
-                    if (wd3.b) {
-                        Log.e("DebuggerLaunchAction", "Remote Debug params is invalid");
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!u()) {
-                    v(context, "404");
-                    return false;
-                } else if (!SwanAppAllianceLoginHelper.d.f() && !t().contains(gv2.h0().h(context)) && !h.contains(o(context))) {
-                    ms1.b(this.c.a, new a(this, unitedSchemeEntity, context, callbackHandler));
-                    return true;
-                } else {
-                    p(context, unitedSchemeEntity, callbackHandler);
-                    return true;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            z82.c("DebuggerLaunchAction", "param is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            return false;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final String o(Context context) {
+    /* loaded from: classes6.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            cc3 b0;
+            SwanAppActivity w;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = cc3.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
+                w.v0();
+            }
+        }
+    }
+
+    @SuppressLint({"InflateParams"})
+    public static View a(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return gv2.h0().h(context) + this.c.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0904, (ViewGroup) null);
+            inflate.setOnTouchListener(new b());
+            ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+            viewGroup.removeView(inflate);
+            viewGroup.addView(inflate);
+            return inflate;
         }
-        return (String) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public final String q(String str) {
-        InterceptResult invokeL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                return URLEncoder.encode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler) == null) {
-            p92.j(r());
-            File b2 = vu2.f.b();
-            if (b2.exists()) {
-                b2.delete();
-            }
-            this.d = Executors.newFixedThreadPool(4);
-            this.e = 0;
-            for (int i = 0; i < this.c.b.length(); i++) {
-                String a2 = this.c.a(i);
-                if (TextUtils.isEmpty(a2)) {
-                    int i2 = this.e + 1;
-                    this.e = i2;
-                    if (i2 >= this.c.b.length()) {
-                        z82.c("DebuggerLaunchAction", "IPs are invalid");
-                        v(context, "404");
-                    }
-                } else {
-                    this.d.execute(new b(this, context, a2, b2, unitedSchemeEntity, callbackHandler));
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            wp3.a0(new a());
         }
     }
 
-    public final xw2.a r() {
-        InterceptResult invokeV;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f == null && this.c != null) {
-                this.f = (xw2.a) ((xw2.a) ((xw2.a) ((xw2.a) ((xw2.a) new xw2.a().v0(this.c.a)).A0(false)).R0(this.c.d)).K0("baiduboxapp://swan/" + this.c.a)).P0("1");
-            }
-            return this.f;
-        }
-        return (xw2.a) invokeV.objValue;
-    }
-
-    public final Set<String> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (g == null) {
-                g = new HashSet();
-                try {
-                    JSONArray jSONArray = new JSONArray(nk3.a().getString("authWlist", ""));
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        g.add(jSONArray.optString(i));
-                    }
-                } catch (JSONException unused) {
-                    if (wd3.b) {
-                        Log.d("DebuggerLaunchAction", "Cloud White List is invalid");
-                    }
-                }
-            }
-            return g;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final String s(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != 51509) {
-                if (hashCode == 51512 && str.equals("404")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else {
-                if (str.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND)) {
-                    c = 0;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return "";
-                }
-                return "IPs are invalid " + str;
-            }
-            return "authorization fail " + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void v(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
-            String string = nk3.a().getString("errorURL", "");
-            if (TextUtils.isEmpty(string)) {
-                rb3.g(context, s(str)).G();
-                return;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(SchemeConfig.getSchemeHead());
-            sb.append("://v1/easybrowse/open?url=");
-            sb.append(q(string + "?" + str));
-            SchemeRouter.invoke(context, sb.toString());
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            wp3.a0(new c());
         }
     }
 
-    public final void w(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public static void d(@NonNull Activity activity, @NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048585, this, context, str, file, unitedSchemeEntity, callbackHandler) == null) {
-            xw2.a r = r();
-            p92.l();
-            p92.g().h("downloadstart");
-            try {
-                ui4 request = dj4.g().getRequest();
-                Response executeSync = request.url(str + "/app.zip").connectionTimeout(3000).build().executeSync();
-                if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
-                    gs4.a(executeSync.body().byteStream(), file);
-                    Intent g1 = xw2.g1(context, r);
-                    g1.putExtra("remoteDebugUrl", str);
-                    context.startActivity(g1);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (this.d != null) {
-                        this.d.shutdownNow();
-                        this.d = null;
-                    }
-                    p92.m(r);
-                    p92.g().h("downloadsuccess");
-                }
-                if (executeSync != null) {
-                    executeSync.close();
-                }
-            } catch (IOException unused) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                int i = this.e + 1;
-                this.e = i;
-                if (i >= this.c.b.length()) {
-                    z82.c("DebuggerLaunchAction", "IPs are invalid");
-                    v(context, "404");
-                    p92.g().h("downloadfail");
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, view2) == null) {
+            ((ViewGroup) activity.getWindow().getDecorView()).removeView(view2);
         }
     }
 }

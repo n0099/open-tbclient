@@ -7,7 +7,7 @@ import com.kwad.sdk.core.response.kwai.a;
 import com.kwad.sdk.utils.an;
 import java.io.Serializable;
 @KsJson
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SDKInitMsg extends a implements Serializable {
     public static final int CHILD_PROCESS = 2;
     public static final int FAIL = 2;

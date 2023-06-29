@@ -1,30 +1,63 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mn7 {
+public class mn7 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PriorityOrganizer a;
-    public final PriorityOrganizer.Task b;
-    public hn7 c;
-    public en7 d;
-    public fn7 e;
-    public in7 f;
-    public jn7 g;
-    public gn7 h;
-    public nn7 i;
-    public on7 j;
-    public ln7 k;
-    public kn7 l;
+    public WeakReference<FrsActivity> m;
+    public WeakReference<FrsFragment> n;
+    public BdToastData o;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mn7 a;
+
+        public a(mn7 mn7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mn7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mn7Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                BdToastHelper.toast(this.a.o);
+            }
+        }
+    }
 
     public mn7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
@@ -41,37 +74,63 @@ public class mn7 {
                 return;
             }
         }
-        this.a = PriorityOrganizer.m();
-        this.c = new hn7(frsActivity, frsFragment);
-        this.d = new en7(frsActivity, frsFragment);
-        this.e = new fn7(frsActivity, frsFragment);
-        this.f = new in7(frsActivity, frsFragment);
-        this.g = new jn7(frsActivity, frsFragment);
-        this.h = new gn7(frsActivity, frsFragment);
-        this.i = new nn7(frsActivity, frsFragment);
-        this.j = new on7(frsActivity, frsFragment);
-        this.k = new ln7(frsActivity, frsFragment);
-        kn7 kn7Var = new kn7(frsActivity, frsFragment);
-        this.l = kn7Var;
-        hn7 hn7Var = this.c;
-        PriorityOrganizer.t(hn7Var, this.d, this.e, kn7Var, this.f, this.g, this.h, this.i, this.j, this.k);
-        this.b = hn7Var;
+        this.m = new WeakReference<>(frsActivity);
+        this.n = new WeakReference<>(frsFragment);
+        this.o = new BdToastData();
     }
 
-    public void a(boolean z) {
-        jn7 jn7Var;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (jn7Var = this.g) != null) {
-            jn7Var.F(z);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.m.clear();
+            this.m.clear();
         }
     }
 
-    public void b() {
-        PriorityOrganizer.Task task;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !LooperBlockSwitch.getIsOn() && (task = this.b) != null && !task.v(true)) {
-            this.b.E(true);
-            this.a.z(this.b);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            yg.a().postDelayed(new a(this), 2000L);
         }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
+        InterceptResult invokeV;
+        WeakReference<FrsFragment> weakReference;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WeakReference<FrsActivity> weakReference2 = this.m;
+            if (weakReference2 != null && weakReference2.get() != null && (weakReference = this.n) != null && weakReference.get() != null && TbSingleton.getInstance().getFrsResponseData() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String stringExtra = this.m.get().getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
+            if (TextUtils.isEmpty(stringExtra)) {
+                return false;
+            }
+            try {
+                this.o.parserJson(new JSONObject(stringExtra));
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            BdToastData bdToastData = this.o;
+            if (bdToastData == null || bdToastData.getIconType() == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

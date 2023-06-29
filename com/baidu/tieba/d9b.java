@@ -1,76 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d9b {
+public class d9b extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ InstallActivity b;
 
-    public d9b(InstallActivity installActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d9b(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = installActivity;
-        this.a = false;
     }
 
-    public void b(Exception exc) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                A a = ((z9b) obj).a;
+                if (!(a instanceof NativeUnifiedADDataAdapter)) {
+                    return null;
                 }
-                this.a = true;
-                this.b.d = com.google.ar.core.p.CANCELLED;
-                boolean z = exc instanceof UnavailableException;
-                this.b.j(exc);
+                Object field = ReflectionUtils.getField((NativeUnifiedADDataAdapter) a, "a", "e");
+                Field declaredField = field.getClass().getSuperclass().getDeclaredField("M");
+                if (declaredField == null) {
+                    return null;
+                }
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(field);
+                if (!(obj2 instanceof JSONObject)) {
+                    return null;
+                }
+                return i9b.a((JSONObject) obj2);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
-    }
-
-    public void a(com.google.ar.core.p pVar) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.b) {
-                if (!this.a) {
-                    this.b.d = pVar;
-                    int ordinal = pVar.ordinal();
-                    if (ordinal != 0) {
-                        if (ordinal == 1) {
-                            this.b.j(new UnavailableUserDeclinedInstallationException());
-                        } else if (ordinal == 2) {
-                            z = this.b.g;
-                            if (!z) {
-                                this.b.i();
-                            }
-                            this.b.j(null);
-                        }
-                        this.a = true;
-                    }
-                }
-            }
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

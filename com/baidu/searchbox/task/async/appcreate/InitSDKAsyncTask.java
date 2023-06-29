@@ -3,8 +3,8 @@ package com.baidu.searchbox.task.async.appcreate;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.p5a;
-import com.baidu.tieba.q5a;
+import com.baidu.tieba.baa;
+import com.baidu.tieba.caa;
 /* loaded from: classes4.dex */
 public class InitSDKAsyncTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -19,7 +19,7 @@ public class InitSDKAsyncTask extends LaunchTask {
 
     private void initJpusbSdk() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            p5a.b().d(TbadkCoreApplication.getInst());
+            baa.b().d(TbadkCoreApplication.getInst());
         }
     }
 
@@ -40,9 +40,9 @@ public class InitSDKAsyncTask extends LaunchTask {
 
     private void initStatSdk() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            q5a.b().d(TbadkCoreApplication.getInst());
-            q5a.b().a(TbadkCoreApplication.getInst());
-            q5a b = q5a.b();
+            caa.b().d(TbadkCoreApplication.getInst());
+            caa.b().a(TbadkCoreApplication.getInst());
+            caa b = caa.b();
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             TbadkCoreApplication.getInst();
             b.f(inst, TbadkCoreApplication.getFrom(), true);

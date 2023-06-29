@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.fg5;
+import com.baidu.tieba.jg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InitUserNameDialogActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fg5 a;
+    public jg5 a;
 
     /* loaded from: classes4.dex */
-    public class a implements fg5.e {
+    public class a implements jg5.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InitUserNameDialogActivity a;
@@ -43,7 +43,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // com.baidu.tieba.fg5.e
+        @Override // com.baidu.tieba.jg5.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -54,7 +54,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements fg5.e {
+    public class b implements jg5.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InitUserNameDialogActivity a;
@@ -77,7 +77,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // com.baidu.tieba.fg5.e
+        @Override // com.baidu.tieba.jg5.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -145,9 +145,9 @@ public class InitUserNameDialogActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            fg5 fg5Var = new fg5(this);
-            this.a = fg5Var;
-            fg5Var.v(new a(this));
+            jg5 jg5Var = new jg5(this);
+            this.a = jg5Var;
+            jg5Var.v(new a(this));
             this.a.w(new b(this));
             this.a.p();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();

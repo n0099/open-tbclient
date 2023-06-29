@@ -24,7 +24,7 @@ import java.util.List;
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public static final String TAG = "CustomViewTarget";
     @IdRes
-    public static final int VIEW_TAG_ID = 2131299874;
+    public static final int VIEW_TAG_ID = 2131299884;
     @Nullable
     public View.OnAttachStateChangeListener attachStateListener;
     public boolean isAttachStateListenerAdded;
@@ -32,7 +32,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public final SizeDeterminer sizeDeterminer;
 
     /* renamed from: view  reason: collision with root package name */
-    public final T f1197view;
+    public final T f1196view;
 
     @Override // com.bumptech.glide.manager.LifecycleListener
     public void onDestroy() {
@@ -68,7 +68,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         public SizeDeterminerLayoutListener layoutListener;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1198view;
+        public final View f1197view;
         public boolean waitForLayout;
 
         private boolean isDimensionValid(int i) {
@@ -98,7 +98,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         }
 
         public SizeDeterminer(@NonNull View view2) {
-            this.f1198view = view2;
+            this.f1197view = view2;
         }
 
         public void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
@@ -126,7 +126,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
                 this.cbs.add(sizeReadyCallback);
             }
             if (this.layoutListener == null) {
-                ViewTreeObserver viewTreeObserver = this.f1198view.getViewTreeObserver();
+                ViewTreeObserver viewTreeObserver = this.f1197view.getViewTreeObserver();
                 SizeDeterminerLayoutListener sizeDeterminerLayoutListener = new SizeDeterminerLayoutListener(this);
                 this.layoutListener = sizeDeterminerLayoutListener;
                 viewTreeObserver.addOnPreDrawListener(sizeDeterminerLayoutListener);
@@ -138,44 +138,44 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
             if (i4 > 0) {
                 return i4;
             }
-            if (this.waitForLayout && this.f1198view.isLayoutRequested()) {
+            if (this.waitForLayout && this.f1197view.isLayoutRequested()) {
                 return 0;
             }
             int i5 = i - i3;
             if (i5 > 0) {
                 return i5;
             }
-            if (this.f1198view.isLayoutRequested() || i2 != -2) {
+            if (this.f1197view.isLayoutRequested() || i2 != -2) {
                 return 0;
             }
             if (Log.isLoggable(CustomViewTarget.TAG, 4)) {
                 Log.i(CustomViewTarget.TAG, "Glide treats LayoutParams.WRAP_CONTENT as a request for an image the size of this device's screen dimensions. If you want to load the original image and are ok with the corresponding memory cost and OOMs (depending on the input size), use .override(Target.SIZE_ORIGINAL). Otherwise, use LayoutParams.MATCH_PARENT, set layout_width and layout_height to fixed dimension, or use .override() with fixed dimensions.");
             }
-            return getMaxDisplayLength(this.f1198view.getContext());
+            return getMaxDisplayLength(this.f1197view.getContext());
         }
 
         private int getTargetHeight() {
             int i;
-            int paddingTop = this.f1198view.getPaddingTop() + this.f1198view.getPaddingBottom();
-            ViewGroup.LayoutParams layoutParams = this.f1198view.getLayoutParams();
+            int paddingTop = this.f1197view.getPaddingTop() + this.f1197view.getPaddingBottom();
+            ViewGroup.LayoutParams layoutParams = this.f1197view.getLayoutParams();
             if (layoutParams != null) {
                 i = layoutParams.height;
             } else {
                 i = 0;
             }
-            return getTargetDimen(this.f1198view.getHeight(), i, paddingTop);
+            return getTargetDimen(this.f1197view.getHeight(), i, paddingTop);
         }
 
         private int getTargetWidth() {
             int i;
-            int paddingLeft = this.f1198view.getPaddingLeft() + this.f1198view.getPaddingRight();
-            ViewGroup.LayoutParams layoutParams = this.f1198view.getLayoutParams();
+            int paddingLeft = this.f1197view.getPaddingLeft() + this.f1197view.getPaddingRight();
+            ViewGroup.LayoutParams layoutParams = this.f1197view.getLayoutParams();
             if (layoutParams != null) {
                 i = layoutParams.width;
             } else {
                 i = 0;
             }
-            return getTargetDimen(this.f1198view.getWidth(), i, paddingLeft);
+            return getTargetDimen(this.f1197view.getWidth(), i, paddingLeft);
         }
 
         public void checkCurrentDimens() {
@@ -192,7 +192,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         }
 
         public void clearCallbacksAndListener() {
-            ViewTreeObserver viewTreeObserver = this.f1198view.getViewTreeObserver();
+            ViewTreeObserver viewTreeObserver = this.f1197view.getViewTreeObserver();
             if (viewTreeObserver.isAlive()) {
                 viewTreeObserver.removeOnPreDrawListener(this.layoutListener);
             }
@@ -216,12 +216,12 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     }
 
     public CustomViewTarget(@NonNull T t) {
-        this.f1197view = (T) Preconditions.checkNotNull(t);
+        this.f1196view = (T) Preconditions.checkNotNull(t);
         this.sizeDeterminer = new SizeDeterminer(t);
     }
 
     private void setTag(@Nullable Object obj) {
-        this.f1197view.setTag(VIEW_TAG_ID, obj);
+        this.f1196view.setTag(VIEW_TAG_ID, obj);
     }
 
     @Override // com.bumptech.glide.request.target.Target
@@ -256,13 +256,13 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
 
     @Nullable
     private Object getTag() {
-        return this.f1197view.getTag(VIEW_TAG_ID);
+        return this.f1196view.getTag(VIEW_TAG_ID);
     }
 
     private void maybeAddAttachStateListener() {
         View.OnAttachStateChangeListener onAttachStateChangeListener = this.attachStateListener;
         if (onAttachStateChangeListener != null && !this.isAttachStateListenerAdded) {
-            this.f1197view.addOnAttachStateChangeListener(onAttachStateChangeListener);
+            this.f1196view.addOnAttachStateChangeListener(onAttachStateChangeListener);
             this.isAttachStateListenerAdded = true;
         }
     }
@@ -270,7 +270,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     private void maybeRemoveAttachStateListener() {
         View.OnAttachStateChangeListener onAttachStateChangeListener = this.attachStateListener;
         if (onAttachStateChangeListener != null && this.isAttachStateListenerAdded) {
-            this.f1197view.removeOnAttachStateChangeListener(onAttachStateChangeListener);
+            this.f1196view.removeOnAttachStateChangeListener(onAttachStateChangeListener);
             this.isAttachStateListenerAdded = false;
         }
     }
@@ -310,7 +310,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
 
     @NonNull
     public final T getView() {
-        return this.f1197view;
+        return this.f1196view;
     }
 
     public final void pauseMyRequest() {
@@ -330,7 +330,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     }
 
     public String toString() {
-        return "Target for: " + this.f1197view;
+        return "Target for: " + this.f1196view;
     }
 
     @NonNull

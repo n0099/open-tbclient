@@ -72,8 +72,8 @@ public class ChangeTransform extends Transition {
         public void onTransitionEnd(@NonNull Transition transition) {
             transition.removeListener(this);
             GhostViewUtils.removeGhost(this.mView);
-            this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d7, null);
-            this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0919ad, null);
+            this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092638, null);
+            this.mView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091a04, null);
         }
 
         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
@@ -319,8 +319,8 @@ public class ChangeTransform extends Transition {
             ViewUtils.transformMatrixToGlobal(viewGroup, matrix3);
             matrix3.preTranslate(-viewGroup.getScrollX(), -viewGroup.getScrollY());
             transitionValues.values.put(PROPNAME_PARENT_MATRIX, matrix3);
-            transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d7));
-            transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0919ad));
+            transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092638));
+            transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091a04));
         }
     }
 
@@ -379,7 +379,7 @@ public class ChangeTransform extends Transition {
 
             private void setCurrentMatrix(Matrix matrix4) {
                 this.mTempMatrix.set(matrix4);
-                view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d7, this.mTempMatrix);
+                view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092638, this.mTempMatrix);
                 transforms.restore(view2);
             }
 
@@ -394,8 +394,8 @@ public class ChangeTransform extends Transition {
                     if (z && ChangeTransform.this.mUseOverlay) {
                         setCurrentMatrix(matrix3);
                     } else {
-                        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d7, null);
-                        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0919ad, null);
+                        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092638, null);
+                        view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091a04, null);
                     }
                 }
                 ViewUtils.setAnimationMatrix(view2, null);
@@ -477,7 +477,7 @@ public class ChangeTransform extends Transition {
 
     private void setMatricesForParent(TransitionValues transitionValues, TransitionValues transitionValues2) {
         Matrix matrix = (Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX);
-        transitionValues2.f1028view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0919ad, matrix);
+        transitionValues2.f1028view.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091a04, matrix);
         Matrix matrix2 = this.mTempMatrix;
         matrix2.reset();
         matrix.invert(matrix2);

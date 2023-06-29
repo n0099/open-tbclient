@@ -1,36 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes5.dex */
 public class d3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final l3a b;
-    public final k3a c;
-    public final m3a d;
-    public final g3a e;
-    public final c3a f;
-    public final f3a g;
-    public final e3a h;
-    public final b3a i;
-    public final i3a j;
-    public final h3a k;
-    public final j3a l;
+    public int a;
+    public long b;
+    public boolean c;
+    public String d;
 
-    public d3a(MainTabActivity mainTabActivity, s2a s2aVar) {
+    public d3a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, s2aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,116 +31,70 @@ public class d3a {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = new l3a(mainTabActivity, s2aVar);
-        this.c = new k3a(mainTabActivity, s2aVar);
-        this.d = new m3a();
-        this.e = new g3a(mainTabActivity, s2aVar);
-        this.f = new c3a(mainTabActivity, s2aVar);
-        this.g = new f3a(mainTabActivity, s2aVar);
-        this.h = new e3a(mainTabActivity, s2aVar);
-        this.i = new b3a(mainTabActivity, s2aVar);
-        this.j = new i3a(mainTabActivity, s2aVar);
-        this.k = new h3a(mainTabActivity);
-        this.l = new j3a(mainTabActivity);
+        this.a = 0;
+        this.b = 0L;
+        this.c = false;
+        this.d = null;
     }
 
-    public b3a a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+            return this.d;
         }
-        return (b3a) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public c3a b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+            return this.a;
         }
-        return (c3a) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public e3a c() {
-        InterceptResult invokeV;
+    public void c(StarInfo starInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
+            return;
         }
-        return (e3a) invokeV.objValue;
-    }
-
-    public f3a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+        int intValue = starInfo.has_frs_star.intValue();
+        this.a = intValue;
+        boolean z = true;
+        if (intValue == 1) {
+            String str = starInfo.top;
+            String str2 = starInfo.head;
+            Fans fans = starInfo.fans;
+            if (fans != null) {
+                fans.is_get.intValue();
+                fans.num.intValue();
+                fans.open.intValue();
+                this.b = fans.left_time.intValue();
+            }
+            Size size = starInfo.top_size;
+            if (size != null) {
+                size.width.intValue();
+                size.height.intValue();
+            }
+            Size size2 = starInfo.head_size;
+            if (size2 != null) {
+                size2.width.intValue();
+                size2.height.intValue();
+            }
         }
-        return (f3a) invokeV.objValue;
-    }
-
-    public g3a e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+        if (starInfo.trade == null) {
+            z = false;
         }
-        return (g3a) invokeV.objValue;
-    }
-
-    public h3a f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
+        this.c = z;
+        if (z) {
+            Integer num = starInfo.trade.time;
+            if (num != null) {
+                num.intValue();
+            }
+            String str3 = starInfo.trade.url;
         }
-        return (h3a) invokeV.objValue;
-    }
-
-    public i3a g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return (i3a) invokeV.objValue;
-    }
-
-    public k3a h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (k3a) invokeV.objValue;
-    }
-
-    public l3a i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (l3a) invokeV.objValue;
-    }
-
-    public m3a j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (m3a) invokeV.objValue;
-    }
-
-    public j3a k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.l;
-        }
-        return (j3a) invokeV.objValue;
+        this.d = starInfo.star_forum_headimg;
     }
 }

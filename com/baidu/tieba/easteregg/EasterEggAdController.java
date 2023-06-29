@@ -15,19 +15,19 @@ import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
-import com.baidu.tieba.bs6;
-import com.baidu.tieba.bx6;
+import com.baidu.tieba.d65;
 import com.baidu.tieba.easteregg.EasterEggAdController;
 import com.baidu.tieba.easteregg.data.EasterEggAdData;
 import com.baidu.tieba.easteregg.view.CountDownView;
 import com.baidu.tieba.easteregg.view.EasterEggAdEdgeFloat;
 import com.baidu.tieba.easteregg.view.EasterEggAdView;
 import com.baidu.tieba.edgefloat.EdgeFloat;
-import com.baidu.tieba.n5a;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.tr8;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.ew8;
+import com.baidu.tieba.gs6;
+import com.baidu.tieba.gx6;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.z9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -153,9 +153,9 @@ public final class EasterEggAdController {
                 DefaultLog.getInstance().c("easterEgg", "彩蛋广告执行退场动画执行完成");
                 this.a.l().b();
                 this.a.h.e();
-                a65.s("easterEgg");
-                n5a.g.a().i(false);
-                bs6.b().b(new bx6());
+                d65.s("easterEgg");
+                z9a.g.a().i(false);
+                gs6.b().b(new gx6());
             }
         }
     }
@@ -370,7 +370,7 @@ public final class EasterEggAdController {
                     if (interceptable == null || interceptable.invokeL(1048576, this, closeType) == null) {
                         Intrinsics.checkNotNullParameter(closeType, "closeType");
                         if (closeType == CountDownView.CloseType.CLICK) {
-                            o95 p = o95.p();
+                            r95 p = r95.p();
                             StringBuilder sb = new StringBuilder();
                             sb.append(EasterEggAdData.KEY_EASTER_EGG_AD);
                             sb.append(TbadkCoreApplication.getCurrentAccount());
@@ -385,7 +385,7 @@ public final class EasterEggAdController {
                             }
                             easterEggAdController.j(easterEggAdData, 4);
                         }
-                        tr8 defaultLog = DefaultLog.getInstance();
+                        ew8 defaultLog = DefaultLog.getInstance();
                         defaultLog.c("easterEgg", "彩蛋广告关闭，关闭类型：" + closeType.name());
                         this.a.m();
                     }
@@ -453,7 +453,7 @@ public final class EasterEggAdController {
             }
         });
         this.g = new c(this);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(wi.l(TbadkCoreApplication.getInst()), this.b);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(xi.l(TbadkCoreApplication.getInst()), this.b);
         layoutParams.gravity = 80;
         l().setLayoutParams(layoutParams);
         this.h = new EasterEggAdEdgeFloat(this.a, 83, 0, TbadkCoreApplication.getInst().getNormalMainTabBarHeight(), false, CollectionsKt__CollectionsJVMKt.listOf("MainTabActivity"), l(), this.g);
@@ -463,7 +463,7 @@ public final class EasterEggAdController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, easterEggAdData) == null) {
             Intrinsics.checkNotNullParameter(easterEggAdData, "easterEggAdData");
-            n5a.g.a().i(true);
+            z9a.g.a().i(true);
             DefaultLog.getInstance().c("easterEgg", "彩蛋广告开始展示");
             this.e = easterEggAdData;
             l().g(easterEggAdData);
@@ -471,7 +471,7 @@ public final class EasterEggAdController {
             this.h.g();
             ValueAnimator valueAnimator = ValueAnimator.ofFloat(this.b, 0.0f);
             valueAnimator.setInterpolator(new DecelerateInterpolator());
-            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.uw6
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.zw6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -573,7 +573,7 @@ public final class EasterEggAdController {
             DefaultLog.getInstance().c("easterEgg", "彩蛋广告开始隐藏");
             int i = 0;
             ValueAnimator valueAnimator = ValueAnimator.ofFloat(0.0f, this.b);
-            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.tw6
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yw6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -595,11 +595,11 @@ public final class EasterEggAdController {
             if (currentAccount == null) {
                 currentAccount = StringUtil.NULL_STRING;
             }
-            Integer num = n5a.g.a().c().get(currentAccount);
+            Integer num = z9a.g.a().c().get(currentAccount);
             if (num != null) {
                 i = num.intValue();
             }
-            n5a.g.a().c().put(currentAccount, Integer.valueOf(i + 1));
+            z9a.g.a().c().put(currentAccount, Integer.valueOf(i + 1));
         }
     }
 

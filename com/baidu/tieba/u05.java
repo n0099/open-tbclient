@@ -1,74 +1,210 @@
 package com.baidu.tieba;
 
-import com.baidu.sapi2.result.AccountRealNameResult;
+import android.content.Intent;
+import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.ArrayList;
+import java.util.Date;
+/* loaded from: classes8.dex */
 public class u05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public int c;
-    public String d;
-    public boolean e;
-    public boolean f;
-    public String g;
 
-    public u05() {
+    public static boolean a(AccountData accountData, t9 t9Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, accountData, t9Var)) == null) {
+            return t9Var.e("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
         }
-        this.a = -202;
-        this.c = -100000;
-        this.d = "未触发任何实名操作返回或实名时放弃返回";
+        return invokeLL.booleanValue;
     }
 
-    public int a() {
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            TiebaDatabase.getInstance().getMainDBDatabaseManager().d("update account_data set isactive=0 where isactive=1");
+        }
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from account_data where id=?", new String[]{str});
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.e && this.f) {
-                return 3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            t9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            int i = 0;
+            Cursor cursor = null;
+            try {
+                if (mainDBDatabaseManager != null) {
+                    try {
+                        cursor = mainDBDatabaseManager.j("select count(*) from account_data", null);
+                        if (cursor != null && cursor.moveToFirst()) {
+                            i = cursor.getInt(0);
+                        }
+                    } catch (Exception e) {
+                        mainDBDatabaseManager.i(e, "getAccountNum");
+                    }
+                }
+                return i;
+            } finally {
+                ug.a(cursor);
             }
-            if (this.f) {
-                return 2;
-            }
-            if (this.e) {
-                return 1;
-            }
-            return 0;
         }
         return invokeV.intValue;
     }
 
-    public static u05 b(AccountRealNameResult accountRealNameResult) {
-        InterceptResult invokeL;
+    public static AccountData e() {
+        InterceptResult invokeV;
+        AccountData accountData;
+        Exception e;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountRealNameResult)) == null) {
-            u05 u05Var = new u05();
-            u05Var.a = accountRealNameResult.getResultCode();
-            u05Var.b = accountRealNameResult.getResultMsg();
-            int i = accountRealNameResult.errorStep;
-            u05Var.g = accountRealNameResult.callbackkey;
-            u05Var.e = accountRealNameResult.juniorRealNameSuc;
-            u05Var.f = accountRealNameResult.seniorRealNameSuc;
-            u05Var.c = accountRealNameResult.subResultCode;
-            u05Var.d = accountRealNameResult.subResultMsg;
-            return u05Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            t9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            Cursor cursor2 = null;
+            if (mainDBDatabaseManager != null) {
+                try {
+                    cursor = mainDBDatabaseManager.j("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
+                    if (cursor != null) {
+                        try {
+                            try {
+                                if (cursor.moveToFirst()) {
+                                    accountData = new AccountData();
+                                    try {
+                                        accountData.setID(cursor.getString(0));
+                                        accountData.setAccount(cursor.getString(1));
+                                        accountData.setPassword(cursor.getString(2));
+                                        accountData.setBDUSS(cursor.getString(3));
+                                        accountData.setIsActive(cursor.getInt(4));
+                                        accountData.setTbs(cursor.getString(5));
+                                        accountData.setTime(cursor.getLong(6));
+                                        accountData.setPortrait(cursor.getString(7));
+                                        accountData.setSex(cursor.getInt(9));
+                                        accountData.setMemberIconUrl(cursor.getString(10));
+                                        accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
+                                        accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
+                                        cursor2 = cursor;
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        mainDBDatabaseManager.i(e, "getActiveAccountData");
+                                        ug.a(cursor);
+                                        return accountData;
+                                    }
+                                }
+                            } catch (Exception e3) {
+                                accountData = null;
+                                e = e3;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            cursor2 = cursor;
+                            ug.a(cursor2);
+                            throw th;
+                        }
+                    }
+                    accountData = null;
+                    cursor2 = cursor;
+                } catch (Exception e4) {
+                    accountData = null;
+                    e = e4;
+                    cursor = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    ug.a(cursor2);
+                    throw th;
+                }
+            } else {
+                accountData = null;
+            }
+            ug.a(cursor2);
+            return accountData;
         }
-        return (u05) invokeL.objValue;
+        return (AccountData) invokeV.objValue;
+    }
+
+    public static ArrayList<AccountData> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            t9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            ArrayList<AccountData> arrayList = new ArrayList<>();
+            Cursor cursor = null;
+            try {
+                if (mainDBDatabaseManager != null) {
+                    try {
+                        cursor = mainDBDatabaseManager.j("select * from account_data order by time desc", null);
+                        while (cursor.moveToNext()) {
+                            AccountData accountData = new AccountData();
+                            accountData.setID(cursor.getString(0));
+                            accountData.setAccount(cursor.getString(1));
+                            accountData.setPassword(cursor.getString(2));
+                            accountData.setBDUSS(cursor.getString(3));
+                            accountData.setIsActive(cursor.getInt(4));
+                            accountData.setTbs(cursor.getString(5));
+                            accountData.setTime(cursor.getLong(6));
+                            accountData.setPortrait(cursor.getString(7));
+                            accountData.setSex(cursor.getInt(9));
+                            accountData.setMemberIconUrl(cursor.getString(10));
+                            accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
+                            accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
+                            arrayList.add(accountData);
+                        }
+                    } catch (Exception e) {
+                        mainDBDatabaseManager.i(e, "getAllAccountData");
+                    }
+                }
+                return arrayList;
+            } finally {
+                ug.a(cursor);
+            }
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static void g(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, accountData) == null) && accountData != null && accountData.getID() != null) {
+            Intent intent = new Intent();
+            intent.setAction("com.baidu.tieba.action.accountChange");
+            intent.putExtra("intent_data_accountData", TbadkCoreApplication.getCurrentAccountObj());
+            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+            TbadkCoreApplication.getInst().sendBroadcast(intent);
+            String str = "set_basedata_account:";
+            if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
+                str = "set_basedata_account:valid_logined";
+            } else if (!StringUtils.isNull(accountData.getBDUSS())) {
+                str = "set_basedata_account:valid";
+            } else if (!StringUtils.isNull(accountData.getID())) {
+                str = "set_basedata_account:logined";
+            }
+            g95.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
+            if (accountData.getIsActive() == 1) {
+                b();
+            }
+            t9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (!c(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
+                if (!mainDBDatabaseManager.d("DROP TABLE IF EXISTS account_data")) {
+                    mainDBDatabaseManager.b();
+                }
+                mainDBDatabaseManager.d("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
+                a(accountData, mainDBDatabaseManager);
+            }
+        }
     }
 }

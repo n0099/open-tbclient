@@ -1,48 +1,56 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class wi0 implements bp0 {
+public class wi0 extends wl1<zo0> {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<yo0> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948271403, "Lcom/baidu/tieba/wi0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements zo0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(wi0 wi0Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948271403, "Lcom/baidu/tieba/wi0;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wi0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        ArrayList arrayList = new ArrayList();
-        a = arrayList;
-        arrayList.add(new ji0());
-        a.add(new go0());
-        a.add(new vi0());
-        zi0 zi0Var = new zi0();
-        hl1<yo0> hl1Var = zi0Var.a;
-        if (hl1Var != null && !y21.g(hl1Var.getList())) {
-            a.addAll(zi0Var.a.getList());
+
+        @Override // com.baidu.tieba.zo0
+        @NonNull
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return xi0.c().a();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.zo0
+        public void request() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                xi0.c().request();
+            }
         }
     }
 
@@ -50,121 +58,25 @@ public class wi0 implements bp0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final boolean e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wl1
+    /* renamed from: a */
+    public zo0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !a.isEmpty();
+            return new a(this);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) != null) || !e()) {
-            return;
-        }
-        for (yo0 yo0Var : a) {
-            yo0Var.onActivityCreated(activity, bundle);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, activity, bundle) != null) || !e()) {
-            return;
-        }
-        for (yo0 yo0Var : a) {
-            yo0Var.onActivitySaveInstanceState(activity, bundle);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) != null) || !e()) {
-            return;
-        }
-        for (yo0 yo0Var : a) {
-            yo0Var.onActivityDestroyed(activity);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || !e()) {
-            return;
-        }
-        for (yo0 yo0Var : a) {
-            yo0Var.onActivityPaused(activity);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, activity) != null) || !e()) {
-            return;
-        }
-        for (yo0 yo0Var : a) {
-            yo0Var.onActivityResumed(activity);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, activity) != null) || !e()) {
-            return;
-        }
-        for (yo0 yo0Var : a) {
-            yo0Var.onActivityStarted(activity);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, activity) != null) || !e()) {
-            return;
-        }
-        for (yo0 yo0Var : a) {
-            yo0Var.onActivityStopped(activity);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void onBackgroundToForeground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) != null) || !e()) {
-            return;
-        }
-        for (yo0 yo0Var : a) {
-            yo0Var.onBackgroundToForeground(activity);
-        }
-    }
-
-    @Override // com.baidu.tieba.bp0
-    public void onForegroundToBackground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, activity) != null) || !e()) {
-            return;
-        }
-        for (yo0 yo0Var : a) {
-            yo0Var.onForegroundToBackground(activity);
-        }
+        return (zo0) invokeV.objValue;
     }
 }

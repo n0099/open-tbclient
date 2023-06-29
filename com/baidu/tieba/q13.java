@@ -1,85 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q13 extends q02 {
+public class q13 extends p13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.c02
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "SwanCallImageMenuApi" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038934, "Lcom/baidu/tieba/q13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948038934, "Lcom/baidu/tieba/q13;");
+                return;
+            }
+        }
+        boolean z = ms1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q13(@NonNull a02 a02Var) {
-        super(a02Var);
+    public q13(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a02Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a02) newInitContext.callArgs[0]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public z32 y(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.p13
+    public boolean a(k13 k13Var, m13 m13Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            gy1 i = mx2.T().i();
-            if (!(i instanceof NgWebView)) {
-                return new z32(1001, "call image menu fail");
-            }
-            sx1 E0 = gv2.E0();
-            if (E0 == null) {
-                return new z32(1001, "call image menu fail");
-            }
-            E0.b((NgWebView) i, str);
-            return z32.f();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{k13Var, m13Var, context, unitedSchemeEntity, callbackHandler, cc3Var})) == null) {
+            c92.i("vrvideo", "remove, video id:" + m13Var.j + " slave id: " + m13Var.c);
+            d(k13Var, m13Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (z32) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public z32 x(String str) {
-        InterceptResult invokeL;
+    public final void d(k13 k13Var, m13 m13Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#callImageMenu", false);
-            if (zb3.b0() == null) {
-                return new z32(1001, "swan app is null");
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k13Var, m13Var, unitedSchemeEntity, callbackHandler) == null) {
+            r72 a = p82.a(m13Var);
+            if (a != null) {
+                a.B();
+            } else {
+                v82.a("VrVideoRemoveAction", "remove with a null component");
             }
-            Pair<z32, JSONObject> s = s(str);
-            z32 z32Var = (z32) s.first;
-            if (!z32Var.isSuccess()) {
-                return z32Var;
-            }
-            String optString = ((JSONObject) s.second).optString("imageURL");
-            if (TextUtils.isEmpty(optString)) {
-                return new z32(202, gv2.c().getString(R.string.obfuscated_res_0x7f0f174c));
-            }
-            return y(optString);
+            k13Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return (z32) invokeL.objValue;
     }
 }

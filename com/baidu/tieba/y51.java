@@ -1,52 +1,122 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.view.View;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.os.Build;
+import android.text.TextUtils;
+import android.widget.Toast;
+import androidx.core.content.FileProvider;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class y51 {
+public final class y51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948281044, "Lcom/baidu/tieba/y51;")) == null) {
+    public static boolean a(Context context, File file, Intent intent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, file, intent)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                try {
+                    if (TextUtils.isEmpty(ok0.a().v())) {
+                        return false;
+                    }
+                    Uri uriForFile = FileProvider.getUriForFile(context, ok0.a().v(), file);
+                    if (uriForFile == null) {
+                        return false;
+                    }
+                    intent.setDataAndType(uriForFile, intent.getType());
+                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                    if (queryIntentActivities == null) {
+                        return true;
+                    }
+                    for (ResolveInfo resolveInfo : queryIntentActivities) {
+                        if (resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
+                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 1);
+                        }
+                    }
+                } catch (IllegalArgumentException | Exception unused) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void b(Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, dialog) != null) || dialog == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948281044, "Lcom/baidu/tieba/y51;");
+        try {
+            dialog.show();
+        } catch (Exception unused) {
         }
     }
 
-    @Nullable
-    public static Bitmap a(@Nullable View view2) {
-        InterceptResult invokeL;
+    public static void c(Activity activity, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            Bitmap bitmap = null;
-            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, intent) == null) {
+            e(activity, intent, true);
+        }
+    }
+
+    public static boolean d(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
+            return e(context, intent, false);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean e(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) {
+            return f(context, intent, z, false);
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean f(Context context, Intent intent, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z || !(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             try {
-                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
-                view2.draw(new Canvas(bitmap));
-                return bitmap;
-            } catch (OutOfMemoryError e) {
-                e.printStackTrace();
-                return bitmap;
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException unused) {
+                if (!z2) {
+                    return false;
+                }
+                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
+                return false;
+            } catch (SecurityException unused2) {
+                if (!z2) {
+                    return false;
+                }
+                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
+                return false;
+            } catch (Exception unused3) {
+                return false;
             }
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 }

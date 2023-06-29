@@ -25,7 +25,7 @@ import com.baidu.tieba.easteregg.data.EasterEggAdData;
 import com.baidu.tieba.easteregg.view.CountDownView;
 import com.baidu.tieba.easteregg.view.EasterEggAdView;
 import com.baidu.tieba.easteregg.view.EasterEggAdView$skinChangeListener$2;
-import com.baidu.tieba.p75;
+import com.baidu.tieba.s75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -310,9 +310,9 @@ public final class EasterEggAdView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            p75.d(this).p(new int[]{R.color.CAM_X0604, R.color.CAM_X0601});
+            s75.d(this).p(new int[]{R.color.CAM_X0604, R.color.CAM_X0601});
             this.c.c();
-            p75.d(this.d).x(R.color.CAM_X0101);
+            s75.d(this.d).x(R.color.CAM_X0101);
             this.d.setShadowLayer(UtilHelper.getDimenPixelSize(R.dimen.tbds6), 0.0f, UtilHelper.getDimenPixelSize(R.dimen.tbds2), SkinManager.getColor(R.color.CAM_X0606));
         }
     }
@@ -327,7 +327,7 @@ public final class EasterEggAdView extends RelativeLayout {
             this.d.setText(R.string.advert_label);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds6);
             this.d.setPadding(dimenPixelSize, 0, dimenPixelSize, UtilHelper.getDimenPixelSize(R.dimen.tbds2));
-            p75.d(this.d).C(R.dimen.T_X10);
+            s75.d(this.d).C(R.dimen.T_X10);
             addView(this.d, layoutParams);
         }
     }
@@ -364,7 +364,7 @@ public final class EasterEggAdView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048582, this, easterEggAdData) == null) {
             Intrinsics.checkNotNullParameter(easterEggAdData, "easterEggAdData");
             MessageManager.getInstance().registerListener(getSkinChangeListener());
-            View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.cx6
+            View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.hx6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

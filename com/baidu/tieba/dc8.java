@@ -1,53 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.SpannableStringBuilder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class dc8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<MetaData> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(final String str, final boolean z, int i, int i2, final boolean z2) {
-        final boolean z3;
+    public static ArrayList<MetaData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (i == 3) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            xg.a().post(new Runnable() { // from class: com.baidu.tieba.qb8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        dc8.b(currentActivity, z, z2, z3, str);
-                    }
-                }
-            });
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public static /* synthetic */ void b(Activity activity, boolean z, boolean z2, boolean z3, String str) {
-        if (activity != null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (z) {
-                if (z2 && !z3 && iu4.d().b("share_thread")) {
-                    return;
-                }
-                spannableStringBuilder.append((CharSequence) str);
-            } else {
-                spannableStringBuilder.append((CharSequence) str);
-            }
-            BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).q();
+    public static void b(ArrayList<MetaData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, arrayList) == null) {
+            a = arrayList;
         }
     }
 }

@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import com.baidu.tbadk.TbPageContext;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface ap5 {
-    long m();
-
-    void p(int i, int i2, Intent intent);
-
-    boolean r();
-
-    BaseFragment s();
-
-    void setUniqueId(BdUniqueId bdUniqueId);
-
-    void setUserVisibleHint(boolean z);
-
-    void t(boolean z);
+    void a(@NonNull TbPageContext tbPageContext, @Nullable List<Long> list, long j, String str, long j2, boolean z, FragmentManager fragmentManager, String str2, String str3);
 }

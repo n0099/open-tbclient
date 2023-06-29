@@ -6,11 +6,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.bh;
+import com.baidu.tieba.ch;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.n8a;
-import com.baidu.tieba.qg;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.rg;
+import com.baidu.tieba.wi;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +62,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qg.h().m(this.a, 19, null, null);
+                rg.h().m(this.a, 19, null, null);
             }
         }
     }
@@ -131,9 +131,9 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (themeColorInfo = this.bgUrlTheme) == null) {
             return;
         }
-        String g = n8a.g(themeColorInfo);
-        if (!vi.isEmpty(g)) {
-            bh.c(new a(this, g));
+        String g = zca.g(themeColorInfo);
+        if (!wi.isEmpty(g)) {
+            ch.c(new a(this, g));
         }
     }
 
@@ -249,8 +249,8 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
                     this.needSend = optJSONObject.optInt("need_send");
                     this.sendText = optJSONObject.optString("send_text");
                     this.version = optJSONObject.optString("version");
-                    this.textColorTheme = n8a.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    this.bgUrlTheme = n8a.j(optJSONObject.optJSONObject("icon_url"));
+                    this.textColorTheme = zca.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    this.bgUrlTheme = zca.j(optJSONObject.optJSONObject("icon_url"));
                     this.buttonInfo = b.a(optJSONObject.optJSONObject("button_info"));
                     preLoadBgUrl();
                 }

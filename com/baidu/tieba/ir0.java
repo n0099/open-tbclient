@@ -1,120 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.view.KeyEvent;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.webview.container.NadBrowserContainer;
+import com.baidu.nadcore.webviewx.container.base.AbsContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ir0 {
+public final class ir0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<a> b;
-    public final String c;
+    public NadBrowserContainer a;
+    public AbsContainer b;
+    public int c;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public boolean c;
-        public String d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = false;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static a e(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("name");
-                aVar.b = jSONObject.optString("type");
-                aVar.d = "\"" + aVar.b + "\"：\"" + aVar.a + "\"";
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public void f(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                this.c = z;
-            }
-        }
-    }
-
-    public ir0(@NonNull JSONObject jSONObject) {
-        int length;
+    public ir0(fr0 frameContext, gr0 frameExtHandler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
+            Object[] objArr = {frameContext, frameExtHandler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -124,30 +37,227 @@ public class ir0 {
                 return;
             }
         }
-        jSONObject.optInt("support_close");
-        this.a = jSONObject.optString("title");
-        this.b = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("reasons");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
+        Intrinsics.checkNotNullParameter(frameContext, "frameContext");
+        Intrinsics.checkNotNullParameter(frameExtHandler, "frameExtHandler");
+        this.c = -1;
+        if (n()) {
+            this.a = new NadBrowserContainer(frameContext, frameExtHandler, null);
+            this.c = 1;
+            return;
         }
-        for (int i3 = 0; i3 < length; i3++) {
-            a e = a.e(optJSONArray.optJSONObject(i3));
-            if (e != null && e.d()) {
-                y21.b(this.b, e);
-            }
-        }
-        this.c = jSONObject.optString("scheme");
+        this.b = kb1.a.b(frameContext, frameExtHandler, d());
+        this.c = 0;
     }
 
-    public static ir0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new ir0(jSONObject);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.c;
+            if (i == 1) {
+                NadBrowserContainer nadBrowserContainer = this.a;
+                if (nadBrowserContainer != null) {
+                    nadBrowserContainer.t0(false);
+                }
+            } else if (i == 0) {
+                AbsContainer absContainer = this.b;
+                if (absContainer != null) {
+                    absContainer.x("1");
+                }
+                AbsContainer absContainer2 = this.b;
+                if (absContainer2 != null) {
+                    absContainer2.y(false);
+                }
+            }
         }
-        return (ir0) invokeL.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final Integer c() {
+        InterceptResult invokeV;
+        int W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AbsContainer absContainer = this.b;
+            if (absContainer != null) {
+                W = absContainer.h();
+            } else {
+                NadBrowserContainer nadBrowserContainer = this.a;
+                if (nadBrowserContainer != null) {
+                    W = nadBrowserContainer.W();
+                } else {
+                    return null;
+                }
+            }
+            return Integer.valueOf(W);
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return io0.b().a().a("key_webview_core_type", 1);
+        }
+        return invokeV.intValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            AbsContainer absContainer = this.b;
+            if (absContainer != null) {
+                absContainer.o();
+            }
+            NadBrowserContainer nadBrowserContainer = this.a;
+            if (nadBrowserContainer != null) {
+                nadBrowserContainer.t();
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            AbsContainer absContainer = this.b;
+            if (absContainer != null) {
+                absContainer.p();
+            }
+            NadBrowserContainer nadBrowserContainer = this.a;
+            if (nadBrowserContainer != null) {
+                nadBrowserContainer.onDestroy();
+            }
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            AbsContainer absContainer = this.b;
+            if (absContainer != null) {
+                absContainer.q();
+            }
+            NadBrowserContainer nadBrowserContainer = this.a;
+            if (nadBrowserContainer != null) {
+                nadBrowserContainer.onPause();
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            AbsContainer absContainer = this.b;
+            if (absContainer != null) {
+                absContainer.s();
+            }
+            NadBrowserContainer nadBrowserContainer = this.a;
+            if (nadBrowserContainer != null) {
+                nadBrowserContainer.v();
+            }
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            AbsContainer absContainer = this.b;
+            if (absContainer != null) {
+                absContainer.t();
+            }
+            NadBrowserContainer nadBrowserContainer = this.a;
+            if (nadBrowserContainer != null) {
+                nadBrowserContainer.w();
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            AbsContainer absContainer = this.b;
+            if (absContainer != null) {
+                absContainer.u();
+            }
+            NadBrowserContainer nadBrowserContainer = this.a;
+            if (nadBrowserContainer != null) {
+                nadBrowserContainer.x();
+            }
+        }
+    }
+
+    public final View l() {
+        InterceptResult invokeV;
+        View e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            AbsContainer absContainer = this.b;
+            if (absContainer == null || (e = absContainer.e()) == null) {
+                NadBrowserContainer nadBrowserContainer = this.a;
+                if (nadBrowserContainer != null) {
+                    return nadBrowserContainer.T();
+                }
+                return null;
+            }
+            return e;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (io0.b().a().a("use_nairobi", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean g(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        AbsContainer absContainer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
+            int i2 = this.c;
+            if (i2 == 1) {
+                NadBrowserContainer nadBrowserContainer = this.a;
+                if (nadBrowserContainer == null) {
+                    return false;
+                }
+                return nadBrowserContainer.onKeyDown(i, keyEvent);
+            } else if (i2 != 0 || (absContainer = this.b) == null) {
+                return false;
+            } else {
+                return absContainer.onKeyDown(i, keyEvent);
+            }
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public final void m(JSONObject jSONObject) {
+        Intent q;
+        Intent q2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) && jSONObject != null) {
+            NadBrowserContainer nadBrowserContainer = this.a;
+            if (nadBrowserContainer != null && (q2 = nadBrowserContainer.q()) != null) {
+                q2.putExtra("immersive_video_stay_time", jSONObject.optString("immersive_video_stay_time"));
+            }
+            NadBrowserContainer nadBrowserContainer2 = this.a;
+            if (nadBrowserContainer2 != null && (q = nadBrowserContainer2.q()) != null) {
+                q.putExtra("immersive_webview_first_show_time", jSONObject.optString("immersive_webview_first_show_time"));
+            }
+        }
     }
 }

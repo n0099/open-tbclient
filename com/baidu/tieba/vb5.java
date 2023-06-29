@@ -1,78 +1,184 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class vb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<xn> a;
+    public List<xn> b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public vb5(List<xn> list, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            File file = new File(str);
-            try {
-                if (!file.exists()) {
-                    return false;
-                }
-                return file.delete();
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-                TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "FileHelper DelFile error: " + th.getMessage(), str);
-                return false;
+        }
+        this.e = 2;
+        this.f = 2;
+        this.g = 1;
+        this.a = list;
+        this.d = z;
+        this.f = i;
+        j(list);
+    }
+
+    public int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (!this.c) {
+                return i;
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return FileHelper.getStoreFile(str, 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return ri.s(c(str));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+            int size = this.b.size();
+            if (i == 0) {
+                return (size - 1) - this.g;
             }
-            return "tb/voice/" + str;
+            int i2 = this.g;
+            if (i == size - i2) {
+                return i2;
+            }
+            return i;
         }
-        return (String) invokeL.objValue;
+        return invokeI.intValue;
     }
 
-    public static String e() {
+    public int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (this.c) {
+                return i - this.g;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.g = i;
+            j(this.a);
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.f = i;
+            j(this.a);
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.e = i;
+            j(this.a);
+        }
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return aj.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<xn> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c) {
+                return this.g;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public List<xn> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final List<xn> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<xn> list = this.a;
+            if (list != null) {
+                if (this.c) {
+                    if (list.size() > this.f && this.a.size() >= this.g) {
+                        arrayList.addAll(this.a.subList(0, this.f));
+                        List<xn> list2 = this.a;
+                        int i = this.f;
+                        arrayList.addAll(0, list2.subList(i - this.g, i));
+                        arrayList.addAll(this.a.subList(0, this.g));
+                    } else {
+                        arrayList.addAll(this.a);
+                        List<xn> list3 = this.a;
+                        arrayList.addAll(0, list3.subList(list3.size() - this.g, this.a.size()));
+                        arrayList.addAll(this.a.subList(0, this.g));
+                    }
+                } else if (list != null && list.size() > 0) {
+                    int size = this.a.size();
+                    int i2 = this.g;
+                    if (size >= i2) {
+                        arrayList.addAll(this.a.subList(0, i2));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void j(List<xn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            if (list != null && list.size() >= this.e && list.size() <= this.f) {
+                this.c = true;
+            } else if (list.size() > this.f && this.d) {
+                this.c = true;
+            } else {
+                this.c = false;
+            }
+            this.b = f();
+        }
     }
 }

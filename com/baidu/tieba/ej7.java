@@ -1,167 +1,229 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.ShapeDrawable;
-import android.widget.EditText;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
+import tbclient.BawuRoleInfoPub;
+import tbclient.ForumInfo;
+import tbclient.ForumRule;
+import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes5.dex */
-public class ej7 {
+public class ej7 implements xn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId m;
     public transient /* synthetic */ FieldHolder $fh;
+    public ForumInfo a;
+    public String b;
+    public String c;
+    public List<ForumRule> d;
+    public int e;
+    public String f;
+    public boolean g;
+    public String h;
+    public BawuRoleInfoPub i;
+    public String j;
+    public gj7 k;
+    public dj7 l;
 
-    public static String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "一";
-                case 2:
-                    return "二";
-                case 3:
-                    return "三";
-                case 4:
-                    return "四";
-                case 5:
-                    return "五";
-                case 6:
-                    return "六";
-                case 7:
-                    return "七";
-                case 8:
-                    return "八";
-                case 9:
-                    return "九";
-                case 10:
-                    return "十";
-                case 11:
-                    return "十一";
-                case 12:
-                    return "十二";
-                case 13:
-                    return "十三";
-                case 14:
-                    return "十四";
-                case 15:
-                    return "十五";
-                case 16:
-                    return "十六";
-                case 17:
-                    return "十七";
-                case 18:
-                    return "十八";
-                case 19:
-                    return "十九";
-                case 20:
-                    return "二十";
-                default:
-                    return "";
-            }
-        }
-        return (String) invokeI.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends ShapeDrawable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        public a(int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947736343, "Lcom/baidu/tieba/ej7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = i3;
-            this.b = i4;
-            setDither(false);
-            getPaint().setColor(i);
-            setIntrinsicWidth(i2);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947736343, "Lcom/baidu/tieba/ej7;");
+                return;
+            }
         }
+        m = BdUniqueId.gen();
+    }
 
-        @Override // android.graphics.drawable.Drawable
-        public void setBounds(int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
-                super.setBounds(i, i2 + this.a, i3, i4 + this.b);
+    public ej7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static long a(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            long j = 0;
-            if (StringUtils.isNull(str)) {
-                return 0L;
-            }
-            try {
-                Date parse = new SimpleDateFormat("yyyy.MM.dd").parse(str);
-                if (parse != null) {
-                    j = parse.getTime();
-                }
-                return j / 1000;
-            } catch (ParseException e) {
-                e.printStackTrace();
-                return 0L;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return invokeL.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int b(long j) {
-        InterceptResult invokeJ;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            if (j < 0) {
-                return -1;
-            }
-            return (int) (j / 86400);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
-        return invokeJ.intValue;
+        return invokeV.intValue;
     }
 
-    public static void c(int i, int i2, EditText editText) {
+    public BawuRoleInfoPub c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65538, null, i, i2, editText) == null) {
-            try {
-                Method declaredMethod = TextView.class.getDeclaredMethod("createEditorIfNeeded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(editText, new Object[0]);
-                Field declaredField = TextView.class.getDeclaredField("mEditor");
-                Field declaredField2 = Class.forName("android.widget.Editor").getDeclaredField("mCursorDrawable");
-                declaredField.setAccessible(true);
-                declaredField2.setAccessible(true);
-                Object obj = declaredField2.get(declaredField.get(editText));
-                Array.set(obj, 0, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-                Array.set(obj, 1, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return (BawuRoleInfoPub) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ForumInfo e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (ForumInfo) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return m;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<ForumRule> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public dj7 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
+        }
+        return (dj7) invokeV.objValue;
+    }
+
+    public void n(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, dataRes) == null) && dataRes != null) {
+            this.a = dataRes.forum;
+            this.b = dataRes.title;
+            this.c = dataRes.preface;
+            this.d = dataRes.rules;
+            this.e = dataRes.audit_status.intValue();
+            this.f = dataRes.audit_opinion;
+            boolean z = true;
+            if (dataRes.is_manager.intValue() != 1) {
+                z = false;
             }
+            this.g = z;
+            Long l = dataRes.forum_rule_id;
+            this.h = dataRes.publish_time;
+            this.i = dataRes.bazhu;
+            this.j = dataRes.cur_time;
+            gj7 gj7Var = new gj7();
+            this.k = gj7Var;
+            gj7Var.a(dataRes);
+            dj7 dj7Var = new dj7();
+            this.l = dj7Var;
+            dj7Var.f(dataRes);
+        }
+    }
+
+    public void o(BawuRoleInfoPub bawuRoleInfoPub) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bawuRoleInfoPub) == null) {
+            this.i = bawuRoleInfoPub;
+        }
+    }
+
+    public void p(ForumInfo forumInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, forumInfo) == null) {
+            this.a = forumInfo;
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.c = str;
         }
     }
 }

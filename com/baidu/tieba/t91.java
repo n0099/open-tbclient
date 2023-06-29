@@ -1,32 +1,140 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.aa1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class t91 {
+public final class t91 extends m91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<j91> a;
-    public final List<o91> b;
-    public final n91 c;
+    public final String a;
+    public ViewTreeObserver.OnGlobalLayoutListener b;
+    public View.OnLayoutChangeListener c;
+    public boolean d;
+    public final ia1 e;
+    public final q91 f;
 
-    public t91(n91 contextHelper) {
+    /* loaded from: classes7.dex */
+    public static final class a implements View.OnLayoutChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ t91 b;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(t91 t91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = t91Var;
+        }
+
+        @Override // android.view.View.OnLayoutChangeListener
+        public void onLayoutChange(View v, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+                Intrinsics.checkNotNullParameter(v, "v");
+                Rect rect = new Rect();
+                v.getWindowVisibleDisplayFrame(rect);
+                String str = this.b.a;
+                ua1.a(str, "preBottom: " + this.a + " bottom: " + rect.bottom);
+                int i9 = rect.bottom;
+                int i10 = this.a;
+                if (i9 != i10 && i10 != 0) {
+                    AbsNadBrowserView m = this.b.f.m();
+                    if (m != null) {
+                        int i11 = this.a - rect.bottom;
+                        if (i11 <= 200) {
+                            if (i3 == i7 && this.b.d) {
+                                y91.b(this.b.e, m.getHeight(), 0, m.getHeight(), 0);
+                                t91 t91Var = this.b;
+                                t91Var.w(t91Var.f.m(), -1, -1);
+                            }
+                            this.b.d = false;
+                        } else {
+                            this.b.d = true;
+                            if (i3 == i7) {
+                                y91.b(this.b.e, m.getHeight() - i11, i11, m.getHeight(), 0);
+                                t91 t91Var2 = this.b;
+                                t91Var2.w(t91Var2.f.m(), -1, -1);
+                            }
+                        }
+                        this.a = rect.bottom;
+                        return;
+                    }
+                    return;
+                }
+                this.a = rect.bottom;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b implements ia1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t91 a;
+
+        public b(t91 t91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t91Var;
+        }
+
+        @Override // com.baidu.tieba.ia1
+        public final void loadUrl(String str, Map<String, String> map) {
+            AbsNadBrowserView m;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) && (m = this.a.f.m()) != null) {
+                AbsNadBrowserView.D(m, str, map, false, 4, null);
+            }
+        }
+    }
+
+    public t91(q91 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {contextHelper};
+            Object[] objArr = {container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,197 +144,168 @@ public final class t91 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(contextHelper, "contextHelper");
-        this.c = contextHelper;
-        this.a = new ArrayList();
-        this.b = new ArrayList();
+        Intrinsics.checkNotNullParameter(container, "container");
+        this.f = container;
+        this.a = "KeyboardPlugin";
+        this.e = new b(this);
     }
 
-    public final boolean g(String url) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m91
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, url)) == null) {
-            Intrinsics.checkNotNullParameter(url, "url");
-            while (true) {
-                boolean z = false;
-                for (o91 o91Var : this.b) {
-                    if (z || o91Var.a(this.c, url)) {
-                        z = true;
-                    }
-                }
-                return z;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            s();
+            t();
+            super.d();
         }
-        return invokeL.booleanValue;
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m91
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            for (j91 j91Var : this.a) {
-                if (j91Var instanceof k91) {
-                    return j91Var.b();
-                }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (ma1.b()) {
+                s();
+                t();
+            } else {
+                v();
+                u();
             }
-            return false;
+            super.m();
         }
-        return invokeV.booleanValue;
     }
 
-    public final void h() {
+    public final void t() {
+        LinearLayout e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f.e() != null && this.c != null && (e = this.f.e()) != null) {
+            e.removeOnLayoutChangeListener(this.c);
+        }
+    }
+
+    public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.m();
-                }
+            this.c = new a(this);
+            LinearLayout e = this.f.e();
+            if (e != null) {
+                e.addOnLayoutChangeListener(this.c);
             }
         }
     }
 
-    public final void i() {
+    @Override // com.baidu.tieba.m91
+    public void h(AbsNadBrowserView webView, String str, Bitmap bitmap) {
+        String str2;
+        AbsNadBrowserView m;
+        String str3;
+        aa1.e j;
+        aa1.e j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.c();
-                }
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.d();
-                }
-            }
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.i();
-                }
-            }
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.l();
-                }
-            }
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public final boolean b(AbsNadBrowserView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
             Intrinsics.checkNotNullParameter(webView, "webView");
-            for (j91 j91Var : this.a) {
-                if (j91Var instanceof m91) {
-                    return j91Var.f(webView, str);
-                }
+            aa1.d l = this.f.l();
+            if (l != null && (j2 = l.j()) != null) {
+                str2 = j2.b();
+            } else {
+                str2 = null;
             }
-            return false;
+            if (str2 != null && (m = this.f.m()) != null) {
+                aa1.d l2 = this.f.l();
+                if (l2 != null && (j = l2.j()) != null) {
+                    str3 = j.b();
+                } else {
+                    str3 = null;
+                }
+                AbsNadBrowserView.B(m, str3, null, 2, null);
+            }
+            super.h(webView, str, bitmap);
         }
-        return invokeLL.booleanValue;
     }
 
-    public final void c(AbsNadBrowserView webView, String str) {
+    public final void w(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i, i2) != null) || view2 == null) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            view2.setLayoutParams(new FrameLayout.LayoutParams(i, i2));
+        } else if (layoutParams instanceof LinearLayout.LayoutParams) {
+            view2.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+        } else if (layoutParams instanceof RelativeLayout.LayoutParams) {
+            view2.setLayoutParams(new RelativeLayout.LayoutParams(i, i2));
+        } else if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            view2.setLayoutParams(new ViewGroup.MarginLayoutParams(i, i2));
+        } else if (layoutParams instanceof ViewGroup.LayoutParams) {
+            view2.setLayoutParams(new ViewGroup.LayoutParams(i, i2));
+        }
+    }
+
+    @Override // com.baidu.tieba.m91
+    public void k(AbsNadBrowserView webView, String str) {
+        String str2;
+        AbsNadBrowserView m;
+        String str3;
+        aa1.e j;
+        aa1.e j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
             Intrinsics.checkNotNullParameter(webView, "webView");
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.g(webView, str);
-                }
+            aa1.d l = this.f.l();
+            if (l != null && (j2 = l.j()) != null) {
+                str2 = j2.a();
+            } else {
+                str2 = null;
             }
-            if (str != null) {
-                for (o91 o91Var : this.b) {
-                    o91Var.b(this.c, str);
+            if (str2 != null && (m = this.f.m()) != null) {
+                aa1.d l2 = this.f.l();
+                if (l2 != null && (j = l2.j()) != null) {
+                    str3 = j.a();
+                } else {
+                    str3 = null;
                 }
+                AbsNadBrowserView.B(m, str3, null, 2, null);
             }
+            super.k(webView, str);
         }
     }
 
-    public final void d(AbsNadBrowserView webView, String str, Bitmap bitmap) {
+    public final void s() {
+        ViewTreeObserver viewTreeObserver;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, bitmap) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.h(webView, str, bitmap);
-                }
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f.e() != null && this.b != null) {
+            LinearLayout e = this.f.e();
+            if (e != null) {
+                viewTreeObserver = e.getViewTreeObserver();
+            } else {
+                viewTreeObserver = null;
             }
-        }
-    }
-
-    public final void e(AbsNadBrowserView webView, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048580, this, webView, i, str, str2) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.j(webView, i, str, str2);
-                }
+            if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
+                viewTreeObserver.removeOnGlobalLayoutListener(this.b);
             }
         }
     }
 
-    public final void f(AbsNadBrowserView webView, String str) {
+    public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.k(webView, str);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.f.e() == null) {
+                ua1.a(this.a, "init keyboard config failed");
+                return;
+            }
+            LinearLayout e = this.f.e();
+            if (e != null) {
+                if (this.b == null) {
+                    this.b = new s91(e);
+                }
+                ViewTreeObserver viewTreeObserver = e.getViewTreeObserver();
+                Intrinsics.checkNotNullExpressionValue(viewTreeObserver, "it.viewTreeObserver");
+                if (viewTreeObserver.isAlive()) {
+                    ua1.a(this.a, "add layout listener");
+                    viewTreeObserver.addOnGlobalLayoutListener(this.b);
                 }
             }
-        }
-    }
-
-    public final void k(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
-            for (j91 j91Var : this.a) {
-                if (j91Var != null) {
-                    j91Var.e(intent);
-                }
-            }
-        }
-    }
-
-    public final void n(o91 action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            this.b.add(action);
-        }
-    }
-
-    public final void o(j91 j91Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, j91Var) == null) {
-            this.a.add(j91Var);
         }
     }
 }

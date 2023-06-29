@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.chosen.net;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.bx5;
+import com.baidu.tieba.gx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class ChosenPbNetMessage extends NetMessage {
             builder.scr_dip = Long.valueOf(this.scr_dip);
             builder.tag_code = Long.valueOf(this.tagCode);
             builder.thread_id = Long.valueOf(this.threadId);
-            bx5.a(builder, true);
+            gx5.a(builder, true);
             ExcPbPageReqIdl.Builder builder2 = new ExcPbPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

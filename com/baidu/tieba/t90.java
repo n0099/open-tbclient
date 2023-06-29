@@ -14,10 +14,10 @@ public class t90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean d(Context context) {
+    public static boolean e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -39,17 +39,26 @@ public class t90 {
         return invokeV.intValue;
     }
 
-    public static void e() {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            v90.g().k();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return v90.g().i();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            v90.g().m();
         }
     }
 
-    public static void c(@NonNull BLCPRequest bLCPRequest, @Nullable z90 z90Var) {
+    public static void d(@NonNull BLCPRequest bLCPRequest, @Nullable z90 z90Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, bLCPRequest, z90Var) == null) {
-            v90.g().i(bLCPRequest, z90Var);
+        if (interceptable == null || interceptable.invokeLL(65539, null, bLCPRequest, z90Var) == null) {
+            v90.g().j(bLCPRequest, z90Var);
         }
     }
 }

@@ -1,26 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nz5 {
+public class nz5 implements jz5.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
+    public Bitmap a;
+    public ImageView b;
+    public int c;
+    public ListView d;
 
-    public nz5() {
+    public nz5(ListView listView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {listView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,114 +36,50 @@ public class nz5 {
                 return;
             }
         }
-        this.a = 7000;
-        this.b = 19;
-        this.c = true;
-        this.d = true;
-        this.e = true;
+        this.c = -16777216;
+        this.d = listView;
     }
 
-    public static nz5 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jz5.j
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new nz5();
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            ((ImageView) view2).setImageDrawable(null);
+            this.a.recycle();
+            this.a = null;
         }
-        return (nz5) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
         }
-        return invokeV.intValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jz5.j
+    public View b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            ListView listView = this.d;
+            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
+            if (childAt == null) {
+                return null;
+            }
+            childAt.setPressed(false);
+            childAt.setDrawingCacheEnabled(true);
+            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
+            childAt.setDrawingCacheEnabled(false);
+            if (this.b == null) {
+                this.b = new ImageView(this.d.getContext());
+            }
+            this.b.setBackgroundColor(this.c);
+            this.b.setPadding(0, 0, 0, 0);
+            this.b.setImageBitmap(this.a);
+            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
             return this.b;
         }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public nz5 g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a = i;
-            return this;
-        }
-        return (nz5) invokeI.objValue;
-    }
-
-    public nz5 h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (nz5) invokeZ.objValue;
-    }
-
-    public nz5 i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (nz5) invokeZ.objValue;
-    }
-
-    public nz5 j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (nz5) invokeZ.objValue;
-    }
-
-    public nz5 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            this.b = i;
-            return this;
-        }
-        return (nz5) invokeI.objValue;
+        return (View) invokeI.objValue;
     }
 }

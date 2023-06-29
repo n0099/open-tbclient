@@ -1,40 +1,35 @@
 package com.baidu.tieba;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.of3;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes7.dex */
-public class rd3 extends wd3 {
+public class rd3 extends zd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements of3.e {
+    public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ jy1 a;
 
-        public a(rd3 rd3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+        public a(rd3 rd3Var, jy1 jy1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rd3Var, callbackHandler, unitedSchemeEntity, str};
+                Object[] objArr = {rd3Var, jy1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,38 +39,26 @@ public class rd3 extends wd3 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = str;
+            this.a = jy1Var;
         }
 
-        @Override // com.baidu.tieba.of3.e
-        public void a(String str) {
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                z82.i("PreloadSubPackage", "preload subPackage success");
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), this.c);
-            }
-        }
-
-        @Override // com.baidu.tieba.of3.e
-        public void b(int i, sn3 sn3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, sn3Var) == null) {
-                z82.c("PreloadSubPackage", "preload subPackage failed");
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), this.c);
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.a.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rd3(wc3 wc3Var) {
-        super(wc3Var, "/swanAPI/preloadSubPackage");
+    public rd3(zc3 zc3Var) {
+        super(zc3Var, "/swanAPI/pageScrollTo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var};
+            Object[] objArr = {zc3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,51 +72,44 @@ public class rd3 extends wd3 {
         }
     }
 
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
+    @Override // com.baidu.tieba.zd3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, cc3 cc3Var) {
         InterceptResult invokeLLLL;
+        int f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            if (zb3Var == null) {
-                z82.c("PreloadSubPackage", "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                z82.c("PreloadSubPackage", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                z82.c("PreloadSubPackage", "none cb");
-                if (wd3.b) {
-                    Log.d("SwanAppAction", "preload subPackage cb is empty");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString2 = optParamsAsJo.optString("root");
-            if (TextUtils.isEmpty(optString2)) {
-                z82.c("PreloadSubPackage", "subPackage root is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (zb3Var.v0(optString2) && zb3Var.u0(optString2)) {
-                z82.i("PreloadSubPackage", "subPackage have existed");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "subPackage have existed");
-                return false;
-            } else {
-                String R = zb3Var.R(optString2);
-                if (TextUtils.isEmpty(R)) {
-                    z82.i("PreloadSubPackage", "subPackage cannot find aps key");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, cc3Var)) == null) {
+            if (cc3Var != null && context != null) {
+                JSONObject a2 = zd3.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    c92.i("PageScrollToAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
                     return false;
                 }
-                of3.l(zb3Var.b, zb3Var.k0(), "1", optString2, R, null, new a(this, callbackHandler, unitedSchemeEntity, optString));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+                int optInt = a2.optInt("scrollTop", -1);
+                int optInt2 = a2.optInt("duration", -1);
+                if (optInt > -1 && optInt2 > -1) {
+                    jy1 i = px2.T().i();
+                    if (i != null) {
+                        if (i instanceof NgWebView) {
+                            f = z02.z(i, tp3.f(context, optInt));
+                        } else {
+                            f = tp3.f(context, optInt);
+                        }
+                        ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
+                        ofInt.setDuration(optInt2);
+                        ofInt.addUpdateListener(new a(this, i));
+                        ofInt.start();
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
+                c92.c("PageScrollToAction", "illegal scrollTop or duration");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
+                return false;
             }
+            c92.c("PageScrollToAction", "swanApp is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+            return false;
         }
         return invokeLLLL.booleanValue;
     }

@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.webkit.sdk.WebViewFactoryProvider;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
 /* loaded from: classes7.dex */
 public interface nm6 {
-    public static final ServiceReference a = new ServiceReference(WebViewFactoryProvider.SETTING_MONITOR, "IMonitorBehavior");
-
-    void a(Throwable th);
+    void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence);
 }

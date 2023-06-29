@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LiveNPSPluginManager {
     public static final String MEDIA_BUSINESS_PKG_NAME = "com.baidu.live.media.business";
     public static final String MULTI_PLUGIN_YALOG_SPACE = "multi_plugin";
@@ -118,7 +118,7 @@ public class LiveNPSPluginManager {
     public void startYuYinCreateLiveRoomActivity(@NonNull Context context, String str) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SingletonHolder {
         public static LiveNPSPluginManager instance = new LiveNPSPluginManager();
     }

@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 @KsAdSdkApi
 @Keep
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public @interface KsNativeConvertType {
     public static final int CONVERT = 1;
     public static final int SHOW_DOWNLOAD_TIPS_DIALOG = 2;

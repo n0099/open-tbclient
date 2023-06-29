@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c35;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.co6;
+import com.baidu.tieba.f35;
 import com.baidu.tieba.wi;
-import com.baidu.tieba.xn6;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -114,7 +114,7 @@ public class ThreadLinkView extends RelativeLayout {
             this.g = inflate.findViewById(R.id.link_thread_content);
             this.b.setLongIconSupport(false);
             this.b.setGifIconSupport(false);
-            this.b.setRadius(wi.g(context, R.dimen.tbds10));
+            this.b.setRadius(xi.g(context, R.dimen.tbds10));
             this.b.setConrers(5);
             d(inflate);
         }
@@ -123,7 +123,7 @@ public class ThreadLinkView extends RelativeLayout {
     public final void d(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.f != null && this.b != null) {
-            int l = (((wi.l(this.a) - (wi.g(this.a, R.dimen.tbds44) * 2)) - (wi.g(getContext(), R.dimen.tbds26) * 2)) - (wi.g(getContext(), R.dimen.tbds10) * 4)) / 5;
+            int l = (((xi.l(this.a) - (xi.g(this.a, R.dimen.tbds44) * 2)) - (xi.g(getContext(), R.dimen.tbds26) * 2)) - (xi.g(getContext(), R.dimen.tbds10) * 4)) / 5;
             ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
             layoutParams.height = l;
             this.f.setLayoutParams(layoutParams);
@@ -145,9 +145,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            xn6.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            xn6.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            xn6.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            co6.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            co6.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            co6.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
         }
     }
 
@@ -161,9 +161,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
-            if (threadData != null && threadData.getLinkThreadData() != null && !vi.isEmpty(threadData.getLinkThreadData().e())) {
-                c35 linkThreadData = threadData.getLinkThreadData();
-                if (!linkThreadData.f() && linkThreadData.c() != c35.g) {
+            if (threadData != null && threadData.getLinkThreadData() != null && !wi.isEmpty(threadData.getLinkThreadData().e())) {
+                f35 linkThreadData = threadData.getLinkThreadData();
+                if (!linkThreadData.f() && linkThreadData.c() != f35.g) {
                     setVisibility(8);
                     return;
                 }
@@ -179,20 +179,20 @@ public class ThreadLinkView extends RelativeLayout {
                     this.e.setVisibility(8);
                     String d = linkThreadData.d();
                     String a = linkThreadData.a();
-                    if (!vi.isEmpty(d)) {
+                    if (!wi.isEmpty(d)) {
                         this.c.setText(d);
                         this.c.setVisibility(0);
                         this.d.setVisibility(8);
                     } else {
                         this.c.setVisibility(8);
-                        if (!vi.isEmpty(a)) {
+                        if (!wi.isEmpty(a)) {
                             this.d.setText(a);
                             this.d.setVisibility(0);
                         } else {
                             this.d.setVisibility(4);
                         }
                     }
-                    if (!vi.isEmpty(linkThreadData.b())) {
+                    if (!wi.isEmpty(linkThreadData.b())) {
                         this.b.N(linkThreadData.b(), 10, false);
                     } else {
                         this.b.H();

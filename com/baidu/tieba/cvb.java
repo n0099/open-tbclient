@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iub;
+import com.baidu.tieba.atb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import java.util.concurrent.ThreadFactory;
 /* loaded from: classes5.dex */
-public class cvb implements iub.b {
+public final class cvb extends atb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ThreadFactory a;
 
-    public cvb() {
+    public cvb(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,22 +28,16 @@ public class cvb implements iub.b {
                 return;
             }
         }
-        RLog.info("PayGiftDialogCallback", "create PayGiftDialogCallback");
+        this.a = threadFactory;
     }
 
-    @Override // com.baidu.tieba.iub.b
-    public void b() {
+    @Override // com.baidu.tieba.atb
+    public atb.a createWorker() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PayGiftDialogCallback", "showPayGiftDialog onKonwn");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new dvb(this.a);
         }
-    }
-
-    @Override // com.baidu.tieba.iub.b
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayGiftDialogCallback", "PayGiftDialog onNotifyCancelType clickArea:" + cancelType);
-        }
+        return (atb.a) invokeV.objValue;
     }
 }

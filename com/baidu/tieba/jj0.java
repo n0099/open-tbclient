@@ -1,325 +1,297 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.LruCache;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lj0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.util.regex.Pattern;
+import java.text.DecimalFormat;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class jj0 {
+public final class jj0 extends qm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern d;
-    public static volatile jj0 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, kj0<?>> a;
-    public final lj0 b;
-    public final String c;
+    public qi0 f;
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void a();
-
-        void b();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d<T> {
-        <D> T a(D d);
-
-        T b(byte[] bArr);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements d<Bitmap> {
+    public static final class a extends xn0<qi0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jj0 b;
 
-        public a(jj0 jj0Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jj0 jj0Var, Class cls) {
+            super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jj0Var};
+                Object[] objArr = {jj0Var, cls};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jj0.d
-        /* renamed from: d */
-        public <D> Bitmap a(D d) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d)) == null) {
-                if (d instanceof Bitmap) {
-                    return (Bitmap) d;
-                }
-                return null;
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Throwable added to exception handler: 'OutOfMemoryError', keep only Throwable */
-        @Override // com.baidu.tieba.jj0.d
-        /* renamed from: c */
-        public Bitmap b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-                if (bArr != null) {
-                    try {
-                        if (bArr.length != 0) {
-                            BitmapFactory.Options options = new BitmapFactory.Options();
-                            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                            options.inPurgeable = true;
-                            options.inInputShareable = true;
-                            return BitmapFactory.decodeStream(new ByteArrayInputStream(bArr), null, options);
-                        }
-                    } catch (Throwable unused) {
-                    }
-                }
-                return null;
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements lj0.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ c b;
-        public final /* synthetic */ jj0 c;
-
-        @Override // com.baidu.tieba.lj0.e
-        public void b(String str, kj0<File> kj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, kj0Var) == null) {
-            }
-        }
-
-        public b(jj0 jj0Var, String str, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jj0Var, str, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                    super((Class) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = jj0Var;
-            this.a = str;
-            this.b = cVar;
+            this.b = jj0Var;
         }
 
-        @Override // com.baidu.tieba.lj0.e
-        public void a(String str, kj0<File> kj0Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xn0
+        public void onEvent(qi0 it) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, kj0Var) == null) && this.a.equals(str)) {
-                this.b.a();
-                this.c.b.n(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.lj0.e
-        public void c(String str, kj0<File> kj0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, kj0Var) == null) && this.a.equals(str)) {
-                this.b.b();
-                this.c.b.n(this);
+            if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
+                Intrinsics.checkNotNullParameter(it, "it");
+                if (this.b.e == null || (!Intrinsics.areEqual(it.a, "2"))) {
+                    return;
+                }
+                this.b.f = it;
+                if (it.h) {
+                    wm0 wm0Var = (wm0) this.b.e.get();
+                    if (wm0Var != null) {
+                        Context b = ok0.b();
+                        Intrinsics.checkNotNullExpressionValue(b, "AdRuntime.applicationContext()");
+                        wm0Var.update(b.getResources().getString(R.string.nad_download_open), this.b.a);
+                        return;
+                    }
+                    return;
+                }
+                this.b.u();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947885081, "Lcom/baidu/tieba/jj0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947885081, "Lcom/baidu/tieba/jj0;");
-                return;
-            }
-        }
-        d = Pattern.compile("[^a-zA-Z0-9]");
-    }
-
-    public jj0(Context context, int i, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jj0(dm0 data, wm0<?> view2) {
+        super(data, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {data, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((dm0) objArr2[0], (wm0) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        File cacheDir = context.getCacheDir();
-        this.c = (cacheDir.getPath() + "/nad/") + "nad_image_cache/";
-        this.a = new LruCache<>(i);
-        this.b = lj0.l(this.c, i2);
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(view2, "view");
     }
 
-    public String c(String str) {
-        InterceptResult invokeL;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String b2 = b(str);
-            return this.c + b2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tn0.a().b(this, new a(this, qi0.class));
         }
-        return (String) invokeL.objValue;
     }
 
-    public kj0<?> e(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qm0
+    public void u() {
+        String str;
+        boolean z;
+        String str2;
+        boolean z2;
+        String str3;
+        boolean z3;
+        String str4;
+        boolean z4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            kj0<?> g = g(str);
-            if (g != null) {
-                return g;
-            }
-            return f(str);
-        }
-        return (kj0) invokeL.objValue;
-    }
-
-    public final kj0<File> f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.b.i(str);
-        }
-        return (kj0) invokeL.objValue;
-    }
-
-    public final kj0<?> g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.get(str);
-        }
-        return (kj0) invokeL.objValue;
-    }
-
-    @Nullable
-    public Bitmap h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return (Bitmap) i(str, new a(this));
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str.length() >= 160) {
-                return h61.b(str, false);
-            }
-            return d.matcher(str).replaceAll("").trim();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static jj0 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (jj0.class) {
-                    if (e == null) {
-                        e = new jj0(lk0.b(), 6, 50000000);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            qi0 qi0Var = this.f;
+            if (qi0Var == null) {
+                super.u();
+            } else if (this.e == null) {
+            } else {
+                String str12 = null;
+                if (qi0Var != null) {
+                    str = qi0Var.c;
+                } else {
+                    str = null;
+                }
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    qi0 qi0Var2 = this.f;
+                    if (qi0Var2 != null) {
+                        str2 = qi0Var2.b;
+                    } else {
+                        str2 = null;
+                    }
+                    if (str2 != null && str2.length() != 0) {
+                        z2 = false;
+                    } else {
+                        z2 = true;
+                    }
+                    if (!z2) {
+                        Context b = ok0.b();
+                        Intrinsics.checkNotNullExpressionValue(b, "AdRuntime.applicationContext()");
+                        Resources resources = b.getResources();
+                        String string = resources.getString(R.string.nad_download_start);
+                        Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.string.nad_download_start)");
+                        AdDownloadStatus adDownloadStatus = this.a.c;
+                        if (adDownloadStatus != null) {
+                            switch (ij0.$EnumSwitchMapping$0[adDownloadStatus.ordinal()]) {
+                                case 1:
+                                    Object[] objArr = new Object[2];
+                                    qi0 qi0Var3 = this.f;
+                                    if (qi0Var3 != null) {
+                                        str6 = qi0Var3.b;
+                                    } else {
+                                        str6 = null;
+                                    }
+                                    objArr[0] = str6;
+                                    qi0 qi0Var4 = this.f;
+                                    if (qi0Var4 != null) {
+                                        str7 = qi0Var4.c;
+                                    } else {
+                                        str7 = null;
+                                    }
+                                    objArr[1] = str7;
+                                    string = resources.getString(R.string.nad_reward_download_task_init, objArr);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…t?.duration, event?.coin)");
+                                    break;
+                                case 2:
+                                    string = new DecimalFormat("#.#%").format(this.a.i);
+                                    Intrinsics.checkNotNullExpressionValue(string, "format.format(mData.progress.toDouble())");
+                                    break;
+                                case 3:
+                                    string = resources.getString(R.string.nad_download_continue);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…ng.nad_download_continue)");
+                                    break;
+                                case 4:
+                                    Object[] objArr2 = new Object[2];
+                                    qi0 qi0Var5 = this.f;
+                                    if (qi0Var5 != null) {
+                                        str8 = qi0Var5.b;
+                                    } else {
+                                        str8 = null;
+                                    }
+                                    objArr2[0] = str8;
+                                    qi0 qi0Var6 = this.f;
+                                    if (qi0Var6 != null) {
+                                        str9 = qi0Var6.c;
+                                    } else {
+                                        str9 = null;
+                                    }
+                                    objArr2[1] = str9;
+                                    string = resources.getString(R.string.nad_reward_download_task_install, objArr2);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…t?.duration, event?.coin)");
+                                    break;
+                                case 5:
+                                    Object[] objArr3 = new Object[2];
+                                    qi0 qi0Var7 = this.f;
+                                    if (qi0Var7 != null) {
+                                        str10 = qi0Var7.b;
+                                    } else {
+                                        str10 = null;
+                                    }
+                                    objArr3[0] = str10;
+                                    qi0 qi0Var8 = this.f;
+                                    if (qi0Var8 != null) {
+                                        str11 = qi0Var8.c;
+                                    } else {
+                                        str11 = null;
+                                    }
+                                    objArr3[1] = str11;
+                                    string = resources.getString(R.string.nad_reward_download_task_open, objArr3);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…t?.duration, event?.coin)");
+                                    break;
+                                case 6:
+                                    string = resources.getString(R.string.nad_download_failed_retry);
+                                    Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st…ad_download_failed_retry)");
+                                    break;
+                            }
+                        }
+                        qi0 qi0Var9 = this.f;
+                        if (qi0Var9 != null) {
+                            str3 = qi0Var9.d;
+                        } else {
+                            str3 = null;
+                        }
+                        if (str3 != null && str3.length() != 0) {
+                            z3 = false;
+                        } else {
+                            z3 = true;
+                        }
+                        if (!z3) {
+                            qi0 qi0Var10 = this.f;
+                            if (qi0Var10 != null) {
+                                str4 = qi0Var10.e;
+                            } else {
+                                str4 = null;
+                            }
+                            if (str4 != null && str4.length() != 0) {
+                                z4 = false;
+                            } else {
+                                z4 = true;
+                            }
+                            if (!z4 && (this.e.get() instanceof NadMiniVideoDownloadView)) {
+                                wm0<?> wm0Var = this.e.get();
+                                if (wm0Var != null) {
+                                    Drawable background = ((NadMiniVideoDownloadView) wm0Var).getBackground();
+                                    if (background != null) {
+                                        GradientDrawable gradientDrawable = (GradientDrawable) background;
+                                        gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+                                        int[] iArr = new int[2];
+                                        qi0 qi0Var11 = this.f;
+                                        if (qi0Var11 != null) {
+                                            str5 = qi0Var11.d;
+                                        } else {
+                                            str5 = null;
+                                        }
+                                        iArr[0] = c61.a(str5, R.color.nad_reward_full_tail_btn_color);
+                                        qi0 qi0Var12 = this.f;
+                                        if (qi0Var12 != null) {
+                                            str12 = qi0Var12.e;
+                                        }
+                                        iArr[1] = c61.a(str12, R.color.nad_reward_full_tail_btn_color);
+                                        gradientDrawable.setColors(iArr);
+                                        wm0<?> wm0Var2 = this.e.get();
+                                        if (wm0Var2 != null) {
+                                            ((NadMiniVideoDownloadView) wm0Var2).setBackground(gradientDrawable);
+                                        } else {
+                                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView");
+                                        }
+                                    } else {
+                                        throw new NullPointerException("null cannot be cast to non-null type android.graphics.drawable.GradientDrawable");
+                                    }
+                                } else {
+                                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.business.uitemplate.NadMiniVideoDownloadView");
+                                }
+                            }
+                        }
+                        wm0<?> wm0Var3 = this.e.get();
+                        if (wm0Var3 != null) {
+                            wm0Var3.update(string, this.a);
+                        }
                     }
                 }
-            }
-            return e;
-        }
-        return (jj0) invokeV.objValue;
-    }
-
-    public final <T> T i(String str, d<T> dVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, dVar)) == null) {
-            kj0<?> e2 = e(b(str));
-            if (e2 != null) {
-                if (File.class.equals(e2.c())) {
-                    return dVar.b(e2.b());
-                }
-                if (Byte.TYPE.equals(e2.c())) {
-                    return null;
-                }
-                return dVar.a(e2.a());
-            }
-            if (!this.b.e) {
-                File file = new File(c(str));
-                if (file.exists()) {
-                    return dVar.b(new kj0(file).b());
-                }
-            }
-            return null;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public void j(String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, bitmap) == null) {
-            k(str, new kj0<>(bitmap), true, null);
-        }
-    }
-
-    public final void k(String str, kj0<?> kj0Var, boolean z, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, kj0Var, Boolean.valueOf(z), cVar}) == null) {
-            try {
-                String b2 = b(str);
-                if (z) {
-                    this.a.put(b2, kj0Var);
-                }
-                File file = new File(this.b.j() + b2);
-                if (cVar != null) {
-                    this.b.e(new b(this, b2, cVar));
-                }
-                this.b.q(kj0Var.b(), new kj0<>(file));
-            } catch (Throwable unused) {
             }
         }
     }

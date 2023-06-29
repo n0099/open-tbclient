@@ -1,22 +1,17 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class yn2 {
+public class yn2 extends c83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public List<String> c;
-    public fo2 d;
-    public long e;
-    public List<zn2> f;
-    public String g;
-    public byte[] h;
 
     public yn2() {
         Interceptable interceptable = $ic;
@@ -30,5 +25,15 @@ public class yn2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.c83
+    public void b(@NonNull Bundle bundle) {
+        cc3 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bundle) != null) || (b0 = cc3.b0()) == null || TextUtils.equals(b0.O(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
+            return;
+        }
+        SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
     }
 }

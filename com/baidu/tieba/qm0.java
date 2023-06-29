@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.content.res.Resources;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,11 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
+import java.text.DecimalFormat;
 /* loaded from: classes7.dex */
-public class qm0 implements rm0 {
+public class qm0 extends nm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<lm0> a;
+    public WeakReference<wm0<?>> e;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -45,11 +47,11 @@ public class qm0 implements rm0 {
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 2;
+                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 3;
+                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
@@ -67,82 +69,103 @@ public class qm0 implements rm0 {
         }
     }
 
-    public qm0(@NonNull lm0 lm0Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qm0(@NonNull dm0 dm0Var) {
+        super(dm0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lm0Var};
+            Object[] objArr = {dm0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((dm0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new WeakReference<>(lm0Var);
+        this.e = null;
     }
 
-    @Override // com.baidu.tieba.rm0
-    public void a(AdDownloadStatus adDownloadStatus) {
-        lm0 lm0Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qm0(@NonNull dm0 dm0Var, @NonNull wm0<?> wm0Var) {
+        super(dm0Var);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, adDownloadStatus) != null) || (lm0Var = this.a.get()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dm0Var, wm0Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((dm0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = null;
+        t(wm0Var);
+    }
+
+    @Override // com.baidu.tieba.nm0, com.baidu.tieba.vm0
+    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull dm0 dm0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, dm0Var) == null) {
+            super.a(adDownloadAction, dm0Var);
+            u();
+        }
+    }
+
+    public void t(wm0<?> wm0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wm0Var) == null) {
+            this.e = new WeakReference<>(wm0Var);
+            u();
+        }
+    }
+
+    public void u() {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e == null) {
             return;
         }
-        am0 t = lm0Var.t();
-        String str = "";
-        switch (a.a[adDownloadStatus.ordinal()]) {
+        Resources resources = ok0.b().getResources();
+        String string = resources.getString(R.string.nad_download_start);
+        switch (a.a[this.a.c.ordinal()]) {
             case 1:
-                lm0Var.y("0", String.valueOf(t.i), "", t.e());
-                return;
+                if (TextUtils.isEmpty(this.a.p.d)) {
+                    str = resources.getString(R.string.nad_download_start);
+                } else {
+                    str = this.a.p.d;
+                }
+                string = str;
+                break;
             case 2:
-                String valueOf = String.valueOf(t.i);
-                Uri uri = t.k;
-                if (uri != null) {
-                    str = uri.toString();
-                }
-                lm0Var.y("2", valueOf, str, t.e());
-                return;
+                string = new DecimalFormat("#.#%").format(this.a.i);
+                break;
             case 3:
-                String valueOf2 = String.valueOf(t.i);
-                Uri uri2 = t.k;
-                if (uri2 != null) {
-                    str = uri2.toString();
-                }
-                lm0Var.y("1", valueOf2, str, t.e());
-                return;
+                string = resources.getString(R.string.nad_download_continue);
+                break;
             case 4:
-                Uri uri3 = t.k;
-                if (uri3 != null) {
-                    str = uri3.toString();
-                }
-                lm0Var.y("3", "1", str, t.e());
-                return;
+                string = resources.getString(R.string.nad_download_install);
+                break;
             case 5:
-                Uri uri4 = t.k;
-                if (uri4 != null) {
-                    str = uri4.toString();
-                }
-                lm0Var.y("6", "1", str, t.e());
-                return;
+                string = resources.getString(R.string.nad_download_open);
+                break;
             case 6:
-                lm0Var.y("4", "0", "", t.e());
-                return;
-            default:
-                return;
+                string = resources.getString(R.string.nad_download_failed_retry);
+                break;
         }
-    }
-
-    @Override // com.baidu.tieba.rm0
-    public void b(AdDownloadCode adDownloadCode) {
-        lm0 lm0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) != null) || (lm0Var = this.a.get()) == null || adDownloadCode == AdDownloadCode.ERROR_FAST_CLICK) {
+        wm0<?> wm0Var = this.e.get();
+        if (wm0Var == null) {
             return;
         }
-        lm0Var.y("4", "0", "", lm0Var.t().e());
+        wm0Var.update(string, this.a);
     }
 }

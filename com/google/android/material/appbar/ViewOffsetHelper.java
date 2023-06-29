@@ -10,12 +10,12 @@ public class ViewOffsetHelper {
     public int offsetTop;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1205view;
+    public final View f1204view;
     public boolean verticalOffsetEnabled = true;
     public boolean horizontalOffsetEnabled = true;
 
     public ViewOffsetHelper(View view2) {
-        this.f1205view = view2;
+        this.f1204view = view2;
     }
 
     public void setHorizontalOffsetEnabled(boolean z) {
@@ -45,9 +45,9 @@ public class ViewOffsetHelper {
     }
 
     public void applyOffsets() {
-        View view2 = this.f1205view;
+        View view2 = this.f1204view;
         ViewCompat.offsetTopAndBottom(view2, this.offsetTop - (view2.getTop() - this.layoutTop));
-        View view3 = this.f1205view;
+        View view3 = this.f1204view;
         ViewCompat.offsetLeftAndRight(view3, this.offsetLeft - (view3.getLeft() - this.layoutLeft));
     }
 
@@ -76,7 +76,7 @@ public class ViewOffsetHelper {
     }
 
     public void onViewLayout() {
-        this.layoutTop = this.f1205view.getTop();
-        this.layoutLeft = this.f1205view.getLeft();
+        this.layoutTop = this.f1204view.getTop();
+        this.layoutLeft = this.f1204view.getLeft();
     }
 }

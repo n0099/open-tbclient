@@ -4,267 +4,228 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import rx.functions.Actions;
-import rx.schedulers.Schedulers;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import java.lang.ref.WeakReference;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class kob<T> {
+public class kob extends dob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c<T> a;
+    public aob l;
+    public aob m;
+    public aob n;
+    public aob o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public AtomicBoolean t;
+    public zob u;
+    public jnb v;
 
-    /* loaded from: classes6.dex */
-    public interface c<T> extends uob<lob<? super T>> {
-        @Override // com.baidu.tieba.uob
-        /* synthetic */ void call(T t);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends lob<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uob b;
-        public final /* synthetic */ uob c;
-
-        public a(kob kobVar, uob uobVar, uob uobVar2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kobVar, uobVar, uobVar2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uobVar;
-            this.c = uobVar2;
-        }
-
-        @Override // com.baidu.tieba.lob
-        public final void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                try {
-                    this.b.call(th);
-                } finally {
-                    unsubscribe();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.lob
-        public final void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                try {
-                    this.c.call(t);
-                } finally {
-                    unsubscribe();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements uob<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uob a;
-
-        public b(kob kobVar, uob uobVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kobVar, uobVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uobVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.uob
-        public void call(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.a.call(th);
-            }
-        }
-    }
-
-    public kob(c<T> cVar) {
+    public kob(int i, jnb jnbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
+            Object[] objArr = {Integer.valueOf(i), jnbVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = qsb.i(cVar);
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.p = false;
+        this.q = false;
+        this.r = false;
+        this.s = false;
+        this.t = new AtomicBoolean(false);
+        this.v = null;
+        this.v = jnbVar;
+        this.b = i;
     }
 
-    public final kob<T> h(job jobVar) {
-        InterceptResult invokeL;
+    public void A(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jobVar)) == null) {
-            if (this instanceof tqb) {
-                return ((tqb) this).n(jobVar);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.q = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.dob, com.baidu.tieba.bob
+    public void f(MediaSample mediaSample) {
+        aob aobVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, mediaSample) == null) && this.t.get() && (aobVar = this.l) != null) {
+            aobVar.f(mediaSample);
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.p = z;
+        }
+    }
+
+    public void B(zob zobVar, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zobVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.u = zobVar;
+            this.s = z2;
+            this.r = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.bob
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.t.set(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.dob
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.l = null;
+            this.v = null;
+            aob aobVar = this.m;
+            if (aobVar != null) {
+                aobVar.p();
+                this.m = null;
             }
-            if (jobVar != null) {
-                return b(new aqb(this.a, jobVar));
+            aob aobVar2 = this.n;
+            if (aobVar2 != null) {
+                aobVar2.p();
+                this.n = null;
             }
-            throw new NullPointerException("scheduler is null");
-        }
-        return (kob) invokeL.objValue;
-    }
-
-    public static <T> gob<T> a(kob<T> kobVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, kobVar)) == null) {
-            return gob.a(new bqb(kobVar.a));
-        }
-        return (gob) invokeL.objValue;
-    }
-
-    public static <T> kob<T> b(c<T> cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cVar)) == null) {
-            return new kob<>(cVar);
-        }
-        return (kob) invokeL.objValue;
-    }
-
-    public static <T> kob<T> g(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
-            return tqb.m(t);
-        }
-        return (kob) invokeL.objValue;
-    }
-
-    public final kob<T> e(uob<Throwable> uobVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uobVar)) == null) {
-            if (uobVar != null) {
-                return b(new xpb(this, Actions.a(), new b(this, uobVar)));
+            aob aobVar3 = this.o;
+            if (aobVar3 != null) {
+                aobVar3.p();
+                this.o = null;
             }
-            throw new IllegalArgumentException("onError is null");
         }
-        return (kob) invokeL.objValue;
     }
 
-    public final kob<T> f(uob<? super T> uobVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dob
+    public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uobVar)) == null) {
-            if (uobVar != null) {
-                return b(new xpb(this, uobVar, Actions.a()));
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.t.set(false);
+            aob aobVar = this.m;
+            if (aobVar != null) {
+                aobVar.x();
             }
-            throw new IllegalArgumentException("onSuccess is null");
-        }
-        return (kob) invokeL.objValue;
-    }
-
-    public final kob<T> c(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
-            return d(j, timeUnit, Schedulers.computation());
-        }
-        return (kob) invokeJL.objValue;
-    }
-
-    public final nob k(uob<? super T> uobVar, uob<Throwable> uobVar2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, uobVar, uobVar2)) == null) {
-            if (uobVar != null) {
-                if (uobVar2 != null) {
-                    return j(new a(this, uobVar2, uobVar));
-                }
-                throw new IllegalArgumentException("onError can not be null");
+            aob aobVar2 = this.n;
+            if (aobVar2 != null) {
+                aobVar2.x();
             }
-            throw new IllegalArgumentException("onSuccess can not be null");
+            aob aobVar3 = this.o;
+            if (aobVar3 != null) {
+                aobVar3.x();
+            }
+            TLog.g(this, "VideoDecodeFilter stop");
         }
-        return (nob) invokeLL.objValue;
     }
 
-    public final kob<T> d(long j, TimeUnit timeUnit, job jobVar) {
-        InterceptResult invokeCommon;
+    public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), timeUnit, jobVar})) == null) {
-            return b(new wpb(this.a, j, timeUnit, jobVar));
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.p = false;
+            this.q = false;
         }
-        return (kob) invokeCommon.objValue;
     }
 
-    public final nob i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dob, com.baidu.tieba.bob
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return k(Actions.a(), Actions.b());
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || !this.t.get()) {
+            return;
         }
-        return (nob) invokeV.objValue;
-    }
-
-    public final gob<T> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return a(this);
-        }
-        return (gob) invokeV.objValue;
-    }
-
-    public final nob j(lob<? super T> lobVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, lobVar)) == null) {
-            if (lobVar != null) {
-                try {
-                    qsb.t(this, this.a).call(lobVar);
-                    return qsb.s(lobVar);
-                } catch (Throwable th) {
-                    sob.e(th);
-                    try {
-                        lobVar.b(qsb.r(th));
-                        return gtb.b();
-                    } catch (Throwable th2) {
-                        sob.e(th2);
-                        RuntimeException runtimeException = new RuntimeException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
-                        qsb.r(runtimeException);
-                        throw runtimeException;
+        TLog.g(this, "H264UseHWDecode :" + this.p + ", H265UseHWDecode :" + this.q + ", netCode:" + i);
+        aob aobVar = this.l;
+        if (2002 == i) {
+            if (this.q) {
+                if (this.m == null) {
+                    this.m = new lob(this.u, this.r, this.s, this.v, this.b);
+                    fnb fnbVar = this.g.get();
+                    if (fnbVar != null) {
+                        this.m.s(fnbVar);
                     }
                 }
+                this.l = this.m;
+                this.v.z(3);
+                TLog.g(this, "hw decoder h265");
+            } else {
+                if (this.o == null) {
+                    this.o = new mob(this.v, this.b);
+                    fnb fnbVar2 = this.g.get();
+                    if (fnbVar2 != null) {
+                        this.o.s(fnbVar2);
+                    }
+                }
+                this.l = this.o;
+                this.v.z(4);
+                TLog.g(this, "ittiam decoder h265");
             }
-            throw new IllegalArgumentException("te is null");
+        } else if (this.p) {
+            if (this.m == null) {
+                this.m = new lob(this.u, this.r, this.s, this.v, this.b);
+                fnb fnbVar3 = this.g.get();
+                if (fnbVar3 != null) {
+                    this.m.s(fnbVar3);
+                }
+            }
+            this.l = this.m;
+            this.v.z(1);
+            TLog.g(this, "hw decoder h264");
+        } else {
+            if (this.n == null) {
+                this.n = new nob(this.v, this.b);
+                fnb fnbVar4 = this.g.get();
+                if (fnbVar4 != null) {
+                    this.n.s(fnbVar4);
+                }
+            }
+            this.l = this.n;
+            this.v.z(2);
+            TLog.g(this, "ffmpeg decoder h264");
         }
-        return (nob) invokeL.objValue;
+        if (aobVar != null && !aobVar.equals(this.l)) {
+            aobVar.x();
+        }
+        aob aobVar2 = this.l;
+        if (aobVar2 != null) {
+            aobVar2.r(this.h);
+            WeakReference<fnb> weakReference = this.g;
+            if (weakReference != null) {
+                this.l.s(weakReference.get());
+            }
+            this.l.t(this.c);
+            this.l.q(this.e);
+            this.l.k(this.d);
+            this.l.a();
+        }
+    }
+
+    @Override // com.baidu.tieba.dob, com.baidu.tieba.bob
+    public void d(String str, Object obj, int i, boolean z) {
+        aob aobVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (aobVar = this.l) != null) {
+            aobVar.d(str, obj, i, z);
+        }
     }
 }

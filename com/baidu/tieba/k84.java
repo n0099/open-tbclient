@@ -1,43 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.content.Context;
+import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.util.ArrayDeque;
 /* loaded from: classes6.dex */
 public class k84 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile k84 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public l84[] changedTouches;
-    @V8JavascriptField
-    public long timeStamp;
-    @V8JavascriptField
-    public l84[] touches;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866946, "Lcom/baidu/tieba/k84;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947866946, "Lcom/baidu/tieba/k84;");
+                return;
+            }
+        }
+        boolean z = ms1.a;
+    }
 
     public k84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new ArrayDeque();
     }
 
-    public String toString() {
+    public static k84 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (k84.class) {
+                    if (a == null) {
+                        a = new k84();
+                    }
+                }
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (k84) invokeV.objValue;
+    }
+
+    public DuMixGameSurfaceView a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return new DuMixGameSurfaceView(context);
+        }
+        return (DuMixGameSurfaceView) invokeL.objValue;
     }
 }

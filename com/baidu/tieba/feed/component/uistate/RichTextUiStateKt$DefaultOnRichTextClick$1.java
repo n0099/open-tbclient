@@ -2,7 +2,7 @@ package com.baidu.tieba.feed.component.uistate;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x77;
+import com.baidu.tieba.c87;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public /* synthetic */ class RichTextUiStateKt$DefaultOnRichTextClick$1 extends 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RichTextUiStateKt$DefaultOnRichTextClick$1() {
-        super(2, x77.class, "deal", "deal(Landroid/content/Context;Ljava/lang/String;)V", 0);
+        super(2, c87.class, "deal", "deal(Landroid/content/Context;Ljava/lang/String;)V", 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +68,7 @@ public /* synthetic */ class RichTextUiStateKt$DefaultOnRichTextClick$1 extends 
     public final void invoke2(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
-            x77.c(context, str);
+            c87.c(context, str);
         }
     }
 }

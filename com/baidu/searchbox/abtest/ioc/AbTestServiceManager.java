@@ -1,7 +1,7 @@
 package com.baidu.searchbox.abtest.ioc;
 
 import com.baidu.searchbox.abtest.AbTestManager;
-import com.baidu.tieba.r8;
+import com.baidu.tieba.s8;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AbTestServiceManager implements AbTestService {
@@ -11,7 +11,7 @@ public class AbTestServiceManager implements AbTestService {
     }
 
     @Override // com.baidu.searchbox.abtest.ioc.AbTestService
-    public ArrayList<r8> getExperimentInfoList() {
+    public ArrayList<s8> getExperimentInfoList() {
         return AbTestManager.getInstance().getExperimentInfoList();
     }
 

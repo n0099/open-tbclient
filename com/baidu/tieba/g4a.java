@@ -1,48 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActBtn;
+import tbclient.TPointPost;
+import tbclient.Timgs;
+import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
-public class g4a extends CustomMessageListener {
+public class g4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final d3a b;
+    public boolean a;
+    public ArrayList<f4a> b;
+    public ArrayList<i4a> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g4a(MainTabActivity mainTabActivity, s2a s2aVar) {
-        super(2001437);
+    public g4a(TPointPost tPointPost) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, s2aVar};
+            Object[] objArr = {tPointPost};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        if (tPointPost != null) {
+            try {
+                String str = tPointPost.position;
+                tPointPost.template_id.longValue();
+                if (tPointPost.is_tuiguang.intValue() == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                this.a = z;
+                tPointPost.template_type.intValue();
+                List<ActBtn> list = tPointPost.act_btn;
+                if (list != null && list.size() > 0) {
+                    this.b = new ArrayList<>();
+                    for (int i3 = 0; i3 != list.size(); i3++) {
+                        this.b.add(new f4a(list.get(i3)));
+                    }
+                }
+                List<Timgs> list2 = tPointPost.t_imgs;
+                if (list2 != null && list2.size() > 0) {
+                    this.c = new ArrayList<>();
+                    for (int i4 = 0; i4 != list2.size(); i4++) {
+                        this.c.add(new i4a(list2.get(i4)));
+                    }
+                }
+                if (tPointPost.detail_info != null) {
+                    new h4a(tPointPost.detail_info);
+                }
+                String str2 = tPointPost.monitor_id;
+                tPointPost.hidden_day.intValue();
+                VideoInfo videoInfo = tPointPost.t_video;
+                String str3 = tPointPost.tag_name;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        d3a d3aVar;
+    public i4a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof b2a) && ((b2a) customResponsedMessage.getData()).b && this.a.y == 0 && (d3aVar = this.b) != null && d3aVar.a() != null) {
-            this.b.a().d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (i4a) ListUtils.getItem(this.c, 0);
         }
+        return (i4a) invokeV.objValue;
     }
 }

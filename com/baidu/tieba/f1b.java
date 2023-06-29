@@ -1,136 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class f1b extends c2b {
-    public static /* synthetic */ Interceptable $ic;
+public class f1b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
+    public static String b = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<Ssp> a;
-    public final Set<s1b> b;
-    public final Set<q1b> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f1b(int i, ObjectInput objectInput) {
-        super(i);
-        HashSet hashSet;
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947712690, "Lcom/baidu/tieba/f1b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        int readInt = objectInput.readInt();
-        HashSet hashSet2 = new HashSet(readInt);
-        HashMap hashMap = new HashMap();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            Ssp ssp = new Ssp(objectInput.readInt(), objectInput);
-            hashSet2.add(ssp);
-            for (Ssp.Pid pid : ssp.pids) {
-                hashMap.put(Long.valueOf(pid.id), pid);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947712690, "Lcom/baidu/tieba/f1b;");
         }
-        int readInt2 = objectInput.readInt();
-        HashSet hashSet3 = new HashSet(readInt2);
-        for (int i5 = 0; i5 < readInt2; i5++) {
-            hashSet3.add(new s1b(objectInput.readInt(), objectInput, hashMap));
-        }
-        this.a = Collections.unmodifiableSet(hashSet2);
-        this.b = Collections.unmodifiableSet(hashSet3);
-        if (i == 1) {
-            int readInt3 = objectInput.readInt();
-            hashSet = new HashSet(readInt3);
-            for (int i6 = 0; i6 < readInt3; i6++) {
-                hashSet.add(new q1b(objectInput.readInt(), objectInput, hashMap));
-            }
-        } else {
-            hashSet = new HashSet();
-        }
-        this.c = Collections.unmodifiableSet(hashSet);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f1b(Set<Ssp> set, Set<s1b> set2, Set<q1b> set3) {
-        super(1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {set, set2, set3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = set;
-        this.b = set2;
-        this.c = set3;
-    }
-
-    public boolean equals(Object obj) {
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
-            if (obj == null || f1b.class != obj.getClass()) {
-                return false;
+            try {
+                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            f1b f1bVar = (f1b) obj;
-            return Objects.equals(this.a, f1bVar.a) && Objects.equals(this.b, f1bVar.b) && Objects.equals(this.c, f1bVar.c);
+            return b;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static int b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b, this.c) : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.c2b
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (Ssp ssp : this.a) {
-                ssp.srzable(objectOutput);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int i = a;
+            if (i >= 0) {
+                return i;
             }
-            objectOutput.writeInt(this.b.size());
-            for (s1b s1bVar : this.b) {
-                s1bVar.srzable(objectOutput);
+            try {
+                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            objectOutput.writeInt(this.c.size());
-            for (q1b q1bVar : this.c) {
-                q1bVar.srzable(objectOutput);
-            }
+            return a;
         }
+        return invokeL.intValue;
     }
 }

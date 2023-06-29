@@ -75,15 +75,15 @@ public class MediaTipStateLayer implements View.OnClickListener {
     }
 
     public final void e() {
-        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08fa, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d090f, (ViewGroup) null, false);
         this.c = inflate;
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f09226a);
-        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092263);
-        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092252);
-        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092253);
-        this.d = this.c.findViewById(R.id.obfuscated_res_0x7f092272);
-        this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092271);
-        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092273);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0922ca);
+        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0922c3);
+        this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0922b2);
+        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0922b3);
+        this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0922d2);
+        this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0922d1);
+        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0922d3);
         h(TipState.NORMAL);
     }
 
@@ -91,8 +91,8 @@ public class MediaTipStateLayer implements View.OnClickListener {
         Resources resources = this.a.getResources();
         TipState tipState = this.h;
         if (tipState == TipState.ERROR) {
-            this.i.setImageResource(R.drawable.obfuscated_res_0x7f08144b);
-            this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1555));
+            this.i.setImageResource(R.drawable.obfuscated_res_0x7f08147d);
+            this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1572));
             this.c.setVisibility(0);
             this.d.setVisibility(0);
             this.e.setVisibility(8);
@@ -100,20 +100,20 @@ public class MediaTipStateLayer implements View.OnClickListener {
             this.c.setVisibility(0);
             this.d.setVisibility(8);
             this.e.setVisibility(0);
-            this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b14));
-            this.g.setText(R.string.obfuscated_res_0x7f0f154a);
-            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081442);
+            this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b16));
+            this.g.setText(R.string.obfuscated_res_0x7f0f1567);
+            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081474);
         } else if (tipState == TipState.NO_NETWORK) {
             this.c.setVisibility(0);
             this.d.setVisibility(8);
             this.e.setVisibility(0);
-            this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b13));
-            this.g.setText(R.string.obfuscated_res_0x7f0f154c);
-            this.f.setText(R.string.obfuscated_res_0x7f0f1547);
-            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081441);
+            this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060b15));
+            this.g.setText(R.string.obfuscated_res_0x7f0f1569);
+            this.f.setText(R.string.obfuscated_res_0x7f0f1564);
+            this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081473);
         } else if (tipState == TipState.END) {
-            this.i.setImageResource(R.drawable.obfuscated_res_0x7f08144c);
-            this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1556));
+            this.i.setImageResource(R.drawable.obfuscated_res_0x7f08147e);
+            this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1573));
             this.c.setVisibility(0);
             this.d.setVisibility(0);
             this.e.setVisibility(8);
@@ -128,8 +128,8 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void onClick(View view2) {
         SwanVideoView swanVideoView;
         int id = view2.getId();
-        if (id != R.id.obfuscated_res_0x7f092252 && id != R.id.obfuscated_res_0x7f092272) {
-            if (id == R.id.obfuscated_res_0x7f092263 && (swanVideoView = this.b) != null && swanVideoView.getVideoPlayerCallback() != null) {
+        if (id != R.id.obfuscated_res_0x7f0922b2 && id != R.id.obfuscated_res_0x7f0922d2) {
+            if (id == R.id.obfuscated_res_0x7f0922c3 && (swanVideoView = this.b) != null && swanVideoView.getVideoPlayerCallback() != null) {
                 this.b.getVideoPlayerCallback().d(!this.l);
                 return;
             }

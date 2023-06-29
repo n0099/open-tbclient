@@ -4,12 +4,10 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaLoveFamilyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qf6 extends jn<gg6, CardViewHolder<fh6>> {
+public class qf6 extends kn<gg6, CardViewHolder<lh6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -52,7 +50,7 @@ public class qf6 extends jn<gg6, CardViewHolder<fh6>> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.u(this.a);
+                this.b.t(this.a);
             }
         }
     }
@@ -79,47 +77,51 @@ public class qf6 extends jn<gg6, CardViewHolder<fh6>> {
         this.a = tbPageContext;
     }
 
-    public final void u(gg6 gg6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, gg6Var) == null) && gg6Var != null && gg6Var.c() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.mContext, gg6Var.c().b().user_id)));
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: x */
-    public CardViewHolder<fh6> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.kn
+    /* renamed from: u */
+    public CardViewHolder<lh6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new fh6(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new lh6(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void t(gg6 gg6Var, fh6 fh6Var) {
+    public final void t(gg6 gg6Var) {
+        dg6 c;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gg6Var, fh6Var) != null) || gg6Var.c() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gg6Var) == null) && gg6Var != null && (c = gg6Var.c()) != null && c.b() != null) {
+            if (!c.c()) {
+                TiebaStatic.log("c11864");
+            } else {
+                TiebaStatic.log("c11857");
+            }
+            String w = r95.p().w("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
+            if (w == null) {
+                return;
+            }
+            if (w.endsWith("/")) {
+                w = w.substring(0, w.length() - 1);
+            }
+            ux4.s(this.a.getPageActivity(), w);
         }
-        fh6Var.y(8);
-        fh6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f026c));
-        fh6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gg6 gg6Var, CardViewHolder<fh6> cardViewHolder) {
+    @Override // com.baidu.tieba.kn
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gg6 gg6Var, CardViewHolder<lh6> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gg6Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gg6Var, cardViewHolder})) == null) {
             if (cardViewHolder.a() == null) {
                 return null;
             }
-            t(gg6Var, cardViewHolder.a());
-            cardViewHolder.a().h().setOnClickListener(new a(this, gg6Var));
+            cardViewHolder.a().i(gg6Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().k.setOnClickListener(new a(this, gg6Var));
             return cardViewHolder.a().h();
         }
         return (View) invokeCommon.objValue;

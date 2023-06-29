@@ -1,104 +1,80 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
+import tbclient.SugRankingInfo;
 /* loaded from: classes5.dex */
 public class fx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public String b;
-    public View c;
 
-    public fx8() {
+    public static List<xn> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public View a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0920, (ViewGroup) null);
-            this.a = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f09233a);
-            this.a.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
-            this.a.setBackgroundColor(zx8.a(str));
-        }
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void f(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            View view2 = this.c;
-            if (z) {
-                i = 0;
+            ArrayList arrayList = new ArrayList();
+            List<RecommendForumInfo> list = dataRes.forum_cards;
+            if (list != null && list.size() > 0) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
+                        bx8 bx8Var = new bx8();
+                        bx8Var.k(list.get(i));
+                        bx8Var.l(true);
+                        arrayList.add(bx8Var);
+                    }
+                }
             } else {
-                i = 4;
+                RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+                if (recommendForumInfo != null) {
+                    bx8 bx8Var2 = new bx8();
+                    bx8Var2.k(recommendForumInfo);
+                    bx8Var2.l(false);
+                    arrayList.add(bx8Var2);
+                }
             }
-            view2.setVisibility(i);
-        }
-    }
-
-    public void c(TbPageContext<?> tbPageContext) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            e05 layoutMode = tbPageContext.getLayoutMode();
-            if (skinType == 4) {
-                z = true;
-            } else {
-                z = false;
+            Item item = dataRes.item_card;
+            if (item != null) {
+                cx8 cx8Var = new cx8();
+                cx8Var.h(item);
+                arrayList.add(cx8Var);
             }
-            layoutMode.l(z);
-            tbPageContext.getLayoutMode().k(this.a);
-            this.a.setBackgroundColor(zx8.a(this.b));
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                dx8 dx8Var = new dx8();
+                dx8Var.m(str);
+                dx8Var.l(sugLiveInfo);
+                arrayList.add(dx8Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                ex8 ex8Var = new ex8();
+                ex8Var.f(str);
+                ex8Var.e(sugRankingInfo);
+                arrayList.add(ex8Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                ax8 ax8Var = new ax8();
+                ax8Var.c(str);
+                ax8Var.d(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, ax8Var);
+                } else {
+                    arrayList.add(ax8Var);
+                }
+            }
+            return arrayList;
         }
+        return (List) invokeLL.objValue;
     }
 }

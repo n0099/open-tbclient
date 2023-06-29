@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import com.yy.transvod.player.mediacodec.MediaSample;
 /* loaded from: classes5.dex */
-public class bob {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bob {
+    void a();
 
-    public static ByteBuffer a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return ByteBuffer.allocate(0);
-        }
-        return (ByteBuffer) invokeV.objValue;
-    }
+    void b(int i);
+
+    void d(String str, Object obj, int i, boolean z);
+
+    void e(boolean z);
+
+    void f(MediaSample mediaSample);
 }

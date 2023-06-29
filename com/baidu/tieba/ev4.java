@@ -1,29 +1,19 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.tbadk.core.data.NewUserRedPackageData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ActiveConfig.DataRes;
-import tbclient.FloatStrategy;
-import tbclient.MissionInfo;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class ev4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataRes a;
-    public boolean b;
-    public String c;
-    public final ArrayList<eu4> d;
-    public final ArrayList<FloatStrategy> e;
-    public NewUserRedPackageData f;
-    public ActiveCenterData g;
+    public long a;
+    public long b;
 
     public ev4() {
         Interceptable interceptable = $ic;
@@ -35,74 +25,33 @@ public class ev4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = false;
-        this.c = "";
-        this.d = new ArrayList<>();
-        this.e = new ArrayList<>();
     }
 
-    public ArrayList<FloatStrategy> a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.b + UtilHelper.getTimesMorning();
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public ArrayList<eu4> b() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.a + UtilHelper.getTimesMorning();
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public void c(DataRes dataRes) {
+    public void c(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
-            this.a = dataRes;
-            this.d.clear();
-            this.e.clear();
-            if (dataRes == null) {
-                return;
-            }
-            boolean z = true;
-            if (dataRes.is_new_user.intValue() != 1) {
-                z = false;
-            }
-            this.b = z;
-            this.c = dataRes.active_url;
-            this.e.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.a.mission_list) {
-                if (missionInfo != null) {
-                    eu4 eu4Var = new eu4(missionInfo);
-                    if (missionInfo.tasktype.intValue() == 5) {
-                        m95.e().g(missionInfo);
-                    } else if (missionInfo.tasktype.intValue() == 9) {
-                        su4.c().f(eu4Var);
-                    } else if (eu4Var.L()) {
-                        this.d.add(eu4Var);
-                    }
-                }
-            }
-            if (ListUtils.isNotEmpty(this.a.task_list)) {
-                iu4.d().h(this.a.task_list);
-            } else {
-                iu4.d().h(null);
-            }
-            NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
-            this.f = newUserRedPackageData;
-            newUserRedPackageData.parseProto(dataRes);
-            if (dataRes.active_center != null) {
-                ActiveCenterData activeCenterData = new ActiveCenterData();
-                this.g = activeCenterData;
-                activeCenterData.parseProto(dataRes);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) && jSONArray != null && jSONArray.length() == 2) {
+            this.a = jSONArray.optLong(0, 0L) * 1000;
+            this.b = jSONArray.optLong(1, 0L) * 1000;
         }
     }
 }

@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.io.File;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface iy8 {
-    public static final String a = File.separator;
-    public static final String b = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String c = b + a + ".tieba_video_monitor";
-    public static final String d = c + a + "v1";
-    public static final String e;
-    public static final String f;
-    public static final String g;
+public class iy8 extends wl1<ExtLiveJumpPageService> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        StringBuilder sb = new StringBuilder();
-        sb.append(d);
-        sb.append(a);
-        e = sb.toString();
-        f = b + a + ".tieba_video_monitor_log";
-        g = f + a + "v1";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(g);
-        sb2.append(a);
-        sb2.toString();
+    public iy8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wl1
+    /* renamed from: a */
+    public ExtLiveJumpPageService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new jy8();
+        }
+        return (ExtLiveJumpPageService) invokeV.objValue;
     }
 }

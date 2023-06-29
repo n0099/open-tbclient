@@ -1,62 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class ap4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, ap4> d;
+    public static Map<String, Map<String, ap4>> e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final AbiType c;
 
-    public static long a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            SharedPreferences a = ip4.a();
-            return a.getLong("latest_update_time" + i, 0L);
-        }
-        return invokeI.longValue;
-    }
-
-    public static long b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            SharedPreferences a = ip4.a();
-            return a.getLong("max_age" + i, 0L);
-        }
-        return invokeI.longValue;
-    }
-
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if ((System.currentTimeMillis() - a(i)) / 1000 > b(i)) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622852, "Lcom/baidu/tieba/ap4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void d(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            SharedPreferences.Editor edit = ip4.a().edit();
-            edit.putLong("latest_update_time" + i, j).apply();
-        }
-    }
-
-    public static void e(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (j <= 0 || j >= 259200) {
-                j = 0;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947622852, "Lcom/baidu/tieba/ap4;");
+                return;
             }
-            ip4.a().edit().putLong("max_age" + i, j).apply();
         }
+        d = new HashMap();
+        e = new HashMap();
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ap4(@NonNull String str, @NonNull AbiType abiType) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, abiType};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (TextUtils.isEmpty(str)) {
+            str2 = "";
+        } else {
+            str2 = str;
+        }
+        this.a = str2;
+        this.c = abiType;
+        this.b = a(str, abiType);
+    }
+
+    @Nullable
+    public static synchronized ap4 e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            synchronized (ap4.class) {
+                ap4 ap4Var = null;
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    c(str);
+                    ap4 ap4Var2 = d.get(str2);
+                    if (ap4Var2 != null) {
+                        if (TextUtils.equals(str, ap4Var2.a)) {
+                            ap4Var = ap4Var2;
+                        }
+                    }
+                    return ap4Var;
+                }
+                return null;
+            }
+        }
+        return (ap4) invokeLL.objValue;
+    }
+
+    public static String a(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
+            return "so_" + str + "_" + abiType.id;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static synchronized ap4 d(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        ap4 e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
+            synchronized (ap4.class) {
+                e2 = e(str, a(str, abiType));
+            }
+            return e2;
+        }
+        return (ap4) invokeLL.objValue;
+    }
+
+    public static synchronized Map<String, ap4> b(@NonNull String str) {
+        InterceptResult invokeL;
+        HashMap hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (ap4.class) {
+                hashMap = new HashMap(c(str));
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static synchronized Map<String, ap4> c(@NonNull String str) {
+        InterceptResult invokeL;
+        Map<String, ap4> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (ap4.class) {
+                map = e.get(str);
+                if (map == null) {
+                    map = new HashMap<>();
+                    if (!TextUtils.isEmpty(str)) {
+                        for (AbiType abiType : AbiType.values()) {
+                            ap4 ap4Var = new ap4(str, abiType);
+                            map.put(ap4Var.b, ap4Var);
+                        }
+                        d.putAll(map);
+                        e.put(str, map);
+                    }
+                }
+            }
+            return map;
+        }
+        return (Map) invokeL.objValue;
     }
 }

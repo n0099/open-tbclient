@@ -3,8 +3,8 @@ package com.baidu.swan.apps.publisher;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.ww2;
-import com.baidu.tieba.zb3;
+import com.baidu.tieba.cc3;
+import com.baidu.tieba.zw2;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.List;
 import kotlin.Metadata;
@@ -97,11 +97,11 @@ public final class PublishParams implements Parcelable {
         String str11;
         String str12;
         String str13;
-        ww2.a Y;
+        zw2.a Y;
         String str14;
-        ww2.a Y2;
+        zw2.a Y2;
         if ((i6 & 32768) != 0) {
-            zb3 M = zb3.M();
+            cc3 M = cc3.M();
             if (M != null && (Y2 = M.Y()) != null) {
                 str14 = Y2.H();
             } else {
@@ -112,7 +112,7 @@ public final class PublishParams implements Parcelable {
             str11 = str9;
         }
         if ((i6 & 65536) != 0) {
-            zb3 M2 = zb3.M();
+            cc3 M2 = cc3.M();
             if (M2 != null && (Y = M2.Y()) != null) {
                 str13 = Y.v1();
             } else {

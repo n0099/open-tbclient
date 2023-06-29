@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tieba.rf;
 /* loaded from: classes7.dex */
 public interface sf {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("tbadkcore", "IHttpsExperiment");
+    void a(boolean z);
 
-    boolean isIpv6();
+    void b(rf.d dVar);
 
-    boolean isSwitchOn();
+    void c();
+
+    void destroy();
 }

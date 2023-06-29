@@ -2,7 +2,7 @@ package com.badlogic.gdx.math;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l7;
+import com.baidu.tieba.m7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class Circle implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ((((l7.b(this.radius) + 41) * 41) + l7.b(this.x)) * 41) + l7.b(this.y);
+            return ((((m7.b(this.radius) + 41) * 41) + m7.b(this.x)) * 41) + m7.b(this.y);
         }
         return invokeV.intValue;
     }

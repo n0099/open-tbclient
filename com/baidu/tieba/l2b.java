@@ -1,162 +1,505 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l2b implements PidLoaderCreator {
-    public static /* synthetic */ Interceptable $ic;
+public class l2b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String c = "UnionIDHelper";
+    public static boolean d;
+    public static final String e;
+    public static final String f;
+    public static final Object g;
+    public static l2b h;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile o2b a;
+    public AtomicBoolean b;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ l2b c;
+
+        public a(l2b l2bVar, Context context, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l2bVar, context, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = l2bVar;
+            this.a = context;
+            this.b = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (l2b.d) {
+                    Log.d(l2b.c, "asyncRequest, Thread runn！");
+                }
+                m2b m = this.c.m(this.a);
+                if (l2b.d) {
+                    String str = l2b.c;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("asyncRequest, cachedBean == null ？");
+                    if (m == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    Log.d(str, sb.toString());
+                }
+                if (m == null || this.c.q(m)) {
+                    if (l2b.d) {
+                        Log.d(l2b.c, "asyncRequest, requestFromManufacturer");
+                    }
+                    this.c.r();
+                    if (l2b.d) {
+                        Log.d(l2b.c, "asyncRequest, trySaveFiles！");
+                    }
+                    this.c.b.set(this.c.t(this.a));
+                    if (l2b.d) {
+                        Log.d(l2b.c, "asyncRequest, trySaveFiles done");
+                    }
+                }
+                if (l2b.d) {
+                    Log.d(l2b.c, "asyncRequest, send  innerHandler message");
+                }
+                this.b.obtainMessage(100, this.c.a).sendToTarget();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public n2b a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper, n2b n2bVar) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper, n2bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n2bVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            String oaid;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 100) {
+                    o2b o2bVar = (o2b) message.obj;
+                    if (l2b.d) {
+                        String str = l2b.c;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("handleMessage ，what：");
+                        if (o2bVar == null) {
+                            oaid = "";
+                        } else {
+                            oaid = o2bVar.getOAID();
+                        }
+                        sb.append(oaid);
+                        Log.d(str, sb.toString());
+                    }
+                    n2b n2bVar = this.a;
+                    if (n2bVar != null) {
+                        n2bVar.a(o2bVar);
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892397, "Lcom/baidu/tieba/l2b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947892397, "Lcom/baidu/tieba/l2b;");
+                return;
+            }
+        }
+        d = h2b.e();
+        e = j(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+        f = j(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+        g = new Object();
+    }
 
     public l2b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        new AtomicBoolean(false);
+        this.b = new AtomicBoolean(false);
+    }
+
+    public static l2b o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (h == null) {
+                synchronized (l2b.class) {
+                    if (h == null) {
+                        h = new l2b();
+                    }
+                }
+            }
+            return h;
+        }
+        return (l2b) invokeV.objValue;
+    }
+
+    public final long n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return h2b.a(i2b.a()) * 60 * 1000;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return h2b.d(i2b.a());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String j(byte[]... bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte[] bArr2 : bArr) {
+                sb.append(new String(v2b.a(bArr2)));
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return v2b.c(t2b.b(e, f, str.getBytes()), "utf-8");
+            } catch (UnsupportedEncodingException | Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean q(@NonNull m2b m2bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, m2bVar)) == null) {
+            if (Math.abs(System.currentTimeMillis() - m2bVar.a) > n()) {
+                if (d) {
+                    Log.d(c, "isExpireTime ：超过缓存有效期");
+                    return true;
+                }
+                return true;
+            } else if (d) {
+                Log.d(c, "isExpireTime ：没有超过缓存有效期");
+                return false;
+            } else {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return new String(t2b.a(e, f, v2b.a(str.getBytes())));
+            } catch (Exception e2) {
+                if (d) {
+                    String str2 = c;
+                    Log.d(str2, "getCacheObject ，decryptUnionID：" + e2.getMessage());
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public synchronized void i(Context context, @NonNull Looper looper, @Nullable n2b n2bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, looper, n2bVar) == null) {
+            synchronized (this) {
+                if (looper != null) {
+                    b bVar = new b(looper, n2bVar);
+                    if (p()) {
+                        bVar.obtainMessage(100, null).sendToTarget();
+                        return;
+                    }
+                    if (this.a != null && this.b.get()) {
+                        if (d) {
+                            String str = c;
+                            Log.d(str, "asyncRequest, mIUnionId.getOAID：" + this.a.getOAID());
+                            String str2 = c;
+                            Log.d(str2, "asyncRequest, mIUnionId.isTrackLimited：" + this.a.c());
+                            String str3 = c;
+                            Log.d(str3, "asyncRequest, mIUnionId.getStatusCode：" + this.a.getStatusCode());
+                        }
+                        bVar.obtainMessage(100, this.a).sendToTarget();
+                    } else {
+                        if (!this.b.get()) {
+                            this.a = new j2b(context).a;
+                        }
+                        new Thread(new a(this, context, bVar)).start();
+                    }
+                    return;
+                }
+                throw new NullPointerException("param looper not null");
             }
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
+    public final m2b m(Context context) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -2105157443:
-                    if (str.equals(FunAdType.CSJ_DRAW_VIDEO)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1412451668:
-                    if (str.equals(FunAdType.CSJ_INTERSITIAL_2)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1263692214:
-                    if (str.equals(FunAdType.CSJ_INTERACTION_EXPRESS)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1071311851:
-                    if (str.equals(FunAdType.CSJ_DRAW_NATIVE)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -950004865:
-                    if (str.equals(FunAdType.CSJ_NATIVE_EXPRESS)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 347930415:
-                    if (str.equals(FunAdType.CSJ_SPLASH_EXPRESS)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 556489085:
-                    if (str.equals(FunAdType.CSJ_BANNER_NATIVE)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1168375858:
-                    if (str.equals(FunAdType.CSJ_REWARD_VIDEO)) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1319012390:
-                    if (str.equals(FunAdType.CSJ_FULLSCREEN_VIDEO)) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1328722634:
-                    if (str.equals(FunAdType.CSJ_BANNER_EXPRESS)) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1922685617:
-                    if (str.equals(FunAdType.CSJ_NATIVE)) {
-                        c = '\n';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 2079438081:
-                    if (str.equals(FunAdType.CSJ_SPLASH)) {
-                        c = 11;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d(c, "getCacheObject dir 不存在 , 首次需要创建");
+                }
+                return null;
             }
-            switch (c) {
-                case 0:
-                    return new f3b(pid);
-                case 1:
-                    return new q3b(pid);
-                case 2:
-                    return new s3b(pid);
-                case 3:
-                    return new b3b(pid);
-                case 4:
-                    return new t3b(pid);
-                case 5:
-                    return new k2b(pid);
-                case 6:
-                    return new t2b(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
-                case 7:
-                    return new b4b(pid);
-                case '\b':
-                    return new l3b(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid);
-                case '\t':
-                    return new o2b(pid);
-                case '\n':
-                    return new a4b(pid);
-                case 11:
-                    return new n2b(pid);
-                default:
-                    LogPrinter.e("Not supported pid.type:%s", pid.type);
-                    return null;
+            File file2 = new File(file, ".bd_un_info.so");
+            if (!file2.exists()) {
+                if (d) {
+                    Log.d(c, "getCacheObject  file 不存在, 首次需要创建");
+                }
+                return null;
+            }
+            String a2 = x2b.a(file2, g);
+            if (d) {
+                String str = c;
+                Log.d(str, "getCacheObject ，content：" + a2);
+            }
+            if (TextUtils.isEmpty(a2)) {
+                return null;
+            }
+            String k = k(a2);
+            if (d) {
+                String str2 = c;
+                Log.d(str2, "getCacheObject ，json：" + k);
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(k);
+                m2b m2bVar = new m2b();
+                s(m2bVar, jSONObject);
+                return m2bVar;
+            } catch (Exception e2) {
+                if (d) {
+                    String str3 = c;
+                    Log.d(str3, "getCacheObject , " + e2.getMessage());
+                }
+                return null;
             }
         }
-        return (PidLoader) invokeL.objValue;
+        return (m2b) invokeL.objValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a = this.a.d();
+            if (d) {
+                String str = c;
+                Log.d(str, "asyncRequest, requestFromManufacturer done :" + this.a.getOAID());
+            }
+        }
+    }
+
+    public final boolean s(m2b m2bVar, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m2bVar, jSONObject)) == null) {
+            try {
+                long optLong = jSONObject.optLong(new String(v2b.a("dGltZQ==".getBytes())));
+                m2bVar.a = optLong;
+                if (d) {
+                    String str = c;
+                    Log.d(str, "tryParseCacheJsonObject ，time：" + optLong);
+                    String str2 = c;
+                    Log.d(str2, "tryParseCacheJsonObject ，System.currentTimeMillis() - time：" + (System.currentTimeMillis() - optLong));
+                }
+                String str3 = new String(v2b.a("dW5pb25JRG9iag==".getBytes()));
+                if (d) {
+                    String str4 = c;
+                    Log.d(str4, "tryParseCacheJsonObject objKey：" + str3);
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject(str3);
+                if (d) {
+                    String str5 = c;
+                    Log.d(str5, "tryParseCacheJsonObject ，jsonObject：" + optJSONObject);
+                }
+                if (optJSONObject != null) {
+                    String str6 = new String(v2b.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
+                    String str7 = new String(v2b.a("aXNTdXBwb3J0".getBytes()));
+                    String str8 = new String(v2b.a("c3RhdHVzY29kZQ==".getBytes()));
+                    String str9 = new String(v2b.a("b2FpZA==".getBytes()));
+                    String str10 = new String(v2b.a("YWFpZA==".getBytes()));
+                    String str11 = new String(v2b.a("dmFpZA==".getBytes()));
+                    boolean optBoolean = optJSONObject.optBoolean(str6);
+                    boolean optBoolean2 = optJSONObject.optBoolean(str7);
+                    int optInt = optJSONObject.optInt(str8);
+                    String optString = optJSONObject.optString(str9);
+                    String optString2 = optJSONObject.optString(str10);
+                    String optString3 = optJSONObject.optString(str11);
+                    this.a.h(optBoolean);
+                    this.a.e(optBoolean2);
+                    this.a.a(optInt);
+                    this.a.g(optString);
+                    this.a.f(optString2);
+                    this.a.b(optString3);
+                    m2bVar.b = this.a;
+                    return true;
+                }
+                m2bVar.b = null;
+                if (d) {
+                    Log.d(c, "tryParseCacheJsonObject return cause null：");
+                }
+                return false;
+            } catch (Exception e2) {
+                if (d) {
+                    String str12 = c;
+                    Log.d(str12, "tryParseCacheJsonObject ：" + e2.getMessage());
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean t(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            try {
+                if (this.a != null && !TextUtils.isEmpty(this.a.getOAID())) {
+                    File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    File file2 = new File(file, ".bd_un_info.so");
+                    String str = new String(v2b.a("dGltZQ==".getBytes()));
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(str, System.currentTimeMillis());
+                    String str2 = new String(v2b.a("dW5pb25JRG9iag==".getBytes()));
+                    JSONObject optJSONObject = jSONObject.optJSONObject(str2);
+                    if (optJSONObject == null) {
+                        optJSONObject = new JSONObject();
+                    }
+                    String str3 = new String(v2b.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
+                    String str4 = new String(v2b.a("aXNTdXBwb3J0".getBytes()));
+                    String str5 = new String(v2b.a("c3RhdHVzY29kZQ==".getBytes()));
+                    String str6 = new String(v2b.a("b2FpZA==".getBytes()));
+                    String str7 = new String(v2b.a("YWFpZA==".getBytes()));
+                    String str8 = new String(v2b.a("dmFpZA==".getBytes()));
+                    optJSONObject.put(str3, this.a.c());
+                    optJSONObject.put(str4, this.a.isSupport());
+                    optJSONObject.put(str5, this.a.getStatusCode());
+                    optJSONObject.put(str6, this.a.getOAID());
+                    optJSONObject.put(str7, this.a.getAAID());
+                    optJSONObject.put(str8, this.a.getVAID());
+                    jSONObject.put(str2, optJSONObject);
+                    x2b.b(l(jSONObject.toString()), file2, false, g);
+                    if (d) {
+                        String str9 = c;
+                        Log.d(str9, "trySaveFiles, app: " + jSONObject.toString());
+                        return true;
+                    }
+                    return true;
+                }
+                return false;
+            } catch (Exception e2) {
+                if (d) {
+                    String str10 = c;
+                    Log.d(str10, "trySaveFiles, error " + e2.getMessage());
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

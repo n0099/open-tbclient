@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gn5;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.q68;
-import com.baidu.tieba.t68;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.kn5;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.v68;
 import com.baidu.tieba.write.write.work.topic.fragment.VideoTopicListFragment;
+import com.baidu.tieba.xi;
+import com.baidu.tieba.y68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,17 +42,17 @@ public class SelectTopicListLayout extends LinearLayout {
     public CustomViewPager c;
     public SelectTopicToolBar d;
     public EMTextView e;
-    public List<gn5> f;
+    public List<kn5> f;
 
     /* loaded from: classes8.dex */
     public static class a extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public final List<gn5> b;
+        public final List<kn5> b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(FragmentManager fragmentManager, List<gn5> list) {
+        public a(FragmentManager fragmentManager, List<kn5> list) {
             super(fragmentManager);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -78,7 +78,7 @@ public class SelectTopicListLayout extends LinearLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<gn5> list = this.b;
+                List<kn5> list = this.b;
                 if (list == null) {
                     return 0;
                 }
@@ -154,9 +154,9 @@ public class SelectTopicListLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.d.setSelectTopicId(j);
             if (!ListUtils.isEmpty(this.f)) {
-                for (gn5 gn5Var : this.f) {
-                    if (gn5Var.e == 1) {
-                        ((VideoTopicListFragment) gn5Var.a).J1(j);
+                for (kn5 kn5Var : this.f) {
+                    if (kn5Var.e == 1) {
+                        ((VideoTopicListFragment) kn5Var.a).J1(j);
                     }
                 }
             }
@@ -207,28 +207,28 @@ public class SelectTopicListLayout extends LinearLayout {
         b();
     }
 
-    public void a(q68 q68Var, q68 q68Var2, q68 q68Var3) {
+    public void a(v68 v68Var, v68 v68Var2, v68 v68Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, q68Var, q68Var2, q68Var3) == null) {
-            if (q68Var != null && !ListUtils.isEmpty(q68Var.b())) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, v68Var, v68Var2, v68Var3) == null) {
+            if (v68Var != null && !ListUtils.isEmpty(v68Var.b())) {
                 this.a.setVisibility(0);
-                this.d.e(q68Var.c());
+                this.d.e(v68Var.c());
             } else {
                 this.a.setVisibility(8);
             }
             if (!ListUtils.isEmpty(this.f)) {
-                for (gn5 gn5Var : this.f) {
-                    int i = gn5Var.e;
+                for (kn5 kn5Var : this.f) {
+                    int i = kn5Var.e;
                     if (i == 1) {
-                        VideoTopicListFragment videoTopicListFragment = (VideoTopicListFragment) gn5Var.a;
-                        if (q68Var3 != null && q68Var3.c() != null) {
-                            t68 t68Var = new t68("", 0L, false);
-                            t68Var.n(true);
-                            q68Var3.c().add(0, t68Var);
+                        VideoTopicListFragment videoTopicListFragment = (VideoTopicListFragment) kn5Var.a;
+                        if (v68Var3 != null && v68Var3.c() != null) {
+                            y68 y68Var = new y68("", 0L, false);
+                            y68Var.n(true);
+                            v68Var3.c().add(0, y68Var);
                         }
-                        videoTopicListFragment.K1(q68Var3);
+                        videoTopicListFragment.K1(v68Var3);
                     } else if (i == 2) {
-                        ((VideoTopicListFragment) gn5Var.a).K1(q68Var2);
+                        ((VideoTopicListFragment) kn5Var.a).K1(v68Var2);
                     }
                 }
             }
@@ -238,12 +238,12 @@ public class SelectTopicListLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0866, this);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915ef);
-            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f09256b);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09076f);
-            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f092587);
-            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f09258a);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0879, this);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915ff);
+            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f0925cc);
+            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090775);
+            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f0925e8);
+            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f0925eb);
             this.d.setmFromType(2);
             this.d.h(false);
             c();
@@ -256,27 +256,27 @@ public class SelectTopicListLayout extends LinearLayout {
             this.f = new ArrayList();
             Bundle bundle = new Bundle();
             bundle.putInt("type", 1);
-            gn5 gn5Var = new gn5();
+            kn5 kn5Var = new kn5();
             VideoTopicListFragment H1 = VideoTopicListFragment.H1();
-            gn5Var.a = H1;
+            kn5Var.a = H1;
             H1.setArguments(bundle);
-            gn5Var.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1316);
-            gn5Var.e = 1;
-            this.f.add(gn5Var);
+            kn5Var.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1333);
+            kn5Var.e = 1;
+            this.f.add(kn5Var);
             Bundle bundle2 = new Bundle();
             bundle.putInt("type", 2);
-            gn5 gn5Var2 = new gn5();
+            kn5 kn5Var2 = new kn5();
             VideoTopicListFragment H12 = VideoTopicListFragment.H1();
-            gn5Var2.a = H12;
+            kn5Var2.a = H12;
             H12.setArguments(bundle2);
-            gn5Var2.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1310);
-            gn5Var2.e = 2;
-            this.f.add(gn5Var2);
+            kn5Var2.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f132d);
+            kn5Var2.e = 2;
+            this.f.add(kn5Var2);
             this.c.setOffscreenPageLimit(this.f.size());
             this.c.setAdapter(new a(((FragmentActivity) getContext()).getSupportFragmentManager(), this.f));
             this.b.setSelectedTabTextBlod(true);
-            this.b.setTabTextSize(wi.g(getContext(), R.dimen.T_X06));
-            this.b.setSelectedIndicatorBottomMargin(wi.g(getContext(), R.dimen.tbds5));
+            this.b.setTabTextSize(xi.g(getContext(), R.dimen.T_X06));
+            this.b.setSelectedIndicatorBottomMargin(xi.g(getContext(), R.dimen.tbds5));
             this.b.setupWithViewPager(this.c);
         }
     }
@@ -284,7 +284,7 @@ public class SelectTopicListLayout extends LinearLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            p75.d(this.e).x(R.color.CAM_X0105);
+            s75.d(this.e).x(R.color.CAM_X0105);
             this.b.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
             this.b.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
         }
@@ -294,8 +294,8 @@ public class SelectTopicListLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.c.setCurrentItem(0);
-            for (gn5 gn5Var : this.f) {
-                ((VideoTopicListFragment) gn5Var.a).I1();
+            for (kn5 kn5Var : this.f) {
+                ((VideoTopicListFragment) kn5Var.a).I1();
             }
         }
     }

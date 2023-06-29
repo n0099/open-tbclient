@@ -1,147 +1,133 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tieba.video.LiveConfig;
-import com.baidu.tieba.video.VideoItemData;
+import android.media.MediaMetadataRetriever;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class rca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public final VideoItemData a;
-    @Nullable
-    public final LiveConfig b;
 
-    public rca(@Nullable VideoItemData videoItemData, @Nullable LiveConfig liveConfig) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948118201, "Lcom/baidu/tieba/rca;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {videoItemData, liveConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = videoItemData;
-        this.b = liveConfig;
-    }
-
-    public void a(int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && this.a != null && this.b != null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_AUTO_JUMP);
-            statisticItem.addParam("tid", this.a.thread_id);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_source", this.a.mRecomSource);
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.b.getWaitSecond());
-            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
-                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
-                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
-            }
-            statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, 1);
-            statisticItem.addParam("template_id", 1);
-            TiebaStatic.log(statisticItem);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948118201, "Lcom/baidu/tieba/rca;");
         }
     }
 
-    public void c(int i, String str, int i2) {
+    public static boolean a(InputStream inputStream, String str, g0b g0bVar) throws IOException {
+        double d;
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && this.a != null && this.b != null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_SHOW);
-            statisticItem.addParam("tid", this.a.thread_id);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_source", this.a.mRecomSource);
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.b.getWaitSecond());
-            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
-                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
-                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
-            }
-            statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, 1);
-            statisticItem.addParam("template_id", 1);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void b(int i, String str, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && this.a != null && this.b != null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_CLICK);
-            statisticItem.addParam("tid", this.a.thread_id);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_source", this.a.mRecomSource);
-            statisticItem.addParam("obj_name", i2);
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.b.getWaitSecond());
-            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
-                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
-                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
-            }
-            statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, 1);
-            statisticItem.addParam("template_id", 1);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    @Nullable
-    public hk9 d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
-            if (this.a != null && this.b != null) {
-                hk9 hk9Var = new hk9();
-                hk9Var.e = TbadkCoreApplication.getCurrentAccount();
-                hk9Var.c = this.a.thread_id;
-                hk9Var.a = String.valueOf(i);
-                hk9Var.f = this.a.mRecomSource;
-                hk9Var.A = str;
-                hk9Var.B = String.valueOf(this.b.getCurrentRealHitStrategy());
-                hk9Var.g = String.valueOf(this.b.getWaitSecond());
-                hk9Var.h = TiebaStatic.YYValues.YY_LIVE;
-                hk9Var.i = String.valueOf(YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-                if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                    hk9Var.C = this.a.getLivePageData().mYyExtData.mSid;
-                    hk9Var.D = this.a.getLivePageData().mYyExtData.mSsid;
-                    hk9Var.E = this.a.getLivePageData().mYyExtData.mYyUid;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, g0bVar)) == null) {
+            try {
+                if (inputStream instanceof FileInputStream) {
+                    d = ((FileInputStream) inputStream).getChannel().size();
+                } else {
+                    d = 0.0d;
                 }
-                hk9Var.F = "1";
-                hk9Var.G = "1";
-                return hk9Var;
+                FileOutputStream fileOutputStream = new FileOutputStream(str);
+                byte[] bArr = new byte[1444];
+                int i = 0;
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    i += read;
+                    if (g0bVar != null && d != 0.0d) {
+                        g0bVar.c((int) ((i / d) * 100.0d));
+                    } else if (g0bVar != null && d == 0.0d) {
+                        g0bVar.c(80);
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                }
+                return true;
+            } finally {
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean b(String str, String str2, g0b g0bVar) throws IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, g0bVar)) == null) {
+            return a(new FileInputStream(str), str2, g0bVar);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
+    public static VideoFileInfo c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                VideoFileInfo videoFileInfo = new VideoFileInfo();
+                videoFileInfo.videoPath = str;
+                videoFileInfo.lastModified = file.lastModified();
+                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                try {
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            videoFileInfo.videoDuration = vg.e(mediaMetadataRetriever.extractMetadata(9), 0);
+                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
+                            videoFileInfo.videoWidth = vg.e(mediaMetadataRetriever.extractMetadata(18), 0);
+                            videoFileInfo.videoHeight = vg.e(mediaMetadataRetriever.extractMetadata(19), 0);
+                            int e = vg.e(mediaMetadataRetriever.extractMetadata(24), 0);
+                            if (e == 90 || e == 270) {
+                                int i = videoFileInfo.videoWidth;
+                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
+                                videoFileInfo.videoHeight = i;
+                            }
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            mediaMetadataRetriever.release();
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                        throw th;
+                    }
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                return videoFileInfo;
             }
             return null;
         }
-        return (hk9) invokeIL.objValue;
+        return (VideoFileInfo) invokeL.objValue;
     }
 }

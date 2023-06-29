@@ -1,70 +1,15 @@
 package com.baidu.tieba;
-
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qd2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qd2 {
+    boolean a(String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948087914, "Lcom/baidu/tieba/qd2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948087914, "Lcom/baidu/tieba/qd2;");
-                return;
-            }
-        }
-        a = js1.a;
-    }
+    void b(int i);
 
-    public qd2(xa2 xa2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xa2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void c(int i, String str, String str2);
 
-    @JavascriptInterface
-    public String setData(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (a) {
-                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
-            }
-            int i = 0;
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                mx2.T().y(new cm2(str, str2), false);
-            } else {
-                i = 202;
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
-        }
-        return (String) invokeLL.objValue;
-    }
+    void d(String str);
+
+    void e(String str);
+
+    void goBack();
 }

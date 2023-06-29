@@ -1,154 +1,103 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.graphics.Rect;
+import android.os.Build;
+import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.ViewCommonUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.HotThreadList.DataRes;
-import tbclient.HotThreadList.HotThreadListResIdl;
-import tbclient.ThreadInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cy7 {
+public class cy7 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public a b;
 
-    public static List<wn> a(List<ThreadData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (ThreadData threadData : list) {
-                int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                    threadData.position = i;
-                    o45 o45Var = new o45();
-                    o45Var.t = threadData;
-                    o45Var.position = i;
-                    o45Var.r = true;
-                    o45Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(o45Var);
-                    o45 o45Var2 = new o45();
-                    o45Var2.t = threadData;
-                    o45Var2.position = i;
-                    if (threadData.isBJHNormalThreadType()) {
-                        o45Var2.f = true;
-                    } else if (threadData.picCount() == 1) {
-                        o45Var2.d = true;
-                        o45Var2.u = imageWidthAndHeight[0];
-                        o45Var2.v = imageWidthAndHeight[1];
-                    } else if (threadData.picCount() >= 2) {
-                        o45Var2.e = true;
-                    } else {
-                        o45Var2.b = true;
-                    }
-                    o45Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(o45Var2);
-                    d(threadData, arrayList, i);
-                    o45 o45Var3 = new o45();
-                    o45Var3.g = true;
-                    o45Var3.t = threadData;
-                    o45Var3.position = i;
-                    o45Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(o45Var3);
-                } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
-                    threadData.position = i;
-                    o45 o45Var4 = new o45();
-                    o45Var4.t = threadData;
-                    o45Var4.position = i;
-                    o45Var4.r = true;
-                    o45Var4.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(o45Var4);
-                    o45 o45Var5 = new o45();
-                    o45Var5.t = threadData;
-                    o45Var5.position = i;
-                    o45Var5.i = true;
-                    o45Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(o45Var5);
-                    d(threadData, arrayList, i);
-                    o45 o45Var6 = new o45();
-                    o45Var6.g = true;
-                    o45Var6.t = threadData;
-                    o45Var6.position = i;
-                    o45Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(o45Var6);
-                } else {
-                    threadData.setSupportType(BaseCardInfo.SupportType.TOP);
-                }
-                i++;
-                threadData.setSupportType(BaseCardInfo.SupportType.TOP);
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
     }
 
-    public static List<wn> b(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cy7(TbPageContext tbPageContext, View view2, int i, int i2) {
+        super(view2, i, i2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.isFromHotRankTab = true;
-                threadData.parserProtobuf(threadInfo);
-                e(threadData);
-                arrayList.add(threadData);
-            }
-            return a(arrayList);
         }
-        return (List) invokeL.objValue;
+        this.a = tbPageContext;
     }
 
-    public static List<wn> c(HotThreadListResIdl hotThreadListResIdl) {
-        InterceptResult invokeL;
-        DataRes dataRes;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hotThreadListResIdl)) == null) {
-            if (hotThreadListResIdl != null && (dataRes = hotThreadListResIdl.data) != null && !ListUtils.isEmpty(dataRes.thread_info)) {
-                return b(hotThreadListResIdl.data.thread_info);
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void d(ThreadData threadData, ArrayList<wn> arrayList, int i) {
-        ThreadRecommendInfoData threadRecommendInfoData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65539, null, threadData, arrayList, i) == null) && threadData != null && arrayList != null && (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0)) != null && !TextUtils.isEmpty(threadRecommendInfoData.recommendReason)) {
-            o45 o45Var = new o45();
-            o45Var.s = true;
-            o45Var.t = threadData;
-            o45Var.position = i;
-            o45Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
-            arrayList.add(o45Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.dismiss();
         }
     }
 
-    public static void e(ThreadData threadData) {
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) == null) {
-            String lengthLimitName = threadData.getLengthLimitName();
-            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
-            if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
-                lengthLimitName = lengthLimitName + "   " + formatTimeForHomeC;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.a();
+            } else {
+                super.dismiss();
             }
-            threadData.setThreadExtendInfo(lengthLimitName);
+        }
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void showAsDropDown(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                Rect rect = new Rect();
+                view2.getGlobalVisibleRect(rect);
+                setHeight(ViewCommonUtil.getScreenFullSize(this.a.getPageActivity())[1] - rect.bottom);
+            }
+            GreyUtil.grey(this);
+            super.showAsDropDown(view2);
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void showAsDropDown(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048580, this, view2, i, i2) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                Rect rect = new Rect();
+                view2.getGlobalVisibleRect(rect);
+                setHeight(ViewCommonUtil.getScreenFullSize(this.a.getPageActivity())[1] - rect.bottom);
+            }
+            GreyUtil.grey(this);
+            super.showAsDropDown(view2, i, i2);
         }
     }
 }

@@ -1,54 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface w71 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "browserDownload");
-    public static final w71 b = new a();
+public class w71 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    @NonNull
+    public List<a> c;
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void a(String str);
-    }
-
-    void a(Object obj, b bVar);
-
-    void b(Context context, RelativeLayout relativeLayout, String str);
-
-    void release();
-
-    /* loaded from: classes8.dex */
-    public static class a implements w71 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.w71
-        public void a(Object obj, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.w71
-        public void b(Context context, RelativeLayout relativeLayout, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, relativeLayout, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.w71
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
+        @Nullable
+        public int[] a;
+        public String b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,5 +43,88 @@ public interface w71 {
                 }
             }
         }
+
+        @Nullable
+        public static a a(@Nullable JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a = b(jSONObject.optString("range"));
+                aVar.b = jSONObject.optString("color");
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        @Nullable
+        public static int[] b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                String[] split = str.split("_");
+                if (split.length != 2) {
+                    return null;
+                }
+                try {
+                    int parseInt = Integer.parseInt(split[0]);
+                    int parseInt2 = Integer.parseInt(split[1]);
+                    if (parseInt < 0 || parseInt >= parseInt2) {
+                        return null;
+                    }
+                    return new int[]{parseInt, parseInt2};
+                } catch (NumberFormatException unused) {
+                    return null;
+                }
+            }
+            return (int[]) invokeL.objValue;
+        }
+    }
+
+    public w71() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new ArrayList();
+    }
+
+    @Nullable
+    public static w71 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            w71 w71Var = new w71();
+            try {
+                w71Var.a = jSONObject.optString("text");
+                w71Var.b = jSONObject.optString("color");
+                JSONArray optJSONArray = jSONObject.optJSONArray("highlight");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        b31.b(w71Var.c, a.a(optJSONArray.getJSONObject(i)));
+                    }
+                }
+            } catch (JSONException unused) {
+            }
+            return w71Var;
+        }
+        return (w71) invokeL.objValue;
     }
 }

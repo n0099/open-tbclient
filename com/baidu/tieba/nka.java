@@ -1,169 +1,224 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.switchs.RepostToDynamicDefaultSwitch;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class nka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<String> a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public boolean h;
+    public boolean i;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
+    public nka() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, editorTools, zh5Var) == null) {
-            editorTools.d(new mi5(tbPageContext.getPageActivity(), 7));
-            editorTools.setActionListener(16, zh5Var);
-        }
-    }
-
-    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, tbPageContext, editorTools, zh5Var) == null) {
-            editorTools.d(new bi5(tbPageContext.getPageActivity(), 10));
-            editorTools.setActionListener(59, zh5Var);
-        }
-    }
-
-    public static void e(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, editorTools, zh5Var) == null) {
-            editorTools.d(new si5(tbPageContext.getPageActivity(), 12));
-            editorTools.setActionListener(69, zh5Var);
-        }
-    }
-
-    public static void f(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, tbPageContext, editorTools, zh5Var) == null) {
-            editorTools.d(new xi5(tbPageContext.getPageActivity(), 11));
-            editorTools.setActionListener(61, zh5Var);
-        }
-    }
-
-    public static yi5 g(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, tbPageContext, editorTools, zh5Var)) == null) {
-            yi5 yi5Var = new yi5(tbPageContext.getPageActivity(), 4);
-            editorTools.d(yi5Var);
-            editorTools.setActionListener(21, zh5Var);
-            return yi5Var;
-        }
-        return (yi5) invokeLLL.objValue;
-    }
-
-    public static void j(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, editorTools, zh5Var) == null) {
-            editorTools.d(new mk5(tbPageContext.getPageActivity(), 2));
-            editorTools.setActionListener(60, zh5Var);
-        }
-    }
-
-    public static void l(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, tbPageContext, editorTools, zh5Var) == null) {
-            editorTools.d(new ok5(tbPageContext.getPageActivity(), 8));
-            editorTools.setActionListener(22, zh5Var);
-        }
-    }
-
-    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
-        CustomResponsedMessage runTask;
-        ki5 ki5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, editorTools, zh5Var) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, tbPageContext.getPageActivity()), ki5.class)) != null && (ki5Var = (ki5) runTask.getData()) != null) {
-            ki5Var.o = true;
-            ki5Var.l = 9;
-            editorTools.d(ki5Var);
-            editorTools.setActionListener(25, zh5Var);
-        }
-    }
-
-    public static void d(@NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, editorTools, zh5Var) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            editorTools.h(arrayList);
-            ki5 p = editorTools.p(5);
-            if (p != null) {
-                p.l = 5;
-                p.d(true);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            editorTools.setActionListener(24, zh5Var);
-            editorTools.setActionListener(3, zh5Var);
         }
+        this.g = -1;
+        this.h = false;
+        this.i = false;
     }
 
-    public static void i(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
-        CustomResponsedMessage runTask;
-        ki5 ki5Var;
+    public ArrayList<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, editorTools) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, tbPageContext.getPageActivity()), ki5.class)) != null && (ki5Var = (ki5) runTask.getData()) != null) {
-            ki5Var.o = true;
-            ki5Var.l = 10;
-            editorTools.d(ki5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public static void h(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, tbPageContext, editorTools, zh5Var) == null) {
-            editorTools.d(new vi5(tbPageContext.getPageActivity(), 1));
-            editorTools.setActionListener(14, zh5Var);
-            editorTools.setActionListener(12, zh5Var);
-            editorTools.setActionListener(13, zh5Var);
-            editorTools.setActionListener(15, zh5Var);
-            editorTools.setActionListener(48, zh5Var);
-            editorTools.setActionListener(46, zh5Var);
-            editorTools.setActionListener(49, zh5Var);
-            editorTools.setActionListener(47, zh5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
+        return invokeV.intValue;
     }
 
-    public static void k(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zh5 zh5Var) {
-        ki5 ki5Var;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65546, null, tbPageContext, editorTools, zh5Var) == null) && v1a.a()) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, tbPageContext.getPageActivity()), ki5.class);
-            if (runTask != null && (ki5Var = (ki5) runTask.getData()) != null) {
-                ki5Var.l = 3;
-                editorTools.d(ki5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int i = this.c;
+            if (i != 0) {
+                this.e = SkinManager.getColor(i);
             }
-            editorTools.setActionListener(10, zh5Var);
-            editorTools.setActionListener(11, zh5Var);
+            int i2 = this.d;
+            if (i2 != 0) {
+                this.f = SkinManager.getColor(i2);
+            }
         }
     }
 
-    public static sga m(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, String str, @NonNull zh5 zh5Var) {
-        InterceptResult invokeLLLL;
+    public SpannableStringBuilder f(Editable editable) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, tbPageContext, editorTools, str, zh5Var)) == null) {
-            sga sgaVar = new sga(tbPageContext.getPageActivity(), str);
-            boolean z = false;
-            sgaVar.k(0);
-            if (SwitchManager.getInstance().findType(RepostToDynamicDefaultSwitch.KEY) == 1) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, editable)) == null) {
+            if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.a)) {
+                return null;
+            }
+            String obj = editable.toString();
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
+            if (this.g >= 0) {
                 z = true;
+            } else {
+                z = false;
             }
-            sgaVar.l(z);
-            editorTools.d(sgaVar);
-            editorTools.setActionListener(43, zh5Var);
-            editorTools.setActionListener(55, zh5Var);
-            editorTools.setActionListener(66, zh5Var);
-            editorTools.setActionListener(77, zh5Var);
-            return sgaVar;
+            this.g = -1;
+            Iterator<String> it = this.a.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!StringUtils.isNull(next)) {
+                    m(spannableStringBuilder, obj, next);
+                }
+            }
+            if (this.g < 0 && !z) {
+                return null;
+            }
+            ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
+            if (imageSpanArr != null) {
+                for (ImageSpan imageSpan : imageSpanArr) {
+                    if (imageSpan != null) {
+                        spannableStringBuilder.setSpan(imageSpan, editable.getSpanStart(imageSpan), editable.getSpanEnd(imageSpan), editable.getSpanFlags(imageSpan));
+                    }
+                }
+            }
+            return spannableStringBuilder;
         }
-        return (sga) invokeLLLL.objValue;
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
+            this.f = SkinManager.getColor(i);
+        }
+    }
+
+    public void i(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            this.a = arrayList;
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.c = i;
+            this.e = SkinManager.getColor(i);
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public final void m(SpannableStringBuilder spannableStringBuilder, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048588, this, spannableStringBuilder, str, str2) == null) && spannableStringBuilder != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            if (this.e != 0 || this.f != 0) {
+                int indexOf = str.indexOf(str2);
+                int length = str2.length();
+                if (indexOf >= 0) {
+                    int i = this.g;
+                    if (i == -1) {
+                        this.g = indexOf + length;
+                    } else {
+                        int i2 = indexOf + length;
+                        if (i2 < i) {
+                            this.g = i2;
+                        }
+                    }
+                }
+                while (indexOf >= 0) {
+                    if (this.e != 0) {
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(this.e), indexOf, indexOf + length, 33);
+                    }
+                    if (this.f != 0) {
+                        spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f), indexOf, indexOf + length, 33);
+                    }
+                    indexOf = str.indexOf(str2, indexOf + 1);
+                }
+            }
+        }
     }
 }

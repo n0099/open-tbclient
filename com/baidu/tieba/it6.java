@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.cache.CacheManager;
-import com.baidu.tieba.dv6;
+import com.baidu.tieba.danmu.data.ItemState;
+import com.baidu.tieba.danmu.data.state.DrawState;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,121 +12,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class it6 {
+public class it6 implements Comparable<it6> {
     public static /* synthetic */ Interceptable $ic;
-    public static final c h;
-    public static final b i;
+    public static final a i;
     public static final it6 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zu6 a;
-    public final gv6 b;
-    public final CacheManager c;
-    public xs6 d;
-    public final wt6 e;
-    public List<dt6> f;
-    public dv6 g;
+    public jt6 a;
+    public ItemState b;
+    public long c;
+    public lv6 d;
+    public final t6<wt6> e;
+    public final lt6 f;
+    public final DrawState g;
+    public int h;
 
     /* loaded from: classes6.dex */
-    public final class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ it6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(it6 it6Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {it6Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(looper, "looper");
-            this.a = it6Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message msg) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
-                Intrinsics.checkNotNullParameter(msg, "msg");
-                if (msg.what == -1) {
-                    BdLog.w("DanmakuEngine [Context] onCacheSign, updateRender");
-                    this.a.c().H();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b implements zu6 {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.zu6
-        public void b(dt6 item, Canvas canvas, dv6 displayer, xs6 config) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
-                Intrinsics.checkNotNullParameter(item, "item");
-                Intrinsics.checkNotNullParameter(canvas, "canvas");
-                Intrinsics.checkNotNullParameter(displayer, "displayer");
-                Intrinsics.checkNotNullParameter(config, "config");
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zu6
-        public lv6 a(dt6 item, dv6 displayer, xs6 config) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
-                Intrinsics.checkNotNullParameter(item, "item");
-                Intrinsics.checkNotNullParameter(displayer, "displayer");
-                Intrinsics.checkNotNullParameter(config, "config");
-                return new lv6(0, 0);
-            }
-            return (lv6) invokeLLL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ c(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
-        public c() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,122 +62,6 @@ public final class it6 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class d implements dv6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public final int c;
-        public final float d;
-        public final float e;
-        public final int f;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = 4;
-            this.e = 1.0f;
-            this.f = 200;
-        }
-
-        @Override // com.baidu.tieba.dv6
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.f;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.dv6
-        public float b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.e;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.baidu.tieba.dv6
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.dv6
-        public float d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return dv6.a.a(this);
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.baidu.tieba.dv6
-        public float e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.d;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.baidu.tieba.dv6
-        public int getHeight() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.dv6
-        public int getWidth() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.b;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.dv6
-        public void setHeight(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-                this.a = i;
-            }
-        }
-
-        @Override // com.baidu.tieba.dv6
-        public void setWidth(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-                this.b = i;
-            }
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -283,18 +75,18 @@ public final class it6 {
                 return;
             }
         }
-        h = new c(null);
-        b bVar = new b();
-        i = bVar;
-        j = new it6(bVar);
+        i = new a(null);
+        j = new it6(jt6.p.c(), null, 2, null);
     }
 
-    public it6(zu6 renderer) {
+    public it6(jt6 data, DanmakuPlayer danmakuPlayer) {
+        lv6 f;
+        ot6 m;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {renderer};
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, danmakuPlayer};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -304,87 +96,150 @@ public final class it6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(renderer, "renderer");
-        this.a = renderer;
-        this.b = new gv6();
-        Looper myLooper = Looper.myLooper();
-        Intrinsics.checkNotNull(myLooper);
-        this.c = new CacheManager(new a(this, myLooper), this.a);
-        this.d = new xs6(0, 0L, 0L, 0L, 0.0f, 0.0f, 0.0f, 0.0f, false, 0, false, false, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 4194303, null);
-        this.e = new wt6();
-        new ct6();
-        this.f = new ArrayList();
-        new ct6();
-        this.g = new d();
-        this.f.iterator();
-        new ArrayList();
-        new ArrayList();
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = ItemState.Uninitialized;
+        this.d = (danmakuPlayer == null || (m = danmakuPlayer.m()) == null || (f = m.w()) == null) ? nt6.h.a().f() : f;
+        this.e = new t6<>(0);
+        this.f = new lt6(this.d);
+        this.g = new DrawState();
+        this.h = -1;
     }
 
-    public final CacheManager b() {
-        InterceptResult invokeV;
+    public /* synthetic */ it6(jt6 jt6Var, DanmakuPlayer danmakuPlayer, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(jt6Var, (i2 & 2) != 0 ? null : danmakuPlayer);
+    }
+
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.t();
+            if (this.b.compareTo(ItemState.Measured) > 0) {
+                this.b = ItemState.Measured;
+            }
         }
-        return (CacheManager) invokeV.objValue;
     }
 
-    public final xs6 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (xs6) invokeV.objValue;
-    }
-
-    public final dv6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return (dv6) invokeV.objValue;
-    }
-
-    public final wt6 e() {
+    public final t6<wt6> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (wt6) invokeV.objValue;
+        return (t6) invokeV.objValue;
     }
 
-    public final gv6 f() {
+    public final jt6 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (jt6) invokeV.objValue;
+    }
+
+    public final DrawState f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (DrawState) invokeV.objValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public final ItemState i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
-        return (gv6) invokeV.objValue;
+        return (ItemState) invokeV.objValue;
     }
 
-    public final void g(dv6 dv6Var) {
+    public final long j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dv6Var) == null) {
-            Intrinsics.checkNotNullParameter(dv6Var, "<set-?>");
-            this.g = dv6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a.k() + this.f.a();
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f.b();
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: c */
+    public int compareTo(it6 other) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, other)) == null) {
+            Intrinsics.checkNotNullParameter(other, "other");
+            return this.a.compareTo(other.a);
+        }
+        return invokeL.intValue;
+    }
+
+    public final void l(jt6 jt6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, jt6Var) == null) {
+            Intrinsics.checkNotNullParameter(jt6Var, "<set-?>");
+            this.a = jt6Var;
         }
     }
 
-    public final void h(xs6 config) {
+    public final void n(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, config) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.d = config;
-            if (this.e.b().size() != config.i().size()) {
-                this.e.d(CollectionsKt___CollectionsKt.toList(config.i()));
-            }
-            if (this.e.c().size() != config.n().size()) {
-                this.e.e(CollectionsKt___CollectionsKt.toList(config.n()));
-            }
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            this.c = j2;
+        }
+    }
+
+    public final void o(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.h = i2;
+        }
+    }
+
+    public final void p(ItemState itemState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, itemState) == null) {
+            Intrinsics.checkNotNullParameter(itemState, "<set-?>");
+            this.b = itemState;
+        }
+    }
+
+    public final void q(lv6 lv6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, lv6Var) == null) {
+            Intrinsics.checkNotNullParameter(lv6Var, "<set-?>");
+            this.d = lv6Var;
         }
     }
 }

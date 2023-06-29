@@ -2,7 +2,7 @@ package com.kwad.components.core.widget;
 
 import android.graphics.Color;
 import androidx.annotation.ColorInt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f {
     @ColorInt
     public static final int PD = Color.parseColor("#FFFE3666");

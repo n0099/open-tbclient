@@ -1,201 +1,131 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Environment;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.zra;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubs.analytics.b;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class gsa extends lsa {
+import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
+import org.chromium.base.NativeLibraryLoadedStatus;
+import org.chromium.base.annotations.CheckDiscard;
+import org.chromium.base.natives.GEN_JNI;
+@CheckDiscard("crbug.com/993421")
+/* loaded from: classes6.dex */
+public final class gsa implements CronetUrlRequestContext.f {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static CronetUrlRequestContext.f a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947805876, "Lcom/baidu/tieba/gsa;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947805876, "Lcom/baidu/tieba/gsa;");
+        }
+    }
 
     public gsa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(pra praVar, tra traVar, rra rraVar, jra jraVar, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
-        int i;
-        int i2;
+    public static CronetUrlRequestContext.f h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{praVar, traVar, rraVar, jraVar, list, list2, list3}) == null) {
-            int i3 = 0;
-            if (list2.size() != 0) {
-                i = list2.get(list2.size() - 1).getId();
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (GEN_JNI.TESTING_ENABLED) {
+                CronetUrlRequestContext.f fVar = a;
+                if (fVar != null) {
+                    return fVar;
+                }
+                if (GEN_JNI.REQUIRE_MOCK) {
+                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetUrlRequestContext.Natives. The current configuration requires all native implementations to have a mock instance.");
+                }
             }
-            praVar.b(i);
-            traVar.a(isa.e().I());
-            if (list.size() != 0) {
-                i2 = list.get(list.size() - 1).getId();
-            } else {
-                i2 = 0;
-            }
-            rraVar.b(i2);
-            if (list3.size() != 0) {
-                i3 = list3.get(list3.size() - 1).getId();
-            }
-            jraVar.b(i3);
+            NativeLibraryLoadedStatus.checkLoaded(false);
+            return new gsa();
+        }
+        return (CronetUrlRequestContext.f) invokeV.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public long a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_createRequestContextAdapter(j);
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public int g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_setMinLogLevel(i);
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public void b(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_applyBaiduConfigDictionary(j, str);
         }
     }
 
-    @Override // com.baidu.tieba.lsa
-    public final void a() {
-        zra zraVar;
-        String str;
-        String str2;
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public void d(long j, CronetUrlRequestContext cronetUrlRequestContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zraVar = zra.a.a;
-            if (zraVar.a().size() == 0) {
-                jsa.b(" 线程轮询  app 应该是退出了");
-            }
-            if (a == null && Environment.getExternalStorageState().equals("mounted")) {
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(Environment.getExternalStorageDirectory().getPath());
-                stringBuffer.append("/baidu/ab/");
-                stringBuffer.append(esa.l(ira.h().getContext()));
-                stringBuffer.append("/");
-                a = stringBuffer.toString();
-            }
-            pra praVar = new pra();
-            tra traVar = new tra();
-            rra rraVar = new rra();
-            jra jraVar = new jra();
-            List<com.baidu.ubs.analytics.a.i> a2 = praVar.a();
-            List<com.baidu.ubs.analytics.a.n> d = traVar.d();
-            List<com.baidu.ubs.analytics.a.l> a3 = rraVar.a();
-            List<com.baidu.ubs.analytics.a.a> a4 = jraVar.a();
-            jsa.b("这次查询结果       session ：    " + d.size() + "      点击事件   " + a4.size() + "    网络请求：  " + a2.size() + "    页面记录     " + a3.size());
-            if (a2.size() == 0 && a3.size() == 0 && a4.size() == 0) {
-                jsa.b("这次记录 json 为空的，就不传了  ………………");
-                if (d.size() > 1) {
-                    for (int i = 0; i < d.size(); i++) {
-                        if (d.get(i).O() == null) {
-                            traVar.c(d.get(i).I());
-                        }
-                    }
-                    return;
-                }
-                return;
-            }
-            JSONArray jSONArray = new JSONArray();
-            String j = ira.h().j();
-            if (ira.h().k() != null) {
-                for (Map.Entry<String, com.baidu.ubs.analytics.a.g> entry : ira.h().k().entrySet()) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("exp_id", entry.getKey());
-                        jSONObject.put("sid", entry.getValue().L());
-                        jSONArray.put(jSONObject);
-                    } catch (JSONException e) {
-                        rsa.d(e);
-                    }
-                }
-            }
-            com.baidu.ubs.analytics.b bVar = new com.baidu.ubs.analytics.b();
-            b.a aVar = new b.a();
-            aVar.r(esa.l(ira.h().getContext()));
-            aVar.b(j);
-            aVar.q(jSONArray.toString());
-            aVar.g(Build.VERSION.RELEASE);
-            aVar.d(esa.g(ira.h().getContext()));
-            aVar.f(Build.MODEL);
-            aVar.e(Build.BRAND);
-            aVar.f(Build.MODEL);
-            aVar.h(esa.h(ira.h().getContext()));
-            aVar.i(com.baidu.ubs.analytics.d.a.c());
-            if (bsa.d()) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            aVar.j(str);
-            aVar.k(esa.i(ira.h().getContext()));
-            aVar.m(esa.j(ira.h().getContext()));
-            aVar.n(esa.m());
-            aVar.o(esa.n());
-            aVar.p(esa.a());
-            int f = esa.f(ira.h().getContext());
-            if (f == 1) {
-                str2 = "WIFI";
-            } else if (f == 2) {
-                str2 = "2G";
-            } else if (f == 3) {
-                str2 = "3G";
-            } else if (f == 4) {
-                str2 = "4G";
-            } else if (f == 5) {
-                str2 = "unKnow";
-            } else {
-                str2 = "noNet";
-            }
-            aVar.l(str2);
-            ira.h();
-            aVar.setPhone("");
-            bVar.a(aVar);
-            bVar.c(a4);
-            bVar.e(a2);
-            bVar.b(d);
-            bVar.d(a3);
-            String a5 = psa.a(bVar);
-            String e2 = osa.e(a, "ABJson.log");
-            if (!e2.equals("")) {
-                StringBuffer stringBuffer2 = new StringBuffer();
-                stringBuffer2.append(PreferencesUtil.LEFT_MOUNT);
-                stringBuffer2.append(e2);
-                stringBuffer2.append(a5);
-                stringBuffer2.append(PreferencesUtil.RIGHT_MOUNT);
-                if (ura.a(ira.h().getContext(), stringBuffer2.toString())) {
-                    jsa.b("上传成功，删除本地文件的       ");
-                    osa.b(a + "ABJson.log");
-                    b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
-                    return;
-                }
-                StringBuffer stringBuffer3 = new StringBuffer();
-                stringBuffer3.append(PreferencesUtil.LEFT_MOUNT);
-                stringBuffer3.append(a5);
-                stringBuffer3.append(PreferencesUtil.RIGHT_MOUNT);
-                if (ura.a(ira.h().getContext(), stringBuffer3.toString())) {
-                    b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
-                    return;
-                } else if (osa.d(a5, a, "ABJson.log")) {
-                    b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            StringBuffer stringBuffer4 = new StringBuffer();
-            stringBuffer4.append(PreferencesUtil.LEFT_MOUNT);
-            stringBuffer4.append(a5);
-            stringBuffer4.append(PreferencesUtil.RIGHT_MOUNT);
-            if (ura.a(ira.h().getContext(), stringBuffer4.toString())) {
-                b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
-            } else if (osa.d(a5, a, "ABJson.log")) {
-                b(praVar, traVar, rraVar, jraVar, a3, a2, a4);
-            }
+        if (interceptable == null || interceptable.invokeJL(1048579, this, j, cronetUrlRequestContext) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_initRequestContextOnInitThread(j, cronetUrlRequestContext);
         }
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public void f(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(1048581, this, j, str) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_applyBaiduConfiguration(j, str);
+        }
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public void c(long j, CronetUrlRequestContext cronetUrlRequestContext, String str, String str2, int i, int i2, long j2, long j3, long j4, long j5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), cronetUrlRequestContext, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_uploadNativeRequestLog(j, cronetUrlRequestContext, str, str2, i, i2, j2, j3, j4, j5);
+        }
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public long e(String str, String str2, boolean z, String str3, boolean z2, boolean z3, boolean z4, int i, long j, String str4, long j2, boolean z5, boolean z6, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Boolean.valueOf(z), str3, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), Long.valueOf(j), str4, Long.valueOf(j2), Boolean.valueOf(z5), Boolean.valueOf(z6), Integer.valueOf(i2)})) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_createRequestContextConfig(str, str2, z, str3, z2, z3, z4, i, j, str4, j2, z5, z6, i2);
+        }
+        return invokeCommon.longValue;
     }
 }

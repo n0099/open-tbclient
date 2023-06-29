@@ -1,311 +1,190 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Handler;
-import android.os.Looper;
-import android.telephony.TelephonyManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.URLUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.huawei.secure.android.common.util.LogsUtil;
+import java.net.MalformedURLException;
+import java.net.URL;
 /* loaded from: classes7.dex */
 public class rib {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String f = "rib";
-    public static ConnectivityManager g;
-    public static NetworkInfo h;
-    public static final Handler i;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ExecutorService b;
-    public uib c;
-    public AtomicBoolean d;
-    public BroadcastReceiver e;
 
-    /* loaded from: classes7.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rib this$0;
-
-        public a(rib ribVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ribVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = ribVar;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                TLog.h("[tinyvideo]", "[netrecv] NetworkStateService onReceive pid " + Thread.currentThread().getId());
-                if (intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION)) {
-                    TLog.h("[tinyvideo]", "[netrecv]  current network connectivity action begin");
-                    this.this$0.j();
-                    TLog.h("[tinyvideo]", "[netrecv] current network connectivity action end");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rib a;
-
-        public b(rib ribVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ribVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ribVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            synchronized (this.a.d) {
-                if (!this.a.d.get()) {
-                    return;
-                }
-                rib.g(this.a.a, this.a.c);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rib a;
-
-        public c(rib ribVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ribVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ribVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b.shutdownNow();
-                this.a.b = null;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948123998, "Lcom/baidu/tieba/rib;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948123998, "Lcom/baidu/tieba/rib;");
-                return;
-            }
-        }
-        i = new Handler(Looper.getMainLooper());
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TLog.h("[tinyvideo]", "[netrecv]  updateNetInfo");
-            ExecutorService executorService = this.b;
-            if (executorService != null) {
-                executorService.submit(new b(this));
-            }
-        }
-    }
-
-    public rib(Context context, uib uibVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, uibVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.c = null;
-        this.d = new AtomicBoolean(false);
-        this.e = new a(this);
-        this.a = context;
-        this.c = uibVar;
-    }
-
-    public static void g(Context context, uib uibVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, uibVar) == null) {
-            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo");
-            if (context == null) {
-                return;
-            }
-            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo begin");
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            g = connectivityManager;
-            h = connectivityManager.getActiveNetworkInfo();
-            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo end");
-            NetworkInfo networkInfo = h;
-            if (networkInfo != null && networkInfo.isAvailable()) {
-                int type = h.getType();
-                if (type == 0) {
-                    byte h2 = h(context);
-                    uibVar.e(h2);
-                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName() + ", mobileNetType:" + ((int) h2));
-                    return;
-                } else if (type == 1) {
-                    uibVar.e(0);
-                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName());
-                    return;
-                } else {
-                    String str = f;
-                    TLog.h(str, "[netrecv] current network: " + h.getTypeName());
-                    return;
-                }
-            }
-            TLog.h("[tinyvideo]", "[netrecv] current network No usable network!!");
-            uibVar.e(2);
-        }
-    }
-
-    public static byte h(Context context) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                LogsUtil.f("UriUtil", "whiteListUrl is null");
+                return null;
+            } else if (!URLUtil.isNetworkUrl(str)) {
+                return str;
+            } else {
+                return b(str);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @TargetApi(9)
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                LogsUtil.f("UriUtil", "url is null");
+                return str;
+            }
             try {
-                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                    case 1:
-                    case 2:
-                        return (byte) 3;
-                    case 3:
-                        return (byte) 4;
-                    case 4:
-                        return (byte) 3;
-                    case 5:
-                    case 6:
-                        return (byte) 4;
-                    case 7:
-                        return (byte) 3;
-                    case 8:
-                    case 9:
-                    case 10:
-                        return (byte) 4;
-                    case 11:
-                        return (byte) 3;
-                    case 12:
-                        return (byte) 4;
-                    case 13:
-                        return (byte) 5;
-                    case 14:
-                    case 15:
-                        return (byte) 4;
-                    default:
-                        return (byte) 1;
+                if (!URLUtil.isNetworkUrl(str)) {
+                    LogsUtil.d("UriUtil", "url don't starts with http or https");
+                    return "";
                 }
-            } catch (SecurityException e) {
-                e.printStackTrace();
-                return (byte) 1;
+                return new URL(str.replaceAll("[\\\\#]", "/")).getHost();
+            } catch (MalformedURLException e) {
+                LogsUtil.d("UriUtil", "getHostByURI error  MalformedURLException : " + e.getMessage());
+                return "";
             }
         }
-        return invokeL.byteValue;
+        return (String) invokeL.objValue;
     }
 
-    public void f() {
+    public static boolean c(String str, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TLog.h("[tinyvideo]", "[netrecv] NetStatManager deInit ");
-            if (this.a != null) {
-                synchronized (this.d) {
-                    if (this.d.get()) {
-                        this.d.set(false);
-                        this.a.unregisterReceiver(this.e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (d(str, str2)) {
+                        return true;
                     }
                 }
-                i.post(new c(this));
+                return false;
             }
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void i() {
+    public static boolean e(String str, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup");
-            if (this.a != null) {
-                synchronized (this.d) {
-                    if (!this.d.get()) {
-                        IntentFilter intentFilter = new IntentFilter();
-                        intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
-                        this.a.registerReceiver(this.e, intentFilter);
-                        this.b = Executors.newSingleThreadExecutor();
-                        this.d.set(true);
-                        TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup done");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (f(str, str2)) {
+                        return true;
                     }
                 }
+                return false;
             }
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return TextUtils.equals(b(str), a(str2));
+            }
+            Log.e("UriUtil", "isUrlHostSameWhitelist: url or host is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean h(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (g(str, str2)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (!str.contains(IStringUtil.TOP_PATH) && !str.contains("@")) {
+                    if (!str2.equals(str)) {
+                        if (!str.startsWith(str2 + "?")) {
+                            if (!str.startsWith(str2 + "#")) {
+                                if (!str2.endsWith("/")) {
+                                    return false;
+                                }
+                                if (Uri.parse(str).getPathSegments().size() - Uri.parse(str2).getPathSegments().size() != 1) {
+                                    return false;
+                                }
+                                return str.startsWith(str2);
+                            }
+                        }
+                    }
+                    return true;
+                }
+                Log.e("UriUtil", "url contains unsafe char");
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            String b = b(str);
+            if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(str2)) {
+                String a = a(str2);
+                if (TextUtils.isEmpty(a)) {
+                    Log.e("UriUtil", "whitelist host is null");
+                    return false;
+                } else if (a.equals(b)) {
+                    return true;
+                } else {
+                    if (b.endsWith(a)) {
+                        try {
+                            String substring = b.substring(0, b.length() - a.length());
+                            if (!substring.endsWith(".")) {
+                                return false;
+                            }
+                            return substring.matches("^[A-Za-z0-9.-]+$");
+                        } catch (IndexOutOfBoundsException e) {
+                            LogsUtil.d("UriUtil", "IndexOutOfBoundsException" + e.getMessage());
+                        } catch (Exception e2) {
+                            LogsUtil.d("UriUtil", "Exception : " + e2.getMessage());
+                            return false;
+                        }
+                    }
+                    return false;
+                }
+            }
+            LogsUtil.d("UriUtil", "url or whitelist is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

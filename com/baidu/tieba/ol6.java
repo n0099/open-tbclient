@@ -1,49 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.ContextWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public final class ol6 {
+public class ol6 {
     public static /* synthetic */ Interceptable $ic;
-    public static Application a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Set<ql6> a;
+    public Set<String> b;
+    public String c;
+    public String d;
+    public String e;
+    public Set<String> f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
-    public static Activity a(Context context) {
-        InterceptResult invokeL;
+    public ol6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context instanceof Activity) {
-                return (Activity) context;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            while (context instanceof ContextWrapper) {
-                if (context instanceof Activity) {
-                    return (Activity) context;
-                }
-                context = ((ContextWrapper) context).getBaseContext();
-            }
-            return null;
         }
-        return (Activity) invokeL.objValue;
-    }
-
-    public static void b(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
-            a = application;
-        }
-    }
-
-    public static Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (Context) invokeV.objValue;
     }
 }

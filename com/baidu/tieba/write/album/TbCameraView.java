@@ -11,8 +11,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ps6;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.us6;
+import com.baidu.tieba.yg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +133,7 @@ public class TbCameraView extends TextureView {
                     tbCameraView.p = z;
                 }
                 if (this.a.p) {
-                    ps6.a(this.a.s, "mTextureAvailable", 1);
+                    us6.a(this.a.s, "mTextureAvailable", 1);
                 }
             }
         }
@@ -443,7 +443,7 @@ public class TbCameraView extends TextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            xg.a().removeCallbacks(this.t);
+            yg.a().removeCallbacks(this.t);
         }
     }
 

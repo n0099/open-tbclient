@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class af8 {
+public class af8 implements ve8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public long c;
-    public String d;
+    public RelativeLayout a;
+    public TextView b;
+    public ImageView c;
+    public RecyclerView d;
+    public af8 e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public af8() {
-        this(0L, null, 0L, null, 15, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,150 +30,79 @@ public final class af8 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Long) objArr[0]).longValue(), (String) objArr[1], ((Long) objArr[2]).longValue(), (String) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof af8) {
-                af8 af8Var = (af8) obj;
-                return this.a == af8Var.a && Intrinsics.areEqual(this.b, af8Var.b) && this.c == af8Var.c && Intrinsics.areEqual(this.d, af8Var.d);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (((((a.a(this.a) * 31) + this.b.hashCode()) * 31) + a.a(this.c)) * 31) + this.d.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "AbilityPayload(roomId=" + this.a + ", forumName=" + this.b + ", forumId=" + this.c + ", roomName=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public af8(long j, String forumName, long j2, String roomName) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), forumName, Long.valueOf(j2), roomName};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(forumName, "forumName");
-        Intrinsics.checkNotNullParameter(roomName, "roomName");
-        this.a = j;
-        this.b = forumName;
-        this.c = j2;
-        this.d = roomName;
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ af8(long j, String str, long j2, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r2, r12, r0, r11);
-        long j3;
-        String str3;
-        String str4;
-        if ((i & 1) != 0) {
-            j3 = 0;
-        } else {
-            j3 = j;
-        }
-        if ((i & 2) != 0) {
-            str3 = "";
-        } else {
-            str3 = str;
-        }
-        long j4 = (i & 4) == 0 ? j2 : 0L;
-        if ((i & 8) != 0) {
-            str4 = "";
-        } else {
-            str4 = str2;
-        }
-    }
-
-    public final long a() {
+    @Override // com.baidu.tieba.ve8
+    public RelativeLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.e.a;
         }
-        return invokeV.longValue;
+        return (RelativeLayout) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
+    @Override // com.baidu.tieba.ve8
+    public RecyclerView c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.e.d;
         }
-        return (String) invokeV.objValue;
+        return (RecyclerView) invokeV.objValue;
     }
 
-    public final void d(long j) {
+    @Override // com.baidu.tieba.ve8
+    public ImageView d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.c = j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e.c;
         }
+        return (ImageView) invokeV.objValue;
     }
 
-    public final void e(String str) {
+    @Override // com.baidu.tieba.ve8
+    public TextView e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.b = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e.b;
         }
+        return (TextView) invokeV.objValue;
     }
 
-    public final void f(long j) {
+    public static af8 f(@NonNull View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.a = j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            af8 af8Var = new af8();
+            af8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917b3);
+            af8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917b2);
+            af8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917b9);
+            af8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0917be);
+            af8Var.e = af8Var;
+            return af8Var;
         }
+        return (af8) invokeL.objValue;
     }
 
-    public final void g(String str) {
+    @Override // com.baidu.tieba.ve8
+    public void b(int i, @NonNull jf8 jf8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.d = str;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, jf8Var) == null) {
+            if (!jf8Var.e()) {
+                s75 d = s75.d(this.e.b);
+                d.C(R.dimen.T_X12);
+                d.D(R.string.F_X01);
+                d.x(R.color.CAM_X0107);
+            }
+            s75.d(this.e.d).f(R.color.CAM_X0201);
+            s75.d(this.e.a).f(R.color.CAM_X0201);
         }
     }
 }

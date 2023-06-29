@@ -1,111 +1,226 @@
 package com.baidu.tieba;
 
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.prologue.business.data.ParseError;
 import com.baidu.prologue.business.data.SplashStyleRecorder;
-import com.baidu.tieba.xl1;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.facebook.common.util.UriUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class lk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static xl1 a(@NonNull pk1 pk1Var) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        int b;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pk1Var)) == null) {
-            xl1.b bVar = new xl1.b(pk1Var.j(), pk1Var.g);
-            bVar.u("rsplash");
-            boolean z3 = false;
-            if (pk1Var.f == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 != null && optJSONObject2.has(SpeedStatsUtils.UBC_VALUE_SPLASH) && (optJSONObject = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) != null && optJSONObject.has("src_ext_info")) {
+                    return new JSONObject(optJSONObject.optString("src_ext_info")).has("query_ret_code");
+                }
+                return false;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
             }
-            bVar.i(z);
-            bVar.f(b());
-            bVar.n(c());
-            if (pk1Var.f == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            bVar.p(z2);
-            bVar.o(d(pk1Var.m));
-            bVar.D(pk1Var.n * 1000);
-            bVar.B(1);
-            bVar.G(SplashStyleRecorder.a());
-            bVar.g(5);
-            bVar.z(false);
-            bVar.c(pk1Var.l);
-            bVar.e(25);
-            bVar.d(13);
-            bVar.C(72);
-            bVar.A(30);
-            bVar.F(68);
-            bVar.E(30);
-            bVar.h(17);
-            bVar.r(pk1Var.z);
-            if (pk1Var.A == 1) {
-                z3 = true;
-            }
-            bVar.y(z3);
-            bVar.b(pk1Var.B);
-            bVar.q(pk1Var.f());
-            bVar.s("跳转详情页或第三方应用");
-            if (pk1Var.l()) {
-                b = 47;
-            } else {
-                b = b() + 39;
-            }
-            bVar.t(b);
-            bVar.k(pk1Var.H);
-            bVar.m(pk1Var.G);
-            bVar.l(pk1Var.e());
-            bVar.j(pk1Var.X);
-            bVar.x(pk1Var.i());
-            bVar.w(pk1Var.h());
-            bVar.v(pk1Var.g());
-            return bVar.a();
         }
-        return (xl1) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public static int b(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return bk1.a().b();
-        }
-        return invokeV.intValue;
-    }
-
-    @IdRes
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return bk1.a().c();
-        }
-        return invokeV.intValue;
-    }
-
-    @IdRes
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 1) {
-                return bk1.a().h();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 == null || !optJSONObject2.has(SpeedStatsUtils.UBC_VALUE_SPLASH) || (optJSONObject = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) == null) {
+                    return 0;
+                }
+                if (!TextUtils.isEmpty(optJSONObject.optString("ukey"))) {
+                    return 1;
+                }
+                if (optJSONObject.optInt("isCPC") == 1) {
+                    return 3;
+                }
+                if (optJSONObject.optInt("realTimeLoading") != 1) {
+                    return 0;
+                }
+                return 2;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return 0;
             }
-            return bk1.a().g();
         }
-        return invokeI.intValue;
+        return invokeL.intValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        JSONObject optJSONObject2;
+        sk1 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                JSONObject optJSONObject3 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject3 == null || !optJSONObject3.has(SpeedStatsUtils.UBC_VALUE_SPLASH) || (optJSONObject = optJSONObject3.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH)) == null) {
+                    return "";
+                }
+                if (!TextUtils.isEmpty(optJSONObject.optString("ukey"))) {
+                    sk1 p = qk1.p(optJSONObject.optString("ukey"));
+                    if (p == null) {
+                        return "";
+                    }
+                    return p.O;
+                } else if (optJSONObject.optInt("isCPC") == 1 || optJSONObject.optInt("realTimeLoading") != 1 || (optJSONArray = optJSONObject3.optJSONArray("ad")) == null || (optJSONObject2 = optJSONArray.optJSONObject(0)) == null || (d = sk1.d(optJSONObject2)) == null) {
+                    return "";
+                } else {
+                    return d.O;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static List<sk1> d(JSONArray jSONArray, String str, boolean z) throws ParseError {
+        InterceptResult invokeLLZ;
+        List<sk1> r;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, jSONArray, str, z)) == null) {
+            if (jSONArray == null || jSONArray.length() == 0 || (r = sk1.r(jSONArray)) == null || r.size() == 0) {
+                return null;
+            }
+            if (z) {
+                for (sk1 sk1Var : r) {
+                    sk1Var.y = true;
+                    if (rk1.s()) {
+                        qk1.j(sk1Var);
+                    }
+                }
+            } else {
+                HashMap<String, sk1> t = qk1.t();
+                if (t != null && t.size() != 0) {
+                    qk1.i(r);
+                    qk1.E(r);
+                } else {
+                    qk1.E(r);
+                }
+                qk1.B(r);
+            }
+            pk1.m().g();
+            return r;
+        }
+        return (List) invokeLLZ.objValue;
+    }
+
+    public static List<sk1> e(String str, String str2) throws ParseError {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    return f(new JSONObject(str), str2);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    throw new ParseError(1, "afd/entry retun invalid json");
+                }
+            }
+            throw new ParseError(1, "afd/entry retun null");
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static List<sk1> f(JSONObject jSONObject, String str) throws ParseError {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, jSONObject, str)) == null) {
+            List<sk1> arrayList = new ArrayList<>();
+            if (jSONObject != null) {
+                int i = 0;
+                if (jSONObject.optInt("errno", 0) > 0 || (optJSONObject = jSONObject.optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME)) == null) {
+                    return null;
+                }
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
+                JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
+                if (optJSONObject2 != null) {
+                    String optString = optJSONObject2.optString("cmd");
+                    SplashStyleRecorder.b(optJSONObject2.optJSONObject("style_desc"));
+                    rk1.L(optJSONObject2.optString("src_ext_info"));
+                    if (TextUtils.equals(StickerDataChangeType.UPDATE, optString)) {
+                        rk1.K(optJSONObject2.optString("src_ext_info"));
+                        arrayList = d(optJSONArray, str, false);
+                        String optString2 = optJSONObject2.optString("empty_ext_info");
+                        if (!TextUtils.isEmpty(optString2)) {
+                            o31.a().b("splash_sp_name").i("empty_ext_info", optString2, false);
+                        }
+                    } else if (TextUtils.equals("query", optString)) {
+                        int optInt = optJSONObject2.optInt("realTimeLoading");
+                        int optInt2 = optJSONObject2.optInt("isCPC");
+                        if (optInt != 1 && optInt2 != 1) {
+                            String optString3 = optJSONObject2.optString("ukey");
+                            if (TextUtils.isEmpty(optString3)) {
+                                BaseVM.h(32);
+                                return arrayList;
+                            }
+                            List<sk1> w = qk1.w();
+                            if (w == null) {
+                                return arrayList;
+                            }
+                            Iterator<sk1> it = w.iterator();
+                            while (true) {
+                                if (!it.hasNext()) {
+                                    break;
+                                }
+                                sk1 next = it.next();
+                                if (TextUtils.equals(next.c, optString3)) {
+                                    b31.b(arrayList, next);
+                                    break;
+                                }
+                            }
+                            if (arrayList.size() == 0) {
+                                BaseVM.h(64);
+                            }
+                        } else {
+                            List<sk1> d = d(optJSONArray, str, true);
+                            if (d == null || d.size() == 0) {
+                                BaseVM.h(128);
+                            }
+                            arrayList = d;
+                        }
+                        if (arrayList != null && arrayList.size() > 0 && arrayList.get(0) != null) {
+                            sk1 sk1Var = arrayList.get(0);
+                            if (optInt == 1) {
+                                i = 1;
+                            }
+                            sk1Var.D = i;
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeLL.objValue;
     }
 }

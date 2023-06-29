@@ -8,7 +8,7 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlinx.coroutines.channels.ReceiveChannel;
 @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
 @DebugMetadata(c = "kotlinx.coroutines.channels.ReceiveChannel$DefaultImpls", f = "Channel.kt", i = {}, l = {VideoInfoConstants.VIDEO_PREFERRED_CLARITY_RANK}, m = "receiveOrNull", n = {}, s = {})
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReceiveChannel$receiveOrNull$1<E> extends ContinuationImpl {
     public int label;
     public /* synthetic */ Object result;

@@ -1,340 +1,260 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tieba.td0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class qd0 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public Window c;
-    public View d;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(qd0 qd0Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qd0Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948087852, "Lcom/baidu/tieba/qd0;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View view2 = this.a;
-                view2.setPadding(view2.getPaddingLeft(), this.a.getPaddingTop() + qd0.b(this.a.getContext()), this.a.getPaddingRight(), this.a.getPaddingBottom());
-                this.a.getLayoutParams().height += qd0.b(this.a.getContext());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Window a;
-        public boolean b;
-        public View c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = false;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new qd0(this.a, this.b, true, this.c).d();
-            }
-            return invokeV.booleanValue;
-        }
-
-        /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
-            java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
-            */
-        public static /* synthetic */ com.baidu.tieba.qd0.b a(com.baidu.tieba.qd0.b r0, android.app.Activity r1) {
-            /*
-                r0.d(r1)
-                return r0
-            */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.qd0.b.a(com.baidu.tieba.qd0$b, android.app.Activity):com.baidu.tieba.qd0$b");
-        }
-
-        public b c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.b = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public final b d(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-                this.a = activity.getWindow();
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public qd0(Window window, boolean z, boolean z2, View view2) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {window, Boolean.valueOf(z), Boolean.valueOf(z2), view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948087852, "Lcom/baidu/tieba/qd0;");
+        }
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String a2 = nd0.a();
+            if (TextUtils.isEmpty(a2)) {
+                return false;
+            }
+            return a2.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(boolean z, Activity activity) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(65538, null, z, activity) == null) && activity != null && activity.getWindow() != null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                td0.b a2 = td0.a(activity);
+                a2.c(!z);
+                a2.b();
                 return;
             }
-        }
-        this.a = z;
-        this.b = z2;
-        this.c = window;
-        this.d = view2;
-    }
-
-    /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
-        jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.qd0.b.a(com.baidu.tieba.qd0$b, android.app.Activity):com.baidu.tieba.qd0$b
-        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
-        	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
-        Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
-        	... 1 more
-        */
-    public static com.baidu.tieba.qd0.b a(android.app.Activity r4) {
-        /*
-            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.qd0.$ic
-            if (r0 != 0) goto Ld
-        L4:
-            com.baidu.tieba.qd0$b r0 = new com.baidu.tieba.qd0$b
-            r0.<init>()
-            com.baidu.tieba.qd0.b.a(r0, r4)
-            return r0
-        Ld:
-            r1 = r0
-            r2 = 65537(0x10001, float:9.1837E-41)
-            r3 = 0
-            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeL(r2, r3, r4)
-            if (r0 == 0) goto L4
-            java.lang.Object r1 = r0.objValue
-            com.baidu.tieba.qd0$b r1 = (com.baidu.tieba.qd0.b) r1
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.qd0.a(android.app.Activity):com.baidu.tieba.qd0$b");
-    }
-
-    public void e(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && view2 != null && this.b && !c()) {
-            view2.post(new a(this, view2));
-        }
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        int identifier;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (c() || (identifier = context.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android")) <= 0) {
-                return 0;
+            View decorView = activity.getWindow().getDecorView();
+            if (decorView != null) {
+                int systemUiVisibility = decorView.getSystemUiVisibility();
+                if (z) {
+                    i = systemUiVisibility & (-8193);
+                } else {
+                    if (f()) {
+                        Window window = activity.getWindow();
+                        window.addFlags(Integer.MIN_VALUE);
+                        window.clearFlags(67108864);
+                    }
+                    i = systemUiVisibility | 8192;
+                }
+                decorView.setSystemUiVisibility(i);
             }
-            return context.getResources().getDimensionPixelSize(identifier);
+        }
+    }
+
+    public static void h(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65544, null, activity, z) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 19 && activity != null) {
+                if (i >= 23) {
+                    m(activity, z);
+                    td0.a(activity).b();
+                    a = true;
+                    return;
+                } else if (!td0.a(activity).b()) {
+                    a = false;
+                    return;
+                } else if (Build.VERSION.SDK_INT < 21) {
+                    i(activity);
+                    a = true;
+                    return;
+                } else {
+                    j(activity);
+                    c(activity, true);
+                    a = true;
+                    return;
+                }
+            }
+            a = false;
+        }
+    }
+
+    public static void c(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65539, null, activity, z) == null) && activity != null && Build.VERSION.SDK_INT >= 28) {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            if (z) {
+                attributes.layoutInDisplayCutoutMode = 1;
+            } else {
+                attributes.layoutInDisplayCutoutMode = 0;
+            }
+            window.setAttributes(attributes);
+        }
+    }
+
+    public static void m(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65549, null, activity, z) == null) {
+            k(activity, z, true);
+        }
+    }
+
+    public static float d(@Nullable Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            if (displayMetrics != null) {
+                return displayMetrics.density;
+            }
+            return 0.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static void g(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, activity) == null) {
+            h(activity, false);
+            b(true, activity);
+        }
+    }
+
+    public static void j(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
+            k(activity, false, false);
+        }
+    }
+
+    public static int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            int identifier = context.getResources().getIdentifier("status_bar_height", EMABTest.TYPE_DIMEN, "android");
+            int i = 0;
+            if (identifier > 0) {
+                try {
+                    i = context.getResources().getDimensionPixelSize(identifier);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (i == 0) {
+                return (int) (d(context) * 25.0f);
+            }
+            return i;
         }
         return invokeL.intValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public static void i(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Build.VERSION.SDK_INT < 19) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(65545, null, activity) != null) || activity == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (!j() && !h()) {
-                return false;
+        boolean z = false;
+        int i = -1;
+        try {
+            Field field = WindowManager.LayoutParams.class.getField("FLAG_TRANSLUCENT_STATUS");
+            if (field != null) {
+                i = field.getInt(null);
+                z = true;
             }
-            if (i == 19) {
-                g();
-            }
-            e(this.d);
-            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return invokeV.booleanValue;
-    }
-
-    @TargetApi(19)
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            WindowManager.LayoutParams attributes = this.c.getAttributes();
-            if (this.b) {
-                attributes.flags |= 67108864;
-            } else {
-                attributes.flags &= -67108865;
-            }
-            this.c.setAttributes(attributes);
+        if (z) {
+            activity.getWindow().setFlags(i, i);
         }
     }
 
-    public boolean j() {
-        InterceptResult invokeV;
+    public static void k(Activity activity, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!f(this.a) && !i(this.a)) {
-                return false;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeCommon(65547, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || activity == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        l(activity.getWindow(), z, z2);
     }
 
-    public final boolean f(boolean z) {
-        InterceptResult invokeZ;
+    public static void l(Window window, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            WindowManager.LayoutParams attributes = this.c.getAttributes();
-            try {
-                Class<?> cls = Class.forName("android.view.WindowManager$LayoutParams");
-                int i = cls.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON").getInt(attributes);
-                Field declaredField = cls.getDeclaredField("meizuFlags");
-                declaredField.setAccessible(true);
-                int i2 = declaredField.getInt(attributes);
-                if (z) {
-                    declaredField.set(attributes, Integer.valueOf(i2 | i));
+        if ((interceptable != null && interceptable.invokeCommon(65548, null, new Object[]{window, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || window == null) {
+            return;
+        }
+        try {
+            Field field = WindowManager.LayoutParams.class.getField("FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS");
+            Field field2 = WindowManager.LayoutParams.class.getField("FLAG_TRANSLUCENT_STATUS");
+            Field field3 = View.class.getField("SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN");
+            Field field4 = View.class.getField("SYSTEM_UI_FLAG_LAYOUT_STABLE");
+            Method method = window.getClass().getMethod("setStatusBarColor", Integer.TYPE);
+            Method method2 = View.class.getMethod("setSystemUiVisibility", Integer.TYPE);
+            if (field != null && field2 != null && field3 != null && field4 != null && method != null && method2 != null) {
+                int i = field.getInt(null);
+                int i2 = field2.getInt(null);
+                int i3 = field3.getInt(null);
+                int i4 = field4.getInt(null);
+                window.clearFlags(i2);
+                if (z2) {
+                    Field field5 = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR");
+                    if (field5 != null) {
+                        window.getDecorView().setSystemUiVisibility(field5.getInt(null) | i3);
+                    }
                 } else {
-                    declaredField.set(attributes, Integer.valueOf((~i) & i2));
+                    method2.invoke(window.getDecorView(), Integer.valueOf(i3 | i4));
                 }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public final boolean i(boolean z) {
-        InterceptResult invokeZ;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            Class<?> cls = this.c.getClass();
-            try {
-                Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
-                Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
-                Window window = this.c;
-                Object[] objArr = new Object[2];
+                window.addFlags(i);
+                method.invoke(window, 0);
                 if (z) {
-                    i = i2;
-                } else {
-                    i = 0;
+                    Field field6 = WindowManager.LayoutParams.class.getField("FLAG_FULLSCREEN");
+                    Method method3 = window.getClass().getMethod("setFlags", Integer.TYPE, Integer.TYPE);
+                    int i5 = field6.getInt(null);
+                    method3.invoke(window, Integer.valueOf(i5), Integer.valueOf(i5));
                 }
-                objArr[0] = Integer.valueOf(i);
-                objArr[1] = Integer.valueOf(i2);
-                method.invoke(window, objArr);
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return invokeZ.booleanValue;
-    }
-
-    @TargetApi(21)
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                return false;
-            }
-            int systemUiVisibility = this.c.getDecorView().getSystemUiVisibility();
-            if (this.a) {
-                systemUiVisibility |= -2147475456;
-            }
-            if (this.b) {
-                systemUiVisibility |= 1280;
-            }
-            this.c.getDecorView().setSystemUiVisibility(systemUiVisibility);
-            this.c.setStatusBarColor(0);
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

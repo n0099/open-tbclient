@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tieba.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,7 +120,7 @@ public final class ShareChatroomMsgData extends OrmObject {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (((((((((com.baidu.tieba.a.a(this.id) * 31) + this.name.hashCode()) * 31) + this.icon.hashCode()) * 31) + com.baidu.tieba.a.a(this.fid)) * 31) + this.forumName.hashCode()) * 31) + com.baidu.tieba.a.a(this.chatCount) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? (((((((((b.a(this.id) * 31) + this.name.hashCode()) * 31) + this.icon.hashCode()) * 31) + b.a(this.fid)) * 31) + this.forumName.hashCode()) * 31) + b.a(this.chatCount) : invokeV.intValue;
     }
 
     public String toString() {

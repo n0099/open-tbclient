@@ -13,7 +13,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JsonHelper {
     public static <T> List<T> jsonArrayToList(String str, Class<T> cls) {
         ArrayList arrayList = new ArrayList();

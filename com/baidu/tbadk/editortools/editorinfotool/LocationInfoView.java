@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ma5;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.pa5;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,21 +81,21 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
             setGravity(16);
-            ma5 ma5Var = new ma5();
-            ma5Var.r(R.color.CAM_X0209, R.color.CAM_X0105);
-            ma5Var.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            ma5Var.h(R.color.CAM_X0110);
-            ma5Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            ma5Var.n(wi.g(getContext(), R.dimen.M_W_X004), wi.g(getContext(), R.dimen.M_W_X004));
-            ma5Var.o(wi.g(getContext(), R.dimen.M_H_X002));
-            ma5Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            pa5 pa5Var = new pa5();
+            pa5Var.r(R.color.CAM_X0209, R.color.CAM_X0105);
+            pa5Var.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            pa5Var.h(R.color.CAM_X0110);
+            pa5Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            pa5Var.n(xi.g(getContext(), R.dimen.M_W_X004), xi.g(getContext(), R.dimen.M_W_X004));
+            pa5Var.o(xi.g(getContext(), R.dimen.M_H_X002));
+            pa5Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
             this.a = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(ma5Var);
+            tBSpecificationBtn.setConfig(pa5Var);
             this.a.setTextSize(R.dimen.T_X09);
             this.a.setOnClickListener(this);
             this.a.setText(getContext().getString(R.string.editor_location));
-            addView(this.a, new LinearLayout.LayoutParams(-2, wi.g(getContext(), R.dimen.tbds62)));
+            addView(this.a, new LinearLayout.LayoutParams(-2, xi.g(getContext(), R.dimen.tbds62)));
             b(TbadkCoreApplication.getInst().getSkinType());
         }
     }

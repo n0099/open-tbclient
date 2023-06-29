@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface ly1 {
-    void a(bb2 bb2Var);
 
-    void b(bb2 bb2Var);
+import androidx.annotation.Nullable;
+import com.baidu.tieba.jy1;
+/* loaded from: classes6.dex */
+public interface ly1<T extends jy1> extends iy1<T> {
+    @Nullable
+    ag3 getParams();
 }

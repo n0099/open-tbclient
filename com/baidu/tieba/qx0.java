@@ -1,32 +1,11 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface qx0 {
-    void a(j01 j01Var);
+public interface qx0 extends rx0 {
+    void a(boolean z);
 
-    void b(j01 j01Var);
+    <T extends lz0> void d(T t);
 
-    @Autowired
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void onDestroy();
 
-        @NonNull
-        @Inject(force = false)
-        public static qx0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return iy0.a();
-            }
-            return (qx0) invokeV.objValue;
-        }
-    }
+    void onLayerRelease();
 }

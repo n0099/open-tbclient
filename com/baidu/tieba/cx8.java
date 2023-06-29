@@ -1,335 +1,132 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
-import com.baidu.tieba.memberCenter.tail.message.AddTailHttpResponseMessage;
-import com.baidu.tieba.memberCenter.tail.message.AddTailNetMessage;
-import com.baidu.tieba.memberCenter.tail.message.AddTailSocketResponseMessage;
-import com.baidu.tieba.memberCenter.tail.message.SetTailNetMessage;
-import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
-import com.baidu.tieba.memberCenter.tail.message.UpdateTailNetMessage;
-import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Pattern;
+import java.util.List;
+import tbclient.Item;
 /* loaded from: classes5.dex */
-public class cx8 {
+public class cx8 implements xn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public TailData c;
-    public TailData d;
-    public TbPageContext<?> e;
-    public xx8<Integer> f;
-    public xx8<Integer> g;
-    public jb h;
-    public jb i;
+    public Long a;
+    public String b;
+    public String c;
+    public List<String> d;
+    public Double e;
+    public Integer f;
 
-    public boolean l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i == 50 : invokeI.booleanValue;
-    }
-
-    public boolean m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i > 50 : invokeI.booleanValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends jb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cx8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(cx8 cx8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947690246, "Lcom/baidu/tieba/cx8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cx8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = cx8Var;
-        }
-
-        @Override // com.baidu.tieba.jb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            ww8 ww8Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.a = false;
-                if (this.a.f != null) {
-                    Integer num = null;
-                    if (responsedMessage instanceof AddTailHttpResponseMessage) {
-                        ww8Var = ((AddTailHttpResponseMessage) responsedMessage).getResultData();
-                    } else if (responsedMessage instanceof AddTailSocketResponseMessage) {
-                        ww8Var = ((AddTailSocketResponseMessage) responsedMessage).getResultData();
-                    } else {
-                        ww8Var = null;
-                    }
-                    if (ww8Var != null) {
-                        num = Integer.valueOf(ww8Var.a());
-                        if (this.a.b) {
-                            this.a.p(num.intValue());
-                        }
-                    }
-                    this.a.f.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947690246, "Lcom/baidu/tieba/cx8;");
+                return;
             }
         }
+        g = BdUniqueId.gen();
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends jb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cx8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(cx8 cx8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cx8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cx8Var;
-        }
-
-        @Override // com.baidu.tieba.jb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            bx8 bx8Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.a = false;
-                if (this.a.g != null) {
-                    Integer num = null;
-                    if (responsedMessage instanceof UpdateTailHttpResponseMessage) {
-                        bx8Var = ((UpdateTailHttpResponseMessage) responsedMessage).getResultData();
-                    } else if (responsedMessage instanceof UpdateTailSocketResponseMessage) {
-                        bx8Var = ((UpdateTailSocketResponseMessage) responsedMessage).getResultData();
-                    } else {
-                        bx8Var = null;
-                    }
-                    if (bx8Var != null) {
-                        num = Integer.valueOf(bx8Var.a());
-                    }
-                    this.a.g.a(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
-                }
-            }
-        }
-    }
-
-    public cx8(TbPageContext<?> tbPageContext) {
+    public cx8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = false;
-        this.b = false;
-        this.h = new a(this, CmdConfigHttp.CMD_TAIL_ADD, 305101);
-        this.i = new b(this, CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
-        this.e = tbPageContext;
-        tbPageContext.registerListener(this.h);
-        this.e.registerListener(this.i);
-        this.d = new TailData();
     }
 
-    public int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return Pattern.compile("#\\([^#\\)\\(]+\\)").matcher(str).replaceAll(" ").length();
-        }
-        return invokeL.intValue;
-    }
-
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str != null && str.length() > 0) {
-                return str.substring(0, str.length() - 1);
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            while (e(str) > 50) {
-                str = f(str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void n(xx8<Integer> xx8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, xx8Var) == null) {
-            this.f = xx8Var;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d.setFontColor(str);
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            MessageManager.getInstance().sendMessage(new SetTailNetMessage(i, 1));
-        }
-    }
-
-    public void q(xx8<Integer> xx8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, xx8Var) == null) {
-            this.g = xx8Var;
-        }
-    }
-
-    public String g() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d.getFontColor();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    public TailData i() {
+    public Long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Double d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (Double) invokeV.objValue;
+    }
+
+    public Integer e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public List<String> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.d;
         }
-        return (TailData) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void j(int i, String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, Boolean.valueOf(z)}) == null) {
-            TailData tailData = new TailData();
-            this.d = tailData;
-            if (i != 0) {
-                TailData tailData2 = new TailData();
-                this.c = tailData2;
-                tailData2.setId(i);
-                this.c.setContent(str);
-                this.c.setFontColor(str2);
-                this.d.setId(i);
-                this.d.setContent(str);
-                this.d.setFontColor(str2);
-                return;
-            }
-            tailData.setContent("");
-            this.d.setFontColor("7a7c80");
-            this.b = z;
-        }
-    }
-
-    public boolean k() {
+    @Override // com.baidu.tieba.xn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            TailData tailData = this.d;
-            if (tailData != null && tailData.getFontColor() != null) {
-                TailData tailData2 = this.c;
-                if (tailData2 == null) {
-                    if (!StringUtils.isNull(this.d.getContent()) || !this.d.getFontColor().equals("7a7c80")) {
-                        return true;
-                    }
-                } else if (tailData2.getContent() != null && this.c.getFontColor() != null && (!this.c.getContent().equals(this.d.getContent()) || !this.c.getFontColor().equals(this.d.getFontColor()))) {
-                    return true;
-                }
-            }
-            return false;
+            return g;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void r(String str) {
+    public void h(Item item) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || this.a) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
+            this.a = item.item_id;
+            this.b = item.item_name;
+            Double d = item.icon_size;
+            this.c = item.icon_url;
+            this.d = item.tags;
+            this.e = item.score;
+            this.f = item.star;
         }
-        String f = ay8.f(str);
-        if (!StringUtils.isNull(f)) {
-            this.e.showToast(f);
-            return;
-        }
-        String b2 = ay8.b(str);
-        this.d.setContent(b2);
-        this.a = true;
-        TailData tailData = this.c;
-        if (tailData != null && tailData.getId() > 0) {
-            this.e.sendMessage(new UpdateTailNetMessage(this.c.getId(), b2, this.d.getFontColor(), this.e.getString(R.string.tail_default_font)));
-        } else {
-            this.e.sendMessage(new AddTailNetMessage(b2, this.d.getFontColor(), this.e.getString(R.string.tail_default_font)));
-        }
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (StringUtils.isNull(this.d.getContent()) || !k() || !StringUtils.isNull(ay8.f(this.d.getContent()))) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

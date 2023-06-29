@@ -1,131 +1,238 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
-import org.chromium.base.NativeLibraryLoadedStatus;
-import org.chromium.base.annotations.CheckDiscard;
-import org.chromium.base.natives.GEN_JNI;
-@CheckDiscard("crbug.com/993421")
 /* loaded from: classes7.dex */
-public final class qna implements CronetUrlRequestContext.f {
+public class qna extends tna<qoa> {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetUrlRequestContext.f a;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public View g;
+    @Nullable
+    public PlayVoiceBntNew h;
+    @Nullable
+    public ImageView i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948098981, "Lcom/baidu/tieba/qna;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qna a;
+
+        public a(qna qnaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qnaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qnaVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948098981, "Lcom/baidu/tieba/qna;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.B();
         }
     }
 
-    public qna() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qna(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, qoa.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static CronetUrlRequestContext.f h() {
+    @Override // com.baidu.tieba.yna
+    public void c(WriteData writeData) {
+        PlayVoiceBntNew playVoiceBntNew;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, writeData) != null) || (playVoiceBntNew = this.h) == null) {
+            return;
+        }
+        VoiceData.VoiceModel voiceModel = playVoiceBntNew.getVoiceModel();
+        writeData.setVoiceModel(voiceModel);
+        if (voiceModel != null) {
+            if (voiceModel.getId() != null) {
+                writeData.setVoice(voiceModel.getId());
+                writeData.setVoiceDuringTime(voiceModel.getDuration());
+                return;
+            }
+            writeData.setVoice(null);
+            writeData.setVoiceDuringTime(-1);
+            return;
+        }
+        writeData.setVoice(null);
+        writeData.setVoiceDuringTime(-1);
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) && writeData.getVoiceModel() != null) {
+            A(writeData.getVoiceModel());
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void e(@NonNull WriteData writeData) {
+        PlayVoiceBntNew playVoiceBntNew;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, writeData) != null) || (playVoiceBntNew = this.h) == null) {
+            return;
+        }
+        writeData.setVoiceModel(playVoiceBntNew.getVoiceModel());
+    }
+
+    @Override // com.baidu.tieba.yna
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            WebPManager.setPureDrawable(this.i, R.drawable.icon_pure_home_delete16, R.color.CAM_X0107, null);
+            PlayVoiceBntNew playVoiceBntNew = this.h;
+            if (playVoiceBntNew != null) {
+                playVoiceBntNew.e();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void r(ci5 ci5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ci5Var) == null) {
+            super.r(ci5Var);
+            int i = ci5Var.a;
+            if (i == 10) {
+                Object obj = ci5Var.c;
+                if (obj instanceof VoiceData.VoiceModel) {
+                    A((VoiceData.VoiceModel) obj);
+                }
+            } else if (i == 11) {
+                B();
+            }
+        }
+    }
+
+    public final void A(VoiceData.VoiceModel voiceModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, voiceModel) == null) && this.g != null && this.h != null && voiceModel != null && this.e != null && !TextUtils.isEmpty(voiceModel.getVoiceId()) && voiceModel.getDuration() > 0) {
+            ((qoa) this.d).a = voiceModel;
+            this.e.setVoiceModel(voiceModel);
+            this.g.setVisibility(0);
+            this.h.setVoiceModel(voiceModel);
+            this.h.o();
+            aoa aoaVar = this.b;
+            if (aoaVar != null) {
+                aoaVar.i();
+                this.b.x(new int[]{34});
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yna
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0589, viewGroup, false);
+            this.g = inflate;
+            this.h = (PlayVoiceBntNew) inflate.findViewById(R.id.obfuscated_res_0x7f0904d7);
+            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f0911e1);
+            this.i = imageView;
+            if (imageView != null) {
+                imageView.setOnClickListener(new a(this));
+            }
+            return this.g;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g == null || this.h == null || this.e == null) {
+            return;
+        }
+        D d = this.d;
+        if (((qoa) d).a != null) {
+            yb5.a(yb5.b(((qoa) d).a.getVoiceId()));
+        }
+        ((qoa) this.d).a = null;
+        this.e.setVoiceModel(null);
+        this.g.setVisibility(8);
+        this.h.p();
+        this.h.setVoiceModel(null);
+        aoa aoaVar = this.b;
+        if (aoaVar != null) {
+            aoaVar.f();
+            this.b.i();
+            this.b.x(new int[]{34});
+        }
+    }
+
+    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+        }
+    }
+
+    @Override // com.baidu.tieba.tna, com.baidu.tieba.yna
+    public boolean t() {
         InterceptResult invokeV;
+        PlayVoiceBntNew playVoiceBntNew;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (GEN_JNI.TESTING_ENABLED) {
-                CronetUrlRequestContext.f fVar = a;
-                if (fVar != null) {
-                    return fVar;
-                }
-                if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetUrlRequestContext.Natives. The current configuration requires all native implementations to have a mock instance.");
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            View view2 = this.g;
+            if (view2 == null || view2.getVisibility() != 0 || (playVoiceBntNew = this.h) == null || playVoiceBntNew.getVoiceModel() == null) {
+                return false;
             }
-            NativeLibraryLoadedStatus.checkLoaded(false);
-            return new qna();
+            return true;
         }
-        return (CronetUrlRequestContext.f) invokeV.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
-    public long a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_createRequestContextAdapter(j);
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
-    public int g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_setMinLogLevel(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
-    public void b(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_applyBaiduConfigDictionary(j, str);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
-    public void d(long j, CronetUrlRequestContext cronetUrlRequestContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j, cronetUrlRequestContext) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_initRequestContextOnInitThread(j, cronetUrlRequestContext);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
-    public void f(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048581, this, j, str) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_applyBaiduConfiguration(j, str);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
-    public void c(long j, CronetUrlRequestContext cronetUrlRequestContext, String str, String str2, int i, int i2, long j2, long j3, long j4, long j5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), cronetUrlRequestContext, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_uploadNativeRequestLog(j, cronetUrlRequestContext, str, str2, i, i2, j2, j3, j4, j5);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
-    public long e(String str, String str2, boolean z, String str3, boolean z2, boolean z3, boolean z4, int i, long j, String str4, long j2, boolean z5, boolean z6, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Boolean.valueOf(z), str3, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), Long.valueOf(j), str4, Long.valueOf(j2), Boolean.valueOf(z5), Boolean.valueOf(z6), Integer.valueOf(i2)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_createRequestContextConfig(str, str2, z, str3, z2, z3, z4, i, j, str4, j2, z5, z6, i2);
-        }
-        return invokeCommon.longValue;
+        return invokeV.booleanValue;
     }
 }

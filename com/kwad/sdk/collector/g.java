@@ -4,7 +4,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public static int PERMISSION_DENIED = 2;
     public static int PERMISSION_GRANTED = 1;

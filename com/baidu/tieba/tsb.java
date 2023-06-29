@@ -1,70 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+import com.google.zxing.common.StringUtils;
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+import java.nio.charset.CodingErrorAction;
+import org.apache.http.protocol.HTTP;
+import org.java_websocket.exceptions.InvalidDataException;
+/* loaded from: classes8.dex */
 public class tsb {
     public static /* synthetic */ Interceptable $ic;
-    public static final tsb f;
-    public static final psb g;
+    public static CodingErrorAction a;
+    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<psb> a;
-    public final AtomicReference<rsb> b;
-    public final AtomicReference<vsb> c;
-    public final AtomicReference<osb> d;
-    public final AtomicReference<usb> e;
-
-    /* loaded from: classes7.dex */
-    public static class a extends psb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends osb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(tsb tsbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tsbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -79,166 +35,96 @@ public class tsb {
                 return;
             }
         }
-        f = new tsb();
-        g = new a();
+        a = CodingErrorAction.REPORT;
+        b = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
     }
 
-    @Deprecated
-    public static tsb c() {
-        InterceptResult invokeV;
+    public static byte[] a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
-        }
-        return (tsb) invokeV.objValue;
-    }
-
-    public tsb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                return str.getBytes(HTTP.ASCII);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
             }
         }
-        this.a = new AtomicReference<>();
-        this.b = new AtomicReference<>();
-        this.c = new AtomicReference<>();
-        this.d = new AtomicReference<>();
-        this.e = new AtomicReference<>();
+        return (byte[]) invokeL.objValue;
     }
 
-    public osb a() {
-        InterceptResult invokeV;
+    public static boolean b(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d.get() == null) {
-                Object e = e(osb.class, System.getProperties());
-                if (e == null) {
-                    this.d.compareAndSet(null, new b(this));
-                } else {
-                    this.d.compareAndSet(null, (osb) e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteBuffer)) == null) {
+            return c(byteBuffer, 0);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static byte[] f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            try {
+                return str.getBytes(StringUtils.UTF8);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean c(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, byteBuffer, i)) == null) {
+            int remaining = byteBuffer.remaining();
+            if (remaining < i) {
+                return false;
+            }
+            int i2 = 0;
+            while (i < remaining) {
+                int[] iArr = b;
+                i2 = iArr[(i2 << 4) + 256 + iArr[byteBuffer.get(i) & 255]];
+                if (i2 == 1) {
+                    return false;
                 }
+                i++;
             }
-            return this.d.get();
+            return true;
         }
-        return (osb) invokeV.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public psb b() {
-        InterceptResult invokeV;
+    public static String d(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.get() == null) {
-                Object e = e(psb.class, System.getProperties());
-                if (e == null) {
-                    this.a.compareAndSet(null, g);
-                } else {
-                    this.a.compareAndSet(null, (psb) e);
-                }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
+            try {
+                return new String(bArr, i, i2, HTTP.ASCII);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
             }
-            return this.a.get();
         }
-        return (psb) invokeV.objValue;
+        return (String) invokeLII.objValue;
     }
 
-    public rsb d() {
-        InterceptResult invokeV;
+    public static String e(ByteBuffer byteBuffer) throws InvalidDataException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.get() == null) {
-                Object e = e(rsb.class, System.getProperties());
-                if (e == null) {
-                    this.b.compareAndSet(null, ssb.f());
-                } else {
-                    this.b.compareAndSet(null, (rsb) e);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
+            CharsetDecoder newDecoder = Charset.forName(StringUtils.UTF8).newDecoder();
+            newDecoder.onMalformedInput(a);
+            newDecoder.onUnmappableCharacter(a);
+            try {
+                byteBuffer.mark();
+                String charBuffer = newDecoder.decode(byteBuffer).toString();
+                byteBuffer.reset();
+                return charBuffer;
+            } catch (CharacterCodingException e) {
+                throw new InvalidDataException(1007, e);
             }
-            return this.b.get();
         }
-        return (rsb) invokeV.objValue;
-    }
-
-    public usb f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.e.get() == null) {
-                Object e = e(usb.class, System.getProperties());
-                if (e == null) {
-                    this.e.compareAndSet(null, usb.h());
-                } else {
-                    this.e.compareAndSet(null, (usb) e);
-                }
-            }
-            return this.e.get();
-        }
-        return (usb) invokeV.objValue;
-    }
-
-    public vsb g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c.get() == null) {
-                Object e = e(vsb.class, System.getProperties());
-                if (e == null) {
-                    this.c.compareAndSet(null, wsb.e());
-                } else {
-                    this.c.compareAndSet(null, (vsb) e);
-                }
-            }
-            return this.c.get();
-        }
-        return (vsb) invokeV.objValue;
-    }
-
-    public static Object e(Class<?> cls, Properties properties) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, properties)) == null) {
-            Properties properties2 = (Properties) properties.clone();
-            String simpleName = cls.getSimpleName();
-            String property = properties2.getProperty("rxjava.plugin." + simpleName + ".implementation");
-            if (property == null) {
-                Iterator it = properties2.entrySet().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    Map.Entry entry = (Map.Entry) it.next();
-                    String obj = entry.getKey().toString();
-                    if (obj.startsWith("rxjava.plugin.") && obj.endsWith(".class") && simpleName.equals(entry.getValue().toString())) {
-                        String str = "rxjava.plugin." + obj.substring(0, obj.length() - 6).substring(14) + ".impl";
-                        String property2 = properties2.getProperty(str);
-                        if (property2 != null) {
-                            property = property2;
-                        } else {
-                            throw new IllegalStateException("Implementing class declaration for " + simpleName + " missing: " + str);
-                        }
-                    }
-                }
-            }
-            if (property != null) {
-                try {
-                    return Class.forName(property).asSubclass(cls).newInstance();
-                } catch (ClassCastException e) {
-                    throw new IllegalStateException(simpleName + " implementation is not an instance of " + simpleName + ": " + property, e);
-                } catch (ClassNotFoundException e2) {
-                    throw new IllegalStateException(simpleName + " implementation class not found: " + property, e2);
-                } catch (IllegalAccessException e3) {
-                    throw new IllegalStateException(simpleName + " implementation not able to be accessed: " + property, e3);
-                } catch (InstantiationException e4) {
-                    throw new IllegalStateException(simpleName + " implementation not able to be instantiated: " + property, e4);
-                }
-            }
-            return null;
-        }
-        return invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -8,12 +8,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class lw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public boolean a;
     public int b;
     public String c;
-    public String d;
-    public String e;
-    public int f;
 
     public lw4() {
         Interceptable interceptable = $ic;
@@ -28,8 +25,7 @@ public class lw4 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.f = -1;
+        this.b = 0;
+        this.c = null;
     }
 }

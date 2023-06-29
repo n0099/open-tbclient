@@ -205,10 +205,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
 
     @NonNull
     public static ViewOffsetHelper getViewOffsetHelper(@NonNull View view2) {
-        ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09289f);
+        ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092901);
         if (viewOffsetHelper == null) {
             ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view2);
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09289f, viewOffsetHelper2);
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092901, viewOffsetHelper2);
             return viewOffsetHelper2;
         }
         return viewOffsetHelper;

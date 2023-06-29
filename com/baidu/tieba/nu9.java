@@ -1,36 +1,17 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface nu9 {
-    void a(boolean z);
+public class nu9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i);
+    public abstract void a();
 
-    void c();
+    public abstract void b();
 
-    boolean d();
+    public abstract void c();
 
-    void e();
-
-    boolean f();
-
-    int g();
-
-    @NonNull
-    BaseFragmentActivity getActivity();
-
-    int getAdSource();
-
-    @NonNull
-    ViewGroup getRootView();
-
-    BdUniqueId getUniqueId();
-
-    boolean h();
-
-    long i();
+    public abstract void d();
 }

@@ -72,18 +72,18 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int bdvideoplayer_seekbar = 0x7f0903be;
-        public static final int bt_retry = 0x7f09048a;
-        public static final int center = 0x7f090674;
-        public static final int left = 0x7f09148e;
-        public static final int main_duration_text = 0x7f09166a;
-        public static final int main_progress_text = 0x7f091670;
-        public static final int main_view_seekbar = 0x7f09167c;
-        public static final int play_error_layout_retry = 0x7f091c13;
-        public static final int progress = 0x7f091cd3;
-        public static final int right = 0x7f091e5f;
-        public static final int time = 0x7f092478;
-        public static final int tv_error = 0x7f092646;
+        public static final int bdvideoplayer_seekbar = 0x7f0903bf;
+        public static final int bt_retry = 0x7f09048c;
+        public static final int center = 0x7f09067b;
+        public static final int left = 0x7f09149e;
+        public static final int main_duration_text = 0x7f09167a;
+        public static final int main_progress_text = 0x7f091680;
+        public static final int main_view_seekbar = 0x7f09168c;
+        public static final int play_error_layout_retry = 0x7f091c6b;
+        public static final int progress = 0x7f091d2e;
+        public static final int right = 0x7f091eba;
+        public static final int time = 0x7f0924d8;
+        public static final int tv_error = 0x7f0926a7;
     }
 
     /* loaded from: classes4.dex */
@@ -95,9 +95,9 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class string {
-        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f0341;
-        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0342;
-        public static final int bdvideoplayer_tip_net_error = 0x7f0f0343;
+        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f0343;
+        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0344;
+        public static final int bdvideoplayer_tip_net_error = 0x7f0f0345;
     }
 
     /* loaded from: classes4.dex */

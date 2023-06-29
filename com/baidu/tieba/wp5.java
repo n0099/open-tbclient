@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.fluency.BdTracesManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.mutiprocess.fps.ImageFpsEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wp5 implements hp5<ImageFpsEvent> {
+public class wp5 implements mp5<AgreeEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,17 +28,25 @@ public class wp5 implements hp5<ImageFpsEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hp5
+    @Override // com.baidu.tieba.mp5
     /* renamed from: a */
-    public boolean onEvent(ImageFpsEvent imageFpsEvent) {
+    public boolean onEvent(AgreeEvent agreeEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFpsEvent)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
+            if (agreeEvent != null && agreeEvent.agreeData != null) {
+                d4a d4aVar = new d4a();
+                d4aVar.b = agreeEvent.agreeData;
+                String str = agreeEvent.agreeExtra;
+                if (AgreeEvent.IS_THREAD.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, d4aVar));
+                    return true;
+                } else if (AgreeEvent.IS_POST.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, d4aVar));
+                    return true;
+                }
             }
-            BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE);
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

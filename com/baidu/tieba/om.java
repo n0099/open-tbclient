@@ -1,71 +1,256 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.bean.DegradeData;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.bean.ResultData;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.callback.DefaultPackageCallback;
+import com.baidu.searchbox.pms.db.PackageManager;
+import com.baidu.searchbox.pms.download.DownloadOptions;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.utils.DebugUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class om {
+public class om extends DefaultPackageCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public DefaultDownloadCallback a;
+    public qm b;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
-            }
-            if (str.contains(".so")) {
-                String[] split = str.split("\\.");
-                StringBuilder sb = new StringBuilder();
-                if (li.a()) {
-                    str3 = "so_64_cache";
-                } else {
-                    str3 = "so_cache";
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ om b;
+
+        public a(om omVar, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {omVar, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                sb.append(str3);
-                sb.append(File.separator);
-                sb.append(split[0]);
-                str2 = sb.toString();
-            } else if (str.contains(".mp3")) {
-                str2 = "mp3_cache";
-            } else if (str.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION)) {
-                str2 = "mp4_cache";
-            } else {
-                str2 = "res_cache";
             }
-            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
+            this.b = omVar;
+            this.a = list;
         }
-        return (String) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (PackageInfo packageInfo : this.a) {
+                    if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                        this.b.a.onDownloadSuccess(packageInfo, null);
+                    }
+                }
+            }
+        }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public om(DefaultDownloadCallback defaultDownloadCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultDownloadCallback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return a(str) + File.separator + str;
         }
-        return (String) invokeL.objValue;
+        this.a = defaultDownloadCallback;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
+    public void onDegradeData(DegradeData degradeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && str.endsWith("libturbonet.so")) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, degradeData) == null) {
+            super.onDegradeData(degradeData);
         }
-        return invokeL.booleanValue;
+    }
+
+    public om(DefaultDownloadCallback defaultDownloadCallback, qm qmVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultDownloadCallback, qmVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = defaultDownloadCallback;
+        this.b = qmVar;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (PackageInfo packageInfo : PackageManager.getFinishedPackageInfo("137", null).values()) {
+                if (packageInfo != null && !StringUtils.isNull(packageInfo.name) && !pm.c(packageInfo.name)) {
+                    if (!packageInfo.name.contains(".so")) {
+                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                        String str = packageInfo.name;
+                        resHashMap.put(str, pm.a(str));
+                    } else if (!new File(pm.b(packageInfo.name)).exists()) {
+                        DownloadOptions downloadOptions = new DownloadOptions();
+                        downloadOptions.fileDir = pm.a(packageInfo.name);
+                        hm.b(packageInfo.name, packageInfo.toString(), "re download start");
+                        PmsManager.getInstance().download(packageInfo, downloadOptions, new nm(this.a));
+                    } else if (rm.a(BdBaseApplication.getInst().getContext(), pm.a(packageInfo.name))) {
+                        hm.b(packageInfo.name, packageInfo.toString(), "load success1");
+                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
+                        String str2 = packageInfo.name;
+                        resHashMap2.put(str2, pm.a(str2));
+                        qm qmVar = this.b;
+                        if (qmVar != null) {
+                            qmVar.onSoFileLoaded(packageInfo.name);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
+    public void onFetchError(ErrorInfo errorInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, errorInfo) != null) || errorInfo == null) {
+            return;
+        }
+        BdBaseApplication.getInst().getResHashMap().clear();
+        b();
+        ew8 defaultLog = DefaultLog.getInstance();
+        defaultLog.c("PMS", "onFetchError: " + BdBaseApplication.getInst().getResHashMap().toString());
+        BdLog.e(errorInfo.errorMsg);
+    }
+
+    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
+    public void onResultData(ResultData resultData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, resultData) != null) || resultData == null) {
+            return;
+        }
+        DebugUtils.log(resultData);
+        ArrayList<PackageInfo> arrayList = new ArrayList();
+        arrayList.addAll(resultData.addList);
+        arrayList.addAll(resultData.updateList);
+        if (!arrayList.isEmpty()) {
+            z = false;
+            for (PackageInfo packageInfo : arrayList) {
+                if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                    DownloadOptions downloadOptions = new DownloadOptions();
+                    downloadOptions.fileDir = pm.a(packageInfo.name);
+                    hm.b(packageInfo.name, packageInfo.toString(), "download start");
+                    PmsManager.getInstance().download(packageInfo, downloadOptions, new nm(this.a));
+                    z = true;
+                }
+            }
+        } else {
+            z = false;
+        }
+        arrayList.clear();
+        arrayList.addAll(resultData.configChangeList);
+        arrayList.addAll(resultData.filterList);
+        if (!arrayList.isEmpty()) {
+            for (PackageInfo packageInfo2 : arrayList) {
+                if (packageInfo2 != null && !StringUtils.isNull(packageInfo2.name)) {
+                    if (!packageInfo2.name.contains(".so")) {
+                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                        String str = packageInfo2.name;
+                        resHashMap.put(str, pm.a(str));
+                    } else if (!pm.c(packageInfo2.name)) {
+                        if (!new File(pm.b(packageInfo2.name)).exists()) {
+                            DownloadOptions downloadOptions2 = new DownloadOptions();
+                            downloadOptions2.fileDir = pm.a(packageInfo2.name);
+                            hm.b(packageInfo2.name, packageInfo2.toString(), "re download start");
+                            PmsManager.getInstance().download(packageInfo2, downloadOptions2, new nm(this.a));
+                        } else if (rm.a(BdBaseApplication.getInst().getContext(), pm.a(packageInfo2.name))) {
+                            hm.b(packageInfo2.name, packageInfo2.toString(), "load success1");
+                            ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
+                            String str2 = packageInfo2.name;
+                            resHashMap2.put(str2, pm.a(str2));
+                            qm qmVar = this.b;
+                            if (qmVar != null) {
+                                qmVar.onSoFileLoaded(packageInfo2.name);
+                            }
+                        }
+                    }
+                }
+            }
+            if (!z && this.b == null && this.a != null) {
+                yg.a().post(new a(this, arrayList));
+            }
+        }
+        ew8 defaultLog = DefaultLog.getInstance();
+        defaultLog.c("PMS", "检索数据库前Map：" + BdBaseApplication.getInst().getResHashMap().toString());
+        b();
+        ew8 defaultLog2 = DefaultLog.getInstance();
+        defaultLog2.c("PMS", "检索数据库后Map：" + BdBaseApplication.getInst().getResHashMap().toString());
+        if (!resultData.invalidList.isEmpty()) {
+            ArrayList arrayList2 = new ArrayList();
+            Map<String, PackageInfo> finishedPackageInfo = PackageManager.getFinishedPackageInfo("137", null);
+            for (PackageInfo packageInfo3 : resultData.invalidList) {
+                boolean z2 = true;
+                for (PackageInfo packageInfo4 : finishedPackageInfo.values()) {
+                    if (!TextUtils.isEmpty(packageInfo3.name) && !TextUtils.isEmpty(packageInfo4.name) && packageInfo4.name.equals(packageInfo3.name)) {
+                        ew8 defaultLog3 = DefaultLog.getInstance();
+                        defaultLog3.c("PMS", "本地数据库中已有资源：" + packageInfo3.name);
+                        if (packageInfo4.version == packageInfo3.version) {
+                            z2 = false;
+                        }
+                    }
+                }
+                if (z2) {
+                    arrayList2.add(packageInfo3);
+                }
+            }
+            if (arrayList2.isEmpty()) {
+                return;
+            }
+            ew8 defaultLog4 = DefaultLog.getInstance();
+            defaultLog4.c("PMS", "删除已经废弃资源:" + arrayList2.toString());
+            BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
+            if (searchTask == null || searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING) {
+                mm mmVar = new mm();
+                mmVar.setKey("key_res_del");
+                mmVar.execute(arrayList2);
+            }
+        }
     }
 }

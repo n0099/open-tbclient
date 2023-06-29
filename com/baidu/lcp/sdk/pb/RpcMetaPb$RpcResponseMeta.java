@@ -2,8 +2,8 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.la0;
-import com.baidu.tieba.ma0;
+import com.baidu.tieba.oa0;
+import com.baidu.tieba.pa0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -99,7 +99,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         public final boolean isInitialized() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                 return true;
             }
             return invokeV.booleanValue;
@@ -107,7 +107,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
 
         public final void maybeForceBuilderInitialization() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             }
         }
 
@@ -148,13 +148,21 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             return this;
         }
 
+        public final void ensureEventListIsMutable() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (this.a & 32) != 32) {
+                this.g = new ArrayList(this.g);
+                this.a |= 32;
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: l */
         public RpcMetaPb$RpcResponseMeta build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
                 RpcMetaPb$RpcResponseMeta buildPartial = buildPartial();
                 if (buildPartial.isInitialized()) {
                     return buildPartial;
@@ -170,25 +178,17 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         public b mo43clone() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 b p = p();
-                p.s(buildPartial());
+                p.r(buildPartial());
                 return p;
             }
             return (b) invokeV.objValue;
         }
 
-        public final void q() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (this.a & 32) != 32) {
-                this.g = new ArrayList(this.g);
-                this.a |= 32;
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-        /* renamed from: r */
+        /* renamed from: q */
         public RpcMetaPb$RpcResponseMeta getDefaultInstanceForType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -210,8 +210,8 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         public RpcMetaPb$RpcResponseMeta buildPartial() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (la0) null);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (oa0) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -247,7 +247,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
 
         @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ AbstractMessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            t(codedInputStream, extensionRegistryLite);
+            s(codedInputStream, extensionRegistryLite);
             return this;
         }
 
@@ -255,11 +255,11 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
         public /* bridge */ /* synthetic */ b mergeFrom(RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta) {
-            s(rpcMetaPb$RpcResponseMeta);
+            r(rpcMetaPb$RpcResponseMeta);
             return this;
         }
 
-        public b u(int i) {
+        public b t(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
@@ -270,7 +270,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             return (b) invokeI.objValue;
         }
 
-        public b v(long j) {
+        public b u(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j)) == null) {
@@ -281,7 +281,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             return (b) invokeJ.objValue;
         }
 
-        public b w(long j) {
+        public b v(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j)) == null) {
@@ -292,7 +292,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             return (b) invokeJ.objValue;
         }
 
-        public b x(long j) {
+        public b w(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048602, this, j)) == null) {
@@ -305,14 +305,14 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
 
         @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ MessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            t(codedInputStream, extensionRegistryLite);
+            s(codedInputStream, extensionRegistryLite);
             return this;
         }
 
         public b n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 super.clear();
                 this.b = 0L;
                 int i = this.a & (-2);
@@ -335,7 +335,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             return (b) invokeV.objValue;
         }
 
-        public b s(RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta) {
+        public b r(RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, rpcMetaPb$RpcResponseMeta)) == null) {
@@ -343,16 +343,16 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                     return this;
                 }
                 if (rpcMetaPb$RpcResponseMeta.hasServiceId()) {
-                    x(rpcMetaPb$RpcResponseMeta.getServiceId());
+                    w(rpcMetaPb$RpcResponseMeta.getServiceId());
                 }
                 if (rpcMetaPb$RpcResponseMeta.hasMethodId()) {
-                    w(rpcMetaPb$RpcResponseMeta.getMethodId());
+                    v(rpcMetaPb$RpcResponseMeta.getMethodId());
                 }
                 if (rpcMetaPb$RpcResponseMeta.hasLogId()) {
-                    v(rpcMetaPb$RpcResponseMeta.getLogId());
+                    u(rpcMetaPb$RpcResponseMeta.getLogId());
                 }
                 if (rpcMetaPb$RpcResponseMeta.hasErrorCode()) {
-                    u(rpcMetaPb$RpcResponseMeta.getErrorCode());
+                    t(rpcMetaPb$RpcResponseMeta.getErrorCode());
                 }
                 if (rpcMetaPb$RpcResponseMeta.hasErrorText()) {
                     this.a |= 16;
@@ -363,7 +363,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                         this.g = rpcMetaPb$RpcResponseMeta.eventList_;
                         this.a &= -33;
                     } else {
-                        q();
+                        ensureEventListIsMutable();
                         this.g.addAll(rpcMetaPb$RpcResponseMeta.eventList_);
                     }
                 }
@@ -376,7 +376,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public b t(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        public b s(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, codedInputStream, extensionRegistryLite)) == null) {
@@ -385,7 +385,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                     try {
                         RpcMetaPb$RpcResponseMeta parsePartialFrom = RpcMetaPb$RpcResponseMeta.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
                         if (parsePartialFrom != null) {
-                            s(parsePartialFrom);
+                            r(parsePartialFrom);
                         }
                         return this;
                     } catch (InvalidProtocolBufferException e) {
@@ -403,7 +403,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                 } catch (Throwable th2) {
                     th = th2;
                     if (rpcMetaPb$RpcResponseMeta != null) {
-                        s(rpcMetaPb$RpcResponseMeta);
+                        r(rpcMetaPb$RpcResponseMeta);
                     }
                     throw th;
                 }
@@ -532,7 +532,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         return (List) invokeV.objValue;
     }
 
-    public List<? extends ma0> getEventListOrBuilderList() {
+    public List<? extends pa0> getEventListOrBuilderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -771,7 +771,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, la0 la0Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, oa0 oa0Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -797,7 +797,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, la0 la0Var) {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, oa0 oa0Var) {
         this(builder);
     }
 
@@ -843,7 +843,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, rpcMetaPb$RpcResponseMeta)) == null) {
             b newBuilder = newBuilder();
-            newBuilder.s(rpcMetaPb$RpcResponseMeta);
+            newBuilder.r(rpcMetaPb$RpcResponseMeta);
             return newBuilder;
         }
         return (b) invokeL.objValue;
@@ -876,13 +876,13 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         return (RpcMetaPb$event_timestamp) invokeI.objValue;
     }
 
-    public ma0 getEventListOrBuilder(int i) {
+    public pa0 getEventListOrBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             return this.eventList_.get(i);
         }
-        return (ma0) invokeI.objValue;
+        return (pa0) invokeI.objValue;
     }
 
     public static RpcMetaPb$RpcResponseMeta parseFrom(CodedInputStream codedInputStream) throws IOException {

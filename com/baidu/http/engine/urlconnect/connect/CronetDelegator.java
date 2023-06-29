@@ -5,10 +5,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.support.dns.Dns;
-import com.baidu.tieba.q70;
-import com.baidu.tieba.t70;
+import com.baidu.tieba.a80;
+import com.baidu.tieba.r70;
 import com.baidu.tieba.u70;
-import com.baidu.tieba.z70;
+import com.baidu.tieba.v70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
-public class CronetDelegator implements z70 {
+public class CronetDelegator implements a80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Object a;
@@ -37,7 +37,7 @@ public class CronetDelegator implements z70 {
     public Method c;
     public Class d;
     public int e;
-    public t70 f;
+    public u70 f;
     public Context g;
 
     /* loaded from: classes3.dex */
@@ -56,15 +56,15 @@ public class CronetDelegator implements z70 {
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ q70 a;
-            public final /* synthetic */ u70 b;
+            public final /* synthetic */ r70 a;
+            public final /* synthetic */ v70 b;
 
-            public a(b bVar, q70 q70Var, u70 u70Var) {
+            public a(b bVar, r70 r70Var, v70 v70Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, q70Var, u70Var};
+                    Object[] objArr = {bVar, r70Var, v70Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -74,16 +74,16 @@ public class CronetDelegator implements z70 {
                         return;
                     }
                 }
-                this.a = q70Var;
-                this.b = u70Var;
+                this.a = r70Var;
+                this.b = v70Var;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                q70 q70Var;
+                r70 r70Var;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (q70Var = this.a) != null) {
-                    q70Var.b(this.b.b());
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (r70Var = this.a) != null) {
+                    r70Var.b(this.b.b());
                 }
             }
         }
@@ -137,7 +137,7 @@ public class CronetDelegator implements z70 {
                     ((Integer) objArr[1]).intValue();
                     ((Integer) objArr[2]).intValue();
                     int intValue2 = ((Integer) this.a.c.invoke(this.a.a, new Object[0])).intValue();
-                    u70 a2 = u70.a();
+                    v70 a2 = v70.a();
                     if (intValue2 == 0) {
                         a2.d(-1);
                     } else if (intValue2 == 1) {
@@ -148,9 +148,9 @@ public class CronetDelegator implements z70 {
                         a2.d(2);
                     }
                     if (this.a.e != intValue2) {
-                        for (q70 q70Var : a2.c()) {
+                        for (r70 r70Var : a2.c()) {
                             try {
-                                q70Var.a().execute(new a(this, q70Var, a2));
+                                r70Var.a().execute(new a(this, r70Var, a2));
                             } catch (Exception e2) {
                                 Log.e("CronetDelegator", "Exception posting task to executor", e2);
                             }
@@ -233,12 +233,12 @@ public class CronetDelegator implements z70 {
         }
     }
 
-    public CronetDelegator(Context context, t70 t70Var) {
+    public CronetDelegator(Context context, u70 u70Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, t70Var};
+            Object[] objArr = {context, u70Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -249,7 +249,7 @@ public class CronetDelegator implements z70 {
             }
         }
         this.e = -1;
-        this.f = t70Var;
+        this.f = u70Var;
         this.g = context;
     }
 
@@ -263,7 +263,7 @@ public class CronetDelegator implements z70 {
         return (ClassLoader) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.z70
+    @Override // com.baidu.tieba.a80
     public HttpURLConnection openHttpURLConnection(URL url) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

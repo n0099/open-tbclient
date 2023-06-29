@@ -1,36 +1,43 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment;
+import com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ek7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<jn> c;
-    public String d;
-    public String e;
-    public lo6 f;
+    public FrsGameStrategyMainFragment a;
+    public View b;
+    public NavigationBar c;
+    public NoNetworkView d;
+    public ScrollLabelTabHost e;
+    public ImageView f;
+    public String g;
 
     /* loaded from: classes5.dex */
-    public class a extends lo6 {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ek7 b;
+        public final /* synthetic */ ek7 a;
 
         public a(ek7 ek7Var) {
             Interceptable interceptable = $ic;
@@ -47,25 +54,64 @@ public class ek7 {
                     return;
                 }
             }
-            this.b = ek7Var;
+            this.a = ek7Var;
         }
 
-        @Override // com.baidu.tieba.lo6
-        public void a(View view2, BaseCardInfo baseCardInfo) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) {
-                super.a(view2, baseCardInfo);
-                this.b.b();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || StringUtils.isNull(this.a.a.a0())) {
+                return;
+            }
+            this.a.a.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.a.getPageContext().getPageActivity(), this.a.a.a0(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ek7 a;
+
+        public b(ek7 ek7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ek7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ek7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if ("from_single_act".equals(this.a.g)) {
+                    this.a.a.getActivity().finish();
+                    return;
+                }
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
+                customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.a.a.getPageContext().getUniqueId()));
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         }
     }
 
-    public ek7(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
+    public ek7(FrsGameStrategyMainFragment frsGameStrategyMainFragment, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, str, str2};
+            Object[] objArr = {frsGameStrategyMainFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,60 +121,109 @@ public class ek7 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        this.d = str;
-        this.e = str2;
-        this.c = new ArrayList();
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            fk7 fk7Var = new fk7(this.a, this.d, this.e);
-            fk7Var.z(this.f);
-            this.c.add(fk7Var);
-            gk7 gk7Var = new gk7(this.a, this.d);
-            gk7Var.z(this.f);
-            this.c.add(gk7Var);
-            this.c.add(new jk7(this.a, this.d));
-            this.c.add(new ik7(this.a, this.d));
-            List<jn> list = this.c;
-            TbPageContext tbPageContext = this.a;
-            list.add(new GameSpecialTopicAdapter(tbPageContext, tv6.b, tbPageContext.getUniqueId(), this.d));
-            hk7 hk7Var = new hk7(this.a, this.d);
-            hk7Var.x(this.f);
-            this.c.add(hk7Var);
-            List<jn> list2 = this.c;
-            TbPageContext tbPageContext2 = this.a;
-            list2.add(new GameCompetitionAdapter(tbPageContext2, ov6.b, tbPageContext2.getUniqueId(), this.d));
-            List<jn> list3 = this.c;
-            TbPageContext tbPageContext3 = this.a;
-            list3.add(new GameRecommendGameAdapter(tbPageContext3, rv6.b, tbPageContext3.getUniqueId(), this.d));
-            TbPageContext tbPageContext4 = this.a;
-            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(tbPageContext4, ae7.e, tbPageContext4.getUniqueId());
-            frsUserRecommendAdapter.K();
-            frsUserRecommendAdapter.J(this.d);
-            this.c.add(frsUserRecommendAdapter);
-            this.b.addAdapters(this.c);
+        this.a = frsGameStrategyMainFragment;
+        this.b = view2;
+        if (view2 != null) {
+            g();
         }
     }
 
-    public void b() {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof nn)) {
-            this.b.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.g = str;
         }
     }
 
-    public void c(List<wn> list) {
-        BdTypeListView bdTypeListView;
+    public void k(wj7 wj7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || (bdTypeListView = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wj7Var) == null) {
+            this.e.setDelegateFrsGameTabDataLoadListener(wj7Var);
         }
-        bdTypeListView.setData(list);
+    }
+
+    public void c(int i, int i2, List<xn> list, List<ak7> list2, boolean z, boolean z2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) {
+            this.e.j(i, i2, list, list2, z, z2, i3);
+        }
+    }
+
+    public void d() {
+        ScrollLabelTabHost scrollLabelTabHost;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (scrollLabelTabHost = this.e) != null) {
+            scrollLabelTabHost.k();
+        }
+    }
+
+    public NavigationBar e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (NavigationBar) invokeV.objValue;
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e.n();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(0, 0, xi.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
+            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d09fd, (View.OnClickListener) null);
+            this.f = imageView;
+            imageView.setLayoutParams(layoutParams);
+            this.f.setOnClickListener(new a(this));
+            this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
+            this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
+            ScrollLabelTabHost scrollLabelTabHost = (ScrollLabelTabHost) this.b.findViewById(R.id.obfuscated_res_0x7f090c89);
+            this.e = scrollLabelTabHost;
+            scrollLabelTabHost.setPageId(this.a.getBaseFragmentActivity().getUniqueId());
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c.onChangeSkinType(this.a.getPageContext(), i);
+            this.d.d(this.a.getPageContext(), i);
+            this.e.m(i);
+            ImageView imageView = this.f;
+            if (imageView != null) {
+                SkinManager.setNavbarIconSrc(imageView, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
+            }
+        }
+    }
+
+    public void l(List<ak7> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, list, z) == null) {
+            this.e.setTabData(list, z);
+        }
+    }
+
+    public void m(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048586, this, i, i2, str) == null) {
+            this.e.p(i, i2, str);
+        }
     }
 }

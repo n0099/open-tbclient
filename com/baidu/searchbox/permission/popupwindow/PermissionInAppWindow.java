@@ -68,15 +68,15 @@ public final class PermissionInAppWindow extends PopupWindow {
             return;
         }
         this.mContext = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0788, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d079b, (ViewGroup) null);
         setContentView(inflate);
         setWidth(-1);
         setHeight(-2);
         setBackgroundDrawable(new ColorDrawable(0));
         setAnimationStyle(R.style.obfuscated_res_0x7f1003f2);
-        this.mTitleView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ae7);
-        this.mContentView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091adf);
-        this.mPermissionRootView = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ae6);
+        this.mTitleView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b3e);
+        this.mContentView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b36);
+        this.mPermissionRootView = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b3d);
         updateUI(context);
     }
 
@@ -104,7 +104,7 @@ public final class PermissionInAppWindow extends PopupWindow {
         }
         LinearLayout linearLayout = this.mPermissionRootView;
         if (linearLayout != null) {
-            linearLayout.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f081350, null));
+            linearLayout.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f081382, null));
         }
     }
 

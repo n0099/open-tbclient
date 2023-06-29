@@ -1,20 +1,20 @@
 package org.java_websocket.drafts;
 
 import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.tieba.anb;
-import com.baidu.tieba.cob;
-import com.baidu.tieba.gnb;
-import com.baidu.tieba.inb;
-import com.baidu.tieba.lnb;
-import com.baidu.tieba.onb;
-import com.baidu.tieba.pnb;
-import com.baidu.tieba.qnb;
-import com.baidu.tieba.rnb;
-import com.baidu.tieba.snb;
-import com.baidu.tieba.tnb;
-import com.baidu.tieba.unb;
-import com.baidu.tieba.wnb;
-import com.baidu.tieba.xnb;
+import com.baidu.tieba.csb;
+import com.baidu.tieba.fsb;
+import com.baidu.tieba.gsb;
+import com.baidu.tieba.hsb;
+import com.baidu.tieba.isb;
+import com.baidu.tieba.jsb;
+import com.baidu.tieba.ksb;
+import com.baidu.tieba.lsb;
+import com.baidu.tieba.nsb;
+import com.baidu.tieba.osb;
+import com.baidu.tieba.rrb;
+import com.baidu.tieba.tsb;
+import com.baidu.tieba.xrb;
+import com.baidu.tieba.zrb;
 import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Iterator;
@@ -45,9 +45,9 @@ public abstract class Draft {
         NOT_MATCHED
     }
 
-    public abstract HandshakeState a(pnb pnbVar, wnb wnbVar) throws InvalidHandshakeException;
+    public abstract HandshakeState a(gsb gsbVar, nsb nsbVar) throws InvalidHandshakeException;
 
-    public abstract HandshakeState b(pnb pnbVar) throws InvalidHandshakeException;
+    public abstract HandshakeState b(gsb gsbVar) throws InvalidHandshakeException;
 
     public abstract Draft f();
 
@@ -59,11 +59,11 @@ public abstract class Draft {
 
     public abstract CloseHandshakeType l();
 
-    public abstract qnb m(qnb qnbVar) throws InvalidHandshakeException;
+    public abstract hsb m(hsb hsbVar) throws InvalidHandshakeException;
 
-    public abstract rnb n(pnb pnbVar, xnb xnbVar) throws InvalidHandshakeException;
+    public abstract isb n(gsb gsbVar, osb osbVar) throws InvalidHandshakeException;
 
-    public abstract void o(anb anbVar, Framedata framedata) throws InvalidDataException;
+    public abstract void o(rrb rrbVar, Framedata framedata) throws InvalidDataException;
 
     public abstract void s();
 
@@ -95,11 +95,11 @@ public abstract class Draft {
         if (p == null) {
             return null;
         }
-        return cob.d(p.array(), 0, p.limit());
+        return tsb.d(p.array(), 0, p.limit());
     }
 
-    public boolean c(unb unbVar) {
-        if (unbVar.d("Upgrade").equalsIgnoreCase("websocket") && unbVar.d(HTTP.CONN_DIRECTIVE).toLowerCase(Locale.ENGLISH).contains("upgrade")) {
+    public boolean c(lsb lsbVar) {
+        if (lsbVar.d("Upgrade").equalsIgnoreCase("websocket") && lsbVar.d(HTTP.CONN_DIRECTIVE).toLowerCase(Locale.ENGLISH).contains("upgrade")) {
             return true;
         }
         return false;
@@ -112,8 +112,8 @@ public abstract class Draft {
         throw new InvalidDataException(1002, "Negative count");
     }
 
-    public int r(unb unbVar) {
-        String d = unbVar.d("Sec-WebSocket-Version");
+    public int r(lsb lsbVar) {
+        String d = lsbVar.d("Sec-WebSocket-Version");
         if (d.length() > 0) {
             try {
                 return new Integer(d.trim()).intValue();
@@ -127,14 +127,14 @@ public abstract class Draft {
         this.a = role;
     }
 
-    public unb v(ByteBuffer byteBuffer) throws InvalidHandshakeException {
+    public lsb v(ByteBuffer byteBuffer) throws InvalidHandshakeException {
         return w(byteBuffer, this.a);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v21, types: [com.baidu.tieba.xnb, com.baidu.tieba.tnb] */
-    public static rnb w(ByteBuffer byteBuffer, WebSocket.Role role) throws InvalidHandshakeException, IncompleteHandshakeException {
-        snb snbVar;
+    /* JADX WARN: Type inference failed for: r10v21, types: [com.baidu.tieba.osb, com.baidu.tieba.ksb] */
+    public static isb w(ByteBuffer byteBuffer, WebSocket.Role role) throws InvalidHandshakeException, IncompleteHandshakeException {
+        jsb jsbVar;
         String q = q(byteBuffer);
         if (q != null) {
             String[] split = q.split(" ", 3);
@@ -142,10 +142,10 @@ public abstract class Draft {
                 if (role == WebSocket.Role.CLIENT) {
                     if (ADConfigError.REQUEST_HAS_SUCCESS_BEFORE.equals(split[1])) {
                         if ("HTTP/1.1".equalsIgnoreCase(split[0])) {
-                            ?? tnbVar = new tnb();
-                            tnbVar.h(Short.parseShort(split[1]));
-                            tnbVar.c(split[2]);
-                            snbVar = tnbVar;
+                            ?? ksbVar = new ksb();
+                            ksbVar.h(Short.parseShort(split[1]));
+                            ksbVar.c(split[2]);
+                            jsbVar = ksbVar;
                         } else {
                             throw new InvalidHandshakeException("Invalid status line received: " + split[0] + " Status line: " + q);
                         }
@@ -154,9 +154,9 @@ public abstract class Draft {
                     }
                 } else if ("GET".equalsIgnoreCase(split[0])) {
                     if ("HTTP/1.1".equalsIgnoreCase(split[2])) {
-                        snb snbVar2 = new snb();
-                        snbVar2.b(split[1]);
-                        snbVar = snbVar2;
+                        jsb jsbVar2 = new jsb();
+                        jsbVar2.b(split[1]);
+                        jsbVar = jsbVar2;
                     } else {
                         throw new InvalidHandshakeException("Invalid status line received: " + split[2] + " Status line: " + q);
                     }
@@ -167,11 +167,11 @@ public abstract class Draft {
                 while (q2 != null && q2.length() > 0) {
                     String[] split2 = q2.split(":", 2);
                     if (split2.length == 2) {
-                        if (snbVar.e(split2[0])) {
+                        if (jsbVar.e(split2[0])) {
                             String str = split2[0];
-                            snbVar.put(str, snbVar.d(split2[0]) + "; " + split2[1].replaceFirst("^ +", ""));
+                            jsbVar.put(str, jsbVar.d(split2[0]) + "; " + split2[1].replaceFirst("^ +", ""));
                         } else {
-                            snbVar.put(split2[0], split2[1].replaceFirst("^ +", ""));
+                            jsbVar.put(split2[0], split2[1].replaceFirst("^ +", ""));
                         }
                         q2 = q(byteBuffer);
                     } else {
@@ -179,7 +179,7 @@ public abstract class Draft {
                     }
                 }
                 if (q2 != null) {
-                    return snbVar;
+                    return jsbVar;
                 }
                 throw new IncompleteHandshakeException();
             }
@@ -189,69 +189,69 @@ public abstract class Draft {
     }
 
     public List<Framedata> e(Framedata.Opcode opcode, ByteBuffer byteBuffer, boolean z) {
-        lnb lnbVar;
+        csb csbVar;
         if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
             throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
         }
         if (this.b != null) {
-            lnbVar = new inb();
+            csbVar = new zrb();
         } else {
             this.b = opcode;
             if (opcode == Framedata.Opcode.BINARY) {
-                lnbVar = new gnb();
+                csbVar = new xrb();
             } else if (opcode == Framedata.Opcode.TEXT) {
-                lnbVar = new onb();
+                csbVar = new fsb();
             } else {
-                lnbVar = null;
+                csbVar = null;
             }
         }
-        lnbVar.j(byteBuffer);
-        lnbVar.i(z);
+        csbVar.j(byteBuffer);
+        csbVar.i(z);
         try {
-            lnbVar.h();
+            csbVar.h();
             if (z) {
                 this.b = null;
             } else {
                 this.b = opcode;
             }
-            return Collections.singletonList(lnbVar);
+            return Collections.singletonList(csbVar);
         } catch (InvalidDataException e) {
             throw new IllegalArgumentException(e);
         }
     }
 
-    public List<ByteBuffer> j(unb unbVar, WebSocket.Role role) {
-        return k(unbVar, role, true);
+    public List<ByteBuffer> j(lsb lsbVar, WebSocket.Role role) {
+        return k(lsbVar, role, true);
     }
 
-    public List<ByteBuffer> k(unb unbVar, WebSocket.Role role, boolean z) {
+    public List<ByteBuffer> k(lsb lsbVar, WebSocket.Role role, boolean z) {
         byte[] bArr;
         int length;
         StringBuilder sb = new StringBuilder(100);
-        if (unbVar instanceof pnb) {
+        if (lsbVar instanceof gsb) {
             sb.append("GET ");
-            sb.append(((pnb) unbVar).f());
+            sb.append(((gsb) lsbVar).f());
             sb.append(" HTTP/1.1");
-        } else if (unbVar instanceof wnb) {
+        } else if (lsbVar instanceof nsb) {
             sb.append("HTTP/1.1 101 ");
-            sb.append(((wnb) unbVar).a());
+            sb.append(((nsb) lsbVar).a());
         } else {
             throw new IllegalArgumentException("unknown role");
         }
         sb.append("\r\n");
-        Iterator<String> g = unbVar.g();
+        Iterator<String> g = lsbVar.g();
         while (g.hasNext()) {
             String next = g.next();
-            String d = unbVar.d(next);
+            String d = lsbVar.d(next);
             sb.append(next);
             sb.append(": ");
             sb.append(d);
             sb.append("\r\n");
         }
         sb.append("\r\n");
-        byte[] a = cob.a(sb.toString());
+        byte[] a = tsb.a(sb.toString());
         if (z) {
-            bArr = unbVar.getContent();
+            bArr = lsbVar.getContent();
         } else {
             bArr = null;
         }

@@ -1,48 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class dxa {
+public final class dxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long[] b = b();
-            if (b[0] <= 0) {
-                return 0.0f;
-            }
-            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
-        }
-        return invokeV.floatValue;
-    }
-
-    public static long[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long[] jArr = new long[4];
-            try {
-                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
-                long[] jArr2 = {30, -30};
-                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
-                if (method != null) {
-                    method.invoke(null, objArr);
-                    for (int i = 0; i < 4; i++) {
-                        jArr[i] = jArr2[i] / 1024;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && str.length() != 0) {
+                char[] charArray = str.toCharArray();
+                StringBuilder sb = new StringBuilder();
+                for (char c : charArray) {
+                    String binaryString = Integer.toBinaryString(c);
+                    while (binaryString.length() < 8) {
+                        binaryString = "0" + binaryString;
                     }
+                    sb.append(binaryString);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                while (sb.length() % 6 != 0) {
+                    sb.append("0");
+                }
+                String valueOf = String.valueOf(sb);
+                int length = valueOf.length() / 6;
+                char[] cArr = new char[length];
+                for (int i = 0; i < length; i++) {
+                    int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
+                    valueOf = valueOf.substring(6);
+                    cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
+                }
+                StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
+                if (str.length() % 3 == 1) {
+                    sb2.append("==");
+                } else if (str.length() % 3 == 2) {
+                    sb2.append("=");
+                }
+                for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
+                    sb2.insert(i2, "\r\n");
+                }
+                sb2.append("\r\n");
+                return String.valueOf(sb2);
             }
-            return jArr;
+            return str;
         }
-        return (long[]) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

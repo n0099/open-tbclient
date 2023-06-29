@@ -1,75 +1,404 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import org.json.JSONObject;
-import tbclient.ItemManage.DataRes;
-import tbclient.ManageInfo;
 /* loaded from: classes7.dex */
-public class nw6 implements wq5 {
+public class nw6 extends lw6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ew6> a;
-    public List<ew6> b;
-    public Integer c;
+    public int b;
+    public boolean c;
+    public final ArrayList<jw6> d;
+    public final ArrayList<jw6> e;
+    public final ArrayList<String> f;
+    public ow6 g;
+    public DownloadManagerNetModel h;
 
-    @Override // com.baidu.tieba.wq5
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nw6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(nw6 nw6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nw6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nw6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof jw6)) {
+                jw6 jw6Var = (jw6) customResponsedMessage.getData();
+                nw6 nw6Var = this.a;
+                if (nw6Var.o(nw6Var.d, jw6Var)) {
+                    return;
+                }
+                this.a.d.add(0, jw6Var);
+                nw6.h(this.a);
+                if (this.a.g != null) {
+                    this.a.g.a(this.a.d, this.a.e, 0);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.wq5
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+    /* loaded from: classes7.dex */
+    public class b extends BdAsyncTask<Integer, Integer, List<zg5>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ nw6 b;
+
+        public b(nw6 nw6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nw6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = nw6Var;
+            this.a = false;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(List<zg5> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) {
+                return;
+            }
+            this.b.q(list, this.a);
+        }
+
+        public final ItemData d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                ItemData itemData = new ItemData();
+                itemData.parseJson(str);
+                return itemData;
+            }
+            return (ItemData) invokeL.objValue;
+        }
+
+        public /* synthetic */ b(nw6 nw6Var, a aVar) {
+            this(nw6Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Removed duplicated region for block: B:60:0x010a A[EDGE_INSN: B:60:0x010a->B:48:0x010a ?: BREAK  , SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:67:0x0106 A[SYNTHETIC] */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public List<zg5> doInBackground(Integer... numArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
+                List<zg5> d = kw6.e().d();
+                ArrayList arrayList = new ArrayList(15);
+                if (this.b.b < d.size()) {
+                    int i = this.b.b;
+                    while (i < d.size()) {
+                        nw6.h(this.b);
+                        zg5 zg5Var = d.get(i);
+                        if (zg5Var != null && !wi.isEmpty(zg5Var.a) && !wi.isEmpty(zg5Var.c)) {
+                            ItemData d2 = d(zg5Var.c);
+                            zg5Var.b = d2;
+                            if (d2 != null && d2.apkDetail != null) {
+                                PackageInfo e = vm5.e(zg5Var.a);
+                                if (e != null && e.versionCode >= zg5Var.b.apkDetail.version_code.intValue() && !jw6.e(zg5Var.d)) {
+                                    kw6.e().c(zg5Var.a);
+                                    nw6.i(this.b);
+                                } else if (zg5Var.d == 2) {
+                                    if (!vh5.q().s(zg5Var.a) && vm5.d(zg5Var.a, zg5Var.b.appId) == 6) {
+                                        kw6.e().c(zg5Var.a);
+                                        nw6.i(this.b);
+                                    }
+                                    arrayList.add(zg5Var);
+                                    this.b.f.add(zg5Var.a);
+                                    if (arrayList.size() < 15) {
+                                        break;
+                                    }
+                                } else {
+                                    DownloadData j = vm5.j(zg5Var.b);
+                                    if (vm5.c(j) == 6 && !vm5.b(j.getId()) && !jw6.e(zg5Var.d)) {
+                                        kw6.e().c(zg5Var.a);
+                                        nw6.i(this.b);
+                                    }
+                                    arrayList.add(zg5Var);
+                                    this.b.f.add(zg5Var.a);
+                                    if (arrayList.size() < 15) {
+                                    }
+                                }
+                            } else {
+                                kw6.e().c(zg5Var.a);
+                                nw6.i(this.b);
+                            }
+                        }
+                        i++;
+                    }
+                    if (arrayList.size() >= 15 && i < d.size()) {
+                        this.a = true;
+                    } else {
+                        this.a = false;
+                    }
+                    return arrayList;
+                }
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
         }
     }
 
-    public nw6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nw6(BaseFragment baseFragment, int i) {
+        super(baseFragment, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = 0;
+        this.b = 0;
+        this.d = new ArrayList<>();
+        this.e = new ArrayList<>();
+        this.f = new ArrayList<>();
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), new rw6(1, i));
+        this.h = downloadManagerNetModel;
+        downloadManagerNetModel.w0(this);
+        this.h.setUniqueId(baseFragment.getUniqueId());
+        p(baseFragment);
     }
 
-    public void a(nw6 nw6Var) {
+    public static /* synthetic */ int h(nw6 nw6Var) {
+        int i = nw6Var.b;
+        nw6Var.b = i + 1;
+        return i;
+    }
+
+    public static /* synthetic */ int i(nw6 nw6Var) {
+        int i = nw6Var.b;
+        nw6Var.b = i - 1;
+        return i;
+    }
+
+    @Override // com.baidu.tieba.lw6
+    public void d(ow6 ow6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nw6Var) == null) {
-            this.a.addAll(nw6Var.a);
-            this.b = nw6Var.b;
-            this.c = nw6Var.c;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ow6Var) == null) {
+            this.g = ow6Var;
         }
     }
 
-    public void b(DataRes dataRes) {
+    public final void p(BaseFragment baseFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
-            for (ManageInfo manageInfo : dataRes.manage_list) {
-                this.a.add(ew6.c(manageInfo));
-            }
-            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
-                this.b.add(ew6.c(manageInfo2));
-            }
-            this.c = dataRes.has_more;
+        if (interceptable == null || interceptable.invokeL(1048582, this, baseFragment) == null) {
+            a aVar = new a(this, 2921627);
+            aVar.setTag(baseFragment.getUniqueId());
+            MessageManager.getInstance().registerListener(aVar);
         }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void L(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
+            this.c = false;
+            if (mvcHttpResponsedMessage == null) {
+                return;
+            }
+            sw6 sw6Var = null;
+            if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+                sw6Var = (sw6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
+            }
+            if (sw6Var != null && s(sw6Var)) {
+                return;
+            }
+            r();
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void w(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
+            this.c = false;
+            if (mvcSocketResponsedMessage == null) {
+                return;
+            }
+            sw6 sw6Var = null;
+            if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+                sw6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+            }
+            if (sw6Var != null && s(sw6Var)) {
+                return;
+            }
+            r();
+        }
+    }
+
+    @Override // com.baidu.tieba.lw6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+            return;
+        }
+        n();
+    }
+
+    @Override // com.baidu.tieba.lw6
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.c) {
+            return;
+        }
+        this.b = 0;
+        this.d.clear();
+        this.e.clear();
+        n();
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c = true;
+            new b(this, null).execute(new Integer[0]);
+        }
+    }
+
+    public final void r() {
+        ow6 ow6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (ow6Var = this.g) != null) {
+            ow6Var.a(this.d, null, 0);
+        }
+    }
+
+    public final boolean o(ArrayList<jw6> arrayList, jw6 jw6Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, arrayList, jw6Var)) == null) {
+            Iterator<jw6> it = arrayList.iterator();
+            while (it.hasNext()) {
+                if (it.next().d(jw6Var)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void q(List<zg5> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, list, z) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (zg5 zg5Var : list) {
+                if (zg5Var != null && zg5Var.b != null) {
+                    arrayList.add(jw6.b(zg5Var));
+                }
+            }
+            this.d.addAll(arrayList);
+            if (ListUtils.getCount(this.d) <= 4) {
+                this.h.loadData();
+                return;
+            }
+            this.c = false;
+            ow6 ow6Var = this.g;
+            if (ow6Var != null) {
+                ow6Var.a(this.d, null, z ? 1 : 0);
+            }
+        }
+    }
+
+    public final boolean s(sw6 sw6Var) {
+        InterceptResult invokeL;
+        ItemData itemData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, sw6Var)) == null) {
+            if (sw6Var == null) {
+                return false;
+            }
+            if (!ListUtils.isEmpty(sw6Var.b)) {
+                for (jw6 jw6Var : sw6Var.b) {
+                    if (jw6Var != null && (itemData = jw6Var.a) != null && !this.f.contains(itemData.pkgName) && vm5.e(jw6Var.a.pkgName) == null) {
+                        this.e.add(jw6Var);
+                    }
+                }
+            }
+            ow6 ow6Var = this.g;
+            if (ow6Var != null) {
+                ow6Var.a(this.d, this.e, 0);
+                return true;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

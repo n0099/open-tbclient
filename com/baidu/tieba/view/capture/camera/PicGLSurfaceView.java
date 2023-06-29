@@ -12,9 +12,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ns6;
-import com.baidu.tieba.v8a;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.hda;
+import com.baidu.tieba.ss6;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import javax.microedition.khronos.opengles.GL10;
 public class PicGLSurfaceView extends AspectGLSurfaceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ns6.c e;
+    public ss6.c e;
     public boolean f;
     public int g;
     public int h;
@@ -156,9 +156,9 @@ public class PicGLSurfaceView extends AspectGLSurfaceView {
                 try {
                     String str = "pic_" + System.currentTimeMillis();
                     if (this.b.getContext() != null) {
-                        bitmap = BitmapHelper.getClipBitmap(bitmap, (wi.j(context) * 1.0f) / wi.l(context));
+                        bitmap = BitmapHelper.getClipBitmap(bitmap, (xi.j(context) * 1.0f) / xi.l(context));
                     }
-                    this.c.i = FileHelper.saveFileAsPic(v8a.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
+                    this.c.i = FileHelper.saveFileAsPic(hda.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
                     return null;
                 } finally {
                     if (bitmap != null && !bitmap.isRecycled()) {
@@ -212,7 +212,7 @@ public class PicGLSurfaceView extends AspectGLSurfaceView {
     }
 
     public final void l(PicGLSurfaceView picGLSurfaceView, Bitmap bitmap) {
-        ns6.c cVar;
+        ss6.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, picGLSurfaceView, bitmap) == null) {
             this.i = null;
@@ -233,7 +233,7 @@ public class PicGLSurfaceView extends AspectGLSurfaceView {
         }
     }
 
-    public void m(ns6.c cVar) {
+    public void m(ss6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.e = cVar;

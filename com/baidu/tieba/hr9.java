@@ -1,198 +1,115 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.ShakeAdSwitchData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.setting.more.AdSettingActivity;
-import com.baidu.tieba.setting.more.MsgSettingItemView;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.common.GlobalHistogramBinarizer;
+import com.google.zxing.common.HybridBinarizer;
+import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class hr9 extends i9<AdSettingActivity> {
+public class hr9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<DecodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdSettingActivity a;
-    public View b;
-    public NavigationBar c;
-    public MsgSettingItemView d;
-    public TextView e;
-    public ImageView f;
-    public ShakeAdSwitchData g;
-    public MsgSettingItemView h;
 
-    /* loaded from: classes6.dex */
-    public class a implements BdSwitchView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(hr9 hr9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833466, "Lcom/baidu/tieba/hr9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-        public void d0(View view2, BdSwitchView.SwitchState switchState) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
-                o95 p = o95.p();
-                if (BdSwitchView.SwitchState.ON == switchState) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                p.A("key_splash_shake_ad_open", z);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hr9(AdSettingActivity adSettingActivity) {
-        super(adSettingActivity.getPageContext());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {adSettingActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((k9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947833466, "Lcom/baidu/tieba/hr9;");
                 return;
             }
         }
-        this.a = adSettingActivity;
-        y();
+        a = new EnumMap(DecodeHintType.class);
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(BarcodeFormat.QR_CODE);
+        arrayList.add(BarcodeFormat.AZTEC);
+        arrayList.add(BarcodeFormat.DATA_MATRIX);
+        arrayList.add(BarcodeFormat.PDF_417);
+        a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
+        a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
+        a.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
-    public void A() {
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.g();
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d.e();
-        }
-    }
-
-    public void B(ShakeAdSwitchData shakeAdSwitchData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shakeAdSwitchData) == null) {
-            this.g = shakeAdSwitchData;
-            x();
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            e05 layoutMode = this.a.getLayoutMode();
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.l(z);
-            this.a.getLayoutMode().k(this.b);
-            this.c.onChangeSkinType(getPageContext(), i);
-            this.d.c(this.a.getPageContext(), i);
-            this.h.c(this.a.getPageContext(), i);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        }
-    }
-
-    public final void u() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.setText(R.string.obfuscated_res_0x7f0f0c49);
-            this.d.setOnSwitchStateChangeListener(this.a);
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            int i2 = 0;
-            if (currentAccountObj != null) {
-                i2 = currentAccountObj.getMemberCloseAdIsOpen();
-                i = currentAccountObj.getMemberCloseAdVipClose();
-            } else {
-                i = 0;
-            }
-            if (i2 == 0) {
-                this.d.setVisibility(8);
-                this.e.setVisibility(8);
-            } else if (i == 0) {
-                this.d.e();
-            } else {
-                this.d.g();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                int i = 1;
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(str, options);
+                int i2 = options.outHeight / 800;
+                if (i2 > 0) {
+                    i = i2;
+                }
+                options.inSampleSize = i;
+                options.inJustDecodeBounds = false;
+                return BitmapFactory.decodeFile(str, options);
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public final void x() {
-        MsgSettingItemView msgSettingItemView;
+    public static String b(Bitmap bitmap) {
+        InterceptResult invokeL;
+        RGBLuminanceSource rGBLuminanceSource;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (msgSettingItemView = this.h) == null) {
-            return;
-        }
-        ShakeAdSwitchData shakeAdSwitchData = this.g;
-        if (shakeAdSwitchData != null && shakeAdSwitchData.isShow != 0) {
-            msgSettingItemView.setVisibility(0);
-            this.h.setTextStr(this.g.title);
-            this.h.setTipTextStr(this.g.desc);
-            if (o95.p().l("key_splash_shake_ad_open", true)) {
-                this.h.g();
-            } else {
-                this.h.e();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
+            try {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int[] iArr = new int[width * height];
+                bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+                rGBLuminanceSource = new RGBLuminanceSource(width, height, iArr);
+            } catch (Exception e) {
+                e = e;
+                rGBLuminanceSource = null;
             }
-            this.h.setOnSwitchStateChangeListener(new a(this));
-            return;
+            try {
+                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), a).getText();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                if (rGBLuminanceSource != null) {
+                    try {
+                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), a).getText();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                        return null;
+                    }
+                }
+                return null;
+            }
         }
-        this.h.setVisibility(8);
+        return (String) invokeL.objValue;
     }
 
-    public final void y() {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0073);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-            this.c = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f00d3));
-            this.d = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f0916d6);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0916d7);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902c5);
-            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f0919aa);
-            this.h = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f0920de);
-            u();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return b(a(str));
         }
+        return (String) invokeL.objValue;
     }
 }

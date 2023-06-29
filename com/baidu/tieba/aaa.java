@@ -1,329 +1,157 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
-import android.media.MediaMetadataRetriever;
-import android.provider.MediaStore;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import android.app.Activity;
+import android.app.Application;
+import android.view.MotionEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class aaa {
     public static /* synthetic */ Interceptable $ic;
+    public static aaa mInstance;
     public transient /* synthetic */ FieldHolder $fh;
+    public a mICrabSdk;
 
-    /* loaded from: classes4.dex */
-    public static final class a implements Comparator<z9a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Application application);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        void b(Exception exc);
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(z9a z9aVar, z9a z9aVar2) {
-            InterceptResult invokeLL;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, z9aVar, z9aVar2)) == null) {
-                if (z9aVar.b() < z9aVar2.b()) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                if (z9aVar.b() > z9aVar2.b()) {
-                    return -1;
-                }
-                return i;
-            }
-            return invokeLL.intValue;
-        }
+        void c(String str);
+
+        void d(String str);
+
+        void e(String str);
+
+        void f(MotionEvent motionEvent, Activity activity);
+
+        void onPause(Activity activity);
+
+        void onResume(Activity activity);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00d6, code lost:
-        if (r2 != null) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00d8, code lost:
-        r2.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ef, code lost:
-        if (r2 != null) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00f2, code lost:
-        r15.moveToNext();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00f9, code lost:
-        if (r8.d() == null) goto L48;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0103, code lost:
-        if (r8.a() == 0) goto L47;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x010d, code lost:
-        if (c(r8.c()) == false) goto L46;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0117, code lost:
-        if (r8.a() < 1000) goto L45;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0119, code lost:
-        r0 = r8.d();
-        r2 = r0.substring(r9, r0.lastIndexOf("/"));
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x012d, code lost:
-        if (r0.contains("/DCIM/") != false) goto L44;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x012f, code lost:
-        if (r2 == null) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0135, code lost:
-        if (r2.equals("/sdcard") == false) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0141, code lost:
-        if (new java.io.File(r0).exists() == false) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0143, code lost:
-        r1.add(r8);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0146, code lost:
-        r5 = r21 + 1;
-        r7 = r17;
-        r9 = r18;
-        r8 = r22;
-        r6 = 0;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0176  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static List<z9a> a(Context context) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Cursor query;
-        Cursor cursor2;
-        int i;
-        ContentResolver contentResolver;
-        String str;
-        int i2;
-        z9a z9aVar;
-        Cursor cursor3;
-        String string;
+    private boolean isCrabSdkSwitchOn() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            ArrayList arrayList = new ArrayList();
-            ContentResolver contentResolver2 = context.getContentResolver();
-            String str2 = "_id";
-            try {
-                query = contentResolver2.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, "title");
-            } catch (Exception e) {
-                e = e;
-                cursor = null;
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            try {
-                String[] strArr = {"video_id", "_data"};
-                query.moveToFirst();
-                int count = query.getCount();
-                int i3 = 0;
-                int i4 = 0;
-                while (i4 < count) {
-                    z9a z9aVar2 = new z9a();
-                    String string2 = query.getString(query.getColumnIndex(str2));
-                    z9aVar2.i(string2);
-                    String string3 = query.getString(query.getColumnIndex("_data"));
-                    if (string3 != null) {
-                        z9aVar2.j(string3.replace("/storage/emulated/0", "/sdcard"));
-                    }
-                    int i5 = count;
-                    z9aVar2.e(ug.e(query.getString(query.getColumnIndex("duration")), i3));
-                    z9aVar2.g(query.getString(query.getColumnIndex("mime_type")));
-                    z9aVar2.f(Long.parseLong(query.getString(query.getColumnIndex("date_modified"))));
-                    try {
-                        try {
-                            ContentResolver contentResolver3 = contentResolver2;
-                            i = i4;
-                            contentResolver = contentResolver2;
-                            str = str2;
-                            i2 = 0;
-                            z9aVar = z9aVar2;
-                            try {
-                                cursor3 = contentResolver3.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
-                                if (cursor3 != null) {
-                                    try {
-                                        try {
-                                            if (cursor3.moveToFirst() && (string = cursor3.getString(cursor3.getColumnIndex("_data"))) != null) {
-                                                z9aVar.h(string.replace("/storage/emulated/0", "/sdcard"));
-                                            }
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            cursor2 = cursor3;
-                                            if (cursor2 != null) {
-                                                cursor2.close();
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                e = e3;
-                                cursor3 = null;
-                                e.printStackTrace();
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                            i = i4;
-                            contentResolver = contentResolver2;
-                            str = str2;
-                            i2 = 0;
-                            z9aVar = z9aVar2;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        cursor2 = null;
-                    }
-                }
-                if (query != null) {
-                    query.close();
-                }
-            } catch (Exception e5) {
-                e = e5;
-                cursor = query;
-                try {
-                    e.printStackTrace();
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return arrayList;
-                } catch (Throwable th4) {
-                    th = th4;
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                cursor = query;
-                if (cursor != null) {
-                }
-                throw th;
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return false;
         }
-        return (List) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    public static z9a b(String str) {
-        InterceptResult invokeL;
+    public aaa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                z9a z9aVar = new z9a();
-                z9aVar.j(str);
-                z9aVar.f(file.lastModified());
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                            if (extractMetadata != null) {
-                                z9aVar.e(Integer.parseInt(extractMetadata));
-                            }
-                            z9aVar.g(mediaMetadataRetriever.extractMetadata(12));
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-                return z9aVar;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.mICrabSdk = getCrabSdk();
+    }
+
+    private a getCrabSdk() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (isCrabSdkSwitchOn() && (runTask = MessageManager.getInstance().runTask(2016565, a.class)) != null) {
+                return (a) runTask.getData();
             }
             return null;
         }
-        return (z9a) invokeL.objValue;
+        return (a) invokeV.objValue;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public static aaa getInstance() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!"video/mp4".equals(str) && !"video/ext-mp4".equals(str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(List<z9a> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
-            Collections.sort(list, new a());
-        }
-    }
-
-    public static void d(String str, List<z9a> list, boolean z) {
-        File[] listFiles;
-        z9a b;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65539, null, str, list, z) == null) && list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
-            for (File file : listFiles) {
-                if (file != null && !StringUtils.isNull(file.getPath())) {
-                    String path = file.getPath();
-                    if (file.isFile()) {
-                        if (path.contains("_tiebaconverting.mp4")) {
-                            if (file.exists()) {
-                                file.delete();
-                            }
-                        } else if (path.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) && DefaultHlsExtractorFactory.MP4_FILE_EXTENSION.equals(path.substring(path.lastIndexOf(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION))) && (b = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b.a() >= 1000 && c(b.c())) {
-                            list.add(b);
-                        }
-                    } else if (file.isDirectory() && !path.contains(com.kuaishou.weapon.p0.i1.j) && z) {
-                        d(path, list, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (mInstance == null) {
+                synchronized (aaa.class) {
+                    if (mInstance == null) {
+                        mInstance = new aaa();
                     }
                 }
             }
+            return mInstance;
+        }
+        return (aaa) invokeV.objValue;
+    }
+
+    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, activity) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.f(motionEvent, activity);
+        }
+    }
+
+    public void initSdk(Application application) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.a(application);
+        }
+    }
+
+    public void onPause(Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.onPause(activity);
+        }
+    }
+
+    public void onResume(Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.onResume(activity);
+        }
+    }
+
+    public void setFlutterPath(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.c(str);
+        }
+    }
+
+    public void setLastFlutterPage(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.e(str);
+        }
+    }
+
+    public void setOpenFlutterPage(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.d(str);
+        }
+    }
+
+    public void uploadException(Exception exc) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, exc) == null) && (aVar = this.mICrabSdk) != null) {
+            aVar.b(exc);
         }
     }
 }

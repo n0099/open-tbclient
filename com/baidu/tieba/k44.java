@@ -1,25 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.net.Uri;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.ww2;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class k44 extends f44 {
+public class k44 implements xx1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile k44 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public f44 a;
+    public j44 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k44() {
-        super("navigateToSwanGame");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,69 +24,51 @@ public final class k44 extends f44 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        c();
     }
 
-    @Override // com.baidu.tieba.f44
-    public z32 a(JSONObject paramsJson, dp2 callback) {
-        InterceptResult invokeLL;
-        boolean z;
-        Uri parse;
-        ww2.a W;
-        String I;
-        ww2.a W2;
+    public static k44 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
-            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            Application c = gv2.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (c == null) {
-                callback.onFail(202, "params may be error");
-                return null;
+                synchronized (k44.class) {
+                    if (c == null) {
+                        c = new k44();
+                    }
+                }
             }
-            String optString = paramsJson.optString("appKey");
-            boolean z2 = false;
-            if (optString != null && optString.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            zb3 b0 = zb3.b0();
-            String str = "";
-            jSONObject.put("pre_source", (b0 == null || (W2 = b0.W()) == null || (r8 = W2.T()) == null) ? "" : "");
-            zb3 b02 = zb3.b0();
-            if (b02 != null && (W = b02.W()) != null && (I = W.I()) != null) {
-                str = I;
-            }
-            jSONObject.put("pre_appid", str);
-            paramsJson.put("ubc", jSONObject);
-            String d1 = xw2.d1(optString, 1, paramsJson);
-            if ((d1 == null || d1.length() == 0) ? true : true) {
-                parse = null;
-            } else {
-                parse = Uri.parse(d1);
-            }
-            if (parse == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                callback.onSuccess(null);
-            } else {
-                callback.onFail(202, "params may be error");
-            }
-            return null;
+            return c;
         }
-        return (z32) invokeLL.objValue;
+        return (k44) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new f44();
+            this.b = new j44();
+        }
+    }
+
+    @Override // com.baidu.tieba.xx1
+    public c42 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull gp2 gp2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, gp2Var)) == null) {
+            if (this.a.e(str)) {
+                return this.a.a(str, jSONObject, gp2Var);
+            }
+            if (this.a.f()) {
+                return this.b.a(str, jSONObject, gp2Var);
+            }
+            return new c42(10001, "authorize fail.");
+        }
+        return (c42) invokeLLL.objValue;
     }
 }

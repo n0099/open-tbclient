@@ -12,9 +12,9 @@ import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.of;
+import com.baidu.tieba.kn;
 import com.baidu.tieba.pf;
+import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class MsgCommonItemAdapter<T> extends jn<ChatMessage, MsgViewHolder<T>> {
+public abstract class MsgCommonItemAdapter<T> extends kn<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<MsglistActivity<?>> a;
-    public of b;
-    public pf c;
+    public pf b;
+    public qf c;
     public long d;
     public boolean e;
     public boolean f;
@@ -110,17 +110,17 @@ public abstract class MsgCommonItemAdapter<T> extends jn<ChatMessage, MsgViewHol
         }
     }
 
-    public void B(of ofVar) {
+    public void B(pf pfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ofVar) == null) {
-            this.b = ofVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pfVar) == null) {
+            this.b = pfVar;
         }
     }
 
-    public void C(pf pfVar) {
+    public void C(qf qfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pfVar) == null) {
-            this.c = pfVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qfVar) == null) {
+            this.c = qfVar;
         }
     }
 
@@ -185,7 +185,7 @@ public abstract class MsgCommonItemAdapter<T> extends jn<ChatMessage, MsgViewHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jn
+    @Override // com.baidu.tieba.kn
     /* renamed from: x */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;

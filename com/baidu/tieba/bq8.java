@@ -1,28 +1,117 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Objects;
 /* loaded from: classes5.dex */
-public interface bq8<T extends ICardInfo> {
-    void d();
+public final class bq8<T> extends wp8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final zp8 c;
+    public T d;
+    public Object e;
+    public aq8 f;
 
-    void e();
+    public bq8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new zp8();
+        this.f = new aq8();
+    }
 
-    void f(BdUniqueId bdUniqueId);
+    public final zp8 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (zp8) invokeV.objValue;
+    }
 
-    void g();
+    public final T f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (T) invokeV.objValue;
+    }
 
-    void h();
+    public final aq8 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (aq8) invokeV.objValue;
+    }
 
-    void setAfterClickSchemeListener(fp8 fp8Var);
+    public final Object h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.objValue;
+    }
 
-    void setBusinessType(int i);
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Objects.hashCode(b());
+        }
+        return invokeV.intValue;
+    }
 
-    void setFromCDN(boolean z);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        bq8 bq8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            String str = null;
+            if (obj instanceof bq8) {
+                bq8Var = (bq8) obj;
+            } else {
+                bq8Var = null;
+            }
+            String b = b();
+            if (bq8Var != null) {
+                str = bq8Var.b();
+            }
+            return Objects.equals(b, str);
+        }
+        return invokeL.booleanValue;
+    }
 
-    void setMulDel(boolean z);
+    public final void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+            this.d = t;
+        }
+    }
 
-    void setPosition(int i);
-
-    void update(Object obj);
+    public final void j(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            this.e = obj;
+        }
+    }
 }

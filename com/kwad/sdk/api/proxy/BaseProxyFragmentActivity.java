@@ -15,7 +15,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.core.fragment.KsFragmentActivity;
 import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     public IFragmentActivityProxy mDelegate;
 

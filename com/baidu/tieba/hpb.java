@@ -1,52 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.gob;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.Charset;
 /* loaded from: classes6.dex */
-public final class hpb<T, R> implements gob.a<R> {
+public class hpb {
     public static /* synthetic */ Interceptable $ic;
+    public static Charset a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gob.a<T> a;
-    public final gob.b<? extends R, ? super T> b;
 
-    public hpb(gob.a<T> aVar, gob.b<? extends R, ? super T> bVar) {
+    public static void a(rpb rpbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, rpbVar) == null) {
+        }
+    }
+
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+        }
+    }
+
+    public static void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+        }
+    }
+
+    public static void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947832815, "Lcom/baidu/tieba/hpb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947832815, "Lcom/baidu/tieba/hpb;");
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
-    }
-
-    public void call(mob<? super R> mobVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mobVar) == null) {
-            try {
-                mob mobVar2 = (mob) qsb.n(this.b).call(mobVar);
-                mobVar2.d();
-                this.a.call(mobVar2);
-            } catch (Throwable th) {
-                sob.e(th);
-                mobVar.onError(th);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gob.a, com.baidu.tieba.uob
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((mob) ((mob) obj));
+        Charset forName = Charset.forName("UTF-8");
+        a = forName;
+        forName.newDecoder();
     }
 }

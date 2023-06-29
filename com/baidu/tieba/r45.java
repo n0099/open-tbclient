@@ -1,21 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.Topic;
 /* loaded from: classes7.dex */
-public class r45 {
+public class r45 extends l15 implements xn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public boolean a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public ThreadData t;
+    public int u;
+    public int v;
 
     public r45() {
         Interceptable interceptable = $ic;
@@ -30,49 +51,216 @@ public class r45 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = "";
+        this.a = false;
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        this.m = false;
+        this.n = false;
+        this.o = false;
+        this.p = false;
+        this.q = false;
+        this.r = false;
+        this.s = false;
+        this.u = 0;
+        this.v = 0;
     }
 
-    public int a() {
+    @Override // com.baidu.tieba.l15
+    public k35 getNegFeedBackData() {
         InterceptResult invokeV;
+        SparseArray<String> sparseArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            ThreadData threadData = this.t;
+            if (threadData != null && (sparseArray = threadData.feedBackReasonMap) != null && sparseArray.size() > 0) {
+                k35 k35Var = new k35();
+                k35Var.o(getThreadData().getTid());
+                k35Var.k(getThreadData().getFid());
+                k35Var.n(getThreadData().getNid());
+                k35Var.j(this.t.feedBackReasonMap);
+                ThreadData threadData2 = this.t;
+                k35Var.g = threadData2.feedBackExtraMap;
+                k35Var.p = threadData2.mRecomAbTag;
+                k35Var.k = threadData2.mRecomWeight;
+                k35Var.m = threadData2.mRecomExtra;
+                k35Var.l = threadData2.mRecomSource;
+                k35Var.q = threadData2.statFloor;
+                k35Var.o = threadData2.getRecomCardType();
+                return k35Var;
+            }
+            return null;
         }
-        return invokeV.intValue;
+        return (k35) invokeV.objValue;
     }
 
-    public String b() {
+    @Override // com.baidu.tieba.l15
+    public String getRecomReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.t.mRecomReason;
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.l15
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.t;
         }
-        try {
-            this.a = jSONObject.optInt("is_lpost", 0);
-            jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
-            this.b = jSONObject.optString("link", "");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return (ThreadData) invokeV.objValue;
     }
 
-    public void d(Topic topic) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.xn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        OriginalThreadInfo originalThreadInfo;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, topic) != null) || topic == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ThreadData threadData = this.t;
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.getIsDailyThread()) {
+                if (this.t.getThreadVideoInfo() != null) {
+                    return ThreadData.TYPE_VIDEO;
+                }
+                return ThreadData.TYPE_NORMAL;
+            }
+            int is_top = this.t.getIs_top();
+            ThreadData threadData2 = this.t;
+            if (threadData2.threadType == 63) {
+                return ThreadData.TYPE_SMART_APP_IMAGE;
+            }
+            if (threadData2.getThreadAlaInfo() != null && this.t.threadType == 60) {
+                return ThreadData.TYPE_ALA_SHARE_THREAD;
+            }
+            if (this.t.getThreadAlaInfo() != null && ((i = this.t.threadType) == 49 || i == 69)) {
+                return ThreadData.TYPE_VIDEO_ALA_ONLIVE;
+            }
+            ThreadData threadData3 = this.t;
+            if (threadData3.threadType == 51) {
+                return ThreadData.TYPE_ALA_LIVE_EMPTY;
+            }
+            if (is_top != 2 && is_top != 1) {
+                if (threadData3.getThreadVideoInfo() != null && this.t.isInsertThread() && !this.t.isLiveInterviewLiveType()) {
+                    return ThreadData.TYPE_INSERT_VIDEO;
+                }
+                ThreadData threadData4 = this.t;
+                if (threadData4.isShareThread && (originalThreadInfo = threadData4.originalThreadData) != null) {
+                    if (originalThreadInfo.x) {
+                        if (originalThreadInfo.r != null) {
+                            return ThreadData.TYPE_NEW_VIDEO_SHARE_THREAD;
+                        }
+                        if (originalThreadInfo.i()) {
+                            return ThreadData.TYPE_ARTICLE_SHARE_THREAD;
+                        }
+                        return ThreadData.TYPE_NEW_NORMAL_SHARE_THREAD;
+                    }
+                    return ThreadData.TYPE_SHARE_THREAD;
+                } else if (this.t.isInterviewLiveStyle()) {
+                    if (ThreadData.isFRSExtraLoaded.get()) {
+                        return ThreadData.TYPE_STAR_INTERVIEW;
+                    }
+                    return ThreadData.TYPE_NORMAL;
+                } else if (this.t.isActInfo() && this.t.getActInfoType() == 1) {
+                    if (ThreadData.isFRSExtraLoaded.get()) {
+                        return ThreadData.TYPE_LOTTERY;
+                    }
+                    return ThreadData.TYPE_NORMAL;
+                } else if (this.t.isLinkThread()) {
+                    return ThreadData.TYPE_LINK;
+                } else {
+                    if (this.t.isTopicThread()) {
+                        if (this.t.getHotTopicInfo() != null) {
+                            return ThreadData.TYPE_FRS_HOTTOPIC_VIDEO;
+                        }
+                        return ThreadData.TYPE_FRS_HOTTOPIC;
+                    }
+                    l4a l4aVar = this.t.funAdData;
+                    if (l4aVar != null && l4aVar.h()) {
+                        if (this.t.funAdData.i()) {
+                            return AdvertAppInfo.G;
+                        }
+                        return AdvertAppInfo.H;
+                    } else if (this.r) {
+                        return ThreadData.TYPE_FORUM_HEADER;
+                    } else {
+                        if (this.a) {
+                            return ThreadData.TYPE_USER_NORMAL;
+                        }
+                        if (this.b) {
+                            return ThreadData.TYPE_CONTENT_TEXT_NORMAL;
+                        }
+                        if (this.c) {
+                            return ThreadData.TYPE_CONTENT_SINGLE_H_NORMAL;
+                        }
+                        if (this.d) {
+                            return ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL;
+                        }
+                        if (this.e) {
+                            return ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL;
+                        }
+                        if (this.f) {
+                            return ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL;
+                        }
+                        if (this.g) {
+                            return ThreadData.TYPE_BOTTOM_NORMAL;
+                        }
+                        if (this.h) {
+                            return ThreadData.TYPE_GODREPLY_NORMAL;
+                        }
+                        if (this.i) {
+                            return ThreadData.TYPE_VIDEO;
+                        }
+                        if (this.j) {
+                            return ThreadData.TYPE_FAKE_VIDEO;
+                        }
+                        if (this.t.isGodThread()) {
+                            if (this.k) {
+                                return ThreadData.TYPE_VIDEO_GOD;
+                            }
+                            return ThreadData.TYPE_GOD_NORMAL;
+                        } else if (this.l) {
+                            return ThreadData.TYPE_SMART_APP;
+                        } else {
+                            if (this.m) {
+                                return ThreadData.TYPE_ENTER_FORUM;
+                            }
+                            if (this.n) {
+                                return ThreadData.TYPE_ITEM;
+                            }
+                            if (this.o) {
+                                return ThreadData.TYPE_VOTE;
+                            }
+                            if (this.p) {
+                                return ThreadData.TYPE_SINGLE_LINK;
+                            }
+                            if (this.q) {
+                                return ThreadData.TYPE_MULTI_LINK;
+                            }
+                            if (this.s) {
+                                return ThreadData.TYPE_RECOMMEND_INFO;
+                            }
+                            return ThreadData.TYPE_NORMAL;
+                        }
+                    }
+                }
+            }
+            return ThreadData.TYPE_TOP;
         }
-        this.a = topic.is_lpost.intValue();
-        topic.topic_type.intValue();
-        this.b = topic.link;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

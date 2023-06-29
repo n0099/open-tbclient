@@ -1,83 +1,74 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import java.util.Collection;
+import java.util.Map;
+import org.json.JSONArray;
+/* loaded from: classes8.dex */
 public class tm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(String str) {
+    public static <E> boolean a(Collection<E> collection) {
         InterceptResult invokeL;
-        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String c = c(str);
-            if (!TextUtils.isEmpty(c)) {
-                try {
-                    int lastIndexOf2 = c.lastIndexOf(47);
-                    if (lastIndexOf2 >= 0) {
-                        c = c.substring(lastIndexOf2 + 1);
-                    }
-                    if (!TextUtils.isEmpty(c) && (lastIndexOf = c.lastIndexOf(46)) >= 0) {
-                        return c.substring(lastIndexOf + 1);
-                    }
-                    return "";
-                } catch (Exception unused) {
-                    return "";
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, collection)) == null) {
+            if (collection != null && !collection.isEmpty()) {
+                return false;
             }
-            return "";
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static String b(String str) {
+    public static <K, V> boolean b(Map<K, V> map) {
         InterceptResult invokeL;
-        String mimeTypeFromExtension;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = null;
-            try {
-                String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(str);
-                if (!TextUtils.isEmpty(fileExtensionFromUrl) && !TextUtils.equals(fileExtensionFromUrl, StringUtil.NULL_STRING)) {
-                    if (TextUtils.equals(fileExtensionFromUrl, "json")) {
-                        mimeTypeFromExtension = "application/json";
-                    } else {
-                        mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl);
-                    }
-                    str2 = mimeTypeFromExtension;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            if (map != null && !map.isEmpty()) {
+                return false;
             }
-            if (TextUtils.isEmpty(str2)) {
-                return "*/*";
-            }
-            return str2;
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static String c(String str) {
+    public static boolean c(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                return false;
             }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
-            }
-            return str;
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static <E> boolean e(E[] eArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eArr)) == null) {
+            if (eArr != null && eArr.length != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

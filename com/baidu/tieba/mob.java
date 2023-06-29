@@ -1,172 +1,94 @@
 package com.baidu.tieba;
 
+import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.NativeIttiam;
+import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public abstract class mob<T> implements hob<T>, nob {
+public class mob extends gob implements NativeIttiam.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uqb a;
-    public final mob<?> b;
-    public iob c;
-    public long d;
 
-    public void d() {
+    @Override // com.baidu.tieba.aob
+    public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public mob() {
-        this(null, false);
+    public mob(jnb jnbVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jnbVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((mob) objArr[0], ((Boolean) objArr[1]).booleanValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.l.d(-16);
+        this.G = new WeakReference<>(jnbVar);
+        this.w = true;
+        this.b = i;
+        this.A.i(i);
+        this.o = 2;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public mob(mob<?> mobVar) {
-        this(mobVar, true);
+    public void M(MediaInfo mediaInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mobVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((mob) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            if (j >= 0) {
-                synchronized (this) {
-                    if (this.c != null) {
-                        this.c.request(j);
-                        return;
-                    }
-                    c(j);
-                    return;
-                }
-            }
-            throw new IllegalArgumentException("number requested cannot be negative: " + j);
-        }
-    }
-
-    public void f(iob iobVar) {
-        long j;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iobVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
+            TLog.g(this, mediaInfo.toString());
             synchronized (this) {
-                j = this.d;
-                this.c = iobVar;
-                if (this.b != null && j == Long.MIN_VALUE) {
-                    z = true;
-                } else {
-                    z = false;
+                if (this.q.e(mediaInfo)) {
+                    this.q.c(mediaInfo);
+                }
+                if (this.B == null || this.B.capacity() < this.q.i) {
+                    this.B = ByteBuffer.allocateDirect(this.q.i);
+                }
+                int j = ((((int) wnb.j(this.q.d, 16L)) * ((int) wnb.j(this.q.e, 16L))) * 3) >> 1;
+                if (j > this.D) {
+                    this.D = j;
+                    this.C = ByteBuffer.allocateDirect(j);
                 }
             }
-            if (z) {
-                this.b.f(this.c);
-            } else if (j == Long.MIN_VALUE) {
-                this.c.request(Long.MAX_VALUE);
+        }
+    }
+
+    @Override // com.baidu.tieba.aob
+    public void z(MediaFormat mediaFormat, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
+            this.x = System.currentTimeMillis();
+            this.a = i;
+            this.A.m(this);
+            this.A.h(i);
+            String string = mediaFormat.getString("mime");
+            if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
+                i2 = 7;
             } else {
-                this.c.request(j);
+                i2 = 0;
             }
-        }
-    }
-
-    public mob(mob<?> mobVar, boolean z) {
-        uqb uqbVar;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mobVar, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            if (this.A.j(i2, mediaFormat) != 0) {
+                m(50);
+                TLog.g(this, "createDecoder failed mine: " + string);
             }
-        }
-        this.d = Long.MIN_VALUE;
-        this.b = mobVar;
-        if (z && mobVar != null) {
-            uqbVar = mobVar.a;
-        } else {
-            uqbVar = new uqb();
-        }
-        this.a = uqbVar;
-    }
-
-    public final void b(nob nobVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nobVar) == null) {
-            this.a.a(nobVar);
-        }
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            long j2 = this.d;
-            if (j2 == Long.MIN_VALUE) {
-                this.d = j;
-                return;
-            }
-            long j3 = j2 + j;
-            if (j3 < 0) {
-                this.d = Long.MAX_VALUE;
-            } else {
-                this.d = j3;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nob
-    public final boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.isUnsubscribed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.nob
-    public final void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.unsubscribe();
+            M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
+            this.y = System.currentTimeMillis();
+            TLog.g(this, "ittiamDecoder handleCreateDecoder: taskId " + i + ", spent: " + (this.y - this.x));
         }
     }
 }

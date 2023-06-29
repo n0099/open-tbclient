@@ -1,216 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dz2 extends wd3 {
+public class dz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public float i;
+    public String j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dz2(wc3 wc3Var) {
-        super(wc3Var, "/swanAPI/backgroundAudio");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wc3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947721773, "Lcom/baidu/tieba/dz2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947721773, "Lcom/baidu/tieba/dz2;");
                 return;
             }
         }
+        boolean z = ms1.a;
     }
 
-    @Override // com.baidu.tieba.wd3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, zb3 zb3Var) {
-        InterceptResult invokeLLLL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, zb3Var)) == null) {
-            if (unitedSchemeEntity != null) {
-                cz2.b("AudioBGPlayerAction", "#handle entity.uri=" + unitedSchemeEntity.getUri());
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.wd3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, zb3 zb3Var) {
-        InterceptResult invokeLLLLL;
-        zy2 b;
-        char c;
-        boolean z;
+    public dz2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, zb3Var)) == null) {
-            if (zb3Var == null) {
-                fj3.b("audio", 2001, "SwanApp is null", 1001, "SwanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            cz2.b("AudioBGPlayerAction", "#handleSubAction subAction=" + str + " entity.uri=" + unitedSchemeEntity.getUri());
-            JSONObject j = j(unitedSchemeEntity.getParam("params"));
-            if (j == null) {
-                fj3.b("audio", 2001, "param is null", 201, "param is null");
-                z82.c("backgroundAudio", "param is null!");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            bz2 P = zb3Var.P();
-            if (TextUtils.equals(str, "/swanAPI/backgroundAudio/open")) {
-                b = zy2.b(j, new zy2());
-            } else {
-                b = zy2.b(j, P.q());
-            }
-            cz2.b("AudioBGPlayerAction", "#handleSubAction playerParams=" + b);
-            JSONObject jSONObject = null;
-            switch (str.hashCode()) {
-                case 312101659:
-                    if (str.equals("/swanAPI/backgroundAudio/getParamsSync")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335869926:
-                    if (str.equals("/swanAPI/backgroundAudio/open")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335895760:
-                    if (str.equals("/swanAPI/backgroundAudio/play")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335978516:
-                    if (str.equals("/swanAPI/backgroundAudio/seek")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335993246:
-                    if (str.equals("/swanAPI/backgroundAudio/stop")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 820188005:
-                    if (str.equals("/swanAPI/backgroundAudio/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1822525402:
-                    if (str.equals("/swanAPI/backgroundAudio/pause")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    z82.i("backgroundAudio", "open, audioId " + b.a);
-                    P.z(b, callbackHandler);
-                    z = true;
-                    break;
-                case 1:
-                    z82.i("backgroundAudio", "update, audioId " + b.a);
-                    P.update(b);
-                    z = true;
-                    break;
-                case 2:
-                    z82.i("backgroundAudio", "play, audioId " + b.a);
-                    P.F();
-                    z = true;
-                    break;
-                case 3:
-                    z82.i("backgroundAudio", "pause, audioId " + b.a);
-                    P.A();
-                    z = true;
-                    break;
-                case 4:
-                    z82.i("backgroundAudio", "seek, audioId " + b.a + " position " + b.l);
-                    P.G(b.l);
-                    z = true;
-                    break;
-                case 5:
-                    z82.i("backgroundAudio", "stop, audioId " + b.a);
-                    P.L();
-                    z = true;
-                    break;
-                case 6:
-                    jSONObject = new JSONObject();
-                    try {
-                        jSONObject.putOpt(b.m, P.t(b.m));
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                        return true;
-                    } catch (JSONException e) {
-                        fj3.b("audio", 2009, "json exception", -1, "");
-                        z82.c("backgroundAudio", "getParams error " + e.toString());
-                        cz2.c("backgroundAudio", "getParamsSync error", e);
-                        break;
-                    }
-                default:
-                    z = false;
-                    break;
-            }
-            cz2.b("AudioBGPlayerAction", "#handleSubAction invokeSuccess=" + z);
-            if (z) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            return super.i(context, unitedSchemeEntity, callbackHandler, str, zb3Var);
         }
-        return invokeLLLLL.booleanValue;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = 0;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = 0;
+        this.i = 1.0f;
     }
 
-    public final JSONObject j(String str) {
-        InterceptResult invokeL;
+    public static dz2 a(JSONObject jSONObject, dz2 dz2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return new JSONObject(str);
-                } catch (JSONException e) {
-                    if (wd3.b) {
-                        Log.d("AudioBGPlayerAction", Log.getStackTraceString(e));
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, dz2Var)) == null) {
+            dz2 dz2Var2 = new dz2();
+            if (jSONObject != null) {
+                dz2Var2.a = jSONObject.optString("audioId", dz2Var.a);
+                dz2Var2.b = jSONObject.optString("slaveId", dz2Var.b);
+                dz2Var2.e = jSONObject.optBoolean("autoplay", dz2Var.e);
+                dz2Var2.f = jSONObject.optBoolean("loop", dz2Var.f);
+                dz2Var2.c = jSONObject.optString("src", dz2Var.c);
+                dz2Var2.d = jSONObject.optInt("startTime", dz2Var.d);
+                dz2Var2.g = jSONObject.optBoolean("obeyMuteSwitch", dz2Var.g);
+                dz2Var2.h = jSONObject.optInt(CriusAttrConstants.POSITION, dz2Var.h);
+                dz2Var2.i = (float) jSONObject.optDouble("volume", dz2Var.i);
+                dz2Var2.j = jSONObject.optString("cb", dz2Var.j);
             }
-            return null;
+            return dz2Var2;
         }
-        return (JSONObject) invokeL.objValue;
+        return (dz2) invokeLL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "playerId : " + this.a + "; slaveId : " + this.b + "; url : " + this.c + "; AutoPlay : " + this.e + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.ega;
-import com.baidu.tieba.fga;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.uka;
+import com.baidu.tieba.vka;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public fga a;
-    public ega b;
+    public vka a;
+    public uka b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -117,7 +117,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new fga(this);
+            this.a = new vka(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -138,9 +138,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     }
                     newWriteModel2.q0(z);
                 }
-                ega egaVar = new ega(this.a, this.c);
-                this.b = egaVar;
-                this.a.l(egaVar);
+                uka ukaVar = new uka(this.a, this.c);
+                this.b = ukaVar;
+                this.a.l(ukaVar);
                 this.b.h(x1());
                 return;
             }

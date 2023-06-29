@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m26;
-import com.baidu.tieba.nt5;
-import com.baidu.tieba.u26;
+import com.baidu.tieba.r26;
+import com.baidu.tieba.st5;
+import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class SelectClassDialogView extends ViewGroup implements nt5 {
+public class SelectClassDialogView extends ViewGroup implements st5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-    public u26<String> b;
+    public z26<String> b;
 
-    @Override // com.baidu.tieba.nt5
+    @Override // com.baidu.tieba.st5
     public boolean Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class SelectClassDialogView extends ViewGroup implements nt5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nt5
+    @Override // com.baidu.tieba.st5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,9 +80,9 @@ public class SelectClassDialogView extends ViewGroup implements nt5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0202, this.a, true);
-            u26<String> u26Var = new u26<>(this.a, true);
-            this.b = u26Var;
-            u26Var.t(9);
+            z26<String> z26Var = new z26<>(this.a, true);
+            this.b = z26Var;
+            z26Var.t(9);
             this.b.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
             this.b.s(WheelView.DividerType.FILL);
@@ -95,7 +95,7 @@ public class SelectClassDialogView extends ViewGroup implements nt5 {
         }
     }
 
-    @Override // com.baidu.tieba.nt5
+    @Override // com.baidu.tieba.st5
     public void q(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -120,15 +120,15 @@ public class SelectClassDialogView extends ViewGroup implements nt5 {
         }
     }
 
-    public void setOnOptionsSelectChangeListener(m26 m26Var) {
-        u26<String> u26Var;
+    public void setOnOptionsSelectChangeListener(r26 r26Var) {
+        z26<String> z26Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, m26Var) == null) && (u26Var = this.b) != null) {
-            u26Var.w(m26Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, r26Var) == null) && (z26Var = this.b) != null) {
+            z26Var.w(r26Var);
         }
     }
 
-    @Override // com.baidu.tieba.nt5
+    @Override // com.baidu.tieba.st5
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

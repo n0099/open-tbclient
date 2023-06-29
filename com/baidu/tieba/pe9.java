@@ -1,70 +1,92 @@
 package com.baidu.tieba;
 
+import android.text.SpannableString;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.wx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CustomGrid;
 /* loaded from: classes7.dex */
-public class pe9 {
+public class pe9 extends me9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public int e;
-    public long f;
-    public String g;
-    public String h;
+    public LinearLayout f;
+    public TextView g;
 
-    public pe9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pe9(TbPageContext tbPageContext, int i) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(CustomGrid customGrid) {
+    @Override // com.baidu.tieba.me9
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
-            this.a = customGrid.title;
-            this.b = customGrid.action_uri;
-            this.c = customGrid.action_type.intValue();
-            this.d = customGrid.icon;
-            this.e = customGrid.type.intValue();
-            this.g = customGrid.desc;
-            this.h = customGrid.mark_text;
-            this.f = customGrid.red_point_version.longValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
+            this.f = linearLayout;
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092409);
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.me9
+    public void b(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
+            this.e = i;
+            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
         }
     }
 
-    public ye9 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.me9
+    public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ye9 ye9Var = new ye9();
-            ye9Var.e = this.a;
-            ye9Var.m = true;
-            ye9Var.k = this.d;
-            ye9Var.f = this.b;
-            ye9Var.a = this.e;
-            ye9Var.l = this.c;
-            af9 af9Var = new af9();
-            af9Var.b = this.g;
-            af9Var.i = this.h;
-            ye9Var.h = af9Var;
-            return ye9Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
+            this.g.setText(new SpannableString(this.a.getString(R.string.origin_thread_deleted_title)));
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
         }
-        return (ye9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.me9
+    public void d(wx.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            super.d(aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.me9
+    public void e(qo6 qo6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, qo6Var) == null) {
+            super.e(qo6Var);
+        }
     }
 }

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l29;
-import com.baidu.tieba.o95;
+import com.baidu.tieba.r95;
+import com.baidu.tieba.w69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l29 a;
+    public w69 a;
     public int b;
     public String[] c;
     public boolean d;
@@ -63,9 +63,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             t1();
-            l29 l29Var = new l29(this, this.b, this.c, this.d);
-            this.a = l29Var;
-            setContentView(l29Var.d());
+            w69 w69Var = new w69(this, this.b, this.c, this.d);
+            this.a = w69Var;
+            setContentView(w69Var.d());
             u1();
         }
     }
@@ -84,7 +84,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
             String str = "";
-            String w = o95.p().w("key_interest_guide_show", "");
+            String w = r95.p().w("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(w);
             if (!StringUtils.isNull(w)) {
@@ -92,7 +92,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             }
             sb.append(str);
             String sb2 = sb.toString();
-            o95 p = o95.p();
+            r95 p = r95.p();
             p.J("key_interest_guide_show", sb2 + System.currentTimeMillis());
         }
     }

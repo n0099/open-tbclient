@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.cache.CacheManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,30 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt___StringsKt;
 /* loaded from: classes5.dex */
-public final class et6 implements Comparable<et6> {
+public final class et6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a p;
-    public static final et6 q;
+    public static final a f;
+    public static final et6 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
-    public final String c;
-    public CharSequence d;
-    public final int e;
-    public final int f;
-    public final int g;
-    public final int h;
-    public final int i;
-    public final int j;
-    public Long k;
-    public b0a l;
-    public int m;
-    public float n;
-    public float o;
+    public final ft6 a;
+    public boolean b;
+    public int c;
+    public CacheManager d;
+    public int e;
 
     /* loaded from: classes5.dex */
     public static final class a {
@@ -57,22 +52,13 @@ public final class et6 implements Comparable<et6> {
             }
         }
 
-        public final et6 c() {
+        public final et6 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                return (et6) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return et6.g;
             }
-            return et6.q;
-        }
-
-        public final et6 b(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                return new et6(Long.MIN_VALUE, j, "", "", 0, 0, 0, 0, 0, 0, null, null, 0, 0.0f, 16256, null);
-            }
-            return (et6) invokeJ.objValue;
+            return (et6) invokeV.objValue;
         }
     }
 
@@ -89,154 +75,70 @@ public final class et6 implements Comparable<et6> {
                 return;
             }
         }
-        a aVar = new a(null);
-        p = aVar;
-        q = aVar.b(Long.MAX_VALUE);
+        f = new a(null);
+        g = new et6();
     }
 
-    public et6(long j, long j2, String content, CharSequence contentSpan, int i, int i2, int i3, int i4, int i5, int i6, Long l, b0a postData, int i7, float f) {
+    public et6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), content, contentSpan, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), l, postData, Integer.valueOf(i7), Float.valueOf(f)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(content, "content");
-        Intrinsics.checkNotNullParameter(contentSpan, "contentSpan");
-        Intrinsics.checkNotNullParameter(postData, "postData");
-        this.a = j;
-        this.b = j2;
-        this.c = content;
-        this.d = contentSpan;
-        this.e = i;
-        this.f = i2;
-        this.g = i3;
-        this.h = i4;
-        this.i = i5;
-        this.j = i6;
-        this.k = l;
-        this.l = postData;
-        this.m = i7;
-        this.n = f;
+        this.a = new ft6();
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ et6(long j, long j2, String str, CharSequence charSequence, int i, int i2, int i3, int i4, int i5, int i6, Long l, b0a b0aVar, int i7, float f, int i8, DefaultConstructorMarker defaultConstructorMarker) {
-        this(j, j2, str, charSequence, i, i2, i3, r13, r14, r15, r16, r17, r18, r19);
-        int i9;
-        int i10;
-        int i11;
-        Long l2;
-        b0a b0aVar2;
-        int i12;
-        float f2;
-        if ((i8 & 128) != 0) {
-            i9 = 0;
-        } else {
-            i9 = i4;
-        }
-        if ((i8 & 256) != 0) {
-            i10 = 1;
-        } else {
-            i10 = i5;
-        }
-        if ((i8 & 512) != 0) {
-            i11 = 0;
-        } else {
-            i11 = i6;
-        }
-        if ((i8 & 1024) != 0) {
-            l2 = null;
-        } else {
-            l2 = l;
-        }
-        if ((i8 & 2048) != 0) {
-            b0aVar2 = new b0a();
-        } else {
-            b0aVar2 = b0aVar;
-        }
-        if ((i8 & 4096) != 0) {
-            i12 = 0;
-        } else {
-            i12 = i7;
-        }
-        if ((i8 & 8192) != 0) {
-            f2 = 0.0f;
-        } else {
-            f2 = f;
-        }
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
+    public final void d() {
+        CacheManager cacheManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                int i = this.c - 1;
+                this.c = i;
+                if (i <= 0 && this.b && (cacheManager = this.d) != null) {
+                    cacheManager.l(this);
+                }
+                Unit unit = Unit.INSTANCE;
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final CharSequence d() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (this.c <= 0) {
+                    m();
+                } else {
+                    this.b = true;
+                }
+                Unit unit = Unit.INSTANCE;
+            }
         }
-        return (CharSequence) invokeV.objValue;
     }
 
-    public final float e() {
-        InterceptResult invokeV;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.o;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.a.b();
+                Unit unit = Unit.INSTANCE;
+            }
         }
-        return invokeV.floatValue;
-    }
-
-    public final long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public final float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.n;
-        }
-        return invokeV.floatValue;
     }
 
     public final int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.m;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a.e();
         }
         return invokeV.intValue;
     }
@@ -244,95 +146,111 @@ public final class et6 implements Comparable<et6> {
     public final int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
     }
 
-    public final long k() {
+    public final int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final b0a l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.l;
-        }
-        return (b0a) invokeV.objValue;
-    }
-
-    public final int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.f();
         }
         return invokeV.intValue;
     }
 
-    public final int o() {
-        InterceptResult invokeV;
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final Long p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.k;
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    public final boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.h > 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            synchronized (this) {
+                this.c++;
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: b */
-    public int compareTo(et6 other) {
+    public static /* synthetic */ et6 c(et6 et6Var, int i, int i2, int i3, boolean z, int i4, int i5, Object obj) {
+        int i6;
+        if ((i5 & 16) != 0) {
+            i6 = 32;
+        } else {
+            i6 = i4;
+        }
+        et6Var.b(i, i2, i3, z, i6);
+        return et6Var;
+    }
+
+    public final et6 b(int i, int i2, int i3, boolean z, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)})) == null) {
+            synchronized (this) {
+                this.a.a(i, i2, i3, z, i4);
+                this.e = h(this.a.c());
+            }
+            return this;
+        }
+        return (et6) invokeCommon.objValue;
+    }
+
+    public final ft6 g() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ft6 ft6Var = this.a;
+            if (!Intrinsics.areEqual(ft6Var.c(), qu6.b()) && !ft6Var.c().isRecycled()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return null;
+            }
+            return ft6Var;
+        }
+        return (ft6) invokeV.objValue;
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public final int h(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            return (int) (this.b - other.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bitmap)) == null) {
+            if (bitmap == null) {
+                return 0;
+            }
+            if (Build.VERSION.SDK_INT >= 19) {
+                return bitmap.getAllocationByteCount();
+            }
+            return bitmap.getRowBytes() * bitmap.getHeight();
         }
         return invokeL.intValue;
     }
 
-    public final void r(float f) {
+    public final void n(CacheManager cacheManager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.o = f;
+        if (interceptable == null || interceptable.invokeL(1048587, this, cacheManager) == null) {
+            this.d = cacheManager;
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return "Danmaku{id: " + this.a + ", content: " + StringsKt___StringsKt.take(this.c, 5) + ", position: " + this.b + ", mode: " + this.e + ", rank: " + this.j + '}';
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            synchronized (this) {
+                if (!Intrinsics.areEqual(Thread.currentThread().getName(), "AkDanmaku-Cache")) {
+                    BdLog.e("DanmakuEngineDrawingCache recycle called must on cache thread but now on " + Thread.currentThread().getName());
+                }
+                if (this.c > 0) {
+                    return;
+                }
+                this.b = false;
+                this.a.g();
+                this.e = 0;
+                Unit unit = Unit.INSTANCE;
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

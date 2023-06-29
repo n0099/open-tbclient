@@ -4,20 +4,14 @@ import android.content.Context;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface wb1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
+    public static final ServiceReference a = new ServiceReference("nad.core", "cookieManager");
     public static final wb1 b = new a();
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a();
-    }
-
-    int a(Context context, b bVar);
+    void a(Context context, String str);
 
     /* loaded from: classes8.dex */
     public static class a implements wb1 {
@@ -25,13 +19,10 @@ public interface wb1 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.wb1
-        public int a(Context context, b bVar) {
-            InterceptResult invokeLL;
+        public void a(Context context, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
-                return 0;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
             }
-            return invokeLL.intValue;
         }
 
         public a() {

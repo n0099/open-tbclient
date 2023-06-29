@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ManagerElection;
+import tbclient.Search.DataRes;
 /* loaded from: classes7.dex */
 public class th6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sh6 a;
-    public rh6 b;
-    public List<rh6> c;
-    public ManagerElection d;
-    public boolean e;
-    public long f;
-    public BdUniqueId g;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public boolean k;
+    public long l;
 
     public th6() {
         Interceptable interceptable = $ic;
@@ -37,115 +36,72 @@ public class th6 {
         }
     }
 
-    public sh6 a() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
+        long longValue;
+        long longValue2;
+        int intValue;
+        int intValue2;
+        int intValue3;
+        int intValue4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (sh6) invokeV.objValue;
-    }
-
-    public List<rh6> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        Long l = dataRes.uid;
+        long j = 0;
+        if (l == null) {
+            longValue = 0;
+        } else {
+            longValue = l.longValue();
         }
-        return (List) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        this.b = longValue;
+        this.c = dataRes.portrait;
+        this.d = dataRes.name_show;
+        Long l2 = dataRes.apply_id;
+        if (l2 == null) {
+            longValue2 = 0;
+        } else {
+            longValue2 = l2.longValue();
         }
-        return invokeV.longValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+        this.e = longValue2;
+        Integer num = dataRes.vote_num;
+        boolean z = false;
+        if (num == null) {
+            intValue = 0;
+        } else {
+            intValue = num.intValue();
         }
-        return invokeV.booleanValue;
-    }
-
-    public ManagerElection e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        this.f = intValue;
+        Integer num2 = dataRes.agree_num;
+        if (num2 == null) {
+            intValue2 = 0;
+        } else {
+            intValue2 = num2.intValue();
         }
-        return (ManagerElection) invokeV.objValue;
-    }
-
-    public rh6 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        this.g = intValue2;
+        Integer num3 = dataRes.thread_num;
+        if (num3 == null) {
+            intValue3 = 0;
+        } else {
+            intValue3 = num3.intValue();
         }
-        return (rh6) invokeV.objValue;
-    }
-
-    public BdUniqueId g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
+        this.h = intValue3;
+        Integer num4 = dataRes.post_num;
+        if (num4 == null) {
+            intValue4 = 0;
+        } else {
+            intValue4 = num4.intValue();
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(ArrayList<rh6> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
-            this.c = arrayList;
+        this.i = intValue4;
+        Boolean bool = dataRes.is_vote;
+        if (bool != null) {
+            z = bool.booleanValue();
         }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.f = j;
+        this.k = z;
+        Long l3 = dataRes.tid;
+        if (l3 != null) {
+            j = l3.longValue();
         }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void k(ManagerElection managerElection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, managerElection) == null) {
-            this.d = managerElection;
-        }
-    }
-
-    public void l(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
-            this.g = bdUniqueId;
-        }
-    }
-
-    public void m(sh6 sh6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, sh6Var) == null) {
-            this.a = sh6Var;
-        }
-    }
-
-    public void n(rh6 rh6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, rh6Var) == null) {
-            this.b = rh6Var;
-        }
+        this.l = j;
     }
 }

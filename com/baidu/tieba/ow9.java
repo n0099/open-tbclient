@@ -1,56 +1,60 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.square.forumlist.SquareForumListActivity;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.switchs.WeChatShareSmallAppToH5Switch;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import tbclient.GetForumsFromForumClass.ForumSpaceForumInfo;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXEmojiObject;
+import com.tencent.mm.opensdk.modelmsg.WXImageObject;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.opensdk.modelmsg.WXMiniProgramObject;
+import com.tencent.mm.opensdk.modelmsg.WXTextObject;
+import com.tencent.mm.opensdk.modelmsg.WXVideoObject;
+import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.net.URLEncoder;
 /* loaded from: classes7.dex */
-public class ow9 extends BaseAdapter {
+public class ow9 extends jw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Long, Integer> a;
-    public TbPageContext<SquareForumListActivity> b;
-    public int c;
-    public List<ForumSpaceForumInfo> d;
-    public LikeModel e;
-    public View.OnClickListener f;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
+    public int k;
+    public qw9 l;
+    public IWXAPI m;
+    public d n;
+    public final qg<EmotionShareLoaderProc.EmotionShare> o;
+    public final c p;
 
     /* loaded from: classes7.dex */
-    public class a extends j9 {
+    public class a extends qg<EmotionShareLoaderProc.EmotionShare> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ow9 a;
@@ -73,17 +77,35 @@ public class ow9 extends BaseAdapter {
             this.a = ow9Var;
         }
 
-        @Override // com.baidu.tieba.j9
-        public void c(Object obj) {
+        @Override // com.baidu.tieba.qg
+        public void onCancelled(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && AntiHelper.m(this.a.e.getErrorCode(), this.a.e.getErrorString())) {
-                AntiHelper.u(this.a.b.getPageActivity(), this.a.e.getErrorString());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                super.onCancelled(str);
+                this.a.p.onCancelled(str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qg
+        /* renamed from: a */
+        public void onLoaded(EmotionShareLoaderProc.EmotionShare emotionShare, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i) == null) {
+                super.onLoaded(emotionShare, str, i);
+                if (emotionShare != null && emotionShare.image != null) {
+                    ow9 ow9Var = this.a;
+                    if (ow9Var.f0(ow9Var.e, emotionShare)) {
+                        return;
+                    }
+                }
+                this.a.p.onLoaded((in) null, str, i);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
+    public class b extends BdAsyncTask<Bitmap, Void, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ow9 a;
@@ -106,63 +128,39 @@ public class ow9 extends BaseAdapter {
             this.a = ow9Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String valueOf;
-            String valueOf2;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Bitmap doInBackground(Bitmap... bitmapArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String str = "";
-                if (view2.getId() == R.id.obfuscated_res_0x7f090bc0) {
-                    if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0df3);
-                    } else if (!ViewHelper.checkUpIsLogin(this.a.b.getPageActivity())) {
-                    } else {
-                        if (view2.getTag(R.id.obfuscated_res_0x7f090bfa) == null) {
-                            valueOf2 = "";
-                        } else {
-                            valueOf2 = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090bfa));
-                        }
-                        if (view2.getTag(R.id.obfuscated_res_0x7f090b96) != null) {
-                            str = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090b96));
-                        }
-                        this.a.e.m0(valueOf2, str);
-                        if (this.a.c == 1) {
-                            TiebaStatic.log(new StatisticItem("c10566").param("fid", str));
-                        } else if (this.a.c == 2) {
-                            TiebaStatic.log(new StatisticItem("c10587").param("fid", str));
-                        }
-                    }
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f0921c5) {
-                    if (view2.getTag(R.id.obfuscated_res_0x7f090bfa) == null) {
-                        valueOf = "";
-                    } else {
-                        valueOf = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090bfa));
-                    }
-                    if (view2.getTag(R.id.obfuscated_res_0x7f090b96) != null) {
-                        str = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090b96));
-                    }
-                    this.a.b.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.b.getContext()).createNormalCfg(valueOf, null)));
-                    if (this.a.c == 1) {
-                        TiebaStatic.log(new StatisticItem("c10565").param("obj_type", 1).param("fid", str));
-                    } else if (this.a.c == 2) {
-                        TiebaStatic.log(new StatisticItem("c10586").param("obj_type", 1).param("fid", str));
-                    }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmapArr)) == null) {
+                if (bitmapArr.length > 0 && bitmapArr[0] != null) {
+                    ow9 ow9Var = this.a;
+                    return ow9Var.u(bitmapArr[0], ow9Var.e, false);
                 }
+                return null;
+            }
+            return (Bitmap) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+                super.onPostExecute((b) bitmap);
+                ow9 ow9Var = this.a;
+                ow9Var.l0(ow9Var.e, bitmap);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c {
+    public final class c extends qg<in> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public BarImageView b;
-        public TextView c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
+        public final /* synthetic */ ow9 a;
 
         public c(ow9 ow9Var) {
             Interceptable interceptable = $ic;
@@ -176,195 +174,690 @@ public class ow9 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ow9Var;
         }
 
         public /* synthetic */ c(ow9 ow9Var, a aVar) {
             this(ow9Var);
         }
+
+        @Override // com.baidu.tieba.qg
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.onCancelled(str);
+                if (this.a.l != null) {
+                    this.a.l.c1(this.a.k, 3);
+                }
+                ow9 ow9Var = this.a;
+                ow9Var.t(3, ow9Var.k);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qg
+        public void onLoaded(in inVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inVar, str, i) == null) {
+                super.onLoaded((c) inVar, str, i);
+                if (inVar == null) {
+                    this.a.n0();
+                    return;
+                }
+                Bitmap p = inVar.p();
+                if (!TextUtils.isEmpty(this.a.e.getLinkUrl())) {
+                    if (this.a.k == 2) {
+                        ow9 ow9Var = this.a;
+                        ow9Var.m0(ow9Var.e, p);
+                        return;
+                    }
+                    String tid = this.a.e.getTid();
+                    int typeShareToSmallApp = this.a.e.getTypeShareToSmallApp();
+                    if ((typeShareToSmallApp == 2 || typeShareToSmallApp == 4 || (!StringUtils.isNull(tid) && !tid.equals("0"))) && this.a.e.canShareBySmartApp && !WeChatShareSmallAppToH5Switch.isOn()) {
+                        ow9 ow9Var2 = this.a;
+                        ow9Var2.i0(ow9Var2.e, p);
+                        return;
+                    }
+                    ow9 ow9Var3 = this.a;
+                    ow9Var3.m0(ow9Var3.e, p);
+                } else if (!TextUtils.isEmpty(this.a.e.getVideoUrl())) {
+                    ow9 ow9Var4 = this.a;
+                    ow9Var4.k0(ow9Var4.e, p);
+                } else if (!TextUtils.isEmpty(this.a.e.getContent())) {
+                    this.a.n0();
+                } else {
+                    ow9 ow9Var5 = this.a;
+                    ow9Var5.g0(ow9Var5.e, p);
+                }
+            }
+        }
     }
 
-    public ow9(TbPageContext<SquareForumListActivity> tbPageContext, int i) {
+    /* loaded from: classes7.dex */
+    public class d extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ow9 this$0;
+
+        public d(ow9 ow9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ow9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = ow9Var;
+        }
+
+        public /* synthetic */ d(ow9 ow9Var, a aVar) {
+            this(ow9Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent.hasExtra("weixin_result_errCode")) {
+                int intExtra = intent.getIntExtra("weixin_result_errCode", 0);
+                if (intExtra == 0) {
+                    if (this.this$0.l != null) {
+                        this.this$0.l.c1(this.this$0.k, 1);
+                    }
+                    ow9 ow9Var = this.this$0;
+                    ow9Var.t(1, ow9Var.k);
+                } else if (intExtra == -2) {
+                    if (this.this$0.l != null) {
+                        this.this$0.l.c1(this.this$0.k, 3);
+                    }
+                    ow9 ow9Var2 = this.this$0;
+                    ow9Var2.t(3, ow9Var2.k);
+                } else {
+                    this.this$0.q0(intExtra, intent.getStringExtra("weixin_result_errMsg"));
+                    if (this.this$0.l != null) {
+                        this.this$0.l.c1(this.this$0.k, 2);
+                    }
+                    ow9 ow9Var3 = this.this$0;
+                    ow9Var3.t(2, ow9Var3.k);
+                }
+                this.this$0.Y();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ow9(Context context, int i) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = tbPageContext;
-        this.c = i;
-        LikeModel likeModel = new LikeModel(tbPageContext);
-        this.e = likeModel;
-        likeModel.setLoadDataCallBack(new a(this));
-        this.f = new b(this);
+        this.o = new a(this);
+        this.p = new c(this, null);
+        this.b = context.getApplicationContext();
+        this.k = i;
+        this.m = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
     }
 
-    public void f(Long l, boolean z) {
-        int i;
-        Integer valueOf;
+    public final boolean d0(ShareEntity shareEntity, EmotionShareLoaderProc.EmotionShare emotionShare) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, l, z) == null) {
-            if (this.a.containsKey(l)) {
-                Integer num = this.a.get(l);
-                if (z) {
-                    valueOf = Integer.valueOf(num.intValue() + 1);
-                } else {
-                    valueOf = Integer.valueOf(num.intValue() - 1);
-                }
-                this.a.put(l, valueOf);
-            } else if (!this.a.containsKey(l)) {
-                Map<Long, Integer> map = this.a;
-                if (z) {
-                    i = 1;
-                } else {
-                    i = -1;
-                }
-                map.put(l, i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, shareEntity, emotionShare)) == null) {
+            if (shareEntity != null && this.m != null && emotionShare != null && emotionShare.image != null && !StringUtils.isNull(emotionShare.path)) {
+                WXEmojiObject wXEmojiObject = new WXEmojiObject();
+                wXEmojiObject.emojiPath = emotionShare.path;
+                WXMediaMessage wXMediaMessage = new WXMediaMessage();
+                wXMediaMessage.mediaObject = wXEmojiObject;
+                wXMediaMessage.thumbData = R(emotionShare.image.p());
+                SendMessageToWX.Req req = new SendMessageToWX.Req();
+                req.transaction = U("imageShare");
+                req.message = wXMediaMessage;
+                req.scene = T();
+                this.m.sendReq(req);
+                return true;
             }
-            notifyDataSetChanged();
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void e0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, shareEntity, bitmap) == null) && shareEntity != null && this.m != null && bitmap != null) {
+            WXEmojiObject wXEmojiObject = new WXEmojiObject();
+            wXEmojiObject.emojiData = S(bitmap, 512, false);
+            WXMediaMessage wXMediaMessage = new WXMediaMessage();
+            wXMediaMessage.mediaObject = wXEmojiObject;
+            wXMediaMessage.thumbData = R(bitmap);
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = U("imageShare");
+            req.message = wXMediaMessage;
+            req.scene = T();
+            this.m.sendReq(req);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: d */
-    public ForumSpaceForumInfo getItem(int i) {
-        InterceptResult invokeI;
+    public final void g0(ShareEntity shareEntity, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (getCount() <= 1 || i == 0) {
+        if ((interceptable == null || interceptable.invokeLL(1048592, this, shareEntity, bitmap) == null) && shareEntity != null && this.m != null && bitmap != null) {
+            WXImageObject wXImageObject = new WXImageObject(bitmap);
+            if (a0(wXImageObject, bitmap)) {
+                return;
+            }
+            wXImageObject.imageData = qi.d().a(bitmap, 85);
+            WXMediaMessage wXMediaMessage = new WXMediaMessage();
+            wXMediaMessage.mediaObject = wXImageObject;
+            wXMediaMessage.thumbData = R(bitmap);
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = U("imageShare");
+            req.message = wXMediaMessage;
+            req.scene = T();
+            this.m.sendReq(req);
+        }
+    }
+
+    public final void k0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048596, this, shareEntity, bitmap) == null) && shareEntity != null && this.m != null) {
+            WXVideoObject wXVideoObject = new WXVideoObject();
+            wXVideoObject.videoUrl = shareEntity.getVideoUrl();
+            WXMediaMessage wXMediaMessage = new WXMediaMessage(wXVideoObject);
+            wXMediaMessage.title = shareEntity.getTitle();
+            wXMediaMessage.description = shareEntity.getContent();
+            wXMediaMessage.thumbData = R(bitmap);
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = U("videoShare");
+            req.message = wXMediaMessage;
+            req.scene = T();
+            this.m.sendReq(req);
+        }
+    }
+
+    public final void l0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048597, this, shareEntity, bitmap) == null) && shareEntity != null && this.m != null) {
+            WXWebpageObject wXWebpageObject = new WXWebpageObject();
+            wXWebpageObject.webpageUrl = shareEntity.getLinkUrl();
+            WXMediaMessage wXMediaMessage = new WXMediaMessage(wXWebpageObject);
+            wXMediaMessage.title = shareEntity.getTitle();
+            wXMediaMessage.description = shareEntity.getContent();
+            wXMediaMessage.thumbData = R(bitmap);
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = U("webpageShare");
+            req.message = wXMediaMessage;
+            req.scene = T();
+            this.m.sendReq(req);
+        }
+    }
+
+    public final void q0(int i, String str) {
+        ShareEntity shareEntity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048602, this, i, str) == null) && (shareEntity = this.e) != null && !StringUtils.isNull(shareEntity.getImgUrl())) {
+            g95.a("socail_share", -1L, 0, WXEntryActivityConfig.WX_SHARE_FAIL, i, "", "share_fail_exception", str + "&" + this.e.getImgUrl());
+        }
+    }
+
+    public final String U(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str == null) {
+                return String.valueOf(System.currentTimeMillis());
+            }
+            return str + System.currentTimeMillis();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean W(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            if (this.m.getWXAppSupportAPI() >= 654314752) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void o0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            Bitmap i = i(str);
+            if (i == null) {
+                i = e();
+            }
+            if (i != null) {
+                g0(this.e, i);
+            } else {
+                j0(this.e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.jw9
+    public void s(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, bdUniqueId) == null) {
+            super.s(bdUniqueId);
+            b0();
+        }
+    }
+
+    public byte[] R(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
+            try {
+                Bitmap k = k(bitmap, 120);
+                if (k == null) {
+                    k = e();
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                k.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return byteArray;
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
-            return (ForumSpaceForumInfo) ListUtils.getItem(this.d, i - 1);
         }
-        return (ForumSpaceForumInfo) invokeI.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public void e(List<ForumSpaceForumInfo> list) {
+    public final void j0(ShareEntity shareEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.d = list;
-            notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeL(1048595, this, shareEntity) == null) && shareEntity != null && this.m != null) {
+            String content = shareEntity.getContent();
+            WXTextObject wXTextObject = new WXTextObject();
+            wXTextObject.text = content;
+            WXMediaMessage wXMediaMessage = new WXMediaMessage();
+            wXMediaMessage.mediaObject = wXTextObject;
+            wXMediaMessage.description = content;
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = U("textShare");
+            req.message = wXMediaMessage;
+            req.scene = T();
+            this.m.sendReq(req);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public byte[] S(Bitmap bitmap, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Bitmap k;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            try {
+                if (z) {
+                    k = f(R.drawable.obfuscated_res_0x7f080f97);
+                } else {
+                    k = k(bitmap, i);
+                }
+                if (k == null) {
+                    k = f(R.drawable.obfuscated_res_0x7f080f97);
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                k.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return byteArray;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final int T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.getCount(this.d) > 0) {
-                return ListUtils.getCount(this.d) + 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.k;
+            if (i == 3) {
+                return 0;
             }
-            return 0;
+            if (i == 2) {
+                return 1;
+            }
+            return -1;
         }
         return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        int intValue;
-        int intValue2;
-        int i2;
+    public boolean V() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (i == 0) {
-                if (view2 == null || !(view2 instanceof TbImageView)) {
-                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08ae, (ViewGroup) null);
-                }
-                if (this.c == 1) {
-                    i2 = R.drawable.pic_batuijian_bg_red;
-                } else {
-                    i2 = R.drawable.pic_batuijian_bg_yellow;
-                }
-                SkinManager.setImageResource((TbImageView) view2, i2);
-                SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-                return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return true;
             }
-            ForumSpaceForumInfo item = getItem(i);
-            if (item == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            FileHelper.deleteFile(new File(jw9.h + jw9.j));
+        }
+    }
+
+    public final void b0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b != null) {
+            this.n = new d(this, null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
+            this.b.registerReceiver(this.n, intentFilter);
+        }
+    }
+
+    public final void n0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            Bitmap e = e();
+            if (e != null) {
+                g0(this.e, e);
+            } else {
+                j0(this.e);
+            }
+        }
+    }
+
+    public final void p0() {
+        Context context;
+        d dVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && (context = this.b) != null && (dVar = this.n) != null) {
+            context.unregisterReceiver(dVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.jw9
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            p0();
+            super.r();
+        }
+    }
+
+    public byte[] X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                Bitmap f = f(R.drawable.obfuscated_res_0x7f080f97);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                f.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return byteArray;
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
-            if (view2 == null || !(view2.getTag(R.id.obfuscated_res_0x7f090bd6) instanceof c)) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08af, (ViewGroup) null);
-                c cVar = new c(this, null);
-                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bd6);
-                cVar.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bba);
-                cVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bc0);
-                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bfa);
-                cVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b96);
-                cVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c04);
-                wi.b(this.b.getPageActivity(), cVar.f, 20, 20, 20, 20);
-                cVar.f.setOnClickListener(this.f);
-                view2.setOnClickListener(this.f);
-                view2.setTag(R.id.obfuscated_res_0x7f090bd6, cVar);
-            }
-            SkinManager.setBackgroundResource(view2, R.drawable.square_list_item_bg_selector);
-            c cVar2 = (c) view2.getTag(R.id.obfuscated_res_0x7f090bd6);
-            if (i == 1) {
-                cVar2.a.setText("");
-                SkinManager.setBackgroundResource(cVar2.a, R.drawable.icon_grade_shaitu1);
-            } else if (i == 2) {
-                cVar2.a.setText("");
-                SkinManager.setBackgroundResource(cVar2.a, R.drawable.icon_grade_shaitu2);
-            } else if (i == 3) {
-                cVar2.a.setText("");
-                SkinManager.setBackgroundResource(cVar2.a, R.drawable.icon_grade_shaitu3);
-            } else if (i < 10) {
-                TextView textView = cVar2.a;
-                textView.setText("0" + i);
-                cVar2.a.setBackgroundResource(0);
-            } else {
-                TextView textView2 = cVar2.a;
-                textView2.setText("" + i);
-                cVar2.a.setBackgroundResource(0);
-            }
-            SkinManager.setViewTextColor(cVar2.a, (int) R.color.CAM_X0108);
-            cVar2.b.N(item.avatar, 10, false);
-            cVar2.c.setText(item.forum_name + this.b.getString(R.string.obfuscated_res_0x7f0f0767));
-            SkinManager.setViewTextColor(cVar2.c, (int) R.color.CAM_X0105);
-            Integer num = this.a.get(item.forum_id);
-            int intValue3 = item.like_num.intValue();
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            int i3 = intValue3 + intValue;
-            cVar2.d.setText(this.b.getString(R.string.obfuscated_res_0x7f0f02e6) + ":" + StringHelper.numberUniformFormat(i3) + GlideException.IndentedAppendable.INDENT + this.b.getString(R.string.text_post) + ":" + StringHelper.numberUniformFormat(item.post_num.intValue()));
-            SkinManager.setViewTextColor(cVar2.d, (int) R.color.CAM_X0109);
-            cVar2.e.setText(item._abstract);
-            SkinManager.setViewTextColor(cVar2.e, (int) R.color.CAM_X0109);
-            cVar2.f.setTag(R.id.obfuscated_res_0x7f090bfa, item.forum_name);
-            cVar2.f.setTag(R.id.obfuscated_res_0x7f090b96, item.forum_id);
-            if (this.a.get(item.forum_id) == null) {
-                intValue2 = 0;
-            } else {
-                intValue2 = this.a.get(item.forum_id).intValue();
-            }
-            if ((item.is_like.intValue() == 0 && intValue2 > 0) || (item.is_like.intValue() == 1 && intValue2 >= 0)) {
-                cVar2.f.setText(R.string.relate_forum_is_followed);
-                cVar2.f.setBackgroundResource(0);
-                SkinManager.setViewTextColor(cVar2.f, (int) R.color.CAM_X0109);
-            } else {
-                cVar2.f.setText(R.string.obfuscated_res_0x7f0f02e6);
-                cVar2.f.setBackgroundResource(R.drawable.btn_blue_bg);
-                SkinManager.setViewTextColor(cVar2.f, (int) R.color.CAM_X0101);
-            }
-            view2.setTag(R.id.obfuscated_res_0x7f090bfa, item.forum_name);
-            return view2;
         }
-        return (View) invokeILL.objValue;
+        return (byte[]) invokeV.objValue;
+    }
+
+    public String Z(Context context, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, file)) == null) {
+            if (file != null && file.exists()) {
+                Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
+                context.grantUriPermission("com.tencent.mm", uriForFile, 1);
+                return uriForFile.toString();
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final boolean a0(WXImageObject wXImageObject, Bitmap bitmap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, wXImageObject, bitmap)) == null) {
+            Context context = this.b;
+            if (context != null && wXImageObject != null && bitmap != null && W(context) && V()) {
+                try {
+                    c0(wXImageObject, FileHelper.saveFileAsPNG(jw9.h, jw9.j, bitmap, 100), bitmap);
+                    return true;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pw9
+    public void a(ShareEntity shareEntity, qw9 qw9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, shareEntity, qw9Var) == null) {
+            if (shareEntity != null && this.m != null) {
+                this.e = shareEntity;
+                this.l = qw9Var;
+                this.k = shareEntity.getShareTo();
+                if (!this.m.isWXAppInstalled()) {
+                    qw9 qw9Var2 = this.l;
+                    if (qw9Var2 != null) {
+                        qw9Var2.c1(this.k, 2);
+                    }
+                    if (Fresco.hasBeenInitialized()) {
+                        BdToast.b(d(), d().getText(R.string.obfuscated_res_0x7f0f13ad)).q();
+                        return;
+                    }
+                    return;
+                }
+                in q = q(shareEntity);
+                if (q != null && q.p() != null) {
+                    if (this.e.getShareType() == 2) {
+                        e0(this.e, q.p());
+                        return;
+                    } else {
+                        g0(this.e, q.p());
+                        return;
+                    }
+                } else if (p(shareEntity.getLocalFile())) {
+                    o0(shareEntity.getLocalFile());
+                    return;
+                } else {
+                    String imgUrl = shareEntity.getImgUrl();
+                    if (!TextUtils.isEmpty(imgUrl) && (imgUrl.startsWith("http://") || imgUrl.startsWith("https://"))) {
+                        if (this.e.getShareType() != 0) {
+                            rg.h().k(imgUrl, 34, this.o, 0, 0, j(), new Object[0]);
+                            return;
+                        } else {
+                            rg.h().k(imgUrl, 10, this.p, 0, 0, j(), new Object[0]);
+                            return;
+                        }
+                    } else if (o(shareEntity.getImageUri())) {
+                        o0(shareEntity.getImageUri().getPath());
+                        return;
+                    } else {
+                        n0();
+                        return;
+                    }
+                }
+            }
+            t(2, this.k);
+            if (qw9Var != null) {
+                qw9Var.c1(0, 2);
+            }
+        }
+    }
+
+    public final void c0(@NonNull WXImageObject wXImageObject, @NonNull String str, @NonNull Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048588, this, wXImageObject, str, bitmap) == null) {
+            wXImageObject.setImagePath(Z(this.b, new File(str)));
+            WXMediaMessage wXMediaMessage = new WXMediaMessage();
+            wXMediaMessage.mediaObject = wXImageObject;
+            wXMediaMessage.thumbData = R(bitmap);
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = U("imageShare");
+            req.message = wXMediaMessage;
+            req.scene = T();
+            this.m.sendReq(req);
+        }
+    }
+
+    public final boolean f0(ShareEntity shareEntity, EmotionShareLoaderProc.EmotionShare emotionShare) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, shareEntity, emotionShare)) == null) {
+            if (this.k != 2 && this.e.getShareType() != 1) {
+                return d0(shareEntity, emotionShare);
+            }
+            return h0(shareEntity, emotionShare);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void m0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, shareEntity, bitmap) == null) {
+            if (shareEntity.getIsVideoThread()) {
+                b bVar = new b(this);
+                bVar.setPriority(3);
+                bVar.execute(bitmap);
+                return;
+            }
+            l0(this.e, bitmap);
+        }
+    }
+
+    public final boolean h0(ShareEntity shareEntity, EmotionShareLoaderProc.EmotionShare emotionShare) {
+        InterceptResult invokeLL;
+        in inVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, shareEntity, emotionShare)) == null) {
+            if (shareEntity != null && this.m != null && emotionShare != null && !StringUtils.isNull(emotionShare.path) && (inVar = emotionShare.image) != null && inVar.p() != null) {
+                WXImageObject wXImageObject = new WXImageObject();
+                wXImageObject.setImagePath(emotionShare.path);
+                if (a0(wXImageObject, emotionShare.image.p())) {
+                    return true;
+                }
+                WXMediaMessage wXMediaMessage = new WXMediaMessage();
+                wXMediaMessage.mediaObject = wXImageObject;
+                wXMediaMessage.thumbData = R(emotionShare.image.p());
+                SendMessageToWX.Req req = new SendMessageToWX.Req();
+                req.transaction = U("imageShare");
+                req.message = wXMediaMessage;
+                req.scene = T();
+                this.m.sendReq(req);
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void i0(ShareEntity shareEntity, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048594, this, shareEntity, bitmap) == null) && shareEntity != null && this.m != null) {
+            WXMiniProgramObject wXMiniProgramObject = new WXMiniProgramObject();
+            wXMiniProgramObject.webpageUrl = shareEntity.getLinkUrl();
+            wXMiniProgramObject.miniprogramType = 0;
+            wXMiniProgramObject.userName = "gh_213e5678c5bf";
+            if (shareEntity.getTypeShareToSmallApp() != 2 && shareEntity.getTypeShareToSmallApp() != 4) {
+                String tid = shareEntity.getTid();
+                wXMiniProgramObject.path = "/pages/pb/pb?tid=" + tid;
+            } else {
+                String str = shareEntity.getfName();
+                if (wi.isEmpty(str)) {
+                    str = "";
+                }
+                String encode = URLEncoder.encode(str);
+                wXMiniProgramObject.path = "/pages/frs/frs?kw=" + encode;
+            }
+            WXMediaMessage wXMediaMessage = new WXMediaMessage(wXMiniProgramObject);
+            String title = shareEntity.getTitle();
+            if (StringUtils.isNull(title)) {
+                title = shareEntity.getContent();
+            }
+            wXMediaMessage.title = title;
+            wXMediaMessage.description = shareEntity.getContent();
+            if ("https://tb5.bdstatic.com/yunying/tieba_logo.jpg".equals(shareEntity.getImgUrl())) {
+                wXMediaMessage.thumbData = r0(bitmap, true);
+            } else {
+                wXMediaMessage.thumbData = r0(bitmap, false);
+            }
+            SendMessageToWX.Req req = new SendMessageToWX.Req();
+            req.transaction = U("miniProgram");
+            req.message = wXMediaMessage;
+            req.scene = 0;
+            this.m.sendReq(req);
+        }
+    }
+
+    public byte[] r0(Bitmap bitmap, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048604, this, bitmap, z)) == null) {
+            try {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                if (!z && bitmap != null) {
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    double length = byteArray.length / 1024;
+                    if (length <= 125.0d) {
+                        return byteArray;
+                    }
+                    while (length > 125.0d) {
+                        Double valueOf = Double.valueOf(length / 125.0d);
+                        Double valueOf2 = Double.valueOf(width / Math.sqrt(valueOf.doubleValue()));
+                        Double valueOf3 = Double.valueOf(height / Math.sqrt(valueOf.doubleValue()));
+                        width = valueOf2.intValue();
+                        height = valueOf3.intValue();
+                        bitmap = l(bitmap, width, height);
+                        ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream2);
+                        byteArray = byteArrayOutputStream2.toByteArray();
+                        length = byteArray.length / 1024;
+                    }
+                    byteArrayOutputStream.close();
+                    if (bitmap == null) {
+                        return X();
+                    }
+                    return byteArray;
+                }
+                return X();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (byte[]) invokeLZ.objValue;
     }
 }

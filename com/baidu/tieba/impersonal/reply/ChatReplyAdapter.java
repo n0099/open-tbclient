@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.ItemQuickChatReplyBinding;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.xk8;
+import com.baidu.tieba.ip8;
+import com.baidu.tieba.s75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +93,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 this.b = skinType;
                 this.a.c.setBackground(this.c);
-                p75 d = p75.d(this.a.d);
+                s75 d = s75.d(this.a.d);
                 d.n(0);
                 d.o(R.string.J_X01);
                 d.f(R.color.CAM_X0205);
@@ -115,7 +115,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if (!StringUtils.isNull(data.getTextColor())) {
                     this.a.b.setTextColor(Color.parseColor(data.getTextColor()));
                 } else {
-                    p75 d = p75.d(this.a.b);
+                    s75 d = s75.d(this.a.b);
                     d.C(R.dimen.T_X07);
                     d.D(R.string.F_X01);
                     this.a.b.setTextColor(SkinManager.getColor(0, (int) R.color.CAM_X0119));
@@ -200,7 +200,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             holder.c(questionData);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             Intrinsics.checkNotNullExpressionValue(currentAccount, "getCurrentAccount()");
-            xk8.a("c15229", currentAccount, questionData.getQuestion());
+            ip8.a("c15229", currentAccount, questionData.getQuestion());
             holder.b();
         }
     }

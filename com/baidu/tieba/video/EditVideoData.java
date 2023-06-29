@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class EditVideoData extends OrmObject implements Serializable {
 
     public void delete() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !StringHelper.equals(this.originPath, this.finalPath) && !vi.isEmpty(this.finalPath)) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !StringHelper.equals(this.originPath, this.finalPath) && !wi.isEmpty(this.finalPath)) {
             FileHelper.deleteFile(new File(this.finalPath));
         }
     }
@@ -49,7 +49,7 @@ public class EditVideoData extends OrmObject implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!vi.isEmpty(this.originPath) && !vi.isEmpty(this.coverPath)) {
+            if (!wi.isEmpty(this.originPath) && !wi.isEmpty(this.coverPath)) {
                 return true;
             }
             return false;

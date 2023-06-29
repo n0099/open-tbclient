@@ -31,9 +31,9 @@ import com.baidu.searchbox.live.interfaces.yy.YYStaticConfig;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lf1;
-import com.baidu.tieba.nf1;
 import com.baidu.tieba.of1;
+import com.baidu.tieba.qf1;
+import com.baidu.tieba.rf1;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.io.UnsupportedEncodingException;
@@ -43,7 +43,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LiveNPSPluginManagerOld {
     public static final String AUDIO_CREATE_LIVE_ROOM_H5 = "AUDIO_CREATE_LIVE_ROOM_H5";
     public static final String LIVE_SHOW_ADMIN_LIST = "LIVE_SHOW_ADMIN_LIST";
@@ -104,12 +104,12 @@ public class LiveNPSPluginManagerOld {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PluginLoadCallback {
         void onResult(int i, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SingletonHolder {
         public static LiveNPSPluginManagerOld instance = new LiveNPSPluginManagerOld();
     }
@@ -122,19 +122,19 @@ public class LiveNPSPluginManagerOld {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
-        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new lf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
-            @Override // com.baidu.tieba.lf1
+        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new of1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
+            @Override // com.baidu.tieba.of1
             public void onProgress(long j, long j2) {
             }
 
-            @Override // com.baidu.tieba.lf1
+            @Override // com.baidu.tieba.of1
             public void onResult(int i, String str) {
             }
-        }, new nf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
-            @Override // com.baidu.tieba.nf1
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, of1 of1Var) {
-                if (of1Var != null) {
-                    of1Var.onResult(1);
+        }, new qf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
+            @Override // com.baidu.tieba.qf1
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, rf1 rf1Var) {
+                if (rf1Var != null) {
+                    rf1Var.onResult(1);
                 }
             }
         }, 1);
@@ -1146,30 +1146,30 @@ public class LiveNPSPluginManagerOld {
                 }
                 if (!z2) {
                     if (z) {
-                        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new lf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
-                            @Override // com.baidu.tieba.lf1
+                        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new of1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
+                            @Override // com.baidu.tieba.of1
                             public void onProgress(long j, long j2) {
                             }
 
-                            @Override // com.baidu.tieba.lf1
+                            @Override // com.baidu.tieba.of1
                             public void onResult(int i, String str) {
                             }
-                        }, new nf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
-                            @Override // com.baidu.tieba.nf1
-                            public void checkAuthorization(IBundleInfo iBundleInfo, int i, of1 of1Var) {
-                                if (of1Var != null) {
-                                    of1Var.onResult(1);
+                        }, new qf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
+                            @Override // com.baidu.tieba.qf1
+                            public void checkAuthorization(IBundleInfo iBundleInfo, int i, rf1 rf1Var) {
+                                if (rf1Var != null) {
+                                    rf1Var.onResult(1);
                                 }
                             }
                         }, 1);
                         return;
                     } else {
-                        NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new lf1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
-                            @Override // com.baidu.tieba.lf1
+                        NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new of1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
+                            @Override // com.baidu.tieba.of1
                             public void onProgress(long j, long j2) {
                             }
 
-                            @Override // com.baidu.tieba.lf1
+                            @Override // com.baidu.tieba.of1
                             public void onResult(int i, String str) {
                             }
                         });
@@ -1482,7 +1482,7 @@ public class LiveNPSPluginManagerOld {
             pluginLoadCallback2.onResult(-112, "old arch can not install", null, "download");
             this.mCurrentCallback = null;
         }
-        showNormalToast(R.string.obfuscated_res_0x7f0f0bc3, 0);
+        showNormalToast(R.string.obfuscated_res_0x7f0f0bc8, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

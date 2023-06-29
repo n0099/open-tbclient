@@ -111,6 +111,8 @@ public class CommonStatisticKey {
     public static final String KEY_GROUP_CHAT_ENTRANCE_CLICK = "c15075";
     public static final String KEY_GROUP_CHAT_LINK_SHOW = "c15077";
     public static final String KEY_GROUP_CHAT_ROBOT_CLICK = "c15133";
+    public static final String KEY_GROUP_LIST_CREATE_CLICK = "c15325";
+    public static final String KEY_GROUP_LIST_MANAGE_CLICK = "c15324";
     public static final String KEY_HEATING_THREAD_AGREE = "c14204";
     public static final String KEY_HEATING_THREAD_CLICK = "c14203";
     public static final String KEY_HEATING_THREAD_COMMENT = "c14205";
@@ -150,6 +152,11 @@ public class CommonStatisticKey {
     public static final String KEY_LOGIN_DIALOG_INVOKE = "c14059";
     public static final String KEY_LOGIN_DIALOG_SUCCESS = "c14060";
     public static final String KEY_MINE_PAGE_LOGIN_DIALOG_SUCCESS = "c14468";
+    public static final String KEY_MSG_TAB_EDIT_ITEM_CLICK = "c15336";
+    public static final String KEY_MSG_TAB_GROUP_ITEM = "c15356";
+    public static final String KEY_MSG_TAB_GUIDE_CLICK = "c15327";
+    public static final String KEY_MSG_TAB_GUIDE_SHOW = "c15326";
+    public static final String KEY_MSG_TAB_GUIDE_STEP_CLICK = "c15328";
     public static final String KEY_MULTI_DEL_BUTTON_CLICK = "c13122";
     public static final String KEY_MY_TAB_GENERAL_DRESS_CLICK = "c15003";
     public static final String KEY_NAMEPLATE_OF_USER_LEVEL_STATIC = "c14927";

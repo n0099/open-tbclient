@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.gs;
-import com.baidu.tieba.hs;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,23 +11,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class is {
+public final class is implements ns {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hs a;
+    public final Integer a;
     public final byte[] b;
-    public final int c;
-    public final byte[] d;
-    public final List<gs> e;
 
     static {
         InterceptResult invokeClinit;
@@ -45,27 +36,24 @@ public final class is {
                 return;
             }
         }
-        f = new a(null);
+        c = new b(null);
     }
 
     @JvmStatic
-    public static final is a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static final a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? f.b(bArr) : (is) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a() : (a) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (this != obj) {
                 if (obj instanceof is) {
                     is isVar = (is) obj;
-                    if (Intrinsics.areEqual(this.a, isVar.a) && Intrinsics.areEqual(this.b, isVar.b)) {
-                        if (!(this.c == isVar.c) || !Intrinsics.areEqual(this.d, isVar.d) || !Intrinsics.areEqual(this.e, isVar.e)) {
-                        }
-                    }
+                    return Intrinsics.areEqual(this.a, isVar.a) && Intrinsics.areEqual(this.b, isVar.b);
                 }
                 return false;
             }
@@ -77,15 +65,11 @@ public final class is {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            hs hsVar = this.a;
-            int hashCode = (hsVar != null ? hsVar.hashCode() : 0) * 31;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Integer num = this.a;
+            int hashCode = (num != null ? num.hashCode() : 0) * 31;
             byte[] bArr = this.b;
-            int hashCode2 = (((hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31) + this.c) * 31;
-            byte[] bArr2 = this.d;
-            int hashCode3 = (hashCode2 + (bArr2 != null ? Arrays.hashCode(bArr2) : 0)) * 31;
-            List<gs> list = this.e;
-            return hashCode3 + (list != null ? list.hashCode() : 0);
+            return hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
@@ -93,8 +77,8 @@ public final class is {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ServerHello(random=" + this.a + ", cipherSuiteBytes=" + Arrays.toString(this.b) + ", lifeTime=" + this.c + ", SKRBytes=" + Arrays.toString(this.d) + ", extensions=" + this.e + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "Random(GMTUnixTime=" + this.a + ", randomBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -103,6 +87,8 @@ public final class is {
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public Integer a;
+        public byte[] b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -118,58 +104,80 @@ public final class is {
             }
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        public final is c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return new is(this.a, iu.c(this.b));
+            }
+            return (is) invokeV.objValue;
         }
 
-        @JvmStatic
-        public final is b(byte[] bArr) {
+        public final a a(Integer num) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, num)) == null) {
+                this.a = num;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public final a b(byte[] bArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-                return a(hu.a(bArr));
+                this.b = bArr;
+                return this;
             }
-            return (is) invokeL.objValue;
+            return (a) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
 
         @JvmStatic
-        public final is a(String str) {
+        public final a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new a();
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final is b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str == null || TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                DebugTrace debugTrace = DebugTrace.a;
-                debugTrace.a("get raw data:" + str);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    hs.b bVar = hs.c;
-                    String optString = jSONObject.optString("Random");
-                    Intrinsics.checkExpressionValueIsNotNull(optString, "dataObj.optString(\"Random\")");
-                    hs b = bVar.b(optString);
-                    String optString2 = jSONObject.optString("CipherSuite");
-                    int optInt = jSONObject.optInt("LifeTime");
-                    String optString3 = jSONObject.optString("SKR");
-                    LinkedList linkedList = new LinkedList();
-                    JSONArray optJSONArray = jSONObject.optJSONArray("Extensions");
-                    if (optJSONArray != null) {
-                        int length = optJSONArray.length();
-                        for (int i = 0; i < length; i++) {
-                            String item = optJSONArray.optString(i);
-                            gs.b bVar2 = gs.c;
-                            Intrinsics.checkExpressionValueIsNotNull(item, "item");
-                            gs b2 = bVar2.b(item);
-                            if (b2 != null) {
-                                linkedList.add(b2);
-                            }
-                        }
-                    }
-                    return new is(b, hu.b(optString2), optInt, hu.b(optString3), linkedList);
+                    return new is(Integer.valueOf(jSONObject.optInt("GMTUnixTime")), iu.b(jSONObject.optString("RandomBytes")));
                 } catch (Exception e) {
                     e.printStackTrace();
-                    DebugTrace debugTrace2 = DebugTrace.a;
-                    debugTrace2.a("can not parse server hello:" + e.getMessage());
+                    DebugTrace debugTrace = DebugTrace.a;
+                    debugTrace.a("parse random fail:" + e.getMessage());
                     return null;
                 }
             }
@@ -177,61 +185,35 @@ public final class is {
         }
     }
 
-    public is(hs hsVar, byte[] bArr, int i, byte[] bArr2, List<gs> list) {
+    public is(Integer num, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hsVar, bArr, Integer.valueOf(i), bArr2, list};
+            Object[] objArr = {num, bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = hsVar;
+        this.a = num;
         this.b = bArr;
-        this.c = i;
-        this.d = bArr2;
-        this.e = list;
     }
 
-    public final List<gs> b() {
+    @Override // com.baidu.tieba.ns
+    public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.putOpt("GMTUnixTime", this.a);
+            jSONObject.putOpt("RandomBytes", iu.a(this.b));
+            return jSONObject;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final byte[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return hu.d(this.b);
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final byte[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return hu.d(this.d);
-        }
-        return (byte[]) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

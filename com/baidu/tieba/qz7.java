@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,19 +9,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class qz7 {
+public class qz7 implements dz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<wn> a;
-    @NonNull
-    public final r18 b;
+    public ez7 a;
+    public cz7 b;
 
-    public qz7(TbPageContext<?> tbPageContext) {
+    public qz7(ez7 ez7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {ez7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,53 +30,60 @@ public class qz7 {
                 return;
             }
         }
-        this.b = new r18(tbPageContext);
+        this.a = ez7Var;
+        this.b = new pz7(this);
     }
 
-    public final boolean a(int i, @NonNull String str) {
-        InterceptResult invokeIL;
-        int a;
+    @Override // com.baidu.tieba.dz7
+    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (ListUtils.isEmpty(this.a) || (a = c28.a(i, this.a, str)) < 0) {
-                return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
+            cz7 cz7Var = this.b;
+            if (cz7Var != null) {
+                return cz7Var.a(bdUniqueId, str, str2, str3);
             }
-            if (a < this.a.size() && (this.a.get(a) instanceof RecommendBarCardModel)) {
-                return false;
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dz7
+    public boolean b(int i, oz7 oz7Var) {
+        InterceptResult invokeIL;
+        ez7 ez7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, oz7Var)) == null) {
+            if (oz7Var != null && (ez7Var = this.a) != null) {
+                ez7Var.setData(oz7Var.getDataList());
+                return true;
             }
-            return true;
+            return false;
         }
         return invokeIL.booleanValue;
     }
 
-    @NonNull
-    public r18 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dz7
+    public boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            ez7 ez7Var = this.a;
+            if (ez7Var != null) {
+                ez7Var.b(i);
+                return true;
+            }
+            return false;
         }
-        return (r18) invokeV.objValue;
+        return invokeI.booleanValue;
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.dz7
+    public void setData(List<xn> list) {
+        ez7 ez7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.k();
-        }
-    }
-
-    public void d(int i, @NonNull ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, threadData) == null) && !TextUtils.isEmpty(threadData.getTid()) && a(i, threadData.getTid())) {
-            this.b.n(threadData);
-        }
-    }
-
-    public void e(List<wn> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.a = list;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (ez7Var = this.a) != null) {
+            ez7Var.setData(list);
         }
     }
 }

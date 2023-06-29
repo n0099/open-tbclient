@@ -2,7 +2,7 @@ package com.kwad.components.core.webview.b;
 
 import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c kr;
 

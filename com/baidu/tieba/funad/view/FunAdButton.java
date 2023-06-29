@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -177,7 +177,7 @@ public class FunAdButton extends View {
             this.i = getResources().getColor(R.color.CAM_X0302);
             this.o = 100;
             this.g = 0;
-            this.n = getResources().getString(R.string.obfuscated_res_0x7f0f00d8);
+            this.n = getResources().getString(R.string.obfuscated_res_0x7f0f00da);
             this.l = getResources().getDimension(R.dimen.T_X08);
             this.p = getResources().getDimensionPixelSize(R.dimen.tbds42);
             this.q = new RectF();
@@ -289,7 +289,7 @@ public class FunAdButton extends View {
     public void setButtonTextSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.l = wi.d(getContext(), i);
+            this.l = xi.d(getContext(), i);
             postInvalidate();
         }
     }

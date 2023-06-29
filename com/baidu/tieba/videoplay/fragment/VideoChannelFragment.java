@@ -11,9 +11,9 @@ import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.eu4;
-import com.baidu.tieba.fu4;
-import com.baidu.tieba.gn5;
+import com.baidu.tieba.hu4;
+import com.baidu.tieba.iu4;
+import com.baidu.tieba.kn5;
 import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
 import com.baidu.tieba.videoplay.view.VideoChannelViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -179,9 +179,9 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                 VideoChannelFragment videoChannelFragment = this.a;
                 if (videoChannelFragment.c != null && (videoChannelViewPager = videoChannelFragment.b) != null && ListUtils.getItem(videoChannelFragment.h, videoChannelViewPager.getCurrentItem()) != null) {
                     VideoChannelFragment videoChannelFragment2 = this.a;
-                    if (((gn5) ListUtils.getItem(videoChannelFragment2.h, videoChannelFragment2.b.getCurrentItem())).a instanceof BaseFragment) {
+                    if (((kn5) ListUtils.getItem(videoChannelFragment2.h, videoChannelFragment2.b.getCurrentItem())).a instanceof BaseFragment) {
                         VideoChannelFragment videoChannelFragment3 = this.a;
-                        videoChannelFragment3.c.f(((BaseFragment) ((gn5) ListUtils.getItem(videoChannelFragment3.h, videoChannelFragment3.b.getCurrentItem())).a).getUniqueId());
+                        videoChannelFragment3.c.f(((BaseFragment) ((kn5) ListUtils.getItem(videoChannelFragment3.h, videoChannelFragment3.b.getCurrentItem())).a).getUniqueId());
                     }
                 }
             }
@@ -247,8 +247,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            if (fu4.w().y(eu4.e0)) {
-                fu4.w().E();
+            if (iu4.w().y(hu4.e0)) {
+                iu4.w().E();
             }
         }
     }
@@ -260,8 +260,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (fu4.w().y(eu4.e0)) {
-                fu4.w().E();
+            } else if (iu4.w().y(hu4.e0)) {
+                iu4.w().E();
             }
         }
     }
@@ -278,7 +278,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            fu4.w().O(eu4.e0);
+            iu4.w().O(hu4.e0);
         }
     }
 

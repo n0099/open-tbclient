@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.text.TextUtils;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class l {
     public IKsAdSDK RJ;
     public Resources St;

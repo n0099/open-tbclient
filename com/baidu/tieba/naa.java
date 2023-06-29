@@ -1,29 +1,38 @@
 package com.baidu.tieba;
 
-import android.hardware.Camera;
-import android.view.MotionEvent;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class naa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
-    public int c;
-    public Camera d;
-    public taa e;
+    public TbPageContext<?> a;
+    public int b;
+    public BdUniqueId c;
+    public int d;
 
-    public naa(Camera camera) {
+    public naa(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {camera};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,104 +42,92 @@ public class naa {
                 return;
             }
         }
-        this.a = 0;
-        this.d = camera;
+        this.c = null;
+        this.d = -1;
+        this.a = tbPageContext;
+        this.c = bdUniqueId;
     }
 
-    public void c(taa taaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taaVar) == null) {
-            this.e = taaVar;
-        }
-    }
-
-    public final void d(int i) {
-        Camera camera;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (camera = this.d) == null) {
-            return;
-        }
-        Camera.Parameters parameters = camera.getParameters();
-        if (!parameters.isZoomSupported()) {
-            return;
-        }
-        parameters.setZoom(i);
-        this.d.setParameters(parameters);
-        this.c = i;
-    }
-
-    public final int a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Camera camera = this.d;
-            if (camera == null) {
-                return -1;
-            }
-            Camera.Parameters parameters = camera.getParameters();
-            if (!parameters.isZoomSupported()) {
-                return -1;
-            }
-            if (parameters.getMaxZoom() > 40) {
-                return 40;
-            }
-            return parameters.getMaxZoom();
+            return this.b;
         }
         return invokeV.intValue;
     }
 
-    public boolean b(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public void b(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            taa taaVar = this.e;
-            if (taaVar != null && taaVar.j()) {
-                return true;
-            }
-            int action = motionEvent.getAction() & 255;
-            int i = 0;
-            if (action != 0) {
-                if (action != 2) {
-                    if (action == 5) {
-                        this.a = 1;
-                        this.b = e(motionEvent);
-                    }
-                } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
-                    return true;
-                } else {
-                    float e = e(motionEvent);
-                    int i2 = (int) ((e - this.b) / 10.0f);
-                    if (i2 >= 1 || i2 <= -1) {
-                        int i3 = this.c + i2;
-                        if (i3 > a()) {
-                            i3 = a();
-                        }
-                        if (i3 >= 0) {
-                            i = i3;
-                        }
-                        d(i);
-                        this.b = e;
-                    }
-                }
-            } else {
-                this.a = 0;
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) != null) || dressItemData == null || dressItemData.getPropsId() == 0) {
+            return;
         }
-        return invokeL.booleanValue;
+        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
+        personalBackgroundPreviewActivityConfig.setFrom(this.d);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
     }
 
-    public final float e(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return 0.0f;
-            }
-            double x = motionEvent.getX(0) - motionEvent.getX(1);
-            double y = motionEvent.getY(0) - motionEvent.getY(1);
-            return (float) Math.sqrt((x * x) + (y * y));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.d = i;
         }
-        return invokeL.floatValue;
+    }
+
+    public void d(int i, String str, DressItemData dressItemData, boolean z) {
+        int i2;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
+            if (dressItemData.getFreeUserLevel() == 101) {
+                i2 = 9;
+            } else {
+                i2 = 0;
+            }
+            if (!StringUtils.isNull(str)) {
+                int i3 = 4;
+                int i4 = 2;
+                if (i == faa.a) {
+                    int i5 = this.d;
+                    if (i5 == 1) {
+                        str2 = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY;
+                    } else if (i5 == 0) {
+                        str2 = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY;
+                    } else {
+                        str2 = "";
+                    }
+                    String str3 = str2;
+                    TbPageContext<?> tbPageContext = this.a;
+                    if (z) {
+                        i4 = 4;
+                    }
+                    eaa.d(tbPageContext, i4, str, i2, str3, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+                } else if (i == faa.b) {
+                    TbPageContext<?> tbPageContext2 = this.a;
+                    if (!z) {
+                        i3 = 2;
+                    }
+                    eaa.c(tbPageContext2, i3, str, i2);
+                }
+            }
+        }
+    }
+
+    public void e(DressItemData dressItemData, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048580, this, dressItemData, z) != null) || dressItemData == null) {
+            return;
+        }
+        if (!TbadkCoreApplication.isLogin()) {
+            ViewHelper.skipToLoginActivity(this.a.getPageActivity());
+            return;
+        }
+        this.b = dressItemData.getPropsId();
+        BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
+        backgroundSetRequestMessage.setFromDetail(z);
+        backgroundSetRequestMessage.setRequestUniqueId(this.c);
+        backgroundSetRequestMessage.setPropId(this.b);
+        MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
     }
 }

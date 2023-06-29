@@ -1,146 +1,64 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.fp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-/* loaded from: classes5.dex */
-public class gp9 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class gp9 extends fp9.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int d;
+    public final String e;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gp9(int i, String str, int i2, String str2) {
+        super(i, str);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
-    }
-
-    public static int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
-    }
-
-    public static am0 d(@NonNull AdCard adCard) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
-            if (rl0.b().query(adCard.getDownloadKey()) != null) {
-                return rl0.b().query(adCard.getDownloadKey());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            am0 am0Var = new am0();
-            am0Var.h(adCard.getDownloadKey());
-            if (adCard.downloadInfo != null) {
-                if (TextUtils.isEmpty(am0Var.e())) {
-                    am0Var.h(adCard.downloadInfo.b);
-                }
-                yo9 yo9Var = adCard.downloadInfo;
-                am0Var.g = yo9Var.b;
-                am0Var.d = yo9Var.a;
-            }
-            if (TextUtils.isEmpty(am0Var.e())) {
-                am0Var.h(adCard.adId);
-            }
-            em0 em0Var = new em0();
-            em0Var.d = adCard.getButtonText();
-            em0Var.j = adCard.adId;
-            em0Var.a = adCard.getExtInfo();
-            k15 k15Var = adCard.appInfoModel;
-            if (k15Var != null) {
-                em0Var.g = k15Var.b;
-                em0Var.h = k15Var.c;
-            }
-            if (ik0.n(adCard.cmdScheme)) {
-                em0Var.c = adCard.cmdScheme;
-            }
-            am0Var.p = em0Var;
-            bm0 bm0Var = new bm0();
-            bm0Var.a = adCard.getAdvertAppInfo().j;
-            bm0Var.t = j36.a().b();
-            bm0Var.s = j36.a().h();
-            am0Var.q = bm0Var;
-            return am0Var;
         }
-        return (am0) invokeL.objValue;
+        this.d = i2;
+        this.e = str2;
     }
 
-    public static String e(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.fp9.b, com.baidu.tieba.fp9
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-            }
-            return str2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static Drawable f(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) {
-            return n75.G(n75.n(o75.y(), i), i2, i3, i4);
-        }
-        return (Drawable) invokeIIII.objValue;
-    }
-
-    public static int g(float f, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i == i2) {
-                return i;
-            }
-            if (f <= 0.0f) {
-                return i;
-            }
-            if (f >= 1.0f) {
-                return i2;
-            }
-            int red = Color.red(i);
-            int green = Color.green(i);
-            int blue = Color.blue(i);
-            int alpha = Color.alpha(i);
-            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int h(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject a = super.a();
             try {
-                return Color.parseColor(str);
-            } catch (Exception e) {
+                JSONObject jSONObject = new JSONObject();
+                if (this.d != -4399) {
+                    jSONObject.put("code", this.d);
+                }
+                if (!StringUtils.isNull(this.e)) {
+                    jSONObject.put("msg", this.e);
+                }
+                a.put("ext", jSONObject);
+            } catch (JSONException e) {
                 e.printStackTrace();
-                return i;
             }
+            return a;
         }
-        return invokeLI.intValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

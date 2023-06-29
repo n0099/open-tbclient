@@ -1,9 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 /* loaded from: classes6.dex */
 public interface hk2 {
-    @NonNull
-    Context a();
+    String a();
+
+    @Nullable
+    V8EngineConfiguration.CodeCacheSetting b();
+
+    void c(kj2 kj2Var);
+
+    void d(kj2 kj2Var);
+
+    String getInitBasePath();
 }

@@ -1,70 +1,190 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
+import androidx.collection.SimpleArrayMap;
+import androidx.core.util.Pools;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes5.dex */
-public class ad0 {
+public final class ad0<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-    public Class<?> b;
-    public WeakReference<zc0> c;
-    public bd0 d;
+    public final Pools.Pool<ArrayList<T>> a;
+    public final SimpleArrayMap<T, ArrayList<T>> b;
+    public final ArrayList<T> c;
+    public final HashSet<T> d;
 
-    public ad0(int i, Class<?> cls, zc0 zc0Var, bd0 bd0Var) {
+    public ad0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), cls, zc0Var, bd0Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = cls;
-        this.c = new WeakReference<>(zc0Var);
-        this.d = bd0Var;
+        this.a = new Pools.SimplePool(10);
+        this.b = new SimpleArrayMap<>();
+        this.c = new ArrayList<>();
+        this.d = new HashSet<>();
     }
 
-    public void a() {
+    @NonNull
+    public ArrayList<T> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = 1;
-            WeakReference<zc0> weakReference = this.c;
-            if (weakReference != null) {
-                weakReference.clear();
-                this.c = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            this.c.clear();
+            this.d.clear();
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                e(this.b.keyAt(i), this.c, this.d);
             }
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void a(@NonNull T t, @NonNull T t2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, t, t2) == null) && this.b.containsKey(t) && this.b.containsKey(t2)) {
+            ArrayList<T> arrayList = this.b.get(t);
+            if (arrayList == null) {
+                arrayList = f();
+                this.b.put(t, arrayList);
+            }
+            arrayList.add(t2);
         }
     }
 
-    public boolean b(Object obj) {
+    public void b(@NonNull T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && !this.b.containsKey(t)) {
+            this.b.put(t, null);
+        }
+    }
+
+    public boolean d(@NonNull T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj.getClass() == this.b) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+            return this.b.containsKey(t);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Nullable
+    public List g(@NonNull T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) {
+            return this.b.get(t);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public boolean j(@NonNull T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t)) == null) {
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.b.valueAt(i);
+                if (valueAt != null && valueAt.contains(t)) {
+                    return true;
+                }
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public void call(Object obj) {
+    public final void k(@NonNull ArrayList<T> arrayList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && this.c.get() != null) {
-            this.d.a(this.a, obj, this.c.get());
+        if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
+            arrayList.clear();
+            this.a.release(arrayList);
         }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.b.valueAt(i);
+                if (valueAt != null) {
+                    k(valueAt);
+                }
+            }
+            this.b.clear();
+        }
+    }
+
+    @NonNull
+    public final ArrayList<T> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<T> acquire = this.a.acquire();
+            if (acquire == null) {
+                return new ArrayList<>();
+            }
+            return acquire;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final void e(T t, ArrayList<T> arrayList, HashSet<T> hashSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048580, this, t, arrayList, hashSet) != null) || arrayList.contains(t) || hashSet.contains(t)) {
+            return;
+        }
+        hashSet.add(t);
+        ArrayList<T> arrayList2 = this.b.get(t);
+        if (arrayList2 != null) {
+            int size = arrayList2.size();
+            for (int i = 0; i < size; i++) {
+                e(arrayList2.get(i), arrayList, hashSet);
+            }
+        }
+        hashSet.remove(t);
+        arrayList.add(t);
+    }
+
+    @Nullable
+    public List<T> h(@NonNull T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
+            int size = this.b.size();
+            ArrayList arrayList = null;
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.b.valueAt(i);
+                if (valueAt != null && valueAt.contains(t)) {
+                    if (arrayList == null) {
+                        arrayList = new ArrayList();
+                    }
+                    arrayList.add(this.b.keyAt(i));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -1,77 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.download.util.LocalFilesFilterKt;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.turbonet.net.ExperimentalCronetEngine;
+import com.baidu.turbonet.net.ICronetEngineBuilder;
+import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
 /* loaded from: classes7.dex */
-public final class ssa {
+public class ssa extends csa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends lsa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.lsa
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (osa.a(com.baidu.ubs.analytics.d.a.b)) {
-                    for (File file : ssa.a(com.baidu.ubs.analytics.d.a.b)) {
-                        if (vra.c(vra.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
-                            osa.b(file.getPath());
-                        }
-                    }
-                }
-                if (osa.a(com.baidu.ubs.analytics.d.a.c)) {
-                    for (File file2 : ssa.a(com.baidu.ubs.analytics.d.a.c)) {
-                        if (!file2.getName().equals(jsa.e()) && vra.c(vra.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
-                            osa.b(file2.getPath());
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public static /* synthetic */ List a(String str) {
-        ArrayList arrayList = new ArrayList();
-        File[] listFiles = new File(str).listFiles();
-        if (listFiles != null) {
-            for (int i = 0; i < listFiles.length; i++) {
-                String name = listFiles[i].getName();
-                if (name.endsWith("txt") || name.endsWith(LocalFilesFilterKt.FILTER_NAME_LOG)) {
-                    arrayList.add(listFiles[i]);
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static void b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ssa(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            ksa.a(new a());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+    }
+
+    @Override // com.baidu.tieba.csa, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
+        super.g(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.csa, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
+        super.y(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.csa, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
+        super.z(str);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.csa, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
+        super.B(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public ExperimentalCronetEngine b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (r() == null) {
+                C(q());
+            }
+            return new CronetUrlRequestContext(this);
+        }
+        return (ExperimentalCronetEngine) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.csa, com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
+        super.l(z, str);
+        return this;
     }
 }

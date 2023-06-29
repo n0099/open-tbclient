@@ -1,151 +1,131 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.RecommendForumLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class q07 {
+public class q07 implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public RecommendForumLayout b;
-    public View.OnClickListener c;
-    public PullLeftRefreshLayout.f d;
-    public wz4 e;
+    public b a;
+    public int b;
+    public c c;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q07 a;
+    }
 
-        public a(q07 q07Var) {
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(AbsListView absListView, int i, int i2);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<d> a;
+
+        public b(q07 q07Var, AbsListView absListView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q07Var};
+                Object[] objArr = {q07Var, absListView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = q07Var;
+            this.a = new ArrayList();
+            int childCount = absListView.getChildCount();
+            for (int i4 = 0; i4 < childCount; i4++) {
+                View childAt = absListView.getChildAt(i4);
+                if (childAt != null) {
+                    this.a.add(new d(q07Var, childAt, i + i4, null));
+                }
+            }
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public /* synthetic */ b(q07 q07Var, AbsListView absListView, int i, a aVar) {
+            this(q07Var, absListView, i);
+        }
+
+        public final int b(b bVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xx6.b(this.a.a, null);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
+                if (bVar == null) {
+                    return 0;
+                }
+                for (d dVar : this.a) {
+                    for (d dVar2 : bVar.a) {
+                        if (dVar.a == dVar2.a) {
+                            return dVar.b - dVar2.b;
+                        }
+                    }
+                }
+                return 0;
             }
+            return invokeL.intValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements PullLeftRefreshLayout.f {
+    public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q07 a;
+        public int a;
+        public int b;
 
-        public b(q07 q07Var) {
+        public d(q07 q07Var, View view2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q07Var};
+                Object[] objArr = {q07Var, view2, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = q07Var;
+            this.a = i;
+            this.b = view2.getTop();
         }
 
-        @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                xx6.b(this.a.a, null);
-            }
+        public /* synthetic */ d(q07 q07Var, View view2, int i, a aVar) {
+            this(q07Var, view2, i);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements wz4<y35> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q07 a;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wz4
-        /* renamed from: a */
-        public void c(View view2, y35 y35Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, y35Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        public c(q07 q07Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q07Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q07Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wz4
-        /* renamed from: b */
-        public void d(View view2, y35 y35Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, y35Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (y35Var == null) {
-                    xx6.b(this.a.a, null);
-                    return;
-                }
-                String h = y35Var.h();
-                if (!vi.isForumName(h)) {
-                    return;
-                }
-                this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageActivity()).createNormalCfg(h, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-            }
-        }
-    }
-
-    public q07(TbPageContext<?> tbPageContext) {
+    public q07() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -155,34 +135,53 @@ public class q07 {
                 return;
             }
         }
-        this.c = new a(this);
-        this.d = new b(this);
-        this.e = new c(this);
-        this.a = tbPageContext;
-        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.b = recommendForumLayout;
-        recommendForumLayout.setShowMore(true);
-        this.b.setSquareEntranceAtStart(true);
-        this.b.setTabName(null);
-        this.b.setFrom(0);
-        this.b.setOnClickRightArrowListener(this.c);
-        this.b.setOnRullOkCallbackr(this.d);
-        this.b.setOnItemCoverListener(this.e);
+        this.b = 0;
     }
 
-    public void b(z35 z35Var) {
+    public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z35Var) == null) {
-            this.b.a(z35Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public RecommendForumLayout c() {
-        InterceptResult invokeV;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        View childAt;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i, i2, i3) != null) || absListView == null || i < 0 || absListView.getChildCount() <= 0 || (childAt = absListView.getChildAt(0)) == null) {
+            return;
         }
-        return (RecommendForumLayout) invokeV.objValue;
+        if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
+            int i4 = this.b;
+            if (i4 != 0 && (cVar = this.c) != null) {
+                cVar.a(absListView, 0, -i4);
+            }
+            this.b = 0;
+            this.a = null;
+            return;
+        }
+        b bVar = new b(this, absListView, i, null);
+        b bVar2 = this.a;
+        if (bVar2 != null) {
+            int b2 = bVar2.b(bVar);
+            this.a = bVar;
+            int i5 = this.b + b2;
+            this.b = i5;
+            c cVar2 = this.c;
+            if (cVar2 != null) {
+                cVar2.a(absListView, i5, b2);
+                return;
+            }
+            return;
+        }
+        this.a = bVar;
+        int paddingTop = absListView.getPaddingTop() - childAt.getTop();
+        this.b = paddingTop;
+        c cVar3 = this.c;
+        if (cVar3 != null) {
+            cVar3.a(absListView, paddingTop, 0);
+        }
     }
 }

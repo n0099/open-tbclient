@@ -1,57 +1,149 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebView;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import com.baidu.tieba.quickWebView.message.QuickWebViewHttpReqMsg;
-import com.baidu.tieba.quickWebView.message.QuickWebViewHttpResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tbadk.data.IconData;
+import com.baidu.tieba.personPolymeric.header.PersonIntroductionActivity;
+import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tieba.view.FollowUserSpinnerBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.ArrayList;
+import tbclient.Profile.NicknameInfo;
 /* loaded from: classes8.dex */
 public class xm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
-    public BdUniqueId b;
-    public o0a c;
-    public Map<String, Boolean> d;
-    public Map<String, String> e;
-    public Map<String, String> f;
-    public String g;
-    public HttpMessageListener h;
+    public TbPageContext a;
+    public dm9 b;
+    public UserData c;
+    public wm9 d;
+    public boolean e;
+    public ve5 f;
+    public am9 g;
+    public View.OnClickListener h;
+    public CustomMessageListener i;
 
     /* loaded from: classes8.dex */
-    public class a extends HttpMessageListener {
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xm9 a;
+
+        public a(xm9 xm9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xm9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xm9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.d.z()) {
+                    this.a.w();
+                } else if (view2 == this.a.d.r()) {
+                    this.a.r();
+                } else if (view2 == this.a.d.v()) {
+                    TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "3"));
+                    TiebaStatic.log("igift_icon_ck");
+                    this.a.D();
+                } else if (view2 == this.a.d.D()) {
+                    if (this.a.e) {
+                        TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "7"));
+                        this.a.E();
+                    }
+                } else if (view2 != this.a.d.y() && view2 != this.a.d.x()) {
+                    if (view2 == this.a.d.C()) {
+                        this.a.z();
+                    } else if (view2 == this.a.d.s()) {
+                        this.a.s();
+                    } else if (view2 == this.a.d.t()) {
+                        this.a.t();
+                    } else if (view2 == this.a.d.u()) {
+                        this.a.u();
+                    } else if (view2 == this.a.d.w()) {
+                        this.a.v();
+                    } else if (view2 == this.a.d.B()) {
+                        if (this.a.e) {
+                            TiebaStatic.log(new StatisticItem("c13613").param("obj_param1", "0"));
+                        } else {
+                            TiebaStatic.log(new StatisticItem("c13613").param("obj_param1", "1"));
+                        }
+                        this.a.y();
+                    } else if (view2 == this.a.d.A()) {
+                        this.a.x();
+                    }
+                } else {
+                    TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "14"));
+                    if (this.a.e) {
+                        if (this.a.c != null && this.a.c.isBaijiahaoUser()) {
+                            PersonIntroductionActivity.x1(this.a.a.getPageActivity(), this.a.c.getIntro());
+                        }
+                        this.a.E();
+                        return;
+                    }
+                    this.a.c.getBaijiahaoInfo();
+                    PersonIntroductionActivity.x1(this.a.a.getPageActivity(), this.a.c.getIntro());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xm9 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xm9 xm9Var, int i) {
+        public b(xm9 xm9Var, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -72,180 +164,47 @@ public class xm9 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: boolean */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Removed duplicated region for block: B:27:0x0098  */
-        /* JADX WARN: Removed duplicated region for block: B:39:0x0188  */
-        /* JADX WARN: Removed duplicated region for block: B:40:0x018b  */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            String str;
-            String str2;
-            String str3;
-            int i;
-            boolean z;
-            int i2;
-            String str4;
-            String str5;
-            String p;
-            StringBuilder sb;
-            String str6;
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            UpdateAttentionMessage updateAttentionMessage;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof QuickWebViewHttpResMsg)) {
-                return;
-            }
-            QuickWebViewHttpResMsg quickWebViewHttpResMsg = (QuickWebViewHttpResMsg) httpResponsedMessage;
-            int i3 = 0;
-            String str7 = null;
-            if (!(quickWebViewHttpResMsg.getOrginalMessage() instanceof QuickWebViewHttpReqMsg)) {
-                str = "";
-                str2 = null;
-                str3 = null;
-                i = 0;
-            } else {
-                QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = (QuickWebViewHttpReqMsg) quickWebViewHttpResMsg.getOrginalMessage();
-                boolean z2 = quickWebViewHttpReqMsg.isFromRequestByNative;
-                if (StringUtils.isNull(quickWebViewHttpReqMsg.url)) {
-                    str = "";
-                    str2 = null;
-                    str3 = null;
-                    i = z2;
-                } else {
-                    String str8 = quickWebViewHttpReqMsg.url;
-                    str = quickWebViewHttpReqMsg.module;
-                    str3 = quickWebViewHttpReqMsg.urlSign;
-                    String str9 = quickWebViewHttpReqMsg.jsCallbackMethod;
-                    if (TextUtils.isEmpty(str9) && z2 == 0) {
-                        str9 = (String) this.a.e.remove(str3);
-                        i3 = 1;
-                    }
-                    z = ((Boolean) this.a.d.remove(str3)).booleanValue();
-                    str7 = str9;
-                    str2 = str8;
-                    i2 = z2;
-                    if (!quickWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(quickWebViewHttpResMsg.getResult())) {
-                        str5 = quickWebViewHttpResMsg.getResult();
-                        str4 = BasicPushStatus.SUCCESS_CODE;
-                    } else {
-                        str4 = quickWebViewHttpResMsg.getError() + "";
-                        str5 = "\"\"";
-                    }
-                    p = ym9.n().p(str);
-                    if (p == null) {
-                        p = "0.0.0.0";
-                    }
-                    sb = new StringBuilder();
-                    sb.append("{");
-                    sb.append("\"status\":");
-                    sb.append("\"");
-                    sb.append(str4);
-                    sb.append("\"");
-                    sb.append(",");
-                    sb.append("\"data\":");
-                    sb.append(str5);
-                    sb.append(",");
-                    sb.append("\"cache_version\":");
-                    sb.append("\"");
-                    sb.append(p);
-                    sb.append("\"");
-                    sb.append(",");
-                    sb.append("\"cache\":");
-                    sb.append("\"");
-                    sb.append(i3);
-                    sb.append("\"");
-                    sb.append(",");
-                    sb.append("\"fromPreRequest\":");
-                    sb.append("\"");
-                    sb.append(i2 ^ 1);
-                    sb.append("\"");
-                    sb.append("}");
-                    Log.d("QuickWebViewHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
-                    if (i2 != 0 && !z) {
-                        if (StringUtils.isNull(str7)) {
-                            Log.d("QuickWebViewHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），缓存请求结果：url=" + str2);
-                            this.a.f.put(str3, sb.toString());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage) && (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage) != null && updateAttentionMessage.getData() != null && !StringUtils.isNull(updateAttentionMessage.getData().c)) {
+                if (updateAttentionMessage.getData().a) {
+                    Message<?> message = updateAttentionMessage.getmOrginalMessage();
+                    if (message != null && message.getTag() != null && message.getTag().equals(this.a.a.getUniqueId())) {
+                        if (updateAttentionMessage.isAttention()) {
+                            this.a.c.setLike(true);
                             return;
                         }
-                        Log.d("QuickWebViewHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），开始回调js函数(" + str7 + ")：url=" + str2);
-                        this.a.l(str7, sb.toString());
+                        if (!updateAttentionMessage.getData().g) {
+                            this.a.a.showToast(R.string.unlike_success);
+                        }
+                        this.a.c.setLike(false);
                         return;
                     }
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("请求完成：");
-                    if (i2 == 0) {
-                        str6 = "端能力";
+                    return;
+                }
+                Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
+                if (message2 != null && message2.getTag() != null && message2.getTag().equals(this.a.a.getUniqueId())) {
+                    this.a.d.N(this.a.c.isLike());
+                    if (updateAttentionMessage.getData() != null && !wi.isEmpty(updateAttentionMessage.getData().b)) {
+                        this.a.a.showToast(updateAttentionMessage.getData().b);
+                    } else if (this.a.c.getIsLike()) {
+                        this.a.a.showToast(R.string.unlike_failure);
                     } else {
-                        str6 = "预请求";
+                        this.a.a.showToast(R.string.attention_fail);
                     }
-                    sb2.append(str6);
-                    sb2.append("-收到网络请求结果（");
-                    sb2.append(httpResponsedMessage.getStatusCode());
-                    sb2.append("），开始回调端能力：url=");
-                    sb2.append(str2);
-                    Log.d("QuickWebViewHttpProxy", sb2.toString());
-                    this.a.i(str2, sb.toString());
                 }
             }
-            z = false;
-            i2 = i;
-            if (!quickWebViewHttpResMsg.isSuccess()) {
-            }
-            str4 = quickWebViewHttpResMsg.getError() + "";
-            str5 = "\"\"";
-            p = ym9.n().p(str);
-            if (p == null) {
-            }
-            sb = new StringBuilder();
-            sb.append("{");
-            sb.append("\"status\":");
-            sb.append("\"");
-            sb.append(str4);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"data\":");
-            sb.append(str5);
-            sb.append(",");
-            sb.append("\"cache_version\":");
-            sb.append("\"");
-            sb.append(p);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"cache\":");
-            sb.append("\"");
-            sb.append(i3);
-            sb.append("\"");
-            sb.append(",");
-            sb.append("\"fromPreRequest\":");
-            sb.append("\"");
-            sb.append(i2 ^ 1);
-            sb.append("\"");
-            sb.append("}");
-            Log.d("QuickWebViewHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
-            if (i2 != 0) {
-            }
-            StringBuilder sb22 = new StringBuilder();
-            sb22.append("请求完成：");
-            if (i2 == 0) {
-            }
-            sb22.append(str6);
-            sb22.append("-收到网络请求结果（");
-            sb22.append(httpResponsedMessage.getStatusCode());
-            sb22.append("），开始回调端能力：url=");
-            sb22.append(str2);
-            Log.d("QuickWebViewHttpProxy", sb22.toString());
-            this.a.i(str2, sb.toString());
         }
     }
 
-    public xm9(WebView webView) {
+    public xm9(TbPageContext tbPageContext, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -255,197 +214,348 @@ public class xm9 {
                 return;
             }
         }
-        this.d = new HashMap();
-        this.e = new HashMap();
-        this.f = new HashMap();
-        this.h = new a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
-        this.a = webView;
-        this.g = webView.getSettings().getUserAgentString();
-        BdUniqueId gen = BdUniqueId.gen();
-        this.b = gen;
-        this.h.setTag(gen);
-        this.h.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.h);
+        this.h = new a(this);
+        this.i = new b(this, 2001115);
+        this.a = tbPageContext;
+        this.e = z;
+        this.d = new wm9(this.a, this.e, this.h);
+        this.a.registerListener(this.i);
+        TbPageContext tbPageContext2 = this.a;
+        this.g = new am9(tbPageContext2, tbPageContext2.getUniqueId(), z);
     }
 
-    public void n(o0a o0aVar) {
+    public void A(Intent intent) {
+        am9 am9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, o0aVar) == null) {
-            this.c = o0aVar;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && (am9Var = this.g) != null) {
+            am9Var.o(intent);
         }
     }
 
-    public void k(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
+    public void F(int i) {
+        wm9 wm9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048581, this, quickWebViewBridgeData, str, z) == null) {
-            Log.d("QuickWebViewHttpProxy", "端能力请求：" + quickWebViewBridgeData.url);
-            f(quickWebViewBridgeData, str, z);
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (wm9Var = this.d) != null) {
+            wm9Var.H(i);
         }
     }
 
-    public final void f(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z) {
-        String str2;
+    public void H(sl9 sl9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, quickWebViewBridgeData, str, z) == null) && quickWebViewBridgeData != null && !StringUtils.isNull(quickWebViewBridgeData.url) && !StringUtils.isNull(quickWebViewBridgeData.type)) {
-            String g = g(quickWebViewBridgeData.url);
-            String remove = this.f.remove(g);
-            if (!TextUtils.isEmpty(remove) && str != null) {
-                Log.d("QuickWebViewHttpProxy", "请求完成：命中预请求缓存-执行js回调，url=" + quickWebViewBridgeData.url);
-                l(str, remove);
-            } else if (!TextUtils.isEmpty(remove) && z) {
-                Log.d("QuickWebViewHttpProxy", "请求完成：命中预请求缓存-执行端能力回调，url=" + quickWebViewBridgeData.url);
-                i(quickWebViewBridgeData.url, remove);
+        if (interceptable == null || interceptable.invokeL(1048583, this, sl9Var) == null) {
+            this.d.K(sl9Var);
+        }
+    }
+
+    public void I(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.d.L(z);
+        }
+    }
+
+    public void K(String str) {
+        wm9 wm9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (wm9Var = this.d) != null) {
+            wm9Var.O(str);
+        }
+    }
+
+    public FollowUserSpinnerBtn B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d.r();
+        }
+        return (FollowUserSpinnerBtn) invokeV.objValue;
+    }
+
+    public View C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d.E();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            am9 am9Var = this.g;
+            if (am9Var != null) {
+                am9Var.z();
+            }
+            wm9 wm9Var = this.d;
+            if (wm9Var != null) {
+                wm9Var.I();
+            }
+        }
+    }
+
+    public void q() {
+        am9 am9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (am9Var = this.g) != null) {
+            am9Var.n();
+        }
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+            GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.a.getPageActivity(), this.c.getUserIdLong(), this.c.getUserName(), this.c.getName_show(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001);
+            giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "4"));
+            ux4.x(this.a.getPageActivity(), this.a.getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.c.getUserId() + "&opacity=0", true, true, true);
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || TbadkCoreApplication.getCurrentAccountInfo() == null) {
+            return;
+        }
+        PersonChangeData personChangeData = new PersonChangeData();
+        UserData userData = this.c;
+        if (userData != null) {
+            personChangeData.setPortrait(userData.getPortrait());
+            personChangeData.setName(this.c.getUserName());
+            personChangeData.setSex(this.c.getSex());
+            personChangeData.setIntro(this.c.getIntro());
+            personChangeData.setNameShow(this.c.getName_show());
+            personChangeData.setMem(this.c.getIsMem());
+            personChangeData.setForumAge(this.c.getTb_age());
+            personChangeData.setCanModifyAvatar(this.c.canModifyAvatar());
+            personChangeData.setCantModifyAvatarDesc(this.c.getCantModifyAvatarDesc());
+            personChangeData.setTiebaId(this.c.getmTiebaUid());
+            AlaUserInfoData alaUserInfoData = this.c.alaUserData;
+            if (alaUserInfoData != null) {
+                personChangeData.setAlaId(alaUserInfoData.ala_id);
+            }
+            NicknameInfo nicknameInfo = this.b.A;
+            if (nicknameInfo != null) {
+                personChangeData.setNickNameLeftDays(nicknameInfo.left_days.intValue());
+            }
+            if (this.c.getBirthdayInfo() != null) {
+                personChangeData.setUserAge(this.c.getBirthdayInfo().c);
+                personChangeData.setBirthdayTime(this.c.getBirthdayInfo().a);
+                personChangeData.setBirthdayShowStatus(this.c.getBirthdayInfo().d);
+            }
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(this.a.getPageActivity(), 101, personChangeData, Boolean.FALSE)));
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || !ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+            return;
+        }
+        if (this.f == null) {
+            ve5 ve5Var = new ve5(this.a);
+            this.f = ve5Var;
+            ve5Var.f(true);
+        }
+        this.f.i(!this.c.isLike(), this.c.getPortrait(), this.c.getUserId(), this.c.isGod(), "2", this.a.getUniqueId(), null, "0");
+        this.d.N(true ^ this.c.isLike());
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_CONCERN_BTN_CLICK);
+        statisticItem.param("obj_id", this.c.getUserId());
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+        TbPageContext tbPageContext = this.a;
+        if (tbPageContext != null && tbPageContext.getPageActivity() != null && this.a.getPageActivity().getIntent() != null) {
+            statisticItem.param("nid", this.a.getPageActivity().getIntent().getStringExtra("nid"));
+        }
+        TbPageContext tbPageContext2 = this.a;
+        if (tbPageContext2 != null) {
+            bs5.e(tbPageContext2.getPageActivity(), statisticItem);
+        }
+        TbPageContext tbPageContext3 = this.a;
+        if (tbPageContext3 != null && tbPageContext3.getPageActivity() != null && bs5.j(this.a.getPageActivity()) != null && bs5.j(this.a.getPageActivity()).b() != null && !TextUtils.isEmpty(bs5.j(this.a.getPageActivity()).b().locatePage) && "a002".equals(bs5.j(this.a.getPageActivity()).b().locatePage)) {
+            statisticItem.param(TiebaStatic.Params.OBJ_PRE_PAGE, bs5.j(this.a.getPageActivity()).b().locatePage);
+            statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, "a011");
+        }
+        TiebaStatic.log(statisticItem);
+    }
+
+    public final void u() {
+        boolean z;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13574");
+            statisticItem.param("obj_type", this.e ? 1 : 0);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "10"));
+            if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                return;
+            }
+            boolean equals = TbadkCoreApplication.getCurrentAccount().equals(this.c.getUserId());
+            int i2 = 1;
+            if (this.c.getIsFriend() == 1) {
+                z = true;
             } else {
-                if (this.d.containsKey(g)) {
-                    if (!TextUtils.isEmpty(str)) {
-                        Log.d("QuickWebViewHttpProxy", "加入等待队列：重复的请求-js回调函数-等待网络结果完成后回调，url=" + quickWebViewBridgeData.url);
-                        this.e.put(g, str);
-                        return;
-                    } else if (z) {
-                        Log.d("QuickWebViewHttpProxy", "加入等待队列：重复的请求-端能力-等待网络结果完成后回调，url=" + quickWebViewBridgeData.url);
-                        this.d.put(g, Boolean.TRUE);
-                        return;
-                    }
-                }
-                StringBuilder sb = new StringBuilder();
-                if (z) {
-                    str2 = "端能力";
-                } else {
-                    str2 = "预请求";
-                }
-                sb.append(str2);
-                sb.append("-正在发起网络请求：");
-                sb.append(quickWebViewBridgeData.url);
-                Log.d("QuickWebViewHttpProxy", sb.toString());
-                this.d.put(g, Boolean.valueOf(z));
-                m(quickWebViewBridgeData, str, z, g);
+                z = false;
             }
-        }
-    }
-
-    public final String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            try {
-                Uri parse = Uri.parse(str);
-                String str2 = parse.getScheme() + "://" + parse.getAuthority() + parse.getPath();
-                TreeSet<String> treeSet = new TreeSet(parse.getQueryParameterNames());
-                StringBuilder sb = new StringBuilder();
-                boolean z = true;
-                for (String str3 : treeSet) {
-                    if (z) {
-                        z = false;
-                        sb.append("?");
-                        sb.append(str3);
-                        sb.append("=");
-                        sb.append(parse.getQueryParameter(str3));
-                    } else {
-                        sb.append("&");
-                        sb.append(str3);
-                        sb.append("=");
-                        sb.append(parse.getQueryParameter(str3));
-                    }
-                }
-                return dj.c(str2 + ((Object) sb));
-            } catch (Exception unused) {
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-            MessageManager.getInstance().removeMessage(this.b);
-            this.d.clear();
-            this.d = null;
-            this.e.clear();
-            this.e = null;
-            this.f.clear();
-            this.f = null;
-        }
-    }
-
-    public final void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("result", str2);
-            linkedHashMap.put("NotificationKey", str);
-            this.c.i(this.a, "RequestByNativeToH5", linkedHashMap);
-        }
-    }
-
-    public void j(QuickWebViewBridgeData quickWebViewBridgeData, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, quickWebViewBridgeData, str) == null) {
-            Log.d("QuickWebViewHttpProxy", "预请求：" + quickWebViewBridgeData.url);
-            f(quickWebViewBridgeData, str, false);
-        }
-    }
-
-    public final void l(String str, String str2) {
-        WebView webView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && (webView = this.a) != null) {
-            webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
-        }
-    }
-
-    public final void m(QuickWebViewBridgeData quickWebViewBridgeData, String str, boolean z, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{quickWebViewBridgeData, str, Boolean.valueOf(z), str2}) == null) {
-            QuickWebViewHttpReqMsg quickWebViewHttpReqMsg = new QuickWebViewHttpReqMsg();
-            quickWebViewHttpReqMsg.url = quickWebViewBridgeData.url;
-            quickWebViewHttpReqMsg.urlSign = str2;
-            quickWebViewHttpReqMsg.module = quickWebViewBridgeData.module;
-            quickWebViewHttpReqMsg.begin = quickWebViewBridgeData.begin;
-            quickWebViewHttpReqMsg.jsCallbackMethod = str;
-            quickWebViewHttpReqMsg.setTag(this.b);
-            quickWebViewHttpReqMsg.isFromRequestByNative = z;
-            CookieSyncManager.createInstance(this.a.getContext());
-            String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
-            if (!TextUtils.isEmpty(cookie)) {
-                HashMap<String, String> headers = quickWebViewHttpReqMsg.getHeaders();
-                if (headers != null) {
-                    String str3 = headers.get("Cookie");
-                    if (!TextUtils.isEmpty(str3)) {
-                        if (str3.endsWith(ParamableElem.DIVIDE_PARAM)) {
-                            cookie = str3 + cookie;
-                        } else {
-                            cookie = str3 + ParamableElem.DIVIDE_PARAM + cookie;
-                        }
-                    }
-                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
-                } else {
-                    quickWebViewHttpReqMsg.addHeader("Cookie", cookie);
-                }
-            }
-            quickWebViewHttpReqMsg.setUserAgent(this.g);
-            quickWebViewHttpReqMsg.addCookie("cache_version", ym9.n().p(quickWebViewBridgeData.module));
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, quickWebViewBridgeData.url);
-            tbHttpMessageTask.setResponsedClass(QuickWebViewHttpResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setPriority(4);
-            if (quickWebViewBridgeData.type.toLowerCase().equals(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND)) {
-                Map<String, String> map = quickWebViewBridgeData.data;
-                if (map != null && !map.isEmpty()) {
-                    for (Map.Entry<String, String> entry : quickWebViewBridgeData.data.entrySet()) {
-                        quickWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
-                    }
-                }
-                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            if (this.c.getPersonPrivate() == null) {
+                J(this.c.getSex());
+            } else if (this.c.getPersonPrivate().U() != 1 && !equals && (!z || this.c.getPersonPrivate().U() != 2)) {
+                J(this.c.getSex());
             } else {
-                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+                if (TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.c.getUserId())) {
+                    i = 1;
+                } else {
+                    i = 2;
+                }
+                if (!this.c.isGod()) {
+                    i2 = 2;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", i).param("obj_source", i2));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.a.getPageActivity(), this.c.getLike_bars(), this.c.getUserId(), this.c.getSex())));
             }
-            MessageManager.getInstance().sendMessage(quickWebViewHttpReqMsg, tbHttpMessageTask);
+        }
+    }
+
+    public final void J(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            BdToast b2 = BdToast.b(this.a.getPageActivity(), String.format(this.a.getString(R.string.person_privacy_toast), StringHelper.getUserDescByGender(i)));
+            b2.g(BdToast.ToastIcon.FAILURE);
+            b2.q();
+        }
+    }
+
+    public void p(dm9 dm9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, dm9Var) == null) && dm9Var != null && dm9Var.j() != null) {
+            this.b = dm9Var;
+            this.c = dm9Var.j();
+            this.d.q(this.b.j(), this.b.g());
+            this.g.B(dm9Var);
+        }
+    }
+
+    public final void s() {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13575");
+            statisticItem.param("obj_type", this.e ? 1 : 0);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "9"));
+            if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                return;
+            }
+            if (TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.c.getUserId())) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            if (this.c.isGod()) {
+                i2 = 1;
+            } else {
+                i2 = 2;
+            }
+            TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", i).param("obj_source", i2));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), true, this.c.getUserId(), this.c.getSex()).updateFollowNum(this.c.getConcernNum(), this.c.getPortrait())));
+        }
+    }
+
+    public final void t() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13573");
+            statisticItem.param("obj_type", this.e ? 1 : 0);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+            TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "8"));
+            if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                return;
+            }
+            int i2 = 2;
+            PersonRedTipManager.getInstance().updateRedTipState(2, false, this.e);
+            if (TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.c.getUserId())) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            if (this.c.isGod()) {
+                i2 = 1;
+            }
+            TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", i).param("obj_source", i2));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), false, this.c.getUserId(), this.c.getSex())));
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            AlaUserInfoData alaUserData = this.c.getAlaUserData();
+            if (!this.e && alaUserData != null && alaUserData.live_status == 1 && alaUserData.live_id > 0) {
+                TiebaStatic.log("c12542");
+                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                alaLiveInfoCoreData.liveID = alaUserData.live_id;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION, null, false, "")));
+                return;
+            }
+            ph5 ph5Var = new ph5();
+            if (!StringUtils.isNull(this.c.getPortrait()) && this.c.getPortrait().startsWith("http")) {
+                ph5Var.d(this.c.getPortrait());
+                ph5Var.f(this.c.getPortrait());
+                ph5Var.e(true);
+            } else {
+                ph5Var.d(this.c.getPortraitH());
+                ph5Var.f(this.c.getPortrait());
+                ph5Var.e(true);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(ph5Var);
+            this.g.q(ph5Var, arrayList, 0);
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "6"));
+            if (this.e) {
+                if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                    return;
+                }
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.URL_MEMBER_BUY});
+                return;
+            }
+            ArrayList<IconData> tShowInfo = this.c.getTShowInfo();
+            if (ListUtils.getItem(tShowInfo, 0) != null) {
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{tShowInfo.get(0).getUrl()});
+            }
+        }
+    }
+
+    public final void x() {
+        UserData userData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (userData = this.c) != null && userData.getLiveRoomInfo() != null && !TextUtils.isEmpty(this.c.getLiveRoomInfo().jump_url)) {
+            UrlManager.getInstance().dealOneLink(this.a, new String[]{this.c.getLiveRoomInfo().jump_url}, true);
+        }
+    }
+
+    public final void y() {
+        dm9 dm9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (dm9Var = this.b) != null && dm9Var.g() != null && !TextUtils.isEmpty(this.b.g().b)) {
+            UrlManager.getInstance().dealOneLink(this.a, new String[]{this.b.g().b}, true);
         }
     }
 }

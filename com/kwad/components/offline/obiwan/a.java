@@ -9,12 +9,12 @@ import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompo;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends com.kwad.components.core.offline.init.a {
 
     /* renamed from: com.kwad.components.offline.obiwan.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static final class C0656a {
+    /* loaded from: classes10.dex */
+    public static final class C0666a {
         public static final a Qh = new a((byte) 0);
     }
 
@@ -31,7 +31,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
     }
 
     public static a qw() {
-        return C0656a.Qh;
+        return C0666a.Qh;
     }
 
     @Override // com.kwad.components.core.offline.init.a

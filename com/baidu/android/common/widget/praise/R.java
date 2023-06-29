@@ -86,9 +86,9 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int video_detail_like = 0x7f0927f3;
-        public static final int video_detail_like_icon = 0x7f0927f4;
-        public static final int video_detail_like_text = 0x7f0927f5;
+        public static final int video_detail_like = 0x7f092855;
+        public static final int video_detail_like_icon = 0x7f092856;
+        public static final int video_detail_like_text = 0x7f092857;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -130,10 +130,10 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int praise_billion_unit = 0x7f0f10ec;
-        public static final int praise_firstpraise = 0x7f0f10ed;
-        public static final int praise_ten_thousand = 0x7f0f10f1;
-        public static final int praise_text = 0x7f0f10f2;
+        public static final int praise_billion_unit = 0x7f0f1109;
+        public static final int praise_firstpraise = 0x7f0f110a;
+        public static final int praise_ten_thousand = 0x7f0f110e;
+        public static final int praise_text = 0x7f0f110f;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

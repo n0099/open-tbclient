@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
+import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rmb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,63 +10,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import rx.internal.schedulers.SchedulerWhen;
+import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
+import com.yy.transvod.player.log.TLog;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public abstract class job {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class job extends dob implements rmb.a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String n = "job";
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract a createWorker();
-
-    /* loaded from: classes6.dex */
-    public static abstract class a implements nob {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract nob b(tob tobVar);
-
-        public abstract nob c(tob tobVar, long j, TimeUnit timeUnit);
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return System.currentTimeMillis();
-            }
-            return invokeV.longValue;
-        }
-    }
+    public rmb l;
+    public ConcurrentLinkedQueueX<ByteBuffer> m;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891436, "Lcom/baidu/tieba/job;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947891436, "Lcom/baidu/tieba/job;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947891436, "Lcom/baidu/tieba/job;")) == null) {
+            return;
         }
-        TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15L).longValue());
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947891436, "Lcom/baidu/tieba/job;");
+        }
     }
+
+    @Override // com.baidu.tieba.rmb.a
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public abstract void y();
 
     public job() {
         Interceptable interceptable = $ic;
@@ -76,25 +61,84 @@ public abstract class job {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.m = new ConcurrentLinkedQueueX<>();
+        this.l = new anb(n);
     }
 
-    public long now() {
-        InterceptResult invokeV;
+    public job(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return System.currentTimeMillis();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return invokeV.longValue;
+        this.m = new ConcurrentLinkedQueueX<>();
+        if (z) {
+            this.l = new zmb(n);
+        } else {
+            this.l = new anb(n);
+        }
     }
 
-    public <S extends job & nob> S when(yob<gob<gob<eob>>, eob> yobVar) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yobVar)) == null) {
-            return new SchedulerWhen(yobVar, this);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TLog.g(this, "ThreadFilter.setup enter.");
+            this.l.b(this);
+            this.l.start();
+            TLog.g(this, "ThreadFilter.setup leave.");
         }
-        return (S) ((job) invokeL.objValue);
+    }
+
+    @Override // com.baidu.tieba.rmb.a
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TLog.g(this, "ThreadFilter.onResume enter.");
+            if (!this.f.isEmpty()) {
+                this.l.f(2102);
+            }
+            TLog.g(this, "ThreadFilter.onResume leave.");
+        }
+    }
+
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            TLog.l(this, "ThreadFilter.onStop mFreeQueue.size() = " + this.m.getElementCount());
+        }
+    }
+
+    @Override // com.baidu.tieba.dob
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TLog.g(this, "ThreadFilter.release enter.");
+            this.l.c();
+            TLog.g(this, "ThreadFilter.release leave.");
+        }
+    }
+
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 2102) {
+            if (this.e.g() == 6) {
+                y();
+                return;
+            }
+            this.l.g(2102);
+            TLog.l(this, String.format("player is not running. mCurrentState:%s", ymb.a[this.e.g()]));
+        }
     }
 }

@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.hc2;
+import com.baidu.tieba.kc2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,31 +14,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes8.dex */
 public class zc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hc2 a;
-    public final qc2 b;
-    public final ec2 c;
-    public SceneType d;
+    public final kc2 a;
+    public final tc2 b;
+    public final hc2 c;
+    public long d;
+    public String e;
+    public Timer f;
 
     /* loaded from: classes8.dex */
-    public class a implements hc2.b {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sc2 a;
-        public final /* synthetic */ gc2 b;
-        public final /* synthetic */ zc2 c;
+        public final /* synthetic */ zc2 a;
 
-        public a(zc2 zc2Var, sc2 sc2Var, gc2 gc2Var) {
+        public a(zc2 zc2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zc2Var, sc2Var, gc2Var};
+                Object[] objArr = {zc2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,39 +49,65 @@ public class zc2 {
                     return;
                 }
             }
-            this.c = zc2Var;
-            this.a = sc2Var;
-            this.b = gc2Var;
+            this.a = zc2Var;
         }
 
-        @Override // com.baidu.tieba.hc2.b
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e(null);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements kc2.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jc2 a;
+        public final /* synthetic */ vc2 b;
+        public final /* synthetic */ vq3 c;
+        public final /* synthetic */ zc2 d;
+
+        public b(zc2 zc2Var, jc2 jc2Var, vc2 vc2Var, vq3 vq3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zc2Var, jc2Var, vc2Var, vq3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = zc2Var;
+            this.a = jc2Var;
+            this.b = vc2Var;
+            this.c = vq3Var;
+        }
+
+        @Override // com.baidu.tieba.kc2.b
         public void a(NetworkStatus networkStatus) {
-            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                ac2.e(this.c.d.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                boolean m0 = ti2.U().m0();
-                long n = gv2.g0().n();
-                if (n >= LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION || m0) {
-                    this.c.f(networkStatus, this.b, this.a);
-                }
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.c.d.getScene());
-                sb.append(String.format(Locale.getDefault(), "%d秒截屏；", Long.valueOf(n / 1000)));
-                if (m0) {
-                    str = "框架预加载：已完成；";
-                } else {
-                    str = "框架预加载：未完成；";
-                }
-                sb.append(str);
-                sb.append(this.b.a());
-                sb.append(this.a.d());
+                sb.append(this.a.a());
+                sb.append(this.b.d());
                 sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
-                if (zc2.e) {
-                    Log.d("SceneWhiteScreenTips", ">> " + sb.toString());
+                sb.append(this.b.c());
+                if (zc2.g) {
+                    Log.d("SceneLaunchDefaultTips", ">> " + sb.toString());
                 }
-                bc2.g(sb.toString());
+                this.d.e = sb.toString();
+                vq3 vq3Var = this.c;
+                if (vq3Var != null) {
+                    vq3Var.a(this.d.e);
+                }
             }
         }
     }
@@ -99,7 +125,57 @@ public class zc2 {
                 return;
             }
         }
-        e = js1.a;
+        g = ms1.a;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (System.currentTimeMillis() - this.d > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void g() {
+        Timer timer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (timer = this.f) != null) {
+            timer.cancel();
+            this.f = null;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (g) {
+                Log.d("SceneLaunchDefaultTips", ">> start to collect default launch info.");
+            }
+            g();
+            Timer timer = new Timer();
+            this.f = timer;
+            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            g();
+        }
     }
 
     public zc2() {
@@ -115,61 +191,24 @@ public class zc2 {
                 return;
             }
         }
-        this.d = SceneType.SCENE_WHITE_SCREEN_L1;
-        this.c = ec2.d();
-        this.a = new hc2();
-        this.b = qc2.d();
+        this.d = System.currentTimeMillis();
+        this.e = "";
+        this.a = new kc2();
+        this.b = tc2.d();
+        this.c = hc2.d();
     }
 
-    public void e(SceneType sceneType) {
+    public void e(@Nullable vq3<String> vq3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sceneType) == null) {
-            this.d = sceneType;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (oc2.b().c()) {
-                if (e) {
-                    Log.d("SceneWhiteScreenTips", ">> start to recheck white screen.");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vq3Var) == null) {
+            if (d() && !TextUtils.isEmpty(this.e)) {
+                if (vq3Var != null) {
+                    vq3Var.a(this.e);
+                    return;
                 }
-                oc2.b().h(mc2.b(str, 3000L));
-                oc2.b().f();
                 return;
             }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> no need to recheck white screen.");
-            }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> start handle white screen tips.");
-            }
-            qc2.d().j();
-            ec2.d().j();
-            oc2.b().j(true);
-            gc2 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
-        }
-    }
-
-    public final void f(@NonNull NetworkStatus networkStatus, @NonNull gc2 gc2Var, @NonNull sc2 sc2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, gc2Var, sc2Var) == null) {
-            boolean b = gc2Var.b();
-            int i = R.string.obfuscated_res_0x7f0f153d;
-            if (b) {
-                i = R.string.obfuscated_res_0x7f0f1542;
-            } else if (sc2Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f1540;
-            } else if (sc2Var.e() != RequestStatus.STATUS_FAILED) {
-                if (sc2Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f1541 : R.string.obfuscated_res_0x7f0f153e;
-                } else if (sc2Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f153f;
-                }
-            }
-            zb2.f(i);
+            this.a.a(new b(this, this.c.f(), this.b.f(), vq3Var));
         }
     }
 }

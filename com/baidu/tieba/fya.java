@@ -1,173 +1,187 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class fya {
+public class fya {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<AudioPlayData> a;
+    public List<AudioPlayData> b;
+    public nya c;
+    public int d;
+    public b e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947781851, "Lcom/baidu/tieba/fya;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends c0b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ AudioPlayData b;
+        public final /* synthetic */ fya c;
+
+        public a(fya fyaVar, String str, AudioPlayData audioPlayData) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fyaVar, str, audioPlayData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947781851, "Lcom/baidu/tieba/fya;");
+            this.c = fyaVar;
+            this.a = str;
+            this.b = audioPlayData;
+        }
+
+        @Override // com.baidu.tieba.c0b, com.baidu.tieba.b0b
+        public void onExceptionThrown(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.c.e == null) {
                 return;
             }
+            this.c.e.onFailed(str);
         }
-        a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+
+        @Override // com.baidu.tieba.c0b
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                AudioPlayData audioPlayData = new AudioPlayData(this.a, 0, (int) c2b.b(this.a), this.b.volume);
+                if (this.c.b == null) {
+                    this.c.b = new ArrayList();
+                }
+                this.c.b.add(audioPlayData);
+                fya.c(this.c);
+                this.c.f();
+            }
+        }
+
+        @Override // com.baidu.tieba.c0b, com.baidu.tieba.b0b
+        public void onProgressChanged(int i, double d, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.c0b, com.baidu.tieba.b0b
+        public void onTrackEnd(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
+        }
     }
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            return b(bArr, bArr.length);
-        }
-        return (byte[]) invokeL.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onFailed(String str);
+
+        void onSuccess(List<AudioPlayData> list);
     }
 
-    public static byte[] b(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        byte b;
-        int i2;
+    public fya() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
-            int i3 = (i / 4) * 3;
-            if (i3 == 0) {
-                return new byte[0];
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            byte[] bArr2 = new byte[i3];
-            int i4 = i;
-            int i5 = 0;
-            while (true) {
-                byte b2 = bArr[i4 - 1];
-                b = 10;
-                if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
-                    if (b2 != 61) {
-                        break;
-                    }
-                    i5++;
-                }
-                i4--;
-            }
-            int i6 = 0;
-            int i7 = 0;
-            int i8 = 0;
-            int i9 = 0;
-            while (i6 < i4) {
-                byte b3 = bArr[i6];
-                if (b3 != b && b3 != 13 && b3 != 32 && b3 != 9) {
-                    if (b3 >= 65 && b3 <= 90) {
-                        i2 = b3 - 65;
-                    } else if (b3 >= 97 && b3 <= 122) {
-                        i2 = b3 - 71;
-                    } else if (b3 >= 48 && b3 <= 57) {
-                        i2 = b3 + 4;
-                    } else if (b3 == 43) {
-                        i2 = 62;
-                    } else if (b3 == 47) {
-                        i2 = 63;
-                    } else {
-                        return null;
-                    }
-                    i7 = ((byte) i2) | (i7 << 6);
-                    if (i9 % 4 == 3) {
-                        int i10 = i8 + 1;
-                        bArr2[i8] = (byte) ((16711680 & i7) >> 16);
-                        int i11 = i10 + 1;
-                        bArr2[i10] = (byte) ((65280 & i7) >> 8);
-                        bArr2[i11] = (byte) (i7 & 255);
-                        i8 = i11 + 1;
-                    }
-                    i9++;
-                }
-                i6++;
-                b = 10;
-            }
-            if (i5 > 0) {
-                int i12 = i7 << (i5 * 6);
-                int i13 = i8 + 1;
-                bArr2[i8] = (byte) ((i12 & 16711680) >> 16);
-                if (i5 == 1) {
-                    i8 = i13 + 1;
-                    bArr2[i13] = (byte) ((i12 & 65280) >> 8);
-                } else {
-                    i8 = i13;
-                }
-            }
-            byte[] bArr3 = new byte[i8];
-            System.arraycopy(bArr2, 0, bArr3, 0, i8);
-            return bArr3;
         }
-        return (byte[]) invokeLI.objValue;
     }
 
-    public static String c(byte[] bArr, String str) throws UnsupportedEncodingException {
-        InterceptResult invokeLL;
+    public static /* synthetic */ int c(fya fyaVar) {
+        int i = fyaVar.d;
+        fyaVar.d = i + 1;
+        return i;
+    }
+
+    public final void f() {
+        AudioPlayData audioPlayData;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, str)) == null) {
-            int length = (bArr.length * 4) / 3;
-            byte[] bArr2 = new byte[length + (length / 76) + 3];
-            int length2 = bArr.length - (bArr.length % 3);
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < length2; i3 += 3) {
-                int i4 = i + 1;
-                byte[] bArr3 = a;
-                bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
-                int i5 = i4 + 1;
-                int i6 = i3 + 1;
-                bArr2[i4] = bArr3[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
-                int i7 = i5 + 1;
-                int i8 = i3 + 2;
-                bArr2[i5] = bArr3[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
-                i = i7 + 1;
-                bArr2[i7] = bArr3[bArr[i8] & 63];
-                if ((i - i2) % 76 == 0 && i != 0) {
-                    bArr2[i] = 10;
-                    i2++;
-                    i++;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (m1b.c(this.a, this.d) == null) {
+                b bVar = this.e;
+                if (bVar != null) {
+                    bVar.onSuccess(this.b);
+                    return;
                 }
+                return;
             }
-            int length3 = bArr.length % 3;
-            if (length3 != 1) {
-                if (length3 == 2) {
-                    int i9 = i + 1;
-                    byte[] bArr4 = a;
-                    bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
-                    int i10 = i9 + 1;
-                    int i11 = length2 + 1;
-                    bArr2[i9] = bArr4[((bArr[i11] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
-                    int i12 = i10 + 1;
-                    bArr2[i10] = bArr4[(bArr[i11] & 15) << 2];
-                    i = i12 + 1;
-                    bArr2[i12] = 61;
+            AudioPlayData audioPlayData2 = this.a.get(this.d);
+            if (!FileUtils.isExists(audioPlayData2.audioPath)) {
+                String str = audioPlayData2.audioPath;
+                int i = audioPlayData2.start;
+                audioPlayData = new AudioPlayData(str, i, audioPlayData2.end - i, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
                 }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
+            } else if (audioPlayData2.mSpeed == 1.0f) {
+                audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
             } else {
-                int i13 = i + 1;
-                byte[] bArr5 = a;
-                bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
-                int i14 = i13 + 1;
-                bArr2[i13] = bArr5[(bArr[length2] & 3) << 4];
-                int i15 = i14 + 1;
-                bArr2[i14] = 61;
-                i = i15 + 1;
-                bArr2[i15] = 61;
+                String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
+                try {
+                    nya nyaVar = new nya(audioPlayData2.audioPath, str2, null);
+                    this.c = nyaVar;
+                    nyaVar.S(new a(this, str2, audioPlayData2));
+                    this.c.D(null);
+                    this.c.G(audioPlayData2.mSpeed);
+                    this.c.B(audioPlayData2.start);
+                    this.c.R(audioPlayData2.end);
+                    this.c.I();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            return new String(bArr2, 0, i, str);
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public void g(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public void h(List<AudioPlayData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f();
+        }
     }
 }

@@ -1,88 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.content.Intent;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.widget.LinearGradientView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class oq7 {
+public abstract class oq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public LinearGradientView c;
-    public BarImageView d;
-    public TextView e;
-    public FrsHeaderBannerView f;
-    public LinearLayout g;
-    public ImageView h;
-    public View i;
-    public TbImageView j;
-    public ImageView k;
-    public ImageView l;
-    public ImageView m;
-    public ImageView n;
+    public tq7 a;
+    public Intent b;
+    public int c;
+    public a d;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(oq7 oq7Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oq7Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
-                }
-            }
-        }
+    public interface a {
+        void onStateChanged(int i);
     }
 
-    public oq7(Context context) {
+    public abstract void c();
+
+    public abstract void d();
+
+    public oq7(tq7 tq7Var, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tq7Var, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -92,52 +42,30 @@ public class oq7 {
                 return;
             }
         }
-        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
-        UtilHelper.getStatusBarHeight();
-        if (context == null) {
-            return;
+        this.c = 0;
+        this.a = tq7Var;
+        this.b = intent;
+        rq7 c = qq7.d().c(this.b.getStringExtra("info_forum_name_text"));
+        c.b();
+        c.a();
+        if (c.c()) {
+            ((RelativeLayout.LayoutParams) this.a.g.getLayoutParams()).topMargin = xi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0345, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ed6);
-        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090ed9);
-        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ed7);
-        this.j = tbImageView;
-        tbImageView.setDefaultBgResource(R.color.transparent);
-        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f081176);
-        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090cab);
-        TextView textView = (TextView) this.a.findViewById(R.id.forum_name);
-        this.e = textView;
-        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090c9a);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090aba);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ab9);
-        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090ef2);
-        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090abc);
-        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090abe);
-        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090abb);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090abd);
-        this.k.setOnClickListener(new a(this, context));
-        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f031e));
-        this.d.setStrokeWith(wi.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-        this.d.setShowOval(true);
-        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-        this.d.setStrokeColorResId(R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        p75 d = p75.d(this.i);
-        d.n(1);
-        d.o(R.string.J_X14);
-        d.f(R.color.CAM_X0201);
-        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
-        SkinManager.setImageResource(this.k, R.drawable.ic_icon_pure_topbar_return40_svg);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f080343, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
+        }
     }
 }

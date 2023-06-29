@@ -4,82 +4,83 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.LoadDraftMessage;
+import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class mb8 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
+public class mb8 implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public d98 b;
+    public ta8 a;
+    public int b;
 
-    public mb8() {
+    public mb8(ta8 ta8Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ta8Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 2001154;
-        this.b = d98.w();
+        this.a = ta8Var;
+        this.b = i;
     }
 
-    public final LoadHistoryResponsedMessage a(int i) {
+    public final LoadDraftResponsedMessage a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-            loadHistoryResponsedMessage.setError(-18);
-            return loadHistoryResponsedMessage;
+            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
+            loadDraftResponsedMessage.setError(-18);
+            return loadDraftResponsedMessage;
         }
-        return (LoadHistoryResponsedMessage) invokeI.objValue;
+        return (LoadDraftResponsedMessage) invokeI.objValue;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<LoadDraftMessage.a> customMessage) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (this.b == null) {
-                return a(this.a);
-            }
-            List<h98> x = d98.x();
-            if (x != null && x.size() > 0) {
-                HashMap hashMap = new HashMap(x.size());
-                for (h98 h98Var : x) {
-                    hashMap.put(h98Var.b(), h98Var);
+            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
+            if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
+                LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
+                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
+                } else {
+                    str = "";
                 }
-                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
-                if (l == null) {
-                    return a(this.a);
+                LoadDraftMessage.a data = loadDraftMessage.getData();
+                ChatSetting a = this.a.a(str, data.a);
+                if (a == null) {
+                    return a(loadDraftMessage.getCmd());
                 }
-                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
-                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
-                aVar.b = l;
-                aVar.a = x;
+                String draft = a.getDraft();
+                LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
+                aVar.a = draft;
+                String str2 = data.a;
                 try {
-                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
+                    loadDraftResponsedMessage.decodeInBackGround(this.b, aVar);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                return officialFeedHeadResponsedMessage;
+                return loadDraftResponsedMessage;
             }
-            return a(this.a);
+            return a(this.b);
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

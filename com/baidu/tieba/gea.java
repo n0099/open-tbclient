@@ -1,155 +1,185 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tieba.tda;
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FestivalTipData;
-import tbclient.ThemeColorInfo;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class gea {
+public class gea implements oda, tda.c, sr6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThemeColorInfo a;
-    public final ThemeColorInfo b;
+    public BaseActivity a;
+    public gda b;
+    public sda c;
+    public SelectMusicModel d;
+    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947792422, "Lcom/baidu/tieba/gea;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947792422, "Lcom/baidu/tieba/gea;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    @JvmStatic
-    public static final gea a(FestivalTipData festivalTipData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.oda
+    public void setMusicData(List<MusicData> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, festivalTipData)) == null) ? c.a(festivalTipData) : (gea) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof gea) {
-                gea geaVar = (gea) obj;
-                return Intrinsics.areEqual(this.a, geaVar.a) && Intrinsics.areEqual(this.b, geaVar.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FestivalTipViewStyle(backgroundColor=" + this.a + ", textColor=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final gea a(FestivalTipData festivalTipData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, festivalTipData)) == null) {
-                Intrinsics.checkNotNullParameter(festivalTipData, "festivalTipData");
-                ThemeColorInfo themeColorInfo = festivalTipData.background_color;
-                Intrinsics.checkNotNullExpressionValue(themeColorInfo, "festivalTipData.background_color");
-                ThemeColorInfo themeColorInfo2 = festivalTipData.font_color;
-                Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "festivalTipData.font_color");
-                return new gea(themeColorInfo, themeColorInfo2);
-            }
-            return (gea) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
         }
     }
 
-    public gea(ThemeColorInfo backgroundColor, ThemeColorInfo textColor) {
+    public gea(gda gdaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundColor, textColor};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {gdaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
-        Intrinsics.checkNotNullParameter(textColor, "textColor");
-        this.a = backgroundColor;
-        this.b = textColor;
+        this.b = gdaVar;
+        this.a = gdaVar.a;
     }
 
-    public final ThemeColorInfo b() {
-        InterceptResult invokeV;
+    public final void a(String str) {
+        gda gdaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (gdaVar = this.b) == null) {
+            return;
         }
-        return (ThemeColorInfo) invokeV.objValue;
+        if (gdaVar.b()) {
+            this.b.c();
+            this.b = null;
+            return;
+        }
+        this.e = str;
+        VideoInfo videoInfo = new VideoInfo();
+        videoInfo.setVideoPath(this.e);
+        videoInfo.setThumbPath(this.b.c);
+        gda gdaVar2 = this.b;
+        if (gdaVar2 != null) {
+            gdaVar2.f(videoInfo);
+        }
     }
 
-    public final ThemeColorInfo c() {
-        InterceptResult invokeV;
+    public void b() {
+        gda gdaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (gdaVar = this.b) == null) {
+            return;
         }
-        return (ThemeColorInfo) invokeV.objValue;
+        if (gdaVar.b()) {
+            this.b.c();
+            this.b = null;
+            return;
+        }
+        if (StringUtils.isNull(this.b.d)) {
+            gda gdaVar2 = this.b;
+            if (!gdaVar2.e) {
+                o1(gdaVar2.b, -4399, "");
+                return;
+            }
+        }
+        if (this.d == null) {
+            this.d = new SelectMusicModel(this.a.getPageContext(), this);
+        }
+        SelectMusicModel selectMusicModel = this.d;
+        gda gdaVar3 = this.b;
+        selectMusicModel.X(gdaVar3.b, gdaVar3.d, hda.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !gdaVar3.e);
+    }
+
+    @Override // com.baidu.tieba.sr6
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            gda gdaVar = this.b;
+            if (gdaVar != null) {
+                gdaVar.i(true);
+            }
+            sda sdaVar = this.c;
+            if (sdaVar != null && sdaVar.f()) {
+                this.c.e();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.oda
+    public void o1(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
+            gda gdaVar = this.b;
+            if (gdaVar != null && gdaVar.b()) {
+                this.b.c();
+                this.b = null;
+            } else if (TextUtils.isEmpty(str)) {
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c82);
+                gda gdaVar2 = this.b;
+                if (gdaVar2 != null) {
+                    gdaVar2.g(i, str2);
+                }
+            } else {
+                gda gdaVar3 = this.b;
+                if (gdaVar3 != null) {
+                    gdaVar3.h();
+                }
+                if (!StringUtils.isNull(this.b.f)) {
+                    if (!StringHelper.equals(str, this.b.b)) {
+                        this.b.g = str;
+                    }
+                    if (this.c == null) {
+                        sda sdaVar = new sda(this.a.getActivity());
+                        this.c = sdaVar;
+                        sdaVar.i(this);
+                    }
+                    this.c.g(str, this.b.f);
+                    return;
+                }
+                gda gdaVar4 = this.b;
+                if (gdaVar4 != null) {
+                    gdaVar4.e();
+                }
+                a(str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tda.c
+    public void onGenFilterVideoFail(int i, String str) {
+        gda gdaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (gdaVar = this.b) != null) {
+            gdaVar.d(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.tda.c
+    public void onGenFilterVideoRecordError(int i, String str) {
+        gda gdaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (gdaVar = this.b) != null) {
+            gdaVar.d(i, str);
+        }
+    }
+
+    @Override // com.baidu.tieba.tda.c
+    public void onGenFilterVideoSuccess(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            gda gdaVar = this.b;
+            if (gdaVar != null) {
+                gdaVar.e();
+            }
+            a(str);
+        }
     }
 }

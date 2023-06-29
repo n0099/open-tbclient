@@ -1,69 +1,39 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.webkit.WebResourceResponse;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import java.text.DecimalFormat;
 /* loaded from: classes8.dex */
-public interface xt4 {
-    String a(String str);
-
-    WebResourceResponse b(Uri uri);
-
-    <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> function1);
+public class xt4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public LinearLayout b;
+    public TextView c;
+    public DecimalFormat d;
+    public String e;
 
     /* loaded from: classes8.dex */
-    public static class a implements xt4 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final xt4 a;
+        public final /* synthetic */ xt4 a;
 
-        @Override // com.baidu.tieba.xt4
-        public String a(String url) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
-                Intrinsics.checkNotNullParameter(url, "url");
-                return this.a.a(url);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xt4
-        public WebResourceResponse b(Uri url) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
-                Intrinsics.checkNotNullParameter(url, "url");
-                return this.a.b(url);
-            }
-            return (WebResourceResponse) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xt4
-        public <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> transform) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webResourceResponse, transform)) == null) {
-                Intrinsics.checkNotNullParameter(transform, "transform");
-                return (Target) this.a.c(webResourceResponse, transform);
-            }
-            return (Target) invokeLL.objValue;
-        }
-
-        public a(xt4 delegation) {
+        public a(xt4 xt4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {delegation};
+                Object[] objArr = {xt4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,86 +43,88 @@ public interface xt4 {
                     return;
                 }
             }
-            Intrinsics.checkNotNullParameter(delegation, "delegation");
-            this.a = delegation;
+            this.a = xt4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Inject
-        public gl1<xt4> a;
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                el1 b = el1.b();
-                this.a = b;
-                b.a(new yt4());
+    public xt4(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        d();
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            b();
+    public LinearLayout a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (LinearLayout) invokeV.objValue;
+    }
 
-        public final gl1<xt4> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                gl1<xt4> gl1Var = this.a;
-                if (gl1Var == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("impl");
-                }
-                return gl1Var;
-            }
-            return (gl1) invokeV.objValue;
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f();
+            bc3.M().postDelayed(new a(this), 3000L);
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class c extends a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.setVisibility(8);
+        }
+    }
 
-        /* JADX WARN: Illegal instructions before constructor call */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public c(b ioc) {
-            super(r7);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ioc};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((xt4) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.setVisibility(0);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0911, (ViewGroup) null);
+            this.b = linearLayout;
+            linearLayout.setVisibility(8);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922d6);
+            this.d = new DecimalFormat("0.0#");
+            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f156a);
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                this.c.setText(this.d.format(Float.parseFloat(str)) + this.e);
+                b();
+            } catch (Exception unused) {
             }
-            Intrinsics.checkNotNullParameter(ioc, "ioc");
-            xt4 xt4Var = ioc.a().get();
-            Intrinsics.checkNotNullExpressionValue(xt4Var, "ioc.impl.get()");
         }
     }
 }

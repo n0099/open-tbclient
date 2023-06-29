@@ -4,81 +4,91 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.app.NotificationManagerCompat;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.db.DBTableDefine;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.core.view.PushPermissionDialogViewV2;
-import com.baidu.tieba.d55;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.tieba.core.widget.SpriteBottomTipView;
+import com.baidu.tieba.le5;
+import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
+import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
+import com.baidu.tieba.yr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.ref.WeakReference;
+import java.util.Collections;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 /* loaded from: classes8.dex */
 public class zf5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static WeakReference<le5> b;
+    public static WeakReference<SpriteAnimationTipManager> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 2 ? "im" : i == 3 ? "reply_message_bar" : i == 6 ? "at_message_bar" : i == 7 ? "agree_message_bar" : i == 8 ? "fan_message_bar" : i == 4 ? "forum_sign" : i == 5 ? "sign" : i == 10 ? "user_follow" : "default" : (String) invokeI.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i == 2) {
-                return 12;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if (i == 3) {
-                return 11;
-            }
-            if (i == 4) {
-                return 2;
-            }
-            if (i == 5) {
-                return 5;
-            }
-            if (i == 6) {
-                return 15;
-            }
-            if (i == 7) {
-                return 14;
-            }
-            if (i == 8) {
-                return 16;
-            }
-            return i == 10 ? 17 : 0;
         }
-        return invokeI.intValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                String b = nn5.b("", 0);
+                ew8 defaultLog = DefaultLog.getInstance();
+                defaultLog.b("HotEventTip", "精灵动画提示控件：精灵点击跳转，scheme" + b);
+                if (b.startsWith("tiebaapp://router/portal")) {
+                    zf5.d(b);
+                }
+            }
+        }
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements Runnable {
+    public static class b implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yf5 a;
+        public final /* synthetic */ yr6.e a;
 
-        public a(yf5 yf5Var) {
+        public b(yr6.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yf5Var};
+                Object[] objArr = {eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -88,538 +98,522 @@ public class zf5 {
                     return;
                 }
             }
-            this.a = yf5Var;
+            this.a = eVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function0
+        /* renamed from: a */
+        public Unit invoke() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                boolean unused = zf5.a = false;
+                DefaultLog.getInstance().b("HotEventTip", "精灵动画提示控件：动画执行完成，触发弹窗管理器监听");
+                this.a.onDismiss();
+                return null;
+            }
+            return (Unit) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c implements SpriteBottomTipView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HotEventData a;
+        public final /* synthetic */ SpriteAnimationTipManager b;
+
+        public c(HotEventData hotEventData, SpriteAnimationTipManager spriteAnimationTipManager) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotEventData, spriteAnimationTipManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hotEventData;
+            this.b = spriteAnimationTipManager;
+        }
+
+        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.x();
+                SpriteAnimationTipManager spriteAnimationTipManager = this.b;
+                if (spriteAnimationTipManager != null) {
+                    spriteAnimationTipManager.i();
+                }
+                zf5.n();
+            }
+        }
+
+        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
+        public void onBtnClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                zf5.d(this.a.getBtnSchema());
+                zf5.n();
+            }
+        }
+
+        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                zf5.d(this.a.getBtnSchema());
+                zf5.n();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements View.OnClickListener {
+    public static class d implements le5.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sz4 a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ d55 c;
+        public final /* synthetic */ yr6.e a;
 
-        public b(sz4 sz4Var, int i, d55 d55Var) {
+        public d(yr6.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sz4Var, Integer.valueOf(i), d55Var};
+                Object[] objArr = {eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = sz4Var;
-            this.b = i;
-            this.c = d55Var;
+            this.a = eVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.le5.j
+        public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sz4 sz4Var = this.a;
-                if (sz4Var != null) {
-                    sz4Var.a();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean unused = zf5.a = false;
+                yr6.e eVar = this.a;
+                if (eVar != null) {
+                    eVar.onDismiss();
                 }
-                zf5.d(this.b, true);
-                this.c.dismiss();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class c implements View.OnClickListener {
+    public static class e implements le5.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sz4 a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ d55 c;
+        public final /* synthetic */ HotEventData a;
 
-        public c(sz4 sz4Var, int i, d55 d55Var) {
+        public e(HotEventData hotEventData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sz4Var, Integer.valueOf(i), d55Var};
+                Object[] objArr = {hotEventData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = sz4Var;
-            this.b = i;
-            this.c = d55Var;
+            this.a = hotEventData;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.le5.h
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sz4 sz4Var = this.a;
-                if (sz4Var != null) {
-                    sz4Var.onCancelClick();
-                }
-                zf5.d(this.b, false);
-                this.c.dismiss();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zf5.d(this.a.getBtnSchema());
+                zf5.n();
             }
         }
     }
 
-    public static void d(int i, boolean z) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            int c2 = c(i);
-            StatisticItem statisticItem = new StatisticItem("c13673");
-            if (z) {
-                i2 = 1;
-            } else {
-                i2 = 2;
+    /* loaded from: classes8.dex */
+    public static class f implements le5.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HotEventData a;
+
+        public f(HotEventData hotEventData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hotEventData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            TiebaStatic.log(statisticItem.param("obj_type", i2).param("obj_source", c2));
+            this.a = hotEventData;
+        }
+
+        @Override // com.baidu.tieba.le5.i
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zf5.d(this.a.getBtnSchema());
+                zf5.n();
+            }
         }
     }
 
-    public static void e(int i) {
+    public static void q(HotEventData hotEventData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            TiebaStatic.log(new StatisticItem("c13674").param("obj_source", c(i)));
+        if ((interceptable == null || interceptable.invokeL(65552, null, hotEventData) == null) && hotEventData != null && hotEventData.getWindowType() == 1) {
+            r95.p().H("key_hot_event_tip_show_time", System.currentTimeMillis());
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static Map<String, String> f(String str) {
-        InterceptResult invokeL;
-        char c2;
-        String string;
+    public static void s(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            String string2 = TbadkCoreApplication.getInst().getString(R.string.push_tip_default_title);
-            switch (str.hashCode()) {
-                case -1130769265:
-                    if (str.equals("forum_follow")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -841017829:
-                    if (str.equals("forum_sign")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -429621401:
-                    if (str.equals("reply_pb")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -426397178:
-                    if (str.equals("reply_message_bar")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3364:
-                    if (str.equals("im")) {
-                        c2 = 4;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2 && c2 != 3) {
-                        if (c2 != 4) {
-                            string = TbadkCoreApplication.getInst().getString(R.string.push_tip_default_desc);
-                        } else {
-                            string = TbadkCoreApplication.getInst().getString(R.string.push_tip_default_desc_msg);
-                        }
-                    } else {
-                        string = TbadkCoreApplication.getInst().getString(R.string.push_tip_default_desc_reply);
-                    }
-                } else {
-                    string = TbadkCoreApplication.getInst().getString(R.string.push_tip_default_desc_bar_sign);
-                }
-            } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.push_tip_default_desc_bar_attention);
-            }
-            td5 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
-            if (pushStrategyConfig.d()) {
-                ud5 c3 = pushStrategyConfig.c(str);
-                if (c3 != null && !TextUtils.isEmpty(c3.c())) {
-                    string2 = c3.c();
-                }
-                if (c3 != null && !TextUtils.isEmpty(c3.b())) {
-                    string = c3.b();
-                }
-            } else {
-                hm9 g = im9.e().g(str);
-                if (g != null && !TextUtils.isEmpty(g.f())) {
-                    string2 = g.f();
-                }
-                if (g != null && !TextUtils.isEmpty(g.d())) {
-                    string = g.d();
-                }
-            }
-            hashMap.put("view_params_key_title", string2);
-            hashMap.put("view_params_key_desc", string);
-            hashMap.put("view_params_key_source", str);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            a = z;
         }
-        return (Map) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ae, code lost:
-        if (com.baidu.tbadk.core.util.TimeHelper.isSameDay(r12, r7) == false) goto L24;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00b5  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00e1  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00ea  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x00fc  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0102 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0111  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x011a  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean g(Context context, int i) {
-        InterceptResult invokeLI;
-        int i2;
-        Date date;
-        boolean z;
-        boolean z2;
-        String str;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        boolean z6;
-        boolean z7;
+    public static void u(HotEventData hotEventData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
-            td5 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
-            if (pushStrategyConfig != null && pushStrategyConfig.d()) {
-                i2 = pushStrategyConfig.b();
-            } else {
-                i2 = 0;
+        if (interceptable == null || interceptable.invokeL(65556, null, hotEventData) == null) {
+            g(hotEventData);
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity == null) {
+                return;
             }
-            if (i2 <= 0) {
-                i2 = 7;
-            }
-            Date date2 = new Date(o95.p().r("push_permission_dialog_scene_cold_start_key", 0L));
-            Date date3 = new Date(o95.p().r("push_permission_dialog_scene_interaction_key", 0L));
-            Date date4 = new Date(o95.p().r("push_permission_dialog_scene_push_sign_key", 0L));
-            Date date5 = null;
-            if (UbsABTestHelper.isPushPermissionForumFollowTestA() || UbsABTestHelper.isPushPermissionForumFollowTestB()) {
-                date5 = new Date(o95.p().r("push_permission_dialog_scene_interaction_forum_follow_key", 0L));
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            Date date6 = new Date(currentTimeMillis);
-            if (i == 11 && date5 != null) {
-                if (UbsABTestHelper.isPushPermissionForumFollowTestA() && TimeHelper.getDayDifference(date6, date5) >= i2 && !TimeHelper.isSameDay(date6, date2)) {
-                    date = date2;
-                } else if (UbsABTestHelper.isPushPermissionForumFollowTestB()) {
-                    date = date2;
-                    if (TimeHelper.getDayDifference(date6, date5) >= i2) {
-                        if (!TimeHelper.isSameDay(date6, date)) {
-                        }
-                    }
-                    z = false;
-                    if (i == 0) {
-                        z2 = z;
-                        str = "push_permission_dialog_scene_cold_start_key";
-                        if (TimeHelper.getDayDifference(date6, date3) >= i2 && !TimeHelper.isSameDay(date6, date)) {
-                            if (UbsABTestHelper.isPushPermissionForumFollowTestB()) {
-                                if (date5 != null && TimeHelper.isSameDay(date6, date5)) {
-                                    z7 = false;
-                                } else {
-                                    z7 = true;
-                                }
-                                z3 = z7;
-                            } else {
-                                z3 = true;
-                            }
-                            if (i != 1) {
-                                z4 = z3;
-                                if (TimeHelper.getDayDifference(date6, date) >= i2 && !TimeHelper.isSameDay(date6, date3)) {
-                                    z5 = true;
-                                    if (i == 4 && i != 5) {
-                                        z6 = z5;
-                                    } else {
-                                        z6 = z5;
-                                        if (TimeHelper.getDayDifference(date6, date4) >= i2 && !TimeHelper.isSameDay(date6, date4)) {
-                                            z6 = true;
-                                        }
-                                    }
-                                    if (z6) {
-                                        if (i != 0) {
-                                            if (i != 1) {
-                                                if (i != 4 && i != 5) {
-                                                    if (i == 11) {
-                                                        o95.p().H("push_permission_dialog_scene_interaction_forum_follow_key", currentTimeMillis);
-                                                    }
-                                                } else {
-                                                    o95.p().H("push_permission_dialog_scene_push_sign_key", currentTimeMillis);
-                                                }
-                                            } else {
-                                                o95.p().H(str, currentTimeMillis);
-                                            }
-                                        } else {
-                                            o95.p().H("push_permission_dialog_scene_interaction_key", currentTimeMillis);
-                                        }
-                                    }
-                                    return z6;
-                                }
-                            } else {
-                                z4 = z3;
-                            }
-                            z5 = z4;
-                            if (i == 4) {
-                            }
-                            z6 = z5;
-                            if (TimeHelper.getDayDifference(date6, date4) >= i2) {
-                                z6 = true;
-                            }
-                            if (z6) {
-                            }
-                            return z6;
-                        }
-                    } else {
-                        z2 = z;
-                        str = "push_permission_dialog_scene_cold_start_key";
-                    }
-                    z3 = z2;
-                    if (i != 1) {
-                    }
-                    z5 = z4;
-                    if (i == 4) {
-                    }
-                    z6 = z5;
-                    if (TimeHelper.getDayDifference(date6, date4) >= i2) {
-                    }
-                    if (z6) {
-                    }
-                    return z6;
-                }
-                z = true;
-                if (i == 0) {
-                }
-                z3 = z2;
-                if (i != 1) {
-                }
-                z5 = z4;
-                if (i == 4) {
-                }
-                z6 = z5;
-                if (TimeHelper.getDayDifference(date6, date4) >= i2) {
-                }
-                if (z6) {
-                }
-                return z6;
-            }
-            date = date2;
-            z = false;
-            if (i == 0) {
-            }
-            z3 = z2;
-            if (i != 1) {
-            }
-            z5 = z4;
-            if (i == 4) {
-            }
-            z6 = z5;
-            if (TimeHelper.getDayDifference(date6, date4) >= i2) {
-            }
-            if (z6) {
-            }
-            return z6;
+            x55.g(Collections.singletonList(new y55(currentActivity, hotEventData)));
         }
-        return invokeLI.booleanValue;
     }
 
-    public static yf5 h(TbPageContext<?> tbPageContext, Map<String, String> map, long j) {
-        InterceptResult invokeCommon;
+    public static void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{tbPageContext, map, Long.valueOf(j)})) == null) {
-            if (tbPageContext != null && map != null) {
-                yf5 yf5Var = new yf5(tbPageContext, map);
-                if (j <= 0) {
-                    yf5Var.x();
-                } else {
-                    xg.a().postDelayed(new a(yf5Var), j);
-                }
-                return yf5Var;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            a = false;
+            SpriteAnimationTipManager k = k();
+            if (k != null) {
+                k.i();
+            }
+            c = null;
+        }
+    }
+
+    public static le5 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            WeakReference<le5> weakReference = b;
+            if (weakReference != null) {
+                return weakReference.get();
             }
             return null;
         }
-        return (yf5) invokeCommon.objValue;
+        return (le5) invokeV.objValue;
     }
 
-    public static yf5 i(TbPageContext<?> tbPageContext, String str, long j) {
-        InterceptResult invokeCommon;
+    public static boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{tbPageContext, str, Long.valueOf(j)})) == null) {
-            return j(tbPageContext, str, j, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return a;
         }
-        return (yf5) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void k(TbPageContext<?> tbPageContext, int i, sz4 sz4Var) {
+    public static SpriteAnimationTipManager k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65546, null, tbPageContext, i, sz4Var) == null) {
-            l(tbPageContext, tbPageContext.getPageActivity(), i, sz4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            WeakReference<SpriteAnimationTipManager> weakReference = c;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
+        }
+        return (SpriteAnimationTipManager) invokeV.objValue;
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            a = false;
+            SpriteAnimationTipManager k = k();
+            if (k != null) {
+                k.p();
+            }
+            c = null;
         }
     }
 
-    public static yf5 j(TbPageContext<?> tbPageContext, String str, long j, Map<String, String> map) {
-        InterceptResult invokeCommon;
+    public static void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{tbPageContext, str, Long.valueOf(j), map})) == null) {
-            if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_CLICK));
+        }
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_SHOW));
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            ew8 defaultLog = DefaultLog.getInstance();
+            defaultLog.b("HotEventTip", "精灵动画提示控件：气泡点击跳转，scheme" + str);
+            UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{str});
+        }
+    }
+
+    public static void r(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, hotEventData) == null) {
+            if (TextUtils.isEmpty(hotEventData.getDesc())) {
+                hotEventData.setDesc(TbadkApplication.getInst().getString(R.string.hot_event_desc_text));
+            }
+            if (TextUtils.isEmpty(hotEventData.getBtnText())) {
+                hotEventData.setBtnText(TbadkApplication.getInst().getString(R.string.hot_event_btn_text));
+                return;
+            }
+            String btnText = hotEventData.getBtnText();
+            if (StringHelper.getChineseAndEnglishLength(btnText) > 8) {
+                hotEventData.setBtnText(StringHelper.cutChineseAndEnglishWithEmoji(btnText, 8, null));
+            }
+        }
+    }
+
+    @NonNull
+    public static FrameLayout.LayoutParams e(Activity activity) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 83;
+            if (wp6.b(activity, "com.baidu.tieba.frs.FrsActivity")) {
+                i = R.dimen.tbds95;
+            } else {
+                i = R.dimen.tbds141;
+            }
+            layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(i);
+            return layoutParams;
+        }
+        return (FrameLayout.LayoutParams) invokeL.objValue;
+    }
+
+    public static void g(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, hotEventData) == null) {
+            Context curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity();
+            if (curGlobalActivity != null && !(curGlobalActivity instanceof TbPageContextSupport)) {
+                return;
+            }
+            if (curGlobalActivity == null) {
+                curGlobalActivity = TbadkCoreApplication.getInst();
+            }
+            if (hotEventData != null && hotEventData.getWindowType() == 3) {
+                yu9.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
+            }
+        }
+    }
+
+    public static SpriteBottomTipView f(HotEventData hotEventData, Activity activity, SpriteAnimationTipManager spriteAnimationTipManager) {
+        InterceptResult invokeLLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, hotEventData, activity, spriteAnimationTipManager)) == null) {
+            SpriteBottomTipView.a aVar = new SpriteBottomTipView.a(activity);
+            aVar.c(hotEventData.getBtnText());
+            aVar.j(hotEventData.getTitle());
+            aVar.d(hotEventData.getDesc());
+            aVar.f(hotEventData.getIcon());
+            aVar.i(hotEventData.isShowCloseBtn());
+            aVar.e(R.drawable.hot_event_icon);
+            if (hotEventData.isUseRightBg()) {
+                i = R.drawable.funny_sprite_tip_bg_right;
+            } else {
+                i = R.drawable.funny_sprite_tip_bg_left;
+            }
+            aVar.b(Integer.valueOf(i));
+            aVar.h(new c(hotEventData, spriteAnimationTipManager));
+            return aVar.a();
+        }
+        return (SpriteBottomTipView) invokeLLL.objValue;
+    }
+
+    public static boolean m(HotEventData hotEventData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, hotEventData)) == null) {
+            if (!TextUtils.isEmpty(hotEventData.getBtnSchema()) && !TextUtils.isEmpty(hotEventData.getTitle())) {
+                if (hotEventData.getWindowType() != 1 && hotEventData.getWindowType() != 2) {
+                    ew8 defaultLog = DefaultLog.getInstance();
+                    defaultLog.b("HotEventTip", "S级事件弹窗无法展示，WindowType不对" + hotEventData.getWindowType());
+                    return false;
+                }
+                Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+                if (TbadkCoreApplication.getInst().isMainProcess(true) && currentActivity == null) {
+                    HotEvent hotEvent = new HotEvent();
+                    hotEvent.hotEventData = hotEventData;
+                    hotEventData.setSkinType(TbadkCoreApplication.getInst().getSkinType());
+                    sp5.i(hotEvent);
+                    DefaultLog.getInstance().b("HotEventTip", "S级事件弹窗无法展示，Activity为空");
+                    return false;
+                }
+                if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                    TbadkCoreApplication.getInst().setSkinType(hotEventData.getSkinType());
+                }
+                if (a) {
+                    DefaultLog.getInstance().b("HotEventTip", "S级事件弹窗无法展示，正在展示");
+                    return false;
+                }
+                if (hotEventData.getWindowType() == 1) {
+                    if (System.currentTimeMillis() - r95.p().r("key_hot_event_tip_show_time", 0L) <= 600000) {
+                        DefaultLog.getInstance().b("HotEventTip", "S级事件弹窗无法展示，十分钟内只弹一次");
+                        return false;
+                    }
+                }
+                return true;
+            }
+            ew8 defaultLog2 = DefaultLog.getInstance();
+            defaultLog2.b("HotEventTip", "S级事件弹窗无法展示，数据不合法 schema:" + hotEventData.getBtnSchema() + " title:" + hotEventData.getTitle());
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static le5 p(HotEventData hotEventData, yr6.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, hotEventData, eVar)) == null) {
+            if (!m(hotEventData)) {
+                eVar.onDismiss();
                 return null;
             }
-            Map<String, String> f = f(str);
-            if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    f.put(entry.getKey(), entry.getValue());
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (currentActivity == null) {
+                eVar.onDismiss();
+                return null;
+            }
+            if (ne5.c() && ne5.b() != null) {
+                ne5.b().t();
+            }
+            r(hotEventData);
+            le5.g gVar = new le5.g(currentActivity);
+            gVar.m(hotEventData.getBtnText());
+            gVar.u(hotEventData.getTitle());
+            gVar.o(hotEventData.getDesc());
+            gVar.q(hotEventData.getIcon());
+            gVar.n(R.drawable.hot_event_icon);
+            gVar.p(5000);
+            gVar.s(new f(hotEventData));
+            gVar.r(new e(hotEventData));
+            gVar.t(new d(eVar));
+            le5 l = gVar.l();
+            l.p();
+            b = new WeakReference<>(l);
+            o();
+            q(hotEventData);
+            a = true;
+            return l;
+        }
+        return (le5) invokeLL.objValue;
+    }
+
+    public static SpriteAnimationTipManager t(HotEventData hotEventData, yr6.e eVar) {
+        InterceptResult invokeLL;
+        boolean z;
+        String str;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, hotEventData, eVar)) == null) {
+            if (!m(hotEventData)) {
+                if (eVar != null) {
+                    eVar.onDismiss();
                 }
+                return null;
             }
-            boolean areNotificationsEnabled = NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();
-            char c2 = 65535;
-            switch (str.hashCode()) {
-                case -1130769265:
-                    if (str.equals("forum_follow")) {
-                        c2 = 4;
-                        break;
-                    }
-                    break;
-                case -841017829:
-                    if (str.equals("forum_sign")) {
-                        c2 = 5;
-                        break;
-                    }
-                    break;
-                case -485371922:
-                    if (str.equals(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE)) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case -429621401:
-                    if (str.equals("reply_pb")) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case -426397178:
-                    if (str.equals("reply_message_bar")) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 3530173:
-                    if (str.equals("sign")) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 949444906:
-                    if (str.equals("collect")) {
-                        c2 = 6;
-                        break;
-                    }
-                    break;
+            if (ne5.c() && ne5.b() != null) {
+                ne5.b().t();
             }
-            switch (c2) {
-                case 0:
-                    boolean A = oe5.d().A();
-                    if (areNotificationsEnabled && A) {
-                        return null;
-                    }
-                    return h(tbPageContext, f, j);
-                case 1:
-                case 2:
-                case 3:
+            r(hotEventData);
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && !currentActivity.isFinishing()) {
+                if (currentActivity instanceof d8a) {
+                    DefaultLog.getInstance().b("HotEventTip", "精灵动画提示控件：通知首页展示S级事件");
+                    gs6.b().b(new d2a(new e2a(hotEventData, eVar), 1));
                     return null;
-                case 4:
-                case 5:
-                    return h(tbPageContext, f, j);
-                case 6:
-                    if (areNotificationsEnabled) {
-                        return null;
-                    }
-                    return h(tbPageContext, f, j);
-                default:
-                    throw new IllegalStateException("Unexpected value: " + str);
+                }
+                if (wp6.b(currentActivity, "com.baidu.tieba.frs.FrsActivity")) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921769));
+                }
+                SpriteAnimationTipManager spriteAnimationTipManager = new SpriteAnimationTipManager(currentActivity);
+                if (TbadkCoreApplication.getInst().getSkinType() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    str = "funny_sprite_appear_day";
+                } else {
+                    str = "funny_sprite_appear_dark";
+                }
+                os6 a2 = nn5.a(FunnySpriteResDownloadUtil.i(str, "rush_res", true), false, 2);
+                if (z) {
+                    str2 = "funny_sprite_show_day";
+                } else {
+                    str2 = "funny_sprite_show_dark";
+                }
+                os6 a3 = nn5.a(FunnySpriteResDownloadUtil.i(str2, "rush_res", true), true, 2);
+                if (z) {
+                    str3 = "funny_sprite_exit_day";
+                } else {
+                    str3 = "funny_sprite_exit_dark";
+                }
+                spriteAnimationTipManager.u(a2, a3, nn5.a(FunnySpriteResDownloadUtil.i(str3, "rush_res", true), false, 2));
+                spriteAnimationTipManager.x(f(hotEventData, currentActivity, spriteAnimationTipManager));
+                spriteAnimationTipManager.y(5000L);
+                spriteAnimationTipManager.w(0, UtilHelper.getDimenPixelSize(R.dimen.tbds16), 0, UtilHelper.getDimenPixelSize(R.dimen.tbds16));
+                spriteAnimationTipManager.s(UtilHelper.getDimenPixelSize(R.dimen.tbds146), UtilHelper.getDimenPixelSize(R.dimen.tbds187));
+                spriteAnimationTipManager.t(e(currentActivity));
+                spriteAnimationTipManager.v(new a());
+                spriteAnimationTipManager.r(new b(eVar));
+                spriteAnimationTipManager.z();
+                c = new WeakReference<>(spriteAnimationTipManager);
+                a = true;
+                o();
+                q(hotEventData);
+                return spriteAnimationTipManager;
             }
-        }
-        return (yf5) invokeCommon.objValue;
-    }
-
-    public static void l(TbPageContext<?> tbPageContext, Activity activity, int i, sz4 sz4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLIL(65547, null, tbPageContext, activity, i, sz4Var) == null) && activity != null && tbPageContext != null) {
-            d55 d55Var = new d55(activity);
-            d55Var.setCancelable(false);
-            d55Var.setPositiveButton((String) null, (d55.e) null);
-            d55Var.setNegativeButton((String) null, (d55.e) null);
-            d55Var.setContentViewSize(7);
-            PushPermissionDialogViewV2 pushPermissionDialogViewV2 = new PushPermissionDialogViewV2(activity);
-            Map<String, String> f = f(b(i));
-            pushPermissionDialogViewV2.setTitle(f.get("view_params_key_title"));
-            pushPermissionDialogViewV2.setDescription(f.get("view_params_key_desc"));
-            d55Var.setContentView(pushPermissionDialogViewV2);
-            if (pushPermissionDialogViewV2.getConfirmButton() != null) {
-                pushPermissionDialogViewV2.getConfirmButton().setOnClickListener(new b(sz4Var, i, d55Var));
+            DefaultLog.getInstance().b("HotEventTip", "精灵动画提示控件：当前页面Activity为空或者正在关闭");
+            if (eVar != null) {
+                eVar.onDismiss();
             }
-            if (pushPermissionDialogViewV2.getCancelButton() != null) {
-                pushPermissionDialogViewV2.getCancelButton().setOnClickListener(new c(sz4Var, i, d55Var));
-            }
-            d55Var.create(tbPageContext).show();
-            e(i);
+            return null;
         }
-    }
-
-    public static void m(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65548, null, activity) != null) || activity == null) {
-            return;
-        }
-        View findViewById = activity.findViewById(16908290);
-        if (!(findViewById instanceof ViewGroup)) {
-            return;
-        }
-        BdTopToast bdTopToast = new BdTopToast(activity, 3000);
-        bdTopToast.h(true);
-        bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.push_permission_dialog_open_success_toast));
-        bdTopToast.i((ViewGroup) findViewById);
+        return (SpriteAnimationTipManager) invokeLL.objValue;
     }
 }

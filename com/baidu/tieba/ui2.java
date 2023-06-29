@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,69 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TreeMap;
 /* loaded from: classes8.dex */
-public class ui2 {
+public final class ui2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public static final boolean b;
-    public static Runnable c;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jw3.e(AppRuntime.getAppContext());
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jw3.d(AppRuntime.getAppContext()).g();
-            }
-        }
-    }
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -88,97 +30,57 @@ public class ui2 {
                 return;
             }
         }
-        a = js1.a;
-        gv2.g0().getSwitch("swan_cpu_booster", 0);
-        b = b(0);
-        if (a) {
-            Log.d("SwanCpuBoosterWrapper", "swan_cpu_booster - 0");
-            Log.d("SwanCpuBoosterWrapper", "SWAN_CPU_BOOSTER - " + b);
-        }
-        a();
+        b = ms1.a;
+        jv2.g0().getSwitch("swan_slave_ready", false);
+        c = false;
     }
 
-    public static void a() {
-        long j;
+    public ui2() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !b) {
-            return;
-        }
-        if (a) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        jw3.b(a);
-        if (c == null) {
-            c = new b();
-        }
-        if (a) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("SwanCpuBoosterWrapper", "init cpu booster cost - " + (currentTimeMillis - j) + "ms");
-        }
-    }
-
-    public static void e() {
-        long j;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || !b) {
-            return;
-        }
-        if (a) {
-            Log.d("SwanCpuBoosterWrapper", "startBooster");
-        }
-        if (a) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        d(c);
-        if (a) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("SwanCpuBoosterWrapper", "startBooster cost - " + (currentTimeMillis - j) + "ms");
-        }
-    }
-
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i <= 0) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (i == 1) {
-                return true;
-            }
-            if (i != 2) {
-                return false;
-            }
-            return gv2.u0().a();
         }
-        return invokeI.booleanValue;
     }
 
-    public static void d(Runnable runnable) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) != null) || runnable == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
+            }
+            return c;
         }
-        ExecutorUtilsExt.postOnElastic(runnable, "SwanCpuBoosterWrapper", 0);
+        return invokeV.booleanValue;
     }
 
-    public static void c(boolean z) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(65539, null, z) != null) || !b) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
         }
-        if (a) {
-            Log.d("SwanCpuBoosterWrapper", "cpu-booster preInit async ? - " + z);
+        return (String) invokeV.objValue;
+    }
+
+    public static dm2 a(ui2 ui2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ui2Var)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + ui2Var);
+            }
+            TreeMap treeMap = new TreeMap();
+            treeMap.put("slaveId", ui2Var.a);
+            return new dm2("SlaveReady", treeMap);
         }
-        a aVar = new a();
-        if (z) {
-            ExecutorUtilsExt.postOnElastic(aVar, "booster-preInit", 3);
-        } else {
-            aVar.run();
-        }
+        return (dm2) invokeL.objValue;
     }
 }

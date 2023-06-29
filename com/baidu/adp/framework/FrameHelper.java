@@ -2,7 +2,7 @@ package com.baidu.adp.framework;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.da;
+import com.baidu.tieba.ea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +109,7 @@ public class FrameHelper {
         }
     }
 
-    public static <T extends da> int d(LinkedList<T> linkedList, int i) {
+    public static <T extends ea> int d(LinkedList<T> linkedList, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, linkedList, i)) == null) {
@@ -123,7 +123,7 @@ public class FrameHelper {
         return invokeLI.intValue;
     }
 
-    public static <T extends da> void insert(LinkedList<T> linkedList, T t) {
+    public static <T extends ea> void insert(LinkedList<T> linkedList, T t) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65542, null, linkedList, t) != null) || t == null || linkedList.contains(t)) {
             return;

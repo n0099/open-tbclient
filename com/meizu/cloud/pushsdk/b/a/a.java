@@ -16,15 +16,15 @@ public class a {
     public Runnable c;
     public long d;
     public int e;
-    public C0699a f;
+    public C0709a f;
     public PendingIntent g;
     public String h;
     public boolean i;
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C0699a extends BroadcastReceiver {
-        public C0699a() {
+    public class C0709a extends BroadcastReceiver {
+        public C0709a() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -71,9 +71,9 @@ public class a {
             return false;
         }
         this.i = false;
-        C0699a c0699a = new C0699a();
-        this.f = c0699a;
-        this.b.registerReceiver(c0699a, new IntentFilter("alarm.util"));
+        C0709a c0709a = new C0709a();
+        this.f = c0709a;
+        this.b.registerReceiver(c0709a, new IntentFilter("alarm.util"));
         this.h = String.valueOf(System.currentTimeMillis());
         this.g = PendingIntent.getBroadcast(this.b, 0, new Intent("alarm.util"), 1073741824);
         int i = Build.VERSION.SDK_INT;

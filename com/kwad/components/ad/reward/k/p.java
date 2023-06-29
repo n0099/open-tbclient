@@ -28,7 +28,7 @@ public class p extends v implements View.OnClickListener {
     public TextView wa;
     public a wb;
     @LayoutRes
-    public int wc = R.layout.obfuscated_res_0x7f0d04bb;
+    public int wc = R.layout.obfuscated_res_0x7f0d04bc;
     public boolean wd = true;
 
     /* loaded from: classes9.dex */
@@ -126,23 +126,23 @@ public class p extends v implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09138c);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091389);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09138e);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09138f);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091387);
-        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091388);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09138b);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091384);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f09138d);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139c);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091399);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139e);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139f);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091397);
+        this.wa = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091398);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139b);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091394);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f09139d);
     }
 
     public int jb() {
-        return R.id.obfuscated_res_0x7f091386;
+        return R.id.obfuscated_res_0x7f091396;
     }
 
     public int jc() {
-        return R.id.obfuscated_res_0x7f091385;
+        return R.id.obfuscated_res_0x7f091395;
     }
 
     @Override // android.view.View.OnClickListener

@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wd2 {
+public class wd2 implements sj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,18 +26,23 @@ public class wd2 {
         }
     }
 
-    public vd2 a(Context context, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.sj2
+    public String getUserAgent() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new xd2(context);
-                }
-                return new zd2(context);
-            }
-            return new xd2(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return bo3.a();
         }
-        return (vd2) invokeLI.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sj2
+    public kj2 a(String str, hk2 hk2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, hk2Var, v8ThreadDelegatePolicy)) == null) {
+            return new vd2(str, hk2Var, v8ThreadDelegatePolicy);
+        }
+        return (kj2) invokeLLL.objValue;
     }
 }

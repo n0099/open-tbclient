@@ -1,151 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.video.LiveConfig;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public final class ica {
+public class ica {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void a(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            String t = o95.t(str);
-            return t + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static final boolean b(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            String spCancelValue = o95.p().w(o95.t(str), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                long g = ug.g(e.get(0), 0L);
-                int e2 = ug.e(e.get(1), 0);
-                if (TimeHelper.isSameDay(g, System.currentTimeMillis()) && e2 > i) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static final boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (str2 != null && str2.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return true;
-            }
-            return !TimeHelper.isSameDay(o95.p().r(a(str, str2), 0L), System.currentTimeMillis());
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final void g(String spKey, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, spKey, str) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return;
-            }
-            o95.p().H(a(spKey, str), System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
+            b(tbPageContext, str, null);
         }
     }
 
-    public static final boolean d(LiveConfig config) {
-        InterceptResult invokeL;
+    public static void b(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, config)) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (TbadkCoreApplication.isLogin() && c("sp_live_cancel_id_", config.getCurrentId()) && c("sp_live_into_id_", config.getCurrentId()) && b("sp_live_click_cancel_key", config.getCloseMax()) && b("sp_live_day_show_auto_in_key", config.getShowMax()) && TbSingleton.getInstance().autoInLiveRoomTimes < config.getSingleMax()) {
-                return true;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, str, bundle) == null) && !StringUtils.isNull(str) && tbPageContext != null) {
+            if (bundle == null) {
+                bundle = new Bundle();
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final List<String> e(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str.length() > 0) {
-                z = true;
-            } else {
-                z = false;
+            if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
+                bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, false);
             }
-            if (z) {
-                return StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null);
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v3 long), (',' char), (r4v2 int)] */
-    public static final void f(String spKey) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, spKey) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            long currentTimeMillis = System.currentTimeMillis();
-            String spCancelValue = o95.p().w(o95.t(spKey), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            int i = 1;
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                long g = ug.g(e.get(0), 0L);
-                int e2 = ug.e(e.get(1), 0);
-                if (TimeHelper.isSameDay(g, System.currentTimeMillis())) {
-                    i = 1 + e2;
-                }
-            }
-            o95 p = o95.p();
-            StringBuilder sb = new StringBuilder();
-            sb.append(currentTimeMillis);
-            sb.append(',');
-            sb.append(i);
-            p.J(spKey, sb.toString());
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
         }
     }
 }

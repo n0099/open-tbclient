@@ -1,16 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.uc3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public final class sc3 {
+public class sc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public uc3.d a;
+    public uc3.d b;
+    public Map<String, uc3.d> c;
 
     static {
         InterceptResult invokeClinit;
@@ -25,135 +38,146 @@ public final class sc3 {
                 return;
             }
         }
-        a = js1.a;
+        d = ms1.a;
     }
 
-    public static wc3 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
-        InterceptResult invokeL;
+    public sc3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
-            wc3 wc3Var = new wc3();
-            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", wc3Var);
-            gv2.s().a(wc3Var);
-            wc3Var.b(new mf3(wc3Var));
-            wc3Var.b(new lf3(wc3Var));
-            wc3Var.b(new sf3(wc3Var));
-            wc3Var.b(new qf3(wc3Var));
-            wc3Var.b(new pf3(wc3Var));
-            wc3Var.b(new jf3(wc3Var));
-            wc3Var.b(new cf3(wc3Var));
-            wc3Var.b(new bf3(wc3Var));
-            wc3Var.b(new af3(wc3Var));
-            wc3Var.b(new df3(wc3Var));
-            wc3Var.b(new hf3(wc3Var));
-            wc3Var.b(new gf3(wc3Var));
-            wc3Var.b(new uf3(wc3Var));
-            wc3Var.b(new wf3(wc3Var));
-            wc3Var.b(new vf3(wc3Var));
-            wc3Var.b(new ed3(wc3Var));
-            wc3Var.b(new xe3(wc3Var));
-            wc3Var.b(new z42(wc3Var));
-            wc3Var.b(new c52(wc3Var));
-            wc3Var.b(new e52(wc3Var));
-            wc3Var.b(new x42(wc3Var));
-            wc3Var.b(new a52(wc3Var));
-            wc3Var.b(new d52(wc3Var));
-            wc3Var.b(new ez2(wc3Var));
-            wc3Var.b(new dz2(wc3Var));
-            wc3Var.b(new a13(wc3Var));
-            wc3Var.b(new ta2(wc3Var));
-            wc3Var.b(new n92(wc3Var));
-            wc3Var.b(new uj3(wc3Var));
-            wc3Var.b(new nj3(wc3Var));
-            wc3Var.b(new oj3(wc3Var));
-            wc3Var.b(new rj3(wc3Var));
-            wc3Var.b(new h33(wc3Var));
-            wc3Var.b(new ou2(wc3Var));
-            wc3Var.b(new lu2(wc3Var));
-            wc3Var.b(new pu2(wc3Var));
-            wc3Var.b(new dn3(wc3Var));
-            wc3Var.b(new en3(wc3Var));
-            wc3Var.b(new fn3(wc3Var));
-            wc3Var.b(new gn3(wc3Var));
-            wc3Var.b(new hn3(wc3Var));
-            wc3Var.b(new in3(wc3Var));
-            wc3Var.b(new jn3(wc3Var));
-            wc3Var.b(new kn3(wc3Var));
-            wc3Var.b(new hy2(wc3Var));
-            wc3Var.b(new k42(wc3Var));
-            wc3Var.b(new p42(wc3Var));
-            wc3Var.b(new l42(wc3Var));
-            wc3Var.b(new o42(wc3Var));
-            wc3Var.b(new m42(wc3Var));
-            wc3Var.b(new n42(wc3Var));
-            wc3Var.b(new b82(wc3Var));
-            wc3Var.b(new c82(wc3Var));
-            wc3Var.b(new so2(wc3Var));
-            wc3Var.b(new rs1(wc3Var));
-            wc3Var.b(new os1(wc3Var));
-            wc3Var.b(new mm3(wc3Var));
-            wc3Var.b(new nm3(wc3Var));
-            wc3Var.b(new wl3(wc3Var));
-            wc3Var.b(new kr3(wc3Var));
-            wc3Var.b(new d42(wc3Var));
-            wc3Var.b(new iz2(wc3Var));
-            wc3Var.b(new jz2(wc3Var));
-            wc3Var.b(new hz2(wc3Var));
-            wc3Var.b(new mj3(wc3Var));
-            wc3Var.b(new ia2(wc3Var));
-            wc3Var.b(new qn3(wc3Var));
-            wc3Var.b(new pn3(wc3Var));
-            wc3Var.b(new rn3(wc3Var));
-            wc3Var.b(new gm3(wc3Var));
-            wc3Var.b(new ve3(wc3Var));
-            wc3Var.b(new se3(wc3Var));
-            wc3Var.b(new od3(wc3Var));
-            if (a) {
-                wc3Var.b(new tf3(wc3Var));
-                wc3Var.b(new x92(wc3Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            wc3Var.b(new rd3(wc3Var));
-            wc3Var.b(new id3(wc3Var));
-            wc3Var.b(new zc3(wc3Var));
-            wc3Var.b(new kd3(wc3Var));
-            wc3Var.b(new y42(wc3Var));
-            wc3Var.b(new b52(wc3Var));
-            wc3Var.b(new w72(wc3Var));
-            wc3Var.b(new ce3(wc3Var));
-            wc3Var.b(new fe3(wc3Var));
-            wc3Var.b(new ge3(wc3Var));
-            wc3Var.b(new ee3(wc3Var));
-            wc3Var.b(new he3(wc3Var));
-            wc3Var.b(new nf3(wc3Var));
-            wc3Var.b(new ty1(wc3Var));
-            wc3Var.b(new jm2(wc3Var));
-            wc3Var.b(new ae3(wc3Var));
-            wc3Var.b(new be3(wc3Var));
-            wc3Var.b(new ze3(wc3Var));
-            wc3Var.b(new ie3(wc3Var));
-            wc3Var.b(new vd3(wc3Var));
-            wc3Var.b(new bd3(wc3Var));
-            wc3Var.b(new r13(wc3Var));
-            wc3Var.b(new jd3(wc3Var));
-            wc3Var.b(new ps2(wc3Var));
-            wc3Var.b(new rs2(wc3Var));
-            wc3Var.b(new ne3(wc3Var));
-            wc3Var.b(new oe3(wc3Var));
-            wc3Var.b(new l13(wc3Var));
-            wc3Var.b(new ws1(wc3Var));
-            wc3Var.b(new j43(wc3Var));
-            wc3Var.b(new az1(wc3Var));
-            wc3Var.b(new ez1(wc3Var));
-            wc3Var.b(new cz1(wc3Var));
-            wc3Var.b(new fz1(wc3Var));
-            wc3Var.b(new dz1(wc3Var));
-            wc3Var.b(new og3(wc3Var));
-            wc3Var.b(new ry1(wc3Var));
-            wc3Var.b(new sy1(wc3Var));
-            wc3Var.b(new yy1(wc3Var));
-            gv2.Y().a(wc3Var);
-            return wc3Var;
         }
-        return (wc3) invokeL.objValue;
+        this.c = new ConcurrentHashMap();
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return uc3.d();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            uc3.d dVar = this.a;
+            if (dVar != null) {
+                dVar.c();
+                this.a = null;
+            }
+            uc3.d dVar2 = this.b;
+            if (dVar2 != null) {
+                dVar2.c();
+                this.b = null;
+            }
+            c92.k("SwanAppWebSafe", "release cache done");
+        }
+    }
+
+    public static boolean a(uc3.d dVar, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dVar, str)) == null) {
+            if (dVar != null && (list = dVar.b) != null && !list.isEmpty()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                File file = new File(str);
+                if (file.exists() && file.lastModified() == dVar.c) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public uc3.d c(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z)) == null) {
+            uc3.d dVar = this.c.get(str2);
+            if (a(dVar, uc3.i(str))) {
+                c92.k("SwanAppWebSafe", "read from cache: serverDomains.data=" + dVar.b);
+                return dVar;
+            }
+            if (dVar != null) {
+                dVar.c();
+            } else {
+                dVar = new uc3.d();
+            }
+            uc3.h(z, str, str2, dVar);
+            this.c.put(str2, dVar);
+            return dVar;
+        }
+        return (uc3.d) invokeLLZ.objValue;
+    }
+
+    public List<String> d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            if (a(this.b, uc3.j())) {
+                c92.k("SwanAppWebSafe", "read from cache: webActions.data=" + this.b.b);
+                return this.b.b;
+            }
+            uc3.d dVar = this.b;
+            if (dVar != null) {
+                dVar.c();
+            } else {
+                this.b = new uc3.d();
+            }
+            uc3.k(z, this.b);
+            return this.b.b;
+        }
+        return (List) invokeZ.objValue;
+    }
+
+    public List<String> e(@NonNull String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+            if (a(this.a, uc3.m(str))) {
+                c92.k("SwanAppWebSafe", "read from cache: webDomains.data=" + this.a.b);
+                return this.a.b;
+            }
+            uc3.d dVar = this.a;
+            if (dVar != null) {
+                dVar.c();
+            } else {
+                this.a = new uc3.d();
+            }
+            uc3.l(z, str, this.a);
+            return this.a.b;
+        }
+        return (List) invokeLZ.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (!d) {
+                    return;
+                }
+                throw new RuntimeException("appId can not be empty");
+            }
+            d(true);
+            e(str, true);
+        }
     }
 }

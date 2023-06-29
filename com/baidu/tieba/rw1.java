@@ -1,14 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tieba.kp2;
 /* loaded from: classes7.dex */
 public interface rw1 {
-    void a();
+    boolean a(@Nullable Activity activity);
 
-    void b(String str, p02 p02Var);
+    void b(@NonNull Context context);
 
-    void c(SwanAppActivity swanAppActivity, String str, p02 p02Var);
+    void c(@NonNull String str);
 
-    void d(String str, String str2, JSONObject jSONObject, p02 p02Var);
+    void d(CallbackHandler callbackHandler);
+
+    void e(cc3 cc3Var);
+
+    String f(@NonNull Context context);
+
+    void g(cc3 cc3Var);
+
+    void h(@NonNull Activity activity, String str, String str2, jp2 jp2Var, kp2.b bVar);
 }

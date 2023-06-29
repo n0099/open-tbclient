@@ -1,110 +1,170 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBC;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class wt9 implements NetworkInfoRecord {
+public class wt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zt9 a;
-    public zt9 b;
+    public final TbPageContext<?> a;
+    public final DragImageView.h b;
+    public final boolean c;
+    public Map<AdvertAppInfo, vt9> d;
+    public vt9 e;
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "850" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public class a implements qt8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vt9 a;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "94" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
-    public boolean shouldRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
+        public a(wt9 wt9Var, vt9 vt9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wt9Var, vt9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vt9Var;
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.tieba.qt8
+        public void a(int i, HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, hashMap) == null) {
+                AdvertAppInfo a = this.a.a();
+                if (i != 0 && a != null) {
+                    String str = "image";
+                    if (hashMap != null) {
+                        String str2 = (String) hashMap.get("da_area");
+                        if (!TextUtils.isEmpty(str2)) {
+                            str = str2;
+                        }
+                    }
+                    if (os9.h(i)) {
+                        bu9.f(a, 0, str, i);
+                    } else {
+                        bu9.m(a, 0, str);
+                    }
+                    yt8.c(a);
+                }
+            }
+        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public wt9() {
-        this(new xt9(10, 100));
+    public wt9(@NonNull TbPageContext<?> tbPageContext, boolean z, DragImageView.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z), hVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((zt9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tbPageContext;
+        this.c = z;
+        this.b = hVar;
+        this.d = new HashMap();
     }
 
-    public wt9(zt9 zt9Var) {
+    public vt9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zt9Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            vt9 vt9Var = new vt9(this.a);
+            vt9Var.b();
+            vt9Var.setBusinessType(99);
+            vt9Var.setFromCDN(this.c);
+            vt9Var.C(this.b);
+            vt9Var.setAfterClickSchemeListener(new a(this, vt9Var));
+            return vt9Var;
         }
-        this.a = zt9Var;
-        this.b = new yt9();
+        return (vt9) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
-    public void doRecord(NetworkStatRecord networkStatRecord) {
-        JSONObject uBCJson;
+    public View b(AdvertAppInfo advertAppInfo, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord) == null) && networkStatRecord != null && (uBCJson = networkStatRecord.toUBCJson()) != null) {
-            String jSONObject = uBCJson.toString();
-            vt9 a = vt9.a();
-            if (a.g()) {
-                a.c(jSONObject);
-            }
-            if (a.f(networkStatRecord)) {
-                a.b(jSONObject);
-            }
-            zt9 zt9Var = this.a;
-            if (zt9Var != null && zt9Var.a(networkStatRecord)) {
-                int i = 0;
-                if (kt9.a) {
-                    i = 64;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z)) == null) {
+            if (advertAppInfo != null && (advertAppInfo.h instanceof AdCard)) {
+                vt9 vt9Var = this.d.get(advertAppInfo);
+                if (vt9Var == null) {
+                    vt9Var = a();
+                    this.d.put(advertAppInfo, vt9Var);
                 }
-                UBC.onEvent(b(), jSONObject, i);
+                vt9Var.c((AdCard) advertAppInfo.h);
+                this.e = vt9Var;
+                if (z) {
+                    vt9Var.w();
+                }
+                return vt9Var.r();
             }
-            if (kt9.a && networkStatRecord.from != 3 && networkStatRecord.netEngine < 0) {
-                Log.i("SearchBoxNetRecord", "baidu_networkSearchBoxNetRecord onFinishRecord UBC.onEvent!UbcEventId:" + b() + "，ubcJson:" + uBCJson);
+            return null;
+        }
+        return (View) invokeLZ.objValue;
+    }
+
+    public void c() {
+        vt9 vt9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (vt9Var = this.e) != null) {
+            vt9Var.w();
+        }
+    }
+
+    public void d() {
+        vt9 vt9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (vt9Var = this.e) != null) {
+            vt9Var.A();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (vt9 vt9Var : this.d.values()) {
+                if (vt9Var != null) {
+                    vt9Var.B();
+                }
             }
-            zt9 zt9Var2 = this.b;
-            if (zt9Var2 != null && zt9Var2.a(networkStatRecord)) {
-                UBC.onEvent(a(), jSONObject);
-            }
+            this.d.clear();
+        }
+    }
+
+    public void f(AdvertAppInfo advertAppInfo) {
+        vt9 vt9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) && advertAppInfo != null && (vt9Var = this.d.get(advertAppInfo)) != null) {
+            vt9Var.B();
+            this.d.remove(advertAppInfo);
         }
     }
 }

@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,63 +14,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetInfluenceRank.DataRes;
+import tbclient.NewGodInfo;
+import tbclient.RankRuler;
+import tbclient.User;
 /* loaded from: classes5.dex */
 public class ez6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final List<jn> b;
-    public b c;
-    public dz6 d;
+    public cz6 a;
+    public List<dz6> b;
+    public dz6 c;
+    public String d;
+    public String e;
+    public long f;
+    public boolean g;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(hz6 hz6Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements go {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ez6 a;
-
-        public a(ez6 ez6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ez6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ez6Var;
-        }
-
-        @Override // com.baidu.tieba.go
-        public void b(View view2, wn wnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, wnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (wnVar instanceof hz6)) {
-                hz6 hz6Var = (hz6) wnVar;
-                if (this.a.c != null) {
-                    this.a.c.a(hz6Var);
-                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", hz6Var.a()).param("obj_locate", 2));
-                }
-            }
-        }
-    }
-
-    public ez6(Context context) {
+    public ez6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,33 +44,119 @@ public class ez6 {
             }
         }
         this.b = new ArrayList();
-        this.a = context;
-        c();
+        this.g = true;
     }
 
-    public void d(b bVar) {
+    public final dz6 a(User user) {
+        InterceptResult invokeL;
+        NewGodInfo newGodInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, user)) == null) {
+            if (user == null) {
+                return null;
+            }
+            dz6 dz6Var = new dz6();
+            dz6Var.a = user.level_influence;
+            dz6Var.c = b(user);
+            boolean z = true;
+            if (!dz6Var.g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
+                dz6Var.d = user.new_god_data.field_name + fy5.b(user.new_god_data);
+                dz6Var.h = true;
+            }
+            if (user.influence == null) {
+                dz6Var.e = "";
+            } else {
+                dz6Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a78), StringHelper.numFormatOverWanNa(user.influence.intValue()));
+            }
+            MetaData metaData = new MetaData();
+            metaData.parserProtobuf(user);
+            Integer num = user.has_concerned;
+            metaData.setIsLike((num == null || num.intValue() == 0) ? false : false);
+            dz6Var.f = metaData;
+            if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
+                dz6Var.b = metaData.getAvater();
+            } else {
+                dz6Var.b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
+            }
+            return dz6Var;
         }
+        return (dz6) invokeL.objValue;
     }
 
-    public List<jn> b() {
-        InterceptResult invokeV;
+    public void c(DataRes dataRes) {
+        long longValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (List) invokeV.objValue;
+        this.a = new cz6();
+        boolean z = false;
+        if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
+            this.a.b = b(dataRes.user_rank.get(0));
+            MetaData metaData = new MetaData();
+            metaData.parserProtobuf(dataRes.user_rank.get(0));
+            this.a.c = metaData;
+            String avatarH = metaData.getAvatarH();
+            if (TextUtils.isEmpty(avatarH)) {
+                avatarH = metaData.getAvater();
+            }
+            if (avatarH != null && avatarH.startsWith("http")) {
+                this.a.e = avatarH;
+            } else {
+                this.a.e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
+            }
+        }
+        cz6 cz6Var = this.a;
+        Long l = dataRes.timestamp;
+        long j = 0;
+        if (l == null) {
+            longValue = 0;
+        } else {
+            longValue = l.longValue();
+        }
+        cz6Var.d = longValue;
+        this.a.f = dataRes.field_info;
+        if (!ListUtils.isEmpty(dataRes.user_rank)) {
+            for (User user : dataRes.user_rank) {
+                if (user != null) {
+                    this.b.add(a(user));
+                }
+            }
+        }
+        this.c = a(dataRes.current_user);
+        RankRuler rankRuler = dataRes.rank_description;
+        if (rankRuler != null) {
+            this.d = rankRuler.top_link;
+            this.e = rankRuler.bottom_link;
+        }
+        Long l2 = dataRes.timestamp;
+        if (l2 != null) {
+            j = l2.longValue();
+        }
+        this.f = j;
+        Boolean bool = dataRes.has_more;
+        if (bool != null) {
+            z = bool.booleanValue();
+        }
+        this.g = z;
     }
 
-    public final void c() {
+    public final String b(User user) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dz6 dz6Var = new dz6(this.a, hz6.e);
-            this.d = dz6Var;
-            dz6Var.setOnAdapterItemClickListener(new a(this));
-            this.b.add(this.d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, user)) == null) {
+            String str = "";
+            if (user == null) {
+                return "";
+            }
+            if (TextUtils.isEmpty("")) {
+                str = user.name_show;
+            }
+            if (TextUtils.isEmpty(str)) {
+                return TbadkCoreApplication.getInst().getString(R.string.user_name_default_txt);
+            }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,38 +1,88 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class sf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINESE).format(new Date(System.currentTimeMillis()));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(String str) {
+    @NonNull
+    public static RecommendItemModel a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return nk3.a().getString(str, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            RecommendItemModel recommendItemModel = new RecommendItemModel();
+            recommendItemModel.appName = jSONObject.optString("app_name");
+            recommendItemModel.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+            recommendItemModel.iconUrl = jSONObject.optString("icon_url");
+            recommendItemModel.scheme = jSONObject.optString("scheme");
+            recommendItemModel.desc = jSONObject.optString("desc");
+            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
+            if (optJSONObject != null) {
+                recommendItemModel.buttonText = optJSONObject.optString("text");
+            }
+            return recommendItemModel;
         }
-        return (String) invokeL.objValue;
+        return (RecommendItemModel) invokeL.objValue;
     }
 
-    public static void c(String str, String str2) {
+    @NonNull
+    public static rf4 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            nk3.a().putString(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            rf4 rf4Var = new rf4();
+            if (jSONObject == null) {
+                return rf4Var;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
+            if (optJSONObject != null) {
+                rf4Var.a = a(optJSONObject);
+            }
+            rf4Var.b = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    rf4Var.b.add(a(optJSONArray.optJSONObject(i)));
+                }
+            }
+            return rf4Var;
         }
+        return (rf4) invokeL.objValue;
+    }
+
+    @NonNull
+    public static tf4 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            tf4 tf4Var = new tf4();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                tf4Var.a = jSONObject.getInt("errno");
+                tf4Var.b = jSONObject.optString("errmsg");
+                tf4Var.c = jSONObject.optJSONObject("data");
+                return tf4Var;
+            } catch (JSONException e) {
+                tf4Var.a = -1;
+                tf4Var.b = "network error: response parse failed.";
+                if (ms1.a) {
+                    Log.e("RecommendModelParser", "parseResponseModel error:" + e);
+                }
+                return tf4Var;
+            }
+        }
+        return (tf4) invokeL.objValue;
     }
 }

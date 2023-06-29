@@ -8,7 +8,7 @@ import androidx.annotation.RequiresApi;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.response.model.AdTemplate;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class KsConvertButton extends KSCornerButton implements KsAppDownloadListener {
     @Nullable
     public AdTemplate mAdTemplate;

@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class kw5 {
     public static /* synthetic */ Interceptable $ic;
-    public static kw5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public b b;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -29,140 +27,124 @@ public class kw5 {
     }
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void onResult(boolean z);
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<String, Integer, Boolean> {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static kw5 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kw5 a;
 
-        public c(kw5 kw5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kw5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-647413342, "Lcom/baidu/tieba/kw5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-647413342, "Lcom/baidu/tieba/kw5$b;");
                     return;
                 }
             }
-            this.a = kw5Var;
+            a = new kw5(null);
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                return Boolean.valueOf(this.a.d());
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && this.a.b != null && bool != null) {
-                this.a.b.onResult(bool.booleanValue());
-            }
-        }
-
-        public /* synthetic */ c(kw5 kw5Var, a aVar) {
-            this(kw5Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927520, "Lcom/baidu/tieba/kw5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947927520, "Lcom/baidu/tieba/kw5;");
-                return;
-            }
-        }
-        c = new kw5();
     }
 
     public kw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static kw5 e() {
+    public static kw5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
         return (kw5) invokeV.objValue;
     }
 
-    public void c(b bVar) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.b = bVar;
-            c cVar = this.a;
-            if (cVar != null) {
-                cVar.cancel();
-            }
-            c cVar2 = new c(this, null);
-            this.a = cVar2;
-            cVar2.setPriority(4);
-            this.a.execute(new String[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Build.BRAND;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final boolean d() {
+    public String g() {
         InterceptResult invokeV;
-        String str;
-        String[] split;
-        int e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] GetFileData = FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
-            if (GetFileData != null) {
-                str = new String(GetFileData);
-            } else {
-                str = null;
-            }
-            long j = StringUtils.getyyyyMMddHHTimeForNow();
-            long j2 = 0;
-            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length != 2) {
-                e = 0;
-            } else {
-                e = ug.e(split[0], 0);
-                j2 = ug.g(split[1], j);
-            }
-            if (j2 == j && e > 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Build.DEVICE;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return zi.g();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ kw5(a aVar) {
+        this();
+    }
+
+    @RequiresApi(api = 17)
+    public final DisplayMetrics b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            if (context == null) {
+                return displayMetrics;
+            }
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getRealMetrics(displayMetrics);
+            return displayMetrics;
+        }
+        return (DisplayMetrics) invokeL.objValue;
+    }
+
+    @NonNull
+    public String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return zi.e();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @RequiresApi(api = 17)
+    public String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            return String.valueOf(b(context).heightPixels);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @RequiresApi(api = 17)
+    public String f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            return String.valueOf(b(context).widthPixels);
+        }
+        return (String) invokeL.objValue;
     }
 }

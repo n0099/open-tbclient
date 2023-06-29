@@ -4,14 +4,14 @@ import android.os.Bundle;
 import android.widget.TextView;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
 import com.baidu.tieba.R;
-import com.baidu.tieba.js1;
-import com.baidu.tieba.tp3;
+import com.baidu.tieba.ms1;
+import com.baidu.tieba.wp3;
 /* loaded from: classes4.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
     public TextView r;
 
     static {
-        boolean z = js1.a;
+        boolean z = ms1.a;
     }
 
     public static BaseActivityDialog.e r() {
@@ -20,10 +20,10 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
 
     @Override // com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int c0 = tp3.c0(this);
+        int c0 = wp3.c0(this);
         super.onCreate(bundle);
-        tp3.g(this, c0);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a3);
+        wp3.g(this, c0);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a9);
         this.r = textView;
         textView.setGravity(17);
     }

@@ -1,36 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import java.util.List;
-import org.json.JSONObject;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface bi4 {
+public class bi4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(int i);
+    public static Bitmap a(Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bitmap, i, i2)) == null) {
+            if (bitmap == null || i <= 0 || i2 <= 0) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width == 0 || height == 0) {
+                return null;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
+            try {
+                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            } catch (Exception | OutOfMemoryError e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (Bitmap) invokeLII.objValue;
     }
-
-    boolean a();
-
-    void b(Activity activity, hi4 hi4Var);
-
-    void c(int i, List<hi4> list);
-
-    void d(int i, List<hi4> list);
-
-    void e(int i, List<hi4> list);
-
-    void f(int i, List<hi4> list, a aVar);
-
-    void g(Activity activity, hi4 hi4Var);
-
-    void h(Context context, JSONObject jSONObject);
-
-    void i(JSONObject jSONObject);
-
-    boolean j(hi4 hi4Var);
-
-    boolean k(boolean z, int i);
 }

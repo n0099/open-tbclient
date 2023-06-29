@@ -1,51 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@TargetApi(23)
 /* loaded from: classes5.dex */
 public class e71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947687146, "Lcom/baidu/tieba/e71;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947687146, "Lcom/baidu/tieba/e71;");
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        void validateRequestPermissionsRequestCode(int i);
     }
 
-    public static boolean a(Context context, int i) {
-        InterceptResult invokeLI;
+    public static boolean a(Activity activity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (context == null) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
+            return activity.shouldShowRequestPermissionRationale(str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
+            if (activity instanceof a) {
+                ((a) activity).validateRequestPermissionsRequestCode(i);
             }
-            String str = "permission_request_code=" + String.valueOf(i);
-            boolean z = l31.a().b("nad_permission_sp").getBoolean(str, true);
-            b(context, str);
-            return z;
+            activity.requestPermissions(strArr, i);
         }
-        return invokeLI.booleanValue;
-    }
-
-    public static void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, context, str) != null) || context == null) {
-            return;
-        }
-        l31.a().b("nad_permission_sp").d(str, false);
     }
 }

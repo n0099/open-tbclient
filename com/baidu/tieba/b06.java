@@ -1,10 +1,13 @@
 package com.baidu.tieba;
-
-import android.graphics.drawable.Animatable;
-import com.facebook.imagepipeline.image.ImageInfo;
 /* loaded from: classes5.dex */
-public interface b06 {
-    void a(String str, ImageInfo imageInfo, Animatable animatable);
+public interface b06 extends rt5 {
+    boolean goBack();
 
-    void b(String str, Throwable th);
+    void m1(String str, boolean z);
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
 }

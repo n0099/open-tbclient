@@ -1,16 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: IMSdkService.java */
 /* loaded from: classes8.dex */
-public interface un5 {
-    BroadcastReceiver a(@NonNull Context context, @NonNull wn5 wn5Var);
+public final /* synthetic */ class un5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull Context context, long j, long j2, int i, long j3, vn5 vn5Var);
+    public static vn5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new wn5(b());
+        }
+        return (vn5) invokeV.objValue;
+    }
 
-    void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver);
-
-    void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull xn5 xn5Var);
+    public static vn5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (vn5) ServiceManager.getService(vn5.a);
+        }
+        return (vn5) invokeV.objValue;
+    }
 }

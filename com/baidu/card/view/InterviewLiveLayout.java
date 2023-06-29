@@ -30,14 +30,14 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.i15;
-import com.baidu.tieba.lo6;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.o05;
-import com.baidu.tieba.py;
-import com.baidu.tieba.qg;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.in;
+import com.baidu.tieba.l15;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.qo6;
+import com.baidu.tieba.qy;
+import com.baidu.tieba.r05;
+import com.baidu.tieba.rg;
+import com.baidu.tieba.xi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class InterviewLiveLayout extends FrameLayout implements py<i15> {
+public class InterviewLiveLayout extends FrameLayout implements qy<l15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public lo6<i15> c;
-    public i15 d;
+    public qo6<l15> c;
+    public l15 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -93,7 +93,7 @@ public class InterviewLiveLayout extends FrameLayout implements py<i15> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ListUtils.getCount(this.a.i) > 0) {
                 if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                    wi.P(this.a.getContext(), R.string.plugin_image_viewer_install_error_tips);
+                    xi.P(this.a.getContext(), R.string.plugin_image_viewer_install_error_tips);
                     return;
                 }
                 String str = (String) this.a.i.get(0);
@@ -189,11 +189,11 @@ public class InterviewLiveLayout extends FrameLayout implements py<i15> {
                 } else {
                     i = 14;
                 }
-                hn z = TbImageMemoryCache.u().z(qg.h().g(tbImageView.getUrl(), i));
+                in w = TbImageMemoryCache.u().w(rg.h().g(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (z != null) {
-                    i3 = z.r();
-                    i2 = z.m();
+                if (w != null) {
+                    i3 = w.r();
+                    i2 = w.m();
                 } else {
                     i2 = 0;
                 }
@@ -307,10 +307,10 @@ public class InterviewLiveLayout extends FrameLayout implements py<i15> {
         }
     }
 
-    public void setSubClickListener(lo6<i15> lo6Var) {
+    public void setSubClickListener(qo6<l15> qo6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lo6Var) == null) {
-            this.c = lo6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, qo6Var) == null) {
+            this.c = qo6Var;
         }
     }
 
@@ -331,16 +331,16 @@ public class InterviewLiveLayout extends FrameLayout implements py<i15> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.py
+    @Override // com.baidu.tieba.qy
     /* renamed from: k */
-    public void a(i15 i15Var) {
+    public void a(l15 l15Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i15Var) == null) {
-            this.d = i15Var;
-            if (i15Var != null && this.e != null) {
-                ThreadData threadData = i15Var.getThreadData();
-                m45 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l15Var) == null) {
+            this.d = l15Var;
+            if (l15Var != null && this.e != null) {
+                ThreadData threadData = l15Var.getThreadData();
+                p45 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -348,7 +348,7 @@ public class InterviewLiveLayout extends FrameLayout implements py<i15> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.h();
-                if (o05.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
+                if (r05.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
                     this.i.clear();
                     this.i.add(taskInfoData.m());
                     setVisibility(0);
@@ -364,7 +364,7 @@ public class InterviewLiveLayout extends FrameLayout implements py<i15> {
                     }
                     tbImageView.N(m, i, false);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
-                    int l = wi.l(getContext()) - wi.g(getContext(), R.dimen.tbds88);
+                    int l = xi.l(getContext()) - xi.g(getContext(), R.dimen.tbds88);
                     layoutParams.width = l;
                     layoutParams.height = (int) ((l * 428.0f) / 760.0f);
                     setLayoutParams(layoutParams);

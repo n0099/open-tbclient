@@ -6,11 +6,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.r0a;
-import com.baidu.tieba.t0a;
-import com.baidu.tieba.v0a;
-import com.baidu.tieba.wy4;
-import com.baidu.tieba.zl6;
+import com.baidu.tieba.d5a;
+import com.baidu.tieba.em6;
+import com.baidu.tieba.f5a;
+import com.baidu.tieba.h5a;
+import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,17 +23,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ToastJsBridgePlugin_Proxy extends r0a {
+public class ToastJsBridgePlugin_Proxy extends d5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wy4 mJsBridge;
+    public zy4 mJsBridge;
 
-    public ToastJsBridgePlugin_Proxy(wy4 wy4Var) {
+    public ToastJsBridgePlugin_Proxy(zy4 zy4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wy4Var};
+            Object[] objArr = {zy4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,72 +43,72 @@ public class ToastJsBridgePlugin_Proxy extends r0a {
                 return;
             }
         }
-        this.mJsBridge = wy4Var;
+        this.mJsBridge = zy4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.r0a
-    public t0a dispatch(WebView webView, v0a v0aVar, t0a t0aVar) {
+    @Override // com.baidu.tieba.d5a
+    public f5a dispatch(WebView webView, h5a h5aVar, f5a f5aVar) {
         InterceptResult invokeLLL;
-        t0a t0aVar2;
+        f5a f5aVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, v0aVar, t0aVar)) == null) {
-            if (t0aVar == null) {
-                t0aVar2 = new t0a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, h5aVar, f5aVar)) == null) {
+            if (f5aVar == null) {
+                f5aVar2 = new f5a();
             } else {
-                t0aVar2 = t0aVar;
+                f5aVar2 = f5aVar;
             }
-            String b = v0aVar.b();
-            JSONObject e = v0aVar.e();
+            String b = h5aVar.b();
+            JSONObject e = h5aVar.e();
             if (b.equals("toast/toastPopupView")) {
-                t0aVar2.s(true);
-                t0a f = this.mJsBridge.f(webView, e.optInt("showType"), e.optInt("aheadType"), e.optString("message"), e.optString("btnText"), e.optInt("toastDuration"), e.optString("schema"), e.optString("token"), e.optDouble(NativeConstants.OPACITY), e.optString("imgUrl"), e.optString("url"), e.optInt("missionId"), e.optString("btnColor"), e.optString("messageColor"), e.optString("btnTextColor"), e.optInt("status"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                f5aVar2.s(true);
+                f5a f = this.mJsBridge.f(webView, e.optInt("showType"), e.optInt("aheadType"), e.optString("message"), e.optString("btnText"), e.optInt("toastDuration"), e.optString("schema"), e.optString("token"), e.optDouble(NativeConstants.OPACITY), e.optString("imgUrl"), e.optString("url"), e.optInt("missionId"), e.optString("btnColor"), e.optString("messageColor"), e.optString("btnTextColor"), e.optInt("status"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (f != null) {
-                    t0aVar2.y(f.f());
-                    t0aVar2.u(f.b());
-                    t0aVar2.o(f.a());
-                    t0aVar2.x(f.e());
+                    f5aVar2.y(f.f());
+                    f5aVar2.u(f.b());
+                    f5aVar2.o(f.a());
+                    f5aVar2.x(f.e());
                 }
-                t0aVar2.z(0);
+                f5aVar2.z(0);
             } else if (b.equals("toast/showTipToast")) {
-                t0aVar2.s(true);
-                t0a g = this.mJsBridge.g(webView, e.optString("content"), e.optString(GameAssistConstKt.KEY_LINKURL), e.optString("key"), e.optInt("maxTimes"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
+                f5aVar2.s(true);
+                f5a g = this.mJsBridge.g(webView, e.optString("content"), e.optString(GameAssistConstKt.KEY_LINKURL), e.optString("key"), e.optInt("maxTimes"), e.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
                 if (g != null) {
-                    t0aVar2.y(g.f());
-                    t0aVar2.u(g.b());
-                    t0aVar2.o(g.a());
-                    t0aVar2.x(g.e());
+                    f5aVar2.y(g.f());
+                    f5aVar2.u(g.b());
+                    f5aVar2.o(g.a());
+                    f5aVar2.x(g.e());
                 }
-                t0aVar2.z(0);
+                f5aVar2.z(0);
             } else if (b.equals("toast/getModalData")) {
-                t0aVar2.s(true);
-                t0a e2 = this.mJsBridge.e(webView, e.optString("url"));
+                f5aVar2.s(true);
+                f5a e2 = this.mJsBridge.e(webView, e.optString("url"));
                 if (e2 != null) {
-                    t0aVar2.y(e2.f());
-                    t0aVar2.u(e2.b());
-                    t0aVar2.o(e2.a());
-                    t0aVar2.x(e2.e());
+                    f5aVar2.y(e2.f());
+                    f5aVar2.u(e2.b());
+                    f5aVar2.o(e2.a());
+                    f5aVar2.x(e2.e());
                 }
-                t0aVar2.z(0);
+                f5aVar2.z(0);
             }
-            return t0aVar2;
+            return f5aVar2;
         }
-        return (t0a) invokeLLL.objValue;
+        return (f5a) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.r0a
-    public zl6 getJsBridge() {
+    @Override // com.baidu.tieba.d5a
+    public em6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (zl6) invokeV.objValue;
+        return (em6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r0a
-    public List<t0a> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.d5a
+    public List<f5a> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.message.AddPostHttpResponse;
-import com.baidu.tieba.write.message.AddPostRequest;
-import com.baidu.tieba.write.message.AddThreadHttpResponse;
-import com.baidu.tieba.write.message.AddThreadRequest;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.FunnySpriteSwitch;
+import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,287 +18,158 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class g0a {
+public class g0a implements b75 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
-    public final BdUniqueId b;
-    public HttpMessageListener c;
-    public HttpMessageListener d;
-
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(f2a f2aVar);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g0a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(g0a g0aVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g0aVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g0aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                p05.b("write", "threadRES");
-                if ((httpResponsedMessage instanceof AddThreadHttpResponse) && this.a.a != null) {
-                    JSONObject resultData = ((AddThreadHttpResponse) httpResponsedMessage).getResultData();
-                    f2a f2aVar = new f2a();
-                    if (httpResponsedMessage.hasError()) {
-                        f2aVar.i(true);
-                        f2aVar.f(httpResponsedMessage.getError());
-                        f2aVar.h(httpResponsedMessage.getErrorString());
-                    } else {
-                        f2aVar.i(false);
-                        ErrorData errorData = new ErrorData();
-                        errorData.parserJson(resultData);
-                        f2aVar.f(errorData.getError_code());
-                        f2aVar.h(errorData.getError_msg());
-                        f2aVar.g(errorData.getError_data());
-                    }
-                    f2aVar.j(resultData);
-                    this.a.a.a(f2aVar);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g0a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(g0a g0aVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g0aVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g0aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                p05.b("write", "postRES");
-                if ((httpResponsedMessage instanceof AddPostHttpResponse) && this.a.a != null) {
-                    JSONObject resultData = ((AddPostHttpResponse) httpResponsedMessage).getResultData();
-                    f2a f2aVar = new f2a();
-                    if (httpResponsedMessage.hasError()) {
-                        f2aVar.i(true);
-                        f2aVar.f(httpResponsedMessage.getError());
-                        f2aVar.h(httpResponsedMessage.getErrorString());
-                    } else {
-                        f2aVar.i(false);
-                        ErrorData errorData = new ErrorData();
-                        errorData.parserJson(resultData);
-                        f2aVar.f(errorData.getError_code());
-                        f2aVar.h(errorData.getError_msg());
-                        f2aVar.g(errorData.getError_data());
-                    }
-                    f2aVar.j(resultData);
-                    this.a.a.a(f2aVar);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AddThreadRequest a;
-
-        public c(g0a g0aVar, AddThreadRequest addThreadRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g0aVar, addThreadRequest};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = addThreadRequest;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AddPostRequest a;
-
-        public d(g0a g0aVar, AddPostRequest addPostRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g0aVar, addPostRequest};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = addPostRequest;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.a);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741489, "Lcom/baidu/tieba/g0a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947741489, "Lcom/baidu/tieba/g0a;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947741489, "Lcom/baidu/tieba/g0a;")) == null) {
+            return;
         }
-        d();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947741489, "Lcom/baidu/tieba/g0a;");
+        }
     }
 
-    public g0a(k9<?> k9Var) {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(g0a g0aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g0aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !g0a.a) {
+                try {
+                    Class.forName("com.baidu.tieba.homepage.framework.RecommendFrsStatic");
+                } catch (Exception e) {
+                    BdLog.i(e.getMessage());
+                }
+                DefaultLog.getInstance().c("SpriteTip", "展示动画时首次请求");
+                nn5.h(1);
+                boolean unused = g0a.a = true;
+            }
+        }
+    }
+
+    public g0a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = BdUniqueId.gen();
-        this.c = new a(this, CmdConfigHttp.CMD_WRITE_THREAD_ADD);
-        this.d = new b(this, CmdConfigHttp.CMD_WRITE_POST_ADD);
-        this.c.setTag(this.b);
-        this.c.setSelfListener(true);
-        this.d.setTag(this.b);
-        this.d.setSelfListener(true);
-        if (k9Var != null) {
-            k9Var.registerListener(this.c);
-            k9Var.registerListener(this.d);
-            return;
-        }
-        MessageManager.getInstance().registerListener(this.c);
-        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public void b(NetWork netWork) {
+    @Override // com.baidu.tieba.b75
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, netWork) == null) {
-            AddPostRequest addPostRequest = new AddPostRequest();
-            addPostRequest.setRequestData(netWork.getPostDataMap());
-            addPostRequest.setNetType(NetMessage.NetType.HTTP);
-            addPostRequest.setTag(this.b);
-            xg.a().post(new d(this, addPostRequest));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.putAll(map2);
+            return hashMap;
         }
+        return (Map) invokeLLL.objValue;
     }
 
-    public void c(NetWork netWork) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netWork) == null) {
-            AddThreadRequest addThreadRequest = new AddThreadRequest();
-            addThreadRequest.setRequestData(netWork.getPostDataMap());
-            addThreadRequest.setNetType(NetMessage.NetType.HTTP);
-            addThreadRequest.setTag(this.b);
-            xg.a().post(new c(this, addThreadRequest));
-        }
-    }
-
-    public g0a e(e eVar) {
+    @Override // com.baidu.tieba.b75
+    public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
-            this.a = eVar;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                YunDialogLog.getInstance().b("SpriteStrategy", "未登录状态");
+                return false;
+            } else if (!FunnySpriteSwitch.isOn()) {
+                YunDialogLog.getInstance().b("SpriteStrategy", "精灵开关未打开");
+                return false;
+            } else {
+                Object obj = map.get("use_hot");
+                if (obj != null && "1".equals(obj.toString())) {
+                    Object obj2 = map.get("dialog_url");
+                    if (obj2 instanceof String) {
+                        String str = (String) obj2;
+                        if (!TextUtils.isEmpty(str) && !wy5.b().e(str)) {
+                            YunDialogLog.getInstance().b("SpriteStrategy", "H5弹窗未预热完成");
+                            return false;
+                        }
+                    }
+                }
+                if (!FunnySpriteResDownloadUtil.k().invoke().booleanValue()) {
+                    YunDialogLog.getInstance().b("SpriteStrategy", "资源未下载完成");
+                    return false;
+                }
+                Object obj3 = map.get("use_offline");
+                if (obj3 != null && "1".equals(obj3.toString())) {
+                    Object obj4 = map.get("dialog_url");
+                    if (obj4 instanceof String) {
+                        String str2 = (String) obj4;
+                        if (!TextUtils.isEmpty(str2)) {
+                            try {
+                                Object obj5 = map.get("module");
+                                ew8 yunDialogLog = YunDialogLog.getInstance();
+                                yunDialogLog.c("SpriteStrategy", "开始手动初始化离线包:" + obj5);
+                                if ((obj5 instanceof String) && !TextUtils.isEmpty((String) obj5)) {
+                                    HashSet hashSet = new HashSet();
+                                    hashSet.add((String) obj5);
+                                    nz4.d(hashSet);
+                                    ew8 yunDialogLog2 = YunDialogLog.getInstance();
+                                    yunDialogLog2.c("SpriteStrategy", "离线包手动初始化完成:" + obj5);
+                                }
+                            } catch (Exception e) {
+                                ew8 yunDialogLog3 = YunDialogLog.getInstance();
+                                yunDialogLog3.b("SpriteStrategy", "离线包手动初始化异常:" + e);
+                            }
+                            boolean c = nz4.c(str2);
+                            ew8 yunDialogLog4 = YunDialogLog.getInstance();
+                            yunDialogLog4.b("SpriteStrategy", "离线包是否可用:" + c);
+                            if (!c) {
+                                YunDialogLog.getInstance().b("SpriteStrategy", "离线包未下载完成");
+                                return false;
+                            }
+                        }
+                    }
+                }
+                gs6.b().b(new lz9());
+                TbSingleton.getInstance().isShowSpriteDialog = true;
+                yg.a().post(new a(this));
+                return true;
+            }
         }
-        return (g0a) invokeL.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_THREAD_ADD, jz9.a(TbConfig.POST_THREAD_ADDRESS, 309730));
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(AddThreadHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_POST_ADD, jz9.a(TbConfig.REPLY_THREAD_ADDRESS, 309731));
-            tbHttpMessageTask2.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask2.setResponsedClass(AddPostHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        }
+        return invokeL.booleanValue;
     }
 }

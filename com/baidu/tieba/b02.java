@@ -1,167 +1,57 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.aj2;
+import com.baidu.tieba.bq3;
+import com.baidu.tieba.ca2;
+import com.baidu.tieba.cg2;
+import com.baidu.tieba.f32;
+import com.baidu.tieba.hl3;
+import com.baidu.tieba.if3;
+import com.baidu.tieba.km2;
+import com.baidu.tieba.mk2;
+import com.baidu.tieba.ph2;
+import com.baidu.tieba.vt1;
+import com.baidu.tieba.ww2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public abstract class b02 {
+public class b02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public c02 b;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(z32 z32Var);
-    }
-
-    @NonNull
-    public abstract z32 d(@NonNull JSONObject jSONObject, @NonNull b bVar);
-
-    @NonNull
-    public abstract z32 e(@NonNull JSONObject jSONObject);
-
-    public abstract boolean i();
-
-    /* loaded from: classes5.dex */
-    public class a implements b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ b02 b;
-
-        public a(b02 b02Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b02Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = b02Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.b02.b
-        public void a(z32 z32Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, z32Var) == null) {
-                if (b02.c) {
-                    Log.d("SwanAutoSyncApiHandler", this.b.a + " async callback: " + z32Var.toString());
-                }
-                this.b.b.d(this.a, z32Var);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947591077, "Lcom/baidu/tieba/b02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947591077, "Lcom/baidu/tieba/b02;");
-                return;
-            }
-        }
-        c = js1.a;
-    }
-
-    public b02(@NonNull String str) {
+    public static HashMap<Class, Object> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            HashMap<Class, Object> hashMap = new HashMap<>();
+            hashMap.put(if3.b.class, new if3.b());
+            hashMap.put(aj2.f.class, new aj2.f());
+            hashMap.put(aj2.g.class, new aj2.g());
+            hashMap.put(cg2.a.class, new cg2.a());
+            hashMap.put(ph2.a.class, new ph2.a());
+            hashMap.put(bq3.c.class, new bq3.c());
+            hashMap.put(hl3.b.class, new hl3.b());
+            hashMap.put(ww2.c.class, new ww2.c());
+            hashMap.put(p33.class, new p33());
+            hashMap.put(lz1.class, new lz1());
+            hashMap.put(mz1.class, new mz1());
+            hashMap.put(ok3.class, new ok3());
+            hashMap.put(nk3.class, new nk3());
+            hashMap.put(rk3.class, new rk3());
+            hashMap.put(gl2.class, new gl2());
+            hashMap.put(mk2.c.class, new mk2.c());
+            hashMap.put(z13.class, new z13());
+            hashMap.put(f32.b.class, new f32.b());
+            hashMap.put(vt1.a.class, new vt1.a());
+            hashMap.put(ma2.class, new ma2());
+            hashMap.put(km2.a.class, new km2.a());
+            hashMap.put(km2.b.class, new km2.b());
+            hashMap.put(c53.class, new c53());
+            hashMap.put(ca2.b.class, new ca2.b());
+            return hashMap;
         }
-        this.a = str;
-    }
-
-    public z32 f(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull c02 c02Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, c02Var)) == null) {
-            this.b = c02Var;
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
-            }
-            if (i()) {
-                return h(jSONObject);
-            }
-            return g(jSONObject, str);
-        }
-        return (z32) invokeLLL.objValue;
-    }
-
-    public final z32 g(@NonNull JSONObject jSONObject, @Nullable String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " start handle async");
-            }
-            z32 d = d(jSONObject, new a(this, str));
-            if (!d.h("isSync", Boolean.FALSE)) {
-                if (c) {
-                    Log.e("SwanAutoSyncApiHandler", this.a + " handleAsync encounter error, json exception");
-                }
-                return new z32(1001, "make result json error");
-            }
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " end handle async, processing in other thread, sync result: " + d.toString());
-            }
-            return d;
-        }
-        return (z32) invokeLL.objValue;
-    }
-
-    public final z32 h(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " start handle sync");
-            }
-            z32 e = e(jSONObject);
-            if (!e.h("isSync", Boolean.TRUE)) {
-                if (c) {
-                    Log.e("SwanAutoSyncApiHandler", this.a + " handleSync encounter error, json exception");
-                }
-                return new z32(1001, "make result json error");
-            }
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " end handle sync, result: " + e.toString());
-            }
-            return e;
-        }
-        return (z32) invokeL.objValue;
+        return (HashMap) invokeV.objValue;
     }
 }

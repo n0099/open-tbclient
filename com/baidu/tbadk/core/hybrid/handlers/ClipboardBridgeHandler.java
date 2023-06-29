@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.s85;
-import com.baidu.tieba.u85;
+import com.baidu.tieba.v85;
+import com.baidu.tieba.x85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,18 +28,18 @@ public class ClipboardBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClipboardBridgeHandler(s85 s85Var) {
-        super(s85Var);
+    public ClipboardBridgeHandler(v85 v85Var) {
+        super(v85Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s85Var};
+            Object[] objArr = {v85Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s85) newInitContext.callArgs[0]);
+                super((v85) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,7 +47,7 @@ public class ClipboardBridgeHandler extends NamedBridgeHandler {
         }
     }
 
-    @u85(CommandUBCHelper.COMMAND_UBC_TYPE_COPY)
+    @x85(CommandUBCHelper.COMMAND_UBC_TYPE_COPY)
     public JSONObject copyToClipboard(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

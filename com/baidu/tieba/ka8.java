@@ -1,18 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ka8 {
+public class ka8 extends ib {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ka8() {
+        super(202009);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,35 +29,44 @@ public class ka8 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public String a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fb
+    /* renamed from: c */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
-        yc5 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null) {
-                try {
-                    ac5 ac5Var = new ac5(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
-                    String storeFile = FileHelper.getStoreFile(str, 1);
-                    ac5Var.a("type", 2);
-                    zc5 d = ac5Var.d(storeFile);
-                    if (d != null && d.d() && (a = d.a()) != null) {
-                        String b = a.b();
-                        xb5.b(str, b);
-                        return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (!(socketResponsedMessage instanceof PushResponseMessage)) {
+                return null;
+            }
+            if (socketResponsedMessage.getError() == 110000) {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
+            }
+            PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
+            if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
+                CustomMessage customMessage = new CustomMessage(2012100);
+                customMessage.setData(pushResponseMessage.getNotificationData());
+                MessageManager.getInstance().sendMessage(customMessage);
+                return null;
+            }
+            List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
+            if (groupMsg != null && groupMsg.size() > 0) {
+                for (GroupMsgData groupMsgData : groupMsg) {
+                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
                     }
-                    return null;
-                } catch (Exception unused) {
-                    return null;
                 }
             }
-            return null;
+            return socketResponsedMessage;
         }
-        return (String) invokeL.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

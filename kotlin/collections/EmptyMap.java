@@ -1,7 +1,6 @@
 package kotlin.collections;
 
 import androidx.lifecycle.SavedStateHandle;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.io.Serializable;
@@ -73,7 +72,7 @@ public final class EmptyMap implements Map, Serializable, KMappedMarker {
     }
 
     public String toString() {
-        return StringUtil.EMPTY_ARRAY;
+        return "{}";
     }
 
     private final Object readResolve() {

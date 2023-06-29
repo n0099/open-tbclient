@@ -4,11 +4,11 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.kwad.sdk.api.loader.a;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class j {
     public static int a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public double a;
         public double b;
@@ -51,8 +51,8 @@ public final class j {
         }
     }
 
-    public static void a(int i, a.C0658a c0658a, long j, int i2, String str) {
-        if (c0658a == null) {
+    public static void a(int i, a.C0668a c0668a, long j, int i2, String str) {
+        if (c0668a == null) {
             return;
         }
         a aVar = new a((byte) 0);
@@ -61,8 +61,8 @@ public final class j {
         aVar.c = i;
         aVar.d = a;
         aVar.e = Loader.get().getKsAdSDKImpl().getSDKVersion();
-        aVar.f = c0658a.e;
-        aVar.g = c0658a.b;
+        aVar.f = c0668a.e;
+        aVar.g = c0668a.b;
         aVar.h = j;
         aVar.i = i2;
         aVar.j = str;
@@ -74,33 +74,33 @@ public final class j {
         com.kwad.sdk.api.b.a("reportDynamicUpdate", a2);
     }
 
-    public static void a(a.C0658a c0658a) {
+    public static void a(a.C0668a c0668a) {
         a++;
-        a(1, c0658a, 0L, 0, "");
+        a(1, c0668a, 0L, 0, "");
     }
 
-    public static void a(a.C0658a c0658a, int i, String str) {
-        a(4, c0658a, 0L, i, str);
+    public static void a(a.C0668a c0668a, int i, String str) {
+        a(4, c0668a, 0L, i, str);
     }
 
-    public static void a(a.C0658a c0658a, long j) {
-        a(2, c0658a, j, 0, "");
+    public static void a(a.C0668a c0668a, long j) {
+        a(2, c0668a, j, 0, "");
     }
 
-    public static void a(a.C0658a c0658a, long j, String str) {
-        a(3, c0658a, j, 0, str);
+    public static void a(a.C0668a c0668a, long j, String str) {
+        a(3, c0668a, j, 0, str);
     }
 
-    public static void b(a.C0658a c0658a) {
-        a(5, c0658a, 0L, 0, "");
+    public static void b(a.C0668a c0668a) {
+        a(5, c0668a, 0L, 0, "");
     }
 
-    public static void b(a.C0658a c0658a, int i, String str) {
-        a(7, c0658a, 0L, i, str);
+    public static void b(a.C0668a c0668a, int i, String str) {
+        a(7, c0668a, 0L, i, str);
     }
 
-    public static void b(a.C0658a c0658a, long j) {
-        a(6, c0658a, j, 0, "");
+    public static void b(a.C0668a c0668a, long j) {
+        a(6, c0668a, j, 0, "");
     }
 
     public static double rl() {

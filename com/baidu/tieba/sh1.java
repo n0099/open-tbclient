@@ -1,103 +1,112 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sh1 implements uh1 {
+public final class sh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static sh1 b;
-    public static wh1 c;
-    public static ai1 d;
-    public static zh1 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public sh1(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context.getApplicationContext();
-        d = new ai1();
-        e = new zh1(context);
-        c = new wh1();
-    }
-
-    public static zh1 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (e == null) {
-                e = new zh1(context);
-            }
-            return e;
-        }
-        return (zh1) invokeL.objValue;
-    }
-
-    public static sh1 d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (b == null) {
-                synchronized (sh1.class) {
-                    if (b == null) {
-                        b = new sh1(context);
-                    }
-                }
-            }
-            return b;
-        }
-        return (sh1) invokeL.objValue;
-    }
-
-    public static ai1 c() {
+    public static final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                d = new ai1();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = fj1.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = fj1.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
             }
-            return d;
         }
-        return (ai1) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.uh1
-    public void a(ImageView imageView, String str) {
+    public static final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
-            e(imageView, str, 0, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Context a = fj1.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = fj1.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
+            }
         }
+        return (String) invokeV.objValue;
     }
 
-    public void e(ImageView imageView, String str, int i, int i2) {
+    public static final void c(lh1 lh1Var, String str) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, i, i2) == null) {
-            imageView.setTag(str);
-            Bitmap c2 = d.c(str);
-            if (c2 != null) {
-                imageView.setImageBitmap(c2);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, lh1Var, str) == null) && lh1Var != null) {
+            boolean z2 = false;
+            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                z = false;
             } else {
-                qi1.a(new yh1(this.a, c, str, imageView, i, i2));
+                z = true;
+            }
+            if (!z) {
+                String a = lh1Var.a("Cookie");
+                String str2 = "BDUSS=" + str;
+                if ((a == null || StringsKt__StringsJVMKt.isBlank(a)) ? true : true) {
+                    lh1Var.d("Cookie", str2);
+                    return;
+                }
+                lh1Var.d("Cookie", a + "; " + str2);
             }
         }
+    }
+
+    public static final void d(lh1 lh1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, lh1Var) == null) && lh1Var != null) {
+            lh1Var.d("channel", "cashiersdk");
+            lh1Var.d("deviceType", "ANDROID");
+            lh1Var.d("osVersion", Build.VERSION.RELEASE);
+            lh1Var.d(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
+            lh1Var.d("appVersion", b());
+            lh1Var.d("sdkPgName", a());
+            lh1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        }
+    }
+
+    public static final kh1 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            kh1 kh1Var = new kh1();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    kh1Var.d(next, jSONObject.optString(next));
+                }
+            }
+            return kh1Var;
+        }
+        return (kh1) invokeL.objValue;
     }
 }

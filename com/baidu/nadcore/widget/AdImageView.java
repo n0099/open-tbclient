@@ -12,12 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.nadcore.widget.IAdImageView;
-import com.baidu.tieba.cd1;
-import com.baidu.tieba.hd1;
-import com.baidu.tieba.sc1;
+import com.baidu.tieba.fd1;
+import com.baidu.tieba.kd1;
+import com.baidu.tieba.vc1;
 /* loaded from: classes3.dex */
 public class AdImageView extends AppCompatImageView implements IAdImageView {
-    public final hd1 a;
+    public final kd1 a;
     public IAdImageView.ImageScaleType b;
     public final Path c;
 
@@ -30,7 +30,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     }
 
     public void q(String str) {
-        sc1.a().d(str);
+        vc1.a().d(str);
     }
 
     public void setImageScaleType(IAdImageView.ImageScaleType imageScaleType) {
@@ -58,14 +58,14 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         if (TextUtils.isEmpty(str)) {
             setImageBitmap(null);
         } else {
-            sc1.a().a(str, this, z);
+            vc1.a().a(str, this, z);
         }
     }
 
     public void setBorder(float f, @ColorInt int i) {
-        hd1.a aVar = this.a.d;
+        kd1.a aVar = this.a.d;
         if (aVar == null) {
-            aVar = new hd1.a();
+            aVar = new kd1.a();
         }
         aVar.c = f;
         aVar.d = i;
@@ -74,17 +74,17 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
 
     public AdImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = new hd1();
+        this.a = new kd1();
         this.c = new Path();
         r(attributeSet);
     }
 
     public void n(String str, int i, int i2) {
-        sc1.a().b(str, this, i, i2);
+        vc1.a().b(str, this, i, i2);
     }
 
     @NonNull
-    public hd1 getConfig() {
+    public kd1 getConfig() {
         return this.a;
     }
 
@@ -93,9 +93,9 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     }
 
     public void setCircle() {
-        hd1.a aVar = this.a.d;
+        kd1.a aVar = this.a.d;
         if (aVar == null) {
-            aVar = new hd1.a();
+            aVar = new kd1.a();
         }
         aVar.a = true;
         this.a.d = aVar;
@@ -103,7 +103,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        hd1.a aVar = getConfig().d;
+        kd1.a aVar = getConfig().d;
         if (aVar == null) {
             super.onDraw(canvas);
             return;
@@ -146,7 +146,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         if (attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, cd1.AdImageView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, fd1.AdImageView);
         int resourceId = obtainStyledAttributes.getResourceId(5, 0);
         if (resourceId != 0) {
             this.a.a = resourceId;
@@ -155,7 +155,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         if (resourceId2 != 0) {
             this.a.c = resourceId2;
         }
-        hd1.a aVar = new hd1.a();
+        kd1.a aVar = new kd1.a();
         if (obtainStyledAttributes.getBoolean(3, false)) {
             aVar.a = true;
         } else {
@@ -176,9 +176,9 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     }
 
     public void setRadius(float f, float f2, float f3, float f4) {
-        hd1.a aVar = this.a.d;
+        kd1.a aVar = this.a.d;
         if (aVar == null) {
-            aVar = new hd1.a();
+            aVar = new kd1.a();
         }
         aVar.a = false;
         aVar.b = new float[]{f, f2, f3, f4};

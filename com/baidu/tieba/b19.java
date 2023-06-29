@@ -1,122 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AvatarPendantActivityConfig;
+import com.baidu.tbadk.core.atomData.BubbleGroupActivityConfig;
+import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
+import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class b19 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImageFileInfo> a;
-    public LinkedHashMap<String, ImageFileInfo> b;
-    public em5 c;
-    public BaseFragmentActivity d;
-    public a19 e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public boolean k;
-    public String l;
+    public List<MemberPayResult.VipPayPrivilegeData> a;
+    public LayoutInflater b;
+    public Context c;
+    public b d;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(String str);
     }
 
     /* loaded from: classes5.dex */
-    public class b {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public HeadImageView b;
-        public ImageView c;
+        public final /* synthetic */ MemberPayResult.VipPayPrivilegeData a;
+        public final /* synthetic */ c b;
+        public final /* synthetic */ hw8 c;
         public final /* synthetic */ b19 d;
 
-        /* loaded from: classes5.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getTag(view2.getId()) != null && (view2.getTag(view2.getId()) instanceof ImageFileInfo)) {
-                    ImageFileInfo imageFileInfo = (ImageFileInfo) view2.getTag(view2.getId());
-                    if (this.a.d.b.containsKey(imageFileInfo.getFilePath())) {
-                        this.a.d.b.remove(imageFileInfo.getFilePath());
-                        SkinManager.setBackgroundResource(this.a.c, R.drawable.ic_post_image_selected_n);
-                        if (this.a.d.e != null) {
-                            this.a.d.e.n();
-                        }
-                    } else if (this.a.d.e != null) {
-                        if (this.a.d.e.r()) {
-                            this.a.d.b.put(imageFileInfo.getFilePath(), imageFileInfo);
-                            SkinManager.setBackgroundResource(this.a.c, R.drawable.ic_post_image_selected_s);
-                            this.a.d.e.H();
-                            return;
-                        }
-                        Activity pageActivity = this.a.d.d.getPageContext().getPageActivity();
-                        if (!TextUtils.isEmpty(this.a.d.l)) {
-                            BdToast.b(pageActivity, this.a.d.l).q();
-                        } else {
-                            BdToast.b(pageActivity, pageActivity.getText(R.string.obfuscated_res_0x7f0f06e4)).q();
-                        }
-                    }
-                }
-            }
-        }
-
-        public b(b19 b19Var) {
+        public a(b19 b19Var, MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar, hw8 hw8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b19Var};
+                Object[] objArr = {b19Var, vipPayPrivilegeData, cVar, hw8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -127,30 +66,58 @@ public class b19 extends BaseAdapter {
                 }
             }
             this.d = b19Var;
+            this.a = vipPayPrivilegeData;
+            this.b = cVar;
+            this.c = hw8Var;
         }
 
-        public final void b(View view2) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09104c);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09209c);
-                view2.setOnClickListener(new a(this));
+                String str = this.a.mLinkUrl;
+                if (!str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
+                    ux4.s(this.d.b.getContext(), str);
+                } else {
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BubbleGroupActivityConfig(this.d.c)));
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.d.c)));
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
+                        MemberCenterStatic.a((TbPageContext) r9.a(this.d.c), new String[]{str});
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(this.d.c)));
+                    }
+                }
+                if (this.d.d != null) {
+                    this.d.d.a(this.a.mEquityId);
+                }
+                if (!TextUtils.equals("click", this.a.getDynamicDisappear())) {
+                    return;
+                }
+                this.d.e(this.b.d, this.c);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements bm5 {
+    public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
+        public TbImageView a;
+        public TextView b;
+        public RelativeLayout c;
+        public final TextView d;
 
-        public a(b19 b19Var, ViewGroup viewGroup) {
+        public c(b19 b19Var, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b19Var, viewGroup};
+                Object[] objArr = {b19Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -160,25 +127,19 @@ public class b19 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = viewGroup;
-        }
-
-        @Override // com.baidu.tieba.bm5
-        public void a(hn hnVar, String str, boolean z) {
-            HeadImageView headImageView;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, hnVar, str, z) == null) && (headImageView = (HeadImageView) this.a.findViewWithTag(str)) != null && hnVar != null) {
-                headImageView.invalidate();
-            }
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916fb);
+            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916ff);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916fe);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916fd);
         }
     }
 
-    public b19(BaseFragmentActivity baseFragmentActivity, List<ImageFileInfo> list) {
+    public b19(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, list};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -188,79 +149,102 @@ public class b19 extends BaseAdapter {
                 return;
             }
         }
-        this.d = baseFragmentActivity;
-        this.a = list;
-        this.b = new LinkedHashMap<>();
-        this.f = (int) baseFragmentActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070394);
-        int l = wi.l(baseFragmentActivity.getPageContext().getPageActivity());
-        this.g = l;
-        this.h = (l - wi.g(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be)) / 3;
-        int g = wi.g(baseFragmentActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070416) / 3;
-        this.i = g;
-        this.j = (g * 2) + 1;
-        this.c = new em5();
-    }
-
-    public void e(Map<String, ImageFileInfo> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            this.b.putAll(map);
-        }
+        this.b = LayoutInflater.from(context);
+        this.c = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: h */
-    public ImageFileInfo getItem(int i) {
+    /* renamed from: f */
+    public MemberPayResult.VipPayPrivilegeData getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List<ImageFileInfo> list = this.a;
-            if (list != null && i <= list.size() - 1) {
-                return this.a.get(i);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
+            if (list == null) {
+                return null;
             }
-            return null;
+            return list.get(i);
         }
-        return (ImageFileInfo) invokeI.objValue;
+        return (MemberPayResult.VipPayPrivilegeData) invokeI.objValue;
     }
 
-    public void j(a19 a19Var) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, a19Var) == null) {
-            this.e = a19Var;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (this.a == null) {
+                return 0L;
+            }
+            return i;
+        }
+        return invokeI.longValue;
+    }
+
+    public void h(List<MemberPayResult.VipPayPrivilegeData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public void k(String str) {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.l = str;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    public void l(boolean z) {
+    public final void e(View view2, hw8 hw8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.k = z;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, hw8Var) == null) {
+            if (view2 != null) {
+                view2.setVisibility(8);
+            }
+            if (hw8Var != null) {
+                hw8Var.i();
+            }
         }
     }
 
-    public LinkedHashMap<String, ImageFileInfo> f() {
-        InterceptResult invokeV;
+    public final void g(MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar) {
+        hw8 hw8Var;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vipPayPrivilegeData, cVar) != null) || vipPayPrivilegeData == null) {
+            return;
         }
-        return (LinkedHashMap) invokeV.objValue;
-    }
-
-    public em5 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        cVar.b.setText(vipPayPrivilegeData.mTitle);
+        SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
+        gw8 gw8Var = null;
+        if (TextUtils.equals("click", vipPayPrivilegeData.getDynamicDisappear())) {
+            hw8 hw8Var2 = new hw8("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
+            gw8 gw8Var2 = new gw8("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
+            z = hw8Var2.g(gw8Var2.f(vipPayPrivilegeData.getDynamicText()));
+            gw8Var = gw8Var2;
+            hw8Var = hw8Var2;
+        } else {
+            hw8Var = null;
+            z = false;
         }
-        return (em5) invokeV.objValue;
+        if (!TextUtils.isEmpty(vipPayPrivilegeData.getDynamicText()) && !z) {
+            cVar.d.setText(vipPayPrivilegeData.getDynamicText());
+            if (gw8Var != null) {
+                gw8Var.update(vipPayPrivilegeData.getDynamicText());
+            }
+            cVar.d.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
+            s75 d = s75.d(cVar.d);
+            d.m(R.dimen.tbds3);
+            d.l(R.color.CAM_X0402);
+            d.o(R.string.J_X01);
+            d.h(vipPayPrivilegeData.getDynamicColor());
+            cVar.d.setVisibility(0);
+        } else {
+            cVar.d.setVisibility(8);
+        }
+        cVar.a.N(vipPayPrivilegeData.mIconUrl, 10, false);
+        cVar.c.setOnClickListener(new a(this, vipPayPrivilegeData, cVar, hw8Var));
     }
 
     @Override // android.widget.Adapter
@@ -268,78 +252,26 @@ public class b19 extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ImageFileInfo> list = this.a;
-            if (list != null) {
-                return list.size();
+            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
+            if (list == null) {
+                return 0;
             }
-            return 0;
+            return list.size();
         }
         return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        View view3;
-        b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                bVar = new b(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d059b, (ViewGroup) null);
-                bVar.b(view3);
-                view3.setTag(bVar);
-            } else {
-                view3 = view2;
-                bVar = (b) view2.getTag();
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05f7, (ViewGroup) null);
+                view2.setTag(new c(this, view2));
             }
-            bVar.a = view3;
-            int paddingTop = view3.getPaddingTop();
-            int i2 = i % 3;
-            if (i2 == 0) {
-                bVar.a.setPadding(0, paddingTop, this.j, 0);
-            } else if (i2 == 1) {
-                View view4 = bVar.a;
-                int i3 = this.i;
-                view4.setPadding(i3, paddingTop, i3, 0);
-            } else {
-                bVar.a.setPadding(this.j, paddingTop, 0, 0);
-            }
-            bVar.b.getLayoutParams().height = this.h;
-            bVar.b.setTag(null);
-            bVar.b.setRadius(1);
-            bVar.b.setDefaultResource(R.drawable.img_default_100);
-            bVar.b.N(null, 12, false);
-            bVar.b.invalidate();
-            ImageFileInfo imageFileInfo = this.a.get(i);
-            if (imageFileInfo != null) {
-                imageFileInfo.clearPageActions();
-                int i4 = this.f;
-                imageFileInfo.addPageAction(nm5.g(i4, i4));
-                hn c = this.c.c(imageFileInfo, false);
-                bVar.b.setTag(imageFileInfo.toCachedKey(false));
-                if (c != null) {
-                    bVar.b.invalidate();
-                } else {
-                    this.c.e(imageFileInfo, new a(this, viewGroup), false, this.k);
-                }
-                if (this.b.containsKey(imageFileInfo.getFilePath())) {
-                    SkinManager.setBackgroundResource(bVar.c, R.drawable.ic_post_image_selected_s);
-                } else {
-                    SkinManager.setBackgroundResource(bVar.c, R.drawable.ic_post_image_selected_n);
-                }
-                view3.setTag(view3.getId(), imageFileInfo);
-            }
-            return view3;
+            g(getItem(i), (c) view2.getTag());
+            return view2;
         }
         return (View) invokeILL.objValue;
     }

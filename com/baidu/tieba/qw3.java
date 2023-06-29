@@ -1,35 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qw3 {
+public class qw3 implements nw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public boolean h;
-    public pw3 i;
-    public pw3 j;
-    public pw3 k;
-    public pw3 l;
+    public rw3 a;
+    public boolean b;
 
-    public qw3() {
+    public qw3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,108 +29,38 @@ public class qw3 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = -1;
-        this.d = -1;
-        this.e = -1;
-        this.f = -1;
-        this.g = -1;
+        this.b = false;
+        c(context);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nw3
+    public void b(int i) {
+        rw3 rw3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.h) {
-                return b(this.l);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (rw3Var = this.a) != null && rw3Var.c()) {
+            rw3 rw3Var2 = this.a;
+            if (rw3Var2.d(rw3Var2.a(), "", 0) != 0) {
+                return;
             }
-            pw3 pw3Var = this.k;
-            if (pw3Var != null) {
-                return pw3Var.c;
-            }
-            pw3 pw3Var2 = this.i;
-            if (pw3Var2 != null) {
-                return pw3Var2.c;
-            }
-            pw3 pw3Var3 = this.j;
-            if (pw3Var3 != null) {
-                return pw3Var3.c;
-            }
-            return -1;
+            this.b = true;
         }
-        return invokeV.intValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nw3
+    public void a() {
+        rw3 rw3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.g != -1) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (rw3Var = this.a) != null && rw3Var.c()) {
+            this.b = false;
+            rw3 rw3Var2 = this.a;
+            rw3Var2.d(rw3Var2.a(), "", -1);
         }
-        return invokeV.booleanValue;
     }
 
-    public final int b(pw3 pw3Var) {
-        InterceptResult invokeL;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pw3Var)) == null) {
-            if (pw3Var != null) {
-                return pw3Var.c;
-            }
-            return -1;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = rw3.b(context);
         }
-        return invokeL.intValue;
-    }
-
-    public final int c(pw3 pw3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pw3Var)) == null) {
-            if (pw3Var != null) {
-                return pw3Var.b;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cores", this.a);
-                jSONObject.put("is_biglittle", this.h);
-                if (this.h) {
-                    jSONObject.put("little_freq_min", c(this.j));
-                    jSONObject.put("little_freq_max", b(this.j));
-                    jSONObject.put("big_freq_min", c(this.i));
-                    jSONObject.put("big_freq_max", b(this.i));
-                    jSONObject.put("little_cores", this.b);
-                    jSONObject.put("big_cores", this.d);
-                    jSONObject.put("little_index", this.c);
-                    jSONObject.put("big_index", this.e);
-                    if (this.g != -1) {
-                        jSONObject.put("super_freq_min", c(this.k));
-                        jSONObject.put("super_freq_max", b(this.k));
-                        jSONObject.put("super_cores", this.f);
-                        jSONObject.put("super_index", this.g);
-                    }
-                } else {
-                    jSONObject.put("freq_min", c(this.l));
-                    jSONObject.put("freq_max", b(this.l));
-                }
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }
